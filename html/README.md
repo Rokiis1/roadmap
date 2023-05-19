@@ -17,5 +17,6 @@ At its core, the internet relies on a technology called TCP/IP (Transmission Con
 
 ## Credits
 
-![Example of Internet](https://www.youtube.com/watch?v=7_LPdttKXPc)
+[How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work)
+[How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
