@@ -4,6 +4,9 @@
     - [Basic HTML](#basichtml)
       - [HTMl example](#htmlExample)
       - [Explanation](#explanation)
+    - [Semantic HTML]()
+      - [Introduction to Semantic HTML](#introSemHtml)
+      - [Layout Examples](#layoutExamples)
     - [Forms and Validation](#forms)
       - [Introduction to HTML Forms](#introductionToHtmlForms)
       - [Form Elements](#formElements)
@@ -189,4 +192,30 @@ The above CSS code targets the input elements and applies different border style
 
 [MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) | [Learn Forms by web.dev](https://web.dev/learn/forms/) | [https://web.dev/learn/forms/]
 
+## Semantic HTML
 
+### Introduction to Semantic HTML
+
+Semantic HTML refers to the use of HTML elements that carry meaning and convey the structure and content of a web page. By using semantic tags, you provide additional context and improve accessibility for users and search engines. Here are some commonly used semantic HTML tags:
+
+- `<header>`: Represents the introductory content or a group of introductory content in a document.
+- `<nav>`: Defines a section containing navigation links.
+- `<main>`: Represents the main content of the document.
+- `<article>`: Represents a self-contained composition in a document, such as a blog post or a news article.
+- `<section>`: Defines a section in a document.
+- `<aside>`: Represents content that is tangentially related to the content around it.
+- `<footer>`: Defines the footer of a document or a section.
+
+Using semantic HTML elements not only improves the structure and readability of your code but also helps search engines understand the content better.
+
+### Layout Examples
+
+![Example template](./images/exampleTemplate.png)
+
+### Credits
+
+[Guide to Writing Semantic HTML](https://cs.fyi/guide/writing-semantic-html) |
+[W3Schools: Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp) |
+[How To Write Semantic HTML](https://hackernoon.com/how-to-write-semantic-html-dkq3ulo) |
+[HTML Best Practices – How to Build a Better HTML-Based Website](https://www.freecodecamp.org/news/html-best-practices/) |
+[Semantic HTML: What It Is and How It Improves Your Site](https://blog.hubspot.com/website/semantic-html)
