@@ -31,7 +31,7 @@ HTML, which stands for HyperText Markup Language, is the standard markup languag
 
 ### HTMl example
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,7 +178,7 @@ For example:
 Regex validation allows you to define custom patterns for validating input. The pattern attribute accepts a regex pattern to match against user input. 
 For example:
 
-```
+```html
 /// code validates that the input consists of exactly three alphabetical characters.
 <input type="text" pattern="[A-Za-z]{3}">
 
@@ -217,7 +217,7 @@ Password validation is essential to ensure the strength and security of user pas
 
 You can provide visual feedback to users indicating whether their input is valid or not using CSS. Here's an example of how you can style the input fields to display a green border for valid input and a red border for invalid input:
 
-```
+```html
 <style>
   input:valid {
     border: 2px solid green;
