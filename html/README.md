@@ -4,8 +4,9 @@
     - [Basic HTML](#basichtml)
       - [HTMl example](#htmlExample)
       - [Explanation](#explanation)
-    - [Semantic HTML]()
+    - [Semantic HTML](#semanticHtml)
       - [Introduction to Semantic HTML](#introSemHtml)
+      - [HTML tags](#tags)
       - [Layout Examples](#layoutExamples)
     - [Forms and Validation](#forms)
       - [Introduction to HTML Forms](#introductionToHtmlForms)
@@ -13,10 +14,14 @@
       - [Input Validation](#InputValidation)
       - [Length Validation](#lengthValidation)
       - [Regular Expression (Regex) Validation](#regex)
-      - [Semantic HTML and SEO](#seo)
+      - [Semantic HTML and SEO](#semanticSeo)
       - [Password Validation](#password)
       - [Visual Feedback using CSS](#css)
       - [Examples](#examples)
+    - [(Optional)Best Practices](#bestPractices)
+    - [(Optional)Accessibility](#accessibility)
+    - [(Optional)Basics of SEO](#basicOfSeo)
+      - [Images](#images)
 
 # HTML 
 
@@ -110,8 +115,23 @@ Using semantic HTML elements not only improves the structure and readability of 
 
 ![Example template](./images/exampleTemplate.png)
 
+### HTML tags
+
+```
+<picture>
+  <source srcset="image-large.jpg" media="(min-width: 1200px)">
+  <source srcset="image-medium.jpg" media="(min-width: 768px)">
+  <source srcset="image-small.jpg">
+  <img src="image-default.jpg" alt="Default image">
+</picture>
+
+```
+
+[Youtube video: More HTML tags](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
+
 ### Credits
 
+[5+ Must Know HTML Tags That Almost Nobody Knows](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
 [Guide to Writing Semantic HTML](https://cs.fyi/guide/writing-semantic-html) |
 [W3Schools: Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp) |
 [How To Write Semantic HTML](https://hackernoon.com/how-to-write-semantic-html-dkq3ulo) |
@@ -219,4 +239,41 @@ The above CSS code targets the input elements and applies different border style
 ### Credits
 
 [MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) | [Learn Forms by web.dev](https://web.dev/learn/forms/) | [W3Schools: JavaScript Form Validation](https://web.dev/learn/forms/)
+
+## (Optional)Best Practices
+
+### Credits
+
+[HTML Best Practices](https://github.com/hail2u/html-best-practices)
+
+## (Optional)Accessibility
+
+### Credits
+
+[Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/) |
+[Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php) |
+[A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
+[Accessibility for Developers by Google](https://web.dev/accessibility/)
+
+## (Optional)Basics of SEO
+
+### Images
+
+Here are a few cons of using JPEG, SVG, and WebP images instead of PNG for web pages:
+
+- Lossy compression: JPEG is a lossy compression format, which means it sacrifices image quality for smaller file sizes. This can result in a loss of image details and artifacts, especially when the compression level is high. In contrast, PNG is a lossless format that preserves image quality without compromising details.
+
+- Limited support for transparency: JPEG does not support transparency, which means it cannot retain transparent backgrounds or alpha channels.
+
+- Scalability limitations: While SVG (Scalable Vector Graphics) is a vector-based format and can be scaled without loss of quality, it may not be suitable for all types of images. 
+
+- Browser support: Although WebP is an efficient image format developed by Google, it may not be supported by all web browsers, particularly older or less popular ones. 
+
+- Image editing limitations: When it comes to post-processing and editing images, PNG offers more flexibility. Its lossless nature allows for easy editing and modification without any quality degradation. 
+
+### Credits
+
+[Google Search Central — SEO Docs](https://developers.google.com/search/docs) |
+[SEO Guide](https://github.com/seo/guide) |
+[8 Must-Know SEO Best Practices For Developers](https://neilpatel.com/blog/seo-developers/)
 
