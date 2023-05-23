@@ -82,9 +82,11 @@ p {
   padding: 10px;
 }
 
+```
+
 - Inline styles in HTML are defined directly within the HTML elements using the `style` attribute. Here's an example of how inline styles look in HTML:
 
-```
+```html
 <div style="width: 200px; height: 100px; background-color: blue; color: white; padding: 10px;">This is a box</div>
 
 ```
