@@ -82,7 +82,13 @@ p {
   padding: 10px;
 }
 
+- Inline styles in HTML are defined directly within the HTML elements using the `style` attribute. Here's an example of how inline styles look in HTML:
+
 ```
+<div style="width: 200px; height: 100px; background-color: blue; color: white; padding: 10px;">This is a box</div>
+
+```
+
 - Descendant Selector: Targets elements that are descendants of another element.
 
 ```html
@@ -239,3 +245,20 @@ Viewport units (vw, vh):
 - When you want to size elements relative to the viewport's width or height.
 - Useful for creating responsive designs that adapt to different screen sizes.
 - Example: Setting the height of an element to 50% of the viewport height: `.element { height: 50vh; }`
+
+## CSS Layout
+
+CSS offers different techniques for creating layouts. Some commonly used layout methods include:
+
+- Positioning: Allows precise positioning of elements using properties like position, `top`, `right`, `bottom`, and `left`.
+- Floats: Allows elements to be positioned side-by-side.
+- Flexbox: Provides a flexible way to arrange elements in a container.
+- Grid: Enables the creation of complex grid-based layouts.
+
+## Media Queries
+
+Media queries enable you to apply different styles based on the characteristics of the user's device or browser. They are commonly used for creating responsive designs that adapt to different screen sizes.
+
+## CSS Preprocessors
+
+CSS preprocessors like Sass and Less extend the functionality of CSS by adding features like variables, functions, and mixins. They make CSS code more maintainable and allow for better code organization.
