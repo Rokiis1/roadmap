@@ -68,7 +68,6 @@
       - [Real-Life Examples](#real-life-examples)
       - [Mobile-First Approach](#mobile-first-approach)
       - [Hide/Show Elements](#hide-show-elements)
-      - [Conclusion](#conclusion)
 
 # CSS
 
