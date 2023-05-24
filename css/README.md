@@ -42,11 +42,33 @@
       - [Box Model](#boxModel)
         - [Credits](#credits)
       - [Floats](#floats)
-      - [Positioning](#positioning)
+        - [Example](#exampleFloats)
+      - [Positioning and Z-index](#positioningAndZindex)
       - [Flexbox](#flexBox)
+        - [Getting Started](#flexBoxGettingStarted)
+        - [Flex Container](#flexContainer)
+        - [Flex Items](#flexItems)
+        - [Flex Direction](#flexDirections)
+        - [Justify Content](#justifyContent)
+        - [Align Items](#alignItems)
+        - [Flex Wrap](#flexWrap)
+        - [Additional Resources](#flexBoxadditionalResource)
       - [Grid](#grid)
+        - [Getting Started](#gridBoxGettingStarted)
+        - [Grid Container](#gridContainer)
+        - [Grid Items](#gridItems)
+        - [Grid Template](#gridTemplates)
+        - [Justify Content](#gridjustifyContent)
+        - [Align Items](#gridalignItems)
+        - [Additional Resources](#gridBoxAdditionalResource)
     - [Media Queries](#mediaQueries)
-    - [(Optional)Global styling](#globalStyling)
+      - [Introduction](#introduction)
+      - [How do media queries work?](#how-do-media-queries-work)
+      - [Why should you use media queries?](#why-should-you-use-media-queries)
+      - [Real-Life Examples](#real-life-examples)
+      - [Mobile-First Approach](#mobile-first-approach)
+      - [Hide/Show Elements](#hide-show-elements)
+      - [Conclusion](#conclusion)
 
 # CSS
 
@@ -498,7 +520,7 @@ CSS offers different techniques for creating layouts. Some commonly used layout 
 
 ### Box Model
 
-The CSS box model describes the layout of elements on a web page. It consists of four components: content, padding, border, and margin. Understanding the box model is crucial for positioning and spacing elements correctly.
+The CSS box model describes the layout of elements on a web page. It consists of four components: content, `padding`, `border`, and `margin`. Understanding the box model is crucial for positioning and spacing elements correctly.
 
 ![Box model](./images/boxModel.png)
 
@@ -506,104 +528,259 @@ The CSS box model describes the layout of elements on a web page. It consists of
 
 [Video: Learn CSS Box Model](https://www.youtube.com/watch?v=rIO5326FgPE)
 
+### Floats
+
+- The CSS `float` property is used to position elements horizontally within their parent container. When you apply the `float` property to an element, it essentially takes it out of the normal document flow and allows other elements to flow around it.
+
+#### Examples
+
+### Positioning and Z-index
+
+- In HTML and CSS, you can use the position property to define how an element is positioned on a web page. There are several possible values for the position property, including `static` (the default), `relative`, `absolute`, and "`fixed`.
+
+When you set the position property to `relative` or `absolute`, you can use the `z-index` property to control the stacking order of elements. The `z-index` property determines which element appears in front or behind other elements when they overlap on the page.
+
+Explanation of how the position property and `z-index` work together:
+
+#### Position property:
+
+- `static` (default): Elements are rendered in their normal order and flow within the document.
+- `relative`: Elements are positioned `relative` to their normal position. You can use properties like `top`, `bottom`, `left`, or `right` to offset them from their original position.
+- `absolute`: Elements are positioned `relative` to their nearest positioned ancestor. If there is no positioned ancestor, it's positioned `relative` to the initial containing block.
+- `fixed`: Elements are positioned `relative` to the browser window and do not move even if the page is scrolled.
+
+#### Z-index property:
+
+- The `z-index` property is used to specify the stack order of positioned elements.
+- It takes a numeric value, where elements with a higher `z-index` value appear in front of elements with a lower value.
+- Negative values are also allowed, and elements with negative `z-index` values appear behind elements with positive values or the default stack order.
+
+#### Examples
+
+### Flexbox
+
+Flexbox is a CSS layout module that provides an efficient way to arrange and align elements within a container. It offers a flexible and responsive design approach, making it ideal for building user interfaces. This documentation will cover the basics of Flexbox and provide code examples to help you get started.
+
+#### Getting Started
+
+To use Flexbox, you need to define a flex container by setting the `display` property of the container to `flex`. This enables the container to arrange its child elements using Flexbox.
+
+```css
+.container {
+  display: flex;
+}
+```
+
+#### Flex Container
+
+The flex container is the parent element that holds the flex items. It defines the context in which Flexbox layout operates. Here are a few properties commonly used with flex containers:
+
+`flex-direction`: Specifies the direction in which the flex items are laid out.
+`justify-content`: Defines how flex items are aligned along the main axis.
+`align-items`: Sets the alignment of flex items along the cross axis.
+`flex-wrap`: Determines whether flex items should wrap or remain on a single line.
+
+#### Flex Items
+
+Flex items are the child elements within the flex container. They are laid out based on the properties set on the flex container. Here's an example of a flex container with three flex items:
+
+```html
+<div class="container">
+  <div class="item">Item 1</div>
+  <div class="item">Item 2</div>
+  <div class="item">Item 3</div>
+</div>
+```
+```css
+.container {
+  display: flex;
+}
+
+.item {
+  /* Add styling properties to the flex items */
+}
+```
+
+#### Flex Direction
+
+The `flex-direction` property controls the direction in which flex items are laid out. It accepts four possible values:
+
+`row`: Flex items are laid out horizontally from left to right.
+`row-reverse`: Flex items are laid out horizontally from right to left.
+`column`: Flex items are laid out vertically from top to bottom.
+`column-reverse`: Flex items are laid out vertically from bottom to top.
+
+```css
+.container {
+  flex-direction: row;
+}
+```
+#### Justify Content
+
+The `justify-content` property determines how flex items are aligned along the main axis of the flex container. It offers several alignment options:
+
+`flex-start`: Flex items are aligned at the start of the container.
+`flex-end`: Flex items are aligned at the end of the container.
+`center`: Flex items are centered within the container.
+`space-between`: Flex items are evenly distributed with space between them.
+`space-around`: Flex items are evenly distributed with space around them.
+
+#### Align Items
+
+The `align-items` property sets the alignment of flex items along the cross axis of the flex container. It provides the following alignment options:
+
+`flex-start`: Flex items are aligned at the top of the container.
+`flex-end`: Flex items are aligned at the bottom of the container.
+`center`: Flex items are centered vertically within the container.
+`baseline`: Flex items are aligned based on their baselines.
+`stretch`: Flex items are stretched to fill the container vertically.
+
+#### Flex Wrap
+
+By default, flex items are laid out on a single line. However, if the container's width is not sufficient, flex items can be wrapped onto multiple lines using the `flex-wrap` property. It accepts two values:
+
+- `nowrap`: Flex items are forced to remain on a single line.
+- `wrap`: Flex items wrap onto multiple lines as needed.
+
+```css
+.container {
+  flex-wrap: wrap;
+}
+```
+#### Additional Resources
+
+- [CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+### Grid
+
+#### Getting Started
+
+In this lesson, we will learn about CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
+
+To follow along with the examples and exercises in this lesson, make sure you have a basic understanding of HTML and CSS.
+
+#### Grid Container
+
+The grid container is the parent element that holds all the grid items. By applying the `display: grid` property to an element, we can create a grid container. The grid container allows us to define the overall layout of the grid, including the number of rows and columns.
+
+To create a grid container, use the following CSS:
+
+```css
+.container {
+  display: grid;
+}
+```
+
+#### Grid Items
+
+Grid items are the children of the grid container. These are the individual elements that we want to position within the grid. We can apply specific rules to each grid item to control its placement, size, and order within the grid.
+
+To create a grid item, use the following CSS:
+
+```css
+.item {
+  /* Define the item's size and position */
+}
+```
+The grid template is used to define the structure of the grid, specifying the number and size of the rows and columns. We can use keywords such as `auto`, `fr`, and specific lengths to define the dimensions of the grid tracks.
+
+To define a grid template, use the `grid-template-rows` and `grid-template-columns` properties:
+
+```css
+.container {
+  grid-template-rows: 100px 200px; /* Two rows with specific heights */
+  grid-template-columns: 1fr 2fr; /* Two columns with a ratio of 1:2 */
+}
+```
+#### Justify Content
+
+The `justify-content` property is used to align the grid items along the horizontal axis (row direction) within the grid container. It controls the distribution of space between and around the grid items.
+
+To justify the content within the grid container, use the following CSS:
+
+```css
+.container {
+  justify-content: center; /* Align items to the center */
+}
+```
+#### Align Items 
+
+The `align-items` property is used to align the grid items along the vertical axis (column direction) within the grid container. It controls the distribution of space between and around the grid items.
+
+To align the items within the grid container, use the following CSS:
+
+```css
+.container {
+  align-items: center; /* Align items to the center */
+}
+```
+
+#### Additional Resources
+
+- [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
 ## Media Queries
 
 Media queries enable you to apply different styles based on the characteristics of the user's device or browser. They are commonly used for creating responsive designs that adapt to different screen sizes.
 
-## CSS Preprocessors
+### Introduction
 
-CSS preprocessors like Sass and Less extend the functionality of CSS by adding features like variables, functions, and mixins. They make CSS code more maintainable and allow for better code organization.
+Media queries are a powerful feature of CSS that allow you to apply different styles based on the characteristics of the device or browser window. They enable you to create responsive designs that adapt to various screen sizes, resolutions, and orientations. This README.md file provides an overview of media queries, how they work, and why you should use them in your projects.
 
+### How do media queries work?
 
+Media queries consist of a media type and one or more expressions that define the conditions for the styles to be applied. When a media query is encountered, the browser evaluates the conditions and determines whether or not to apply the styles within the media query block.
 
-## (Optional)Global styling
+### Why should you use media queries?
+
+1. **Responsive Web Design**: Media queries are essential for creating responsive web designs that adapt to different devices and screen sizes.
+2. **Improved User Experience**: With media queries, you can tailor your content and design based on the device's capabilities, improving readability and usability.
+3. **Future-Proofing**: Media queries allow your website to adapt and remain functional across a wide range of devices.
+
+### Real-Life Examples
+
+To illustrate the practical usage of media queries, here are two common scenarios with code examples.
+
+#### Mobile-First Approach
+
+In this approach, you design and develop your website primarily for mobile devices and then progressively enhance it for larger screens.
 
 ```css
-/* Global Styles */
-
-:root {
-  /* Colors */
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --accent-color: #ffc107;
-  
-  /* Font */
-  --base-font-size: 16px;
-  --base-line-height: 1.5;
-  
-  /* Spacing */
-  --spacing-small: 8px;
-  --spacing-medium: 16px;
-  --spacing-large: 24px;
-  
-  /* Breakpoints */
-  --breakpoint-small: 576px;
-  --breakpoint-medium: 768px;
-  --breakpoint-large: 992px;
-}
-
-/* Global Box Sizing */
-/* In addition to resetting the margin, this rule also sets padding: 0 and box-sizing: border-box for all elements, including their ::before and ::after pseudo-elements. This ensures consistent box-sizing behavior and removes any default padding that may be applied by certain elements. */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
-/* Typography */
-
-html {
-  font-size: var(--base-font-size);
-  line-height: var(--base-line-height);
-}
-
-/* Colors */
-
+/* Base styles for mobile devices */
 body {
-  color: var(--primary-color);
-  background-color: #fff;
+  font-size: 16px;
 }
 
-/* Headings */
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--secondary-color);
-  font-weight: bold;
+/* Media query for tablets */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
 }
 
-/* Spacing */
+/* Media query for desktops */
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 20px;
+  }
+}
+```
 
-.margin-small {
-  margin: var(--spacing-small);
+
+#### Hide/Show Elements
+
+Media queries can also be used to hide or show elements based on screen size.
+
+```css
+/* Base styles for all screens */
+.container {
+  display: block;
 }
 
-.margin-medium {
-  margin: var(--spacing-medium);
+/* Media query to hide an element on mobile devices */
+@media screen and (max-width: 600px) {
+  .container {
+    display: none;
+  }
 }
-
-.margin-large {
-  margin: var(--spacing-large);
-}
-
-/* Responsive Breakpoints */
-
-@media (min-width: var(--breakpoint-small)) {
-  /* Styles for small screens and above */
-}
-
-@media (min-width: var(--breakpoint-medium)) {
-  /* Styles for medium screens and above */
-}
-
-@media (min-width: var(--breakpoint-large)) {
-  /* Styles for large screens and above */
-}
-
-/* Additional Global Styles and Component Styling */
-
-/* ... */
-
 ```

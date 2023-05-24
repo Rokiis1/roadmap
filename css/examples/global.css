@@ -1,0 +1,87 @@
+/* Global Styles */
+
+:root {
+  /* Colors */
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --accent-color: #ffc107;
+  
+  /* Font */
+  --base-font-size: 16px;
+  --base-line-height: 1.5;
+  
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  
+  /* Breakpoints */
+  --breakpoint-small: 576px;
+  --breakpoint-medium: 768px;
+  --breakpoint-large: 992px;
+}
+
+/* Global Box Sizing */
+/* In addition to resetting the margin, this rule also sets padding: 0 and box-sizing: border-box for all elements, including their ::before and ::after pseudo-elements. This ensures consistent box-sizing behavior and removes any default padding that may be applied by certain elements. */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Typography */
+
+html {
+  font-size: var(--base-font-size);
+  line-height: var(--base-line-height);
+}
+
+/* Colors */
+
+body {
+  color: var(--primary-color);
+  background-color: #fff;
+}
+
+/* Headings */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Spacing */
+
+.margin-small {
+  margin: var(--spacing-small);
+}
+
+.margin-medium {
+  margin: var(--spacing-medium);
+}
+
+.margin-large {
+  margin: var(--spacing-large);
+}
+
+/* Responsive Breakpoints */
+
+@media (min-width: var(--breakpoint-small)) {
+  /* Styles for small screens and above */
+}
+
+@media (min-width: var(--breakpoint-medium)) {
+  /* Styles for medium screens and above */
+}
+
+@media (min-width: var(--breakpoint-large)) {
+  /* Styles for large screens and above */
+}
+
+/* Additional Global Styles and Component Styling */
+
+/* ... */
+
