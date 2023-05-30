@@ -433,9 +433,11 @@ city: New York
 
 The `for...of` statement iterates over iterable objects such as arrays, strings, and more. It can be used to loop through the values of an iterable.
 
+```js
 for (variable of iterable) {
   // Code to be executed
 }
+```
 
 **Example**
 
@@ -1095,9 +1097,7 @@ asyncOperation1(function (result1) {
 
 ## Promises
 
-```js
 Description: Promises are a more structured way to handle asynchronous operations in JavaScript. A promise represents the eventual completion (or failure) of an asynchronous operation and allows you to attach callbacks for handling the results.
-```
 
 **Syntax:**
 
