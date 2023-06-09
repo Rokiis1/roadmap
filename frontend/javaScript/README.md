@@ -257,8 +257,6 @@ console.log(numFloat); // Output: 42.0
 
 - []()
 
-# Node.js
-
 # Data Structures
 
 ## Structured Data
