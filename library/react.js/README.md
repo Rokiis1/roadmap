@@ -11,7 +11,6 @@
         - [Conditional Rendering](#conditional-rendering)
         - [Composition vs Inheritance](#composition-vs-inheritance)
 - [Rendering](#rendering)
-    - [Component Life Cycle](#component-life-cycle)
     - [Lists and Keys](#lists-and-keys)
     - [Render Props](#render-props)
     - [Refs](#refs)
@@ -28,10 +27,15 @@
         - [useReducer](#usereducer)
     - [Custom Hooks](#custom-hooks)
 - [Context](#context)
-- [TBD](#tbd)
-- [TBD](#tbd)
-- [TBD](#tbd)
-- [TBD](#tbd)
+- [Routers](#routers)
+  - [React Router](#react-router)
+- [API Calls](#api-calls)
+  - [Axios](#axios)
+  - [(Optional)React Query](#react-query)
+- [Forms](#forms)
+  - [React hook form](#react-hook-form)
+- [(Optional)Frameworks](#frameworks)
+  - [Next.js](#next)
 
 # React.js
 
