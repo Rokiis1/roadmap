@@ -1,0 +1,18 @@
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Basic Commands](#basic-commands)
+- [Handling Expirations](#handling-expirations)
+- [Data Types](#data-types)
+    - [Strings](#strings)
+    - [Lists](#lists)
+    - [Sets](#sets)
+    - [Hashes](#hashes)
+    - [Sorted sets](#sorted-sets)
+    - [Streams](#streams)
+    - [Geospatial indexes](#geospatial-indexes)
+    - [Bitmaps](#bitmaps)
+    - [Bitfields](#bitfields)
+    - [HyperLogLog](#hyper-log-log)
+- [Session management](#session-management)
+- [Caching](#caching)
