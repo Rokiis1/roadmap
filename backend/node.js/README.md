@@ -8,3 +8,4 @@
     - [Content Security Policy](#content-security-policy)
     - [CORS](#cors)
     - [OWASP Security Risks](#owasp-security-risks)
+- [Scraping](#scraping)
