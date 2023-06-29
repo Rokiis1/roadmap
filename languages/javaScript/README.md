@@ -5,7 +5,6 @@
     - [Introduction to JavaScript](#introduction-to-javascript)
     - [ECMAScript](#ecmascript)
     - [Node.js](#nodejs)
-    - [Additional Resources](#intro-javascript-additional-resources)
 - [Data Types](#data-types)
     - [string](#string)
     - [Undefined](#undefined)
@@ -123,7 +122,7 @@ Node.js extends the capabilities of JavaScript beyond the web browser, enabling 
 
 ![nodejs](./images/nodejs.png)    
 
-## Additional Resources
+## Resources
 
 - [The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
 - [Video: JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
