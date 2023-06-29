@@ -1,11 +1,11 @@
 # Table of Contents
 
 - [Internet](#internet)
-    - [Introduction to the Internet](#intro)
-    - [HTTP (Hypertext Transfer Protocol)](#http)
-    - [Browsers and How They Work](#browser)
-    - [DNS (Domain Name System)](#dns)
-    - [Domain Names](#domain)
+    - [Introduction to the Internet](#introduction-to-the-internet)
+    - [HTTP (Hypertext Transfer Protocol)](#hypertext-transfer-protocol)
+    - [Browsers and How They Work](#browsers-and-how-they-work)
+    - [DNS (Domain Name System)](#domain-name-system)
+    - [Domain Names](#domain-names)
     - [Hosting](#hosting)
 
 # Internet
@@ -18,10 +18,10 @@ At its core, the internet relies on a technology called TCP/IP (Transmission Con
 
 ![Example of Internet](./images/internet.png)
 
-### Credits
+## Resources
 
-[How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work) |
-[How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
+- [How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work) |
+- [How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
 ## HTTP (Hypertext Transfer Protocol)
 
@@ -29,9 +29,9 @@ HTTP, or Hypertext Transfer Protocol, is the foundation of data communication on
 
 The server then processes the request and sends back an HTTP response, typically containing the requested web page. HTTP supports various methods such as GET (retrieve data), POST (submit data), PUT (update data), and DELETE (remove data). It also defines status codes (e.g., 200 for success, 404 for page not found) to indicate the outcome of a request.
 
-### Credits
+## Resources
 
-[HTTP deep explaination](https://cs.fyi/guide/http-in-depth)
+- [HTTP deep explaination](https://cs.fyi/guide/http-in-depth)
 
 ## Browsers and How They Work
 
@@ -49,9 +49,9 @@ Browsers also include features like bookmarks, history, and extensions to enhanc
 
 ![Example of Internet](./images/webWorking.png)
 
-### Credits
+## Resources
 
-[How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
+- [How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
 
 ## DNS (Domain Name System)
 
@@ -67,9 +67,9 @@ Here's how DNS works:
 
 DNS caching helps optimize the resolution process, reducing the time required to translate domain names into IP addresses.
 
-### Credits
+## Resources
 
-[What is DNS? | How DNS works](https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/)
+- [What is DNS? | How DNS works](https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/)
 
 ## Domain Names
 
@@ -85,12 +85,12 @@ Key points about domain names:
 
 When choosing a domain name, it is important to consider its relevance, memorability, and availability for registration.
 
-### Credits
+## Resources
 
-[What is a domain name](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name) |
-[What is a domain name? | Domain name vs. URL](https://www.cloudflare.com/en-gb/learning/dns/glossary/what-is-a-domain-name/)
+- [What is a domain name](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name)
+- [What is a domain name? | Domain name vs. URL](https://www.cloudflare.com/en-gb/learning/dns/glossary/what-is-a-domain-name/)
 
-## 
+## Hosting
 
 Hosting refers to the practice of storing and serving website files, data, or applications on a server accessible over the internet. When you host a website, you make it available to users worldwide. Web hosting providers offer various services and technologies to ensure websites are accessible and perform efficiently.
 
@@ -104,9 +104,9 @@ Key points about hosting:
 
 Remember to choose a reliable hosting provider that meets your website's requirements and provides adequate support and security features.
 
-### Credits
+## Resources
 
-[What Is Web Hosting? Explained](https://www.youtube.com/watch?v=htbY9-yggB0) |
-[Different Types of Web Hosting Explained](https://www.youtube.com/watch?v=AXVZYzw8geg)
+- [What Is Web Hosting? Explained](https://www.youtube.com/watch?v=htbY9-yggB0) 
+- [Different Types of Web Hosting Explained](https://www.youtube.com/watch?v=AXVZYzw8geg)
 
 
