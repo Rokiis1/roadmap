@@ -91,7 +91,7 @@ Let's go through the code snippet and explain each line:
 
 These closing tags indicate the end of the `<body>` and `<html>` sections, respectively, and mark the end of the HTML document.
 
-### Credits
+### Resources
 
 [W3Schools: Learn HTML](https://www.w3schools.com/html/html_intro.asp) | [MDN Docs: Getting Started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
 
@@ -127,16 +127,23 @@ Using semantic HTML elements not only improves the structure and readability of 
 
 ```
 
-[Youtube video: More HTML tags](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
+```
+<figure>
+  <img src="image.jpg" alt="image" >
+  <figcaption>image</figcaption>
+</figure>
+```
 
-### Credits
+[(Youtube video) More HTML tags](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
 
-[5+ Must Know HTML Tags That Almost Nobody Knows](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
-[Guide to Writing Semantic HTML](https://cs.fyi/guide/writing-semantic-html) |
-[W3Schools: Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp) |
-[How To Write Semantic HTML](https://hackernoon.com/how-to-write-semantic-html-dkq3ulo) |
-[HTML Best Practices – How to Build a Better HTML-Based Website](https://www.freecodecamp.org/news/html-best-practices/) |
-[Semantic HTML: What It Is and How It Improves Your Site](https://blog.hubspot.com/website/semantic-html)
+## Resources
+
+- [(Video)HTML Tags](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
+- [(Article)Guide to Writing Semantic HTML](https://cs.fyi/guide/writing-semantic-html)
+- [(Article)W3Schools: Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp)
+- [(Article)How To Write Semantic HTML](https://hackernoon.com/how-to-write-semantic-html-dkq3ulo)
+- [(Article)HTML Best Practices – How to Build a Better HTML-Based Website](https://www.freecodecamp.org/news/html-best-practices/)
+- [(Article)Semantic HTML: What It Is and How It Improves Your Site](https://blog.hubspot.com/website/semantic-html)
 
 ## Forms and Validation
 
@@ -234,26 +241,48 @@ The above CSS code targets the input elements and applies different border style
 
 ### Examples
 
-[Form example](https://codesandbox.io/s/focused-monad-nwjo2q?file=/index.html)
+- [Form example](https://codesandbox.io/s/focused-monad-nwjo2q?file=/index.html)
 
-### Credits
+### Resources
 
-[MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) | [Learn Forms by web.dev](https://web.dev/learn/forms/) | [W3Schools: JavaScript Form Validation](https://web.dev/learn/forms/)
+- [(Article)MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) 
+- [(Article)Learn Forms by web.dev](https://web.dev/learn/forms/) 
+- [(Article)W3Schools: JavaScript Form Validation](https://web.dev/learn/forms/)
 
 ## (Optional)Best Practices
 
-### Credits
+### Resources
 
-[HTML Best Practices](https://github.com/hail2u/html-best-practices)
+- [HTML Best Practices](https://github.com/hail2u/html-best-practices)
 
 ## (Optional)Accessibility
 
-### Credits
+- `alt`: Used with the `<img>` element to provide alternative text for images.
 
-[Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/) |
-[Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php) |
-[A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
-[Accessibility for Developers by Google](https://web.dev/accessibility/)
+- `aria-*` attributes: A set of attributes from the Accessible Rich Internet Applications (ARIA) specification used to enhance accessibility. Some commonly used attributes include `aria-label`, `aria-labelledby`, `aria-describedby`, and `aria-hidden`.
+
+- `role`: Specifies the role or type of an element to assistive technologies. For example, `role="button"` indicates an element functions as a button.
+
+- `tabindex`: Determines the tabbing order of interactive elements on a page, allowing users to navigate using the keyboard alone.
+
+- `title`: Provides additional information about an element when the user hovers over it, often used for tooltips.
+
+- `aria-live`: Indicates that content within an element may change dynamically, allowing assistive technologies to announce the changes in real-time.
+
+- `aria-disabled`: Indicates that an element is disabled and cannot be interacted with.
+
+- `aria-expanded`: Indicates whether a collapsible element, such as an accordion or dropdown menu, is expanded or collapsed.
+
+- `aria-hidden`: Hides elements from assistive technologies, useful for decorative or non-essential content that should not be announced to users.
+
+- `lang`: Specifies the language of the content within an element, assisting screen readers and other assistive technologies in presenting the content correctly.
+
+### Resources
+
+[(Article)Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/)
+[(Article)Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php)
+[(Article)A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
+[(Article)Accessibility for Developers by Google](https://web.dev/accessibility/)
 
 ## (Optional)Basics of SEO
 
@@ -271,9 +300,9 @@ Here are a few cons of using JPEG, SVG, and WebP images instead of PNG for web p
 
 - Image editing limitations: When it comes to post-processing and editing images, PNG offers more flexibility. Its lossless nature allows for easy editing and modification without any quality degradation. 
 
-### Credits
+### Resources
 
-[Google Search Central — SEO Docs](https://developers.google.com/search/docs) |
-[SEO Guide](https://github.com/seo/guide) |
-[8 Must-Know SEO Best Practices For Developers](https://neilpatel.com/blog/seo-developers/)
+[(Article)Google Search Central — SEO Docs](https://developers.google.com/search/docs) |
+[(Article)SEO Guide](https://github.com/seo/guide) |
+[(Article)SEO Best Practices For Developers](https://neilpatel.com/blog/seo-developers/)
 

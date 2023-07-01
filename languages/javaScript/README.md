@@ -5,6 +5,12 @@
     - [Introduction to JavaScript](#introduction-to-javascript)
     - [ECMAScript](#ecmascript)
     - [Node.js](#nodejs)
+- [DOM (Document Object Model)](#dom-document-object-model)
+    - [Introduction to DOM](#introduction-to-dom)
+    - [DOM Manipulation](#dom-manipulation)
+    - [DOM Traversal](#dom-traversal)
+    - [DOM Events](#dom-events)
+    - [DOM Styling](#dom-styling)
 - [Data Types](#data-types)
     - [string](#string)
     - [Undefined](#undefined)
@@ -20,17 +26,6 @@
     - [Coercion](#coercion)
     - [Explicit Type Casting](#explicit-type-casting)
     - [Implicit Type Casting](#implicit-type-casting)
-- [Node.js](#node)
-- [Data Structures](#data-structures)
-    - [Structured Data](#structured-data)
-        - [JSON](#json)
-    - [Indexed Collections](#indexed-collections)
-        - [Arrays](#arrays)
-    - [(TBD)Keyed Collections](#keyed-collections)
-        - [Map](#map)
-        - [WeakMap](#weakmap)
-        - [Set](#set)
-        - [WeakSet](#weakset)
 - [Equality Comparisons](#equality-comparisons)
     - [The == Operator](#operator==)
     - [The === Operator](#operator==)
@@ -66,6 +61,26 @@
     - [Rest Parameters](#rest-parameters)
   - [Arrow Functions](#arrow-functions)
   - [Built-in Functions](#built-in-functions)
+- [Node.js](#node)
+- [Data Structures](#data-structures)
+    - [Structured Data](#structured-data)
+        - [JSON](#json)
+    - [Indexed Collections](#indexed-collections)
+        - [Arrays](#arrays)
+          - [map()](#map)
+          - [filter()](#filter)
+          - [reduce()](#reduce)
+          - [forEach()](#forEach)
+          - [push()](#push)
+          - [pop()](#pop)
+          - [shift()](#shift)
+          - [unshift()](#unshift)
+          - [splice()](#splice)
+          - [slice()](#slice)
+          - [concat()](#concat)
+    - [Keyed Collections](#keyed-collections)
+        - [Map](#map)
+        - [Objects](#objects)
 - [Build Tools](#build-tools)
   - [Linters formatters](#linters-formatters)
     - [Prettier](#prettier)
@@ -255,40 +270,6 @@ console.log(numFloat); // Output: 42.0
 ## Resources
 
 - []()
-
-# Data Structures
-
-## Structured Data
-
-### JSON
-
-1. **JSON (JavaScript Object Notation):**
-JSON is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used for representing structured data in web applications. JSON data consists of key-value pairs and can be represented as a nested hierarchy.
-
-```js
-// JSON data representing a person
-const person = {
-  "name": "John Doe",
-  "age": 25,
-  "email": "johndoe@example.com"
-};
-```
-### Indexed Collections
-
-2. **Arrays:**
-An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
-
-```js
-// Array of numbers
-const numbers = [1, 2, 3, 4, 5];
-
-// Accessing array elements
-console.log(numbers[0]); // Output: 1
-
-// Modifying array elements
-numbers[2] = 10;
-console.log(numbers); // Output: [1, 2, 10, 4, 5]
-```
 
 # Equality Comparisons
 
@@ -689,6 +670,40 @@ try {
 Executing try block.
 An error occurred: Error occurred.
 Executing finally block.
+```
+
+# Data Structures
+
+## Structured Data
+
+### JSON
+
+1. **JSON (JavaScript Object Notation):**
+JSON is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used for representing structured data in web applications. JSON data consists of key-value pairs and can be represented as a nested hierarchy.
+
+```js
+// JSON data representing a person
+const person = {
+  "name": "John Doe",
+  "age": 25,
+  "email": "johndoe@example.com"
+};
+```
+### Indexed Collections
+
+2. **Arrays:**
+An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
+
+```js
+// Array of numbers
+const numbers = [1, 2, 3, 4, 5];
+
+// Accessing array elements
+console.log(numbers[0]); // Output: 1
+
+// Modifying array elements
+numbers[2] = 10;
+console.log(numbers); // Output: [1, 2, 10, 4, 5]
 ```
 
 # Expressions and Operators

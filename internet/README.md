@@ -20,8 +20,8 @@ At its core, the internet relies on a technology called TCP/IP (Transmission Con
 
 ## Resources
 
-- [How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work) |
-- [How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
+- [(Article)How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work) |
+- [(Video)How the Internet Works in 5 Minutes](https://www.youtube.com/watch?v=7_LPdttKXPc)
 
 ## HTTP (Hypertext Transfer Protocol)
 
@@ -31,7 +31,7 @@ The server then processes the request and sends back an HTTP response, typically
 
 ## Resources
 
-- [HTTP deep explaination](https://cs.fyi/guide/http-in-depth)
+- [(Article)HTTP deep explaination](https://cs.fyi/guide/http-in-depth)
 
 ## Browsers and How They Work
 
@@ -51,7 +51,7 @@ Browsers also include features like bookmarks, history, and extensions to enhanc
 
 ## Resources
 
-- [How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
+- [(Video)How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
 
 ## DNS (Domain Name System)
 
@@ -69,7 +69,7 @@ DNS caching helps optimize the resolution process, reducing the time required to
 
 ## Resources
 
-- [What is DNS? | How DNS works](https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/)
+- [(Article)What is DNS? | How DNS works](https://www.cloudflare.com/en-gb/learning/dns/what-is-dns/)
 
 ## Domain Names
 
@@ -87,8 +87,8 @@ When choosing a domain name, it is important to consider its relevance, memorabi
 
 ## Resources
 
-- [What is a domain name](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name)
-- [What is a domain name? | Domain name vs. URL](https://www.cloudflare.com/en-gb/learning/dns/glossary/what-is-a-domain-name/)
+- [(Article)What is a domain name](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name)
+- [(Article)What is a domain name? | Domain name vs. URL](https://www.cloudflare.com/en-gb/learning/dns/glossary/what-is-a-domain-name/)
 
 ## Hosting
 
@@ -106,7 +106,7 @@ Remember to choose a reliable hosting provider that meets your website's require
 
 ## Resources
 
-- [What Is Web Hosting? Explained](https://www.youtube.com/watch?v=htbY9-yggB0) 
-- [Different Types of Web Hosting Explained](https://www.youtube.com/watch?v=AXVZYzw8geg)
+- [(Video)What Is Web Hosting? Explained](https://www.youtube.com/watch?v=htbY9-yggB0) 
+- [(Video)Different Types of Web Hosting Explained](https://www.youtube.com/watch?v=AXVZYzw8geg)
 
 
