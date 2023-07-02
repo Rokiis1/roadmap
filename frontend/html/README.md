@@ -18,9 +18,9 @@
       - [Password Validation](#password)
       - [Visual Feedback using CSS](#css)
       - [Examples](#examples)
-    - [(Optional)Best Practices](#bestPractices)
-    - [(Optional)Accessibility](#accessibility)
-    - [(Optional)Basics of SEO](#basicOfSeo)
+    - [Best Practices](#bestPractices)
+    - [Accessibility](#accessibility)
+    - [Basics of SEO](#basicOfSeo)
       - [Images](#images)
 
 # HTML 
@@ -75,25 +75,14 @@ Let's go through the code snippet and explain each line:
 
 - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: This meta tag is used to control the behavior and dimensions of the viewport on mobile devices. It ensures that the webpage is rendered properly on different screen sizes.
 
-- `<title>My First Webpage</title>`: This tag sets the title of the webpage, which is displayed in the browser's title bar or tab.
+### Code example
 
-- `<body>`: This element represents the main content of the HTML document.
-
-- `<h1>Welcome to My Webpage</h1>`: This heading element (`<h1>`) represents the main heading of the webpage, indicating that it is the most important heading.
-
-- `<p>This is a paragraph of text.</p>`: This `<p>` tag represents a paragraph of text. It is used to enclose and define a block of text.
-
-- `<ul>`: This tag creates an unordered list, and each list item is represented by the `<li>` tag. In this example, there are three list items.
-
-- `<ol>`: This tag creates an ordered list, where each list item is represented by the `<li>` tag. In this example, there are three numbered list items.
-
-- `<a href="https://www.example.com">Click here</a>`: This `<a>` tag creates a hyperlink to the URL specified in the `href` attribute. In this example, the link text is "Click here," and it points to `https://www.example.com`.
-
-These closing tags indicate the end of the `<body>` and `<html>` sections, respectively, and mark the end of the HTML document.
+[Demo](https://codesandbox.io/s/html-basics-647tsc)
 
 ### Resources
 
-[W3Schools: Learn HTML](https://www.w3schools.com/html/html_intro.asp) | [MDN Docs: Getting Started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
+- [W3Schools: Learn HTML](https://www.w3schools.com/html/html_intro.asp)
+- [MDN Docs: Getting Started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
 
 ## Semantic HTML
 
@@ -111,17 +100,23 @@ Semantic HTML refers to the use of HTML elements that carry meaning and convey t
 
 Using semantic HTML elements not only improves the structure and readability of your code but also helps search engines understand the content better.
 
+### Code example
+
+- [Sematic html demo](https://codesandbox.io/s/html-template-demo-25j2t9)
+
 ### Layout Examples
 
 ![Example template](./images/exampleTemplate.png)
 
 ### HTML tags
 
+#### image tags
+
 ```
 <picture>
   <source srcset="image-large.jpg" media="(min-width: 1200px)">
   <source srcset="image-medium.jpg" media="(min-width: 768px)">
-  <source srcset="image-small.jpg">
+  <source srcset="image-small.jpg" media="(min-width: 480px)">
   <img src="image-default.jpg" alt="Default image">
 </picture>
 
@@ -133,8 +128,6 @@ Using semantic HTML elements not only improves the structure and readability of 
   <figcaption>image</figcaption>
 </figure>
 ```
-
-[(Youtube video) More HTML tags](https://www.youtube.com/watch?v=iX_QyjdctsQ&t=13s)
 
 ## Resources
 
@@ -224,22 +217,7 @@ Password validation is essential to ensure the strength and security of user pas
 
 You can provide visual feedback to users indicating whether their input is valid or not using CSS. Here's an example of how you can style the input fields to display a green border for valid input and a red border for invalid input:
 
-```html
-<style>
-  input:valid {
-    border: 2px solid green;
-  }
-
-  input:invalid {
-    border: 2px solid red;
-  }
-</style>
-
-```
-
-The above CSS code targets the input elements and applies different border styles based on their validity. You can modify the styles to match your desired visual feedback.
-
-### Examples
+### Code example
 
 - [Form example](https://codesandbox.io/s/focused-monad-nwjo2q?file=/index.html)
 
@@ -249,13 +227,13 @@ The above CSS code targets the input elements and applies different border style
 - [(Article)Learn Forms by web.dev](https://web.dev/learn/forms/) 
 - [(Article)W3Schools: JavaScript Form Validation](https://web.dev/learn/forms/)
 
-## (Optional)Best Practices
+## Best Practices
 
 ### Resources
 
 - [HTML Best Practices](https://github.com/hail2u/html-best-practices)
 
-## (Optional)Accessibility
+## Accessibility
 
 - `alt`: Used with the `<img>` element to provide alternative text for images.
 
@@ -279,12 +257,12 @@ The above CSS code targets the input elements and applies different border style
 
 ### Resources
 
-[(Article)Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/)
-[(Article)Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php)
-[(Article)A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
-[(Article)Accessibility for Developers by Google](https://web.dev/accessibility/)
+- [(Article)Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/)
+- [(Article)Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php)
+- [(Article)A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
+- [(Article)Accessibility for Developers by Google](https://web.dev/accessibility/)
 
-## (Optional)Basics of SEO
+## Basics of SEO
 
 ### Images
 
@@ -302,7 +280,7 @@ Here are a few cons of using JPEG, SVG, and WebP images instead of PNG for web p
 
 ### Resources
 
-[(Article)Google Search Central — SEO Docs](https://developers.google.com/search/docs) |
-[(Article)SEO Guide](https://github.com/seo/guide) |
-[(Article)SEO Best Practices For Developers](https://neilpatel.com/blog/seo-developers/)
+- [(Article)Google Search Central — SEO Docs](https://developers.google.com/search/docs)
+- [(Article)SEO Guide](https://github.com/seo/guide)
+- [(Article)SEO Best Practices For Developers](https://neilpatel.com/blog/seo-developers/)
 

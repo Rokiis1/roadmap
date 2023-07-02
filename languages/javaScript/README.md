@@ -5,12 +5,6 @@
     - [Introduction to JavaScript](#introduction-to-javascript)
     - [ECMAScript](#ecmascript)
     - [Node.js](#nodejs)
-- [DOM (Document Object Model)](#dom-document-object-model)
-    - [Introduction to DOM](#introduction-to-dom)
-    - [DOM Manipulation](#dom-manipulation)
-    - [DOM Traversal](#dom-traversal)
-    - [DOM Events](#dom-events)
-    - [DOM Styling](#dom-styling)
 - [Data Types](#data-types)
     - [string](#string)
     - [Undefined](#undefined)
@@ -21,6 +15,15 @@
     - [Symbol](#symbol)    
     - [typeof Operators](#typeof-operators)
     - [Built-in Objects](#built-in-objects)
+- [Expressions and Operators](#expressions-and-operators)
+  - [Assignment Operators](#assignment-operators)
+  - [Comparison Operators](#comparison-operators)
+  - [Arithmetic Operators](#arithmetic-operators)
+  - [Logical Operators](#logical-operators)
+  - [String Operators](#string-operators)
+  - [Conditional operators](#conditional-operators)
+  - [Comma Operators](#comma-operators)
+  - [Unary Operators](#unary-operators)
 - [Type Casting in JavaScript](#type-casting-in-javascript)
     - [Type Conversion](#type-conversion)
     - [Coercion](#coercion)
@@ -45,15 +48,6 @@
       - [Utilizing Error Object](#utilizing-error-object)
       - [Throw Statement](#throw-statement)
       - [try/catch/finally](#trycatchfinally)
-- [Expressions and Operators](#expressions-and-operators)
-  - [Assignment Operators](#assignment-operators)
-  - [Comparison Operators](#comparison-operators)
-  - [Arithmetic Operators](#arithmetic-operators)
-  - [Logical Operators](#logical-operators)
-  - [String Operators](#string-operators)
-  - [Conditional operators](#conditional-operators)
-  - [Comma Operators](#comma-operators)
-  - [Unary Operators](#unary-operators)
 - [Functions](#functions)
   - [Defining and Calling Functions](#defining-and-calling-functions)
   - [Function Parameters](#function-parameters)
@@ -61,26 +55,31 @@
     - [Rest Parameters](#rest-parameters)
   - [Arrow Functions](#arrow-functions)
   - [Built-in Functions](#built-in-functions)
-- [Node.js](#node)
 - [Data Structures](#data-structures)
     - [Structured Data](#structured-data)
         - [JSON](#json)
     - [Indexed Collections](#indexed-collections)
         - [Arrays](#arrays)
-          - [map()](#map)
-          - [filter()](#filter)
-          - [reduce()](#reduce)
-          - [forEach()](#forEach)
-          - [push()](#push)
-          - [pop()](#pop)
-          - [shift()](#shift)
-          - [unshift()](#unshift)
-          - [splice()](#splice)
-          - [slice()](#slice)
-          - [concat()](#concat)
+          - [Map()](#map)
+          - [Filter()](#filter)
+          - [Reduce()](#reduce)
+          - [ForEach()](#forEach)
+          - [Push()](#push)
+          - [Pop()](#pop)
+          - [Shift()](#shift)
+          - [Unshift()](#unshift)
+          - [Splice()](#splice)
+          - [Slice()](#slice)
+          - [Concat()](#concat)
     - [Keyed Collections](#keyed-collections)
         - [Map](#map)
         - [Objects](#objects)
+- [DOM (Document Object Model)](#dom-document-object-model)
+    - [Introduction to DOM](#introduction-to-dom)
+    - [DOM Manipulation](#dom-manipulation)
+    - [DOM Traversal](#dom-traversal)
+    - [DOM Events](#dom-events)
+    - [DOM Styling](#dom-styling)
 - [Build Tools](#build-tools)
   - [Linters formatters](#linters-formatters)
     - [Prettier](#prettier)
@@ -224,6 +223,132 @@ const person = { name: 'John', age: 25 };
 
 - [JavaScript Data Types - CodeGuage](https://www.codeguage.com/courses/js/data-types)
 
+# Expressions and Operators
+
+At a high level, an expression is a valid unit of code that resolves to a value. There are two types of expressions: those that have side effects (such as assigning values) and those that purely evaluate.
+
+## Assignment Operators
+
+Assignment operators are used to assign values to variables. They allow you to perform simple mathematical operations and update the value of a variable in a single step.
+
+**Syntax:**
+
+```js
+variable = value;
+```
+
+**Example:**
+
+```js
+let x = 5;
+x += 3; // Equivalent to x = x + 3;
+console.log(x); // Output: 8
+```
+
+## Comparison Operators
+
+Comparison operators are used to compare two values and return a Boolean result (true or false) based on the comparison.
+
+**Syntax:**
+
+```js
+value1 operator value2;
+```
+
+**Example:**
+
+```js
+let x = 5;
+let y = 3;
+console.log(x > y); // Output: true
+```
+
+## Arithmetic Operators
+
+Arithmetic operators are used to perform mathematical calculations on numeric values.
+
+**Syntax:**
+
+```js
+value1 operator value2;
+```
+
+**Example:**
+
+```js
+let x = 5;
+let y = 3;
+console.log(x + y); // Output: 8
+```
+
+## Logical Operators
+
+Logical operators are used to combine or invert Boolean values and produce a Boolean result.
+
+**Syntax:**
+
+```js
+value1 operator value2;
+```
+
+**Example:**
+
+```js
+let x = 5;
+let y = 3;
+console.log(x > 3 && y < 10); // Output: true
+```
+
+## String Operators
+
+**Syntax:**
+
+```js
+string1 + string2;
+```
+
+**Example:**
+
+```js
+let greeting = "Hello";
+let name = "John";
+console.log(greeting + " " + name); // Output: "Hello John"
+```
+
+## Conditional Operators
+
+Conditional operators are used for conditional statements and ternary expressions.
+
+**Syntax:**
+
+```js
+condition ? value1 : value2;
+```
+
+**Example:**
+
+```js
+let age = 20;
+let isAdult = (age >= 18) ? "Adult" : "Minor";
+console.log(isAdult); // Output: "Adult"
+```
+## Comma Operators
+
+Comma operators are used to separate multiple expressions within a single statement. The value of the entire expression is determined by the last expression.
+
+**Syntax:**
+
+```js
+expression1, expression2, expression3;
+```
+
+**Example:**
+
+```js
+let x = 1, y = 2, z = 3;
+console.log(x, y, z); // Output: 1 2 3
+```
+
 # Type Casting in JavaScript
 
 ## Type Conversion
@@ -331,6 +456,8 @@ for (let i = 0; i < 5; i++) {
 ## do...while Statement
 
 The `do...while` statement executes a block of code once, and then repeats the execution as long as a specified condition is true.
+
+**Syntax:**
 
 ```js
 do {
@@ -672,166 +799,6 @@ An error occurred: Error occurred.
 Executing finally block.
 ```
 
-# Data Structures
-
-## Structured Data
-
-### JSON
-
-1. **JSON (JavaScript Object Notation):**
-JSON is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used for representing structured data in web applications. JSON data consists of key-value pairs and can be represented as a nested hierarchy.
-
-```js
-// JSON data representing a person
-const person = {
-  "name": "John Doe",
-  "age": 25,
-  "email": "johndoe@example.com"
-};
-```
-### Indexed Collections
-
-2. **Arrays:**
-An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
-
-```js
-// Array of numbers
-const numbers = [1, 2, 3, 4, 5];
-
-// Accessing array elements
-console.log(numbers[0]); // Output: 1
-
-// Modifying array elements
-numbers[2] = 10;
-console.log(numbers); // Output: [1, 2, 10, 4, 5]
-```
-
-# Expressions and Operators
-
-At a high level, an expression is a valid unit of code that resolves to a value. There are two types of expressions: those that have side effects (such as assigning values) and those that purely evaluate.
-
-## Assignment Operators
-
-Assignment operators are used to assign values to variables. They allow you to perform simple mathematical operations and update the value of a variable in a single step.
-
-**Syntax:**
-
-```js
-variable = value;
-```
-
-**Example:**
-
-```js
-let x = 5;
-x += 3; // Equivalent to x = x + 3;
-console.log(x); // Output: 8
-```
-
-## Comparison Operators
-
-Comparison operators are used to compare two values and return a Boolean result (true or false) based on the comparison.
-
-**Syntax:**
-
-```js
-value1 operator value2;
-```
-
-**Example:**
-
-```js
-let x = 5;
-let y = 3;
-console.log(x > y); // Output: true
-```
-
-## Arithmetic Operators
-
-Arithmetic operators are used to perform mathematical calculations on numeric values.
-
-**Syntax:**
-
-```js
-value1 operator value2;
-```
-
-**Example:**
-
-```js
-let x = 5;
-let y = 3;
-console.log(x + y); // Output: 8
-```
-
-## Logical Operators
-
-Logical operators are used to combine or invert Boolean values and produce a Boolean result.
-
-**Syntax:**
-
-```js
-value1 operator value2;
-```
-
-**Example:**
-
-```js
-let x = 5;
-let y = 3;
-console.log(x > 3 && y < 10); // Output: true
-```
-
-## String Operators
-
-**Syntax:**
-
-```js
-string1 + string2;
-```
-
-**Example:**
-
-```js
-let greeting = "Hello";
-let name = "John";
-console.log(greeting + " " + name); // Output: "Hello John"
-```
-
-## Conditional Operators
-
-Conditional operators are used for conditional statements and ternary expressions.
-
-**Syntax:**
-
-```js
-condition ? value1 : value2;
-```
-
-**Example:**
-
-```js
-let age = 20;
-let isAdult = (age >= 18) ? "Adult" : "Minor";
-console.log(isAdult); // Output: "Adult"
-```
-## Comma Operators
-
-Comma operators are used to separate multiple expressions within a single statement. The value of the entire expression is determined by the last expression.
-
-**Syntax:**
-
-```js
-expression1, expression2, expression3;
-```
-
-**Example:**
-
-```js
-let x = 1, y = 2, z = 3;
-console.log(x, y, z); // Output: 1 2 3
-```
-
 # Functions
 
 ## Defining and Calling Functions
@@ -957,6 +924,577 @@ console.log(add(3, 5));
 ## Built-in Functions
 
 JavaScript provides several built-in functions that can be directly used without defining them. Examples include `console.log()`, `Math.random()`, `parseInt()`, etc.
+
+# Data Structures
+
+## Structured Data
+
+### JSON
+
+- **JSON (JavaScript Object Notation):**
+JSON is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used for representing structured data in web applications. JSON data consists of key-value pairs and can be represented as a nested hierarchy.
+
+```js
+// JSON data representing a person
+const person = {
+  "name": "John Doe",
+  "age": 25,
+  "email": "johndoe@example.com"
+};
+```
+### Indexed Collections
+
+#### Arrays
+
+1. **Arrays:**
+An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
+
+```js
+// Array of numbers
+const numbers = [1, 2, 3, 4, 5];
+
+// Accessing array elements
+console.log(numbers[0]); // Output: 1
+
+// Modifying array elements
+numbers[2] = 10;
+console.log(numbers); // Output: [1, 2, 10, 4, 5]
+```
+
+2. **Strings:** 
+Strings are sequences of characters. While strings are not technically an indexed collection, they can be accessed using a similar indexing mechanism. Each character in a string has an index starting from 0.
+
+```js
+const message = 'Hello, world!';
+console.log(message[7]); // Output: w
+```
+##### Map()
+
+The `map()` method creates a new array by applying a provided function to each element of the calling array.
+
+**Syntax:**
+
+```js
+array.map(callback(element, index, array), thisArg)
+```
+
+- `callback`: A function to be called for each element in the array.
+- `element`: The current element being processed in the array.
+- `index` (optional): The index of the current element being processed.
+- `array` (optional): The array `map()` was called upon.
+- `thisArg` (optional): Value to use as `this` when executing the callback.
+
+**Example:**
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+const multiplied = numbers.map((num) => num * 2);
+
+console.log(multiplied);
+```
+
+**Output:**
+
+```
+[2, 4, 6, 8, 10]
+```
+
+##### Filter()
+
+The `filter()` method creates a new array with all elements that pass the provided function's test.
+
+**Syntax:**
+
+```js
+array.filter(callback(element, index, array), thisArg)
+```
+
+- `callback`: A function to be called for each element in the array.
+- `element`: The current element being processed in the array.
+- `index` (optional): The index of the current element being processed.
+- `array` (optional): The array `filter()` was called upon.
+- `thisArg` (optional): Value to use as `this` when executing the callback.
+
+**Example:**
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+
+console.log(evenNumbers);
+```
+
+**Output:**
+
+```
+[2, 4]
+```
+
+##### Reduce()
+
+The `reduce()` method applies a function to reduce the array to a single value. It executes a provided function for each value of the array.
+
+**Syntax:**
+
+```js
+array.reduce(callback(accumulator, currentValue, index, array), initialValue)
+```
+
+`callback`: A function to be called for each element in the array.
+`accumulator`: The accumulator accumulates the callback's return values.
+`currentValue`: The current element being processed in the array.
+`index` (optional): The index of the current element being processed.
+`array` (optional): The array `reduce()` was called upon.
+`initialValue` (optional): A value to be used as the first argument to the first call of the callback.
+
+**Example:**
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, num) => accumulator + num, 0);
+
+console.log(sum);
+```
+
+**Output:**
+
+```
+15
+```
+
+##### forEach()
+
+The `forEach()` method executes a provided function once for each array element.
+
+**Syntax:**
+
+```js
+array.forEach(callback(element, index, array), thisArg)
+```
+- `callback`: A function to be called for each element in the array.
+- `element`: The current element being processed in the array.
+- `index` (optional): The index of the current element being processed.
+- `array` (optional): The array `forEach()` was called upon.
+- `thisArg` (optional): Value to use as `this` when executing the callback.
+
+**Example:**
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((num) => {
+  console.log(num);
+});
+```
+
+**Output:**
+
+```
+1
+2
+3
+4
+5
+```
+
+##### Push()
+
+The `push()` method adds one or more elements to the end of an array and returns the new length of the array.
+
+**Syntax:**
+
+```js
+array.push(element1, element2, ..., elementN)
+```
+
+- `element1`, `element2`, ..., `elementN`: The elements to add to the end of the array.
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana'];
+
+fruits.push('orange');
+
+console.log(fruits);
+```
+
+**Output:**
+
+```js
+['apple', 'banana', 'orange']
+```
+
+##### Pop()
+
+The `pop()` method removes the last element from an array and returns that element.
+
+**Syntax:**
+
+```js
+array.pop()
+```
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+const removedFruit = fruits.pop();
+
+console.log(removedFruit);
+console.log(fruits);
+```
+
+**Output:**
+
+```
+'orange'
+['apple', 'banana']
+```
+
+##### Shift()
+
+The `shift()` method removes the first element from an array and returns that element
+
+**Syntax:**
+
+```js
+array.shift()
+```
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+const removedFruit = fruits.shift();
+
+console.log(removedFruit);
+console.log(fruits);
+```
+
+**Output:**
+
+```
+'apple'
+['banana', 'orange']
+```
+
+##### Unshift()
+
+The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+**Syntax:**
+
+```js
+array.unshift(element1, element2, ..., elementN)
+```
+
+- `element1`, `element2`, ..., `elementN`: The elements to add to the beginning of the array.
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana'];
+
+fruits.unshift('orange');
+
+console.log(fruits);
+```
+
+**Output:**
+
+```
+['orange', 'apple', 'banana']
+```
+
+##### Splice()
+
+The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
+
+**Syntax:**
+
+```js
+array.splice(start, deleteCount, item1, item2, ..., itemN)
+```
+- `start`: Index at which to start changing the array.
+- `deleteCount` (optional): An integer indicating the number of elements in the array to remove from `start`.
+- `item1`, `item2`, ..., `itemN` (optional): The elements to add to the array, beginning from `start`.
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+const removedFruits = fruits.splice(1, 2, 'grape', 'kiwi');
+
+console.log(removedFruits);
+console.log(fruits);
+```
+
+**Output:**
+
+```js
+['banana', 'orange']
+['apple', 'grape', 'kiwi']
+```
+
+##### slice()
+
+The `slice()` method returns a shallow copy of a portion of an array into a new array object.
+
+**Syntax:**
+
+```js
+array.slice(start, end)
+```
+- `start` (optional): Zero-based index at which to begin extraction.
+- `end` (optional): Zero-based index at which to end extraction (exclusive).
+
+**Example:**
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+const slicedFruits = fruits.slice(1, 3);
+
+console.log(slicedFruits);
+```
+
+**Output:**
+
+```
+['banana', 'orange']
+```
+
+##### Concat()
+
+The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays but instead returns a new array.
+
+**Syntax:**
+
+```js
+array.concat(array1, array2, ..., arrayN)
+```
+
+- `array1`, `array2`, ..., `arrayN` (optional): Arrays and/or values to concatenate into a new array.
+
+**Example:**
+
+```js
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+
+const newArray = array1.concat(array2);
+
+console.log(newArray);
+```
+
+**Output:**
+
+```
+[1, 2, 3, 4, 5, 6]
+```
+
+### Keyed Collections
+
+#### Map
+
+The `Map` data structure in JavaScript is a built-in collection that allows you to store key-value pairs. It provides an easy way to associate values with unique keys and offers various methods to manipulate and retrieve data from the map.
+
+**Syntax:**
+
+```js
+let map = new Map();
+```
+
+**Example:**
+
+```js
+let map = new Map();
+
+map.set('name', 'John');
+map.set('age', 30);
+map.set('gender', 'male');
+
+console.log(map.get('name'));
+console.log(map.size);
+```
+
+**Output:**
+
+```
+John
+3
+```
+
+#### Objects
+
+In JavaScript, objects are a fundamental data type used to store collections of key-value pairs. They allow you to define custom data structures and store related data together. Objects can contain properties and methods that define their behavior.
+
+**Syntax:**
+
+```js
+let obj = {
+  key1: value1,
+  key2: value2,
+  // ...
+};
+```
+**Example:**
+
+```js
+let person = {
+  name: 'John',
+  age: 30,
+  gender: 'male'
+};
+
+console.log(person.name);
+console.log(person.age);
+```
+
+**Output:**
+
+```
+John
+30
+```
+### DOM (Document Object Model)
+
+#### Introduction to DOM
+
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of the document as a tree-like model, where each element in the document is a node in the tree. The DOM allows you to interact with and manipulate the elements and content of a web page dynamically using JavaScript.
+
+#### DOM Manipulation
+
+DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
+
+*Selecting by ID*
+
+**Syntax:**
+
+```js
+const element = document.getElementById('elementId');
+```
+
+**Example:**
+
+```js
+const myElement = document.getElementById('myElement');
+```
+
+*Selecting by Class*
+
+**Syntax:**
+
+```js
+const elements = document.getElementsByClassName('className');
+```
+
+**Example:**
+
+```js
+const myElements = document.getElementsByClassName('myClass');
+```
+
+*Selecting by Tag Name*
+
+**Syntax:**
+
+```js
+const elements = document.getElementsByTagName('tagName');
+```
+
+**Example:**
+
+```js
+const myElements = document.getElementsByTagName('p');
+```
+
+*Selecting by CSS Selector*
+
+**Syntax (querySelector):**
+
+```js
+const element = document.querySelector('selector');
+```
+
+**Syntax (querySelectorAll):**
+
+```js
+const elements = document.querySelectorAll('selector');
+```
+
+**Example (querySelector):**
+
+```js
+const myElement = document.querySelector('.myClass');
+```
+
+**Example (querySelectorAll):**
+
+```js
+const myElements = document.querySelectorAll('p.myClass');
+```
+
+#### DOM Traversal
+
+DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
+
+**Example:**
+
+```js
+// Example of traversing the DOM to access child elements
+const parentElement = document.getElementById('parent');
+const childElements = parentElement.children;
+for (let i = 0; i < childElements.length; i++) {
+  console.log(childElements[i].textContent);
+}
+```
+**Output:**
+
+```
+Child 1
+Child 2
+Child 3
+```
+
+#### DOM Events
+
+DOM events are actions or occurrences that happen in the browser, such as a button click, mouse movement, or keypress. By handling events, you can respond to user interactions and perform specific actions. The DOM provides a set of event types and methods to attach event handlers to elements.
+
+**Example:**
+
+```js
+// Example of handling a button click event
+const button = document.getElementById('myButton');
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+});
+```
+
+**Output (after clicking the button):**
+
+```
+Button clicked!
+```
+
+#### DOM Styling
+
+DOM styling allows you to manipulate the appearance of elements on a web page. You can modify CSS properties of elements to change their size, color, position, and more. The DOM provides properties and methods to access and modify the styles of elements.
+
+**Example:**
+
+```
+// Example of changing the background color of an element
+const element = document.getElementById('myElement');
+element.style.backgroundColor = 'red';
+```
 
 # Strict Mode
 
