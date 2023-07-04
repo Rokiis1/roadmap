@@ -84,7 +84,7 @@ Let's go through the code snippet and explain each line:
 
 ### Code example
 
-[Demo](https://codesandbox.io/s/html-basics-647tsc)
+[Demo](https://codesandbox.io/s/onepage-forked-3fvgcr?file=/index.html)
 
 ### Resources
 
