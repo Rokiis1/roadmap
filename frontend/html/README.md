@@ -84,7 +84,7 @@ Let's go through the code snippet and explain each line:
 
 ### Code example
 
-[Demo](https://codesandbox.io/s/onepage-forked-3fvgcr?file=/index.html)
+[Demo](https://codesandbox.io/s/html-basics-647tsc)
 
 ### Resources
 
@@ -107,13 +107,13 @@ Semantic HTML refers to the use of HTML elements that carry meaning and convey t
 
 Using semantic HTML elements not only improves the structure and readability of your code but also helps search engines understand the content better.
 
-### Code example
-
-- [Sematic html demo](https://codesandbox.io/s/html-template-demo-25j2t9)
-
 ### Layout Examples
 
 ![Example template](./images/exampleTemplate.png)
+
+### Code example
+
+- [Sematic html demo](https://codesandbox.io/s/onepage-forked-3fvgcr?file=/index.html)
 
 ### HTML tags
 
