@@ -100,8 +100,8 @@ Semantic HTML refers to the use of HTML elements that carry meaning and convey t
 - `<header>`: Represents the introductory content or a group of introductory content in a document.
 - `<nav>`: Defines a section containing navigation links.
 - `<main>`: Represents the main content of the document.
-- `<article>`: Represents a self-contained composition in a document, such as a blog post or a news article.
 - `<section>`: Defines a section in a document.
+- `<article>`: Represents a self-contained composition in a document, such as a blog post or a news article.
 - `<aside>`: Represents content that is tangentially related to the content around it.
 - `<footer>`: Defines the footer of a document or a section.
 
