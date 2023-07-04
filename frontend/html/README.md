@@ -2,12 +2,19 @@
 
 - [HTML](#html)
     - [Basic HTML](#basichtml)
-      - [HTMl example](#htmlExample)
+      - [HTML example](#htmlExample)
       - [Explanation](#explanation)
     - [Semantic HTML](#semanticHtml)
       - [Introduction to Semantic HTML](#introSemHtml)
       - [HTML tags](#tags)
       - [Layout Examples](#layoutExamples)
+    - [HTML Tables](#html-tables)
+      - [Basic Structure](#basic-structure)
+      - [Table Headers](#table-headers)
+      - [Table Data](#table-data)
+      - [Table Caption](#table-caption)
+      - [Spanning Rows or Columns](#rows-or-columns)
+      - [Styling Tables](#styling-tables)
     - [Forms and Validation](#forms)
       - [Introduction to HTML Forms](#introductionToHtmlForms)
       - [Form Elements](#formElements)
@@ -29,7 +36,7 @@ HTML, which stands for HyperText Markup Language, is the standard markup languag
 
 ## Basic HTML
 
-### HTMl example
+### HTML example
 
 ```html
 <!DOCTYPE html>
@@ -137,6 +144,112 @@ Using semantic HTML elements not only improves the structure and readability of 
 - [(Article)How To Write Semantic HTML](https://hackernoon.com/how-to-write-semantic-html-dkq3ulo)
 - [(Article)HTML Best Practices – How to Build a Better HTML-Based Website](https://www.freecodecamp.org/news/html-best-practices/)
 - [(Article)Semantic HTML: What It Is and How It Improves Your Site](https://blog.hubspot.com/website/semantic-html)
+
+## Basic Structure
+
+To create an HTML table, you need to use the `<table>` element as the container. The content of the table is defined using `<tr>` (table row) elements for each row, and `<td>` (table data) elements for each cell within a row.
+
+```html
+<table>
+  <tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+  </tr>
+  <tr>
+    <td>Cell 3</td>
+    <td>Cell 4</td>
+  </tr>
+</table>
+```
+
+### Table Headers
+
+Tables often include a header row to label the columns or provide additional information about the data. HTML provides the `<th>` element specifically for table headers. It functions similarly to `<td>`, but it conveys that the content is a header.
+
+```html
+<table>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+  </tr>
+  <tr>
+    <td>Cell 3</td>
+    <td>Cell 4</td>
+  </tr>
+</table>
+```
+
+### Table Data
+
+As shown in the examples above, you can use the `<td>` element to define the data cells within the table rows. These cells contain the actual content or data that you want to display.
+
+```html
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td>John Doe</td>
+    <td>25</td>
+    <td><a href="mailto:johndoe@example.com">johndoe@example.com</a></td>
+  </tr>
+  <tr>
+    <td>Jane Smith</td>
+    <td>30</td>
+    <td><a href="mailto:janesmith@example.com">janesmith@example.com</a></td>
+  </tr>
+</table>
+```
+
+### Table Caption
+
+To provide a descriptive caption for your table, you can use the `<caption>` element. This element should be placed immediately after the opening `<table>` tag.
+
+```html
+<table>
+  <caption>Sample Table</caption>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Cell 1</td>
+    <td>Cell 2</td>
+  </tr>
+</table>
+```
+
+### Spanning Rows or Columns
+
+Sometimes, you may need to merge or span multiple rows or columns. This can be achieved using the `rowspan` and `colspan` attributes on the respective `<td>` or `<th>` elements.
+
+```html
+<table>
+  <tr>
+    <th>Item</th>
+    <th colspan="2">Details</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Item 1</td>
+    <td>Color</td>
+    <td>Red</td>
+  </tr>
+  <tr>
+    <td>Size</td>
+    <td>Medium</td>
+  </tr>
+</table>
+```
+
+### Styling Tables
+
+[Styled Table example](https://codesandbox.io/s/table-yx5c4m)
 
 ## Forms and Validation
 
