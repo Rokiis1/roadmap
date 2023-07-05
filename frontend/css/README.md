@@ -605,7 +605,7 @@ Explanation of how the position property and `z-index` work together:
 #### Code example
 
 - [Float](https://codesandbox.io/s/float-j56g3x?file=/index.html)
-- [Fixed possition](#https://codesandbox.io/s/fixedposistion-rm9xr6)
+- [Fixed possition](https://codesandbox.io/s/fixedposistion-rm9xr6)
 - [Relative and Absolute position](https://codesandbox.io/s/relative-and-absolute-position-m6226x)
 - [z-index](https://codesandbox.io/s/vigorous-smoke-wqrz6c?file=/index.html)
 
