@@ -7,6 +7,7 @@
     - [Semantic HTML](#semanticHtml)
       - [Introduction to Semantic HTML](#introSemHtml)
       - [HTML tags](#tags)
+        - [Image tags](#image-tags)
       - [Layout Examples](#layoutExamples)
     - [HTML Tables](#html-tables)
       - [Basic Structure](#basic-structure)
@@ -117,7 +118,14 @@ Using semantic HTML elements not only improves the structure and readability of 
 
 ### HTML tags
 
-#### image tags
+#### Image tags
+
+```
+<figure>
+  <img src="image.jpg" alt="image" >
+  <figcaption>image</figcaption>
+</figure>
+```
 
 ```
 <picture>
@@ -129,12 +137,9 @@ Using semantic HTML elements not only improves the structure and readability of 
 
 ```
 
-```
-<figure>
-  <img src="image.jpg" alt="image" >
-  <figcaption>image</figcaption>
-</figure>
-```
+#### Code example
+
+- [Image](https://codesandbox.io/s/image-wcgdcp?file=/index.html)
 
 ## Resources
 
@@ -248,6 +253,8 @@ Sometimes, you may need to merge or span multiple rows or columns. This can be a
 ```
 
 ### Styling Tables
+
+### Code example
 
 [Styled Table example](https://codesandbox.io/s/table-yx5c4m)
 

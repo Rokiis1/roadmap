@@ -14,19 +14,13 @@
           - [Inline selector](#inline-selector)
           - [Descendant Selector](#descendant-selector)
           - [Universal Selector](#universal-selector)
-        - [(Optional)Advance Selectors](#optional-advance-selectors)
-          - [Child Selector](#child-selecotr)
-          - [Adjacent Sibling Selector](#adjacent-sibling-selector)
-          - [General Sibling Selector](#general-sibling-selector)
-          - [Attribute Selector](#attribute-selector)
-          - [Pseudo-classes](#pseudo-classes)
-        - [(Optional)More selectors](#optional-selectors)
     - [CSS Properties](#css-properties)
       - [CSS Units](#css-units)
         - [Pixels (px):](#pixels)
         - [Percentages (%):](#percentages)
         - [EM:](#em)
         - [REM:](#rem)
+        - [Viewport units (vw, vh)](#viewport-units)
       - [Width And Length](#width-and-length)
         - [<html> vs <body>](#html-vs-body)
         - [How backgorund-color works on html and body tags](#how-backgorund-color-works-on-html-and-body-tags)
@@ -67,6 +61,14 @@
       - [Real-Life Examples](#real-life-examples)
       - [Mobile-First Approach](#mobile-first-approach)
       - [Hide/Show Elements](#hide-show-elements)
+    - [(Optional)Others selectors](#optional-others-selectors)
+        - [Advance Selectors](#advance-selectors)
+          - [Child Selector](#child-selecotr)
+          - [Adjacent Sibling Selector](#adjacent-sibling-selector)
+          - [General Sibling Selector](#general-sibling-selector)
+          - [Attribute Selector](#attribute-selector)
+          - [Pseudo-classes](#pseudo-classes)
+        - [More selectors](#more-selectors)
 
 # CSS
 
@@ -232,154 +234,6 @@ p {
   property: value;
 }
 ```
-
-### (Optional)Advance Selectors
-
-#### Child Selector
-
-- Child Selector: Selects elements that are direct children of another element. It uses a greater than sign (`>`). For example, `article > p` selects all `<p>` elements that are direct children of a `<article>` element.
-
-```css
-article > p {
-  /* CSS properties */
-  property: value;
-}
-```
-```html
-<article>
-  <p>This paragraph will be selected</p>
-  <div>
-    <p>This paragraph will NOT be selected</p>
-  </div>
-</article>
-```
-#### Adjacent Sibling Selector
-
-- Adjacent Sibling Selector: Selects an element that immediately follows another element. It uses a plus sign (`+`). For example, `h2 + p` selects the `<p>` element that immediately follows an `<h2>` element.
-
-```css
-h2 + p {
-  /* CSS properties */
-  property: value;
-}
-```
-```html
-<h2>Title</h2>
-<p>This paragraph will be selected</p>
-<p>This paragraph will NOT be selected</p>
-<h2>Another Title</h2>
-<p>This paragraph will be selected</p>
-```
-#### General Sibling Selector
-
-- General Sibling Selector: Selects elements that follow another element. It uses a tilde (`~`). For example, `h2 ~ p` selects all `<p>` elements that follow an `<h2>` element.
-
-```css
-h2 ~ p {
-  /* CSS properties */
-  property: value;
-}
-```
-```html
-<h2>Title</h2>
-<p>This paragraph will be selected</p>
-<p>This paragraph will also be selected</p>
-<div>
-  <p>This paragraph will be selected</p>
-</div>
-<h2>Another Title</h2>
-<p>This paragraph will be selected</p>
-```
-#### Attribute Selector
-
-- Attribute Selector:  Selects elements based on their attribute values. It uses square brackets (`[]`). For example, `[type="text"]` selects all elements with `type="text"` attribute.
-
-```html
-  <a href="https://example.com">This is a link</a>
-  <input type="text" placeholder="Enter your name" />
-  <img src="image.jpg" alt="An image" />
-```
-```css
-a[href="https://example.com"] {
-  /* CSS properties */
-  property: value;
-}
-
-input[type="text"] {
-  /* CSS properties */
-  property: value;
-}
-
-img[alt="An image"] {
-  /* CSS properties */
-  property: value;
-}
-```
-#### Pseudo-classes
-
-- Pseudo-classes: Selects elements based on a specific state or condition.
-
-```css
-/// :hover - selects an element when the mouse pointer is over it:
-button:hover {
-  background-color: yellow;
-}
-
-/// :focus - selects an element when it has keyboard focus:
-input:focus {
-  border-color: blue;
-}
-
-/// :first-child - selects the first child element of its parent:
-ul li:first-child {
-  font-weight: bold;
-}
-
-/// :nth-child() - selects elements based on their position within their parent:
-ul li:nth-child(odd) {
-  background-color: lightgray;
-}
-```
-
-### (Optional)More selectors
-
-1. **:hover**: Applies styles when an element is being hovered over by the mouse pointer.
-
-2. **:focus**: Applies styles when an element has received focus, such as when it is clicked or selected by tab navigation.
-
-3. **:active**: Applies styles when an element is being activated, such as when it is clicked and held down.
-
-4. **:disabled**: Applies styles to disabled elements, preventing user interaction.
-
-5. **:enabled**: Applies styles to enabled elements, allowing user interaction.
-
-6. **:checked**: Applies styles to checked radio buttons or checkboxes.
-
-7. **:required**: Applies styles to required form fields.
-
-8. **:optional**: Applies styles to optional form fields.
-
-9. **:valid**: Applies styles to form elements with valid input.
-
-10. **:invalid**: Applies styles to form elements with invalid input.
-
-11. **:first-child**: Applies styles to the first child element of its parent.
-
-12. **:last-child**: Applies styles to the last child element of its parent.
-
-13. **:nth-child()**: Selects elements based on their position in the list of siblings. It takes a formula as an argument, such as `:nth-child(2n)` to select every even child.
-
-14. **:nth-of-type()**: Selects elements based on their position among elements of the same type. It also takes a formula as an argument.
-
-15. **:nth-last-child()**: Selects elements based on their position among the list of siblings, counting from the last child.
-
-16. **:nth-last-of-type()**: Selects elements based on their position among elements of the same type, counting from the last element.
-
-17. **:not()**: Selects elements that do not match a specific selector. For example, `:not(.my-class)` selects elements that do not have the class "my-class".
-
-18. **:root**: The `:root` selector represents the root element of the document, which is typically the `<html> `element. It is often used to define global CSS variables that can be accessed and reused throughout the stylesheet.
-
-19. **::before and ::after**: The `:before` and `:after` selectors are used to insert content before or after an element. They are known as pseudo-elements because they create virtual elements that can be styled separately from the actual content of an element.
 
 ## CSS Properties
 
@@ -611,7 +465,7 @@ Explanation of how the position property and `z-index` work together:
 
 ### Flexbox
 
-Flexbox is a CSS layout module that provides an efficient way to arrange and align elements within a container. It offers a flexible and responsive design approach, making it ideal for building user interfaces. This documentation will cover the basics of Flexbox and provide code examples to help you get started.
+Flexbox is a CSS layout module that provides an efficient way to arrange and align elements within a container. It offers a flexible and responsive design approach, making it ideal for building user interfaces.
 
 #### Getting Started
 
@@ -664,7 +518,7 @@ The `flex-direction` property controls the direction in which flex items are lai
 
 ```css
 .container {
-  flex-direction: row;
+  flex-direction: value;
 }
 ```
 #### Justify Content
@@ -696,7 +550,7 @@ By default, flex items are laid out on a single line. However, if the container'
 
 ```css
 .container {
-  flex-wrap: wrap;
+  flex-wrap: value;
 }
 ```
 #### Additional Resources
@@ -707,15 +561,11 @@ By default, flex items are laid out on a single line. However, if the container'
 
 #### Getting Started
 
-In this lesson, we will learn about CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
-
-To follow along with the examples and exercises in this lesson, make sure you have a basic understanding of HTML and CSS.
+We will learn about CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
 
 #### Grid Container
 
 The grid container is the parent element that holds all the grid items. By applying the `display: grid` property to an element, we can create a grid container. The grid container allows us to define the overall layout of the grid, including the number of rows and columns.
-
-To create a grid container, use the following CSS:
 
 ```css
 .container {
@@ -725,25 +575,33 @@ To create a grid container, use the following CSS:
 
 #### Grid Items
 
-Grid items are the children of the grid container. These are the individual elements that we want to position within the grid. We can apply specific rules to each grid item to control its placement, size, and order within the grid.
-
-To create a grid item, use the following CSS:
+Grid items are the child elements of the grid container. They are automatically placed onto the grid based on their order in the HTML markup. You can control their placement using properties like `grid-row` and `grid-column`. Here's an example:
 
 ```css
-.item {
-  /* Define the item's size and position */
+.grid-item {
+  grid-row: 1 / 3;
+  grid-column: 2 / 4;
 }
 ```
+
+#### Grid Template
+
 The grid template is used to define the structure of the grid, specifying the number and size of the rows and columns. We can use keywords such as `auto`, `fr`, and specific lengths to define the dimensions of the grid tracks.
 
 To define a grid template, use the `grid-template-rows` and `grid-template-columns` properties:
 
 ```css
 .container {
-  grid-template-rows: 100px 200px; /* Two rows with specific heights */
-  grid-template-columns: 1fr 2fr; /* Two columns with a ratio of 1:2 */
+  grid-template-rows: value; /* Two rows with specific heights */
+  grid-template-columns: value; /* Two columns with a ratio of for example 1:2 */
 }
 ```
+#### Code examples
+
+- [Code examples(Grid Container)](https://codesandbox.io/s/grid-container-tkhq72?file=/index.html)
+- [Code examples(Grid Items)](https://codesandbox.io/s/grid-items-phxrk2?file=/index.html)
+- [Code examples(Grid Template)](https://codesandbox.io/s/grid-template-g2yv4v?file=/index.html)
+
 #### Justify Content
 
 The `justify-content` property is used to align the grid items along the horizontal axis (row direction) within the grid container. It controls the distribution of space between and around the grid items.
@@ -752,7 +610,7 @@ To justify the content within the grid container, use the following CSS:
 
 ```css
 .container {
-  justify-content: center; /* Align items to the center */
+  justify-content: value; /* Align items to the center */
 }
 ```
 #### Align Items 
@@ -763,11 +621,11 @@ To align the items within the grid container, use the following CSS:
 
 ```css
 .container {
-  align-items: center; /* Align items to the center */
+  align-items: value; /* Align items to the center */
 }
 ```
 
-#### Additional Resources
+#### Resources
 
 - [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 
