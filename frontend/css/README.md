@@ -27,7 +27,7 @@
         - [Example](#example-width-and-length)
       - [CSS Font](#font)
         - [Font sample](#font-sample)
-      - [(Optional)CSS Color Formats](#css-color-formats)
+      - [(Optional)CSS Color Formats](#optional-css-color-formats)
         - [Hexadecimal Colors](#hexadecimal)
         - [Hexadecimal Colors with Transparency](#hexadecimal-transparency)
         - [RGB Colors](#rgb)
@@ -63,11 +63,11 @@
       - [Hide/Show Elements](#hide-show-elements)
     - [(Optional)Others selectors](#optional-others-selectors)
         - [Advance Selectors](#advance-selectors)
+          - [Pseudo-classes](#pseudo-classes)
           - [Child Selector](#child-selecotr)
           - [Adjacent Sibling Selector](#adjacent-sibling-selector)
           - [General Sibling Selector](#general-sibling-selector)
           - [Attribute Selector](#attribute-selector)
-          - [Pseudo-classes](#pseudo-classes)
         - [More selectors](#more-selectors)
 
 # CSS
@@ -694,3 +694,164 @@ Media queries can also be used to hide or show elements based on screen size.
   }
 }
 ```
+
+## (Optional)Advance Selectors
+
+### Advance Selectors
+
+#### Pseudo-classes
+
+Pseudo-classes: Selects elements based on a specific state or condition.
+
+```css
+/*:hover - selects an element when the mouse pointer is over it: */
+button:hover {
+  background-color: yellow;
+}
+```
+
+```css
+/* :focus - selects an element when it has keyboard focus: */
+input:focus {
+  border-color: blue;
+}
+```
+
+```css
+/* :first-child - selects the first child element of its parent: */
+ul li:first-child {
+  font-weight: bold;
+}
+```
+
+```css
+/* :nth-child() - selects elements based on their position within their parent: */
+ul li:nth-child(odd) {
+  background-color: lightgray;
+}
+```
+
+#### Child Selector
+
+Child Selector: Selects elements that are direct children of another element. It uses a greater than sign (>). For example, `article > p` selects all `<p>` elements that are direct children of a `<article>` element.
+
+```css
+article > p {
+  /* CSS properties */
+  property: value;
+}
+```
+
+```html
+<article>
+  <p>This paragraph will be selected</p>
+  <div>
+    <p>This paragraph will NOT be selected</p>
+  </div>
+</article>
+```
+
+#### Adjacent Sibling Selector
+
+Adjacent Sibling Selector: Selects an element that immediately follows another element. It uses a plus sign (+). For example, `h2 + p` selects the `<p>` element that immediately follows an `<h2>` element.
+
+
+```css
+h2 + p {
+  /* CSS properties */
+  property: value;
+}
+```
+
+```html
+<h2>Title</h2>
+<p>This paragraph will be selected</p>
+<p>This paragraph will NOT be selected</p>
+<h2>Another Title</h2>
+<p>This paragraph will be selected</p>
+```
+
+#### General Sibling Selector
+
+General Sibling Selector: Selects elements that follow another element. It uses a tilde (~). For example, `h2 ~ p` selects all `<p>` elements that follow an `<h2>` element.
+
+```css
+h2 ~ p {
+  /* CSS properties */
+  property: value;
+}
+```
+
+```html
+<h2>Title</h2>
+<p>This paragraph will be selected</p>
+<p>This paragraph will also be selected</p>
+<div>
+  <p>This paragraph will be selected</p>
+</div>
+<h2>Another Title</h2>
+<p>This paragraph will be selected</p>
+```
+
+#### Attribute Selector
+
+Attribute Selector: Selects elements based on their attribute values. It uses square brackets ([]). For example, `[type="text"]` selects all elements with `type="text"` attribute.
+
+```html
+<a href="https://example.com">This is a link</a>
+<input type="text" placeholder="Enter your name" />
+<img src="image.jpg" alt="An image" />
+```
+
+```css
+a[href="https://example.com"] {
+  /* CSS properties */
+  property: value;
+}
+```
+
+```css
+input[type="text"] {
+  /* CSS properties */
+  property: value;
+}
+```
+
+```css
+img[alt="An image"] {
+  /* CSS properties */
+  property: value;
+}
+```
+
+### More selectors
+
+1. `:active`: Applies styles when an element is being activated, such as when it is clicked and held down.
+
+2. `:disabled`: Applies styles to disabled elements, preventing user interaction.
+
+3. `:enabled`: Applies styles to enabled elements, allowing user interaction.
+
+4. `:checked`: Applies styles to checked radio buttons or checkboxes.
+
+5. `:required`: Applies styles to required form fields.
+
+6. `:optional`: Applies styles to optional form fields.
+
+7. `:valid`: Applies styles to form elements with valid input.
+
+8. `:invalid`: Applies styles to form elements with invalid input.
+
+9. `:last-child`: Applies styles to the last child element of its parent.
+
+10. `:nth-of-type()`: Selects elements based on their position among elements of the same type. It also takes a formula as an argument.
+
+11. `:nth-last-child()`: Selects elements based on their position among the list of siblings, counting from the last child.
+
+12. `:nth-last-of-type()`: Selects elements based on their position among elements of the same type, counting from the last element.
+
+13. `:not()`: Selects elements that do not match a specific selector. For example, `:not(.my-class)` selects elements that do not have the class "my-class".
+
+14. `:root`: The :root selector represents the root element of the document, which is typically the `<html>` element. It is often used to define global CSS variables that can be accessed and reused throughout the stylesheet.
+
+15. `::before` and `::after`: The `:before` and :`after` selectors are used to insert content before or after an element. They are known as pseudo-elements because they create virtual elements that can be styled separately from the actual content of an element.
