@@ -1,6 +1,7 @@
 # Resource:
 
-- [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [(Article)CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [(Video)Grid crash course](https://www.youtube.com/watch?v=rg7Fvvl3taU&t=1s)
 
 # Task examples:
 

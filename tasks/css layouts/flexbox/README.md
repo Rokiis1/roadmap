@@ -4,7 +4,8 @@
 
 # Resource:
 
-- [CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [(Article)CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [(Video)Flexbox crash course](https://www.youtube.com/watch?v=u044iM9xsWU)
 
 # Task examples:
 

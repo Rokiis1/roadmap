@@ -1,74 +1,71 @@
 # Table of Contents
 
 - [CSS](#css)
-    - [Introduction to CSS](#introduction)
-    - [CSS Syntax](#syntax)
-    - [BEM architecture](#bem-architecture)
-      - [Why should you use BEM?](#why-should-you-use-bem)
-    - [Selectors](#selectors)
-        - [Basic Selectors](#basic-selectors)
-          - [Element Selector](#element-selector)
-          - [Class Selector](#class-selector)
-          - [ID Selector](#id-selector)
-          - [Universal Selector](#universal-selector)
-          - [Inline selector](#inline-selector)
-          - [Descendant Selector](#descendant-selector)
-          - [Universal Selector](#universal-selector)
-    - [CSS Properties](#css-properties)
-      - [CSS Units](#css-units)
-        - [Pixels (px):](#pixels)
-        - [Percentages (%):](#percentages)
-        - [EM:](#em)
-        - [REM:](#rem)
-        - [Viewport units (vw, vh)](#viewport-units)
-      - [Width And Length](#width-and-length)
-        - [<html> vs <body>](#html-vs-body)
-        - [How backgorund-color works on html and body tags](#how-backgorund-color-works-on-html-and-body-tags)
-        - [Example](#example-width-and-length)
-      - [CSS Font](#font)
-        - [Font sample](#font-sample)
-      - [(Optional)CSS Color Formats](#optional-css-color-formats)
-        - [Hexadecimal Colors](#hexadecimal)
-        - [Hexadecimal Colors with Transparency](#hexadecimal-transparency)
-        - [RGB Colors](#rgb)
-        - [RGBA Colors](#rgba)
-        - [HSL Colors](#hsl)
-        - [Example](#css-color-formats-examples)
-    - [CSS Layout](#css-layouts)
-      - [Box Model](#box-model)
-      - [Floats](#floats)
-        - [Example](#example-floats)
-      - [Positioning and Z-index](#positioning-and-zindex)
-      - [Flexbox](#flexbox)
-        - [Getting Started](#flex-box-getting-started)
-        - [Flex Container](#flex-container)
-        - [Flex Items](#flex-items)
-        - [Flex Direction](#flex-directions)
-        - [Justify Content](#justify-content)
-        - [Align Items](#align-items)
-        - [Flex Wrap](#flex-wrap)
-      - [Grid](#grid)
-        - [Getting Started](#grid-box-getting-started)
-        - [Grid Container](#grid-container)
-        - [Grid Items](#grid-items)
-        - [Grid Template](#grid-templates)
-        - [Justify Content](#grid-justify-content)
-        - [Align Items](#grid-align-items)
-    - [Media Queries](#media-queries)
-      - [Introduction](#introduction)
-      - [How do media queries work?](#how-do-media-queries-work)
-      - [Why should you use media queries?](#why-should-you-use-media-queries)
-      - [Real-Life Examples](#real-life-examples)
-      - [Mobile-First Approach](#mobile-first-approach)
-      - [Hide/Show Elements](#hide-show-elements)
-    - [(Optional)Others selectors](#optional-others-selectors)
-        - [Advance Selectors](#advance-selectors)
-          - [Pseudo-classes](#pseudo-classes)
-          - [Child Selector](#child-selecotr)
-          - [Adjacent Sibling Selector](#adjacent-sibling-selector)
-          - [General Sibling Selector](#general-sibling-selector)
-          - [Attribute Selector](#attribute-selector)
-        - [More selectors](#more-selectors)
+  - [Introduction to CSS](#introduction)
+  - [CSS Syntax](#syntax)
+  - [BEM architecture](#bem-architecture)
+    - [Why should you use BEM?](#why-should-you-use-bem)
+- [Selectors](#selectors)
+  - [Basic Selectors](#basic-selectors)
+    - [Element Selector](#element-selector)
+    - [Class Selector](#class-selector)
+    - [ID Selector](#id-selector)
+    - [Universal Selector](#universal-selector)
+    - [Inline selector](#inline-selector)
+    - [Descendant Selector](#descendant-selector)
+    - [Universal Selector](#universal-selector)
+- [CSS Properties](#css-properties)
+  - [CSS Units](#css-units)
+    - [Pixels (px):](#pixels)
+    - [Percentages (%):](#percentages)
+    - [EM:](#em)
+    - [REM:](#rem)
+    - [Viewport units (vw, vh)](#viewport-units)
+- [Width And Length](#width-and-length)
+  - [<html> vs <body>](#html-vs-body)
+  - [How backgorund-color works on html and body tags](#how-backgorund-color-works-on-html-and-body-tags)
+- [CSS Font](#font)
+  - [Font sample](#font-sample)
+- [(Optional)CSS Color Formats](#optional-css-color-formats)
+  - [Hexadecimal Colors](#hexadecimal)
+  - [Hexadecimal Colors with Transparency](#hexadecimal-transparency)
+  - [RGB Colors](#rgb)
+  - [RGBA Colors](#rgba)
+  - [HSL Colors](#hsl)
+- [CSS Layout](#css-layouts)
+  - [Box Model](#box-model)
+  - [Floats](#floats)
+  - [Position property](#position-property)
+  - [Positioning and Z-index](#positioning-and-zindex)
+  - [Flexbox](#flexbox)
+    - [Getting Started](#flex-box-getting-started)
+    - [Flex Container](#flex-container)
+    - [Flex Items](#flex-items)
+    - [Flex Direction](#flex-directions)
+    - [Justify Content](#justify-content)
+    - [Align Items](#align-items)
+    - [Flex Wrap](#flex-wrap)
+  - [Grid](#grid)
+    - [Getting Started](#grid-box-getting-started)
+    - [Grid Container](#grid-container)
+    - [Grid Items](#grid-items)
+    - [Grid Template](#grid-templates)
+    - [Justify Content](#grid-justify-content)
+    - [Align Items](#grid-align-items)
+- [Media Queries](#media-queries)
+  - [Introduction](#introduction)
+  - [How do media queries work?](#how-do-media-queries-work)
+  - [Why should you use media queries?](#why-should-you-use-media-queries)
+  - [Mobile-First Approach](#mobile-first-approach)
+  - [Hide/Show Elements](#hide-show-elements)
+- [(Optional)Others selectors](#optional-others-selectors)
+    - [Advance Selectors](#advance-selectors)
+      - [Pseudo-classes](#pseudo-classes)
+      - [Child Selector](#child-selecotr)
+      - [Adjacent Sibling Selector](#adjacent-sibling-selector)
+      - [General Sibling Selector](#general-sibling-selector)
+      - [Attribute Selector](#attribute-selector)
+      - [More selectors](#more-selectors)
 
 # CSS
 
@@ -131,7 +128,7 @@ Explain the BEM (Block, Element, Modifier) architecture and how it is utilized i
 }
 ```
 
-## Why should you use BEM?
+### Why should you use BEM?
 
 - Modularity: BEM encourages a modular approach to CSS, making it easier to manage and scale your stylesheets. The block, element, and modifier structure promotes code reuse and separation of concerns.
 
@@ -141,13 +138,17 @@ Explain the BEM (Block, Element, Modifier) architecture and how it is utilized i
 
 - Scalability: BEM is particularly useful for large-scale projects where multiple developers are working together. Its naming conventions and modular structure make it easier to manage and extend the codebase without introducing conflicts or unintended side effects.
 
-## Selectors
+### Resource
+
+- [(Article)BEM methodology](https://en.bem.info/methodology/quick-start/)
+
+# Selectors
 
 Selectors are used to target specific HTML elements to apply styles. Here are some commonly used selectors:
 
-### Basic Selectors
+## Basic Selectors
 
-#### Element Selector
+### Element Selector
 
 - Element Selector: Selects elements based on their HTML tag name. For example, `p` selects all `<p>` elements.
 
@@ -161,7 +162,7 @@ p {
   /* more declarations... */
 }
 ```
-#### Class Selector
+### Class Selector
 
 - Class Selector: Selects elements based on their class attribute. It uses a dot (`.`) followed by the class name. For example, `.my-class` selects all elements with the class "my-class".
 
@@ -175,7 +176,7 @@ p {
   /* more declarations... */
 }
 ```
-#### ID Selector
+### ID Selector
 
 - ID Selector: Selects a single element based on its ID attribute. It uses a hash (`#`) followed by the ID name. For example, `#my-id` selects the element with the ID "my-id".
 
@@ -191,14 +192,14 @@ p {
 }
 
 ```
-#### Inline selector
+### Inline selector
 
 - Inline selector: In HTML are defined directly within the HTML elements using the `style` attribute. Here's an example of how inline styles look in HTML:
 
 ```html
 <div style="property: value;">This is a box</div>
 ```
-#### Descendant Selector
+### Descendant Selector
 
 - Descendant Selector: Targets elements that are descendants of another element.
 
@@ -224,7 +225,7 @@ p {
 }
 ```
 
-#### Universal Selector
+### Universal Selector
 
 - Universal Selector: Selects all elements on the page. It uses an asterisk (`*`). For example, `*` selects all elements.
 
@@ -235,7 +236,7 @@ p {
 }
 ```
 
-## CSS Properties
+# CSS Properties
 
 CSS properties define the visual appearance of HTML elements. Some commonly used properties include:
 
@@ -253,53 +254,51 @@ CSS properties define the visual appearance of HTML elements. Some commonly used
 - `background-color`: Specifies the background color.
 - `display`: Specifies how an element should be displayed (e.g., block, inline, inline-block).
 
-### CSS Units
+## CSS Units
 
 CSS supports various units for specifying measurements. Some common units include pixels (px), percentages (%), em, rem, and viewport units (vw, vh). Understanding and using the appropriate units is important for creating responsive and scalable designs.
 
-#### Pixels (px):
+### Pixels (px):
 
 - When you need precise control over element sizes or positioning.
 - When working with fixed-width elements that should maintain a consistent size across different devices.
 - Example: Setting the width of a container to 300 pixels: `.container { width: 300px; }`
 
-#### Percentages (%):
+### Percentages (%):
 
 - When you want elements to scale proportionally based on the size of their parent container.
 - When creating fluid layouts that adapt to different screen sizes.
 - Example: Setting the width of a child element to 50% of its parent: `.child { width: 50%; }`
 
-#### EM:
+### EM:
 
 - When you want to define sizes relative to the font size of the parent element.
 - Useful for creating scalable typography.
 - Example: Setting the font size of a paragraph to 1.2 times the font size of its parent: `.parent { font-size: 16px; } .child { font-size: 1.2em; }`
 
-#### REM:
+### REM:
 
 - Similar to EM, but relative to the root (html) element's font size.
 - Useful for creating scalable layouts and consistent spacing.
 - Example: Setting the margin of an element to 1.5 times the root font size: `.element { margin: 1.5rem; }`
 
-#### Viewport units (vw, vh):
+### Viewport units (vw, vh):
 
 - When you want to size elements relative to the viewport's width or height.
 - Useful for creating responsive designs that adapt to different screen sizes.
 - Example: Setting the height of an element to 50% of the viewport height: `.element { height: 50vh; }`
 
-### Width And Length
+# Width And Length
 
-#### `<html>` vs `<body>`
+## `<html>` vs `<body>`
 
 - In HTML, the `<html>` tag is the root element of the document, encapsulating the entire content. It represents the HTML document as a whole. This tag is usually placed at the beginning and end of an HTML file.
 
 - The `<body>` tag, on the other hand, represents the main content of the HTML document. It contains all the visible elements that users see when they visit a web page. The `<body>` tag is nested inside the `<html>` tag and typically follows the `<head>` tag, which contains meta information and scripts.
 
-#### How backgorund-color works on html and body tags
+## How backgorund-color works on html and body tags
 
 -  By default, the background color set on the `<html>` tag will apply to the entire page, including areas where there is no content. This means that the background color will extend beyond the visible content of the page. However, when you set the background color on the `<body>` tag, it will only apply to the area containing the actual content of the page. The background color will not extend beyond the content area.
-
-#### Example
 
 ### CSS Font
 
@@ -410,7 +409,7 @@ HSL colors offer a more intuitive way to manipulate colors, allowing you to adju
 
 [Example](https://codesandbox.io/s/kind-feather-wjju44?file=/index.html)
 
-## CSS Layout
+# CSS Layout
 
 CSS offers different techniques for creating layouts. Some commonly used layout methods include:
 
@@ -419,23 +418,28 @@ CSS offers different techniques for creating layouts. Some commonly used layout 
 - Flexbox: Provides a flexible way to arrange elements in a container.
 - Grid: Enables the creation of complex grid-based layouts.
 
-### Box Model
+## Box Model
 
 The CSS box model describes the layout of elements on a web page. It consists of four components: content, `padding`, `border`, and `margin`. Understanding the box model is crucial for positioning and spacing elements correctly.
 
 ![Box model](./images/boxModel.png)
 
-#### Credits
+## Resources
 
-[Video: Learn CSS Box Model](https://www.youtube.com/watch?v=rIO5326FgPE)
+[(Video)Learn CSS Box Model](https://www.youtube.com/watch?v=rIO5326FgPE)
 
-### Floats
+## Floats
 
 - The CSS `float` property is used to position elements horizontally within their parent container. When you apply the `float` property to an element, it essentially takes it out of the normal document flow and allows other elements to flow around it.
 
-#### Examples
+## Position property:
 
-### Positioning and Z-index
+- `static` (default): Elements are rendered in their normal order and flow within the document.
+- `relative`: Elements are positioned `relative` to their normal position. You can use properties like `top`, `bottom`, `left`, or `right` to offset them from their original position.
+- `absolute`: Elements are positioned `relative` to their nearest positioned ancestor. If there is no positioned ancestor, it's positioned `relative` to the initial containing block.
+- `fixed`: Elements are positioned `relative` to the browser window and do not move even if the page is scrolled.
+
+## Positioning and Z-index
 
 - In HTML and CSS, you can use the position property to define how an element is positioned on a web page. There are several possible values for the position property, including `static` (the default), `relative`, `absolute`, and "`fixed`.
 
@@ -443,31 +447,25 @@ When you set the position property to `relative` or `absolute`, you can use the 
 
 Explanation of how the position property and `z-index` work together:
 
-#### Position property:
 
-- `static` (default): Elements are rendered in their normal order and flow within the document.
-- `relative`: Elements are positioned `relative` to their normal position. You can use properties like `top`, `bottom`, `left`, or `right` to offset them from their original position.
-- `absolute`: Elements are positioned `relative` to their nearest positioned ancestor. If there is no positioned ancestor, it's positioned `relative` to the initial containing block.
-- `fixed`: Elements are positioned `relative` to the browser window and do not move even if the page is scrolled.
-
-#### Z-index property:
+## Z-index property:
 
 - The `z-index` property is used to specify the stack order of positioned elements.
 - It takes a numeric value, where elements with a higher `z-index` value appear in front of elements with a lower value.
 - Negative values are also allowed, and elements with negative `z-index` values appear behind elements with positive values or the default stack order.
 
-#### Code example
+## Code example
 
 - [Float](https://codesandbox.io/s/float-j56g3x?file=/index.html)
 - [Fixed possition](https://codesandbox.io/s/fixedposistion-rm9xr6)
 - [Relative and Absolute position](https://codesandbox.io/s/relative-and-absolute-position-m6226x)
 - [z-index](https://codesandbox.io/s/vigorous-smoke-wqrz6c?file=/index.html)
 
-### Flexbox
+## Flexbox
 
 Flexbox is a CSS layout module that provides an efficient way to arrange and align elements within a container. It offers a flexible and responsive design approach, making it ideal for building user interfaces.
 
-#### Getting Started
+### Getting Started
 
 To use Flexbox, you need to define a flex container by setting the `display` property of the container to `flex`. This enables the container to arrange its child elements using Flexbox.
 
@@ -477,7 +475,7 @@ To use Flexbox, you need to define a flex container by setting the `display` pro
 }
 ```
 
-#### Flex Container
+### Flex Container
 
 The flex container is the parent element that holds the flex items. It defines the context in which Flexbox layout operates. Here are a few properties commonly used with flex containers:
 
@@ -486,7 +484,7 @@ The flex container is the parent element that holds the flex items. It defines t
 `align-items`: Sets the alignment of flex items along the cross axis.
 `flex-wrap`: Determines whether flex items should wrap or remain on a single line.
 
-#### Flex Items
+### Flex Items
 
 Flex items are the child elements within the flex container. They are laid out based on the properties set on the flex container. Here's an example of a flex container with three flex items:
 
@@ -507,7 +505,7 @@ Flex items are the child elements within the flex container. They are laid out b
 }
 ```
 
-#### Flex Direction
+### Flex Direction
 
 The `flex-direction` property controls the direction in which flex items are laid out. It accepts four possible values:
 
@@ -521,7 +519,7 @@ The `flex-direction` property controls the direction in which flex items are lai
   flex-direction: value;
 }
 ```
-#### Justify Content
+### Justify Content
 
 The `justify-content` property determines how flex items are aligned along the main axis of the flex container. It offers several alignment options:
 
@@ -531,7 +529,7 @@ The `justify-content` property determines how flex items are aligned along the m
 `space-between`: Flex items are evenly distributed with space between them.
 `space-around`: Flex items are evenly distributed with space around them.
 
-#### Align Items
+### Align Items
 
 The `align-items` property sets the alignment of flex items along the cross axis of the flex container. It provides the following alignment options:
 
@@ -541,7 +539,7 @@ The `align-items` property sets the alignment of flex items along the cross axis
 `baseline`: Flex items are aligned based on their baselines.
 `stretch`: Flex items are stretched to fill the container vertically.
 
-#### Flex Wrap
+### Flex Wrap
 
 By default, flex items are laid out on a single line. However, if the container's width is not sufficient, flex items can be wrapped onto multiple lines using the `flex-wrap` property. It accepts two values:
 
@@ -553,17 +551,18 @@ By default, flex items are laid out on a single line. However, if the container'
   flex-wrap: value;
 }
 ```
-#### Additional Resources
+### Resources
 
-- [CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [(Article)CSS-Tricks: A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [(Video)Flexbox crash course](https://www.youtube.com/watch?v=u044iM9xsWU)
 
-### Grid
+## Grid
 
-#### Getting Started
+### Getting Started
 
 We will learn about CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
 
-#### Grid Container
+### Grid Container
 
 The grid container is the parent element that holds all the grid items. By applying the `display: grid` property to an element, we can create a grid container. The grid container allows us to define the overall layout of the grid, including the number of rows and columns.
 
@@ -573,7 +572,7 @@ The grid container is the parent element that holds all the grid items. By apply
 }
 ```
 
-#### Grid Items
+### Grid Items
 
 Grid items are the child elements of the grid container. They are automatically placed onto the grid based on their order in the HTML markup. You can control their placement using properties like `grid-row` and `grid-column`. Here's an example:
 
@@ -584,7 +583,7 @@ Grid items are the child elements of the grid container. They are automatically 
 }
 ```
 
-#### Grid Template
+### Grid Template
 
 The grid template is used to define the structure of the grid, specifying the number and size of the rows and columns. We can use keywords such as `auto`, `fr`, and specific lengths to define the dimensions of the grid tracks.
 
@@ -596,13 +595,13 @@ To define a grid template, use the `grid-template-rows` and `grid-template-colum
   grid-template-columns: value; /* Two columns with a ratio of for example 1:2 */
 }
 ```
-#### Code examples
+### Code examples
 
 - [Code examples(Grid Container)](https://codesandbox.io/s/grid-container-tkhq72?file=/index.html)
 - [Code examples(Grid Items)](https://codesandbox.io/s/grid-items-phxrk2?file=/index.html)
 - [Code examples(Grid Template)](https://codesandbox.io/s/grid-template-g2yv4v?file=/index.html)
 
-#### Justify Content
+### Justify Content
 
 The `justify-content` property is used to align the grid items along the horizontal axis (row direction) within the grid container. It controls the distribution of space between and around the grid items.
 
@@ -613,7 +612,7 @@ To justify the content within the grid container, use the following CSS:
   justify-content: value; /* Align items to the center */
 }
 ```
-#### Align Items 
+### Align Items 
 
 The `align-items` property is used to align the grid items along the vertical axis (column direction) within the grid container. It controls the distribution of space between and around the grid items.
 
@@ -625,33 +624,30 @@ To align the items within the grid container, use the following CSS:
 }
 ```
 
-#### Resources
+### Resources
 
-- [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [(Article)CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [(Video)Grid crash course](https://www.youtube.com/watch?v=rg7Fvvl3taU)
 
-## Media Queries
+# Media Queries
 
 Media queries enable you to apply different styles based on the characteristics of the user's device or browser. They are commonly used for creating responsive designs that adapt to different screen sizes.
 
-### Introduction
+## Introduction
 
 Media queries are a powerful feature of CSS that allow you to apply different styles based on the characteristics of the device or browser window. They enable you to create responsive designs that adapt to various screen sizes, resolutions, and orientations. This README.md file provides an overview of media queries, how they work, and why you should use them in your projects.
 
-### How do media queries work?
+## How do media queries work?
 
 Media queries consist of a media type and one or more expressions that define the conditions for the styles to be applied. When a media query is encountered, the browser evaluates the conditions and determines whether or not to apply the styles within the media query block.
 
-### Why should you use media queries?
+## Why should you use media queries?
 
 1. **Responsive Web Design**: Media queries are essential for creating responsive web designs that adapt to different devices and screen sizes.
 2. **Improved User Experience**: With media queries, you can tailor your content and design based on the device's capabilities, improving readability and usability.
 3. **Future-Proofing**: Media queries allow your website to adapt and remain functional across a wide range of devices.
 
-### Real-Life Examples
-
-To illustrate the practical usage of media queries, here are two common scenarios with code examples.
-
-#### Mobile-First Approach
+## Mobile-First Approach
 
 In this approach, you design and develop your website primarily for mobile devices and then progressively enhance it for larger screens.
 
@@ -677,7 +673,7 @@ body {
 ```
 
 
-#### Hide/Show Elements
+## Hide/Show Elements
 
 Media queries can also be used to hide or show elements based on screen size.
 
@@ -695,11 +691,11 @@ Media queries can also be used to hide or show elements based on screen size.
 }
 ```
 
-## (Optional)Advance Selectors
+# (Optional)Advance Selectors
 
-### Advance Selectors
+## Advance Selectors
 
-#### Pseudo-classes
+### Pseudo-classes
 
 **Pseudo-classes**: Selects elements based on a specific state or condition.
 
@@ -731,11 +727,11 @@ ul li:nth-child(odd) {
 }
 ```
 
-#### Code example
+### Code example
 
 - [Pseudo-classes](https://codesandbox.io/s/smoosh-water-37rntk?file=/index.html)
 
-#### Child Selector
+### Child Selector
 
 **Child Selector**: Selects elements that are direct children of another element. It uses a greater than sign (>). For example, `article > p` selects all `<p>` elements that are direct children of a `<article>` element.
 
@@ -755,7 +751,7 @@ article > p {
 </article>
 ```
 
-#### Adjacent Sibling Selector
+### Adjacent Sibling Selector
 
 Adjacent Sibling Selector: Selects an element that immediately follows another element. It uses a plus sign (+). For example, `h2 + p` selects the `<p>` element that immediately follows an `<h2>` element.
 
@@ -775,7 +771,7 @@ h2 + p {
 <p>This paragraph will be selected</p>
 ```
 
-#### General Sibling Selector
+### General Sibling Selector
 
 General Sibling Selector: Selects elements that follow another element. It uses a tilde (~). For example, `h2 ~ p` selects all `<p>` elements that follow an `<h2>` element.
 
@@ -797,7 +793,7 @@ h2 ~ p {
 <p>This paragraph will be selected</p>
 ```
 
-#### Attribute Selector
+### Attribute Selector
 
 Attribute Selector: Selects elements based on their attribute values. It uses square brackets ([]). For example, `[type="text"]` selects all elements with `type="text"` attribute.
 

@@ -1,35 +1,33 @@
 # Table of Contents
 
 - [HTML](#html)
-    - [Basic HTML](#basichtml)
-      - [HTML example](#htmlExample)
-      - [Explanation](#explanation)
-    - [Semantic HTML](#semanticHtml)
-      - [Introduction to Semantic HTML](#introSemHtml)
-      - [HTML tags](#tags)
-        - [Image tags](#image-tags)
-      - [Layout Examples](#layoutExamples)
-    - [HTML Tables](#html-tables)
-      - [Basic Structure](#basic-structure)
-      - [Table Headers](#table-headers)
-      - [Table Data](#table-data)
-      - [Table Caption](#table-caption)
-      - [Spanning Rows or Columns](#rows-or-columns)
-      - [Styling Tables](#styling-tables)
-    - [Forms and Validation](#forms)
-      - [Introduction to HTML Forms](#introductionToHtmlForms)
-      - [Form Elements](#formElements)
-      - [Input Validation](#InputValidation)
-      - [Length Validation](#lengthValidation)
-      - [Regular Expression (Regex) Validation](#regex)
-      - [Semantic HTML and SEO](#semanticSeo)
-      - [Password Validation](#password)
-      - [Visual Feedback using CSS](#css)
-      - [Examples](#examples)
-    - [Best Practices](#bestPractices)
-    - [Accessibility](#accessibility)
-    - [Basics of SEO](#basicOfSeo)
-      - [Images](#images)
+  - [Basic HTML](#basic-html)
+    - [HTML file example](#html-file-example)
+    - [Explanation](#explanation)
+- [Semantic HTML](#semantic-html)
+  - [Introduction to Semantic HTML](#intro-semantic-html)
+    - [Layout Examples](#layout-examples)
+    - [Others sematic tags](#others-semantic-tags)
+      - [Image tags](#image-tags)
+- [HTML Tables](#html-tables)
+  - [Basic Structure](#basic-structure)
+  - [Table Headers](#table-headers)
+  - [Table Data](#table-data)
+  - [Table Caption](#table-caption)
+  - [Spanning Rows or Columns](#rows-or-columns)
+- [Forms and Validation](#forms)
+  - [Introduction to HTML Forms](#introduction-to-html-forms)
+  - [Form Elements](#form-elements)
+  - [Input Validation](#Input-validation)
+  - [Length Validation](#length-validation)
+  - [Regular Expression (Regex) Validation](#regex)
+  - [Semantic HTML and SEO](#semantic-seo)
+  - [Password Validation](#password)
+  - [Visual Feedback using CSS](#css-feedback)
+- [Best Practices](#best-practices)
+- [Accessibility](#accessibility)
+- [Basics of SEO](#basic-of-seo)
+  - [Images](#images)
 
 # HTML 
 
@@ -37,7 +35,7 @@ HTML, which stands for HyperText Markup Language, is the standard markup languag
 
 ## Basic HTML
 
-### HTML example
+### HTML file example
 
 ```html
 <!DOCTYPE html>
@@ -92,9 +90,9 @@ Let's go through the code snippet and explain each line:
 - [W3Schools: Learn HTML](https://www.w3schools.com/html/html_intro.asp)
 - [MDN Docs: Getting Started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
 
-## Semantic HTML
+# Semantic HTML
 
-### Introduction to Semantic HTML
+## Introduction to Semantic HTML
 
 Semantic HTML refers to the use of HTML elements that carry meaning and convey the structure and content of a web page. By using semantic tags, you provide additional context and improve accessibility for users and search engines. Here are some commonly used semantic HTML tags:
 
@@ -150,6 +148,8 @@ Using semantic HTML elements not only improves the structure and readability of 
 - [(Article)HTML Best Practices – How to Build a Better HTML-Based Website](https://www.freecodecamp.org/news/html-best-practices/)
 - [(Article)Semantic HTML: What It Is and How It Improves Your Site](https://blog.hubspot.com/website/semantic-html)
 
+# HTML Tables
+
 ## Basic Structure
 
 To create an HTML table, you need to use the `<table>` element as the container. The content of the table is defined using `<tr>` (table row) elements for each row, and `<td>` (table data) elements for each cell within a row.
@@ -167,7 +167,7 @@ To create an HTML table, you need to use the `<table>` element as the container.
 </table>
 ```
 
-### Table Headers
+## Table Headers
 
 Tables often include a header row to label the columns or provide additional information about the data. HTML provides the `<th>` element specifically for table headers. It functions similarly to `<td>`, but it conveys that the content is a header.
 
@@ -188,7 +188,7 @@ Tables often include a header row to label the columns or provide additional inf
 </table>
 ```
 
-### Table Data
+## Table Data
 
 As shown in the examples above, you can use the `<td>` element to define the data cells within the table rows. These cells contain the actual content or data that you want to display.
 
@@ -212,7 +212,7 @@ As shown in the examples above, you can use the `<td>` element to define the dat
 </table>
 ```
 
-### Table Caption
+## Table Caption
 
 To provide a descriptive caption for your table, you can use the `<caption>` element. This element should be placed immediately after the opening `<table>` tag.
 
@@ -230,7 +230,7 @@ To provide a descriptive caption for your table, you can use the `<caption>` ele
 </table>
 ```
 
-### Spanning Rows or Columns
+## Spanning Rows or Columns
 
 Sometimes, you may need to merge or span multiple rows or columns. This can be achieved using the `rowspan` and `colspan` attributes on the respective `<td>` or `<th>` elements.
 
@@ -252,19 +252,17 @@ Sometimes, you may need to merge or span multiple rows or columns. This can be a
 </table>
 ```
 
-### Styling Tables
-
-### Code example
+## Code example
 
 [Styled Table example](https://codesandbox.io/s/table-yx5c4m)
 
-## Forms and Validation
+# Forms and Validation
 
-### Introduction to HTML Forms
+## Introduction to HTML Forms
 
 HTML forms provide a way for users to interact with a website by entering and submitting data. They consist of various form elements such as text fields, checkboxes, radio buttons, dropdown lists, and buttons. Validating user input is essential to ensure data accuracy and security.
 
-### Form Elements
+## Form Elements
 
 HTML provides several form elements to collect user input. Some commonly used elements include:
 
@@ -274,7 +272,7 @@ HTML provides several form elements to collect user input. Some commonly used el
 - `<checkbox>`: Represents a checkbox element.
 - `<radio>`: Represents a radio button element.
 
-### Input Validation
+## Input Validation
 
 Input validation ensures that the data entered by users meets specified criteria. HTML offers various attributes for validation, including:
 
@@ -282,7 +280,7 @@ Input validation ensures that the data entered by users meets specified criteria
 - `pattern`: Specifies a regex pattern for input validation.
 - `min and max`: Defines the minimum and maximum values for numeric inputs.
 
-### Length Validation
+## Length Validation
 
 To validate the length of an input, you can use the minlength and maxlength attributes. 
 For example:
@@ -293,7 +291,7 @@ For example:
 
 ```
 
-### Regular Expression (Regex) Validation
+## Regular Expression (Regex) Validation
 
 Regex validation allows you to define custom patterns for validating input. The pattern attribute accepts a regex pattern to match against user input. 
 For example:
@@ -304,7 +302,7 @@ For example:
 
 ```
 
-### Semantic HTML and SEO
+## Semantic HTML and SEO
 
 When creating forms or any other content in HTML, it is important to use semantic HTML for better SEO. Semantic HTML helps search engines understand the structure and meaning of your content. Here are some tips for using semantic HTML in forms:
 
@@ -316,7 +314,7 @@ When creating forms or any other content in HTML, it is important to use semanti
 
 By using semantic HTML, you enhance the accessibility and search engine visibility of your forms, ultimately improving your website's SEO.
 
-### Password Validation
+## Password Validation
 
 Password validation is essential to ensure the strength and security of user passwords. You can use the pattern attribute with a regex pattern to enforce specific requirements for passwords. For example, to validate a password that must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one digit, you can use the following code:
 
@@ -333,27 +331,27 @@ Password validation is essential to ensure the strength and security of user pas
 
 - .{8,}: This part of the pattern specifies that the password must be at least 8 characters long. The .{8,} means that the password can have any character (except newline) repeated 8 or more times.
 
-### Visual Feedback using CSS
+## Visual Feedback using CSS
 
 You can provide visual feedback to users indicating whether their input is valid or not using CSS. Here's an example of how you can style the input fields to display a green border for valid input and a red border for invalid input:
 
-### Code example
+## Code example
 
 - [Form example](https://codesandbox.io/s/focused-monad-nwjo2q?file=/index.html)
 
-### Resources
+## Resources
 
 - [(Article)MDN Web Docs: Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) 
 - [(Article)Learn Forms by web.dev](https://web.dev/learn/forms/) 
 - [(Article)W3Schools: JavaScript Form Validation](https://web.dev/learn/forms/)
 
-## Best Practices
+# Best Practices
 
-### Resources
+## Resources
 
 - [HTML Best Practices](https://github.com/hail2u/html-best-practices)
 
-## Accessibility
+# Accessibility
 
 - `alt`: Used with the `<img>` element to provide alternative text for images.
 
@@ -375,16 +373,16 @@ You can provide visual feedback to users indicating whether their input is valid
 
 - `lang`: Specifies the language of the content within an element, assisting screen readers and other assistive technologies in presenting the content correctly.
 
-### Resources
+## Resources
 
 - [(Article)Developing for Web Accessibility by W3C WAI](https://www.w3.org/WAI/tips/developing/)
 - [(Article)Accessibility Tutorial](https://www.w3schools.com/accessibility/accessibility_role_name_value.php)
 - [(Article)A Complete Guide To Accessible Front-End Components](https://www.smashingmagazine.com/2021/03/complete-guide-accessible-front-end-components/)
 - [(Article)Accessibility for Developers by Google](https://web.dev/accessibility/)
 
-## Basics of SEO
+# Basics of SEO
 
-### Images
+## Images
 
 Here are a few cons of using JPEG, SVG, and WebP images instead of PNG for web pages:
 
@@ -398,7 +396,7 @@ Here are a few cons of using JPEG, SVG, and WebP images instead of PNG for web p
 
 - Image editing limitations: When it comes to post-processing and editing images, PNG offers more flexibility. Its lossless nature allows for easy editing and modification without any quality degradation. 
 
-### Resources
+## Resources
 
 - [(Article)Google Search Central — SEO Docs](https://developers.google.com/search/docs)
 - [(Article)SEO Guide](https://github.com/seo/guide)

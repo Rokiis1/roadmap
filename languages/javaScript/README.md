@@ -1,20 +1,20 @@
 # Table of Contents
 
 - [JavaScript](#javascript)
-    - [Explaination how the JavaScript works](#explaination-how-the-javaScript-works)
-    - [Introduction to JavaScript](#introduction-to-javascript)
-    - [ECMAScript](#ecmascript)
-    - [Node.js](#nodejs)
+  - [Explaination how the JavaScript works](#explaination-how-the-javaScript-works)
+  - [Introduction to JavaScript](#introduction-to-javascript)
+  - [ECMAScript](#ecmascript)
+  - [Node.js](#nodejs)
 - [Data Types](#data-types)
-    - [string](#string)
-    - [Undefined](#undefined)
-    - [Number](#number)
-    - [BigInt](#big-int)
-    - [Boolean](#boolean)
-    - [Null](#null)
-    - [Symbol](#symbol)    
-    - [typeof Operators](#typeof-operators)
-    - [Built-in Objects](#built-in-objects)
+  - [string](#string)
+  - [Undefined](#undefined)
+  - [Number](#number)
+  - [BigInt](#big-int)
+  - [Boolean](#boolean)
+  - [Null](#null)
+  - [Symbol](#symbol)    
+  - [typeof Operator](#typeof-operator)
+  - [Built-in Objects](#built-in-objects)
 - [Expressions and Operators](#expressions-and-operators)
   - [Assignment Operators](#assignment-operators)
   - [Comparison Operators](#comparison-operators)
@@ -25,29 +25,29 @@
   - [Comma Operators](#comma-operators)
   - [Unary Operators](#unary-operators)
 - [Type Casting in JavaScript](#type-casting-in-javascript)
-    - [Type Conversion](#type-conversion)
-    - [Coercion](#coercion)
-    - [Explicit Type Casting](#explicit-type-casting)
-    - [Implicit Type Casting](#implicit-type-casting)
+  - [Type Conversion](#type-conversion)
+  - [Coercion](#coercion)
+  - [Explicit Type Casting](#explicit-type-casting)
+  - [Implicit Type Casting](#implicit-type-casting)
 - [Equality Comparisons](#equality-comparisons)
-    - [The == Operator](#operator==)
-    - [The === Operator](#operator==)
-    - [The Object.is() Method](#object-method)
+  - [The == Operator](#operator==)
+  - [The === Operator](#operator==)
+  - [The Object.is() Method](#object-method)
 - [Loops and Iterations](#loops-and-iterations)
-    - [for Statement](#for-statement)
-    - [do...while Statement](#do-while-statement)
-    - [while Statement](#while-statement)
-    - [for...in Statement](#for-in-statement)
-    - [for...of Statement](#for-of-statement)
-    - [break / continue - labeled Statement](#break-continue-labeled-statement)
+  - [for Statement](#for-statement)
+  - [do...while Statement](#do-while-statement)
+  - [while Statement](#while-statement)
+  - [for...in Statement](#for-in-statement)
+  - [for...of Statement](#for-of-statement)
+  - [break / continue - labeled Statement](#break-continue-labeled-statement)
 - [Control Flow and Exception Handling](#control-flow-and-exception-handling)
-    - [Conditional Statements](#conditional-statements)
-      - [if...else Statement](#ifelse-statement)
-      - [Switch Statement](#switch-statement)
-    - [Exception Handling](#exception-handling)
-      - [Utilizing Error Object](#utilizing-error-object)
-      - [Throw Statement](#throw-statement)
-      - [try/catch/finally](#trycatchfinally)
+  - [Conditional Statements](#conditional-statements)
+    - [if...else Statement](#ifelse-statement)
+    - [Switch Statement](#switch-statement)
+  - [Exception Handling](#exception-handling)
+    - [Utilizing Error Object](#utilizing-error-object)
+    - [Throw Statement](#throw-statement)
+    - [try/catch/finally](#try-catch-finally)
 - [Functions](#functions)
   - [Defining and Calling Functions](#defining-and-calling-functions)
   - [Function Parameters](#function-parameters)
@@ -56,30 +56,30 @@
   - [Arrow Functions](#arrow-functions)
   - [Built-in Functions](#built-in-functions)
 - [Data Structures](#data-structures)
-    - [Structured Data](#structured-data)
-        - [JSON](#json)
-    - [Indexed Collections](#indexed-collections)
-        - [Arrays](#arrays)
-          - [Map()](#map)
-          - [Filter()](#filter)
-          - [Reduce()](#reduce)
-          - [ForEach()](#forEach)
-          - [Push()](#push)
-          - [Pop()](#pop)
-          - [Shift()](#shift)
-          - [Unshift()](#unshift)
-          - [Splice()](#splice)
-          - [Slice()](#slice)
-          - [Concat()](#concat)
+  - [Structured Data](#structured-data)
+    - [JSON](#json)
+  - [Indexed Collections](#indexed-collections)
+    - [Arrays](#arrays)
+      - [Map()](#map)
+      - [Filter()](#filter)
+      - [Reduce()](#reduce)
+      - [ForEach()](#forEach)
+      - [Push()](#push)
+      - [Pop()](#pop)
+      - [Shift()](#shift)
+      - [Unshift()](#unshift)
+      - [Splice()](#splice)
+      - [Slice()](#slice)
+      - [Concat()](#concat)
     - [Keyed Collections](#keyed-collections)
-        - [Map](#map)
-        - [Objects](#objects)
+      - [Map](#map)
+      - [Objects](#objects)
 - [DOM (Document Object Model)](#dom-document-object-model)
-    - [Introduction to DOM](#introduction-to-dom)
-    - [DOM Manipulation](#dom-manipulation)
-    - [DOM Traversal](#dom-traversal)
-    - [DOM Events](#dom-events)
-    - [DOM Styling](#dom-styling)
+  - [Introduction to DOM](#introduction-to-dom)
+  - [DOM Manipulation](#dom-manipulation)
+  - [DOM Traversal](#dom-traversal)
+  - [DOM Events](#dom-events)
+  - [DOM Styling](#dom-styling)
 - [Build Tools](#build-tools)
   - [Linters formatters](#linters-formatters)
     - [Prettier](#prettier)
@@ -138,8 +138,9 @@ Node.js extends the capabilities of JavaScript beyond the web browser, enabling 
 
 ## Resources
 
-- [The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
-- [Video: JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
+- [(Article) JavaScript documentation](https://www.w3schools.com/js/default.asp)
+- [(Article) The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
+- [(Video) JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
 
 # Data Types
 
@@ -221,7 +222,7 @@ const person = { name: 'John', age: 25 };
 ```
 ## Resources
 
-- [JavaScript Data Types - CodeGuage](https://www.codeguage.com/courses/js/data-types)
+- [(Article)Data types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 
 # Expressions and Operators
 
@@ -349,6 +350,10 @@ let x = 1, y = 2, z = 3;
 console.log(x, y, z); // Output: 1 2 3
 ```
 
+## Resources
+
+- [(Article)Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+
 # Type Casting in JavaScript
 
 ## Type Conversion
@@ -394,7 +399,7 @@ console.log(numFloat); // Output: 42.0
 
 ## Resources
 
-- []()
+- [(Article)JavaScript Type Conversion](https://www.w3schools.com/js/js_type_conversion.asp)
 
 # Equality Comparisons
 
@@ -422,6 +427,9 @@ The `Object.is()` method determines whether two values are the same value withou
 ```js
 console.log(Object.is(5, "5"));  // false
 ```
+## Resources
+
+- [(Article)Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality_operators)
 
 # Loops and Iterations
 
@@ -601,6 +609,10 @@ Inner loop: 0
 Outer loop: 3
 Inner loop: 0
 ```
+
+## Resources
+
+- [(Article)Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
 
 # Control Flow and Exception Handling
 
@@ -798,6 +810,12 @@ Executing try block.
 An error occurred: Error occurred.
 Executing finally block.
 ```
+## Resources
+
+- [(Article)Control flow](https://www.w3schools.com/js/js_if_else.asp)
+- [(Article)Conditional statements](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
+- [(Article)How to Throw Exceptions in JavaScript](https://rollbar.com/guides/javascript/how-to-throw-exceptions-in-javascript/)
+- [(Video)JavaScript error handling](https://www.youtube.com/watch?v=Z2l3cQ7bvBA)
 
 # Functions
 
@@ -917,9 +935,14 @@ console.log(add(3, 5));
 
 **Output:**
 
-```js
+```
 8
 ```
+
+## Resources
+
+- [(Article)Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
+- [(Video)How To Create/Use Functions - JavaScript Essentials](https://www.youtube.com/watch?v=FOD408a0EzU)
 
 ## Built-in Functions
 
@@ -942,9 +965,9 @@ const person = {
   "email": "johndoe@example.com"
 };
 ```
-### Indexed Collections
+## Indexed Collections
 
-#### Arrays
+### Arrays
 
 1. **Arrays:**
 An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
@@ -968,7 +991,7 @@ Strings are sequences of characters. While strings are not technically an indexe
 const message = 'Hello, world!';
 console.log(message[7]); // Output: w
 ```
-##### Map()
+#### Map()
 
 The `map()` method creates a new array by applying a provided function to each element of the calling array.
 
@@ -1000,7 +1023,7 @@ console.log(multiplied);
 [2, 4, 6, 8, 10]
 ```
 
-##### Filter()
+#### Filter()
 
 The `filter()` method creates a new array with all elements that pass the provided function's test.
 
@@ -1032,7 +1055,7 @@ console.log(evenNumbers);
 [2, 4]
 ```
 
-##### Reduce()
+#### Reduce()
 
 The `reduce()` method applies a function to reduce the array to a single value. It executes a provided function for each value of the array.
 
@@ -1065,7 +1088,7 @@ console.log(sum);
 15
 ```
 
-##### forEach()
+#### forEach()
 
 The `forEach()` method executes a provided function once for each array element.
 
@@ -1100,7 +1123,7 @@ numbers.forEach((num) => {
 5
 ```
 
-##### Push()
+#### Push()
 
 The `push()` method adds one or more elements to the end of an array and returns the new length of the array.
 
@@ -1128,7 +1151,7 @@ console.log(fruits);
 ['apple', 'banana', 'orange']
 ```
 
-##### Pop()
+#### Pop()
 
 The `pop()` method removes the last element from an array and returns that element.
 
@@ -1156,7 +1179,7 @@ console.log(fruits);
 ['apple', 'banana']
 ```
 
-##### Shift()
+#### Shift()
 
 The `shift()` method removes the first element from an array and returns that element
 
@@ -1184,7 +1207,7 @@ console.log(fruits);
 ['banana', 'orange']
 ```
 
-##### Unshift()
+#### Unshift()
 
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
@@ -1212,7 +1235,7 @@ console.log(fruits);
 ['orange', 'apple', 'banana']
 ```
 
-##### Splice()
+#### Splice()
 
 The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
 
@@ -1243,7 +1266,7 @@ console.log(fruits);
 ['apple', 'grape', 'kiwi']
 ```
 
-##### slice()
+#### slice()
 
 The `slice()` method returns a shallow copy of a portion of an array into a new array object.
 
@@ -1271,7 +1294,7 @@ console.log(slicedFruits);
 ['banana', 'orange']
 ```
 
-##### Concat()
+#### Concat()
 
 The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays but instead returns a new array.
 
@@ -1364,13 +1387,20 @@ console.log(person.age);
 John
 30
 ```
-### DOM (Document Object Model)
 
-#### Introduction to DOM
+#### Resources
+
+- [(Article)Data Structures in JavaScript – With Code Examples](https://www.freecodecamp.org/news/data-structures-in-javascript-with-examples/#what-is-a-data-structure)
+- [(Video) Intro to Recursion](https://www.youtube.com/watch?v=yBWlPte6FhA)
+- [(Video) JavaScript array.map()](https://www.youtube.com/watch?v=KZU4V38Cwfc)
+
+# DOM (Document Object Model)
+
+## Introduction to DOM
 
 The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of the document as a tree-like model, where each element in the document is a node in the tree. The DOM allows you to interact with and manipulate the elements and content of a web page dynamically using JavaScript.
 
-#### DOM Manipulation
+## DOM Manipulation
 
 DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
 
@@ -1442,7 +1472,7 @@ const myElement = document.querySelector('.myClass');
 const myElements = document.querySelectorAll('p.myClass');
 ```
 
-#### DOM Traversal
+## DOM Traversal
 
 DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
 
@@ -1464,7 +1494,7 @@ Child 2
 Child 3
 ```
 
-#### DOM Events
+## DOM Events
 
 DOM events are actions or occurrences that happen in the browser, such as a button click, mouse movement, or keypress. By handling events, you can respond to user interactions and perform specific actions. The DOM provides a set of event types and methods to attach event handlers to elements.
 
@@ -1484,17 +1514,21 @@ button.addEventListener('click', function(event) {
 Button clicked!
 ```
 
-#### DOM Styling
+## DOM Styling
 
 DOM styling allows you to manipulate the appearance of elements on a web page. You can modify CSS properties of elements to change their size, color, position, and more. The DOM provides properties and methods to access and modify the styles of elements.
 
 **Example:**
 
-```
+```js
 // Example of changing the background color of an element
 const element = document.getElementById('myElement');
 element.style.backgroundColor = 'red';
 ```
+
+## Resources
+
+- [(Video) Learn DOM Manipulation](https://www.youtube.com/watch?v=y17RuWkWdn8)
 
 # Strict Mode
 
