@@ -701,7 +701,7 @@ Media queries can also be used to hide or show elements based on screen size.
 
 #### Pseudo-classes
 
-Pseudo-classes: Selects elements based on a specific state or condition.
+**Pseudo-classes**: Selects elements based on a specific state or condition.
 
 ```css
 /*:hover - selects an element when the mouse pointer is over it: */
@@ -731,9 +731,13 @@ ul li:nth-child(odd) {
 }
 ```
 
+#### Code example
+
+- [Pseudo-classes](https://codesandbox.io/s/smoosh-water-37rntk?file=/index.html)
+
 #### Child Selector
 
-Child Selector: Selects elements that are direct children of another element. It uses a greater than sign (>). For example, `article > p` selects all `<p>` elements that are direct children of a `<article>` element.
+**Child Selector**: Selects elements that are direct children of another element. It uses a greater than sign (>). For example, `article > p` selects all `<p>` elements that are direct children of a `<article>` element.
 
 ```css
 article > p {
