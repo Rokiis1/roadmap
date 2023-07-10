@@ -793,6 +793,10 @@ h2 ~ p {
 <p>This paragraph will be selected</p>
 ```
 
+### Code example
+
+- [Sibling Selector](https://codesandbox.io/s/sibling-selector-4x8dwc)
+
 ### Attribute Selector
 
 Attribute Selector: Selects elements based on their attribute values. It uses square brackets ([]). For example, `[type="text"]` selects all elements with `type="text"` attribute.
@@ -823,6 +827,10 @@ img[alt="An image"] {
   property: value;
 }
 ```
+
+### Code example
+
+- [Attribute Selector](https://codesandbox.io/s/attribute-selector-x47lpq)
 
 ### More selectors
 
@@ -855,3 +863,7 @@ img[alt="An image"] {
 14. `:root`: The :root selector represents the root element of the document, which is typically the `<html>` element. It is often used to define global CSS variables that can be accessed and reused throughout the stylesheet.
 
 15. `::before` and `::after`: The `:before` and :`after` selectors are used to insert content before or after an element. They are known as pseudo-elements because they create virtual elements that can be styled separately from the actual content of an element.
+
+### Code example
+
+- [More selectors](https://codesandbox.io/s/dreamy-joliot-krgqn4?file=/index.html)
