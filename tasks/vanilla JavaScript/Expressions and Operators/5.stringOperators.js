@@ -13,6 +13,7 @@
  * @param {string} substring - The substring to search for.
  * @returns {boolean} True if the string contains the substring, otherwise false.
  */
+// Hint .includes()
 
 // 3 Task.
 /**
