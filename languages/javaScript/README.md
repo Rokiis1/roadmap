@@ -246,8 +246,8 @@ const $PI = 3.14;
   const z = 30;
 
   console.log(x); // Output: 10
-  console.log(y); // ReferenceError: y is not defined
-  console.log(z); // ReferenceError: z is not defined
+  console.log(y); // Output: 20
+  console.log(z); // Output: 30
 }
 
 console.log(x); // Output: 10
