@@ -4,6 +4,7 @@
  * @param {string} str - The input string.
  * @returns {string} The input string with the first letter capitalized.
  */
+// Hint https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
 
 // 2 Task.
 /**
