@@ -9,8 +9,8 @@
 // 2 Task.
 /**
  * Checks if a given string contains a specific substring.
- * @param {string} str - The input string.
- * @param {string} substring - The substring to search for.
+ * @param {string} str - The input string. "Hello, world!";
+ * @param {string} substring - The substring to search for. "world";
  * @returns {boolean} True if the string contains the substring, otherwise false.
  */
 // Hint .includes()
