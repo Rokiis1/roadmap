@@ -5,6 +5,15 @@
   - [Introduction to JavaScript](#introduction-to-javascript)
   - [ECMAScript](#ecmascript)
   - [Node.js](#nodejs)
+  - [How to run Javascript](#how-to-run-javascript)
+- [Javascript Variables](#javascript-variables)
+    - [Variable Declarations](#variable-declarations)
+    - [Hoisting](#hoisting)
+    - [Naming Rules](#naming-rules)
+    - [Variable Scopes](#variable-scopes)
+      - [Block scopes](#block-scopes)
+      - [Function scopes](#function-scopes)
+      - [Global scopes](#global-scopes)
 - [Data Types](#data-types)
   - [string](#string)
   - [Undefined](#undefined)
@@ -15,11 +24,27 @@
   - [Symbol](#symbol)    
   - [typeof Operator](#typeof-operator)
   - [Built-in Objects](#built-in-objects)
+- [Equality Comparisons](#equality-comparisons)
+  - [The == Operator](#operator==)
+  - [The === Operator](#operator===)
+  - [The Object.is() Method](#object-method)
 - [Expressions and Operators](#expressions-and-operators)
   - [Assignment Operators](#assignment-operators)
   - [Comparison Operators](#comparison-operators)
+    - [Equal to (==)](#equal-to)
+    - [Equal value and equal type (===)](#equal-value-and-equal-type)
+    - [Not equal (!=)](#not-equal)
+    - [Not equal value or not equal type (!==)](#not-equal-value-or-not-equal-type)
+    - [Greater than (>)](#greater-than)
+    - [Less than (<)](#less-than)
+    - [Greater than or equal to (>=)](#greater-than-or-equal-to)
+    - [Less than or equal to (<=)](#less-than-or-equal-to)
+    - [Ternary operator (?)](#ternary-operator)
   - [Arithmetic Operators](#arithmetic-operators)
   - [Logical Operators](#logical-operators)
+    - [Logical AND (&&)](#logical-and)
+    - [Logical OR (||)](#logical-or)
+    - [Logical NOT (!)](#logical-not)
   - [String Operators](#string-operators)
   - [Conditional operators](#conditional-operators)
   - [Comma Operators](#comma-operators)
@@ -29,10 +54,6 @@
   - [Coercion](#coercion)
   - [Explicit Type Casting](#explicit-type-casting)
   - [Implicit Type Casting](#implicit-type-casting)
-- [Equality Comparisons](#equality-comparisons)
-  - [The == Operator](#operator==)
-  - [The === Operator](#operator==)
-  - [The Object.is() Method](#object-method)
 - [Loops and Iterations](#loops-and-iterations)
   - [for Statement](#for-statement)
   - [do...while Statement](#do-while-statement)
@@ -142,6 +163,154 @@ Node.js extends the capabilities of JavaScript beyond the web browser, enabling 
 - [(Article) The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
 - [(Video) JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
 
+# Javascript Variables
+
+## Variable Declarations
+
+**Description:** A variable declaration creates a new variable and optionally initializes it with a value.
+
+**Syntax:**
+
+```js
+var variableName;
+let variableName;
+const variableName = value;
+```
+
+**Example:**
+
+```js
+var age;
+let name;
+const PI = 3.14;
+```
+
+## Hoisting
+
+**Description:** Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase.
+
+**Example:**
+
+```js
+console.log(x); // Output: undefined
+var x = 10;
+console.log(x); // Output: 10
+
+console.log(y); // ReferenceError: y is not defined
+let y = 20;
+console.log(y); // Output: 20
+```
+
+## Naming Rules
+
+**Description:** Naming rules determine how variables can be named in JavaScript.
+
+**Syntax:** 
+
+Variable names must start with a letter, underscore, or dollar sign.
+They can contain letters, digits, underscores, or dollar signs.
+Variable names are case-sensitive.
+
+**Example:**
+
+```js
+var myVariable;
+let _score;
+const $PI = 3.14;
+```
+
+## Variable Scopes
+
+### Block scopes
+
+**Description:** Block scopes refer to variables that are only accessible within a specific block of code, such as within an `if` statement or a loop.
+
+**Syntax:**
+
+```js
+{
+  // Block scope
+  var x = 10;
+  let y = 20;
+  const z = 30;
+}
+```
+
+**Example:**
+
+```js
+{
+  // Block scope
+  var x = 10;
+  let y = 20;
+  const z = 30;
+
+  console.log(x); // Output: 10
+  console.log(y); // ReferenceError: y is not defined
+  console.log(z); // ReferenceError: z is not defined
+}
+
+console.log(x); // Output: 10
+console.log(y); // ReferenceError: y is not defined
+console.log(z); // ReferenceError: z is not defined
+```
+
+### Function scopes
+
+**Description:** Function scopes refer to variables that are defined within a function and are only accessible within that function.
+
+**Syntax:**
+
+```js
+function myFunction() {
+  // Function scope
+  var x = 10;
+  let y = 20;
+  const z = 30;
+}
+```
+
+**Example:**
+
+```js
+function myFunction() {
+  // Function scope
+  var x = 10;
+  let y = 20;
+  const z = 30;
+
+  console.log(x); // Output: 10
+  console.log(y); // Output: 20
+  console.log(z); // Output: 30
+}
+
+console.log(x); // ReferenceError: x is not defined
+console.log(y); // ReferenceError: y is not defined
+console.log(z); // ReferenceError: z is not defined
+```
+
+### Global scopes
+
+**Description:** Global scopes refer to variables that are accessible throughout the entire JavaScript program.
+
+**Example:**
+
+```js
+var x = 10;
+let y = 20;
+const z = 30;
+
+function myFunction() {
+  console.log(x); // Output: 10
+  console.log(y); // Output: 20
+  console.log(z); // Output: 30
+}
+
+console.log(x); // Output: 10
+console.log(y); // Output: 20
+console.log(z); // Output: 30
+```
+
 # Data Types
 
 ## String
@@ -245,24 +414,180 @@ let x = 5;
 x += 3; // Equivalent to x = x + 3;
 console.log(x); // Output: 8
 ```
+### Tasks
+
+- [Assignment Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/assignmentOperators.js)
 
 ## Comparison Operators
 
 Comparison operators are used to compare two values and return a Boolean result (true or false) based on the comparison.
 
+### Equal to (==)
+
+**Description:** The equal to operator (`==`) compares two values and returns `true` if they are equal, and `false` otherwise. It performs type coercion, meaning it can compare values of different types by converting them to a common type.
+
 **Syntax:**
 
 ```js
-value1 operator value2;
+value1 == value2
 ```
 
 **Example:**
 
 ```js
-let x = 5;
-let y = 3;
-console.log(x > y); // Output: true
+let a = 5;
+let b = "5";
+console.log(a == b);  // true
 ```
+
+### Equal value and equal type (===)
+
+**Description:** The equal value and equal type operator (`===`) compares two values and returns `true` only if they have the same value and the same type. It does not perform type coercion.
+
+**Syntax:**
+
+```js
+value1 === value2
+```
+
+**Example:**
+
+```js
+let x = 10;
+let y = "10";
+console.log(x === y); // false
+```
+
+### Not equal (!=)
+
+**Description:** The not equal operator (`!=`) compares two values and returns `true` if they are not equal, and `false` if they are equal. It performs type coercion.
+
+**Syntax:**
+
+```js
+value1 != value2
+```
+
+**Example:**
+
+```js
+let p = 8;
+let q = 5;
+console.log(p != q);  // true
+```
+
+### Not equal value or not equal type (!==)
+
+**Description:** The not equal value or not equal type operator (`!==`) compares two values and returns `true` if they are not equal in value or not equal in type. It does not perform type coercion.
+
+**Syntax:**
+
+```js
+value1 !== value2
+```
+
+**Example:**
+
+```js
+let m = 2;
+let n = "2";
+console.log(m !== n); // true
+```
+
+### Greater than (>)
+
+**Description:** The greater than operator (`>`) compares two values and returns `true` if the left operand is greater than the right operand. Otherwise, it returns `false`.
+
+**Syntax:**
+
+```js
+value1 > value2
+```
+
+**Example:**
+
+```js
+let num1 = 7;
+let num2 = 4;
+console.log(num1 > num2); // true
+```
+
+### Less than (<)
+
+**Description:** The less than operator (`<`) compares two values and returns `true` if the left operand is less than the right operand. Otherwise, it returns `false`.
+
+**Syntax:**
+
+```js
+value1 < value2
+```
+
+**Example:**
+
+```js
+let num3 = 3;
+let num4 = 6;
+console.log(num3 < num4); // true
+```
+
+### Greater than or equal to (>=)
+
+**Description:** The greater than or equal to operator (>=) compares two values and returns true if the left operand is greater than or equal to the right operand. Otherwise, it returns false.
+
+**Syntax:**
+
+```js
+value1 >= value2
+```
+
+**Example:**
+
+```js
+let value1 = 5;
+let value2 = 5;
+console.log(value1 >= value2); // true
+```
+
+### Less than or equal to (<=)
+
+**Description:** The less than or equal to operator (`<=`) compares two values and returns `true` if the left operand is less than or equal to the right operand. Otherwise, it returns `false`.
+
+**Syntax:**
+
+```js
+value1 <= value2
+```
+
+**Example:**
+
+```js
+let value3 = 8;
+let value4 = 10;
+console.log(value3 <= value4); // true
+```
+
+### Ternary operator (?)
+
+**Description:** The ternary operator (`?`) is a conditional operator that evaluates a condition and returns one of two values based on the result of the condition. It provides a compact way to write simple if-else statements.
+
+**Syntax:** 
+
+```js
+condition ? value1 : value2
+```
+
+**Example:**
+
+```js
+let age = 20;
+let isAdult = (age >= 18) ? "Yes" : "No";
+console.log(isAdult);  // "Yes"
+```
+
+### Tasks
+
+- [Comparison Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/comparisonOperators.js)
+
 
 ## Arithmetic Operators
 
@@ -282,14 +607,23 @@ let y = 3;
 console.log(x + y); // Output: 8
 ```
 
+### Tasks
+
+- [Arithmetic Operators
+](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/3.arithmeticOperators.js)
+
 ## Logical Operators
 
 Logical operators are used to combine or invert Boolean values and produce a Boolean result.
 
+### Logical AND (&&)
+
+**Description:** The logical AND operator (`&&`) returns `true` if both operands are true, and `false` otherwise. It evaluates the operands from left to right and stops evaluating as soon as a false value is encountered.
+
 **Syntax:**
 
 ```js
-value1 operator value2;
+operand1 && operand2
 ```
 
 **Example:**
@@ -299,6 +633,47 @@ let x = 5;
 let y = 3;
 console.log(x > 3 && y < 10); // Output: true
 ```
+
+### Logical OR (||)
+
+**Description:** The logical OR operator (`||`) returns `true` if at least one of the operands is true, and `false` if both operands are false. It evaluates the operands from left to right and stops evaluating as soon as a true value is encountered.
+
+**Syntax:**
+
+```js
+operand1 || operand2
+```
+
+**Example:**
+
+```js
+let x = true;
+let y = false;
+console.log(x || y); // true
+```
+
+### Logical NOT (!)
+
+**Description:** The logical NOT operator (`!`) negates the value of the operand. If the operand is true, it returns false, and if the operand is false, it returns true.
+
+**Syntax:**
+
+```js
+!operand
+```
+
+**Example:**
+
+```js
+let p = true;
+console.log(!p);  // false
+
+let q = false;
+console.log(!q);  // true
+```
+
+- [Logical Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/comparisonOperators.js)
+
 
 ## String Operators
 
@@ -315,6 +690,10 @@ let greeting = "Hello";
 let name = "John";
 console.log(greeting + " " + name); // Output: "Hello John"
 ```
+
+### Tasks
+
+- [String Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/5.stringOperators.js)
 
 ## Conditional Operators
 
@@ -349,6 +728,55 @@ expression1, expression2, expression3;
 let x = 1, y = 2, z = 3;
 console.log(x, y, z); // Output: 1 2 3
 ```
+### Tasks
+
+- [Comma Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/7.commaOperators.js)
+
+## Unary Operators
+
+**Description:** Unary operators in JavaScript are operators that perform operations on a single operand. They can be used to convert values, negate values, perform logical operations, or increment and decrement values.
+
+**Syntax:**
+
+- Unary Plus (+): `+operand`
+- Unary Negation (-): `-operand`
+- Logical NOT (!): `!operand`
+- Increment (++): `++operand` or `operand++`
+- Decrement (--): `--operand` or `operand--`
+
+**Examples:**
+
+```javascript
+// Unary Plus
+let x = "5";
+let y = +x;
+console.log(y); // Output: 5
+
+// Unary Negation
+let a = 10;
+let b = -a;
+console.log(b); // Output: -10
+
+// Logical NOT
+let p = true;
+let q = !p;
+console.log(q); // Output: false
+
+// Increment
+let i = 5;
+console.log(++i); // Output: 6 (prefix increment)
+console.log(i++); // Output: 6 (postfix increment)
+console.log(i);   // Output: 7
+
+// Decrement
+let j = 5;
+console.log(--j); // Output: 4 (prefix decrement)
+console.log(j--); // Output: 4 (postfix decrement)
+console.log(j);   // Output: 3
+```
+### Tasks
+
+- [Unary Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/8.unaryOperators.js)
 
 ## Resources
 
@@ -401,35 +829,6 @@ console.log(numFloat); // Output: 42.0
 
 - [(Article)JavaScript Type Conversion](https://www.w3schools.com/js/js_type_conversion.asp)
 
-# Equality Comparisons
-
-In JavaScript, there are different operators available for comparing values. Understanding the differences between these operators is crucial to ensure accurate comparisons. Let's explore three commonly used comparison operators: `==`, `===`, and `Object.is()`.
-
-## The == Operator
-
-The `==` operator compares the values of two operands after performing type coercion if necessary. It converts the operands to a common type and then checks for equality. While this can be convenient in some cases, it can lead to unexpected results.
-
-```js
-console.log(5 == "5");  // true
-```
-## The === Operator
-
-The `===` operator, also known as the strict equality operator, compares both the values and the data types of the operands. It does not perform any type coercion.
-
-```js
-console.log(5 === "5");  // false
-```
-
-## The Object.is() Method
-
-The `Object.is()` method determines whether two values are the same value without performing any type coercion. It provides a precise way of comparing values.
-
-```js
-console.log(Object.is(5, "5"));  // false
-```
-## Resources
-
-- [(Article)Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#equality_operators)
 
 # Loops and Iterations
 
