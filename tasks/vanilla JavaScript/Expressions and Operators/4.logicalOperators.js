@@ -4,7 +4,7 @@
  * @param {number} number - The number to check.
  * @returns {boolean} True if the number is between 10 and 20 (inclusive), otherwise false.
  */
-// Hint https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
+
 
 // 2 Task.
 /**
