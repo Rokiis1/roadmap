@@ -20,3 +20,4 @@
  * @param {string} str - The input string.
  * @returns {string} The input string converted to lowercase.
  */
+// Hint https://www.w3schools.com/jsref/jsref_toLowerCase.asp
