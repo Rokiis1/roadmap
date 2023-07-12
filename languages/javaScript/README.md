@@ -418,7 +418,7 @@ console.log(x); // Output: 8
 ```
 ### Tasks
 
-- [Assignment Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/assignmentOperators.js)
+- [Assignment Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/1.assignmentOperators.js)
 
 ## Comparison Operators
 
@@ -588,7 +588,7 @@ console.log(isAdult);  // "Yes"
 
 ### Tasks
 
-- [Comparison Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/comparisonOperators.js)
+- [Comparison Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/2.comparisonOperators.js)
 
 
 ## Arithmetic Operators
