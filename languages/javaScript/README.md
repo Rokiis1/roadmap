@@ -159,7 +159,8 @@ Node.js extends the capabilities of JavaScript beyond the web browser, enabling 
 
 ## Resources
 
-- [(Article) JavaScript documentation](https://www.w3schools.com/js/default.asp)
+- [(Article)JavaScript documentatio developer mozilla](https://developer.mozilla.org/en-US/)
+- [(Article) JavaScript documentation w3schools](https://www.w3schools.com/js/default.asp)
 - [(Article) The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
 - [(Video) JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
 
@@ -672,7 +673,7 @@ let q = false;
 console.log(!q);  // true
 ```
 
-- [Logical Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/comparisonOperators.js)
+- [Logical Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/4.logicalOperators.js)
 
 
 ## String Operators
@@ -821,7 +822,9 @@ The `parseInt()` function is used to explicitly cast the floating-point number `
 // Implicitly converting an integer to a float
 const numInt = 42;
 const numFloat = numInt; // Implicit type casting
-console.log(numFloat); // Output: 42.0
+
+console.log(numFloat); // Output: 42
+console.log(typeof numFloat); // Output: "number"
 ```
  The integer value `42` is implicitly cast to a float by JavaScript without any explicit syntax. The result is the floating-point number `42.0`.
 

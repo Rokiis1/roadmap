@@ -4,7 +4,7 @@
  * @param {string} str - The input string.
  * @returns {string} The input string with the first letter capitalized.
  */
-// Hint https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
+// Hint: https://www.freecodecamp.org/news/javascript-capitalize-first-letter-of-word/
 
 // 2 Task.
 /**
@@ -13,7 +13,7 @@
  * @param {string} substring - The substring to search for. "world";
  * @returns {boolean} True if the string contains the substring, otherwise false.
  */
-// Hint .includes()
+// Hint: .includes()
 
 // 3 Task.
 /**
@@ -21,4 +21,4 @@
  * @param {string} str - The input string.
  * @returns {string} The input string converted to lowercase.
  */
-// Hint https://www.w3schools.com/jsref/jsref_toLowerCase.asp
+// Hint: https://www.w3schools.com/jsref/jsref_toLowerCase.asp
