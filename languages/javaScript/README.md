@@ -63,7 +63,8 @@
   - [break / continue - labeled Statement](#break-continue-labeled-statement)
 - [Control Flow and Exception Handling](#control-flow-and-exception-handling)
   - [Conditional Statements](#conditional-statements)
-    - [if...else Statement](#ifelse-statement)
+    - [if...else Statement](#if-else-statement)
+    - [if...else if...else Statement](#if-else-if-else-statment)
     - [Switch Statement](#switch-statement)
   - [Exception Handling](#exception-handling)
     - [Utilizing Error Object](#utilizing-error-object)
@@ -1053,6 +1054,42 @@ if (age >= 18) {
 You are eligible to vote!
 ```
 
+### if...else if...else Statement
+
+`if...else if...els`e statement. It allows you to specify multiple conditions and execute different blocks of code based on those conditions.
+
+**Syntax:**
+
+```js
+if (condition1) {
+  // code to be executed if condition1 is true
+} else if (condition2) {
+  // code to be executed if condition1 is false and condition2 is true
+} else {
+  // code to be executed if both condition1 and condition2 are false
+}
+```
+
+**Example:**
+
+```js
+const num = 10;
+
+if (num > 0) {
+  console.log("Number is positive");
+} else if (num < 0) {
+  console.log("Number is negative");
+} else {
+  console.log("Number is zero");
+}
+```
+
+**Output:**
+
+```
+Number is positive
+```
+
 ### Switch Statement
 
 The `switch` statement is used to perform different actions based on different cases.
@@ -1076,27 +1113,38 @@ switch (expression) {
 **Example:**
 
 ```js
-const day = "Monday";
-let dayType;
+/**
+ * Displays the corresponding day of the week based on the number.
+ * @param {number} dayNumber - The number representing the day of the week (1-7).
+ */
+const dayNumber = 3;
+let day;
 
-switch (day) {
-  case "Monday":
-  case "Tuesday":
-  case "Wednesday":
-  case "Thursday":
-  case "Friday":
-    dayType = "Weekday";
+switch (dayNumber) {
+  case 1:
+    day = "Sunday";
     break;
-  case "Saturday":
-  case "Sunday":
-    dayType = "Weekend";
+  case 2:
+    day = "Monday";
     break;
-  default:
-    dayType = "Invalid day";
+  case 3:
+    day = "Tuesday";
+    break;
+  case 4:
+    day = "Wednesday";
+    break;
+  case 5:
+    day = "Thursday";
+    break;
+  case 6:
+    day = "Friday";
+    break;
+  case 7:
+    day = "Saturday";
     break;
 }
 
-console.log(`Today is a ${dayType}.`);
+console.log(`The corresponding day is: ${day}`);
 ```
 
 **Output:**
