@@ -2,7 +2,7 @@
 /**
  * Prompts the user to enter a number greater than 100 until the condition is met.
  */
-// Hint: Make research what is prompt and parseInt
+// Hint: Make research what is prompt and parseInt, and what isNaN()
 
 // 2 Task.
 /**
