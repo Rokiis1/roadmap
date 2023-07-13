@@ -8,7 +8,7 @@
  * Logs each name in the given array to the console.
  * @param {string[]} names - An array of names.
  */
-// Hint const name = []
+// Hint const name = [] .lenght check what is this?
 
 // 3 Task.
 /**
