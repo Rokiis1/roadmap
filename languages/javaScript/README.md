@@ -833,7 +833,6 @@ console.log(typeof numFloat); // Output: "number"
 
 - [(Article)JavaScript Type Conversion](https://www.w3schools.com/js/js_type_conversion.asp)
 
-
 # Loops and Iterations
 
 ## for Statement
@@ -863,6 +862,10 @@ for (let i = 0; i < 5; i++) {
 3
 4
 ```
+
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/1.forStatement.js)
 
 ## do...while Statement
 
@@ -895,6 +898,10 @@ do {
 4
 ```
 
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/2.doWhile.js)
+
 ## while Statement
 
 The `while` statement executes a block of code as long as a specified condition is true.
@@ -924,6 +931,11 @@ while (i < 5) {
 3
 4
 ```
+
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/3.whileStatement.js)
+
 ## for...in Statement
 
 The `for...in` statement iterates over the enumerable properties of an object. It can be used to loop through the keys of an object.
@@ -955,6 +967,11 @@ name: John
 age: 30
 city: New York
 ```
+
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/4.forIn.js)
+
 ## for...of Statement
 
 The `for...of` statement iterates over iterable objects such as arrays, strings, and more. It can be used to loop through the values of an iterable.
@@ -981,6 +998,10 @@ apple
 banana
 orange
 ```
+
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/5.forOf.js)
 
 ## break / continue - labeled Statement
 
@@ -1012,6 +1033,10 @@ Inner loop: 0
 Outer loop: 3
 Inner loop: 0
 ```
+
+## Tasks
+
+- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/6.breakContinue.js)
 
 ## Resources
 
@@ -1054,6 +1079,10 @@ if (age >= 18) {
 You are eligible to vote!
 ```
 
+### Tasks
+
+- [Control Flow](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/1.ifElse.js)
+
 ### if...else if...else Statement
 
 `if...else if...els`e statement. It allows you to specify multiple conditions and execute different blocks of code based on those conditions.
@@ -1089,6 +1118,10 @@ if (num > 0) {
 ```
 Number is positive
 ```
+
+### Tasks
+
+- [Control Flow](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/2.ifElseIfElse.js)
 
 ### Switch Statement
 
@@ -1150,8 +1183,13 @@ console.log(`The corresponding day is: ${day}`);
 **Output:**
 
 ```js
-Today is a Weekday.
+The corresponding day is: Tuesday
 ```
+
+### Tasks
+
+- [Control Flow](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/3.switch.js)
+
 
 ## Exception Handling
 
