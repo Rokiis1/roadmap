@@ -60,7 +60,6 @@
   - [while Statement](#while-statement)
   - [for...in Statement](#for-in-statement)
   - [for...of Statement](#for-of-statement)
-  - [break / continue - labeled Statement](#break-continue-labeled-statement)
 - [Control Flow and Exception Handling](#control-flow-and-exception-handling)
   - [Conditional Statements](#conditional-statements)
     - [if...else Statement](#if-else-statement)
@@ -1003,41 +1002,6 @@ orange
 
 - [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/5.forOf.js)
 
-## break / continue - labeled Statement
-
-The `break` statement is used to terminate a loop prematurely, while the `continue` statement skips the current iteration and moves to the next one. Both statements can be labeled to specify which loop to break or continue when nested loops are present.
-
-**Example:**
-
-```js
-outerLoop: for (let i = 0; i < 3; i++) {
-  console.log('Outer loop:', i);
-  
-  innerLoop: for (let j = 0; j < 3; j++) {
-    if (j === 1) {
-      continue outerLoop;
-    }
-    console.log('Inner loop:', j);
-  }
-}
-```
-
-**Output:**
-
-```js
-Outer loop: 0
-Inner loop: 0
-Outer loop: 1
-Outer loop: 2
-Inner loop: 0
-Outer loop: 3
-Inner loop: 0
-```
-
-## Tasks
-
-- [Loops and Iterations](../../tasks/vanilla%20JavaScript/Loops%20and%20Iterations/6.breakContinue.js)
-
 ## Resources
 
 - [(Article)Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
@@ -1085,7 +1049,7 @@ You are eligible to vote!
 
 ### if...else if...else Statement
 
-`if...else if...els`e statement. It allows you to specify multiple conditions and execute different blocks of code based on those conditions.
+`if...else if...else` statement. It allows you to specify multiple conditions and execute different blocks of code based on those conditions.
 
 **Syntax:**
 
