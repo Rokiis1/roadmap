@@ -1203,15 +1203,12 @@ throw expression;
 **Example:**
 
 ```js
-function validateAge(age) {
+let age = 15;
+
+try {
   if (age < 18) {
     throw new Error("Invalid age. Must be at least 18 years old.");
   }
-  // code to be executed if age is valid
-}
-
-try {
-  validateAge(15);
   console.log("Age is valid.");
 } catch (error) {
   console.log("An error occurred:", error.message);
