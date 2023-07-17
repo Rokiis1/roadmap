@@ -83,15 +83,10 @@
     - [Arrays](#arrays)
       - [Map()](#map)
       - [Filter()](#filter)
-      - [Reduce()](#reduce)
       - [ForEach()](#forEach)
-      - [Push()](#push)
-      - [Pop()](#pop)
-      - [Shift()](#shift)
-      - [Unshift()](#unshift)
-      - [Splice()](#splice)
-      - [Slice()](#slice)
-      - [Concat()](#concat)
+      - [find()](#find)
+      - [findIndex()](#find-index)
+      - [includes()](#includes)
     - [Keyed Collections](#keyed-collections)
       - [Map](#map)
       - [Objects](#objects)
@@ -1507,39 +1502,6 @@ console.log(evenNumbers);
 [2, 4]
 ```
 
-#### Reduce()
-
-The `reduce()` method applies a function to reduce the array to a single value. It executes a provided function for each value of the array.
-
-**Syntax:**
-
-```js
-array.reduce(callback(accumulator, currentValue, index, array), initialValue)
-```
-
-`callback`: A function to be called for each element in the array.
-`accumulator`: The accumulator accumulates the callback's return values.
-`currentValue`: The current element being processed in the array.
-`index` (optional): The index of the current element being processed.
-`array` (optional): The array `reduce()` was called upon.
-`initialValue` (optional): A value to be used as the first argument to the first call of the callback.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-const sum = numbers.reduce((accumulator, num) => accumulator + num, 0);
-
-console.log(sum);
-```
-
-**Output:**
-
-```
-15
-```
-
 #### forEach()
 
 The `forEach()` method executes a provided function once for each array element.
@@ -1575,205 +1537,89 @@ numbers.forEach((num) => {
 5
 ```
 
-#### Push()
+#### find()
 
-The `push()` method adds one or more elements to the end of an array and returns the new length of the array.
+**Description:** The `Array.prototype.find()` method returns the first element in the array that satisfies the provided testing function. It searches through the array and stops as soon as it finds an element that passes the test.
 
 **Syntax:**
 
 ```js
-array.push(element1, element2, ..., elementN)
+array.find(callback(element[, index[, array]])[, thisArg])
 ```
-
-- `element1`, `element2`, ..., `elementN`: The elements to add to the end of the array.
+- `callback` (required): A function that accepts up to three arguments and returns a Boolean value. It is called for each element in the array.
+- `element`: The current element being processed in the array.
+- `index` (optional): The index of the current element being processed.
+- `array` (optional): The array on which `find()` was called.
+- `thisArg` (optional): A value to use as `this` when executing the callback function.
 
 **Example:**
 
 ```js
-const fruits = ['apple', 'banana'];
+const numbers = [1, 2, 3, 4, 5];
 
-fruits.push('orange');
+const evenNumber = numbers.find((number) => number % 2 === 0);
 
-console.log(fruits);
+console.log(evenNumber); // Output: 2
 ```
 
-**Output:**
+#### findIndex()
 
-```js
-['apple', 'banana', 'orange']
-```
-
-#### Pop()
-
-The `pop()` method removes the last element from an array and returns that element.
+**Description:** The `Array.prototype.findIndex()` method returns the index of the first element in the array that satisfies the provided testing function. It searches through the array and stops as soon as it finds an element that passes the test.
 
 **Syntax:**
 
 ```js
-array.pop()
+array.findIndex(callback(element[, index[, array]])[, thisArg])
 ```
+
+- `callback` (required): A function that accepts up to three arguments and returns a Boolean value. It is called for each element in the array.
+- `element`: The current element being processed in the array.
+- `index` (optional): The index of the current element being processed.
+- `array` (optional): The array on which `findIndex()` was called.
+- `thisArg` (optional): A value to use as `this` when executing the callback function.
+
+The `findIndex()` method returns the index of the first element in the array that satisfies the provided testing function. If no element is found, `-1` is returned.
 
 **Example:**
 
 ```js
-const fruits = ['apple', 'banana', 'orange'];
+const numbers = [1, 2, 3, 4, 5];
 
-const removedFruit = fruits.pop();
+const index = numbers.findIndex((number) => number > 3);
 
-console.log(removedFruit);
-console.log(fruits);
+console.log(index); // Output: 3
 ```
 
 **Output:**
 
-```
-'orange'
-['apple', 'banana']
-```
+The output of the above example is `3` because the number `4` is the first element in the numbers array that is greater than `3`, and its index is `3`.
 
-#### Shift()
+#### includes()
 
-The `shift()` method removes the first element from an array and returns that element
+**Description:** The `Array.prototype.includes()` method determines whether an array includes a certain element, returning `true` or `false` as appropriate.
 
 **Syntax:**
 
 ```js
-array.shift()
+array.includes(searchElement[, fromIndex])
 ```
+- `searchElement` (required): The element to search for within the array.
+- `fromIndex` (optional): The index at which to start searching for the `searchElement`. If omitted, the default is `0`.
 
-**Example:**
-
-```js
-const fruits = ['apple', 'banana', 'orange'];
-
-const removedFruit = fruits.shift();
-
-console.log(removedFruit);
-console.log(fruits);
-```
-
-**Output:**
-
-```
-'apple'
-['banana', 'orange']
-```
-
-#### Unshift()
-
-The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
-
-**Syntax:**
-
-```js
-array.unshift(element1, element2, ..., elementN)
-```
-
-- `element1`, `element2`, ..., `elementN`: The elements to add to the beginning of the array.
-
-**Example:**
-
-```js
-const fruits = ['apple', 'banana'];
-
-fruits.unshift('orange');
-
-console.log(fruits);
-```
-
-**Output:**
-
-```
-['orange', 'apple', 'banana']
-```
-
-#### Splice()
-
-The `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements.
-
-**Syntax:**
-
-```js
-array.splice(start, deleteCount, item1, item2, ..., itemN)
-```
-- `start`: Index at which to start changing the array.
-- `deleteCount` (optional): An integer indicating the number of elements in the array to remove from `start`.
-- `item1`, `item2`, ..., `itemN` (optional): The elements to add to the array, beginning from `start`.
+The `includes()` method returns a Boolean value indicating whether the `searchElement` is found in the array (`true`) or not (`false`).
 
 **Example:**
 
 ```js
 const fruits = ['apple', 'banana', 'orange'];
 
-const removedFruits = fruits.splice(1, 2, 'grape', 'kiwi');
-
-console.log(removedFruits);
-console.log(fruits);
+console.log(fruits.includes('banana')); // Output: true
+console.log(fruits.includes('grape')); // Output: false
 ```
 
 **Output:**
 
-```js
-['banana', 'orange']
-['apple', 'grape', 'kiwi']
-```
-
-#### slice()
-
-The `slice()` method returns a shallow copy of a portion of an array into a new array object.
-
-**Syntax:**
-
-```js
-array.slice(start, end)
-```
-- `start` (optional): Zero-based index at which to begin extraction.
-- `end` (optional): Zero-based index at which to end extraction (exclusive).
-
-**Example:**
-
-```js
-const fruits = ['apple', 'banana', 'orange'];
-
-const slicedFruits = fruits.slice(1, 3);
-
-console.log(slicedFruits);
-```
-
-**Output:**
-
-```
-['banana', 'orange']
-```
-
-#### Concat()
-
-The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays but instead returns a new array.
-
-**Syntax:**
-
-```js
-array.concat(array1, array2, ..., arrayN)
-```
-
-- `array1`, `array2`, ..., `arrayN` (optional): Arrays and/or values to concatenate into a new array.
-
-**Example:**
-
-```js
-const array1 = [1, 2, 3];
-const array2 = [4, 5, 6];
-
-const newArray = array1.concat(array2);
-
-console.log(newArray);
-```
-
-**Output:**
-
-```
-[1, 2, 3, 4, 5, 6]
-```
+Is `true` for the first `console.log()` statement because the array fruits includes the string `'banana'`. The output is `false` for the second `console.log()` statement because the array `fruits` does not include the string `'grape'`.
 
 ### Keyed Collections
 
