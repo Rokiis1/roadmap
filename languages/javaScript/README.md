@@ -73,6 +73,8 @@
   - [Defining and Calling Functions](#defining-and-calling-functions)
   - [Function Parameters](#function-parameters)
     - [Default Parameters](#default-parameters)
+    - [Array destructuring](#array-destructuring)
+    - [Spread parameter](#spread-parameter)
     - [Rest Parameters](#rest-parameters)
   - [Arrow Functions](#arrow-functions)
   - [Built-in Functions](#built-in-functions)
@@ -1149,7 +1151,6 @@ The corresponding day is: Tuesday
 
 - [Control Flow](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/3.switch.js)
 
-
 ## Exception Handling
 
 Exception handling allows you to catch and handle errors that occur during the execution of your program.
@@ -1184,6 +1185,11 @@ try {
 ```js
 An error occurred: Division by zero
 ```
+
+### Tasks
+
+- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/4.utilizingErrorObject.js)
+
 ### Throw Statement
 
 The `throw` statement allows you to create custom errors and throw them.
@@ -1211,6 +1217,10 @@ try {
   console.log("An error occurred:", error.message);
 }
 ```
+
+### Tasks
+
+- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/5.throwStatement.js)
 
 **Output:**
 
@@ -1257,6 +1267,11 @@ Executing try block.
 An error occurred: Error occurred.
 Executing finally block.
 ```
+
+### Tasks
+
+- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/6.tryCatchFinally.js)
+
 ## Resources
 
 - [(Article)Control flow](https://www.w3schools.com/js/js_if_else.asp)
@@ -1328,6 +1343,63 @@ Hello, stranger!
 Hello, Alice!
 ```
 
+### Array destructuring
+
+**Description:** The spread parameter allows you to expand an iterable into individual elements.
+
+**Syntax:**
+
+```js
+let [var1, var2, ..., varN] = array;
+```
+
+Here, `var1` to `varN` are the variables where the elements of the array will be assigned. array is the `array` from which the values will be extracted.
+
+**Example:**
+
+```js
+// Define an array
+const numbers = [1, 2, 3];
+
+// Destructure the array
+const [first, second, third] = numbers;
+
+// Print the variables
+console.log(first);   // Output: 1
+console.log(second);  // Output: 2
+console.log(third);    // Output: 3
+```
+
+### Spread parameter
+
+**Description:** The spread parameter allows you to expand an iterable into individual elements.
+
+**Example:**
+
+*1. Function calls*
+
+```js
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const numbers = [1, 2, 3];
+
+const result = sum(...numbers);
+console.log(result); // Output: 6
+```
+
+*2. Array literals:*
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5, 6];
+
+console.log(arr2); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+**Output:**
+
 ### Rest Parameters
 
 **Syntax:**
@@ -1385,6 +1457,10 @@ console.log(add(3, 5));
 ```
 8
 ```
+
+### Tasks
+
+- [Functions](../../tasks/vanilla%20JavaScript/Functions/functions.js)
 
 ## Resources
 
