@@ -49,7 +49,7 @@
 // Step 3: We create two arrays, array1 and array2, with some elements. 
 // Then we call the concatenateArrays function, passing in array1 and array2 as arguments. 
 // The returned value is stored in the concatenatedArray variable. 
-// Finally, we log the concatenatedArray to the console, which will display the concatenated array [1, 2, 3, 4, 5, 6].
+// Finally, we log the concatenatedArray to the console, which will display the concatenated array [ ].
 
 // 4 Task.
 /**
@@ -106,12 +106,12 @@
 // Step 4: Return the modified clonedObj from the function.
 // Step 5: Use the cloneAndModify function to clone an object and modify a property value.
 //      - Create an object originalObj with the desired properties and values.
-//      - const originalObj = { name: 'John', age: 30 };
+//      - const originalObj = { };
 //      - Call the cloneAndModify function, passing in originalObj, the property to modify (e.g., 'age'), and the new value (e.g., 35).
-//      - const modifiedObj = cloneAndModify(originalObj, 'age', 35);
+//      - const modifiedObj = cloneAndModify( );
 // Step 6: Test the code by printing the original and modified objects.
-//      - console.log(originalObj); // Output: { name: 'John', age: 30 }
-//      - console.log(modifiedObj); // Output: { name: 'John', age: 35 }
+//      - console.log(originalObj); // Output: { }
+//      - console.log(modifiedObj); // Output: { }
 
 // 7 Task.
 /**
@@ -124,3 +124,54 @@
 // 2 Step: Inside the function body, you'll need to calculate the square of the input number. To do this, multiply the num parameter by itself.
 // 3 Step: You can now test the square function by calling it with a number and storing the result in a variable.
 
+// 8 Task.
+/**
+ * Finds the maximum number in an array using the spread operator and array destructuring.
+ *
+ * @param {number[]} numbers - The array of numbers.
+ * @returns {number} The maximum number.
+ */
+// Hint:
+// Step 1: The findMaxNumber function is declared with a rest parameter ...numbers. 
+// This allows the function to accept any number of arguments and gather them into an array called numbers.
+// Step 2: The spread operator ...numbers is used as an argument to the Math.max() function. 
+// The spread operator spreads the elements of the numbers array into individual arguments. 
+// This is equivalent to passing each number as a separate argument to Math.max(). 
+// The Math.max() function then returns the maximum number among those arguments.
+// Step 3: Test the code
+
+// 9 Task.
+/**
+ * Sums the elements of an array without using any array method.
+ *
+ * @param {number[]} numbers - The array of numbers to be summed.
+ * @returns {number} The sum of the numbers.
+ */
+// Hint:
+// Step 1: Define the sumNumbers function with a rest parameter ...numbers to accept any number of arguments.
+// Step 2: Initialize a variable sum with an initial value of 0 to store the sum of the numbers.
+// Step 3: Use a for loop to iterate over each number in the numbers array. 
+// The loop will run until the index i reaches the length of the array.
+// Step 4: Inside the loop, add the current number to the sum variable.
+// Step 5: After the loop finishes, return the computed sum.
+// Step 6: Create an array of numbers called numbers with the values you want to sum.
+// Step 7: Call the sumNumbers function and pass the numbers array using the spread operator ....
+// Step 8: Using console.log print the result
+
+// 10 Task.
+/**
+ * Returns the sum and difference of two numbers.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {Object} An object containing the sum and difference of the two numbers.
+ */
+// Hint:
+// 1 Step: Define a function named calculateSumAndDifference that takes two parameters: a and b, representing the two numbers.
+// 2 Step: Inside the function, create an object literal that has two properties: sum and difference. 
+// Set the value of the sum property to the sum of a and b (i.e., a + b), and set the value of the difference property to the difference between a and b (i.e., a - b).
+// 3 Step: Return the object from the function.
+// 4 Step: To use the function, declare two variables (number1 and number2, for example) and assign the desired values to them.
+// 5 Step: Call the calculateSumAndDifference function, passing number1 and number2 as arguments. 
+// Capture the returned object using object destructuring and assign the sum and difference properties to variables with the same names.
+// 6 Step: Print the values of sum and difference using console.log.
