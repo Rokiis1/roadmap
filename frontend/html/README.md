@@ -83,7 +83,7 @@ Let's go through the code snippet and explain each line:
 
 ### Code example
 
-[Demo](https://codesandbox.io/s/html-basics-647tsc)
+[basics demo](https://codesandbox.io/s/html-basics-647tsc)
 
 ### Resources
 
@@ -254,7 +254,7 @@ Sometimes, you may need to merge or span multiple rows or columns. This can be a
 
 ## Code example
 
-[Styled Table example](https://codesandbox.io/s/table-yx5c4m)
+- [Styled Table example](https://codesandbox.io/s/table-yx5c4m)
 
 # Forms and Validation
 
