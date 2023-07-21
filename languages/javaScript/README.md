@@ -85,10 +85,12 @@
     - [Arrays](#arrays)
       - [Map()](#map)
       - [Filter()](#filter)
-      - [ForEach()](#forEach)
+      - [ForEach()](#for-each)
       - [find()](#find)
       - [findIndex()](#find-index)
       - [includes()](#includes)
+      - [sort()](#sort)
+      - [Reduce()](#reduce)
     - [Keyed Collections](#keyed-collections)
       - [Map](#map)
       - [Objects](#objects)
@@ -1690,9 +1692,68 @@ console.log(fruits.includes('banana')); // Output: true
 console.log(fruits.includes('grape')); // Output: false
 ```
 
+#### sort()
+
+**Description:** The `sort()` method is used to sort the elements of an array in place and returns the sorted array.
+
+**Syntax:**
+
+```js
+array.sort([compareFunction])
+```
+
+- `array`: The array to be sorted.
+- `compareFunction` (optional): An optional function that defines the sort order. If omitted, the array elements are converted to strings and sorted based on their UTF-16 code unit values.
+
+**Example:**
+
+```js
+const fruits = ['apple', 'orange', 'banana', 'grape'];
+
+// Sorting without a compare function (default sort behavior)
+fruits.sort();
+console.log(fruits); // Output: ['apple', 'banana', 'grape', 'orange']
+
+// Sorting with a custom compare function (sorting by string length)
+fruits.sort((a, b) => a.length - b.length);
+console.log(fruits); // Output: ['apple', 'grape', 'banana', 'orange']
+```
+
+#### Reduce()
+
+**Description:** The `reduce()` method is used to reduce an array to a single value by applying a function to each element of the array.
+
+**Syntax:**
+
+```js
+array.reduce(callback[, initialValue])
+```
+
+- `callback`: The function to execute on each element of the array. It takes four arguments:
+- `accumulator`: The accumulator accumulates the callback's return values. It is the accumulated value previously returned in the last invocation of the callback or the initialValue, if supplied.
+- `currentValue`: The current element being processed in the array.
+- `currentIndex`: (Optional) The index of the current element being processed in the array.
+- `array`: (Optional) The array reduce was called upon.
+- `initialValue`: (Optional) The initial value of the accumulator. If not provided, the first element of the array will be used as the initial value, and the callback will start from the second element.
+
+**Example:**
+
+```js
+// Sum all the elements in an array
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+// Calculate the product of all elements in an array
+const numbers2 = [2, 3, 4, 5];
+const product = numbers2.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
+```
+
 **Output:**
 
-Is `true` for the first `console.log()` statement because the array fruits includes the string `'banana'`. The output is `false` for the second `console.log()` statement because the array `fruits` does not include the string `'grape'`.
+```
+In the first example, the output will be 15, which is the sum of all elements in the `numbers` array (1 + 2 + 3 + 4 + 5).
+In the second example, the output will be 120, which is the product of all elements in the `numbers2` array (2 * 3 * 4 * 5).
+```
 
 ### Keyed Collections
 
