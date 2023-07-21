@@ -1846,8 +1846,31 @@ const element = document.getElementById('elementId');
 
 **Example:**
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <div id="elementId">
+        This is the element with the ID 'elementId'.
+    </div>
+    <button id="clickButton" onclick="changeText()">Click me</button>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
 ```js
-const myElement = document.getElementById('myElement');
+// script.js
+
+function changeText() {
+    const element = document.getElementById('elementId');
+    element.innerText = 'Text changed! Now you clicked the button.';
+}
 ```
 
 *Selecting by Class*
@@ -1860,8 +1883,38 @@ const elements = document.getElementsByClassName('className');
 
 **Example:**
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <div class="className">
+        This is the first element with the class 'className'.
+    </div>
+    <div class="className">
+        This is the second element with the class 'className'.
+    </div>
+    <div class="className">
+        This is the third element with the class 'className'.
+    </div>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
 ```js
-const myElements = document.getElementsByClassName('myClass');
+// script.js
+
+const elements = document.getElementsByClassName('className');
+
+// Simple example: Changing the text of each element with the class 'className'
+for (let i = 0; i < elements.length; i++) {
+    elements[i].innerText = `Element ${i + 1} has been selected.`
+};
 ```
 
 *Selecting by Tag Name*
@@ -1874,8 +1927,33 @@ const elements = document.getElementsByTagName('tagName');
 
 **Example:**
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <p>This is a paragraph element.</p>
+    <div>This is a div element.</div>
+    <span>This is a span element.</span>
+    <p>This is another paragraph element.</p>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
 ```js
-const myElements = document.getElementsByTagName('p');
+// script.js
+
+const paragraphs = document.getElementsByTagName('p');
+
+// Simple example: Changing the text of each paragraph element
+for (let i = 0; i < paragraphs.length; i++) {
+    paragraphs[i].innerText = `Paragraph ${i + 1} has been selected.`;
+}
 ```
 
 *Selecting by CSS Selector*
@@ -1886,22 +1964,72 @@ const myElements = document.getElementsByTagName('p');
 const element = document.querySelector('selector');
 ```
 
+**Example (querySelector):**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <p id="myParagraph">This is a paragraph element with the ID 'myParagraph'.</p>
+    <div>This is a div element.</div>
+    <span>This is a span element.</span>
+    <p>This is another paragraph element.</p>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+```js
+// script.js
+
+const paragraphElement = document.querySelector('p');
+
+// Simple example: Changing the text of the first paragraph element
+if (paragraphElement) {
+    paragraphElement.innerText = "This paragraph's text has been changed!";
+}
+```
+
 **Syntax (querySelectorAll):**
 
 ```js
 const elements = document.querySelectorAll('selector');
 ```
 
-**Example (querySelector):**
-
-```js
-const myElement = document.querySelector('.myClass');
-```
-
 **Example (querySelectorAll):**
 
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Example</title>
+</head>
+<body>
+    <p class="selected">This is a paragraph element with the class 'selected'.</p>
+    <div>This is a div element.</div>
+    <span class="selected">This is a span element with the class 'selected'.</span>
+    <p>This is another paragraph element.</p>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
 ```js
-const myElements = document.querySelectorAll('p.myClass');
+// script.js
+
+const selectedElements = document.querySelectorAll('.selected');
+
+// Simple example: Changing the text color of each element with the class 'selected'
+selectedElements.forEach(element => {
+    element.style.color = 'blue';
+});
 ```
 
 ## DOM Traversal
@@ -1910,20 +2038,37 @@ DOM manipulation refers to the process of modifying the structure, content, or a
 
 **Example:**
 
-```js
-// Example of traversing the DOM to access child elements
-const parentElement = document.getElementById('parent');
-const childElements = parentElement.children;
-for (let i = 0; i < childElements.length; i++) {
-  console.log(childElements[i].textContent);
-}
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Traversal Example</title>
+</head>
+<body>
+    <ul>
+        <li onclick="changeBackgroundColor(this)">
+            <span>Item 1</span>
+        </li>
+        <li onclick="changeBackgroundColor(this)">
+            <span>Item 2</span>
+        </li>
+        <li onclick="changeBackgroundColor(this)">
+            <span>Item 3</span>
+        </li>
+    </ul>
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
 ```
-**Output:**
 
-```
-Child 1
-Child 2
-Child 3
+```js
+// script.js
+
+function changeBackgroundColor(element) {
+    // Change the background color of the clicked <li> element
+    element.style.backgroundColor = 'yellow';
+}
 ```
 
 ## DOM Events
@@ -1931,6 +2076,21 @@ Child 3
 DOM events are actions or occurrences that happen in the browser, such as a button click, mouse movement, or keypress. By handling events, you can respond to user interactions and perform specific actions. The DOM provides a set of event types and methods to attach event handlers to elements.
 
 **Example:**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Click Event Example</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+```
 
 ```js
 // Example of handling a button click event
@@ -1940,17 +2100,40 @@ button.addEventListener('click', function(event) {
 });
 ```
 
-**Output (after clicking the button):**
+## Code example
 
-```
-Button clicked!
-```
+- [How the addEventListener](https://codesandbox.io/s/addeventlistener-l42xyc?file=/src/index.js)
 
 ## DOM Styling
 
 DOM styling allows you to manipulate the appearance of elements on a web page. You can modify CSS properties of elements to change their size, color, position, and more. The DOM provides properties and methods to access and modify the styles of elements.
 
 **Example:**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Changing Element Background Color Example</title>
+    <style>
+        /* Adding some styles to the element to make it visible */
+        .conatiner {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myElement" class=conatiner>This is my element.</div>
+
+    <!-- Link to the script.js file -->
+    <script src="script.js"></script>
+</body>
+</html>
+
+```
 
 ```js
 // Example of changing the background color of an element
