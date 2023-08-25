@@ -63,8 +63,6 @@ Quality refers to the degree of excellence or superiority of a product or servic
 - **Customer Satisfaction**: The product satisfies customer needs and expectations.
 - **Continuous Improvement**: Ongoing efforts to enhance quality.
 
-**Resources:**
-
 ### What is Assurance?
 
 **Explanation:**
@@ -91,7 +89,11 @@ Quality Assurance (QA) in software testing involves processes and practices that
 - **Test Planning**: Developing comprehensive test plans.
 - **Metrics and Measurement**: Using metrics to assess and improve quality.
 
+- ![What is QA?](./images/whatIsQA.png)
+
 **Resources:**
+
+- [What is Quality Assurance(QA)?](https://www.guru99.com/all-about-quality-assurance.html)
 
 ## Tester Mindset
 
@@ -110,8 +112,6 @@ The "Tester Mindset" refers to the collection of qualities, attitudes, and appro
 - **Communication Skills**: Testers effectively communicate issues to developers and stakeholders.
 - **Problem-Solving**: Testers have a knack for finding solutions to complex issues.
 - **Continuous Learning**: Testers stay updated with technology trends and testing methodologies.
-
-**Resources:**
 
 ## Test Oracles
 
@@ -142,8 +142,6 @@ There are different types of test oracles used to determine expected outcomes ba
 - **Derived Oracles**: Derived from the same system or similar systems.
 - **Comparative Oracles**: Compare the system under test to another system or model.
 - **Stochastic Oracles**: Use statistical data to determine expected behavior.
-
-**Resources:**
 
 ## Test Prioritization
 
@@ -178,6 +176,8 @@ There are various techniques to prioritize test cases based on different criteri
 
 **Resources:**
 
+- [Test Prioritization](https://www.professionalqa.com/test-prioritization)
+
 ## Black Box vs Gray Box vs White Box Testing
 
 ### Differences and Similarities
@@ -193,12 +193,16 @@ Black box testing, gray box testing, and white box testing are three distinct te
 - **Testers Role**: Testers focus on inputs and expected outputs without knowledge of the internal implementation.
 - **Similarities**: It is similar to how end-users interact with the system.
 
+- [Black Box Testin](https://www.guru99.com/black-box-testing.html)
+
 **Gray Box Testing:**
 
 - **Access to Code**: Testers have partial knowledge of the internal code and logic.
 - **Focus**: Testing combines aspects of both black box and white box testing.
 - **Testers Role**: Testers can design tests based on the understanding of internal logic to target specific areas.
 - **Similarities**: It bridges the gap between black box and white box testing.
+
+- [Gray Box Testing](https://www.guru99.com/grey-box-testing.html)
 
 **White Box Testing:**
 
@@ -207,6 +211,9 @@ Black box testing, gray box testing, and white box testing are three distinct te
 - **Testers Role**: Testers can design tests to cover specific code paths and conditions.
 - **Similarities**: It is akin to how developers analyze the code.
 
+**Resources:**
+
+- [White Box Testing](https://www.guru99.com/white-box-testing.html)
 
 ### When to Apply Each Approach
 
@@ -229,26 +236,30 @@ The choice between black box, gray box, and white box testing depends on the goa
 - Suitable for in-depth testing of code logic, paths, and boundary conditions.
 - Used during unit testing, code review, security testing, and code optimization.
 
+## Testing Techniques
+
 **Resources:**
 
-Certainly! Let's dive into the non-functional testing techniques you've listed and provide explanations along with some resources to help you teach these concepts effectively.
-
-## Testing Techniques
+[Testing Techniques](https://www.guru99.com/non-functional-testing.html)
 
 ### Non-Functional Testing
 
 #### Load Testing
 
 **Explanation:**
+
 Load testing involves assessing a system's performance under specific load conditions to determine its capacity and capability to handle a certain volume of users or transactions.
 
 **Key Concepts:**
+
 - **Load**: The amount of work a system is subjected to during testing.
 - **Objective**: Identify performance bottlenecks, measure response times, and assess system scalability.
 - **Types**: Concurrent users, transactions, or data volume are typically tested.
 - **Tools**: Load testing tools like JMeter, Gatling, or locust can automate load simulations.
 
 **Resources:**
+
+- [Load Testing](https://loadninja.com/load-testing/)
 
 #### Performance Testing
 
@@ -264,6 +275,8 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 
 **Resources:**
 
+- [Performance Testing](https://www.guru99.com/performance-testing.html)
+
 #### Stress Testing
 
 **Explanation:**
@@ -275,6 +288,8 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 - **Types**: Overloading system resources, such as memory, CPU, or network.
 - **Purpose**: Determine system stability and reliability under high stress.
 - **Challenges**: Requires careful planning to avoid damaging the system during testing.
+
+- [Stress Testing](https://www.guru99.com/stress-testing-tutorial.html)
 
 **Resources:**
 
@@ -292,6 +307,8 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 
 **Resources:**
 
+- [Security Testing](https://www.guru99.com/what-is-security-testing.html)
+
 #### Accessibility Testing
 
 **Explanation:**
@@ -305,6 +322,8 @@ Accessibility testing ensures that a software application is usable by people wi
 - **Importance**: Accessibility testing promotes inclusivity and ensures software is usable by all users.
 
 **Resources:**
+
+- [Accessibility Testing](https://www.guru99.com/accessibility-testing.html)
 
 ### Functional Testing
 
@@ -323,6 +342,8 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 
 **Resources:**
 
+- [User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
+
 #### Exploratory Testing
 
 **Explanation:**
@@ -337,6 +358,8 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 - **Documentation**: Testers document actions, observations, and defects found.
 
 **Resources:**
+
+- [Exploratory Testing](https://www.guru99.com/exploratory-testing.html)
 
 #### Smoke and Sanity Testing
 
@@ -358,6 +381,8 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 
 **Resources:**
 
+- [Sanity Testing Vs. Smoke Testing – Difference Between Them](https://www.guru99.com/smoke-sanity-testing.html)
+
 #### Regression Testing
 
 **Explanation:**
@@ -372,6 +397,7 @@ Regression Testing verifies that new code changes do not negatively impact exist
 
 **Resources:**
 
+- [Regression Testing](https://www.guru99.com/regression-testing.html)
 
 #### Unit Testing
 
@@ -386,6 +412,8 @@ Unit Testing involves testing individual units or components of a software appli
 
 **Resources:**
 
+- [Unit Testing](https://www.guru99.com/unit-testing-guide.html)
+
 #### End-to-End (E2E) Testing
 
 **Explanation:**
@@ -398,6 +426,8 @@ End-to-End (E2E) Testing validates the complete flow of an application, simulati
 - **Challenges**: Requires testing across various layers and technologies.
 
 **Resources:**
+
+- [End-to-End (E2E) Testing](https://www.guru99.com/end-to-end-testing.html)
 
 #### Integration Testing
 
@@ -412,7 +442,7 @@ Integration Testing ensures that different components or modules of a software a
 
 **Resources:**
 
-Certainly, I'll provide you with an overview of the Agile and Waterfall models within the context of the Software Development Life Cycle (SDLC) Delivery Model. I'll also include some resources that you can use to teach your students about these two popular software development methodologies.
+- [Integration Testing](https://www.guru99.com/integration-testing.html)
 
 # Software Development Life Cycle (SDLC) Delivery Model
 
@@ -434,6 +464,7 @@ The Agile model is an iterative and incremental approach to software development
 **Resources:**
 
 - [Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
+- [Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
 
 ## Waterfall Model
 
@@ -468,6 +499,8 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Resources:**
 
+- [Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
+
 ## Test-Driven Development (TDD)
 
 **Explanation:**
@@ -482,6 +515,8 @@ Test-Driven Development (TDD) is a software development practice where tests are
 - **Benefits**: Reduces defects, enhances design, and supports refactoring.
 
 **Resources:**
+
+- [Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
 
 ## Test Cases and Scenarios
 
@@ -498,6 +533,8 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 **Resources:**
 
+- [Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
+
 ### Reporting
 
 **Explanation:**
@@ -512,6 +549,8 @@ Reporting involves documenting and communicating testing activities, results, an
 - **Metrics and KPIs**: Measure testing effectiveness.
 
 **Resources:**
+
+- [Reporting](https://www.guru99.com/defect-management-process.html)
 
 ## Compatibility Testing
 
@@ -528,6 +567,8 @@ Compatibility testing ensures that software works across various environments, b
 
 **Resources:**
 
+- [Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
+
 ## Verification and Validation
 
 **Explanation:**
@@ -542,6 +583,8 @@ Verification ensures that a software product meets specified requirements, while
 - **Validation Testing**: Focus on user acceptance and satisfaction.
 
 **Resources:**
+
+- [Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
 # Accessibility Testing
 
