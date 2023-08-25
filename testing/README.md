@@ -40,6 +40,11 @@
     - [Compatibility](#compatibility)
     - [Verification and Validation](#verification-and-validation)
 - [Non Functional Testing](#non-functional-testing)
+  - [Accessibility testing](#accessibility-testing)
+    - [Chrome dev tools](#chrome-dev-tools)
+  - [Load and Performance Testing](#load-and-performance-testing)
+    - [WebPageTest](#web-page-test)
+    - [Lighthouse](#lighthouse)
 - [Automated Testing](#automated-testing)
 
 # QA Basics
@@ -411,6 +416,8 @@ Certainly, I'll provide you with an overview of the Agile and Waterfall models w
 
 # Software Development Life Cycle (SDLC) Delivery Model
 
+![SDLC](./images/SDLC.png)
+
 ## Agile Model
 
 **Explanation:**
@@ -426,6 +433,8 @@ The Agile model is an iterative and incremental approach to software development
 
 **Resources:**
 
+- [Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
+
 ## Waterfall Model
 
 **Explanation:**
@@ -438,6 +447,8 @@ The Waterfall model is a sequential software development approach where each pha
 - Rigidity: Changes to requirements are discouraged after the initial phases.
 
 **Resources:**
+
+- [Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
 
 # QA Manual Testing
 
@@ -531,4 +542,79 @@ Verification ensures that a software product meets specified requirements, while
 - **Validation Testing**: Focus on user acceptance and satisfaction.
 
 **Resources:**
-.
+
+# Accessibility Testing
+
+**Explanation:**
+
+Accessibility testing ensures that a software application is usable by individuals with disabilities, making it inclusive for all users. It involves evaluating the application's design, content, and functionality to ensure compliance with accessibility standards and guidelines.
+
+**Key Concepts:**
+
+- **WCAG Guidelines**: Web Content Accessibility Guidelines provide criteria for accessible design.
+- **Types of Disabilities**: Visual, auditory, cognitive, and motor impairments.
+- **Tools**: Automated accessibility testing tools and manual assessments.
+- **Benefits**: Ensures equal access, avoids legal issues, and improves user satisfaction.
+
+**Resources:**
+
+## Dev Tools
+
+**Explanation:**
+
+Dev Tools is a set of web development and debugging tools built into the browser. It provides developers and testers with a range of features to analyze and optimize web pages and applications.
+
+**Key Features:**
+
+- **Elements Inspection**: Inspect and modify HTML and CSS in real-time.
+- **Console**: View and debug JavaScript errors and logs.
+- **Network Monitoring**: Analyze network requests, responses, and performance.
+- **Audits**: Conduct performance audits, including accessibility checks.
+- **Device Emulation**: Test responsive design on various devices.
+
+**Resources:**
+
+## Load and Performance Testing
+
+**Explanation:**
+Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
+
+**Key Concepts:**
+
+- **Load Testing**: Evaluates application behavior under expected load.
+- **Stress Testing**: Tests application behavior under extreme load conditions.
+- **Performance Testing**: Ensures application meets response time requirements.
+- **Metrics**: Response time, throughput, resource utilization, and error rates.
+- **Purpose**: Identify performance issues before application launch.
+
+**Resources:**
+
+## WebPageTest
+
+**Explanation:**
+
+WebPageTest is an online tool that allows you to test the performance of web pages from various locations around the world. It provides insights into page load times, performance scores, and recommendations for optimization.
+
+**Key Features:**
+
+- **Location Options**: Test from multiple locations for global perspective.
+- **Performance Metrics**: Measures first byte time, render time, load time, etc.
+- **Waterfall Chart**: Visualizes the loading sequence of page resources.
+- **Optimization Suggestions**: Offers recommendations to improve performance.
+
+**Resources:**
+
+## Lighthouse
+
+**Explanation:**
+
+Lighthouse is an open-source tool from Google that assesses the quality and performance of web pages. It generates reports and scores based on various performance and accessibility metrics.
+
+**Key Features:**
+
+- **Performance Metrics**: Measures loading times, resource usage, and more.
+- **Accessibility Checks**: Identifies issues that impact users with disabilities.
+- **Progressive Web App Audit**: Evaluates adherence to PWA principles.
+- **Best Practices Audit**: Assesses adherence to web development best practices.
+
+**Resources:**
