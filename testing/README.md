@@ -14,6 +14,10 @@
   - [Black Box vs Gray Box vs White Box Testing](#black-box-vs-gray-box-vs-white-box-testing)
     - [Differences and similarities](#differences-and-similarities)
     - [When to apply each approach](#when-to-apply-each-approach)
+  - [Test Case Design](#test-case-design)
+    - [Writing effective test cases](#writing-effective-test-cases)
+    - [Test case structure and format](#test-case-structure-and-format)
+    - [Test case prioritization](#test-case-prioritization)
   - [Testing Techniques](#testing-techniques)
     - [Non-Functional Testing](#non-functional-testing)
       - [Load Testing](#load-testing)
@@ -94,6 +98,10 @@ Quality Assurance (QA) in software testing involves processes and practices that
 **Resources:**
 
 - [What is Quality Assurance(QA)?](https://www.guru99.com/all-about-quality-assurance.html)
+
+**Tasks**
+
+- [QA Basics](../tasks/testing/manualTesting/README.md)
 
 ## Tester Mindset
 
@@ -235,6 +243,54 @@ The choice between black box, gray box, and white box testing depends on the goa
 
 - Suitable for in-depth testing of code logic, paths, and boundary conditions.
 - Used during unit testing, code review, security testing, and code optimization.
+
+
+## Test Case Design
+
+### Writing Effective Test Cases
+
+Writing effective test cases is crucial for thorough testing and accurate defect detection. Effective test cases should be clear, concise, and detailed. They need to cover various scenarios, conditions, and user interactions to ensure comprehensive testing.
+
+**Key Points:**
+
+- **Clear Steps**: Each test case should have a clear set of steps to execute.
+- **Expected Results**: Clearly define the expected outcomes and results.
+- **Coverage**: Ensure that each test case covers a specific functionality or scenario.
+- **Variety**: Include positive and negative scenarios, boundary conditions, and edge cases.
+- **Reusability**: Design test cases that can be reused in different test cycles.
+
+### Test Case Structure and Format
+
+A standardized test case structure and format make test cases consistent and easy to understand for the entire testing team. A well-structured test case includes sections such as the test case ID, description, preconditions, steps, expected results, actual results, and status.
+
+**Key Points:**
+
+- **Test Case ID**: A unique identifier for each test case.
+- **Description**: Briefly describe the purpose of the test case.
+- **Preconditions**: List any conditions that must be met before executing the test case.
+- **Steps**: Outline the steps needed to execute the test case.
+- **Expected Results**: Clearly state the expected outcomes after each step.
+- **Actual Results**: Record the actual outcomes during test execution.
+- **Status**: Indicate whether the test case passed, failed, or needs further investigation.
+
+**Resources:**
+
+- [Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
+- [Test Case Design](https://www.guru99.com/software-testing-techniques.html)
+
+### Test Case Prioritization
+
+Test case prioritization involves determining the order in which test cases should be executed based on factors such as business impact, risk, and critical functionality. Prioritization helps ensure that the most important areas are tested first, especially when time or resources are limited.
+
+**Key Points:**
+
+- **Business Impact**: Identify test cases that directly impact core business processes.
+- **Risk Analysis**: Assess potential risks and prioritize test cases in high-risk areas.
+- **Critical Functionality**: Prioritize test cases for critical features or functionalities.
+- **Dependencies**: Consider dependencies between test cases and prioritize accordingly.
+- **Regression Testing**: Prioritize test cases that cover areas prone to regression.
+
+**Resources:**
 
 ## Testing Techniques
 
@@ -432,9 +488,11 @@ End-to-End (E2E) Testing validates the complete flow of an application, simulati
 #### Integration Testing
 
 **Explanation:**
+
 Integration Testing ensures that different components or modules of a software application work together seamlessly.
 
 **Key Concepts:**
+
 - **Interaction**: Validates interactions between integrated components.
 - **Functionalities**: Tests combined functionalities of integrated parts.
 - **Top-Down and Bottom-Up**: Different integration strategies.
@@ -443,7 +501,7 @@ Integration Testing ensures that different components or modules of a software a
 **Resources:**
 
 - [Integration Testing](https://www.guru99.com/integration-testing.html)
-
+ 
 # Software Development Life Cycle (SDLC) Delivery Model
 
 ![SDLC](./images/SDLC.png)
