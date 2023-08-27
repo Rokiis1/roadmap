@@ -601,6 +601,8 @@ Accessibility testing ensures that a software application is usable by individua
 
 **Resources:**
 
+- [Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
+
 ## Dev Tools
 
 **Explanation:**
@@ -616,6 +618,8 @@ Dev Tools is a set of web development and debugging tools built into the browser
 - **Device Emulation**: Test responsive design on various devices.
 
 **Resources:**
+
+- [Dev Tools](https://developer.chrome.com/docs/devtools/overview/)
 
 ## Load and Performance Testing
 
@@ -647,6 +651,8 @@ WebPageTest is an online tool that allows you to test the performance of web pag
 
 **Resources:**
 
+- [WebPageTest](https://www.webpagetest.org/)
+
 ## Lighthouse
 
 **Explanation:**
@@ -661,3 +667,5 @@ Lighthouse is an open-source tool from Google that assesses the quality and perf
 - **Best Practices Audit**: Assesses adherence to web development best practices.
 
 **Resources:**
+
+- [Lighthouse](https://github.com/GoogleChrome/lighthouse/)
