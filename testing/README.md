@@ -423,6 +423,8 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 - **Validation**: Verifies if the application meets business objectives.
 - **Sign-off**: Successful UAT signifies readiness for production.
 
+- ![User Acceptance Testing (UAT)](./images/UAT.png)
+
 **Resources:**
 
 - [Article: User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
@@ -440,6 +442,8 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 - **Flexibility**: Adaptation to evolving requirements.
 - **Bug Hunting**: Efficient for finding defects in an unscripted manner.
 - **Documentation**: Testers document actions, observations, and defects found.
+
+- ![Exploratory Testing](./images/ExploratoryTesting.png)
 
 **Resources:**
 
@@ -464,6 +468,9 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 - **Timing**: After specific changes, fixes, or patches.
 - **Coverage**: Focuses on recent modifications.
 
+- ![Smoke Testing](./images/Smoking%20Test.png)
+- ![Sanity Testing](./images/SanityTesting.png)
+
 **Resources:**
 
 - [Article: Sanity Testing Vs. Smoke Testing – Difference Between Them](https://www.guru99.com/smoke-sanity-testing.html)
@@ -481,6 +488,8 @@ Regression Testing verifies that new code changes do not negatively impact exist
 - **Scope**: Re-tests affected areas and related functionalities.
 - **Automated Regression**: Automated tests for efficient testing.
 
+- ![Regression Testing](./images/RegressionTesting.png)
+
 **Resources:**
 
 - [Article: Regression Testing](https://www.guru99.com/regression-testing.html)
@@ -497,6 +506,8 @@ Unit Testing involves testing individual units or components of a software appli
 - **Automation**: Often automated for efficient execution.
 - **White Box Testing**: Requires knowledge of code internals.
 
+- ![](./images/UnitTesting.png)
+
 **Resources:**
 
 - [Unit Testing](https://www.guru99.com/unit-testing-guide.html)
@@ -511,6 +522,8 @@ End-to-End (E2E) Testing validates the complete flow of an application, simulati
 - **User Journeys**: Tests complete user workflows.
 - **Real-World Scenarios**: Simulates how users interact with the application.
 - **Challenges**: Requires testing across various layers and technologies.
+
+- ![End-to-End (E2E) Testing](./images/E2E.png)
 
 **Resources:**
 
@@ -528,6 +541,8 @@ Integration Testing ensures that different components or modules of a software a
 - **Functionalities**: Tests combined functionalities of integrated parts.
 - **Top-Down and Bottom-Up**: Different integration strategies.
 - **Dependencies**: Identifies defects at the component interface level.
+
+- ![Integration Testing](./images/Integration%20Testing.png)
 
 **Resources:**
 
