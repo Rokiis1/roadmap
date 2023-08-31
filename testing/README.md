@@ -11,6 +11,8 @@
     - [Explanation of Test Oracles](#explanation-of-test-oracles)
     - [Types of Test Oracles](#types-of-test-oracles)
   - [Test Prioritization](#test-prioritization)
+    - [Explanation of Test Prioritization](#explanation-of-test-prioritization)
+    - [Test Prioritization Techniques](#test-prioritization-techniques)
   - [Black Box vs Gray Box vs White Box Testing](#black-box-vs-gray-box-vs-white-box-testing)
     - [Differences and similarities](#differences-and-similarities)
     - [When to apply each approach](#when-to-apply-each-approach)
@@ -58,6 +60,7 @@
 ### What is Quality?
 
 **Explanation:**
+
 Quality refers to the degree of excellence or superiority of a product or service. In software, quality encompasses factors such as reliability, performance, security, usability, and meeting customer expectations.
 
 **Key Concepts:**
@@ -97,7 +100,8 @@ Quality Assurance (QA) in software testing involves processes and practices that
 
 **Resources:**
 
-- [What is Quality Assurance(QA)?](https://www.guru99.com/all-about-quality-assurance.html)
+- [Article: What is Quality Assurance(QA)?](https://www.guru99.com/all-about-quality-assurance.html)
+- [Video: What Does a QA Engineer Actually Do?](https://www.youtube.com/watch?v=jVv3A3t2DBI)
 
 **Tasks**
 
@@ -121,6 +125,10 @@ The "Tester Mindset" refers to the collection of qualities, attitudes, and appro
 - **Problem-Solving**: Testers have a knack for finding solutions to complex issues.
 - **Continuous Learning**: Testers stay updated with technology trends and testing methodologies.
 
+**Resources:**
+
+- [Video: Explanation of Tester Mindset](https://www.youtube.com/watch?v=BCuZfdbWnl8)
+
 ## Test Oracles
 
 ### Explanation of Test Oracles
@@ -139,6 +147,8 @@ A **test oracle** is a mechanism or principle used to determine the expected out
 
 **Resources:**
 
+[Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
+
 ### Types of Test Oracles
 
 **Explanation:**
@@ -153,6 +163,10 @@ There are different types of test oracles used to determine expected outcomes ba
 
 ## Test Prioritization
 
+**Resources:**
+
+- [Article: Test Prioritization](https://www.professionalqa.com/test-prioritization)
+
 ### Explanation of Test Prioritization
 
 **Explanation:**
@@ -165,8 +179,6 @@ Test prioritization is the process of ordering or ranking test cases based on th
 - **Resource Optimization**: It ensures that high-priority tests are executed within constrained resources.
 - **Early Detection**: Prioritizing critical tests increases the chances of detecting showstopper issues early.
 - **Test Dependencies**: Dependencies among test cases influence their order of execution.
-
-**Resources:**
 
 ### Test Prioritization Techniques
 
@@ -184,9 +196,13 @@ There are various techniques to prioritize test cases based on different criteri
 
 **Resources:**
 
-- [Test Prioritization](https://www.professionalqa.com/test-prioritization)
+- [Video: Test Prioritization Techniques](https://www.youtube.com/watch?v=drUfHG6tav8)
 
 ## Black Box vs Gray Box vs White Box Testing
+
+**Resources:**
+
+- [Video: Black Box vs Gray Box vs White Box Testing](https://www.youtube.com/watch?v=CPVMbZYeiF4)
 
 ### Differences and Similarities
 
@@ -201,7 +217,7 @@ Black box testing, gray box testing, and white box testing are three distinct te
 - **Testers Role**: Testers focus on inputs and expected outputs without knowledge of the internal implementation.
 - **Similarities**: It is similar to how end-users interact with the system.
 
-- [Black Box Testin](https://www.guru99.com/black-box-testing.html)
+- [Article: Black Box Testin](https://www.guru99.com/black-box-testing.html)
 
 **Gray Box Testing:**
 
@@ -210,7 +226,7 @@ Black box testing, gray box testing, and white box testing are three distinct te
 - **Testers Role**: Testers can design tests based on the understanding of internal logic to target specific areas.
 - **Similarities**: It bridges the gap between black box and white box testing.
 
-- [Gray Box Testing](https://www.guru99.com/grey-box-testing.html)
+- [Article: Gray Box Testing](https://www.guru99.com/grey-box-testing.html)
 
 **White Box Testing:**
 
@@ -221,7 +237,7 @@ Black box testing, gray box testing, and white box testing are three distinct te
 
 **Resources:**
 
-- [White Box Testing](https://www.guru99.com/white-box-testing.html)
+- [Article: White Box Testing](https://www.guru99.com/white-box-testing.html)
 
 ### When to Apply Each Approach
 
@@ -243,7 +259,6 @@ The choice between black box, gray box, and white box testing depends on the goa
 
 - Suitable for in-depth testing of code logic, paths, and boundary conditions.
 - Used during unit testing, code review, security testing, and code optimization.
-
 
 ## Test Case Design
 
@@ -275,8 +290,8 @@ A standardized test case structure and format make test cases consistent and eas
 
 **Resources:**
 
-- [Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
-- [Test Case Design](https://www.guru99.com/software-testing-techniques.html)
+- [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
+- [Article: Test Case Design](https://www.guru99.com/software-testing-techniques.html)
 
 ### Test Case Prioritization
 
@@ -292,11 +307,13 @@ Test case prioritization involves determining the order in which test cases shou
 
 **Resources:**
 
+- [Video: Test Case Design](https://www.youtube.com/watch?v=NKrFLbTiBQc)
+
 ## Testing Techniques
 
 **Resources:**
 
-[Testing Techniques](https://www.guru99.com/non-functional-testing.html)
+[Article: Testing Techniques](https://www.guru99.com/non-functional-testing.html)
 
 ### Non-Functional Testing
 
@@ -313,9 +330,11 @@ Load testing involves assessing a system's performance under specific load condi
 - **Types**: Concurrent users, transactions, or data volume are typically tested.
 - **Tools**: Load testing tools like JMeter, Gatling, or locust can automate load simulations.
 
+- ![Loading Testing](./images/loadingTest.png)
+
 **Resources:**
 
-- [Load Testing](https://loadninja.com/load-testing/)
+- [Article: Load Testing](https://loadninja.com/load-testing/)
 
 #### Performance Testing
 
@@ -329,9 +348,11 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 - **Metrics**: Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
 - **Benefits**: Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
 
+- ![Performance Testing](./images/PerformanceTesting.png)
+
 **Resources:**
 
-- [Performance Testing](https://www.guru99.com/performance-testing.html)
+- [Article: Performance Testing](https://www.guru99.com/performance-testing.html)
 
 #### Stress Testing
 
@@ -345,9 +366,11 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 - **Purpose**: Determine system stability and reliability under high stress.
 - **Challenges**: Requires careful planning to avoid damaging the system during testing.
 
-- [Stress Testing](https://www.guru99.com/stress-testing-tutorial.html)
+- ![Stress Testing](./images/StressTesting.png)
 
 **Resources:**
+
+- [Article: Stress Testing](https://www.guru99.com/stress-testing-tutorial.html)
 
 #### Security Testing
 
@@ -361,9 +384,11 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 - **Objectives**: Identify vulnerabilities, assess risk levels, and ensure compliance with security standards.
 - **Criticality**: Security testing is crucial to protect sensitive data and user privacy.
 
+- ![Security Testing](./images/SecurityTesting.png)
+
 **Resources:**
 
-- [Security Testing](https://www.guru99.com/what-is-security-testing.html)
+- [Article: Security Testing](https://www.guru99.com/what-is-security-testing.html)
 
 #### Accessibility Testing
 
@@ -377,9 +402,11 @@ Accessibility testing ensures that a software application is usable by people wi
 - **Guidelines**: Compliance with standards like WCAG (Web Content Accessibility Guidelines).
 - **Importance**: Accessibility testing promotes inclusivity and ensures software is usable by all users.
 
+- ![Accessibility Testing](./images/AccesibiltyTesting.png)
+
 **Resources:**
 
-- [Accessibility Testing](https://www.guru99.com/accessibility-testing.html)
+- [Article: Accessibility Testing](https://www.guru99.com/accessibility-testing.html)
 
 ### Functional Testing
 
@@ -398,7 +425,8 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 
 **Resources:**
 
-- [User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
+- [Article: User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
+- [Video: User Acceptance Testing (UAT)](https://www.youtube.com/watch?v=F5xaiKyJDNQ)
 
 #### Exploratory Testing
 
@@ -415,7 +443,8 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 
 **Resources:**
 
-- [Exploratory Testing](https://www.guru99.com/exploratory-testing.html)
+- [Article: Exploratory Testing](https://www.guru99.com/exploratory-testing.html)
+- [Video: Exploratory Testing](https://www.youtube.com/watch?v=aX42Qr0eeuI&t=658s)
 
 #### Smoke and Sanity Testing
 
@@ -437,7 +466,8 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 
 **Resources:**
 
-- [Sanity Testing Vs. Smoke Testing – Difference Between Them](https://www.guru99.com/smoke-sanity-testing.html)
+- [Article: Sanity Testing Vs. Smoke Testing – Difference Between Them](https://www.guru99.com/smoke-sanity-testing.html)
+- [Video: Sanity Testing Vs. Smoke Testing](https://www.youtube.com/watch?v=u5gC4bD9cCQ)
 
 #### Regression Testing
 
@@ -453,7 +483,8 @@ Regression Testing verifies that new code changes do not negatively impact exist
 
 **Resources:**
 
-- [Regression Testing](https://www.guru99.com/regression-testing.html)
+- [Article: Regression Testing](https://www.guru99.com/regression-testing.html)
+- [Video: Regression Testing](https://www.youtube.com/watch?v=AWX6WvYktwk&t=71s)
 
 #### Unit Testing
 
@@ -521,8 +552,8 @@ The Agile model is an iterative and incremental approach to software development
 
 **Resources:**
 
-- [Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
-- [Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
+- [Article: Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
+- [Article: Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
 
 ## Waterfall Model
 
@@ -537,7 +568,7 @@ The Waterfall model is a sequential software development approach where each pha
 
 **Resources:**
 
-- [Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
+- [Article: Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
 
 # QA Manual Testing
 
@@ -557,7 +588,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Resources:**
 
-- [Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
+- [Article: Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
 
 ## Test-Driven Development (TDD)
 
@@ -574,7 +605,7 @@ Test-Driven Development (TDD) is a software development practice where tests are
 
 **Resources:**
 
-- [Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
+- [Article: Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
 
 ## Test Cases and Scenarios
 
@@ -591,7 +622,8 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 **Resources:**
 
-- [Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
+- [Article Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
+- [Video: Crash Course Test Cases and Scenarios](https://www.youtube.com/watch?v=St9Ep9gnvRw)
 
 ### Reporting
 
@@ -608,7 +640,7 @@ Reporting involves documenting and communicating testing activities, results, an
 
 **Resources:**
 
-- [Reporting](https://www.guru99.com/defect-management-process.html)
+- [Article: Reporting](https://www.guru99.com/defect-management-process.html)
 
 ## Compatibility Testing
 
@@ -625,7 +657,7 @@ Compatibility testing ensures that software works across various environments, b
 
 **Resources:**
 
-- [Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
+- [Article: Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
 
 ## Verification and Validation
 
@@ -642,9 +674,11 @@ Verification ensures that a software product meets specified requirements, while
 
 **Resources:**
 
-- [Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
+- [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
-# Accessibility Testing
+## Non Functional Testing
+
+### Accessibility Testing
 
 **Explanation:**
 
@@ -659,9 +693,9 @@ Accessibility testing ensures that a software application is usable by individua
 
 **Resources:**
 
-- [Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
+- [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
 
-## Dev Tools
+#### Dev Tools
 
 **Explanation:**
 
@@ -677,9 +711,9 @@ Dev Tools is a set of web development and debugging tools built into the browser
 
 **Resources:**
 
-- [Dev Tools](https://developer.chrome.com/docs/devtools/overview/)
+- [Site: Dev Tools](https://developer.chrome.com/docs/devtools/overview/)
 
-## Load and Performance Testing
+### Load and Performance Testing
 
 **Explanation:**
 Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
@@ -694,7 +728,7 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 **Resources:**
 
-## WebPageTest
+#### WebPageTest
 
 **Explanation:**
 
@@ -709,9 +743,9 @@ WebPageTest is an online tool that allows you to test the performance of web pag
 
 **Resources:**
 
-- [WebPageTest](https://www.webpagetest.org/)
+- [Site: WebPageTest](https://www.webpagetest.org/)
 
-## Lighthouse
+#### Lighthouse
 
 **Explanation:**
 
@@ -726,4 +760,4 @@ Lighthouse is an open-source tool from Google that assesses the quality and perf
 
 **Resources:**
 
-- [Lighthouse](https://github.com/GoogleChrome/lighthouse/)
+- [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
