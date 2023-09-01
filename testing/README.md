@@ -105,7 +105,7 @@ Quality Assurance (QA) in software testing involves processes and practices that
 
 **Tasks**
 
-- [QA Basics](../tasks/testing/manualTesting/README.md)
+- [1 Task](../tasks/testing/manualTesting/README.md)
 
 ## Tester Mindset
 
@@ -288,6 +288,8 @@ A standardized test case structure and format make test cases consistent and eas
 - **Actual Results**: Record the actual outcomes during test execution.
 - **Status**: Indicate whether the test case passed, failed, or needs further investigation.
 
+- ![TestCaseTable](./images/TestCaseTable.png)
+
 **Resources:**
 
 - [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
@@ -308,6 +310,10 @@ Test case prioritization involves determining the order in which test cases shou
 **Resources:**
 
 - [Video: Test Case Design](https://www.youtube.com/watch?v=NKrFLbTiBQc)
+
+**Tasks:**
+
+- [2 Task](../tasks/testing/manualTesting/README.md)
 
 ## Testing Techniques
 
@@ -336,6 +342,10 @@ Load testing involves assessing a system's performance under specific load condi
 
 - [Article: Load Testing](https://loadninja.com/load-testing/)
 
+**Tasks**
+
+- [3 Task](../tasks/testing/manualTesting/README.md)
+
 #### Performance Testing
 
 **Explanation:**
@@ -353,6 +363,10 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 **Resources:**
 
 - [Article: Performance Testing](https://www.guru99.com/performance-testing.html)
+
+**Tasks**
+
+- [4 Task](../tasks/testing/manualTesting/README.md)
 
 #### Stress Testing
 
@@ -372,6 +386,10 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 
 - [Article: Stress Testing](https://www.guru99.com/stress-testing-tutorial.html)
 
+**Tasks**
+
+- [5 Task](../tasks/testing/manualTesting/README.md)
+
 #### Security Testing
 
 **Explanation:**
@@ -390,6 +408,10 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 
 - [Article: Security Testing](https://www.guru99.com/what-is-security-testing.html)
 
+**Tasks**
+
+- [6 Task](../tasks/testing/manualTesting/README.md)
+
 #### Accessibility Testing
 
 **Explanation:**
@@ -407,6 +429,10 @@ Accessibility testing ensures that a software application is usable by people wi
 **Resources:**
 
 - [Article: Accessibility Testing](https://www.guru99.com/accessibility-testing.html)
+
+**Tasks**
+
+- [7 Task](../tasks/testing/manualTesting/README.md)
 
 ### Functional Testing
 
@@ -430,6 +456,10 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 - [Article: User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
 - [Video: User Acceptance Testing (UAT)](https://www.youtube.com/watch?v=F5xaiKyJDNQ)
 
+**Tasks**
+
+- [8 Task](../tasks/testing/manualTesting/README.md)
+
 #### Exploratory Testing
 
 **Explanation:**
@@ -449,6 +479,10 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 
 - [Article: Exploratory Testing](https://www.guru99.com/exploratory-testing.html)
 - [Video: Exploratory Testing](https://www.youtube.com/watch?v=aX42Qr0eeuI&t=658s)
+
+**Tasks**
+
+- [9 Task](../tasks/testing/manualTesting/README.md)
 
 #### Smoke and Sanity Testing
 
@@ -476,6 +510,10 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 - [Article: Sanity Testing Vs. Smoke Testing – Difference Between Them](https://www.guru99.com/smoke-sanity-testing.html)
 - [Video: Sanity Testing Vs. Smoke Testing](https://www.youtube.com/watch?v=u5gC4bD9cCQ)
 
+**Tasks**
+
+- [](../tasks/testing/manualTesting/README.md)
+
 #### Regression Testing
 
 **Explanation:**
@@ -494,6 +532,10 @@ Regression Testing verifies that new code changes do not negatively impact exist
 
 - [Article: Regression Testing](https://www.guru99.com/regression-testing.html)
 - [Video: Regression Testing](https://www.youtube.com/watch?v=AWX6WvYktwk&t=71s)
+
+**Tasks**
+
+- [](../tasks/testing/manualTesting/README.md)
 
 #### Unit Testing
 
@@ -691,7 +733,7 @@ Verification ensures that a software product meets specified requirements, while
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
-## Non Functional Testing
+# Non Functional Testing
 
 ### Accessibility Testing
 
