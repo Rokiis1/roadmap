@@ -96,7 +96,7 @@ Quality Assurance (QA) in software testing involves processes and practices that
 - **Test Planning**: Developing comprehensive test plans.
 - **Metrics and Measurement**: Using metrics to assess and improve quality.
 
-- ![What is QA?](./images/whatIsQA.png)
+![What is QA?](./images/whatIsQA.png)
 
 **Resources:**
 
@@ -319,7 +319,7 @@ Test case prioritization involves determining the order in which test cases shou
 
 **Resources:**
 
-[Article: Testing Techniques](https://www.guru99.com/non-functional-testing.html)
+- [Article: Testing Techniques](https://www.guru99.com/non-functional-testing.html)
 
 ### Non-Functional Testing
 
@@ -336,7 +336,7 @@ Load testing involves assessing a system's performance under specific load condi
 - **Types**: Concurrent users, transactions, or data volume are typically tested.
 - **Tools**: Load testing tools like JMeter, Gatling, or locust can automate load simulations.
 
-- ![Loading Testing](./images/loadingTest.png)
+![Loading Testing](./images/loadingTest.png)
 
 **Resources:**
 
@@ -358,7 +358,7 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 - **Metrics**: Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
 - **Benefits**: Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
 
-- ![Performance Testing](./images/PerformanceTesting.png)
+![Performance Testing](./images/PerformanceTesting.png)
 
 **Resources:**
 
@@ -380,7 +380,7 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 - **Purpose**: Determine system stability and reliability under high stress.
 - **Challenges**: Requires careful planning to avoid damaging the system during testing.
 
-- ![Stress Testing](./images/StressTesting.png)
+![Stress Testing](./images/StressTesting.png)
 
 **Resources:**
 
@@ -402,7 +402,7 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 - **Objectives**: Identify vulnerabilities, assess risk levels, and ensure compliance with security standards.
 - **Criticality**: Security testing is crucial to protect sensitive data and user privacy.
 
-- ![Security Testing](./images/SecurityTesting.png)
+![Security Testing](./images/SecurityTesting.png)
 
 **Resources:**
 
@@ -424,7 +424,7 @@ Accessibility testing ensures that a software application is usable by people wi
 - **Guidelines**: Compliance with standards like WCAG (Web Content Accessibility Guidelines).
 - **Importance**: Accessibility testing promotes inclusivity and ensures software is usable by all users.
 
-- ![Accessibility Testing](./images/AccesibiltyTesting.png)
+![Accessibility Testing](./images/AccesibiltyTesting.png)
 
 **Resources:**
 
@@ -449,7 +449,7 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 - **Validation**: Verifies if the application meets business objectives.
 - **Sign-off**: Successful UAT signifies readiness for production.
 
-- ![User Acceptance Testing (UAT)](./images/UAT.png)
+![User Acceptance Testing (UAT)](./images/UAT.png)
 
 **Resources:**
 
@@ -473,7 +473,7 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 - **Bug Hunting**: Efficient for finding defects in an unscripted manner.
 - **Documentation**: Testers document actions, observations, and defects found.
 
-- ![Exploratory Testing](./images/ExploratoryTesting.png)
+![Exploratory Testing](./images/ExploratoryTesting.png)
 
 **Resources:**
 
@@ -502,8 +502,11 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 - **Timing**: After specific changes, fixes, or patches.
 - **Coverage**: Focuses on recent modifications.
 
-- ![Smoke Testing](./images/Smoking%20Test.png)
-- ![Sanity Testing](./images/SanityTesting.png)
+*Sanity Testing:*
+![Smoke Testing](./images/Smoking%20Test.png)
+
+*Smoke Testing:*
+![Sanity Testing](./images/SanityTesting.png)
 
 **Resources:**
 
@@ -512,7 +515,7 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 
 **Tasks**
 
-- [](../tasks/testing/manualTesting/README.md)
+- [10 Task](../tasks/testing/manualTesting/README.md)
 
 #### Regression Testing
 
@@ -535,7 +538,7 @@ Regression Testing verifies that new code changes do not negatively impact exist
 
 **Tasks**
 
-- [](../tasks/testing/manualTesting/README.md)
+[11 Task](../tasks/testing/manualTesting/README.md)
 
 #### Unit Testing
 
@@ -548,7 +551,7 @@ Unit Testing involves testing individual units or components of a software appli
 - **Automation**: Often automated for efficient execution.
 - **White Box Testing**: Requires knowledge of code internals.
 
-- ![](./images/UnitTesting.png)
+![Unit Testing](./images/UnitTesting.png)
 
 **Resources:**
 
@@ -565,7 +568,7 @@ End-to-End (E2E) Testing validates the complete flow of an application, simulati
 - **Real-World Scenarios**: Simulates how users interact with the application.
 - **Challenges**: Requires testing across various layers and technologies.
 
-- ![End-to-End (E2E) Testing](./images/E2E.png)
+![End-to-End (E2E) Testing](./images/E2E.png)
 
 **Resources:**
 
@@ -584,7 +587,7 @@ Integration Testing ensures that different components or modules of a software a
 - **Top-Down and Bottom-Up**: Different integration strategies.
 - **Dependencies**: Identifies defects at the component interface level.
 
-- ![Integration Testing](./images/Integration%20Testing.png)
+![Integration Testing](./images/Integration%20Testing.png)
 
 **Resources:**
 
