@@ -47,11 +47,20 @@
     - [Verification and Validation](#verification-and-validation)
 - [Non Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
-    - [Chrome dev tools](#chrome-dev-tools)
   - [Load and Performance Testing](#load-and-performance-testing)
-    - [WebPageTest](#web-page-test)
     - [Lighthouse](#lighthouse)
 - [Automated Testing](#automated-testing)
+  - [Frontend automation](#frontend-automation)
+    - [Basic Introduction](#basic-introduction)
+      - [HTML/CSS/JavaScript Basics](#html-css-javascript-basics)
+      - [Browser DevTools](#browser-devtools)
+      - [Caching](#caching)
+      - [SSR vs CSR vs SSG](#ssr-csr-ssg)
+      - [SWAs, PWAs and Jamstack](#swas-pwas-jamstack)
+      - [Responsive vs adaptive](#responsive-vs-adaptive)
+  - [Backend Automation](#backend-automation)
+    - [Postman](#postman)
+  - [Cypress](#cypress)
 
 # QA Basics
 
@@ -385,6 +394,7 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 **Resources:**
 
 - [Article: Stress Testing](https://www.guru99.com/stress-testing-tutorial.html)
+- [Article: What is a DoS Attack and How to DoS Someone [Ping of Death]](https://www.guru99.com/ultimate-guide-to-dos-attacks.html)
 
 **Tasks**
 
@@ -407,6 +417,7 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 **Resources:**
 
 - [Article: Security Testing](https://www.guru99.com/what-is-security-testing.html)
+- [Article: SQL Injection Tutorial](https://www.guru99.com/learn-sql-injection-with-practical-example.html)
 
 **Tasks**
 
@@ -738,7 +749,7 @@ Verification ensures that a software product meets specified requirements, while
 
 # Non Functional Testing
 
-### Accessibility Testing
+## Accessibility Testing
 
 **Explanation:**
 
@@ -755,25 +766,7 @@ Accessibility testing ensures that a software application is usable by individua
 
 - [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
 
-#### Dev Tools
-
-**Explanation:**
-
-Dev Tools is a set of web development and debugging tools built into the browser. It provides developers and testers with a range of features to analyze and optimize web pages and applications.
-
-**Key Features:**
-
-- **Elements Inspection**: Inspect and modify HTML and CSS in real-time.
-- **Console**: View and debug JavaScript errors and logs.
-- **Network Monitoring**: Analyze network requests, responses, and performance.
-- **Audits**: Conduct performance audits, including accessibility checks.
-- **Device Emulation**: Test responsive design on various devices.
-
-**Resources:**
-
-- [Site: Dev Tools](https://developer.chrome.com/docs/devtools/overview/)
-
-### Load and Performance Testing
+## Load and Performance Testing
 
 **Explanation:**
 Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
@@ -788,24 +781,7 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 **Resources:**
 
-#### WebPageTest
-
-**Explanation:**
-
-WebPageTest is an online tool that allows you to test the performance of web pages from various locations around the world. It provides insights into page load times, performance scores, and recommendations for optimization.
-
-**Key Features:**
-
-- **Location Options**: Test from multiple locations for global perspective.
-- **Performance Metrics**: Measures first byte time, render time, load time, etc.
-- **Waterfall Chart**: Visualizes the loading sequence of page resources.
-- **Optimization Suggestions**: Offers recommendations to improve performance.
-
-**Resources:**
-
-- [Site: WebPageTest](https://www.webpagetest.org/)
-
-#### Lighthouse
+### Lighthouse
 
 **Explanation:**
 
@@ -821,3 +797,104 @@ Lighthouse is an open-source tool from Google that assesses the quality and perf
 **Resources:**
 
 - [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
+
+# Automated Testing
+
+Automated testing is a crucial practice in software development that involves using tools and scripts to automatically test software applications. This ensures that the software functions correctly, performs well, and meets its intended requirements. Automated testing helps identify bugs, regressions, and performance issues early in the development process.
+
+## Frontend automation
+
+Frontend automation focuses on automating tasks related to the user interface (UI) and the frontend of web applications. It streamlines development processes, enhances code quality, and improves the overall user experience.
+
+### Basic Introduction
+
+#### HTML/CSS/JavaScript Basics
+
+**Resources:**
+
+*html*
+- [HTML](../frontend/html/README.md)
+
+*css*
+- [CSS](../frontend/css/README.md)
+
+*JavaScript*
+- [JavaScript](../languages/javaScript/README.md)
+
+#### Browser DevTools
+
+**Explanation:**
+
+Browser DevTools are integrated developer tools available in web browsers. They provide a set of features that aid in web development and debugging.
+
+**Key Concepts:**
+
+- **Inspecting and Debugging:** DevTools allow developers to inspect HTML, CSS, and JavaScript, making it easier to identify and fix issues in the frontend code.
+- **Network Monitoring:** You can monitor network requests and responses to optimize performance and troubleshoot issues.
+- **Performance Profiling:** DevTools offer performance profiling tools to identify bottlenecks and improve website speed.
+
+**Resources:**
+
+- [Article: What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)
+
+#### Caching
+
+**Explanation:**
+
+Caching ensures that the resources downloaded once are reused instead of doing a fresh fetch again. It is useful for increasing subsequent page load speed by reusing cached images, fonts, and other static assets. Caching should not be typically done on dynamic content. For example list of posts or comments. As part of the testing strategy, both caching and cache invalidation (not getting stale dynamic content) needs to be tested.
+
+**Key Concepts:**
+
+- **Browser Cache:** Browsers can cache static assets like images and stylesheets, improving page load times.
+- **Content Delivery Networks (CDNs):** CDNs use caching to distribute content globally, reducing server load and improving content delivery.
+- **Cache Control Headers:** Developers can control caching behavior using HTTP headers to set expiration times for cached resources.
+
+**Resources:**
+
+- [Video: Caching - Simply Explained](https://www.youtube.com/watch?v=6FyXURRVmR0)
+
+#### SSR vs CSR vs SSG
+
+**Explanation:**
+
+These are different approaches to rendering web content that impact how web applications are built and perform.
+
+**Key Concepts:**
+
+- **Server-Side Rendering (SSR):** In SSR, web pages are rendered on the server and sent to the client as fully formed HTML. This can improve initial page load times and SEO.
+- **Client-Side Rendering (CSR):** CSR relies on rendering content in the user's browser using JavaScript, enabling dynamic updates without full page reloads.
+- **Static Site Generation (SSG):** SSG pre-generates web pages at build time, offering the benefits of both SSR and CSR for performance and security.
+
+**Resources:**
+
+- [Comparison of CSR, SSR, SSG](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)
+
+#### SPAs(SWAs), PWAs and Jamstack
+
+**Explanation:**
+
+These are modern architectural patterns and approaches in web development.
+
+**Key Concepts:**
+
+**Single-Page Applications (SPAs):** SPAs load a single HTML page and dynamically update content, providing a smooth user experience.
+**Progressive Web Apps (PWAs):** PWAs offer app-like experiences on the web, including offline access and push notifications.
+**Jamstack:** Jamstack is an architectural pattern that decouples the frontend and backend, using APIs and pre-rendering for performance and security.
+
+**Resources:**
+
+- [SPAs(SWAs)](https://www.staticapps.org/)
+- [PWAs and Jamstack](https://bejamas.io/blog/jamstack-pwa/)
+
+#### Responsive vs adaptive
+
+**Explanation:**
+
+These design approaches ensure optimal user experiences on various devices.
+
+**Key Concepts:**
+
+**Responsive Design:** Responsive web design adapts to different screen sizes and orientations using flexible layouts and media queries, providing a consistent user experience.
+**Adaptive Design:** Adaptive design involves creating multiple versions of a website tailored to specific device categories, ensuring specialized user experiences.
+
+**Resources:**

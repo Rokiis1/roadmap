@@ -136,7 +136,7 @@
 
 **Scenario:** Perform load testing on a social media platform's feed to ensure it can handle a high volume of users posting and interacting simultaneously.
 
-**Test Case 1: Simulate Posting Activity**
+**Test Case 1: Simulate Post#ing Activity**
 1. Simulate 500 users posting status updates simultaneously.
 2. Monitor the system's ability to handle the influx of posts.
 3. Expected Outcome: Ensure the platform can accept and display the posts without significant delays.
