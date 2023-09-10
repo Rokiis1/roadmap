@@ -862,12 +862,76 @@ These are different approaches to rendering web content that impact how web appl
 **Key Concepts:**
 
 - **Server-Side Rendering (SSR):** In SSR, web pages are rendered on the server and sent to the client as fully formed HTML. This can improve initial page load times and SEO.
+
+![SSR](./images/SSR.png)
+
+- **Advantages of Server-Side Rendering (SSR):**
+
+1. **Improved SEO:** One of the primary advantages of SSR is its positive impact on search engine optimization (SEO). Search engines can easily crawl and index content that is rendered on the server side. This can lead to better search engine rankings and increased discoverability of your web pages.
+
+2. **Faster Initial Page Load:** SSR can result in faster initial page loads compared to Client-Side Rendering (CSR) or Single-Page Applications (SPAs). When the server sends a fully rendered HTML page to the client, users can see and interact with the content sooner.
+
+3. **Accessibility:** SSR can improve accessibility by ensuring that the HTML content is available to assistive technologies and can be easily parsed by screen readers. This can help make your web application more inclusive.
+
+4. **Security:** SSR can enhance security by keeping sensitive logic and data on the server, reducing the risk of exposing critical information to the client-side code.
+
+**Disadvantages of Server-Side Rendering (SSR):**
+
+1. **Increased server load:** Since the server is responsible for rendering HTML, it can put a strain on the server’s resources, resulting in slower response times and increased server costs.
+
+2. **Increased complexity:** Since the server is responsible for rendering HTML, it requires more server-side code, which can be more challenging to maintain and debug. 
+
 - **Client-Side Rendering (CSR):** CSR relies on rendering content in the user's browser using JavaScript, enabling dynamic updates without full page reloads.
+
+![CSR](./images/CSR.png)
+
+**Advantages of Client-Side Rendering (CSR):**
+
+1. **Faster Subsequent Page Loads:** Once the initial page is loaded, subsequent interactions within the application can be very fast because only data needs to be fetched from the server, and the client can 
+handle rendering and updates. This can provide a more responsive user experience.
+
+2. **Reduced Server Load:** CSR offloads a significant portion of the rendering work to the client, which can lead to reduced server load and lower hosting costs, especially when dealing with a large number of users.
+
+**Disadvantages of Client-Side Rendering (CSR):**
+
+1. **SEO:** One of the primary limitations of CSR is its impact on search engine optimization (SEO). Search engines primarily crawl HTML content, and CSR applications rely heavily on JavaScript to render content. This can lead to indexing issues, resulting in lower search rankings.
+
+2. **Performance on slower devices or connections:** CSR can be more resource-intensive, which can lead to slower load times and poorer performance on slower devices or connections. This can result in a less optimal user experience, particularly for users on mobile devices or in areas with poor internet connectivity.
+
+3. **Accessibility:** CSR can pose challenges for web accessibility. Since much of the content is rendered dynamically on the client-side, it can be difficult for screen readers and other assistive technologies to navigate and interpret the content.
+
+4. **Initial load times:** While CSR can offer a more dynamic user experience once the page has loaded, the initial load time can be slower. This can result in a poor user experience, particularly for users who are not on high-speed connections.
+
+
 - **Static Site Generation (SSG):** SSG pre-generates web pages at build time, offering the benefits of both SSR and CSR for performance and security.
+
+![SSG](./images/SSG.png)
+
+**Advantages of Static Site Generation (SSG):**
+
+1. **Performance:** SSG generates pre-rendered HTML files, which can be served quickly to users. This results in fast page load times, benefiting both user experience and search engine rankings. There is no need for server-side processing or database queries during runtime.
+
+2. **Scalability:** Static sites are highly scalable because they can be served from a Content Delivery Network (CDN) with minimal server resources. Handling high traffic loads becomes more manageable and cost-effective.
+
+3. **SEO Benefits:** SSG is SEO-friendly by default. Search engines can easily crawl and index static HTML pages, leading to better search engine rankings.
+
+4. **Reliability:** With no server-side code execution, static sites are more reliable and less prone to server crashes or downtime.
+
+**Disadvantages of Static Site Generation (SSG):**
+
+1. **Limited Interactivity:** Static sites are less suitable for highly interactive web applications that require real-time data updates or user-generated content. Complex client-side functionality often requires additional JavaScript.
+
+2. **Content Updates:** Making real-time content updates can be challenging with SSG. When content changes frequently, regenerating and redeploying the entire site can become cumbersome.
+
+3. **Dynamic Data:** SSG is not well-suited for sites that heavily rely on dynamic data, such as e-commerce websites with real-time inventory tracking or forums with user-generated content.
+
+4. **Build Time:** Generating static sites can take longer, especially for large websites with a lot of content. This can impact development speed and time-to-market.
+
+5. **Complexity for Large Sites:** For very large websites with thousands of pages, managing content and build processes can become complex.
 
 **Resources:**
 
-- [Comparison of CSR, SSR, SSG](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)
+- [Article: Comparison of CSR, SSR, SSG](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)
 
 #### SPAs(SWAs), PWAs and Jamstack
 
@@ -883,8 +947,8 @@ These are modern architectural patterns and approaches in web development.
 
 **Resources:**
 
-- [SPAs(SWAs)](https://www.staticapps.org/)
-- [PWAs and Jamstack](https://bejamas.io/blog/jamstack-pwa/)
+- [Article: SPAs(SWAs)](https://www.staticapps.org/)
+- [Article: PWAs and Jamstack](https://bejamas.io/blog/jamstack-pwa/)
 
 #### Responsive vs adaptive
 
@@ -898,3 +962,5 @@ These design approaches ensure optimal user experiences on various devices.
 **Adaptive Design:** Adaptive design involves creating multiple versions of a website tailored to specific device categories, ensuring specialized user experiences.
 
 **Resources:**
+
+- [Article: Responsive web design vs. adaptive](https://www.wix.com/blog/responsive-vs-adaptive-design)
