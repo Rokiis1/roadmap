@@ -49,6 +49,12 @@
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
     - [Lighthouse](#lighthouse)
+  - [Security Testing](#security-testing)
+    - [Authentication authorization](#authentication-authorization)
+    - [Vulnerability Scanning](#vulnerability-scanning)
+    - [OWASP](#owasp)
+    - [Attack vectors](#attack-vectors)
+    - [Secrets Management](#secrets-management)
 - [Automated Testing](#automated-testing)
   - [Frontend automation](#frontend-automation)
     - [Basic Introduction](#basic-introduction)
@@ -60,7 +66,19 @@
       - [Responsive vs adaptive](#responsive-vs-adaptive)
   - [Backend Automation](#backend-automation)
     - [Postman](#postman)
-  - [Cypress](#cypress)
+  - [Jest](#jest)
+    - [Introduction to Jest](#introduction-to-jest)
+      - [What is Jest?](#what-is-jest)
+      - [Why Unit Testing is Important and why is not so important?](#why-unit-testing-is-important-and-why-not-important)
+      - [Pros and Cons using jest](#pros-and-cons-of-using-jest)
+    - [Setting up Jest](#setting-up-jest)
+      - [Installation](#installation)
+      - [Configuration](#configuration)
+      - [First Jest Test](#first-jets-test)
+    - [Writing Your First Test](#writing-your-first-test)
+      - [Creating Test Files](#creating-test-files)
+      - [Writing Test Suites and Test Cases](#writing-test-suites-and-test-cases)
+      - [Assertions in Jest](#assertions-in-jest)
 
 # QA Basics
 
@@ -769,6 +787,7 @@ Accessibility testing ensures that a software application is usable by individua
 ## Load and Performance Testing
 
 **Explanation:**
+
 Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
 
 **Key Concepts:**
@@ -797,6 +816,117 @@ Lighthouse is an open-source tool from Google that assesses the quality and perf
 **Resources:**
 
 - [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
+
+## Security Testing
+
+**Explanation:**
+
+Security Testing ensures that a software application is resilient to security threats and vulnerabilities. It aims to identify and mitigate potential security risks to protect data and systems.
+
+**Key Concepts:**
+
+- **Authentication:** Verifying user identity.
+- **Authorization:** Controlling user access to resources.
+- **Vulnerability Scanning:** Automated detection of security weaknesses.
+- **OWASP:** Common web application security risks.
+- **Attack Vectors:** Paths for exploiting vulnerabilities.
+- **Secrets Management:** Secure handling of sensitive information.
+
+**Resources:**
+
+- [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
+
+### Authentication authorization
+
+**Explanation:**
+
+Authentication verifies the identity of users or systems, while authorization controls access to specific resources or functionalities based on user roles and permissions.
+
+**Key Concepts:**
+
+- **Authentication Factors:** Knowledge-based (passwords), possession-based (tokens), and biometrics.
+- **Authorization Models:** Role-based, attribute-based, and policy-based.
+- **Single Sign-On (SSO):** Allows access to multiple systems with a single login.
+- **Least Privilege Principle:** Users get the minimum access necessary.
+- **Authentication vs. Authorization:** Distinct but interconnected security aspects.
+
+**Resources:**
+
+- [Article: Authentication vs. Authorization](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization)
+
+### Vulnerability Scanning
+
+**Explanation:**
+
+Vulnerability Scanning involves automated tools that scan an application or network for known security vulnerabilities, misconfigurations, and weaknesses.
+
+**Key Concepts:**
+
+- **Automated Scanning:** Tools like Nessus, OpenVAS, and Qualys.
+- **CVE Database:** Common Vulnerabilities and Exposures for tracking known vulnerabilities.
+- **Continuous Scanning:** Regular scans to identify new vulnerabilities.
+- **Penetration Testing:** Manual testing to validate findings and identify unknown issues.
+
+**Resources:**
+
+### OWASP
+
+**Explanation:**
+
+The OWASP is a list of the most critical web application security risks. It serves as a guide for developers, testers, and security professionals to prioritize security measures.
+
+**Key Risks:**
+
+- Injection Attacks
+- Broken Authentication
+- Sensitive Data Exposure
+- XML External Entities (XXE)
+- Broken Access Control
+- Security Misconfigurations
+- Cross-Site Scripting (XSS)
+- Insecure Deserialization
+- Using Components with Known Vulnerabilities
+- Insufficient Logging & Monitoring
+
+**Resources:**
+
+- [10 Most Common Web Security Vulnerabilities](https://www.guru99.com/web-security-vulnerabilities.html)
+
+### Attack vectors
+
+**Explanation:**
+
+Attack Vectors are specific paths or techniques used by malicious actors to exploit vulnerabilities and compromise a system's security.
+
+**Key Concepts:**
+
+- **SQL Injection:** Manipulating SQL queries to access or modify data.
+- **Cross-Site Request Forgery (CSRF):** Forcing users to perform actions without their consent.
+- **Cross-Site Scripting (XSS):** Injecting malicious scripts into web pages viewed by other users.
+- **Phishing:** Deceptive techniques to trick users into revealing sensitive information.
+- **Zero-Day Exploits:** Attacks targeting newly discovered vulnerabilities.
+
+**Resources:**
+
+- [What is an attack vector?](https://www.cloudflare.com/en-gb/learning/security/glossary/attack-vector/)
+
+### Secrets Management
+
+**Explanation:**
+
+Secrets Management involves securely storing, accessing, and distributing sensitive information such as passwords, API keys, and cryptographic keys.
+
+**Key Concepts:**
+
+- **Key Management:** Safeguarding encryption keys used to protect data.
+- **Vaults and Key Stores:** Secure storage solutions for secrets.
+- **Rotation and Expiry:** Regularly changing secrets to minimize exposure.
+- **Access Control:** Restricting who can access and modify secrets.
+- **Audit Trails:** Monitoring and recording access to secrets.
+
+**Resources:**
+
+- [Secrets Management: Tools & Best Practice](https://snyk.io/learn/secrets-management/)
 
 # Automated Testing
 
@@ -964,3 +1094,194 @@ These design approaches ensure optimal user experiences on various devices.
 **Resources:**
 
 - [Article: Responsive web design vs. adaptive](https://www.wix.com/blog/responsive-vs-adaptive-design)
+
+## Jest
+
+### Introduction to Jest
+
+#### What is Jest?
+
+Jest is a JavaScript testing framework that makes it easy to write and run unit tests for your code. It was developed by Facebook and is widely used in the JavaScript community.
+
+#### Why Unit Testing is Important and why is not so important?
+
+Unit testing is essential in software development as it helps ensure the correctness of individual components or units of code. However, it's also important to recognize that not all code requires unit testing. Understanding when to write unit tests and when not to is crucial for efficient development.
+
+#### Pros and Cons using jest
+
+**Pros of Using Jest**
+
+- **Easy Setup**: Jest provides a straightforward setup process, making it accessible for beginners.
+- **Powerful Matchers**: It offers a wide range of built-in matchers for making assertions in your tests.
+- **Snapshot Testing**: Jest supports snapshot testing, which simplifies testing of UI components.
+- **Mocking and Spying**: Jest provides robust mocking and spying capabilities for functions and modules.
+- **Great Documentation**: Jest's documentation is comprehensive and user-friendly, making it easier to get started.
+
+**Cons of Using Jest**
+
+- **Large Bundle Size**: Jest can add some size to your bundle, which may be a concern in certain scenarios.
+- **Learning Curve**: While Jest is beginner-friendly, mastering all its features may take some time.
+- **Limited to JavaScript/TypeScript**: Jest is primarily designed for JavaScript and TypeScript, which may not be suitable for projects in other languages.
+- **Integration Tests**: For complex integration tests, Jest may not be the best choice, and other tools like Cypress may be more appropriate.
+
+### Setting up Jest
+
+Before setting up Jest, ensure that you have the following prerequisites in place:
+
+- **Node.js**: Jest requires Node.js to run. You can download and install Node.js from the [official website](https://nodejs.org/).
+
+- **npm or pnpm**: npm (Node Package Manager) or pnpm (Fast, disk space efficient package manager) is needed to manage dependencies and install Jest. npm comes bundled with Node.js, while you can install pnpm separately if you prefer:
+
+To install pnpm globally:
+```bash
+ npm install -g pnpm
+```
+
+### Installation
+
+Once you have Node.js and npm (or pnpm) set up, you can proceed with installing Jest as a development dependency in your project. Here's how to do it with npm:
+
+```bash
+npm install --save-dev jest
+```
+
+Here's how to do it with npm:
+
+```bash
+pnpm add --save-dev jest
+```
+
+### Configuration
+
+Jest allows you to configure various aspects of your testing environment through a `jest.config.js` file or by using command-line options. Configuration can include specifying test file patterns, setting up reporters, and defining custom setup and teardown scripts. Creating a Jest configuration tailored to your project's needs is essential for efficient testing.
+
+*jest.config.js example*
+```js
+export default {
+  // Indicates which files should be considered for testing.
+  testMatch: ["**/__tests__/**/*.js?(x)", "**/?(*.)+(spec|test).js?(x)"],
+
+  // A list of directories to search for custom matchers.
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+
+  // An array of file extensions your modules use.
+  moduleFileExtensions: ["js", "json", "jsx", "node"],
+
+  // The test environment that will be used for testing.
+  testEnvironment: "jsdom",
+
+  // Transform files with Babel to enable ES6+ support.
+  transform: {
+    "^.+\\.js?$": "babel-jest",
+  },
+};
+```
+
+- `testMatch`: Specifies the file patterns that Jest will consider for testing. In this example, it includes files in the `__tests__` directory and files with `.spec.js` or `.test.js` extensions.
+- `setupFilesAfterEnv`: An array of setup files that will be executed before running the tests. You can use this to set up custom matchers or other test-related configurations.
+- `moduleFileExtensions`: Defines the file extensions that Jest should look for when resolving modules. This configuration ensures that Jest can handle files with these extensions.
+- `testEnvironment`: Specifies the environment in which your tests will run. In this example, it's set to jsdom, which simulates a browser-like environment for testing JavaScript code.
+- `transform`: Configures how Jest should transform files before running tests. In this case, it uses `babel-jest` to transform JavaScript files, enabling ES6+ support.
+
+*Example package.json for Jest Scripts*
+```json
+{
+  "name": "your-project",
+  "version": "1.0.0",
+  "description": "Your project description",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "29.6"
+  }
+}
+```
+
+*flags to customize how Jest runs your tests*
+
+1. **Test Files:** You can specify one or more patterns to match test files. 
+
+```bash
+jest -- my-test-file.test.js
+```
+
+2. **Test Suites:** You can run specific test suites by providing their names using the `--testNamePattern`.
+
+```bash
+jest -- --testNamePattern="my specific test suite"
+```
+
+3. **Running Tests in Parallel:** You can enable parallel test execution using the `--runInBand`.
+
+```bash
+jest -- --runInBand
+```
+
+4. **Watch Mode:** To run Jest in watch mode, where it watches for file changes and re-runs tests automatically, you can use the `--watch`.
+
+```bash
+jest -- --watch
+```
+
+5. **Coverage Reporting:** You can generate and view code coverage reports using the `--coverage`.
+
+```bash
+jest -- --coverage
+```
+
+6. **Filter by Tags:** If you use test tags or labels, you can filter tests by tags using the `--testPathPattern`.
+
+```bash
+jest -- --testPathPattern="tags"
+```
+
+7. Verbose Output: For more detailed output during testing, you can use the `--verbose`.
+
+```bash
+jest -- --verbose
+```
+
+### First Jest Test
+
+After installing Jest and configuring it, you're ready to write your first test. Jest test files typically have a `.test.js` or `.spec.js` extension and are placed in a folder called `__tests__`. In your test file, you'll define test suites using `describe` and individual test cases using `it` or `test`.
+
+```js
+// myFunction.js
+/**
+ * Adds two numbers together.
+ *
+ * @param {number} a - The first number to be added.
+ * @param {number} b - The second number to be added.
+ * @returns {number} The result of adding `a` and `b`.
+ * @throws {Error} If either `a` or `b` is not a number.
+ */
+export function add(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('Both arguments must be numbers');
+  }
+  return a + b;
+}
+```
+```js
+/**
+ * @jest-environment jsdom
+ */
+
+// __tests__/myFunction.test.js
+import { add } from '../myFunction';
+
+describe('add function', () => {
+  it('should add two numbers correctly', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+
+  it('should handle negative numbers', () => {
+    expect(add(-1, 2)).toBe(1);
+  });
+
+  it('should return NaN for non-numeric input', () => {
+    expect(add('hello', 2)).toBeNaN();
+  });
+});
+```
