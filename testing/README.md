@@ -79,6 +79,20 @@
       - [Creating Test Files](#creating-test-files)
       - [Writing Test Suites and Test Cases](#writing-test-suites-and-test-cases)
       - [Assertions in Jest](#assertions-in-jest)
+    - [Running Tests](#running-tests)
+      - [Using the Jest CLI](#using-the-jest-cli)
+      - [Running Specific Tests](#running-specific-tests)
+      - [Watching for Changes](#watching-for-changes)
+    - [Matchers in Jest](#matchers-in-jest)
+      - [Introduction to Matchers](#introduction-to-matchers)
+      - [Common Matchers](#common-matchers)
+      - [Custom Matchers](#custom-matchers)
+    - [Mocking and Spies](#mocking-and-spies)
+      - [Mock Functions](#mock-functions)
+      - [Spying on Functions](#spying-on-functions)
+      - [Mocking Modules](#mocking-modules)
+    - [Testing Asynchronous Code](#testing-asynchronous-code)
+
 
 # QA Basics
 
@@ -1285,3 +1299,27 @@ describe('add function', () => {
   });
 });
 ```
+
+### Writing Your First Test
+
+#### Creating Test Files
+
+Before you can start testing your code, you need a dedicated place for your test code. Learn how to create test files and organize your test suite in a way that makes it easy to maintain and run your tests.
+
+#### Writing Test Suites and Test Cases
+
+Tests in Jest are organized into test suites and test cases. Discover how to structure your tests effectively using `describe` and `it` (or `test`) blocks. We'll show you how to group related tests and write clear and concise test case descriptions.
+
+#### Assertions in Jest
+
+Assertions are at the core of testing. You'll learn how to use Jest's built-in assertion functions to make statements about your code's behavior. We'll cover common assertions like `expect`, `toBe`, `toEqual`, and more, helping you validate your code's correctness.
+
+### Running Tests
+
+###
+
+###
+
+###
+
+###

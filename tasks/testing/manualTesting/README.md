@@ -696,3 +696,13 @@ These exercises will help students practice stress testing, ensuring that applic
 2. Track expenses in that category and ensure that the software warns when the category budget is exceeded.
 3. Expected Outcome: The software should provide alerts when category budgets are exceeded as configured.
 
+
+# 12 Demo tasks
+
+- [automationpanda.com](https://automationpanda.com/2021/12/29/want-to-practice-test-automation-try-these-demo-sites/)
+- [ultimateqa.com](https://ultimateqa.com/dummy-automation-websites/)
+- [way2automation.com](https://www.way2automation.com/demo.html)
+- [demoqa.com](https://demoqa.com/)
+- [thedemosite.co.uk](https://thedemosite.co.uk/)
+- [phptravels](https://phptravels.com/demo/)
+
