@@ -387,6 +387,10 @@ Load testing involves assessing a system's performance under specific load condi
 
 - [3 Task](../tasks/testing/manualTesting/README.md)
 
+**Tools**
+
+- [Link to try Load Testing](https://loadfocus.com/)
+
 #### Performance Testing
 
 **Explanation:**
@@ -408,6 +412,11 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 **Tasks**
 
 - [4 Task](../tasks/testing/manualTesting/README.md)
+
+**Tools**
+
+- [Link to try Performance Testing](https://loader.io/)
+- [Link to GTmetrix](https://gtmetrix.com/)
 
 #### Stress Testing
 

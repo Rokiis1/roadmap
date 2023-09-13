@@ -20,6 +20,8 @@
 
 ![Intro](../images/taskManualTesting1.png)
 
+-------------------------------------------------------------------------------------------------------
+
 # 2 Task Test Case
 
 **2.1 Create a Test Case table**
@@ -107,7 +109,13 @@
 4. Choose to share it on your profile.
 5. Expected Outcome: The shared post should appear on your profile and be visible to your followers.
 
+-------------------------------------------------------------------------------------------------------
+
 # 3 Task Load Testing
+
+**Requirements**
+
+- [Link to try Load Testing](https://loadfocus.com/)
 
 **Task 3.1: Load Testing an E-commerce Checkout Process**
 
@@ -130,13 +138,15 @@
 2. Monitor the cart update response time and accuracy.
 3. Expected Outcome: Verify that cart updates are fast and accurate even under heavy load.
 
+-------------------------------------------------------------------------------------------------------
+
 **Task 3.2: Load Testing a Social Media Feed**
 
 *Feature: Social Media Feed*
 
 **Scenario:** Perform load testing on a social media platform's feed to ensure it can handle a high volume of users posting and interacting simultaneously.
 
-**Test Case 1: Simulate Post#ing Activity**
+**Test Case 1: Simulate Posting Activity**
 1. Simulate 500 users posting status updates simultaneously.
 2. Monitor the system's ability to handle the influx of posts.
 3. Expected Outcome: Ensure the platform can accept and display the posts without significant delays.
@@ -172,7 +182,13 @@
 2. Monitor the search response time and accuracy.
 3. Expected Outcome: Verify that the email search functionality remains responsive even under load.
 
+-------------------------------------------------------------------------------------------------------
+
 # 4 Task Performance Testing
+
+**Requirements**
+
+- [Link to try Performance Testing](https://gtmetrix.com/)
  
 **Task 4.1: Performance Testing a File Upload Feature**
 
