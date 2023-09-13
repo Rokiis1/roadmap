@@ -20,7 +20,29 @@
     - [Writing effective test cases](#writing-effective-test-cases)
     - [Test case structure and format](#test-case-structure-and-format)
     - [Test case prioritization](#test-case-prioritization)
-  - [Testing Techniques](#testing-techniques)
+- [Software Development Life Cycle (SDLC) Delivery Model](#sdlc)
+    - [Agile Model](#agile-model)
+    - [Waterfall Model](#waterfall-model)
+    - [V Model](#v-model)
+- [Manual Testing](#manual-testing)
+    - [Test Planning](#test-planning)
+    - [TDD - Test Driven Development](#tdd)
+    - [Test Cases and Scenarios](#test-cases-and-scenarios)
+    - [Reporting](#reporting)
+    - [Compatibility](#compatibility)
+    - [Verification and Validation](#verification-and-validation)
+- [Non Functional Testing](#non-functional-testing)
+  - [Accessibility testing](#accessibility-testing)
+  - [Load and Performance Testing](#load-and-performance-testing)
+    - [JMeter](#jmeter)
+    - [Lighthouse](#lighthouse)
+  - [Security Testing](#security-testing)
+    - [Authentication authorization](#authentication-authorization)
+    - [Vulnerability Scanning](#vulnerability-scanning)
+    - [OWASP](#owasp)
+    - [Attack vectors](#attack-vectors)
+    - [Secrets Management](#secrets-management)
+- [Testing Techniques](#testing-techniques)
     - [Non-Functional Testing](#non-functional-testing)
       - [Load Testing](#load-testing)
       - [Performance Testing](#performance-testing)
@@ -35,26 +57,6 @@
       - [Unit Testing](#unit-testing)
       - [E2E testing](#e2e-testing)
       - [Integration Testing](#integration-testing)
-- [Software Development Life Cycle (SDLC) Delivery Model](#sdlc)
-    - [Agile Model](#agile-model)
-    - [Waterfall Model](#waterfall-model)
-- [QA Manual Testing](#qa-manual-testing)
-    - [Test Planning](#test-planning)
-    - [TDD - Test Driven Development](#tdd)
-    - [Test Cases and Scenarios](#test-cases-and-scenarios)
-    - [Reporting](#reporting)
-    - [Compatibility](#compatibility)
-    - [Verification and Validation](#verification-and-validation)
-- [Non Functional Testing](#non-functional-testing)
-  - [Accessibility testing](#accessibility-testing)
-  - [Load and Performance Testing](#load-and-performance-testing)
-    - [Lighthouse](#lighthouse)
-  - [Security Testing](#security-testing)
-    - [Authentication authorization](#authentication-authorization)
-    - [Vulnerability Scanning](#vulnerability-scanning)
-    - [OWASP](#owasp)
-    - [Attack vectors](#attack-vectors)
-    - [Secrets Management](#secrets-management)
 - [Automated Testing](#automated-testing)
   - [Frontend automation](#frontend-automation)
     - [Basic Introduction](#basic-introduction)
@@ -356,7 +358,314 @@ Test case prioritization involves determining the order in which test cases shou
 
 - [2 Task](../tasks/testing/manualTesting/README.md)
 
-## Testing Techniques
+ 
+# Software Development Life Cycle (SDLC) Delivery Model
+
+![SDLC](./images/SDLC.png)
+
+## Agile Model
+
+**Explanation:**
+
+The Agile model is an iterative and incremental approach to software development. It emphasizes collaboration, flexibility, and customer feedback throughout the development process.
+
+**Key Concepts:**
+
+- Iterative Development: Projects are divided into short iterations (sprints) with working increments delivered in each iteration.
+- Customer Collaboration: Continuous involvement and feedback from customers and stakeholders.
+- Adaptability: The ability to accommodate changes in requirements even late in the development process.
+- Agile Manifesto: Values individuals and interactions, working software, customer collaboration, and responding to change.
+
+**Resources:**
+
+- [Article: Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
+- [Article: Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
+
+## Waterfall Model
+
+**Explanation:**
+The Waterfall model is a sequential software development approach where each phase follows the previous one. It's characterized by a structured and well-defined process.
+
+**Key Concepts:**
+- Phases: Development progresses through distinct phases: requirements, design, implementation, testing, deployment, and maintenance.
+- Sequential Process: Each phase must be completed before moving to the next.
+- Documentation: Emphasis on comprehensive documentation at each stage.
+- Rigidity: Changes to requirements are discouraged after the initial phases.
+
+**Resources:**
+
+- [Article: Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
+
+# Manual Testing
+
+## Test Planning
+
+**Explanation:**
+
+Test planning involves defining the overall testing strategy for a project, outlining objectives, scope, resources, schedules, and risks.
+
+**Key Concepts:**
+
+- **Objectives**: Define testing goals and expectations.
+- **Scope**: Specify what will be tested and what won't.
+- **Test Strategy**: Decide on test levels, types, techniques, and environments.
+- **Test Schedule**: Allocate timeframes for testing activities.
+- **Risk Assessment**: Identify potential risks and mitigation strategies.
+
+**Resources:**
+
+- [Article: Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
+
+## Test-Driven Development (TDD)
+
+**Explanation:**
+
+Test-Driven Development (TDD) is a software development practice where tests are written before the actual code, promoting improved code quality and test coverage.
+
+**Key Concepts:**
+
+- **Red-Green-Refactor Cycle**: Write failing test (red), make it pass (green), and refactor.
+- **Unit Testing**: Write unit tests for small code units.
+- **Continuous Integration**: Frequent integration and automated testing.
+- **Benefits**: Reduces defects, enhances design, and supports refactoring.
+
+**Resources:**
+
+- [Article: Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
+
+## Test Cases and Scenarios
+
+**Explanation:**
+
+Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
+
+**Key Concepts:**
+
+- **Test Case**: A set of inputs, actions, and expected results.
+- **Test Scenario**: A sequence of related test cases.
+- **Coverage**: Ensure comprehensive coverage of functionalities.
+- **Traceability**: Link test cases to requirements for validation.
+
+**Resources:**
+
+- [Article Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
+- [Video: Crash Course Test Cases and Scenarios](https://www.youtube.com/watch?v=St9Ep9gnvRw)
+
+### Reporting
+
+**Explanation:**
+
+Reporting involves documenting and communicating testing activities, results, and defects to stakeholders.
+
+**Key Concepts:**
+
+- **Test Execution Reports**: Summarize test runs and outcomes.
+- **Defect Reports**: Document defects found during testing.
+- **Status Updates**: Keep stakeholders informed about progress.
+- **Metrics and KPIs**: Measure testing effectiveness.
+
+**Resources:**
+
+- [Article: Reporting](https://www.guru99.com/defect-management-process.html)
+
+## Compatibility Testing
+
+**Explanation:**
+
+Compatibility testing ensures that software works across various environments, browsers, devices, and operating systems.
+
+**Key Concepts:**
+
+- **Browser Compatibility**: Test across different web browsers.
+- **Device Compatibility**: Test on various devices (desktop, mobile, tablet).
+- **Operating System Compatibility**: Test on different OS versions.
+- **Challenges**: Address differences in rendering, functionality, and performance.
+
+**Resources:**
+
+- [Article: Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
+
+## Verification and Validation
+
+**Explanation:**
+
+Verification ensures that a software product meets specified requirements, while validation ensures it meets user expectations.
+
+**Key Concepts:**
+
+- **Verification**: Confirm software meets design specifications.
+- **Validation**: Ensure software meets user needs and intended use.
+- **Quality Assurance and Testing**: Part of V&V process.
+- **Validation Testing**: Focus on user acceptance and satisfaction.
+
+**Resources:**
+
+- [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
+
+# Non Functional Testing
+
+## Accessibility Testing
+
+**Explanation:**
+
+Accessibility testing ensures that a software application is usable by individuals with disabilities, making it inclusive for all users. It involves evaluating the application's design, content, and functionality to ensure compliance with accessibility standards and guidelines.
+
+**Key Concepts:**
+
+- **WCAG Guidelines**: Web Content Accessibility Guidelines provide criteria for accessible design.
+- **Types of Disabilities**: Visual, auditory, cognitive, and motor impairments.
+- **Tools**: Automated accessibility testing tools and manual assessments.
+- **Benefits**: Ensures equal access, avoids legal issues, and improves user satisfaction.
+
+**Resources:**
+
+- [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
+
+## Load and Performance Testing
+
+**Explanation:**
+
+Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
+
+**Key Concepts:**
+
+- **Load Testing**: Evaluates application behavior under expected load.
+- **Stress Testing**: Tests application behavior under extreme load conditions.
+- **Performance Testing**: Ensures application meets response time requirements.
+- **Metrics**: Response time, throughput, resource utilization, and error rates.
+- **Purpose**: Identify performance issues before application launch.
+
+**Resources:**
+
+### Lighthouse
+
+**Explanation:**
+
+Lighthouse is an open-source tool from Google that assesses the quality and performance of web pages. It generates reports and scores based on various performance and accessibility metrics.
+
+**Key Features:**
+
+- **Performance Metrics**: Measures loading times, resource usage, and more.
+- **Accessibility Checks**: Identifies issues that impact users with disabilities.
+- **Progressive Web App Audit**: Evaluates adherence to PWA principles.
+- **Best Practices Audit**: Assesses adherence to web development best practices.
+
+**Resources:**
+
+- [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
+
+## Security Testing
+
+**Explanation:**
+
+Security Testing ensures that a software application is resilient to security threats and vulnerabilities. It aims to identify and mitigate potential security risks to protect data and systems.
+
+**Key Concepts:**
+
+- **Authentication:** Verifying user identity.
+- **Authorization:** Controlling user access to resources.
+- **Vulnerability Scanning:** Automated detection of security weaknesses.
+- **OWASP:** Common web application security risks.
+- **Attack Vectors:** Paths for exploiting vulnerabilities.
+- **Secrets Management:** Secure handling of sensitive information.
+
+**Resources:**
+
+- [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
+
+### Authentication authorization
+
+**Explanation:**
+
+Authentication verifies the identity of users or systems, while authorization controls access to specific resources or functionalities based on user roles and permissions.
+
+**Key Concepts:**
+
+- **Authentication Factors:** Knowledge-based (passwords), possession-based (tokens), and biometrics.
+- **Authorization Models:** Role-based, attribute-based, and policy-based.
+- **Single Sign-On (SSO):** Allows access to multiple systems with a single login.
+- **Least Privilege Principle:** Users get the minimum access necessary.
+- **Authentication vs. Authorization:** Distinct but interconnected security aspects.
+
+**Resources:**
+
+- [Article: Authentication vs. Authorization](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization)
+
+### Vulnerability Scanning
+
+**Explanation:**
+
+Vulnerability Scanning involves automated tools that scan an application or network for known security vulnerabilities, misconfigurations, and weaknesses.
+
+**Key Concepts:**
+
+- **Automated Scanning:** Tools like Nessus, OpenVAS, and Qualys.
+- **CVE Database:** Common Vulnerabilities and Exposures for tracking known vulnerabilities.
+- **Continuous Scanning:** Regular scans to identify new vulnerabilities.
+- **Penetration Testing:** Manual testing to validate findings and identify unknown issues.
+
+**Resources:**
+
+### OWASP
+
+**Explanation:**
+
+The OWASP is a list of the most critical web application security risks. It serves as a guide for developers, testers, and security professionals to prioritize security measures.
+
+**Key Risks:**
+
+- Injection Attacks
+- Broken Authentication
+- Sensitive Data Exposure
+- XML External Entities (XXE)
+- Broken Access Control
+- Security Misconfigurations
+- Cross-Site Scripting (XSS)
+- Insecure Deserialization
+- Using Components with Known Vulnerabilities
+- Insufficient Logging & Monitoring
+
+**Resources:**
+
+- [10 Most Common Web Security Vulnerabilities](https://www.guru99.com/web-security-vulnerabilities.html)
+
+### Attack vectors
+
+**Explanation:**
+
+Attack Vectors are specific paths or techniques used by malicious actors to exploit vulnerabilities and compromise a system's security.
+
+**Key Concepts:**
+
+- **SQL Injection:** Manipulating SQL queries to access or modify data.
+- **Cross-Site Request Forgery (CSRF):** Forcing users to perform actions without their consent.
+- **Cross-Site Scripting (XSS):** Injecting malicious scripts into web pages viewed by other users.
+- **Phishing:** Deceptive techniques to trick users into revealing sensitive information.
+- **Zero-Day Exploits:** Attacks targeting newly discovered vulnerabilities.
+
+**Resources:**
+
+- [What is an attack vector?](https://www.cloudflare.com/en-gb/learning/security/glossary/attack-vector/)
+
+### Secrets Management
+
+**Explanation:**
+
+Secrets Management involves securely storing, accessing, and distributing sensitive information such as passwords, API keys, and cryptographic keys.
+
+**Key Concepts:**
+
+- **Key Management:** Safeguarding encryption keys used to protect data.
+- **Vaults and Key Stores:** Secure storage solutions for secrets.
+- **Rotation and Expiry:** Regularly changing secrets to minimize exposure.
+- **Access Control:** Restricting who can access and modify secrets.
+- **Audit Trails:** Monitoring and recording access to secrets.
+
+**Resources:**
+
+- [Secrets Management: Tools & Best Practice](https://snyk.io/learn/secrets-management/)
+
+# Testing Techniques
 
 **Resources:**
 
@@ -644,312 +953,6 @@ Integration Testing ensures that different components or modules of a software a
 **Resources:**
 
 - [Integration Testing](https://www.guru99.com/integration-testing.html)
- 
-# Software Development Life Cycle (SDLC) Delivery Model
-
-![SDLC](./images/SDLC.png)
-
-## Agile Model
-
-**Explanation:**
-
-The Agile model is an iterative and incremental approach to software development. It emphasizes collaboration, flexibility, and customer feedback throughout the development process.
-
-**Key Concepts:**
-
-- Iterative Development: Projects are divided into short iterations (sprints) with working increments delivered in each iteration.
-- Customer Collaboration: Continuous involvement and feedback from customers and stakeholders.
-- Adaptability: The ability to accommodate changes in requirements even late in the development process.
-- Agile Manifesto: Values individuals and interactions, working software, customer collaboration, and responding to change.
-
-**Resources:**
-
-- [Article: Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
-- [Article: Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
-
-## Waterfall Model
-
-**Explanation:**
-The Waterfall model is a sequential software development approach where each phase follows the previous one. It's characterized by a structured and well-defined process.
-
-**Key Concepts:**
-- Phases: Development progresses through distinct phases: requirements, design, implementation, testing, deployment, and maintenance.
-- Sequential Process: Each phase must be completed before moving to the next.
-- Documentation: Emphasis on comprehensive documentation at each stage.
-- Rigidity: Changes to requirements are discouraged after the initial phases.
-
-**Resources:**
-
-- [Article: Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
-
-# QA Manual Testing
-
-## Test Planning
-
-**Explanation:**
-
-Test planning involves defining the overall testing strategy for a project, outlining objectives, scope, resources, schedules, and risks.
-
-**Key Concepts:**
-
-- **Objectives**: Define testing goals and expectations.
-- **Scope**: Specify what will be tested and what won't.
-- **Test Strategy**: Decide on test levels, types, techniques, and environments.
-- **Test Schedule**: Allocate timeframes for testing activities.
-- **Risk Assessment**: Identify potential risks and mitigation strategies.
-
-**Resources:**
-
-- [Article: Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
-
-## Test-Driven Development (TDD)
-
-**Explanation:**
-
-Test-Driven Development (TDD) is a software development practice where tests are written before the actual code, promoting improved code quality and test coverage.
-
-**Key Concepts:**
-
-- **Red-Green-Refactor Cycle**: Write failing test (red), make it pass (green), and refactor.
-- **Unit Testing**: Write unit tests for small code units.
-- **Continuous Integration**: Frequent integration and automated testing.
-- **Benefits**: Reduces defects, enhances design, and supports refactoring.
-
-**Resources:**
-
-- [Article: Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
-
-## Test Cases and Scenarios
-
-**Explanation:**
-
-Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
-
-**Key Concepts:**
-
-- **Test Case**: A set of inputs, actions, and expected results.
-- **Test Scenario**: A sequence of related test cases.
-- **Coverage**: Ensure comprehensive coverage of functionalities.
-- **Traceability**: Link test cases to requirements for validation.
-
-**Resources:**
-
-- [Article Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
-- [Video: Crash Course Test Cases and Scenarios](https://www.youtube.com/watch?v=St9Ep9gnvRw)
-
-### Reporting
-
-**Explanation:**
-
-Reporting involves documenting and communicating testing activities, results, and defects to stakeholders.
-
-**Key Concepts:**
-
-- **Test Execution Reports**: Summarize test runs and outcomes.
-- **Defect Reports**: Document defects found during testing.
-- **Status Updates**: Keep stakeholders informed about progress.
-- **Metrics and KPIs**: Measure testing effectiveness.
-
-**Resources:**
-
-- [Article: Reporting](https://www.guru99.com/defect-management-process.html)
-
-## Compatibility Testing
-
-**Explanation:**
-
-Compatibility testing ensures that software works across various environments, browsers, devices, and operating systems.
-
-**Key Concepts:**
-
-- **Browser Compatibility**: Test across different web browsers.
-- **Device Compatibility**: Test on various devices (desktop, mobile, tablet).
-- **Operating System Compatibility**: Test on different OS versions.
-- **Challenges**: Address differences in rendering, functionality, and performance.
-
-**Resources:**
-
-- [Article: Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
-
-## Verification and Validation
-
-**Explanation:**
-
-Verification ensures that a software product meets specified requirements, while validation ensures it meets user expectations.
-
-**Key Concepts:**
-
-- **Verification**: Confirm software meets design specifications.
-- **Validation**: Ensure software meets user needs and intended use.
-- **Quality Assurance and Testing**: Part of V&V process.
-- **Validation Testing**: Focus on user acceptance and satisfaction.
-
-**Resources:**
-
-- [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
-
-# Non Functional Testing
-
-## Accessibility Testing
-
-**Explanation:**
-
-Accessibility testing ensures that a software application is usable by individuals with disabilities, making it inclusive for all users. It involves evaluating the application's design, content, and functionality to ensure compliance with accessibility standards and guidelines.
-
-**Key Concepts:**
-
-- **WCAG Guidelines**: Web Content Accessibility Guidelines provide criteria for accessible design.
-- **Types of Disabilities**: Visual, auditory, cognitive, and motor impairments.
-- **Tools**: Automated accessibility testing tools and manual assessments.
-- **Benefits**: Ensures equal access, avoids legal issues, and improves user satisfaction.
-
-**Resources:**
-
-- [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
-
-## Load and Performance Testing
-
-**Explanation:**
-
-Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
-
-**Key Concepts:**
-
-- **Load Testing**: Evaluates application behavior under expected load.
-- **Stress Testing**: Tests application behavior under extreme load conditions.
-- **Performance Testing**: Ensures application meets response time requirements.
-- **Metrics**: Response time, throughput, resource utilization, and error rates.
-- **Purpose**: Identify performance issues before application launch.
-
-**Resources:**
-
-### Lighthouse
-
-**Explanation:**
-
-Lighthouse is an open-source tool from Google that assesses the quality and performance of web pages. It generates reports and scores based on various performance and accessibility metrics.
-
-**Key Features:**
-
-- **Performance Metrics**: Measures loading times, resource usage, and more.
-- **Accessibility Checks**: Identifies issues that impact users with disabilities.
-- **Progressive Web App Audit**: Evaluates adherence to PWA principles.
-- **Best Practices Audit**: Assesses adherence to web development best practices.
-
-**Resources:**
-
-- [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
-
-## Security Testing
-
-**Explanation:**
-
-Security Testing ensures that a software application is resilient to security threats and vulnerabilities. It aims to identify and mitigate potential security risks to protect data and systems.
-
-**Key Concepts:**
-
-- **Authentication:** Verifying user identity.
-- **Authorization:** Controlling user access to resources.
-- **Vulnerability Scanning:** Automated detection of security weaknesses.
-- **OWASP:** Common web application security risks.
-- **Attack Vectors:** Paths for exploiting vulnerabilities.
-- **Secrets Management:** Secure handling of sensitive information.
-
-**Resources:**
-
-- [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
-
-### Authentication authorization
-
-**Explanation:**
-
-Authentication verifies the identity of users or systems, while authorization controls access to specific resources or functionalities based on user roles and permissions.
-
-**Key Concepts:**
-
-- **Authentication Factors:** Knowledge-based (passwords), possession-based (tokens), and biometrics.
-- **Authorization Models:** Role-based, attribute-based, and policy-based.
-- **Single Sign-On (SSO):** Allows access to multiple systems with a single login.
-- **Least Privilege Principle:** Users get the minimum access necessary.
-- **Authentication vs. Authorization:** Distinct but interconnected security aspects.
-
-**Resources:**
-
-- [Article: Authentication vs. Authorization](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization)
-
-### Vulnerability Scanning
-
-**Explanation:**
-
-Vulnerability Scanning involves automated tools that scan an application or network for known security vulnerabilities, misconfigurations, and weaknesses.
-
-**Key Concepts:**
-
-- **Automated Scanning:** Tools like Nessus, OpenVAS, and Qualys.
-- **CVE Database:** Common Vulnerabilities and Exposures for tracking known vulnerabilities.
-- **Continuous Scanning:** Regular scans to identify new vulnerabilities.
-- **Penetration Testing:** Manual testing to validate findings and identify unknown issues.
-
-**Resources:**
-
-### OWASP
-
-**Explanation:**
-
-The OWASP is a list of the most critical web application security risks. It serves as a guide for developers, testers, and security professionals to prioritize security measures.
-
-**Key Risks:**
-
-- Injection Attacks
-- Broken Authentication
-- Sensitive Data Exposure
-- XML External Entities (XXE)
-- Broken Access Control
-- Security Misconfigurations
-- Cross-Site Scripting (XSS)
-- Insecure Deserialization
-- Using Components with Known Vulnerabilities
-- Insufficient Logging & Monitoring
-
-**Resources:**
-
-- [10 Most Common Web Security Vulnerabilities](https://www.guru99.com/web-security-vulnerabilities.html)
-
-### Attack vectors
-
-**Explanation:**
-
-Attack Vectors are specific paths or techniques used by malicious actors to exploit vulnerabilities and compromise a system's security.
-
-**Key Concepts:**
-
-- **SQL Injection:** Manipulating SQL queries to access or modify data.
-- **Cross-Site Request Forgery (CSRF):** Forcing users to perform actions without their consent.
-- **Cross-Site Scripting (XSS):** Injecting malicious scripts into web pages viewed by other users.
-- **Phishing:** Deceptive techniques to trick users into revealing sensitive information.
-- **Zero-Day Exploits:** Attacks targeting newly discovered vulnerabilities.
-
-**Resources:**
-
-- [What is an attack vector?](https://www.cloudflare.com/en-gb/learning/security/glossary/attack-vector/)
-
-### Secrets Management
-
-**Explanation:**
-
-Secrets Management involves securely storing, accessing, and distributing sensitive information such as passwords, API keys, and cryptographic keys.
-
-**Key Concepts:**
-
-- **Key Management:** Safeguarding encryption keys used to protect data.
-- **Vaults and Key Stores:** Secure storage solutions for secrets.
-- **Rotation and Expiry:** Regularly changing secrets to minimize exposure.
-- **Access Control:** Restricting who can access and modify secrets.
-- **Audit Trails:** Monitoring and recording access to secrets.
-
-**Resources:**
-
-- [Secrets Management: Tools & Best Practice](https://snyk.io/learn/secrets-management/)
 
 # Automated Testing
 
