@@ -35,6 +35,14 @@
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
     - [JMeter](#jmeter)
+      - [Introduction](#introduction)
+      - [Prerequisites](#prerequisites)
+      - [Installation](#installation)
+      - [Getting Started](#getting-started)
+        - [Creating Your First Test Plan](#creating-your-first-test-plan)
+        - [Configuring Test Elements](#configuring-test-elements)
+        - [Running a Test](#running-a-test)
+      - [Analyzing Test Results](#analyzing-test-results)
     - [Lighthouse](#lighthouse)
   - [Security Testing](#security-testing)
     - [Authentication authorization](#authentication-authorization)
@@ -536,6 +544,76 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 - **Purpose**: Identify performance issues before application launch.
 
 **Resources:**
+
+### JMeter
+
+#### Introduction
+
+Apache JMeter is a powerful tool for testing the performance and load of web applications, databases, and more. It simulates multiple users sending requests to a target server, allowing you to measure how well your system handles the load.
+
+#### Prerequisites
+
+Before you get started, make sure you have the following prerequisites:
+
+- **Java**: JMeter is a Java application, so you need to have Java installed on your system. You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+- **JMeter**: Download the latest version of JMeter from the [official website](https://jmeter.apache.org/download_jmeter.cgi).
+
+#### Installation
+
+## Installation
+
+1. **Install Java**: Follow the installation instructions for Java on your operating system.
+
+2. **Install JMeter**:
+   - Download the JMeter zip or tar.gz file from the JMeter website.
+   - Extract the downloaded file to a directory of your choice.
+
+3. **Verify Installation**:
+   - Open a terminal or command prompt and navigate to the JMeter directory.
+   - Run `./bin/jmeter.sh` (Linux/macOS) or `.\bin\jmeter.bat` (Windows).
+   - If JMeter opens without errors, the installation is successful.
+
+#### Getting Started
+
+##### Creating Your First Test Plan
+
+1. Open JMeter by running the `jmeter.sh` (Linux/macOS) or `jmeter.bat` (Windows) script in the JMeter bin directory.
+
+2. In JMeter, create a new test plan:
+   - Go to **File > New** to create a new test plan.
+   - Right-click on the test plan and select **Add > Threads (Users) > Thread Group** to add a Thread Group.
+   
+3. Configure the Thread Group:
+   - Set the number of threads (virtual users) and the loop count.
+   - Add test elements like HTTP requests, samplers, and listeners to your test plan.
+
+##### Configuring Test Elements
+
+JMeter test plans consist of various test elements. Some commonly used elements are:
+
+- **HTTP Request**: To send HTTP requests to a web server.
+- **Listeners**: To view and analyze test results.
+- **Assertions**: To define pass/fail criteria for responses.
+- **Timers**: To introduce delays between requests.
+
+##### Running a Test
+
+1. Save your test plan: **File > Save Test Plan As**.
+
+2. Start the test:
+   - Click the green "Play" button in the toolbar.
+   - JMeter will start running your test plan.
+
+#### Analyzing Test Results
+
+1. JMeter provides various listeners (e.g., View Results Tree, Summary Report) to view and analyze test results.
+   
+2. After the test run, you can generate and save test reports for further analysis.
+
+**Resources:**
+
+- [Site: JMeter Documentation](https://jmeter.apache.org/usermanual/index.html)
 
 ### Lighthouse
 
