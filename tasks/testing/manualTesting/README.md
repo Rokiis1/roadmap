@@ -29,14 +29,21 @@
 **Requirements**
 
 - You will need Excel or Google Sheets
+- [table from this article: guru99](https://www.guru99.com/test-case.html)
 
 **Example**
 
 - ![TestCaseTable](../../../testing/images/TestCaseTable.png)
 
+- [Link: Excel test case table example from guru99](https://vtmc-my.sharepoint.com/:x:/g/personal/rokas_norvilis_techin_lt/ESoZMmk8B-dIg2jR5AgsIcgBYIJ9ex_McuQFbHorF19sbw?e=bCmfcZ)
+
 **2.2 Create a Test Case in your created table**
 
 **Task 1: Testing a Login Page**
+
+**Requirements**
+
+- [Based on this page Login page: Demo](https://parabank.parasoft.com/parabank/index.htm)
 
 *Feature: Login Page*
 
@@ -62,6 +69,10 @@
 
 **Task 2: Testing an E-commerce Cart**
 
+**Requirements**
+
+- [E-commerce page: Demo](https://www.made-in-china.com/)
+
 *Feature: Shopping Cart*
 
 **Scenario:** Test the functionality of adding and removing items from a shopping cart in an e-commerce website.
@@ -83,6 +94,10 @@
 3. Expected Outcome: The cart total should accurately reflect the sum of the prices of all the items in the cart.
 
 **Task 3: Testing a Social Media Posting Feature**
+
+**Requirements**
+
+- [Social media site: Demo](https://momentoapp.emuel.me/login.php)
 
 *Feature: Social Media Post*
 
@@ -108,6 +123,108 @@
 3. Click the "Share" button.
 4. Choose to share it on your profile.
 5. Expected Outcome: The shared post should appear on your profile and be visible to your followers.
+
+
+**Task 4: Testing E-commerce page components: Register, Login, cart**
+
+**Requirements**
+
+- [Testing E-commerce page components: Demo](https://www.demoblaze.com/index.html)
+
+**Registration Page Test Cases:**
+
+6. **Successful Registration Test:**
+   - **Feature:** User Registration
+   - **Scenario:** A new user successfully registers for an account.
+     - Given a registration form with fields for username, email, password, etc.
+     - When the user fills in valid registration details and submits the form.
+     - Then the user should be successfully registered.
+     - And the user should be automatically logged in.
+
+7. **Duplicate Registration Test:**
+   - **Feature:** User Registration
+   - **Scenario:** A user attempts to register with an email that already exists in the system.
+     - Given an existing user with a specific email address.
+     - When another user attempts to register with the same email address.
+     - Then an appropriate error message, such as "Email already in use," should be displayed.
+
+8. **Password Strength Test:**
+   - **Feature:** Password Security
+   - **Scenario:** A user attempts to register with a weak password.
+     - Given a registration form with password strength requirements.
+     - When the user tries to register with a password that doesn't meet the requirements.
+     - Then an error message should be displayed, indicating the password strength requirements.
+
+9. **Email Validation Test:**
+   - **Feature:** Input Validation
+   - **Scenario:** A user attempts to register with an invalid email format.
+     - Given a registration form with an email field.
+     - When the user enters an email in an incorrect format (e.g., missing "@" symbol).
+     - Then an error message should be displayed, indicating that the email format is invalid.
+
+**Login Page Test Cases:**
+
+1. **Positive Login Test:**
+   - **Feature:** User Authentication
+   - **Scenario:** A registered user wants to log in to their account using valid credentials.
+     - Given a registered user with a username and password.
+     - When the user enters their valid username and password.
+     - Then the user should be successfully logged in.
+     - And the user should be redirected to the homepage.
+
+2. **Negative Login Test - Incorrect Credentials:**
+   - **Feature:** User Authentication
+   - **Scenario:** A user attempts to log in with incorrect username and password.
+     - Given a registered user with a username and password.
+     - When the user enters an invalid username and/or password.
+     - Then an appropriate error message, such as "Invalid username or password," should be displayed.
+     - And the user should not be logged in.
+
+3. **Negative Login Test - Empty Fields:**
+   - **Feature:** User Authentication
+   - **Scenario:** A user tries to log in with empty username and password fields.
+     - Given a login form with username and password fields.
+     - When the user submits the form with empty fields.
+     - Then error messages should be displayed for both fields, e.g., "Username is required" and "Password is required."
+     - And the user should not be logged in.
+
+4. **Forgot Password Link Test:**
+   - **Feature:** Password Recovery
+   - **Scenario:** A user clicks on the "Forgot Password" link to reset their password.
+     - Given the login page with a "Forgot Password" link.
+     - When the user clicks on the link.
+     - Then the user should be redirected to the password reset page.
+
+5. **Remember Me Checkbox Test:**
+   - **Feature:** User Preferences
+   - **Scenario:** A user checks the "Remember Me" checkbox and logs in.
+     - Given the login form with a "Remember Me" checkbox.
+     - When the user checks the checkbox, logs in, and then closes the browser.
+     - And the user reopens the browser and navigates to the login page.
+     - Then the user should still be logged in without having to re-enter credentials.
+
+**Cart Page Test Cases:**
+
+10. **Add to Cart Test:**
+    - **Feature:** Shopping Cart
+    - **Scenario:** A shopper browses the website, selects a product, and adds it to the cart.
+      - Given a product page with an "Add to Cart" button.
+      - When the shopper clicks on the "Add to Cart" button for a specific product.
+      - Then the selected product should be added to the cart.
+
+11. **Update Cart Test:**
+    - **Feature:** Shopping Cart
+    - **Scenario:** A shopper goes to the cart page, modifies the quantity, and removes a product.
+      - Given a cart page displaying added products.
+      - When the shopper updates the quantity or removes a product.
+      - Then the cart should be updated correctly.
+
+12. **Proceed to Checkout Test:**
+    - **Feature:** Checkout Process
+    - **Scenario:** A shopper adds products to the cart and proceeds to checkout.
+      - Given a cart with selected products.
+      - When the shopper clicks on the "Proceed to Checkout" button.
+      - Then the shopper should be taken to the checkout page for payment and order confirmation.
 
 -------------------------------------------------------------------------------------------------------
 
