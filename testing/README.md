@@ -20,8 +20,10 @@
     - [Writing effective test cases](#writing-effective-test-cases)
     - [Test case structure and format](#test-case-structure-and-format)
     - [Test case prioritization](#test-case-prioritization)
-- [Software Development Life Cycle (SDLC) Delivery Model](#sdlc)
-    - [Agile Model](#agile-model)
+- [Software Development Life Cycle (SDLC) Software Development Process](#sdlc)
+  - [Software Development Approaches Comparison](#software-development-approaches-comparison)
+    - [Agile Methodologies](#agile-methodologies)
+      - [Scrum Framework](#scrum-framework)
     - [Waterfall Model](#waterfall-model)
     - [V Model](#v-model)
 - [Manual Testing](#manual-testing)
@@ -367,42 +369,167 @@ Test case prioritization involves determining the order in which test cases shou
 - [2 Task](../tasks/testing/manualTesting/README.md)
 
  
-# Software Development Life Cycle (SDLC) Delivery Model
+# Software Development Life Cycle (SDLC) Software Development Process
+
+**Explanation:**
+
+**Software Development Life Cycle (SDLC)** is a systematic and structured approach to software development that defines a set of processes or phases to guide the creation, maintenance, and management of software applications or systems. It serves as a roadmap for developers, project managers, and stakeholders to ensure that software is developed efficiently, with high quality, and according to specified requirements.
 
 ![SDLC](./images/SDLC.png)
 
-## Agile Model
-
-**Explanation:**
-
-The Agile model is an iterative and incremental approach to software development. It emphasizes collaboration, flexibility, and customer feedback throughout the development process.
-
 **Key Concepts:**
 
-- Iterative Development: Projects are divided into short iterations (sprints) with working increments delivered in each iteration.
-- Customer Collaboration: Continuous involvement and feedback from customers and stakeholders.
-- Adaptability: The ability to accommodate changes in requirements even late in the development process.
-- Agile Manifesto: Values individuals and interactions, working software, customer collaboration, and responding to change.
+1. **Planning:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
+  - **Project Objectives**
+  - **Scope Definition**
+  - **Requirements Gathering**
+  - **Project Goals and KPIs**
+  - **Timeline**
+  - **Budget**
+  - **Resource Allocation**
+  - **Risk Assessment**
+  - **Stakeholder Alignment**
+
+2. **Requirements Gathering:** The process of collecting and documenting detailed requirements from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
+  - **Identifying Stakeholders**
+  - **User Interviews and Surveys**
+  - **Use Cases and User Stories**
+  - **Business Requirements**
+  - **Technical Requirements**
+  - **Regulatory and Compliance Requirements**
+  - **Prototyping and Mockups**
+  - **Validation with Stakeholders**
+  - **Requirements Documentation**
+  - **Prioritization**
+
+3. **Design:** During this phase, the software's architecture, data structures, user interface, and system components are planned and designed. It lays the foundation for actual development.
+  - **System Architecture**
+  - **Database Design**
+  - **User Interface (UI) Design**
+  - **Prototyping**
+  - **Component Design**
+  - **Security Design**
+  - **Scalability and Performance Planning**
+  - **Technical Documentation**
+  - **Review and Validation**
+  - **Design Sign-off**
+
+4. **Implementation (Coding):** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
+  - **Coding**
+  - **Coding Standards**
+  - **Version Control**
+  - **Unit Testing**
+  - **Integration**
+  - **Code Refactoring**
+  - **Error Handling and Logging**
+  - **Security Measures**
+  - **Performance Optimization**
+  - **Documentation**
+  - **Collaboration**
+  - **Continuous Testing**
+  - **Progress Tracking**
+
+5. **Testing:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing.
+  - **Test Planning**
+  - **Functional Testing**
+  - **Integration Testing**
+  - **Performance Testing**
+  - **User Acceptance Testing (UAT)**
+  - **Regression Testing**
+  - **Security Testing**
+  - **Compatibility Testing**
+  - **Usability Testing**
+  - **Accessibility Testing**
+  - **Defect Tracking**
+  - **Test Automation**
+  - **Documentation and Reporting**
+  - **User Feedback**
+  - **Test Completion**
+
+6. **Deployment (Release):** Once the software passes testing and quality checks, it is deployed to production or made available to users. Deployment may involve data migration and system setup.
+  - **Environment Setup**
+  - **Data Migration**
+  - **Release Planning**
+  - **Deployment Testing**
+  - **Rollout Strategy**
+  - **Deployment Automation**
+  - **Monitoring and Alerts**
+  - **Backup and Recovery**
+  - **Documentation and Release Notes**
+  - **User Communication**
+  - **Deployment Verification**
+  - **Rollback Plan**
+  - **Post-Deployment Monitoring**
+  - **User Support**
+  - **Feedback Collection**
+
+7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.
+Monitoring and Performance Optimization: After the app's deployment, "X Company" continues to monitor its performance, availability, and user experience. This includes tracking key performance indicators (KPIs), server health, and user feedback.
+  - **Issue Identification**
+  - **Bug Fixing**
+  - **Security Updates**
+  - **Performance Tuning**
+  - **Regular Updates**
+  - **Compatibility Updates**
+  - **User Support**
+  - **Data Backup and Recovery**
+  - **Documentation Updates**
+  - **User Training**
+  - **User Feedback Integration**
+  - **Regulatory Compliance**
+  - **Scalability**
 
 **Resources:**
 
-- [Article: Agile model](https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm)
-- [Article: Scrum](https://www.guru99.com/scrum-testing-beginner-guide.html)
+## Software Development Approaches Comparison
 
-## Waterfall Model
+
+| Aspect                        | Agile Methodologies       | Waterfall Model           | V-Model                    |
+| ------------------------------| ------------------------- | ------------------------- | ---------------------------|
+| **Development Process**       | Iterative and incremental | Sequential and linear     | Sequential and phased      |
+| **Flexibility**               | Highly flexible           | Less flexible             | Moderate flexibility       |
+| **Requirements**              | Welcomes changing requirements | Requires well-defined, stable requirements | Requires well-defined, stable requirements |
+| **Customer Involvement**      | High customer involvement | Limited customer involvement until the end | Limited customer involvement until the end |
+| **Phases**                    | Divided into short iterations (e.g., sprints in Scrum) | Sequential phases (requirements, design, implementation, testing, deployment) | Phases mirror development phases |
+| **Adaptability**              | Easily adapts to changes  | Changes are challenging to accommodate | Can accommodate changes, but later phases may be affected |
+| **Documentation**             | Minimal upfront documentation, focuses on working software | Comprehensive upfront documentation | Comprehensive upfront documentation |
+| **Delivery Frequency**        | Frequent delivery of incremental value | Final product delivered at the end | Incremental delivery, integration testing throughout |
+| **Risk Management**           | Identifies and mitigates risks throughout the project | Risks often discovered late in the project | Risk identification and mitigation at each stage |
+| **Project Size**              | Suitable for various project sizes | Better suited for smaller, well-defined projects | Suitable for medium to large projects |
+| **Popularity**                | Widely used in dynamic environments | Historically used in more traditional environments | Common in certain regulated industries |
+
+
+### Agile Methodologies
 
 **Explanation:**
-The Waterfall model is a sequential software development approach where each phase follows the previous one. It's characterized by a structured and well-defined process.
 
 **Key Concepts:**
-- Phases: Development progresses through distinct phases: requirements, design, implementation, testing, deployment, and maintenance.
-- Sequential Process: Each phase must be completed before moving to the next.
-- Documentation: Emphasis on comprehensive documentation at each stage.
-- Rigidity: Changes to requirements are discouraged after the initial phases.
 
 **Resources:**
 
-- [Article: Waterfall Model](https://www.tutorialspoint.com/sdlc/sdlc_waterfall_model.htm)
+#### Scrum Framework
+
+**Explanation:**
+
+**Key Concepts:**
+
+**Resources:**
+
+### Waterfall Model
+
+**Explanation:**
+
+**Key Concepts:**
+
+**Resources:**
+
+### V Model
+
+**Explanation:**
+
+**Key Concepts:**
+
+**Resources:**
 
 # Manual Testing
 
