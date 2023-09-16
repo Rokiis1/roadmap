@@ -226,6 +226,40 @@
       - When the shopper clicks on the "Proceed to Checkout" button.
       - Then the shopper should be taken to the checkout page for payment and order confirmation.
 
+**Task 5: from 1, 2, 3, 4 taks all finded bugs or passed test in the demo pages and them add into jira**
+
+- **Example"
+
+**Issue ID:** LOGIN-001
+**Priority:** High
+**Status:** Open
+**Reported by:** Name
+**Reported data:** xxxxxxx
+
+- **Description:**
+The login funcionality. I found critical bug affects the user authentication process.
+The fallowing details outline the probelm:
+
+- **Steps to Reproduce:**
+1. Navigate to the agile platform login page.
+2. Enter valid user credentials (username and password)
+3. A succesful login should grant the user access to the platfrom.
+
+- **Actual Behavior:**
+Clicking the “Button“, the system fails to auth the user.
+the bug affects all user accounts and is not limited specific user or browser
+User are unable to access the platform.
+
+- **Additional Details:**
+Clearing browser cache and cookies does not resolve problem.
+
+- **Attachments:**
+Screenshoot of the error message or Link.
+
+- **Environment Details:**
+Browser[chrome, edge, firefox]
+Operation system: [linux, windows, iOS, android]
+
 -------------------------------------------------------------------------------------------------------
 
 # 3 Task Load Testing
