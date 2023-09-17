@@ -770,7 +770,7 @@ You don't typically include a complete Test Summary Report within individual tes
 |                       Test Summary Report                       |
 |-----------------------------------------------------------------|
 | Project Name:           | Project Name                         |
-|-----------------------------------------------------------------|
+|-------------------------|                                       |
 | Test Phase:             | System Testing                 |
 |-----------------------------------------------------------------|
 | Test Start Date:        | Start Date                           |
