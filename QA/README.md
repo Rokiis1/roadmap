@@ -764,140 +764,40 @@ Reporting involves documenting and communicating testing activities, results, an
 ### Test Summary Report
 
 **Explanation**
-
 You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
+**Example**
 
-| Field                   | Value                                   |
-|-------------------------|-----------------------------------------|
-| Project Name            | [Project Name]                          |
-| Test Phase              | [System Testing]                        |
-| Test Start Date         | [Start Date]                            |
-| Test End Date           | [End Date]                              |
-| Total Test Cases        | [Total Test Cases Executed]             |
-| Passed Test Cases       | [Number of Test Cases Passed]           |
-| Failed Test Cases       | [Number of Test Cases Failed]           |
-| Test Execution Environment |                                       |
-| - Operating System      | [Operating System]                      |
-| - Browsers              | [List of Browsers]                      |
-| - Other Relevant Info   | [Additional Environment Info]           |
-| Summary of Findings     |                                       |
-| - Total Defects Found  | [Total Number of Defects Found]         |
-| - Severity Levels      |                                       |
-|   - High               | [Number of High Severity Defects]       |
-|   - Medium             | [Number of Medium Severity Defects]     |
-|   - Low                | [Number of Low Severity Defects]        |
-| Test Summary            |                                       |
-| - Overall Status       | [Overall Test Status (Pass/Fail)]      |
-| - Comments/Notes       | [General Comments or Notes]            |
-| Test Lead/Manager       | [Name of Test Lead/Manager]            |
-| Date of Report          | [Date of Report]                        |
-
+- [Test Summary Report](./assets/testSummaryReport.md)
 
 ### Test Case Report
 
+**Explanation**
 A Test Case Report, also known as a Test Execution Report, provides an overview of the status and results of executed test cases.
+**Example**
 
-|-------------------------------------------------------------------|
-|                      Test Case Execution Report                    |
-|-------------------------------------------------------------------|
-| Project Name:          | [Project Name]                              |
-|-------------------------------------------------------------------|
-| Test Phase:            | [System Testing]                      |
-|-------------------------------------------------------------------|
-| Test Start Date:       | [Start Date]                                |
-|-------------------------------------------------------------------|
-| Test End Date:         | [End Date]                                  |
-|-------------------------------------------------------------------|
-| Total Test Cases:      | [Total Test Cases Executed]                 |
-|-------------------------------------------------------------------|
-| Passed Test Cases:     | [Number of Test Cases Passed]               |
-|-------------------------------------------------------------------|
-| Failed Test Cases:     | [Number of Test Cases Failed]               |
-|-------------------------------------------------------------------|
-| Test Environment:                                                   |
-| - Operating System:    | [Operating System]                          |
-| - Browsers:            | [List of Browsers]                          |
-| - Other Relevant Info: | [Additional Environment Info]                |
-|-------------------------------------------------------------------|
-| Test Summary:                                                      |
-| - Overall Status:      | [Overall Test Status (Pass/Fail)]    |
-| - Comments/Notes:     | [General Comments or Notes]                 |
-|-------------------------------------------------------------------|
-| Test Case Details:                                                 |
-|-------------------------------------------------------------------|
-| Test Case ID | Test Description            | Status  | Comments/Notes |
-|--------------|-----------------------------|---------|-----------------|
-| TC-001       | Verify User Login           | PASS    | No issues found |
-| TC-002       | Verify Product Search       | PASS    | No issues found |
-| TC-003       | Submit Order Form           | FAIL    | Issue with form |
-| TC-004       | Update User Profile         | PASS    | No issues found |
-| ...          | ...                         | ...     | ...             |
-|-------------------------------------------------------------------|
+- [Test Case Report](./assets/testCaseReport.md)
 
 #### Test Case vs Test Case Report
 
 1. **Test Case**:
-
-   - **Purpose**: A test case is a detailed document that outlines the specific steps to be followed, the conditions to be met, and the expected outcomes to verify a particular aspect of a software application.
-   
-   - **Content**: Test cases include information such as test case ID, test steps, input data, expected results, preconditions, and postconditions. They are used by testers to execute tests systematically.
-
-   - **Focus**: Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
-
+- **Purpose**: A test case is a detailed document that outlines the specific steps to be followed, the conditions to be met, and the expected outcomes to verify a particular aspect of a software application.
+- **Content**: Test cases include information such as test case ID, test steps, input data, expected results, preconditions, and postconditions. They are used by testers to execute tests systematically.
+- **Focus**: Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
 2. **Test Case Report** (or Test Execution Report):
-
-   - **Purpose**: A Test Case Report, often referred to as a Test Execution Report, provides an overview of the status and results of executed test cases for a specific testing phase or cycle.
-
-   - **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
-
-   - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
+- **Purpose**: A Test Case Report, often referred to as a Test Execution Report, provides an overview of the status and results of executed test cases for a specific testing phase or cycle.
+- **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
+- **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
 ### Defect Report (Bug Report)
 
+**Explanation**
 Defect Reports are separate documents used to document and track issues or defects identified during testing. You do not typically write Defect Reports (Bug Reports) within individual test cases.
 
 - Defect Reports document issues found during testing, which may result from executing test cases. These reports are used to communicate the problems to developers or the relevant team responsible for fixing the defects.
 
-|----------------------------------------------------------------|
-|                        Defect Report                            |
-|----------------------------------------------------------------|
-| Defect ID:             | BUG-001                                 |
-|----------------------------------------------------------------|
-| Date Reported:         | 2023-09-16                             |
-|----------------------------------------------------------------|
-| Project:               | [Project Name]                         |
-|----------------------------------------------------------------|
-| Module/Component:      | [Module or Component Affected]         |
-|----------------------------------------------------------------|
-| Severity:              | [e.g., High, Medium, Low]              |
-|----------------------------------------------------------------|
-| Priority:              | [e.g., High, Medium, Low]              |
-|----------------------------------------------------------------|
-| Reported By:           | [Name of Tester]                       |
-|----------------------------------------------------------------|
-| Summary:               | [Brief Description of the Defect]      |
-|----------------------------------------------------------------|
-| Description:           | [Detailed Description of the Defect]   |
-|----------------------------------------------------------------|
-| Steps to Reproduce:    | [List of Steps to Reproduce the Issue] |
-|----------------------------------------------------------------|
-| Expected Behavior:     | [What Was Expected]                    |
-|----------------------------------------------------------------|
-| Actual Behavior:       | [What Actually Happened]               |
-|----------------------------------------------------------------|
-| Attachments:           | [Screenshots, Log Files, etc.]         |
-|----------------------------------------------------------------|
-| Environment:           | [Testing Environment Details]           |
-|----------------------------------------------------------------|
-| Status:                | [Open, In Progress, Closed, Reopened]   |
-|----------------------------------------------------------------|
-| Assigned To:           | [Developer's Name or ID]               |
-|----------------------------------------------------------------|
-| Date Fixed:            | [Date when Fixed, if applicable]       |
-|----------------------------------------------------------------|
-| Comments/Notes:        | [Additional Information or Notes]       |
-|----------------------------------------------------------------|
+**Example**
 
+- [Defect Report (Bug Report)](./assets/bugReport.md)
 
 ### Regression Test Report
 
@@ -905,83 +805,32 @@ Regression testing is performed to ensure that new code changes, updates, or enh
 
 - **Regression Test Report:** Once you have executed the regression tests, you compile the results into a Regression Test Report. This report summarizes the status of all the regression test cases, indicating which ones passed, which ones failed, and any other relevant information about the testing process.
 
-- Managing and executing regression tests can be challenging, and there may be a need to modernize testing practices. Here are some mitigation strategies:
+**Mitigation Strategies:**
+- Managing and executing regression tests can be challenging, and there may be a need to modernize testing practices.
 
 1. **Continuous Integration/Continuous Deployment (CI/CD):** Implement CI/CD pipelines to automate the build, testing, and deployment process. This ensures that regression tests are run automatically with each code change, reducing the risk of regression issues going unnoticed.
 
-2. **Version Control and Code Reviews: Implement robust version control practices and code review processes to catch issues early in the development cycle, reducing the likelihood of introducing regressions.**
+2. **Version Control and Code Reviews:** Implement robust version control practices and code review processes to catch issues early in the development cycle, reducing the likelihood of introducing regressions.
 
-| Test Case ID | Test Case Description             | Test Steps                              | Expected Result  | Actual Result    | Status  |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
-| TC001        | User Login                        | 1. Navigate to the login page.          | User should be   | User logged in   | Passed  |
-|              |                                  | 2. Enter valid credentials.             | logged in        | successfully     |         |
-|              |                                  | 3. Click the "Login" button.           |                  |                  |         |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
-| TC002        | User Registration                 | 1. Navigate to the registration page.   | User should be   | User registered   | Passed  |
-|              |                                  | 2. Fill in valid user details.          | registered       | successfully     |         |
-|              |                                  | 3. Click the "Register" button.        |                  |                  |         |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
-| TC003        | Product Search                    | 1. Enter a product name in the search   | Product details  | Product details  | Passed  |
-|              |                                  |    bar.                                | should be        | displayed        |         |
-|              |                                  | 2. Click the "Search" button.           | displayed        | as expected      |         |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
-| TC004        | Add to Cart                       | 1. Select a product.                    | Product should be| Product added to  | Passed  |
-|              |                                  | 2. Click "Add to Cart" button.          | added to cart    | cart             |         |
-|              |                                  | 3. Verify the cart contents.            |                  |                  |         |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
-| TC005        | Checkout                          | 1. Go to the shopping cart.             | Checkout process | Checkout process | Passed  |
-|              |                                  | 2. Click "Checkout" button.             | should be        | completed        |         |
-|              |                                  | 3. Provide shipping and payment info.    | completed        | as expected      |         |
-|              |                                  | 4. Confirm the order.                   |                  |                  |         |
-|--------------|----------------------------------|-----------------------------------------|------------------|------------------|---------|
+**Example**
+
+- [Regression Test Report](./assets/regressionTestReport.md)
 
 ### Test Execution Log
 
+**Explanation:**
 Test logs provide a detailed record of the test execution process, including what was tested, how it was tested, and the results of the tests.
+**Example:**
 
-|----------------------------------------------------------------|
-|                           Test Log                              |
-|----------------------------------------------------------------|
-| Test Case ID:            | TC-001                                 |
-|----------------------------------------------------------------|
-| Test Execution Date:     | 2023-09-16                             |
-|----------------------------------------------------------------|
-| Test Environment:        | Windows 10                             |
-|                         | Chrome v100.0.0                        |
-|----------------------------------------------------------------|
-| Test Data:               | Input: Username - "testuser"           |
-|                         |        Password - "password123"        |
-|----------------------------------------------------------------|
-| Steps                   | Expected Result       | Actual Result  |
-|-------------------------|-----------------------|-----------------|
-| 1. Open application     | Home page displayed   | Home page displayed |
-|----------------------------------------------------------------|
-| 2. Enter credentials   | Login successful      | Login successful    |
-|----------------------------------------------------------------|
-| 3. Navigate to profile  | Profile page loaded   | Profile page loaded |
-|----------------------------------------------------------------|
-| 4. Update profile info  | Profile updated       | Profile updated    |
-|----------------------------------------------------------------|
-| 5. Log out              | Logged out            | Logged out         |
-|----------------------------------------------------------------|
-| Overall Result:         | PASS                                  |
-|----------------------------------------------------------------|
-| Comments/Notes:         | No issues encountered during testing.   |
-|----------------------------------------------------------------|
+- [Test Execution Log](./assets/testExecutionLog.md)
 
 ### Compatibility
 
 **Explanation:**
-
 Compatibility testing ensures that software works across various environments, browsers, devices, and operating systems.
+**Example:**
 
-| Environment         | Browsers        | Devices                 | Operating Systems  |
-|---------------------|-----------------|-------------------------|--------------------|
-| Windows         | Chrome, Firefox, Edge | Desktop, Laptop         | Windows            |
-| macOS               | Safari, Chrome  | MacBook, iMac           | macOS              |
-| Android             | Chrome, Firefox, Edge | Smartphone, Tablet      | Android            |
-| iOS                 | Safari, Chrome  | iPhone, iPad            | iOS                |
-| Linux               | Firefox, Chrome | Desktop, Server        | Linux distributions|
+- [Compatibility](./assets/compatibility.md)
 
 **Key Concepts:**
 
