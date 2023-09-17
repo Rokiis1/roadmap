@@ -766,11 +766,11 @@ Reporting involves documenting and communicating testing activities, results, an
 
 You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
 
-|-----------------------------------------------------------------|
+
 |                       Test Summary Report                       |
 |-----------------------------------------------------------------|
-| Project Name:           | Project Name                         |
-|-------------------------|                                       |
+| Project Name:           | Project Name                          |
+                                                                  |
 | Test Phase:             | System Testing                 |
 |-----------------------------------------------------------------|
 | Test Start Date:        | Start Date                           |
