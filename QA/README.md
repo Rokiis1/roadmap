@@ -43,15 +43,37 @@
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
     - [JMeter](#jmeter)
-      - [Introduction](#introduction)
-      - [Prerequisites](#prerequisites)
-      - [Installation](#installation)
-      - [Getting Started](#getting-started)
-        - [Creating Your First Test Plan](#creating-your-first-test-plan)
-        - [Configuring Test Elements](#configuring-test-elements)
-        - [Running a Test](#running-a-test)
-      - [Analyzing Test Results](#analyzing-test-results)
-    - [Lighthouse](#lighthouse)
+      - [What is JMeter?](#what-is-jmeter-introduction-uses)
+        - [Why Use JMeter?](#why-use-jmeter)
+      - [How to Setup Apache JMeter](#how-to-download-install-apache-jmeter)
+      - [JMeter Elements](jmeter-elements)
+        - [Thread Group](#thread-group)
+        - [Samplers](#samplers)
+        - [Listeners](#listeners)
+        - [Configuration](#configuration)
+      - [JMeter GUI](#jmeter-gui)
+        - [Test Plan](#test-plan)
+        - [Workbench](#workbench)
+      - [How to Use JMeter for Performance & Load Testing](#how-to-use-jmeter-for-performance-load-testing)
+        - [Performance Testing](#performance-testing)
+        - [Load Testing](#load-testing)
+      - [JMeter Timers](#jmeter-timers)
+        - [Constant](#constant)
+        - [Gaussian Random](#gaussian-random)
+        - [Uniform](#uniform)
+      - [How to use Assertions in JMeter](#how-to-use-assertations-in-jmeter)
+      - [Controllers in JMeter](#controllers-in-jmeter)
+        - [Loop](#loop)
+        - [Simple](#simple)
+        - [Transaction](#transactions)
+        - [Module](#module)
+        - [Random](#random)
+      - [Processor in JMeter](#processor-in-jmeter)
+        - [PreProcessor](#preprocessor)
+        - [PostProcessor](#postprocessor)
+      - [JMeter Distributed (Remote) Testing](#jmeter-distributed-remote-testing)
+        - [Master Slave Configuration](#master-slave-configuration)
+      - [HTTP Proxy Server in JMeter](#http-proxy-server-in-jmter)
   - [Security Testing](#security-testing)
     - [Authentication authorization](#authentication-authorization)
     - [Vulnerability Scanning](#vulnerability-scanning)
@@ -1032,7 +1054,9 @@ Accessibility testing ensures that a software application is usable by individua
 
 **Resources:**
 
+- [Article: WCAG 2 Overview](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
+- [Documentation: Chrome DevTools](https://developer.chrome.com/docs/devtools/)
 
 ## Load and Performance Testing
 
@@ -1050,92 +1074,50 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 **Resources:**
 
+- [Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
+
 ### JMeter
 
-#### Introduction
-
-Apache JMeter is a powerful tool for testing the performance and load of web applications, databases, and more. It simulates multiple users sending requests to a target server, allowing you to measure how well your system handles the load.
-
-#### Prerequisites
-
-Before you get started, make sure you have the following prerequisites:
-
-- **Java**: JMeter is a Java application, so you need to have Java installed on your system. You can download it from [Oracle's website](https://www.oracle.com/java/technologies/javase-downloads.html).
-
-- **JMeter**: Download the latest version of JMeter from the [official website](https://jmeter.apache.org/download_jmeter.cgi).
-
-#### Installation
-
-## Installation
-
-1. **Install Java**: Follow the installation instructions for Java on your operating system.
-
-2. **Install JMeter**:
-   - Download the JMeter zip or tar.gz file from the JMeter website.
-   - Extract the downloaded file to a directory of your choice.
-
-3. **Verify Installation**:
-   - Open a terminal or command prompt and navigate to the JMeter directory.
-   - Run `./bin/jmeter.sh` (Linux/macOS) or `.\bin\jmeter.bat` (Windows).
-   - If JMeter opens without errors, the installation is successful.
-
-#### Getting Started
-
-##### Creating Your First Test Plan
-
-1. Open JMeter by running the `jmeter.sh` (Linux/macOS) or `jmeter.bat` (Windows) script in the JMeter bin directory.
-
-2. In JMeter, create a new test plan:
-   - Go to **File > New** to create a new test plan.
-   - Right-click on the test plan and select **Add > Threads (Users) > Thread Group** to add a Thread Group.
-   
-3. Configure the Thread Group:
-   - Set the number of threads (virtual users) and the loop count.
-   - Add test elements like HTTP requests, samplers, and listeners to your test plan.
-
-##### Configuring Test Elements
-
-JMeter test plans consist of various test elements. Some commonly used elements are:
-
-- **HTTP Request**: To send HTTP requests to a web server.
-- **Listeners**: To view and analyze test results.
-- **Assertions**: To define pass/fail criteria for responses.
-- **Timers**: To introduce delays between requests.
-
-##### Running a Test
-
-1. Save your test plan: **File > Save Test Plan As**.
-
-2. Start the test:
-   - Click the green "Play" button in the toolbar.
-   - JMeter will start running your test plan.
-
-#### Analyzing Test Results
-
-1. JMeter provides various listeners (e.g., View Results Tree, Summary Report) to view and analyze test results.
-   
-2. After the test run, you can generate and save test reports for further analysis.
-
-**Resources:**
-
-- [Site: JMeter Documentation](https://jmeter.apache.org/usermanual/index.html)
-
-### Lighthouse
+#### What is JMeter?
 
 **Explanation:**
 
-Lighthouse is an open-source tool from Google that assesses the quality and performance of web pages. It generates reports and scores based on various performance and accessibility metrics.
+JMeter is a tool used for performance and load testing of web applications. It helps you simulate multiple users accessing your application to assess its performance under heavy loads.
 
-**Key Features:**
+##### Why Use JMeter?
 
-- **Performance Metrics**: Measures loading times, resource usage, and more.
-- **Accessibility Checks**: Identifies issues that impact users with disabilities.
-- **Progressive Web App Audit**: Evaluates adherence to PWA principles.
-- **Best Practices Audit**: Assesses adherence to web development best practices.
+**Why Use JMeter?**
 
-**Resources:**
+- **Performance Testing:** JMeter is a valuable tool for assessing how your web application performs under different conditions. By simulating multiple users concurrently accessing your application, you can identify performance bottlenecks and optimize them.
 
-- [Site: Lighthouse](https://github.com/GoogleChrome/lighthouse/)
+- **Scalability Testing:** JMeter allows you to test the scalability of your application. You can gradually increase the load on your application and determine how it handles increased traffic.
+
+- **Stress Testing:** JMeter helps you determine the breaking point of your application. You can apply heavy loads to see at what point it starts to fail or slow down significantly.
+
+- **Realistic User Simulation:** JMeter allows you to create realistic test scenarios by simulating user interactions, such as clicking links, submitting forms, and navigating through web pages.
+
+**Key Concepts:**
+
+- **Thread Groups:** Thread Groups in JMeter define the number of virtual users and the test executionschedule. This is where you simulate user behavior.
+- **Samplers:** Samplers are responsible for sending different types of requests to your application,such as HTTP requests or database queries, to simulate user actions.
+- **Listeners:** Listeners capture and display the results of your tests, including response times,error rates, and other performance metrics.
+- **Configuration Elements:** Configuration elements allow you to set up variables and parameters foryour test, making it more flexible and adaptable.
+- **Assertions:** Assertions are used to validate whether your application's responses meet specificcriteria. They help ensure your application is functioning correctly.
+- **Timers:** Timers introduce delays between requests to simulate realistic user behavior and controlthe load on the server.
+- **Controllers:** Controllers, such as Loop and Transaction Controllers, help you manage the flow andlogic of your test plan. 
+- **Processors:** Processors, like PreProcessors and PostProcessors, allow you to manipulate databefore sending requests and extract data from server responses.
+
+#### How to Setup Apache JMeter
+
+**Documentation How To Setup JMeter**
+
+- [Documentation How To Setup JMeter](../tasks/QA/setupJMeter.md)
+
+#### JMeter Elements 
+#### Thread Group
+#### Samplers 
+#### Listeners
+#### Configuration
 
 ## Security Testing
 
