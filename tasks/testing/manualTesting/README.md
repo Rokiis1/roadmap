@@ -11,6 +11,10 @@
 - [9 Exploratory Testing](#9-exploratory-testing)
 - [10 Smoke and Sanity Testing](#10-smoke-and-sanity-testing)
 - [11 Regression Testing](#11-regression-testing)
+- [12 Demo tasks](#12-demo-tasks)
+- [13 Examples](#13-examples)
+  - [Test Planning](#test-planning)
+  - [Test Cases and Scenarios](#test-cases-and-sceanrios)
 
 # 1 Task Intro
 
@@ -873,3 +877,118 @@ These exercises will help students practice stress testing, ensuring that applic
 - [thedemosite.co.uk](https://thedemosite.co.uk/)
 - [phptravels](https://phptravels.com/demo/)
 
+# 13 Examples
+
+## Test Planning
+
+```
+# Project Name
+
+## Test Planning
+
+### Objectives
+- Verify that the login functionality works correctly.
+- Ensure the registration process is secure and reliable.
+
+### Scope
+- Inclusions:
+  - Login page
+  - Registration page
+- Exclusions:
+  - Password reset functionality
+
+### Test Strategy
+- Test Levels:
+  - Functional Testing
+- Test Types:
+  - Black-box Testing
+- Testing Techniques:
+  - Equivalence Partitioning
+  - Boundary Value Analysis
+- Test Environments:
+  - Web browsers: Chrome, Firefox, Edge
+
+### Test Schedule
+- Login Page Testing: Week 1
+- Registration Page Testing: Week 2
+- Test Report: Week 3
+
+### Resource Allocation
+- Human Resources:
+  - QA Team: John, Mary
+- Tools and Infrastructure:
+  - Selenium WebDriver for automated testing
+  - Test data generation scripts
+- Data and Test Environment Setup:
+  - Test accounts and sample data
+
+### Risk Assessment
+- Identified Risks:
+  - Delays in development may impact testing schedule.
+- Risk Analysis:
+  - Impact: Medium
+  - Likelihood: Low
+- Mitigation Strategies:
+  - Regular coordination with the development team to stay updated on progress.
+  
+### Communication and Reporting
+- Stakeholder Communication:
+  - Weekly status emails to the project manager and development team.
+- Reporting:
+  - Test results and issues will be documented in test reports located in the "reports" directory.
+
+### Review and Approval
+- This test plan has been reviewed and approved by:
+  - [Project Manager Name]
+  - [Development Team Lead Name]
+
+### Change Management
+- Any proposed changes to this test plan should be submitted as issues in this project's issue tracker.
+
+### Documentation
+- All testing documentation can be found in the "docs" directory.
+
+### Exit Criteria
+- Testing will be considered complete when:
+  - 95% of test cases pass successfully.
+  - Critical defects are resolved.
+
+### Contingency Planning
+- In case of critical defects or schedule delays, a contingency plan will be activated, and the project manager will be notified immediately.
+```
+
+## Test Cases and Scenrios
+
+```
+Certainly, let's take one example from the table and provide a real-life scenario for both test cases and test scenarios:
+
+**Example: Testing an E-commerce Website**
+
+1. **Test Case**:
+   - **Objective**: Verify the functionality of the "Add to Cart" button on a product page.
+   - **Scope**: Focused on testing a single feature - adding a product to the shopping cart.
+   - **Steps**: 
+     1. Navigate to the product page.
+     2. Click the "Add to Cart" button.
+     3. Check if the product is added to the cart.
+   - **Expected Result**: The selected product should be added to the shopping cart, and the cart's item count should increase by one.
+
+   This test case examines a specific feature (adding a product to the cart) and checks if it behaves as expected.
+
+2. **Test Scenario**:
+   - **Objective**: Validate the end-to-end checkout process for a customer purchasing multiple items.
+   - **Scope**: Broader in scope, covering multiple test cases related to the checkout process.
+   - **Steps**:
+     1. Search for and add multiple items to the cart.
+     2. Proceed to the checkout page.
+     3. Enter shipping information.
+     4. Select a payment method and provide payment details.
+     5. Confirm the order.
+   - **Expected Result**: The customer should be able to successfully complete the entire checkout process, receive an order confirmation, and have the purchased items reflected in the order history.
+
+   This test scenario encompasses multiple test cases, each addressing a different step in the user's journey from product selection to order confirmation. It ensures the overall functionality and usability of the checkout process.
+```
+
+##
+
+##
