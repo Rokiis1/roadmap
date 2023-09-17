@@ -728,6 +728,7 @@ Test-Driven Development (TDD) is a software development practice where tests are
 
 **Explanation:**
 Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
+
 **Key Concepts:**
 - **Test Case**: A set of inputs, actions, and expected results.
 - **Test Scenario**: A sequence of related test cases.
@@ -766,42 +767,42 @@ Reporting involves documenting and communicating testing activities, results, an
 
 You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
 
-
+|-----------------------------------------------------------------|
 |                       Test Summary Report                       |
 |-----------------------------------------------------------------|
-| Project Name:           | Project Name                          |
-                                                                  |
-| Test Phase:             | System Testing                 |
+| Project Name:           | [Project Name]                        |
 |-----------------------------------------------------------------|
-| Test Start Date:        | Start Date                           |
+| Test Phase:             | [System Testing]                      |
 |-----------------------------------------------------------------|
-| Test End Date:          | End Date                             |
+| Test Start Date:        | [Start Date]                          |
 |-----------------------------------------------------------------|
-| Total Test Cases:       | Total Test Cases Executed            |
+| Test End Date:          | [End Date]                            |
 |-----------------------------------------------------------------|
-| Passed Test Cases:      | Number of Test Cases Passed          |
+| Total Test Cases:       | [Total Test Cases Executed]           |
 |-----------------------------------------------------------------|
-| Failed Test Cases:      | [Number of Test Cases Failed]          |
+| Passed Test Cases:      | [Number of Test Cases Passed]         |
 |-----------------------------------------------------------------|
-| Test Execution Environment:                                        |
-| - Operating System:     | Operating System                     |
-| - Browsers:             | List of Browsers                    |
-| - Other Relevant Info:  | Additional Environment Info          |
+| Failed Test Cases:      | [Number of Test Cases Failed]         |
 |-----------------------------------------------------------------|
-| Summary of Findings:                                             |
-| - Total Defects Found: | Total Number of Defects Found         |
-| - Severity Levels:                                                |
-|   - High:               | Number of High Severity Defects       |
-|   - Medium:             | Number of Medium Severity Defects     |
-|   - Low:                | Number of Low Severity Defects        |
+| Test Execution Environment:                                     |
+| - Operating System:     | [Operating System]                    |
+| - Browsers:             | [List of Browsers]                    |
+| - Other Relevant Info:  | [Additional Environment Info]         |
 |-----------------------------------------------------------------|
-| Test Summary:                                                     |
-| - Overall Status:       | Overall Test Status (Pass/Fail) |
-| - Comments/Notes:      | General Comments or Notes            |
+| Summary of Findings:                                            |
+| - Total Defects Found:  | [Total Number of Defects Found]       |
+| - Severity Levels:      |                                       |
+|   - High:               | [Number of High Severity Defects]     |
+|   - Medium:             | [Number of Medium Severity Defects]   |
+|   - Low:                | [Number of Low Severity Defects]      |
 |-----------------------------------------------------------------|
-| Test Lead/Manager:      | Name of Test Lead/Manager            |
+| Test Summary:                                                   |
+| - Overall Status:      | [Overall Test Status (Pass/Fail)]      |
+| - Comments/Notes:      | [General Comments or Notes]            |
 |-----------------------------------------------------------------|
-| Date of Report:         | Date of Report                       |
+| Test Lead/Manager:     | [Name of Test Lead/Manager]            |
+|-----------------------------------------------------------------|
+| Date of Report:        | [Date of Report]                       |
 |-----------------------------------------------------------------|
 
 ### Test Case Report
