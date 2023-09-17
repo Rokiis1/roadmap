@@ -705,7 +705,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Example**
 
-- [Test Planning](../tasks/testing/manualTesting/README.md)
+- [Test Planning Example](../tasks/testing/manualTesting/README.md)
 
 ## Test-Driven Development (TDD)
 
@@ -731,7 +731,7 @@ Test-Driven Development (TDD) is a software development practice where tests are
 Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
 
 | Feature           | Test Cases                                 | Test Scenarios                              |
-|-------------------|-------------------------------------------|--------------------------------------------|
+|                   |                                            |                                             |
 | Definition        | Specific, detailed steps to validate a single functionality or condition. | A sequence or collection of related test cases to validate a specific user workflow or area of the application. |
 | Scope             | Focused on testing individual features or aspects of the application. | Broader in scope, encompassing multiple test cases to validate end-to-end workflows or use cases. |
 | Granularity       | Highly detailed and specific, often with step-by-step instructions. | Higher-level view, focusing on user interactions and flow. |
@@ -740,7 +740,7 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 | Example           | Test case for login: Entering valid username and password. | Test scenario for checkout: Adding items to cart, entering shipping info, selecting payment, and confirming the order. |
 | Coverage          | Used to ensure thorough testing of individual features. | Used to ensure comprehensive testing of a specific area or user journey within the application. |
 | Traceability     | Typically linked to specific test conditions or acceptance criteria. | Often linked to high-level user requirements or use cases. |
-| Purpose          | Identify and validate specific defects or issues within a feature. | Validate end-to-end functionality and user experience for a particular part of the application. |
+| Purpose          | Identify and validate specific defects or issues within a feature. | Validate end-to-end functionality and user experience for a particular part of the | application. |
 
 **Key Concepts:**
 
