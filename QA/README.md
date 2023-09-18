@@ -742,7 +742,7 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 **Example**
 
-- [Test Cases and Scenarios](../tasks/testing/manualTesting/README.md)
+- [Test Cases and Scenarios](./assets/testCasesandScenarios.md)
 
 ## Reporting
 
