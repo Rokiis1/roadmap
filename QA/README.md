@@ -705,7 +705,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Example**
 
-- [Test Planning Example](../tasks/testing/manualTesting/README.md)
+- [Test Planning Example](../tasks/QA/README.md)
 
 ## Test-Driven Development (TDD)
 

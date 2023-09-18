@@ -960,8 +960,6 @@ These exercises will help students practice stress testing, ensuring that applic
 ## Test Cases and Scenrios
 
 ```
-Certainly, let's take one example from the table and provide a real-life scenario for both test cases and test scenarios:
-
 **Example: Testing an E-commerce Website**
 
 1. **Test Case**:
@@ -985,8 +983,6 @@ Certainly, let's take one example from the table and provide a real-life scenari
      4. Select a payment method and provide payment details.
      5. Confirm the order.
    - **Expected Result**: The customer should be able to successfully complete the entire checkout process, receive an order confirmation, and have the purchased items reflected in the order history.
-
-   This test scenario encompasses multiple test cases, each addressing a different step in the user's journey from product selection to order confirmation. It ensures the overall functionality and usability of the checkout process.
 ```
 
 ##
