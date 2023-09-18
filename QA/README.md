@@ -1,6 +1,6 @@
 # Table of Contents
 
-- [QA Basics](#qa-Basics)
+- [QA Basics](#qa-basics)
   - [What is Quality Assurance?](#what-is-quality-assurance)
     - [What is Quality?](#what-is-quality)
     - [What is Assurance?](#what-is-assurance)
@@ -20,7 +20,7 @@
     - [Writing effective test cases](#writing-effective-test-cases)
     - [Test case structure and format](#test-case-structure-and-format)
     - [Test case prioritization](#test-case-prioritization)
-- [Software Development Life Cycle (SDLC) Software Development Process](#sdlc)
+- [Software Development Life Cycle (SDLC) Software Development Process](#software-development-life-cycle-sdlc-sofware-developement-process)
   - [Software Development Approaches Comparison](#software-development-approaches-comparison)
     - [Waterfall Model](#waterfall-model)
     - [V Model](#v-model)
@@ -28,13 +28,13 @@
       - [Scrum Framework](#scrum-framework)
 - [Manual Testing](#manual-testing)
     - [Test Planning](#test-planning)
-    - [TDD - Test Driven Development](#tdd)
+    - [TDD - Test Driven Development](#tdd-test-driven-development)
     - [Test Cases and Scenarios](#test-cases-and-scenarios)
     - [Reporting](#reporting)
       - [Test Summary Report](#test-summary-report)
       - [Test Case Report](#test-case-report)
         - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
-      - [Defect Report (Bug Report)](#defect-report)
+      - [Defect Report (Bug Report)](#defect-report-bug-report)
       - [Regression Test Report](#regression-test-report)
       - [Test Execution Log](#test-execution-log)
     - [Compatibility](#compatibility)
@@ -81,14 +81,14 @@
     - [Attack vectors](#attack-vectors)
     - [Secrets Management](#secrets-management)
 - [Testing Techniques](#testing-techniques)
-    - [Non-Functional Testing](#non-functional-testing)
+    - [Non-Functional](#functional-testing)
       - [Load Testing](#load-testing)
       - [Performance Testing](#performance-testing)
       - [Stress Testing](#stress-testing)
       - [Security Testing](#security-testing)
       - [Accessibility Testing](#accessibility-testing)
-    - [Functional Testing](#functional-testing)
-      - [User Acceptance Testing (UAT)](#uat)
+    - [Functional](#functional-testing)
+      - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
       - [Exploratory Testing](#exploratory-testing)
       - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
       - [Regression Testing](#regression-testing)
@@ -408,7 +408,8 @@ Test case prioritization involves determining the order in which test cases shou
 **Key Concepts:**
 
 1. **Planning:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
-  - **Project Objectives**
+  
+**Key Concepts:** *1. Project Objectives*
   - **Scope Definition**
   - **Requirements Gathering**
   - **Project Goals and KPIs**
@@ -419,6 +420,7 @@ Test case prioritization involves determining the order in which test cases shou
   - **Stakeholder Alignment**
 
 2. **Requirements Gathering:** The process of collecting and documenting detailed requirements from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
+  
   - **Identifying Stakeholders**
   - **User Interviews and Surveys**
   - **Use Cases and User Stories**
@@ -431,6 +433,7 @@ Test case prioritization involves determining the order in which test cases shou
   - **Prioritization**
 
 3. **Design:** During this phase, the software's architecture, data structures, user interface, and system components are planned and designed. It lays the foundation for actual development.
+  
   - **System Architecture**
   - **Database Design**
   - **User Interface (UI) Design**
@@ -443,6 +446,7 @@ Test case prioritization involves determining the order in which test cases shou
   - **Design Sign-off**
 
 4. **Implementation (Coding):** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
+  
   - **Coding**
   - **Coding Standards**
   - **Version Control**
@@ -458,6 +462,7 @@ Test case prioritization involves determining the order in which test cases shou
   - **Progress Tracking**
 
 5. **Testing:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing.
+  
   - **Test Planning**
   - **Functional Testing**
   - **Integration Testing**
@@ -475,6 +480,7 @@ Test case prioritization involves determining the order in which test cases shou
   - **Test Completion**
 
 6. **Deployment (Release):** Once the software passes testing and quality checks, it is deployed to production or made available to users. Deployment may involve data migration and system setup.
+  
   - **Environment Setup**
   - **Data Migration**
   - **Release Planning**
@@ -493,6 +499,7 @@ Test case prioritization involves determining the order in which test cases shou
 
 7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.
 Monitoring and Performance Optimization: After the app's deployment, "X Company" continues to monitor its performance, availability, and user experience. This includes tracking key performance indicators (KPIs), server health, and user feedback.
+
   - **Issue Identification**
   - **Bug Fixing**
   - **Security Updates**
@@ -705,7 +712,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Example**
 
-- [Test Planning Example](../tasks/QA/README.md)
+- [Test Planning Example](./assets/manualTesting/testPlanning.md)
 
 ## Test-Driven Development (TDD)
 
@@ -727,9 +734,11 @@ Test-Driven Development (TDD) is a software development practice where tests are
 ## Test Cases and Scenarios
 
 **Explanation:**
+
 Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
 
 **Key Concepts:**
+
 - **Test Case**: A set of inputs, actions, and expected results.
 - **Test Scenario**: A sequence of related test cases.
 - **Coverage**: Ensure comprehensive coverage of functionalities.
@@ -780,10 +789,13 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 #### Test Case vs Test Case Report
 
 1. **Test Case**:
+
 - **Purpose**: A test case is a detailed document that outlines the specific steps to be followed, the conditions to be met, and the expected outcomes to verify a particular aspect of a software application.
 - **Content**: Test cases include information such as test case ID, test steps, input data, expected results, preconditions, and postconditions. They are used by testers to execute tests systematically.
 - **Focus**: Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
+
 2. **Test Case Report** (or Test Execution Report):
+
 - **Purpose**: A Test Case Report, often referred to as a Test Execution Report, provides an overview of the status and results of executed test cases for a specific testing phase or cycle.
 - **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
@@ -803,9 +815,12 @@ Defect Reports are separate documents used to document and track issues or defec
 
 Regression testing is performed to ensure that new code changes, updates, or enhancements to a software application do not introduce new defects or negatively impact existing functionality. 
 
-- **Regression Test Report:** Once you have executed the regression tests, you compile the results into a Regression Test Report. This report summarizes the status of all the regression test cases, indicating which ones passed, which ones failed, and any other relevant information about the testing process.
+- **Regression Test Report:** 
 
-**Mitigation Strategies:**
+Once you have executed the regression tests, you compile the results into a Regression Test Report. This report summarizes the status of all the regression test cases, indicating which ones passed, which ones failed, and any other relevant information about the testing process.
+
+- **Mitigation Strategies:**
+
 - Managing and executing regression tests can be challenging, and there may be a need to modernize testing practices.
 
 1. **Continuous Integration/Continuous Deployment (CI/CD):** Implement CI/CD pipelines to automate the build, testing, and deployment process. This ensures that regression tests are run automatically with each code change, reducing the risk of regression issues going unnoticed.
@@ -819,7 +834,9 @@ Regression testing is performed to ensure that new code changes, updates, or enh
 ### Test Execution Log
 
 **Explanation:**
+
 Test logs provide a detailed record of the test execution process, including what was tested, how it was tested, and the results of the tests.
+
 **Example:**
 
 - [Test Execution Log](./assets/testExecutionLog.md)
@@ -827,7 +844,9 @@ Test logs provide a detailed record of the test execution process, including wha
 ### Compatibility
 
 **Explanation:**
+
 Compatibility testing ensures that software works across various environments, browsers, devices, and operating systems.
+
 **Example:**
 
 - [Compatibility](./assets/compatibility.md)
@@ -890,9 +909,13 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 **Key Concepts:**
 
 - **Load Testing**: Evaluates application behavior under expected load.
+
 - **Stress Testing**: Tests application behavior under extreme load conditions.
+
 - **Performance Testing**: Ensures application meets response time requirements.
+
 - **Metrics**: Response time, throughput, resource utilization, and error rates.
+
 - **Purpose**: Identify performance issues before application launch.
 
 **Resources:**
@@ -913,8 +936,6 @@ JMeter is a tool used for performance and load testing of web applications. It h
 
 ##### Why Use JMeter?
 
-**Why Use JMeter?**
-
 - **Performance Testing:** JMeter is a valuable tool for assessing how your web application performs under different conditions. By simulating multiple users concurrently accessing your application, you can identify performance bottlenecks and optimize them.
 
 - **Scalability Testing:** JMeter allows you to test the scalability of your application. You can gradually increase the load on your application and determine how it handles increased traffic.
@@ -926,17 +947,24 @@ JMeter is a tool used for performance and load testing of web applications. It h
 **Key Concepts:**
 
 - **Thread Groups:** Thread Groups in JMeter define the number of virtual users and the test executionschedule. This is where you simulate user behavior.
+
 - **Samplers:** Samplers are responsible for sending different types of requests to your application,such as HTTP requests or database queries, to simulate user actions.
+
 - **Listeners:** Listeners capture and display the results of your tests, including response times,error rates, and other performance metrics.
+
 - **Configuration Elements:** Configuration elements allow you to set up variables and parameters foryour test, making it more flexible and adaptable.
+
 - **Assertions:** Assertions are used to validate whether your application's responses meet specificcriteria. They help ensure your application is functioning correctly.
+
 - **Timers:** Timers introduce delays between requests to simulate realistic user behavior and controlthe load on the server.
+
 - **Controllers:** Controllers, such as Loop and Transaction Controllers, help you manage the flow andlogic of your test plan. 
+
 - **Processors:** Processors, like PreProcessors and PostProcessors, allow you to manipulate databefore sending requests and extract data from server responses.
 
 ##### How to Setup Apache JMeter
 
-**Documentation How To Setup JMeter**
+**Documentation How To Setup JMeter:**
 
 - [Documentation How To Setup JMeter](../tasks/QA/JMeter/setupJMeter.md)
 
@@ -953,41 +981,51 @@ JMeter is a tool used for performance and load testing of web applications. It h
 ##### Thread Group
 
 **Explanation:** 
+
 In JMeter, a Thread Group represents a group of virtual users (threads) that will execute a set of test cases. Each thread simulates a real user performing a series of actions on your application.
 
 **Example:** 
+
 Let's say you have a Thread Group with 100 threads. If you configure it to send HTTP requests to your website, these 100 threads will simulate 100 simultaneous users accessing your site
 
 ##### Samplers 
 
 **Explanation:** 
+
 Samplers are responsible for sending requests to your server during a test. They simulate various types of user interactions, such as HTTP requests, FTP requests, JDBC requests, etc.
 
 **Example:**
+
 If you want to test the response time of a web page, you would use an HTTP Request sampler. You configure it with the URL of the page, and JMeter sends requests to that URL from multiple threads.
 
 ##### Listeners
 
 **Explanation:** 
+
 Listeners are used to collect and display the results of your test plan. They provide various types of reports, such as tables, graphs, and trees, to help you analyze the test results.
 
 **Example:** 
+
 Commonly used listener is the "View Results Tree" listener. It displays detailed information about each request/response, including response time, response data, and more, making it easier to identify issues.
 
 ##### Configuration
 
 **Explanation:** 
+
 Configuration elements allow you to set up variables and values that can be used in your test plan. They help you parameterize your test, making it more dynamic.
 
 **Example:** 
+
 Let's say you have a JDBC Configuration element where you define your database connection details. You can then use these variables in your JDBC Request samplers to execute queries against the database.
 
 #### JMeter GUI
 
 **Explanation:** 
+
 The JMeter GUI (Graphical User Interface) is the interface used to create, configure, and run test plans in JMeter. It provides a user-friendly environment for designing and managing performance tests.
 
 **Example:** 
+
 When you launch JMeter, you interact with the GUI to add Thread Groups, Samplers, Listeners, and other test elements. You can visually organize your test plan, configure settings, and monitor test execution.
 
 - You typically start by creating a Test Plan in the JMeter GUI.
@@ -999,21 +1037,14 @@ When you launch JMeter, you interact with the GUI to add Thread Groups, Samplers
 ##### Test Plan
 
 **Explanation:** 
+
 A Test Plan is the core container in JMeter where you organize your test elements, define the test scenario, and set various configurations. It acts as a blueprint for your performance tests.
 
 - Inside the Test Plan, you structure your test using Thread Groups, Samplers, Controllers, and other elements.
 
 **Example:** 
+
 Within a Test Plan, you can include Thread Groups to simulate user behavior, add Samplers to send requests, incorporate Logic Controllers to control the flow, and use Listeners to collect and display test results.
-
-##### Workbench
-
-**Explanation:** 
-The Workbench is an area in JMeter where you can experiment with test elements, perform ad-hoc testing, and store elements temporarily before adding them to the main Test Plan. It's a workspace for trial and error.
-**Example:** 
-You might use the Workbench to quickly test a specific request or configuration without modifying your main Test Plan. Once you are satisfied with your experiments, you can move elements from the Workbench to your Test Plan.
-
-- The Workbench is a useful place for temporary testing or storage of elements that may be added to your Test Plan later.
 
 #### How to Use JMeter for Performance & Load Testing
 
@@ -1024,11 +1055,13 @@ You might use the Workbench to quickly test a specific request or configuration 
 ##### Performance Testing
 
 **Explanation:**
+
 Performance testing focuses on evaluating the responsiveness, speed, and stability of an application under normal conditions. Follow these steps for performance testing:
 
 ##### Load Testing
 
 **Explanation:**
+
 Load testing assesses how a system performs under a specific load, typically heavier than normal. Follow these steps for load testing:
 **Example:**
 
@@ -1037,6 +1070,7 @@ Load testing assesses how a system performs under a specific load, typically hea
 #### JMeter Timers
 
 **Explanation:** 
+
 Timers in JMeter allow you to introduce delays, pacing, or think times between requests or samplers in your test plan. This helps simulate realistic user behavior during performance and load testing.
 
 **Resources:**
@@ -1046,19 +1080,29 @@ Timers in JMeter allow you to introduce delays, pacing, or think times between r
 ##### Constant Timer
 
 **Explanation:** 
+
 The Constant Timer adds a fixed delay, specified in milliseconds, between the execution of each sampler to create a constant pacing between requests.
+
 **Use Case:** 
+
 Use the Constant Timer when you want to maintain a consistent time gap between consecutive requests. For example, you can set a Constant Timer to add a 500ms delay between each HTTP request to simulate a steady stream of users interacting with your application.
+
 **Configuration:**
+
 - Set the "Thread Delay" field to the desired delay in milliseconds.
 
 ##### Gaussian Random Timer
 
-**Explanation:** 
+**Explanation:**
+
 The Gaussian Random Timer introduces random delays based on a Gaussian distribution (bell curve). You specify the deviation and offset to control the distribution.
+
 **Use Case:** 
+
 Use the Gaussian Random Timer when you want to simulate varying user think times that follow a normal distribution. This can mimic real-world user behavior where some users pause longer between actions than others.
+
 **Configuration:**
+
 - Set the "Deviation" field to control the width of the distribution.
 - Set the "Offset" field to specify the central point of the distribution.
 - Optionally, set "Random Delay Maximum" to limit the maximum delay introduced.
@@ -1066,10 +1110,15 @@ Use the Gaussian Random Timer when you want to simulate varying user think times
 ##### Uniform Timer
 
 **Explanation:**
+
 The Uniform Random Timer introduces random delays within a specified range. It randomly selects a value between the configured minimum and maximum delay for each timer execution.
+
 **Use Case:** 
+
 Use the Uniform Random Timer when you want to simulate a range of think times between requests. This can represent a broader range of user behaviors.
+
 **Configuration:**
+
 - Set the "Constant Delay Offset" field to define the minimum delay in milliseconds.
 - Set the "Random Delay Maximum" field to specify the maximum additional delay.
 
@@ -1080,7 +1129,9 @@ Use the Uniform Random Timer when you want to simulate a range of think times be
 #### How to use Assertions in JMeter
 
 **Explanation:**
+
 Assertions in JMeter are used to validate whether the responses received from the server meet specific criteria or conditions. They help ensure that your application is behaving as expected during a test.
+
 **Example:**
 
 - [How to Create Assertations](../tasks/QA/JMeter/assertions.md)
@@ -1092,6 +1143,7 @@ Assertions in JMeter are used to validate whether the responses received from th
 ##### Controllers in JMeter
 
 **Explanation:**
+
 Controllers in JMeter are elements that allow you to control the flow and logic of your test plan. They help structure and manage the execution of requests, samplers, and other elements in your performance test.
 
 **Resources:**
@@ -1101,44 +1153,57 @@ Controllers in JMeter are elements that allow you to control the flow and logic 
 ##### Loop Controller
 
 **Explanation:** 
+
 The Loop Controller allows you to repeatedly execute its child elements for a specified number of times. It's useful for simulating actions that need to be repeated in your test, such as multiple login attempts or data submissions.
 
 **Use Case:**
+
 Suppose you want to simulate 100 login attempts to test how your application handles them. You can place the login request inside a Loop Controller and set the loop count to 100.
 
 #### Simple Controller
 
 **Explanation:** 
+
 The Simple Controller is a basic container that groups and organizes other elements. It doesn't affect the flow or logic of your test but serves as a way to structure your test plan.
 
 **Use Case:**
+
 You can use the Simple Controller to organize and group related requests, timers, or other elements within your test plan. It helps maintain a clean and organized test structure.
 
 #### Transaction Controller
 
 **Explanation:**
+
 The Transaction Controller is used to measure the response time of a set of requests and their subcomponents as a single unit. It allows you to group related requests together and measure their combined response time.
+
 **Use Case:**
+
 Suppose you want to measure the response time of a series of requests, such as login, search, and checkout, as a single transaction. You can place these requests inside a Transaction Controller to measure their combined response time.
 
 #### Module Controller
 
 **Explanation:** 
+
 The Module Controller is used for modularizing and reusing parts of your test plan. It allows you to reference and execute elements from external Test Fragments, making your test plans more modular and maintainable.
+
 **Use Case:**
+
 When you have common test elements that you want to reuse across multiple test plans, you can create Test Fragments containing those elements and then use Module Controllers in your main test plans to reference and execute the fragments.
 
 #### Random Controller
 
 **Explanation:** 
+
 The Random Controller selects and executes child elements randomly for each iteration. It's used to simulate random user behaviors within your test, such as clicking on random links or performing actions at random intervals.
 
 **Use Case:** 
+
 If you want to simulate user interactions that are not strictly sequential, you can place various actions inside a Random Controller. During each iteration, one of the child elements is randomly selected and executed.
 
 #### Processors in JMeter
 
 **Explanation:**
+
 Processors in JMeter are elements that allow you to manipulate or process data before and after samplers. They are used to modify, extract, or perform actions on the requests and responses during the test.
 
 **Resources:**
@@ -1148,23 +1213,31 @@ Processors in JMeter are elements that allow you to manipulate or process data b
 ##### PreProcessor
 
 **Explanation:**
+
 A PreProcessor is an element that is executed before each sampler in a thread group. It allows you to manipulate the request or perform actions before sending it to the server. 
+
 **Use Case:**
+
 You can use a PreProcessor to add or modify request parameters, extract values from a previous response, or set variables before a sampler sends a request.
 
 **Common PreProcessors:**
+
 - **User Parameters PreProcessor**: Allows you to define user-specific parameters for each thread/user.
 - **BeanShell PreProcessor**: Executes custom Java code before a sampler.
 - **JSR223 PreProcessor**: Executes custom code in languages like Groovy, JavaScript, and more.
 
-##### PostProcessor
+#### PostProcessor
 
 **Explanation:**
+
 A PostProcessor is an element that is executed after a sampler in a thread group. It allows you to process the response data or perform actions on it.
+
 **Use Case:**
+
 You can use a PostProcessor to extract data from the response, assert response content, or perform actions like extracting links from HTML responses.
 
 **Common PostProcessors:**
+
 - **Regular Expression Extractor**: Allows you to extract data using regular expressions from the response.
 - **JSON Extractor**: Extracts data from JSON responses.
 - **XPath Extractor**: Extracts data using XPath expressions from XML or HTML responses.
@@ -1172,10 +1245,10 @@ You can use a PostProcessor to extract data from the response, assert response c
 - **CSS/JQuery Extractor**: Extracts data using CSS or jQuery-like selectors from HTML responses.
 - **Debug PostProcessor**: Logs response data to assist in debugging.
 
-
 #### JMeter Distributed (Remote) Testing
 
 **Explanation:**
+
 JMeter Distributed Testing allows you to distribute the load of your performance tests across multiple machines, referred to as "slaves," while a central machine, called the "master," orchestrates and controls the test execution. This setup helps you simulate a higher number of virtual users and generate more load on your target application.
 
 **Resources:**
@@ -1185,10 +1258,13 @@ JMeter Distributed Testing allows you to distribute the load of your performance
 ##### Master-Slave Configuration
 
 **Explanation:** 
+
 In a Master-Slave configuration, one machine (the master) controls the test execution, while one or more additional machines (the slaves) perform the actual load testing. The master sends test plans and instructions to the slaves, which execute the test and report results back to the master.
 
 **Use Case:**
+
 Distributed testing is useful when your load testing requirements exceed the capacity of a single machine. It allows you to simulate a higher number of concurrent users and generate a larger load on your application.
+
 **Example:**
 
 - [Create Master-Slave Configuration](../tasks/QA/JMeter/masterSlaveConfig.md) 
@@ -1196,7 +1272,9 @@ Distributed testing is useful when your load testing requirements exceed the cap
 #### HTTP Proxy Server in JMeter
 
 **Explanation:**
+
 The HTTP Proxy Server in JMeter is a component that allows you to record HTTP requests sent by a web browser so that you can create performance test scripts based on real user interactions with a website. It acts as an intermediary between your browser and the web server, capturing HTTP requests and responses.
+
 **Example** 
 
 - [Create HTTP Proxy Server in JMeter](../tasks/QA/JMeter/httpProxyServer.md)
@@ -1204,7 +1282,6 @@ The HTTP Proxy Server in JMeter is a component that allows you to record HTTP re
 **Resources:**
 
 - [HTTP Proxy Server in JMeter](https://www.guru99.com/how-to-use-jmeter-for-http-proxy-server-testing.html)
-
 
 
 ## Security Testing
@@ -1335,8 +1412,11 @@ Load testing involves assessing a system's performance under specific load condi
 **Key Concepts:**
 
 - **Load**: The amount of work a system is subjected to during testing.
+
 - **Objective**: Identify performance bottlenecks, measure response times, and assess system scalability.
+
 - **Types**: Concurrent users, transactions, or data volume are typically tested.
+
 - **Tools**: Load testing tools like JMeter, Gatling, or locust can automate load simulations.
 
 ![Loading Testing](./images/loadingTest.png)
@@ -1347,11 +1427,7 @@ Load testing involves assessing a system's performance under specific load condi
 
 **Tasks**
 
-- [3 Task](../tasks/testing/manualTesting/README.md)
-
-**Tools**
-
-- [Link to try Load Testing](https://loadfocus.com/)
+- [Loading Testing](../tasks/QA/testingTechniques/loadTesting.md)
 
 #### Performance Testing
 
@@ -1362,7 +1438,9 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 **Key Concepts:**
 
 - **Types**: Includes load testing, stress testing, and endurance testing.
+
 - **Metrics**: Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
+
 - **Benefits**: Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
 
 ![Performance Testing](./images/PerformanceTesting.png)
@@ -1373,12 +1451,7 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 
 **Tasks**
 
-- [4 Task](../tasks/testing/manualTesting/README.md)
-
-**Tools**
-
-- [Link to try Performance Testing](https://loader.io/)
-- [Link to GTmetrix](https://gtmetrix.com/)
+- [performance Testing](../tasks/QA/testingTechniques/performanceTesting.md)
 
 #### Stress Testing
 
@@ -1389,7 +1462,9 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 **Key Concepts:**
 
 - **Types**: Overloading system resources, such as memory, CPU, or network.
+
 - **Purpose**: Determine system stability and reliability under high stress.
+
 - **Challenges**: Requires careful planning to avoid damaging the system during testing.
 
 ![Stress Testing](./images/StressTesting.png)
