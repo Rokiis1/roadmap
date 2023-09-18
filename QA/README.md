@@ -938,7 +938,7 @@ JMeter is a tool used for performance and load testing of web applications. It h
 
 **Documentation How To Setup JMeter**
 
-- [Documentation How To Setup JMeter](../tasks/QA/setupJMeter.md)
+- [Documentation How To Setup JMeter](../tasks/QA/JMeter/setupJMeter.md)
 
 **Resources:**
 
