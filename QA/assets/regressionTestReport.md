@@ -16,7 +16,7 @@
 |              |                       | 2. Click "Add to Cart" button.          | added to cart   | cart           |         |
 |              |                       | 3. Verify the cart contents.            |                 |                |         |
 |--------------|-----------------------|-----------------------------------------|-----------------|----------------|---------|
-| TC005        | Checkout              | 1. Go to the shopping cart.             | Checkout process | Checkout process | Passed  |
+| TC005        | Checkout              | 1. Go to the shopping cart.             | Checkout process | Checkout process | Passed  | 
 |              |                       | 2. Click "Checkout" button.             | should be       | completed      |         |
 |              |                       | 3. Provide shipping and payment info.   | completed       | as expected    |         |
 |              |                       | 4. Confirm the order.                   |                 |                |         |
