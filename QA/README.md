@@ -1,44 +1,8 @@
 # Table of Contents
 
 - [QA Basics](#qa-basics)
-  - [What is Quality Assurance?](#what-is-quality-assurance)
-    - [What is Quality?](#what-is-quality)
-    - [What is Assurance?](#what-is-assurance)
-    - [Quality Assurance in Software Testing](#quality-assurance-in-software-testing)
-  - [Tester Mindset](#tester-mindset)
-    - [Explanation of Tester Mindset](#explanation-of-tester-mindset)
-  - [Test Oracles](#test-oracles)
-    - [Explanation of Test Oracles](#explanation-of-test-oracles)
-    - [Types of Test Oracles](#types-of-test-oracles)
-  - [Test Prioritization](#test-prioritization)
-    - [Explanation of Test Prioritization](#explanation-of-test-prioritization)
-    - [Test Prioritization Techniques](#test-prioritization-techniques)
-  - [Black Box vs Gray Box vs White Box Testing](#black-box-vs-gray-box-vs-white-box-testing)
-    - [Differences and similarities](#differences-and-similarities)
-    - [When to apply each approach](#when-to-apply-each-approach)
-  - [Test Case Design](#test-case-design)
-    - [Writing effective test cases](#writing-effective-test-cases)
-    - [Test case structure and format](#test-case-structure-and-format)
-    - [Test case prioritization](#test-case-prioritization)
 - [Software Development Life Cycle (SDLC) Software Development Process](#software-development-life-cycle-sdlc-sofware-developement-process)
-  - [Software Development Approaches Comparison](#software-development-approaches-comparison)
-    - [Waterfall Model](#waterfall-model)
-    - [V Model](#v-model)
-    - [Agile Methodologies](#agile-methodologies)
-      - [Scrum Framework](#scrum-framework)
 - [Manual Testing](#manual-testing)
-    - [Test Planning](#test-planning)
-    - [TDD - Test Driven Development](#tdd-test-driven-development)
-    - [Test Cases and Scenarios](#test-cases-and-scenarios)
-    - [Reporting](#reporting)
-      - [Test Summary Report](#test-summary-report)
-      - [Test Case Report](#test-case-report)
-        - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
-      - [Defect Report (Bug Report)](#defect-report-bug-report)
-      - [Regression Test Report](#regression-test-report)
-      - [Test Execution Log](#test-execution-log)
-    - [Compatibility](#compatibility)
-    - [Verification and Validation](#verification-and-validation)
 - [Non Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
@@ -136,9 +100,29 @@
 
 # QA Basics
 
-## What is Quality Assurance?
+- [What is Quality Assurance?](#what-is-quality-assurance)
+  - [What is Quality?](#what-is-quality)
+  - [What is Assurance?](#what-is-assurance)
+  - [Quality Assurance in Software Testing](#quality-assurance-in-software-testing)
+- [Tester Mindset](#tester-mindset)
+  - [Explanation of Tester Mindset](#explanation-of-tester-mindset)
+- [Test Oracles](#test-oracles)
+  - [Explanation of Test Oracles](#explanation-of-test-oracles)
+  - [Types of Test Oracles](#types-of-test-oracles)
+- [Test Prioritization](#test-prioritization)
+  - [Explanation of Test Prioritization](#explanation-of-test-prioritization)
+  - [Test Prioritization Techniques](#test-prioritization-techniques)
+- [Black Box vs Gray Box vs White Box Testing](#black-box-vs-gray-box-vs-white-box-testing)
+  - [Differences and similarities](#differences-and-similarities)
+  - [When to apply each approach](#when-to-apply-each-approach)
+- [Test Case Design](#test-case-design)
+  - [Writing effective test cases](#writing-effective-test-cases)
+  - [Test case structure and format](#test-case-structure-and-format)
+  - [Test case prioritization](#test-case-prioritization)
 
-### What is Quality?
+# What is Quality Assurance?
+
+## What is Quality?
 
 **Explanation:**
 
@@ -147,11 +131,14 @@ Quality refers to the degree of excellence or superiority of a product or servic
 **Key Concepts:**
 
 - **Fitness for Purpose**: A product meets its intended purpose effectively.
+
 - **Conformance to Requirements**: The product adheres to specified requirements.
+
 - **Customer Satisfaction**: The product satisfies customer needs and expectations.
+
 - **Continuous Improvement**: Ongoing efforts to enhance quality.
 
-### What is Assurance?
+## What is Assurance?
 
 **Explanation:**
 
@@ -160,11 +147,14 @@ Assurance involves building confidence that a product will meet its quality obje
 **Key Concepts:**
 
 - **Preventive Activities**: Measures taken to avoid defects in the first place.
+
 - **Process Adherence**: Ensuring that processes are followed consistently.
+
 - **Standardization**: Implementing best practices and standards.
+
 - **Early Detection**: Identifying and addressing issues early in the development lifecycle.
 
-### Quality Assurance in Software Testing
+## Quality Assurance in Software Testing
 
 **Explanation:**
 
@@ -188,9 +178,9 @@ Quality Assurance (QA) in software testing involves processes and practices that
 
 - [1 Task](../tasks/testing/manualTesting/README.md)
 
-## Tester Mindset
+# Tester Mindset
 
-### Explanation of Tester Mindset
+## Explanation of Tester Mindset
 
 **Explanation:**
 The "Tester Mindset" refers to the collection of qualities, attitudes, and approaches that make a software tester effective in their role. It involves a combination of critical thinking, attention to detail, empathy, curiosity, and a commitment to delivering high-quality software.
@@ -210,9 +200,9 @@ The "Tester Mindset" refers to the collection of qualities, attitudes, and appro
 
 - [Video: Explanation of Tester Mindset](https://www.youtube.com/watch?v=BCuZfdbWnl8)
 
-## Test Oracles
+# Test Oracles
 
-### Explanation of Test Oracles
+## Explanation of Test Oracles
 
 **Explanation:**
 
@@ -221,34 +211,42 @@ A **test oracle** is a mechanism or principle used to determine the expected out
 **Key Concepts:**
 
 - **Expected Behavior**: Test oracles establish what the system's behavior should be under specific conditions.
+
 - **Validation**: Test oracles are used to validate the correctness of outputs.
+
 - **Manual and Automated**: Oracles can be manual (human judgment) or automated (defined by rules).
+
 - **Dynamic and Static**: Dynamic oracles evaluate runtime behavior, while static oracles analyze code or documentation.
+
 - **Challenges**: Creating accurate and reliable test oracles can be challenging.
 
 **Resources:**
 
 [Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
 
-### Types of Test Oracles
+## Types of Test Oracles
 
 **Explanation:**
 
 There are different types of test oracles used to determine expected outcomes based on different criteria.
 
 **Types:**
+
 - **Explicit Oracles**: Clearly defined expected results based on specifications.
+
 - **Derived Oracles**: Derived from the same system or similar systems.
+
 - **Comparative Oracles**: Compare the system under test to another system or model.
+
 - **Stochastic Oracles**: Use statistical data to determine expected behavior.
 
-## Test Prioritization
+# Test Prioritization
 
 **Resources:**
 
 - [Article: Test Prioritization](https://www.professionalqa.com/test-prioritization)
 
-### Explanation of Test Prioritization
+## Explanation of Test Prioritization
 
 **Explanation:**
 
@@ -257,11 +255,14 @@ Test prioritization is the process of ordering or ranking test cases based on th
 **Key Concepts:**
 
 - **Risk Assessment**: Test prioritization considers factors like critical functionalities, user impact, and potential defects.
+
 - **Resource Optimization**: It ensures that high-priority tests are executed within constrained resources.
+
 - **Early Detection**: Prioritizing critical tests increases the chances of detecting showstopper issues early.
+
 - **Test Dependencies**: Dependencies among test cases influence their order of execution.
 
-### Test Prioritization Techniques
+## Test Prioritization Techniques
 
 **Explanation:**
 
@@ -279,13 +280,13 @@ There are various techniques to prioritize test cases based on different criteri
 
 - [Video: Test Prioritization Techniques](https://www.youtube.com/watch?v=drUfHG6tav8)
 
-## Black Box vs Gray Box vs White Box Testing
+# Black Box vs Gray Box vs White Box Testing
 
 **Resources:**
 
 - [Video: Black Box vs Gray Box vs White Box Testing](https://www.youtube.com/watch?v=CPVMbZYeiF4)
 
-### Differences and Similarities
+## Differences and Similarities
 
 **Explanation:**
 
@@ -320,7 +321,7 @@ Black box testing, gray box testing, and white box testing are three distinct te
 
 - [Article: White Box Testing](https://www.guru99.com/white-box-testing.html)
 
-### When to Apply Each Approach
+## When to Apply Each Approach
 
 **Explanation:**
 
@@ -341,32 +342,42 @@ The choice between black box, gray box, and white box testing depends on the goa
 - Suitable for in-depth testing of code logic, paths, and boundary conditions.
 - Used during unit testing, code review, security testing, and code optimization.
 
-## Test Case Design
+# Test Case Design
 
-### Writing Effective Test Cases
+## Writing Effective Test Cases
 
 Writing effective test cases is crucial for thorough testing and accurate defect detection. Effective test cases should be clear, concise, and detailed. They need to cover various scenarios, conditions, and user interactions to ensure comprehensive testing.
 
 **Key Points:**
 
 - **Clear Steps**: Each test case should have a clear set of steps to execute.
+
 - **Expected Results**: Clearly define the expected outcomes and results.
+
 - **Coverage**: Ensure that each test case covers a specific functionality or scenario.
+
 - **Variety**: Include positive and negative scenarios, boundary conditions, and edge cases.
+
 - **Reusability**: Design test cases that can be reused in different test cycles.
 
-### Test Case Structure and Format
+## Test Case Structure and Format
 
 A standardized test case structure and format make test cases consistent and easy to understand for the entire testing team. A well-structured test case includes sections such as the test case ID, description, preconditions, steps, expected results, actual results, and status.
 
 **Key Points:**
 
 - **Test Case ID**: A unique identifier for each test case.
+
 - **Description**: Briefly describe the purpose of the test case.
+
 - **Preconditions**: List any conditions that must be met before executing the test case.
+
 - **Steps**: Outline the steps needed to execute the test case.
+
 - **Expected Results**: Clearly state the expected outcomes after each step.
+
 - **Actual Results**: Record the actual outcomes during test execution.
+
 - **Status**: Indicate whether the test case passed, failed, or needs further investigation.
 
 - ![TestCaseTable](./images/TestCaseTable.png)
@@ -376,7 +387,7 @@ A standardized test case structure and format make test cases consistent and eas
 - [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
 - [Article: Test Case Design](https://www.guru99.com/software-testing-techniques.html)
 
-### Test Case Prioritization
+## Test Case Prioritization
 
 Test case prioritization involves determining the order in which test cases should be executed based on factors such as business impact, risk, and critical functionality. Prioritization helps ensure that the most important areas are tested first, especially when time or resources are limited.
 
@@ -396,8 +407,14 @@ Test case prioritization involves determining the order in which test cases shou
 
 - [2 Task](../tasks/testing/manualTesting/README.md)
 
- 
+
 # Software Development Life Cycle (SDLC) Software Development Process
+
+- [Software Development Approaches Comparison](#software-development-approaches-comparison)
+  - [Waterfall Model](#waterfall-model)
+  - [V Model](#v-model)
+  - [Agile Methodologies](#agile-methodologies)
+    - [Scrum Framework](#scrum-framework)
 
 **Explanation:**
 
@@ -518,8 +535,7 @@ Monitoring and Performance Optimization: After the app's deployment, "X Company"
 
 - [Software Development Life Cycle (SDLC) Software Development Process](https://www.guru99.com/software-development-life-cycle-tutorial.html)
 
-## Software Development Approaches Comparison
-
+# Software Development Approaches Comparison
 
 | Aspect                        | Agile Methodologies       | Waterfall Model           | V-Model                    |
 | ------------------------------| ------------------------- | ------------------------- | ---------------------------|
@@ -535,7 +551,7 @@ Monitoring and Performance Optimization: After the app's deployment, "X Company"
 | **Project Size**              | Suitable for various project sizes | Better suited for smaller, well-defined projects | Suitable for medium to large projects |
 | **Popularity**                | Widely used in dynamic environments | Historically used in more traditional environments | Common in certain regulated industries |
 
-### Waterfall Model
+## Waterfall Model
 
 **Explanation:**
 
@@ -571,7 +587,7 @@ The Waterfall Model is a traditional and linear approach to software development
 
 - [Article: Waterfall Model](https://www.guru99.com/what-is-sdlc-or-waterfall-model.html)
 
-### V Model
+## V Model
 
 **Explanation:**
 
@@ -598,7 +614,7 @@ The V Model is called so because its diagrammatic representation resembles the l
 - **Early Defect Detection: **The V Model places a strong emphasis on early defect detection and prevention through verification activities. This reduces the cost and effort required to fix issues later in the project.
 
 - **Phased Testing:** Different levels of testing (unit testing, integration testing, system testing, and user acceptance testing) are planned and executed in parallel with corresponding development phases.
-
+0
 - **Traceability:** The V Model promotes traceability, ensuring that each requirement is traced to a corresponding design and testing activity. This helps maintain alignment with customer requirements.
 
 - **Iterative Feedback:** Feedback from validation activities can lead to adjustments in the development process, allowing for iterative improvements.
@@ -609,7 +625,7 @@ The V Model is called so because its diagrammatic representation resembles the l
 
 - [V Model](https://www.guru99.com/v-model-software-testing.html)
 
-### Agile Methodologies
+## Agile Methodologies
 
 **Explanation:**
 
@@ -645,7 +661,7 @@ Methodologies provide a guiding philosophy and principles for how development te
 
 - [Agile Methodologies](https://www.guru99.com/agile-scrum-extreme-testing.html#:~:text=The%20Agile%20software%20development%20methodology%20is%20one%20of,improvement%2C%20team%20collaboration%2C%20evolutionary%20development%2C%20and%20early%20delivery.)
 
-#### Scrum Framework
+### Scrum Framework
 
 **Explanation:**
 
@@ -692,7 +708,20 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 # Manual Testing
 
-## Test Planning
+- [Test Planning](#test-planning)
+- [TDD - Test Driven Development](#tdd-test-driven-development)
+- [Test Cases and Scenarios](#test-cases-and-scenarios)
+- [Reporting](#reporting)
+  - [Test Summary Report](#test-summary-report)
+  - [Test Case Report](#test-case-report)
+    - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
+  - [Defect Report (Bug Report)](#defect-report-bug-report)
+  - [Regression Test Report](#regression-test-report)
+  - [Test Execution Log](#test-execution-log)
+- [Compatibility](#compatibility)
+- [Verification and Validation](#verification-and-validation)
+
+# Test Planning
 
 **Explanation:**
 
@@ -714,7 +743,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 - [Test Planning Example](./assets/manualTesting/testPlanning.md)
 
-## Test-Driven Development (TDD)
+# Test-Driven Development (TDD)
 
 **Explanation:**
 
@@ -731,7 +760,7 @@ Test-Driven Development (TDD) is a software development practice where tests are
 
 - [Article: Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
 
-## Test Cases and Scenarios
+# Test Cases and Scenarios
 
 **Explanation:**
 
@@ -753,7 +782,7 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 - [Test Cases and Scenarios](./assets/testCasesandScenarios.md)
 
-## Reporting
+# Reporting
 
 **Explanation:**
 
@@ -770,7 +799,7 @@ Reporting involves documenting and communicating testing activities, results, an
 
 - [Article: Reporting](https://www.guru99.com/defect-management-process.html)
 
-### Test Summary Report
+## Test Summary Report
 
 **Explanation**
 You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
@@ -778,7 +807,7 @@ You don't typically include a complete Test Summary Report within individual tes
 
 - [Test Summary Report](./assets/testSummaryReport.md)
 
-### Test Case Report
+## Test Case Report
 
 **Explanation**
 A Test Case Report, also known as a Test Execution Report, provides an overview of the status and results of executed test cases.
@@ -786,7 +815,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - [Test Case Report](./assets/testCaseReport.md)
 
-#### Test Case vs Test Case Report
+### Test Case vs Test Case Report
 
 1. **Test Case**:
 
@@ -800,7 +829,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 - **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
-### Defect Report (Bug Report)
+## Defect Report (Bug Report)
 
 **Explanation**
 Defect Reports are separate documents used to document and track issues or defects identified during testing. You do not typically write Defect Reports (Bug Reports) within individual test cases.
@@ -811,7 +840,7 @@ Defect Reports are separate documents used to document and track issues or defec
 
 - [Defect Report (Bug Report)](./assets/bugReport.md)
 
-### Regression Test Report
+## Regression Test Report
 
 Regression testing is performed to ensure that new code changes, updates, or enhancements to a software application do not introduce new defects or negatively impact existing functionality. 
 
@@ -831,7 +860,7 @@ Once you have executed the regression tests, you compile the results into a Regr
 
 - [Regression Test Report](./assets/regressionTestReport.md)
 
-### Test Execution Log
+## Test Execution Log
 
 **Explanation:**
 
@@ -841,7 +870,7 @@ Test logs provide a detailed record of the test execution process, including wha
 
 - [Test Execution Log](./assets/testExecutionLog.md)
 
-### Compatibility
+# Compatibility
 
 **Explanation:**
 
@@ -862,7 +891,7 @@ Compatibility testing ensures that software works across various environments, b
 
 - [Article: Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
 
-## Verification and Validation
+# Verification and Validation
 
 **Explanation:**
 
