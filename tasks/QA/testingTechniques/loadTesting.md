@@ -60,7 +60,7 @@
 
 **Task: Demo**
 
-- [Demo](https://jsonplaceholder.typicode.com/)
+- [Demo](https://jsonplaceholder.typicode.com/posts)
 
 **Hint**
 
