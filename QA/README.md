@@ -1505,7 +1505,7 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 
 **Tasks**
 
-- [5 Task](../tasks/QA/testingTechniques/stressTesting.md)
+- [Stress Testing](../tasks/QA/testingTechniques/stressTesting.md)
 
 #### Security Testing
 
@@ -1525,10 +1525,6 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 
 - [Article: Security Testing](https://www.guru99.com/what-is-security-testing.html)
 - [Article: SQL Injection Tutorial](https://www.guru99.com/learn-sql-injection-with-practical-example.html)
-
-**Tasks**
-
-- [6 Task](../tasks/testing/manualTesting/README.md)
 
 #### Accessibility Testing
 
