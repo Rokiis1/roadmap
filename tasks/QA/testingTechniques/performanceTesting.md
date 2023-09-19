@@ -101,21 +101,20 @@
 
 **Hint**
 
-- [Hint: Task 5](./hints/performanceTesting/task5-easy.md)
-
+- [Hint: Task 6](./hints/performanceTesting/task6-easy.md)
 
 **Feature: Concurrent User Checkout Testing**
 
-**Scenario: Stress Testing Checkout**
+**Scenario: Performance Testing Checkout**
 
-**Test Case 8: Concurrent User Checkout Test**
+**Test Case 7: Concurrent User Checkout Test**
 - **Description:** Evaluate how well your system handles multiple users completing the checkout process concurrently.
 - **Pass Criteria:** 30 users should be able to add items to their carts, proceed to checkout, and complete the purchase without significant delays.
 
-**Feature: Resource Utilization Testing**
+**Task: Demo**
 
-**Scenario: Measuring Resource Utilization**
+- [Demo](https://magento.softwaretestingboard.com/)
 
-**Test Case 9: Resource Utilization Test**
-- **Description:** Assess how the application utilizes system resources under load.
-- **Pass Criteria:** Monitor CPU and memory usage while simulating 100 concurrent users accessing the application. Ensure that CPU usage remains below 80% and memory usage stays within available limits.
+**Hint**
+
+- [Hint: Task 7](./hints/performanceTesting/task7-easy.md)
