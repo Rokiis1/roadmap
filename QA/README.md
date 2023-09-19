@@ -1546,7 +1546,7 @@ Accessibility testing ensures that a software application is usable by people wi
 
 **Tasks**
 
-- [7 Task](../tasks/testing/manualTesting/README.md)
+- [Accessibility Testing](../tasks/QA/testingTechniques/accessibilityTesting.md)
 
 ### Functional Testing
 
@@ -1572,7 +1572,7 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 
 **Tasks**
 
-- [8 Task](../tasks/testing/manualTesting/README.md)
+- [User Acceptance Testing](../tasks/QA/testingTechniques/userAcceptanceTesting.md)
 
 #### Exploratory Testing
 
