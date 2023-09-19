@@ -81,7 +81,7 @@
     - [Attack vectors](#attack-vectors)
     - [Secrets Management](#secrets-management)
 - [Testing Techniques](#testing-techniques)
-    - [Non-Functional](#functional-testing)
+    - [Non-Functional](#non-testing)
       - [Load Testing](#load-testing)
       - [Performance Testing](#performance-testing)
       - [Stress Testing](#stress-testing)
@@ -1476,7 +1476,7 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 
 **Tasks**
 
-- [5 Task](../tasks/testing/manualTesting/README.md)
+- [5 Task](../tasks/QA/testingTechniques/stressTesting.md)
 
 #### Security Testing
 

@@ -30,7 +30,7 @@
 
 **Task: Demo**
 
-- [Demo](https://www.saucedemo.com/)
+- [Demo](https://www.demoblaze.com/index.html)
 
 **Hint**
 
@@ -105,7 +105,7 @@
 
 **Task: Demo**
 
-- [Demo](https://www.amazon.com/)
+- [Demo](https://magento.softwaretestingboard.com/)
 
 **Hint**
 
