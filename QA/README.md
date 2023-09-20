@@ -1558,10 +1558,22 @@ User Acceptance Testing (UAT) involves testing a software application from the u
 
 **Key Concepts:**
 
-- **Users**: Performed by end-users or stakeholders.
-- **Test Cases**: Based on real-world scenarios and workflows.
-- **Validation**: Verifies if the application meets business objectives.
-- **Sign-off**: Successful UAT signifies readiness for production.
+1. **Testing by End-Users:** UAT typically involves real end-users or representatives from the target user group who test the software. They validate whether the application aligns with their expectations and fulfills its intended purpose.
+
+2. **Real-World Scenarios:** Testers in UAT simulate real-world scenarios and workflows that users are likely to encounter when using the software. This can include performing tasks, using features, and interacting with the system as they would in their daily work.
+
+3. **Use Cases and Business Processes:** UAT often involves testing based on specific use cases and business processes. Users test the application to ensure that it supports the tasks and functions they need to perform to achieve their objectives.
+
+4. **User Experience (UX) Testing:** UAT includes evaluating the overall user experience, usability, and user interface design. Testers provide feedback on the application's look and feel, navigation, and ease of use.
+
+5. **Requirements Validation:** UAT checks whether the software meets the documented requirements and aligns with the original project goals. It ensures that the software delivers the expected functionality.
+
+6. **Bugs and Defect Reporting:** Testers in UAT identify and report any defects, issues, or discrepancies they encounter during testing. These issues are then addressed by the development team.
+
+7. **Feedback and Improvements:** UAT provides a platform for users to offer feedback and suggestions for improvements. This feedback can influence refinements and enhancements to the software.
+
+8. **Sign-Off:** Once UAT is successfully completed and any identified issues are addressed, users or stakeholders often provide a formal sign-off, indicating their acceptance of the software.
+
 
 ![User Acceptance Testing (UAT)](./images/UAT.png)
 
@@ -1596,7 +1608,7 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 
 **Tasks**
 
-- [9 Task](../tasks/testing/manualTesting/README.md)
+- [Exploratory Testing](../tasks/QA/testingTechniques/exploratoryTesting.md)
 
 #### Smoke and Sanity Testing
 
@@ -1629,7 +1641,7 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 
 **Tasks**
 
-- [10 Task](../tasks/testing/manualTesting/README.md)
+- [Smoke and Sanity Testing](../tasks/QA/testingTechniques/smokeAndSanityTesting.md)
 
 #### Regression Testing
 
