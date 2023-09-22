@@ -1938,6 +1938,18 @@ Here's how to do it with npm:
 pnpm add --save-dev jest
 ```
 
+2. - [Docs: Babel](https://babeljs.io/setup)
+
+  - Install `npm install @babel/preset-env --save-dev`
+
+  - Create in root file `.babelrc` or `babel.config.json` and add:
+
+  ```json
+  {
+    "presets": ["@babel/preset-env"]
+  }
+  ```
+
 ### Configuration
 
 Jest allows you to configure various aspects of your testing environment through a `jest.config.js` file or by using command-line options. Configuration can include specifying test file patterns, setting up reporters, and defining custom setup and teardown scripts. Creating a Jest configuration tailored to your project's needs is essential for efficient testing.
@@ -2068,7 +2080,7 @@ describe('add function', () => {
   });
 
   it('should return NaN for non-numeric input', () => {
-    expect(add('hello', 2)).toBeNaN();
+    expect(isNaN(add('hello', 2))).toBe(true);
   });
 });
 ```
@@ -2627,7 +2639,7 @@ export default {
 
 ```javascript
 export default {
-  // Specify the testing environment (e.g., jsdom or node)
+  // Specify the testing environment (jsdom or node)
   testEnvironment: 'jsdom',
 
   // Define the file extensions to be considered when running tests
