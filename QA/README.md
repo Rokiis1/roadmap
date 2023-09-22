@@ -1878,6 +1878,10 @@ These design approaches ensure optimal user experiences on various devices.
 - [Why Unit Testing is Important and why is not so important?](#why-unit-testing-is-important-and-why-not-important)
 - [Pros and Cons using jest](#pros-and-cons-of-using-jest)
 
+**Resources:**
+
+- [Site: Docs Jest](https://jestjs.io/docs/getting-started)
+
 #### What is Jest?
 
 Jest is a JavaScript testing framework that makes it easy to write and run unit tests for your code. It was developed by Facebook and is widely used in the JavaScript community.
@@ -2186,6 +2190,8 @@ test('Custom matcher for even numbers', () => {
 **Resources:**
 
 **tasks:**
+
+- [basics: Easy](../tasks/QA/jest/basicTestingEasy.js)
 
 # Testing Asynchronous Code
 

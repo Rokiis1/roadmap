@@ -285,7 +285,7 @@ function calculateTotalExpenses(expenses) {
 // 7. Call 'calculateTotalExpenses' with the expenses array [100, 200, 300], and expect it to return 600 (100 + 200 + 300).
 // 8. Define the second test case.
 // 9. In this test case, we're checking if the 'calculateTotalExpenses' function correctly calculates
-// 10. the total expenses for a different array of expenses (e.g., [50, 75, 125, 250]).
+// 10. the total expenses for a different array of expenses ([50, 75, 125, 250]).
 // 11. Use the 'expect' function to make an assertion:
 // 12. Call 'calculateTotalExpenses' with the expenses array [50, 75, 125, 250], and expect it to return 500 (50 + 75 + 125 + 250).
 
