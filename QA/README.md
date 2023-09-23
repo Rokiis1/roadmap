@@ -1,90 +1,20 @@
 # Table of Contents
 
 - [QA Basics](#qa-basics)
-- [Software Development Life Cycle (SDLC) Software Development Process](#software-development-life-cycle-sdlc-sofware-developement-process)
+- [Software Development Life Cycle](#software-development-Life-Cycle)
 - [Manual Testing](#manual-testing)
-- [Non Functional Testing](#non-functional-testing)
+- [Non-Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
-    - [JMeter](#jmeter)
-      - [What is JMeter?](#what-is-jmeter-introduction-uses)
-        - [Why Use JMeter?](#why-use-jmeter)
-      - [How to Setup Apache JMeter](#how-to-download-install-apache-jmeter)
-      - [JMeter Elements](jmeter-elements)
-        - [Thread Group](#thread-group)
-        - [Samplers](#samplers)
-        - [Listeners](#listeners)
-        - [Configuration](#configuration)
-      - [JMeter GUI](#jmeter-gui)
-        - [Test Plan](#test-plan)
-        - [Workbench](#workbench)
-      - [How to Use JMeter for Performance & Load Testing](#how-to-use-jmeter-for-performance-load-testing)
-        - [Performance Testing](#performance-testing)
-        - [Load Testing](#load-testing)
-      - [JMeter Timers](#jmeter-timers)
-        - [Constant](#constant)
-        - [Gaussian Random](#gaussian-random)
-        - [Uniform](#uniform)
-      - [How to use Assertions in JMeter](#how-to-use-assertations-in-jmeter)
-      - [Controllers in JMeter](#controllers-in-jmeter)
-        - [Loop](#loop)
-        - [Simple](#simple)
-        - [Transaction](#transactions)
-        - [Module](#module)
-        - [Random](#random)
-      - [Processor in JMeter](#processor-in-jmeter)
-        - [PreProcessor](#preprocessor)
-        - [PostProcessor](#postprocessor)
-      - [JMeter Distributed (Remote) Testing](#jmeter-distributed-remote-testing)
-        - [Master Slave Configuration](#master-slave-configuration)
-      - [HTTP Proxy Server in JMeter](#http-proxy-server-in-jmter)
   - [Security Testing](#security-testing)
-    - [Authentication authorization](#authentication-authorization)
-    - [Vulnerability Scanning](#vulnerability-scanning)
-    - [OWASP](#owasp)
-    - [Attack vectors](#attack-vectors)
-    - [Secrets Management](#secrets-management)
 - [Testing Techniques](#testing-techniques)
-    - [Non-Functional](#non-testing)
-      - [Load Testing](#load-testing)
-      - [Performance Testing](#performance-testing)
-      - [Stress Testing](#stress-testing)
-      - [Security Testing](#security-testing)
-      - [Accessibility Testing](#accessibility-testing)
-    - [Functional](#functional-testing)
-      - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
-      - [Exploratory Testing](#exploratory-testing)
-      - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
-      - [Regression Testing](#regression-testing)
-      - [Unit Testing](#unit-testing)
-      - [E2E testing](#e2e-testing)
-      - [Integration Testing](#integration-testing)
+    - [Non-Functional Techniques](#non-functional-techniques)
+    - [Functional Techniques](#functional-techniques)
 - [Automated Testing](#automated-testing)
   - [Frontend automation](#frontend-automation)
-    - [Basic Introduction](#basic-introduction)
-      - [HTML/CSS/JavaScript Basics](#html-css-javascript-basics)
-      - [Browser DevTools](#browser-devtools)
-      - [Caching](#caching)
-      - [SSR vs CSR vs SSG](#ssr-csr-ssg)
-      - [SWAs, PWAs and Jamstack](#swas-pwas-jamstack)
-      - [Responsive vs adaptive](#responsive-vs-adaptive)
   - [Backend Automation](#backend-automation)
-    - [Postman](#postman)
+- [Frameworks](#frameworks)
   - [Jest](#jest)
-    - [Introduction to Jest](#introduction-to-jest)
-    - [Setting up Jest](#setting-up-jest)
-    - [Writing Your First Test](#writing-your-first-test)
-    - [Running Tests](#running-tests)
-    - [Matchers in Jest](#matchers-in-jest)
-    - [Testing Asynchronous Code](#testing-asynchronous-code)
-    - [Mocking and Spies](#mocking-and-spies)
-    - [Configuring Jest](#configuring-jest)
-    - [Test Suites and Test Organizing](#test-suites-and-test-organizing)
-    - [Test Coverage Reporting](#test-coverage-reporting)
-    - [Practices for Writing Tests](#practices-for-writing-tests)
-    - [Troubleshooting and Debugging](#troubleshooting-and-debugging)
-    - [Advanced Topics](#advanced-topics)
-    - [Continuous Integration with Jest](#continuous-integration-with-jest)
 
 # QA Basics
 
@@ -108,9 +38,9 @@
   - [Test case structure and format](#test-case-structure-and-format)
   - [Test case prioritization](#test-case-prioritization)
 
-# What is Quality Assurance?
+## What is Quality Assurance?
 
-## What is Quality?
+### What is Quality?
 
 **Explanation:**
 
@@ -126,7 +56,7 @@ Quality refers to the degree of excellence or superiority of a product or servic
 
 - **Continuous Improvement**: Ongoing efforts to enhance quality.
 
-## What is Assurance?
+### What is Assurance?
 
 **Explanation:**
 
@@ -142,7 +72,7 @@ Assurance involves building confidence that a product will meet its quality obje
 
 - **Early Detection**: Identifying and addressing issues early in the development lifecycle.
 
-## Quality Assurance in Software Testing
+### Quality Assurance in Software Testing
 
 **Explanation:**
 
@@ -151,8 +81,11 @@ Quality Assurance (QA) in software testing involves processes and practices that
 **Key Concepts:**
 
 - **Process Improvement**: Identifying areas for process enhancement.
+
 - **Standardization**: Establishing testing standards and guidelines.
+
 - **Test Planning**: Developing comprehensive test plans.
+
 - **Metrics and Measurement**: Using metrics to assess and improve quality.
 
 ![What is QA?](./images/whatIsQA.png)
@@ -164,33 +97,41 @@ Quality Assurance (QA) in software testing involves processes and practices that
 
 **Tasks**
 
-- [1 Task](../tasks/testing/manualTesting/README.md)
+![Intro](../images/taskManualTesting1.png)
 
-# Tester Mindset
+## Tester Mindset
 
-## Explanation of Tester Mindset
+### Explanation of Tester Mindset
 
 **Explanation:**
+
 The "Tester Mindset" refers to the collection of qualities, attitudes, and approaches that make a software tester effective in their role. It involves a combination of critical thinking, attention to detail, empathy, curiosity, and a commitment to delivering high-quality software.
 
-**Key Qualities and Attitudes:**
+**Key Concepts:**
 
 - **Critical Thinking**: Testers analyze requirements, design, and code critically to identify potential defects.
+
 - **Attention to Detail**: Testers meticulously scrutinize each component to catch even minor issues.
+
 - **Empathy**: Testers put themselves in users' shoes to understand their needs and expectations.
+
 - **Curiosity**: Testers are naturally curious, always exploring the application to uncover defects.
+
 - **Open-Mindedness**: Testers approach testing with an open mind, avoiding assumptions.
+
 - **Communication Skills**: Testers effectively communicate issues to developers and stakeholders.
+
 - **Problem-Solving**: Testers have a knack for finding solutions to complex issues.
+
 - **Continuous Learning**: Testers stay updated with technology trends and testing methodologies.
 
 **Resources:**
 
 - [Video: Explanation of Tester Mindset](https://www.youtube.com/watch?v=BCuZfdbWnl8)
 
-# Test Oracles
+## Test Oracles
 
-## Explanation of Test Oracles
+### Explanation of Test Oracles
 
 **Explanation:**
 
@@ -212,13 +153,14 @@ A **test oracle** is a mechanism or principle used to determine the expected out
 
 [Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
 
-## Types of Test Oracles
+### Types of Test Oracles
 
 **Explanation:**
 
 There are different types of test oracles used to determine expected outcomes based on different criteria.
 
-**Types:**
+
+*There are some types:*
 
 - **Explicit Oracles**: Clearly defined expected results based on specifications.
 
@@ -228,13 +170,9 @@ There are different types of test oracles used to determine expected outcomes ba
 
 - **Stochastic Oracles**: Use statistical data to determine expected behavior.
 
-# Test Prioritization
+## Test Prioritization
 
-**Resources:**
-
-- [Article: Test Prioritization](https://www.professionalqa.com/test-prioritization)
-
-## Explanation of Test Prioritization
+### Explanation of Test Prioritization
 
 **Explanation:**
 
@@ -250,103 +188,154 @@ Test prioritization is the process of ordering or ranking test cases based on th
 
 - **Test Dependencies**: Dependencies among test cases influence their order of execution.
 
-## Test Prioritization Techniques
+### Test Prioritization Techniques
 
 **Explanation:**
 
 There are various techniques to prioritize test cases based on different criteria.
 
-**Techniques:**
+**Key Concepts:**
+
+*There are some techniques:*
 
 - **Risk-Based Prioritization**: Prioritize based on potential risks and their impact.
+
 - **Requirements-Based Prioritization**: Prioritize based on critical functionalities or requirements.
+
 - **Customer Impact Prioritization**: Prioritize based on user impact and customer needs.
+
 - **Automated Test Impact Analysis**: Prioritize tests affected by code changes.
+
 - **Dependency-Based Prioritization**: Prioritize tests with dependencies on other tests.
 
 **Resources:**
 
 - [Video: Test Prioritization Techniques](https://www.youtube.com/watch?v=drUfHG6tav8)
+- [Article: Test Prioritization](https://www.professionalqa.com/test-prioritization)
 
-# Black Box vs Gray Box vs White Box Testing
+## Black Box vs Gray Box vs White Box Testing
+
+**Explanation:**
+
+Black Box Testing, Gray Box Testing, and White Box Testing are three different approaches to software testing, each with its own characteristics and purposes. These terms describe how much information and knowledge the tester has about the internal workings of the software being tested.
 
 **Resources:**
 
 - [Video: Black Box vs Gray Box vs White Box Testing](https://www.youtube.com/watch?v=CPVMbZYeiF4)
 
-## Differences and Similarities
+### Differences and Similarities
 
 **Explanation:**
 
 Black box testing, gray box testing, and white box testing are three distinct testing approaches that involve different levels of access to the internal components of the software.
 
-**Black Box Testing:**
+**Key Concepts:**
+
+*Black Box Testing:*
 
 - **Access to Code**: Testers have no knowledge of the internal code or logic.
+
 - **Focus**: Testing is based on external behavior and functional requirements.
+
 - **Testers Role**: Testers focus on inputs and expected outputs without knowledge of the internal implementation.
+
 - **Similarities**: It is similar to how end-users interact with the system.
+
+**Resources:**
 
 - [Article: Black Box Testin](https://www.guru99.com/black-box-testing.html)
 
-**Gray Box Testing:**
+**Key Concepts:**
+
+*Gray Box Testing:*
 
 - **Access to Code**: Testers have partial knowledge of the internal code and logic.
+
 - **Focus**: Testing combines aspects of both black box and white box testing.
+
 - **Testers Role**: Testers can design tests based on the understanding of internal logic to target specific areas.
+
 - **Similarities**: It bridges the gap between black box and white box testing.
+
+**Resources:**
 
 - [Article: Gray Box Testing](https://www.guru99.com/grey-box-testing.html)
 
-**White Box Testing:**
+**Key Concepts:**
+
+*White Box Testing:*
 
 - **Access to Code**: Testers have complete knowledge of the internal code and logic.
+
 - **Focus**: Testing is based on code structure, paths, and logic flow.
+
 - **Testers Role**: Testers can design tests to cover specific code paths and conditions.
+
 - **Similarities**: It is akin to how developers analyze the code.
 
 **Resources:**
 
 - [Article: White Box Testing](https://www.guru99.com/white-box-testing.html)
 
-## When to Apply Each Approach
+### When to Apply Each Approach
 
 **Explanation:**
 
-The choice between black box, gray box, and white box testing depends on the goals of testing, the knowledge available, and the desired coverage.
+The choice of when to apply Black Box, Gray Box, or White Box Testing depends on various factors, including the testing objectives, the level of knowledge about the software under test, and the specific testing phase within the software development life cycle.
 
-**Black Box Testing:**
+1. **Black Box Testing:**
 
-- Suitable for testing user interface, functional requirements, and overall system behavior.
-- Used during acceptance testing, regression testing, and user-focused testing.
+- **When to Apply:**
+  - **Functional Testing:** Use Black Box Testing primarily for functional testing to ensure that the software meets its specified requirements and behaves as expected from a user's perspective.
+  - **Acceptance Testing:** It's commonly used during acceptance testing to determine if the software meets the user's acceptance criteria.
+  - **System Testing:** Black Box Testing can be applied at the system level to verify interactions between components and subsystems.
+  - **Usability Testing:** For evaluating the software's user-friendliness and overall user experience.
+- **Advantages:**
+  - Reflects how end-users interact with the software.
+  - Doesn't require knowledge of internal code, making it suitable for non-technical testers.
+  - Emphasizes real-world scenarios and user expectations.
 
-**Gray Box Testing:**
+2. **Gray Box Testing:**
 
-- Suitable for scenarios where partial knowledge of the internal logic can enhance testing.
-- Used when a combination of black box and white box testing is needed.
+- **When to Apply:**
+  - **Integration Testing:** Gray Box Testing can be useful for integration testing to verify that different software components work together as expected.
+  - **Security Testing:** It's often applied in security testing to identify vulnerabilities that may require some knowledge of the application's internal architecture.
+  - **Database Testing:** Useful when testing applications that interact with databases, as some knowledge of data structures and queries can be beneficial.
+  - **API Testing:** For testing APIs where understanding data flows and possible integration issues is important.
+- **Advantages:**
+  - Provides a balance between functional and structural testing.
+  - Suitable for uncovering integration-related issues.
+  - Helps identify security vulnerabilities that may not be apparent in Black Box Testing.
 
-**White Box Testing:**
+3. **White Box Testing:**
 
-- Suitable for in-depth testing of code logic, paths, and boundary conditions.
-- Used during unit testing, code review, security testing, and code optimization.
+- **When to Apply:**
+  - **Unit Testing:** White Box Testing is essential for unit testing, where individual code units (e.g., functions, methods) are tested in isolation.
+  - **Code Coverage Analysis:** Used to measure code coverage and ensure that all code paths are exercised.
+  - **Security Testing:** Especially useful for identifying code-level security vulnerabilities like SQL injection, buffer overflows, and insecure authentication.
+  - **Performance Tuning:** Can be applied to optimize code performance by analyzing and improving algorithms and data structures.
+- **Advantages:**
+  - Enables thorough code analysis and identification of code-level defects.
+  - Essential for ensuring code quality and security.
+  - Ideal for developers and testers with knowledge of the software's internal workings.
 
-# Test Case Design
+## Test Case Design
 
-## Writing Effective Test Cases
+### Writing Effective Test Cases
 
 Writing effective test cases is crucial for thorough testing and accurate defect detection. Effective test cases should be clear, concise, and detailed. They need to cover various scenarios, conditions, and user interactions to ensure comprehensive testing.
 
 **Key Points:**
 
-- **Clear Steps**: Each test case should have a clear set of steps to execute.
+- **Clear Steps:** Each test case should have a clear set of steps to execute.
 
-- **Expected Results**: Clearly define the expected outcomes and results.
+- **Expected Results:** Clearly define the expected outcomes and results.
 
-- **Coverage**: Ensure that each test case covers a specific functionality or scenario.
+- **Coverage:** Ensure that each test case covers a specific functionality or scenario.
 
-- **Variety**: Include positive and negative scenarios, boundary conditions, and edge cases.
+- **Variety:** Include positive and negative scenarios, boundary conditions, and edge cases.
 
-- **Reusability**: Design test cases that can be reused in different test cycles.
+- **Reusability:** Design test cases that can be reused in different test cycles.
 
 ## Test Case Structure and Format
 
@@ -354,21 +343,23 @@ A standardized test case structure and format make test cases consistent and eas
 
 **Key Points:**
 
-- **Test Case ID**: A unique identifier for each test case.
+- **Test Case ID:** A unique identifier for each test case.
 
-- **Description**: Briefly describe the purpose of the test case.
+- **Description:** Briefly describe the purpose of the test case.
 
-- **Preconditions**: List any conditions that must be met before executing the test case.
+- **Preconditions:** List any conditions that must be met before executing the test case.
 
-- **Steps**: Outline the steps needed to execute the test case.
+- **Steps:** Outline the steps needed to execute the test case.
 
-- **Expected Results**: Clearly state the expected outcomes after each step.
+- **Expected Results:** Clearly state the expected outcomes after each step.
 
-- **Actual Results**: Record the actual outcomes during test execution.
+- **Actual Results:** Record the actual outcomes during test execution.
 
-- **Status**: Indicate whether the test case passed, failed, or needs further investigation.
+- **Status:** Indicate whether the test case passed, failed, or needs further investigation.
 
-- ![TestCaseTable](./images/TestCaseTable.png)
+**Example**
+
+- [Download: Test Case Table Credits Thomas Hamilton](https://drive.google.com/uc?export=download&id=0ByI5-ZLwpo25eXFlcU5ZMTJsT28)
 
 **Resources:**
 
@@ -381,11 +372,15 @@ Test case prioritization involves determining the order in which test cases shou
 
 **Key Points:**
 
-- **Business Impact**: Identify test cases that directly impact core business processes.
-- **Risk Analysis**: Assess potential risks and prioritize test cases in high-risk areas.
-- **Critical Functionality**: Prioritize test cases for critical features or functionalities.
-- **Dependencies**: Consider dependencies between test cases and prioritize accordingly.
-- **Regression Testing**: Prioritize test cases that cover areas prone to regression.
+- **Business Impact:** Identify test cases that directly impact core business processes.
+
+- **Risk Analysis:** Assess potential risks and prioritize test cases in high-risk areas.
+
+- **Critical Functionality:** Prioritize test cases for critical features or functionalities.
+
+- **Dependencies:** Consider dependencies between test cases and prioritize accordingly.
+
+- **Regression Testing:** Prioritize test cases that cover areas prone to regression.
 
 **Resources:**
 
@@ -393,16 +388,19 @@ Test case prioritization involves determining the order in which test cases shou
 
 **Tasks:**
 
-- [2 Task](../tasks/testing/manualTesting/README.md)
+- [Task: Introduction Into Test Cases](../tasks/QA/qaBasics/testCases.md)
 
-
-# Software Development Life Cycle (SDLC) Software Development Process
+# Software Development Life Cycle
 
 - [Software Development Approaches Comparison](#software-development-approaches-comparison)
   - [Waterfall Model](#waterfall-model)
   - [V Model](#v-model)
   - [Agile Methodologies](#agile-methodologies)
     - [Scrum Framework](#scrum-framework)
+  - [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
+- [Project Management](#project-management)
+  - [Atlassian](#atlassian)
+    - [Jira](#jira)
 
 **Explanation:**
 
@@ -414,136 +412,36 @@ Test case prioritization involves determining the order in which test cases shou
 
 1. **Planning:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
   
-**Key Concepts:** *1. Project Objectives*
-  - **Scope Definition**
-  - **Requirements Gathering**
-  - **Project Goals and KPIs**
-  - **Timeline**
-  - **Budget**
-  - **Resource Allocation**
-  - **Risk Assessment**
-  - **Stakeholder Alignment**
-
 2. **Requirements Gathering:** The process of collecting and documenting detailed requirements from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
-  
-  - **Identifying Stakeholders**
-  - **User Interviews and Surveys**
-  - **Use Cases and User Stories**
-  - **Business Requirements**
-  - **Technical Requirements**
-  - **Regulatory and Compliance Requirements**
-  - **Prototyping and Mockups**
-  - **Validation with Stakeholders**
-  - **Requirements Documentation**
-  - **Prioritization**
 
 3. **Design:** During this phase, the software's architecture, data structures, user interface, and system components are planned and designed. It lays the foundation for actual development.
   
-  - **System Architecture**
-  - **Database Design**
-  - **User Interface (UI) Design**
-  - **Prototyping**
-  - **Component Design**
-  - **Security Design**
-  - **Scalability and Performance Planning**
-  - **Technical Documentation**
-  - **Review and Validation**
-  - **Design Sign-off**
-
 4. **Implementation (Coding):** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
-  
-  - **Coding**
-  - **Coding Standards**
-  - **Version Control**
-  - **Unit Testing**
-  - **Integration**
-  - **Code Refactoring**
-  - **Error Handling and Logging**
-  - **Security Measures**
-  - **Performance Optimization**
-  - **Documentation**
-  - **Collaboration**
-  - **Continuous Testing**
-  - **Progress Tracking**
 
 5. **Testing:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing.
   
-  - **Test Planning**
-  - **Functional Testing**
-  - **Integration Testing**
-  - **Performance Testing**
-  - **User Acceptance Testing (UAT)**
-  - **Regression Testing**
-  - **Security Testing**
-  - **Compatibility Testing**
-  - **Usability Testing**
-  - **Accessibility Testing**
-  - **Defect Tracking**
-  - **Test Automation**
-  - **Documentation and Reporting**
-  - **User Feedback**
-  - **Test Completion**
-
 6. **Deployment (Release):** Once the software passes testing and quality checks, it is deployed to production or made available to users. Deployment may involve data migration and system setup.
-  
-  - **Environment Setup**
-  - **Data Migration**
-  - **Release Planning**
-  - **Deployment Testing**
-  - **Rollout Strategy**
-  - **Deployment Automation**
-  - **Monitoring and Alerts**
-  - **Backup and Recovery**
-  - **Documentation and Release Notes**
-  - **User Communication**
-  - **Deployment Verification**
-  - **Rollback Plan**
-  - **Post-Deployment Monitoring**
-  - **User Support**
-  - **Feedback Collection**
 
 7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.
 Monitoring and Performance Optimization: After the app's deployment, "X Company" continues to monitor its performance, availability, and user experience. This includes tracking key performance indicators (KPIs), server health, and user feedback.
 
-  - **Issue Identification**
-  - **Bug Fixing**
-  - **Security Updates**
-  - **Performance Tuning**
-  - **Regular Updates**
-  - **Compatibility Updates**
-  - **User Support**
-  - **Data Backup and Recovery**
-  - **Documentation Updates**
-  - **User Training**
-  - **User Feedback Integration**
-  - **Regulatory Compliance**
-  - **Scalability**
-
 **Resources:**
 
-- [Software Development Life Cycle (SDLC) Software Development Process](https://www.guru99.com/software-development-life-cycle-tutorial.html)
+- [Software Development Life Cycle Software Development Process](https://www.guru99.com/software-development-life-cycle-tutorial.html)
 
-# Software Development Approaches Comparison
+## Software Development Approaches Comparison
 
-| Aspect                        | Agile Methodologies       | Waterfall Model           | V-Model                    |
-| ------------------------------| ------------------------- | ------------------------- | ---------------------------|
-| **Development Process**       | Iterative and incremental | Sequential and linear     | Sequential and phased      |
-| **Flexibility**               | Highly flexible           | Less flexible             | Moderate flexibility       |
-| **Requirements**              | Welcomes changing requirements | Requires well-defined, stable requirements | Requires well-defined, stable requirements |
-| **Customer Involvement**      | High customer involvement | Limited customer involvement until the end | Limited customer involvement until the end |
-| **Phases**                    | Divided into short iterations (e.g., sprints in Scrum) | Sequential phases (requirements, design, implementation, testing, deployment) | Phases mirror development phases |
-| **Adaptability**              | Easily adapts to changes  | Changes are challenging to accommodate | Can accommodate changes, but later phases may be affected |
-| **Documentation**             | Minimal upfront documentation, focuses on working software | Comprehensive upfront documentation | Comprehensive upfront documentation |
-| **Delivery Frequency**        | Frequent delivery of incremental value | Final product delivered at the end | Incremental delivery, integration testing throughout |
-| **Risk Management**           | Identifies and mitigates risks throughout the project | Risks often discovered late in the project | Risk identification and mitigation at each stage |
-| **Project Size**              | Suitable for various project sizes | Better suited for smaller, well-defined projects | Suitable for medium to large projects |
-| **Popularity**                | Widely used in dynamic environments | Historically used in more traditional environments | Common in certain regulated industries |
+**Key Concepts:**
 
-## Waterfall Model
+- [File: Software Development Approaches Comparison](./assets/sdlc/approachesComparison.md)
+
+### Waterfall Model
 
 **Explanation:**
 
 The Waterfall Model is a traditional and linear approach to software development that is characterized by a sequential flow of phases. Each phase must be completed before the next one begins, and there is typically little room for revisiting earlier phases once they are completed. The Waterfall Model is often used for projects with well-defined and stable requirements.
+
+**Key Concepts:**
 
 *Here are the key phases in the Waterfall Model:*
 
@@ -575,13 +473,11 @@ The Waterfall Model is a traditional and linear approach to software development
 
 - [Article: Waterfall Model](https://www.guru99.com/what-is-sdlc-or-waterfall-model.html)
 
-## V Model
+### V Model
 
 **Explanation:**
 
 The V Model, also known as the Validation and Verification Model, is a software development and testing framework that is an extension of the Waterfall Model. It emphasizes the importance of verification and validation activities throughout the entire software development lifecycle.
-
-The V Model is called so because its diagrammatic representation resembles the letter "V," with two parallel branches of development and testing activities that converge at the bottom, representing validation and verification.
 
 **Here are the key aspects of the V Model:**
 
@@ -613,7 +509,7 @@ The V Model is called so because its diagrammatic representation resembles the l
 
 - [V Model](https://www.guru99.com/v-model-software-testing.html)
 
-## Agile Methodologies
+### Agile Methodologies
 
 **Explanation:**
 
@@ -688,11 +584,37 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 **Resources:**
 
 - [Article: Scrum Framework](https://www.guru99.com/scrum-testing-beginner-guide.html)
-- [Jira](https://www.atlassian.com/software/jira)
 
-**Tasks:**
+### Most Of Time Using Mixed Approach
 
-- [5 Task](../tasks/testing/manualTesting/README.md)
+**Key Concepts:**
+
+1. **Project Complexity:** Companies may choose to use a mixed approach when dealing with projects of varying complexity within the same organization. For example, smaller, more straightforward projects may benefit from Agile, while larger, more complex projects may require a Waterfall approach.
+
+2. **Legacy Systems:** Companies with existing legacy systems or technologies may find it challenging to fully adopt Agile practices. In such cases, they may use a mixed approach to accommodate both new and old systems or processes.
+
+3. **Contractual Obligations:** External contracts or agreements with clients or partners may specify the use of Waterfall methodologies, while the company's internal development teams prefer Agile. To meet contractual obligations and maintain client relationships, a mixed approach may be chosen.
+
+4. **Risk Management:** Companies may opt for a mixed approach to balance risk. They might use Waterfall for critical project phases where requirements are well-defined and Agile for phases with more uncertainty or changing requirements.
+
+5. **Resource Constraints:** Limited resources, such as skilled Agile practitioners, can lead companies to use a mixed approach. They may allocate Agile teams to the most critical aspects of a project and use Waterfall for less critical components.
+
+6. **Organizational Culture:** Sometimes, organizations have a mix of project managers and team members with different skill sets and preferences. Adapting a mixed approach can align with the existing culture and capabilities.
+
+7. **Client Demands:** Clients may request a specific approach based on their familiarity with a methodology or industry norms. To accommodate client demands, a mixed approach may be employed.
+
+8. **Transition Period:** During the transition from Waterfall to Agile or vice versa, organizations may use a mixed approach as a temporary measure. This allows teams to gain experience with the new methodology while maintaining existing processes.
+
+9. **Regulatory Requirements:** In regulated industries, companies may need to adhere to certain Waterfall-like documentation and auditing processes for compliance. However, they can still incorporate Agile practices where feasible.
+
+10. **Project-Specific Needs:** Ultimately, the choice of a mixed approach can depend on the unique requirements and constraints of a particular project. Companies may tailor their methodology to fit the specific circumstances.
+
+## Project Management
+
+### Atlassian
+
+### Jira
+
 
 # Manual Testing
 
@@ -709,7 +631,7 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 - [Compatibility](#compatibility)
 - [Verification and Validation](#verification-and-validation)
 
-# Test Planning
+## Test Planning
 
 **Explanation:**
 
@@ -717,11 +639,15 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Key Concepts:**
 
-- **Objectives**: Define testing goals and expectations.
-- **Scope**: Specify what will be tested and what won't.
-- **Test Strategy**: Decide on test levels, types, techniques, and environments.
-- **Test Schedule**: Allocate timeframes for testing activities.
-- **Risk Assessment**: Identify potential risks and mitigation strategies.
+- **Objectives:** Define testing goals and expectations.
+
+- **Scope:** Specify what will be tested and what won't.
+
+- **Test Strategy:** Decide on test levels, types, techniques, and environments.
+
+- **Test Schedule:** Allocate timeframes for testing activities.
+
+- **Risk Assessment:** Identify potential risks and mitigation strategies.
 
 **Resources:**
 
@@ -731,7 +657,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 - [Test Planning Example](./assets/manualTesting/testPlanning.md)
 
-# Test-Driven Development (TDD)
+## Test-Driven Development (TDD)
 
 **Explanation:**
 
@@ -739,16 +665,19 @@ Test-Driven Development (TDD) is a software development practice where tests are
 
 **Key Concepts:**
 
-- **Red-Green-Refactor Cycle**: Write failing test (red), make it pass (green), and refactor.
-- **Unit Testing**: Write unit tests for small code units.
-- **Continuous Integration**: Frequent integration and automated testing.
-- **Benefits**: Reduces defects, enhances design, and supports refactoring.
+- **Red-Green-Refactor Cycle:** Write failing test (red), make it pass (green), and refactor.
+
+- **Unit Testing:** Write unit tests for small code units.
+
+- **Continuous Integration:** Frequent integration and automated testing.
+
+- **Benefits:** Reduces defects, enhances design, and supports refactoring.
 
 **Resources:**
 
 - [Article: Test-Driven Development (TDD)](https://www.guru99.com/test-driven-development.html)
 
-# Test Cases and Scenarios
+## Test Cases and Scenarios
 
 **Explanation:**
 
@@ -756,10 +685,13 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 **Key Concepts:**
 
-- **Test Case**: A set of inputs, actions, and expected results.
-- **Test Scenario**: A sequence of related test cases.
-- **Coverage**: Ensure comprehensive coverage of functionalities.
-- **Traceability**: Link test cases to requirements for validation.
+- **Test Case:** A set of inputs, actions, and expected results.
+
+- **Test Scenario:** A sequence of related test cases.
+
+- **Coverage:** Ensure comprehensive coverage of functionalities.
+
+- **Traceability:** Link test cases to requirements for validation.
 
 **Resources:**
 
@@ -768,9 +700,9 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 
 **Example**
 
-- [Test Cases and Scenarios](./assets/testCasesandScenarios.md)
+- [Test Cases and Scenarios](./assets/manualTesting/testCasesandScenarios.md)
 
-# Reporting
+## Reporting
 
 **Explanation:**
 
@@ -778,38 +710,47 @@ Reporting involves documenting and communicating testing activities, results, an
 
 **Key Concepts:**
 
-- **Test Execution Reports**: Summarize test runs and outcomes.
-- **Defect Reports**: Document defects found during testing.
-- **Status Updates**: Keep stakeholders informed about progress.
-- **Metrics and KPIs**: Measure testing effectiveness.
+- **Test Execution Reports:** Summarize test runs and outcomes.
+
+- **Defect Reports:** Document defects found during testing.
+
+- **Status Updates:** Keep stakeholders informed about progress.
+
+- **Metrics and KPIs:** Measure testing effectiveness.
 
 **Resources:**
 
 - [Article: Reporting](https://www.guru99.com/defect-management-process.html)
 
-## Test Summary Report
+### Test Summary Report
 
 **Explanation**
+
 You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
+
 **Example**
 
-- [Test Summary Report](./assets/testSummaryReport.md)
+- [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
 
-## Test Case Report
+### Test Case Report
 
 **Explanation**
+
 A Test Case Report, also known as a Test Execution Report, provides an overview of the status and results of executed test cases.
+
 **Example**
 
-- [Test Case Report](./assets/testCaseReport.md)
+- [Test Case Report](./assets/manualTesting/testCaseReport.md)
 
 ### Test Case vs Test Case Report
 
-1. **Test Case**:
+1. **Test Case:**
 
-- **Purpose**: A test case is a detailed document that outlines the specific steps to be followed, the conditions to be met, and the expected outcomes to verify a particular aspect of a software application.
-- **Content**: Test cases include information such as test case ID, test steps, input data, expected results, preconditions, and postconditions. They are used by testers to execute tests systematically.
-- **Focus**: Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
+- **Purpose:** A test case is a detailed document that outlines the specific steps to be followed, the conditions to be met, and the expected outcomes to verify a particular aspect of a software application.
+
+- **Content:** Test cases include information such as test case ID, test steps, input data, expected results, preconditions, and postconditions. They are used by testers to execute tests systematically.
+
+- **Focus:** Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
 
 2. **Test Case Report** (or Test Execution Report):
 
@@ -817,7 +758,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 - **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
-## Defect Report (Bug Report)
+### Defect Report (Bug Report)
 
 **Explanation**
 Defect Reports are separate documents used to document and track issues or defects identified during testing. You do not typically write Defect Reports (Bug Reports) within individual test cases.
@@ -826,9 +767,9 @@ Defect Reports are separate documents used to document and track issues or defec
 
 **Example**
 
-- [Defect Report (Bug Report)](./assets/bugReport.md)
+- [Defect Report (Bug Report)](./assets/manualTesting/bugReport.md)
 
-## Regression Test Report
+### Regression Test Report
 
 Regression testing is performed to ensure that new code changes, updates, or enhancements to a software application do not introduce new defects or negatively impact existing functionality. 
 
@@ -846,9 +787,9 @@ Once you have executed the regression tests, you compile the results into a Regr
 
 **Example**
 
-- [Regression Test Report](./assets/regressionTestReport.md)
+- [Regression Test Report](./assets/manualTesting/regressionTestReport.md)
 
-## Test Execution Log
+### Test Execution Log
 
 **Explanation:**
 
@@ -856,9 +797,9 @@ Test logs provide a detailed record of the test execution process, including wha
 
 **Example:**
 
-- [Test Execution Log](./assets/testExecutionLog.md)
+- [Test Execution Log](./assets/manualTesting/testExecutionLog.md)
 
-# Compatibility
+## Compatibility
 
 **Explanation:**
 
@@ -866,20 +807,23 @@ Compatibility testing ensures that software works across various environments, b
 
 **Example:**
 
-- [Compatibility](./assets/compatibility.md)
+- [Compatibility](./assets/manualTesting/compatibility.md)
 
 **Key Concepts:**
 
-- **Browser Compatibility**: Test across different web browsers.
-- **Device Compatibility**: Test on various devices (desktop, mobile, tablet).
-- **Operating System Compatibility**: Test on different OS versions.
-- **Challenges**: Address differences in rendering, functionality, and performance.
+- **Browser Compatibility:** Test across different web browsers.
+
+- **Device Compatibility:** Test on various devices (desktop, mobile, tablet).
+
+- **Operating System Compatibility:** Test on different OS versions.
+
+- **Challenges:** Address differences in rendering, functionality, and performance.
 
 **Resources:**
 
 - [Article: Compatibility Testing](https://www.guru99.com/compatibility-testing.html)
 
-# Verification and Validation
+## Verification and Validation
 
 **Explanation:**
 
@@ -887,18 +831,23 @@ Verification ensures that a software product meets specified requirements, while
 
 **Key Concepts:**
 
-- **Verification**: Confirm software meets design specifications.
-- **Validation**: Ensure software meets user needs and intended use.
-- **Quality Assurance and Testing**: Part of V&V process.
-- **Validation Testing**: Focus on user acceptance and satisfaction.
+- **Verification:** Confirm software meets design specifications.
+
+- **Validation:** Ensure software meets user needs and intended use.
+
+- **Quality Assurance and Testing:** Part of V&V process.
+
+- **Validation Testing:** Focus on user acceptance and satisfaction.
 
 **Resources:**
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
-# Non Functional Testing
+# Non-Functional Testing
 
 ## Accessibility Testing
+
+- [Wave](#wave)
 
 **Explanation:**
 
@@ -906,10 +855,13 @@ Accessibility testing ensures that a software application is usable by individua
 
 **Key Concepts:**
 
-- **WCAG Guidelines**: Web Content Accessibility Guidelines provide criteria for accessible design.
-- **Types of Disabilities**: Visual, auditory, cognitive, and motor impairments.
-- **Tools**: Automated accessibility testing tools and manual assessments.
-- **Benefits**: Ensures equal access, avoids legal issues, and improves user satisfaction.
+- **WCAG Guidelines:** Web Content Accessibility Guidelines provide criteria for accessible design.
+
+- **Types of Disabilities:** Visual, auditory, cognitive, and motor impairments.
+
+- **Tools:** Automated accessibility testing tools and manual assessments.
+
+- **Benefits:** Ensures equal access, avoids legal issues, and improves user satisfaction.
 
 **Resources:**
 
@@ -917,7 +869,42 @@ Accessibility testing ensures that a software application is usable by individua
 - [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
 - [Documentation: Chrome DevTools](https://developer.chrome.com/docs/devtools/)
 
+### Wave
+
 ## Load and Performance Testing
+
+- [JMeter](#jmeter)
+      - [What is JMeter?](#what-is-jmeter-introduction-uses)
+        - [Why Use JMeter?](#why-use-jmeter)
+      - [How to Setup Apache JMeter](#how-to-download-install-apache-jmeter)
+      - [JMeter Elements](jmeter-elements)
+        - [Thread Group](#thread-group)
+        - [Samplers](#samplers)
+        - [Listeners](#listeners)
+        - [Configuration](#configuration)
+      - [JMeter GUI](#jmeter-gui)
+        - [Test Plan](#test-plan)
+        - [Workbench](#workbench)
+      - [How to Use JMeter for Performance & Load Testing](#how-to-use-jmeter-for-performance-load-testing)
+        - [Performance Testing](#performance-testing)
+        - [Load Testing](#load-testing)
+      - [JMeter Timers](#jmeter-timers)
+        - [Constant](#constant)
+        - [Gaussian Random](#gaussian-random)
+        - [Uniform](#uniform)
+      - [How to use Assertions in JMeter](#how-to-use-assertations-in-jmeter)
+      - [Controllers in JMeter](#controllers-in-jmeter)
+        - [Loop](#loop)
+        - [Simple](#simple)
+        - [Transaction](#transactions)
+        - [Module](#module)
+        - [Random](#random)
+      - [Processor in JMeter](#processor-in-jmeter)
+        - [PreProcessor](#preprocessor)
+        - [PostProcessor](#postprocessor)
+      - [JMeter Distributed (Remote) Testing](#jmeter-distributed-remote-testing)
+        - [Master Slave Configuration](#master-slave-configuration)
+      - [HTTP Proxy Server in JMeter](#http-proxy-server-in-jmter)
 
 **Explanation:**
 
@@ -925,19 +912,19 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 **Key Concepts:**
 
-- **Load Testing**: Evaluates application behavior under expected load.
+- **Load Testing:** Evaluates application behavior under expected load.
 
-- **Stress Testing**: Tests application behavior under extreme load conditions.
+- **Stress Testing:** Tests application behavior under extreme load conditions.
 
-- **Performance Testing**: Ensures application meets response time requirements.
+- **Performance Testing:** Ensures application meets response time requirements.
 
-- **Metrics**: Response time, throughput, resource utilization, and error rates.
+- **Metrics:** Response time, throughput, resource utilization, and error rates.
 
-- **Purpose**: Identify performance issues before application launch.
+- **Purpose:** Identify performance issues before application launch.
 
 **Resources:**
 
-- [Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
+- [Article: Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
 
 ### JMeter
 
@@ -1303,6 +1290,12 @@ The HTTP Proxy Server in JMeter is a component that allows you to record HTTP re
 
 ## Security Testing
 
+  - [Authentication authorization](#authentication-authorization)
+  - [Vulnerability Scanning](#vulnerability-scanning)
+  - [OWASP](#owasp)
+  - [Attack vectors](#attack-vectors)
+  - [Secrets Management](#secrets-management)
+
 **Explanation:**
 
 Security Testing ensures that a software application is resilient to security threats and vulnerabilities. It aims to identify and mitigate potential security risks to protect data and systems.
@@ -1310,10 +1303,15 @@ Security Testing ensures that a software application is resilient to security th
 **Key Concepts:**
 
 - **Authentication:** Verifying user identity.
+
 - **Authorization:** Controlling user access to resources.
+
 - **Vulnerability Scanning:** Automated detection of security weaknesses.
+
 - **OWASP:** Common web application security risks.
+
 - **Attack Vectors:** Paths for exploiting vulnerabilities.
+
 - **Secrets Management:** Secure handling of sensitive information.
 
 **Resources:**
@@ -1329,9 +1327,13 @@ Authentication verifies the identity of users or systems, while authorization co
 **Key Concepts:**
 
 - **Authentication Factors:** Knowledge-based (passwords), possession-based (tokens), and biometrics.
+
 - **Authorization Models:** Role-based, attribute-based, and policy-based.
+
 - **Single Sign-On (SSO):** Allows access to multiple systems with a single login.
+
 - **Least Privilege Principle:** Users get the minimum access necessary.
+
 - **Authentication vs. Authorization:** Distinct but interconnected security aspects.
 
 **Resources:**
@@ -1347,8 +1349,11 @@ Vulnerability Scanning involves automated tools that scan an application or netw
 **Key Concepts:**
 
 - **Automated Scanning:** Tools like Nessus, OpenVAS, and Qualys.
+
 - **CVE Database:** Common Vulnerabilities and Exposures for tracking known vulnerabilities.
+
 - **Continuous Scanning:** Regular scans to identify new vulnerabilities.
+
 - **Penetration Testing:** Manual testing to validate findings and identify unknown issues.
 
 **Resources:**
@@ -1361,16 +1366,29 @@ The OWASP is a list of the most critical web application security risks. It serv
 
 **Key Risks:**
 
-- Injection Attacks
-- Broken Authentication
-- Sensitive Data Exposure
-- XML External Entities (XXE)
-- Broken Access Control
-- Security Misconfigurations
-- Cross-Site Scripting (XSS)
-- Insecure Deserialization
-- Using Components with Known Vulnerabilities
-- Insufficient Logging & Monitoring
+1. **Injection Attacks**
+
+**Resources:**
+
+- [Injection Attacks](./assets/securityTesting/injectionAttacks.md)
+
+2. **Broken Authentication**
+
+3. **Sensitive Data Exposure**
+
+4. **XML External Entities (XXE)**
+
+5. **Broken Access Control**
+
+6. **Security Misconfigurations**
+
+7. **Cross-Site Scripting (XSS)**
+
+8. **Insecure Deserialization**
+
+9. **Using Components with Known Vulnerabilities**
+
+10. **Insufficient Logging & Monitoring**
 
 **Resources:**
 
@@ -1385,9 +1403,13 @@ Attack Vectors are specific paths or techniques used by malicious actors to expl
 **Key Concepts:**
 
 - **SQL Injection:** Manipulating SQL queries to access or modify data.
+
 - **Cross-Site Request Forgery (CSRF):** Forcing users to perform actions without their consent.
+
 - **Cross-Site Scripting (XSS):** Injecting malicious scripts into web pages viewed by other users.
+
 - **Phishing:** Deceptive techniques to trick users into revealing sensitive information.
+
 - **Zero-Day Exploits:** Attacks targeting newly discovered vulnerabilities.
 
 **Resources:**
@@ -1403,9 +1425,13 @@ Secrets Management involves securely storing, accessing, and distributing sensit
 **Key Concepts:**
 
 - **Key Management:** Safeguarding encryption keys used to protect data.
+
 - **Vaults and Key Stores:** Secure storage solutions for secrets.
+
 - **Rotation and Expiry:** Regularly changing secrets to minimize exposure.
+
 - **Access Control:** Restricting who can access and modify secrets.
+
 - **Audit Trails:** Monitoring and recording access to secrets.
 
 **Resources:**
@@ -1418,9 +1444,15 @@ Secrets Management involves securely storing, accessing, and distributing sensit
 
 - [Article: Testing Techniques](https://www.guru99.com/non-functional-testing.html)
 
-### Non-Functional Testing
+## Non-Functional Techniques
 
-#### Load Testing
+- [Load Testing](#load-testing)
+- [Performance Testing](#performance-testing)
+- [Stress Testing](#stress-testing)
+- [Security Testing](#security-testing)
+- [Accessibility Testing](#accessibility-testing)
+
+### Load Testing
 
 **Explanation:**
 
@@ -1428,13 +1460,13 @@ Load testing involves assessing a system's performance under specific load condi
 
 **Key Concepts:**
 
-- **Load**: The amount of work a system is subjected to during testing.
+- **Load:** The amount of work a system is subjected to during testing.
 
-- **Objective**: Identify performance bottlenecks, measure response times, and assess system scalability.
+- **Objective:** Identify performance bottlenecks, measure response times, and assess system scalability.
 
-- **Types**: Concurrent users, transactions, or data volume are typically tested.
+- **Types:** Concurrent users, transactions, or data volume are typically tested.
 
-- **Tools**: Load testing tools like JMeter, Gatling, or locust can automate load simulations.
+- **Tools:** Load testing tools like JMeter, Gatling, or locust can automate load simulations.
 
 ![Loading Testing](./images/loadingTest.png)
 
@@ -1536,7 +1568,15 @@ Accessibility testing ensures that a software application is usable by people wi
 
 - [Accessibility Testing](../tasks/QA/testingTechniques/accessibilityTesting.md)
 
-### Functional Testing
+### Functional Techniques
+
+  - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
+  - [Exploratory Testing](#exploratory-testing)
+  - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
+  - [Regression Testing](#regression-testing)
+  - [Unit Testing](#unit-testing)
+  - [E2E testing](#e2e-testing)
+  - [Integration Testing](#integration-testing)
 
 #### User Acceptance Testing (UAT)
 
@@ -1709,6 +1749,14 @@ Automated testing is a crucial practice in software development that involves us
 
 ## Frontend automation
 
+- [Basic Introduction](#basic-introduction)
+  - [HTML/CSS/JavaScript Basics](#html-css-javascript-basics)
+  - [Browser DevTools](#browser-devtools)
+  - [Caching](#caching)
+  - [SSR vs CSR vs SSG](#ssr-csr-ssg)
+  - [SWAs, PWAs and Jamstack](#swas-pwas-jamstack)
+  - [Responsive vs adaptive](#responsive-vs-adaptive)
+
 Frontend automation focuses on automating tasks related to the user interface (UI) and the frontend of web applications. It streamlines development processes, enhances code quality, and improves the overall user experience.
 
 ### Basic Introduction
@@ -1870,7 +1918,28 @@ These design approaches ensure optimal user experiences on various devices.
 
 - [Article: Responsive web design vs. adaptive](https://www.wix.com/blog/responsive-vs-adaptive-design)
 
+## Backend Automation
+
+## Frameworks
+
+- [Postman](#postman)
+
 ## Jest
+
+- [Introduction to Jest](#introduction-to-jest)
+- [Setting up Jest](#setting-up-jest)
+- [Writing Your First Test](#writing-your-first-test)
+- [Running Tests](#running-tests)
+- [Matchers in Jest](#matchers-in-jest)
+- [Testing Asynchronous Code](#testing-asynchronous-code)
+- [Mocking and Spies](#mocking-and-spies)
+- [Configuring Jest](#configuring-jest)
+- [Test Suites and Test Organizing](#test-suites-and-test-organizing)
+- [Test Coverage Reporting](#test-coverage-reporting)
+- [Practices for Writing Tests](#practices-for-writing-tests)
+- [Troubleshooting and Debugging](#troubleshooting-and-debugging)
+- [Advanced Topics](#advanced-topics)
+- [Continuous Integration with Jest](#continuous-integration-with-jest)
 
 ### Introduction to Jest
 
