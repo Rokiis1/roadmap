@@ -1,3 +1,11 @@
+// # Table of Contents
+
+// - [Easy](#easy)
+// - [Intermediate](#intermediate)
+// - [Hard](#hard)
+
+// # Easy
+
 // 1 Task.
 /**
  * Calculates the area of a rectangle given its width and height.
