@@ -3,6 +3,7 @@
 - [QA Basics](#qa-basics)
 - [Software Development Life Cycle](#software-development-Life-Cycle)
 - [Manual Testing](#manual-testing)
+- [Software Testing and Development Life Cycle](#software-testing-and-development-life-cycle)
 - [Non-Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
@@ -11,8 +12,9 @@
     - [Non-Functional Techniques](#non-functional-techniques)
     - [Functional Techniques](#functional-techniques)
 - [Automated Testing](#automated-testing)
-  - [Frontend automation](#frontend-automation)
+  - [Frontend Automation](#frontend-automation)
   - [Backend Automation](#backend-automation)
+    - [API](#api)
 - [Frameworks](#frameworks)
   - [Jest](#jest)
 
@@ -97,7 +99,7 @@ Quality Assurance (QA) in software testing involves processes and practices that
 
 **Tasks**
 
-![Intro](../images/taskManualTesting1.png)
+- [Intro](../images/taskManualTesting1.png)
 
 ## Tester Mindset
 
@@ -151,7 +153,7 @@ A **test oracle** is a mechanism or principle used to determine the expected out
 
 **Resources:**
 
-[Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
+- [Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
 
 ### Types of Test Oracles
 
@@ -285,11 +287,15 @@ The choice of when to apply Black Box, Gray Box, or White Box Testing depends on
 
 1. **Black Box Testing:**
 
-- **When to Apply:**
+- *When to Apply:*
   - **Functional Testing:** Use Black Box Testing primarily for functional testing to ensure that the software meets its specified requirements and behaves as expected from a user's perspective.
+
   - **Acceptance Testing:** It's commonly used during acceptance testing to determine if the software meets the user's acceptance criteria.
+
   - **System Testing:** Black Box Testing can be applied at the system level to verify interactions between components and subsystems.
+  
   - **Usability Testing:** For evaluating the software's user-friendliness and overall user experience.
+
 - **Advantages:**
   - Reflects how end-users interact with the software.
   - Doesn't require knowledge of internal code, making it suitable for non-technical testers.
@@ -297,7 +303,7 @@ The choice of when to apply Black Box, Gray Box, or White Box Testing depends on
 
 2. **Gray Box Testing:**
 
-- **When to Apply:**
+- *When to Apply:*
   - **Integration Testing:** Gray Box Testing can be useful for integration testing to verify that different software components work together as expected.
   - **Security Testing:** It's often applied in security testing to identify vulnerabilities that may require some knowledge of the application's internal architecture.
   - **Database Testing:** Useful when testing applications that interact with databases, as some knowledge of data structures and queries can be beneficial.
@@ -309,7 +315,7 @@ The choice of when to apply Black Box, Gray Box, or White Box Testing depends on
 
 3. **White Box Testing:**
 
-- **When to Apply:**
+- *When to Apply:*
   - **Unit Testing:** White Box Testing is essential for unit testing, where individual code units (e.g., functions, methods) are tested in isolation.
   - **Code Coverage Analysis:** Used to measure code coverage and ensure that all code paths are exercised.
   - **Security Testing:** Especially useful for identifying code-level security vulnerabilities like SQL injection, buffer overflows, and insecure authentication.
@@ -401,6 +407,9 @@ Test case prioritization involves determining the order in which test cases shou
 - [Project Management](#project-management)
   - [Atlassian](#atlassian)
     - [Jira](#jira)
+      - [User Story vs Use Cases](#user-story-vs-use-cases)
+      - [Acceptance Criteria](#acceptance-criteria)
+      - [Backlog grooming](#backlog-grooming)
 
 **Explanation:**
 
@@ -531,7 +540,7 @@ Methodologies provide a guiding philosophy and principles for how development te
 
 **Key Concepts:**
 
-- **Scrum:** Scrum is one of the most popular Agile frameworks. It prescribes roles (e.g., Scrum Master, Product Owner, Development Team), events (e.g., Daily Standup, Sprint Planning, Sprint Review), and artifacts (e.g., Product Backlog, Sprint Backlog) to structure the development process.
+- **Scrum:** Scrum is one of the most popular Agile frameworks. It prescribes roles (Scrum Master, Product Owner, Development Team), events (Daily Standup, Sprint Planning, Sprint Review), and artifacts (Product Backlog, Sprint Backlog) to structure the development process.
 
 - **Kanban:** Kanban is another Agile framework that focuses on visualizing work, limiting work in progress, and optimizing workflow. It uses boards with columns to represent stages of work and emphasizes the pull principle.
 
@@ -539,7 +548,7 @@ Methodologies provide a guiding philosophy and principles for how development te
 
 - **Backlog:** The backlog is a prioritized list of features, user stories, or tasks to be completed. It serves as a dynamic document that guides development.
 
-- **Sprint:** In Scrum and some other Agile approaches, a sprint is a time-boxed development iteration, usually lasting two to four weeks. Sprints result in potentially shippable increments of the product.
+- **Sprint:** In Scrum and some other Agile approaches, a sprint is a time-boxed development, usually lasting two to four weeks. 
 
 **Resources:**
 
@@ -615,6 +624,11 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 ### Jira
 
+### User Story vs Use Cases
+
+### Acceptance Criteria
+
+### Backlog grooming
 
 # Manual Testing
 
@@ -755,12 +769,15 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 2. **Test Case Report** (or Test Execution Report):
 
 - **Purpose**: A Test Case Report, often referred to as a Test Execution Report, provides an overview of the status and results of executed test cases for a specific testing phase or cycle.
+
 - **Content**: Test Case Reports typically include project details, test phase information, test execution dates, the total number of test cases executed, the number of test cases passed and failed, details about the test environment, an overall summary of the testing effort (example overall status, comments), and a list of individual test cases with their execution statuses and any specific comments.
+
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
 ### Defect Report (Bug Report)
 
 **Explanation**
+
 Defect Reports are separate documents used to document and track issues or defects identified during testing. You do not typically write Defect Reports (Bug Reports) within individual test cases.
 
 - Defect Reports document issues found during testing, which may result from executing test cases. These reports are used to communicate the problems to developers or the relevant team responsible for fixing the defects.
@@ -842,6 +859,8 @@ Verification ensures that a software product meets specified requirements, while
 **Resources:**
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
+
+# Software Testing and Development Life Cycle
 
 # Non-Functional Testing
 
@@ -926,9 +945,9 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 - [Article: Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
 
-### JMeter
+## JMeter
 
-#### What is JMeter?
+### What is JMeter?
 
 **Explanation:**
 
@@ -938,7 +957,7 @@ JMeter is a tool used for performance and load testing of web applications. It h
 
 - [What is JMeter? Introduction & Uses](https://www.guru99.com/introduction-to-jmeter.html)
 
-##### Why Use JMeter?
+### Why Use JMeter?
 
 - **Performance Testing:** JMeter is a valuable tool for assessing how your web application performs under different conditions. By simulating multiple users concurrently accessing your application, you can identify performance bottlenecks and optimize them.
 
@@ -966,7 +985,7 @@ JMeter is a tool used for performance and load testing of web applications. It h
 
 - **Processors:** Processors, like PreProcessors and PostProcessors, allow you to manipulate databefore sending requests and extract data from server responses.
 
-##### How to Setup Apache JMeter
+### How to Setup Apache JMeter
 
 **Documentation How To Setup JMeter:**
 
@@ -976,13 +995,13 @@ JMeter is a tool used for performance and load testing of web applications. It h
 
 - [How to Download & Install Apache JMeter](https://www.guru99.com/guide-to-install-jmeter.html)
 
-#### JMeter Elements
+### JMeter Elements
 
 **Resources:**
 
 - [What is Element in JMeter?](https://www.guru99.com/jmeter-element-reference.html)
 
-##### Thread Group
+### Thread Group
 
 **Explanation:** 
 
@@ -992,7 +1011,7 @@ In JMeter, a Thread Group represents a group of virtual users (threads) that wil
 
 Let's say you have a Thread Group with 100 threads. If you configure it to send HTTP requests to your website, these 100 threads will simulate 100 simultaneous users accessing your site
 
-##### Samplers 
+### Samplers 
 
 **Explanation:** 
 
@@ -1002,7 +1021,7 @@ Samplers are responsible for sending requests to your server during a test. They
 
 If you want to test the response time of a web page, you would use an HTTP Request sampler. You configure it with the URL of the page, and JMeter sends requests to that URL from multiple threads.
 
-##### Listeners
+### Listeners
 
 **Explanation:** 
 
@@ -1012,7 +1031,7 @@ Listeners are used to collect and display the results of your test plan. They pr
 
 Commonly used listener is the "View Results Tree" listener. It displays detailed information about each request/response, including response time, response data, and more, making it easier to identify issues.
 
-##### Configuration
+### Configuration
 
 **Explanation:** 
 
@@ -1022,7 +1041,7 @@ Configuration elements allow you to set up variables and values that can be used
 
 Let's say you have a JDBC Configuration element where you define your database connection details. You can then use these variables in your JDBC Request samplers to execute queries against the database.
 
-#### JMeter GUI
+### JMeter GUI
 
 **Explanation:** 
 
@@ -1038,7 +1057,7 @@ When you launch JMeter, you interact with the GUI to add Thread Groups, Samplers
 
 - [JMeter GUI: Test Plan & Workbench](https://www.guru99.com/hands-on-with-jmeter-gui.html)
 
-##### Test Plan
+### Test Plan
 
 **Explanation:** 
 
@@ -1050,19 +1069,19 @@ A Test Plan is the core container in JMeter where you organize your test element
 
 Within a Test Plan, you can include Thread Groups to simulate user behavior, add Samplers to send requests, incorporate Logic Controllers to control the flow, and use Listeners to collect and display test results.
 
-#### How to Use JMeter for Performance & Load Testing
+### How to Use JMeter for Performance & Load Testing
 
 **Resources:**
 
 - [How to Use JMeter for Performance & Load Testing](https://www.guru99.com/jmeter-performance-testing.html)
 
-##### Performance Testing
+### Performance Testing
 
 **Explanation:**
 
 Performance testing focuses on evaluating the responsiveness, speed, and stability of an application under normal conditions. Follow these steps for performance testing:
 
-##### Load Testing
+### Load Testing
 
 **Explanation:**
 
@@ -1071,7 +1090,7 @@ Load testing assesses how a system performs under a specific load, typically hea
 
 - [Create Load Test and Performance](../tasks/QA/JMeter/introPerformanceLoad.md)
 
-#### JMeter Timers
+### JMeter Timers
 
 **Explanation:** 
 
@@ -1081,7 +1100,7 @@ Timers in JMeter allow you to introduce delays, pacing, or think times between r
 
 - [Jmeter Timers: Constant, Gaussian Random, Uniform](https://www.guru99.com/timers-jmeter.html)
 
-##### Constant Timer
+### Constant Timer
 
 **Explanation:** 
 
@@ -1095,7 +1114,7 @@ Use the Constant Timer when you want to maintain a consistent time gap between c
 
 - Set the "Thread Delay" field to the desired delay in milliseconds.
 
-##### Gaussian Random Timer
+### Gaussian Random Timer
 
 **Explanation:**
 
@@ -1111,7 +1130,7 @@ Use the Gaussian Random Timer when you want to simulate varying user think times
 - Set the "Offset" field to specify the central point of the distribution.
 - Optionally, set "Random Delay Maximum" to limit the maximum delay introduced.
 
-##### Uniform Timer
+### Uniform Timer
 
 **Explanation:**
 
@@ -1130,7 +1149,7 @@ Use the Uniform Random Timer when you want to simulate a range of think times be
 
 - [Create JMeter Timers](../tasks/QA/JMeter/jMeterTimers.md)
 
-#### How to use Assertions in JMeter
+### How to use Assertions in JMeter
 
 **Explanation:**
 
@@ -1144,7 +1163,7 @@ Assertions in JMeter are used to validate whether the responses received from th
 
 - [Article: How to use Assertions in JMeter](https://www.guru99.com/assertions-in-jmeter.html)
 
-##### Controllers in JMeter
+### Controllers in JMeter
 
 **Explanation:**
 
@@ -1154,7 +1173,7 @@ Controllers in JMeter are elements that allow you to control the flow and logic 
 
 - [Article: Controllers in JMeter: Loop, Simple, Transaction, Module, Random](https://www.guru99.com/controllers-in-jmeter.html)
 
-##### Loop Controller
+### Loop Controller
 
 **Explanation:** 
 
@@ -1164,7 +1183,7 @@ The Loop Controller allows you to repeatedly execute its child elements for a sp
 
 Suppose you want to simulate 100 login attempts to test how your application handles them. You can place the login request inside a Loop Controller and set the loop count to 100.
 
-#### Simple Controller
+### Simple Controller
 
 **Explanation:** 
 
@@ -1174,7 +1193,7 @@ The Simple Controller is a basic container that groups and organizes other eleme
 
 You can use the Simple Controller to organize and group related requests, timers, or other elements within your test plan. It helps maintain a clean and organized test structure.
 
-#### Transaction Controller
+### Transaction Controller
 
 **Explanation:**
 
@@ -1184,7 +1203,7 @@ The Transaction Controller is used to measure the response time of a set of requ
 
 Suppose you want to measure the response time of a series of requests, such as login, search, and checkout, as a single transaction. You can place these requests inside a Transaction Controller to measure their combined response time.
 
-#### Module Controller
+### Module Controller
 
 **Explanation:** 
 
@@ -1194,7 +1213,7 @@ The Module Controller is used for modularizing and reusing parts of your test pl
 
 When you have common test elements that you want to reuse across multiple test plans, you can create Test Fragments containing those elements and then use Module Controllers in your main test plans to reference and execute the fragments.
 
-#### Random Controller
+### Random Controller
 
 **Explanation:** 
 
@@ -1204,7 +1223,7 @@ The Random Controller selects and executes child elements randomly for each iter
 
 If you want to simulate user interactions that are not strictly sequential, you can place various actions inside a Random Controller. During each iteration, one of the child elements is randomly selected and executed.
 
-#### Processors in JMeter
+### Processors in JMeter
 
 **Explanation:**
 
@@ -1214,7 +1233,7 @@ Processors in JMeter are elements that allow you to manipulate or process data b
 
 - [Article: Processor in JMeter: PreProcessor & PostProcessor](https://www.guru99.com/processor-in-jmeter.html)
 
-##### PreProcessor
+### PreProcessor
 
 **Explanation:**
 
@@ -1230,7 +1249,7 @@ You can use a PreProcessor to add or modify request parameters, extract values f
 - **BeanShell PreProcessor**: Executes custom Java code before a sampler.
 - **JSR223 PreProcessor**: Executes custom code in languages like Groovy, JavaScript, and more.
 
-#### PostProcessor
+### PostProcessor
 
 **Explanation:**
 
@@ -1249,7 +1268,7 @@ You can use a PostProcessor to extract data from the response, assert response c
 - **CSS/JQuery Extractor**: Extracts data using CSS or jQuery-like selectors from HTML responses.
 - **Debug PostProcessor**: Logs response data to assist in debugging.
 
-#### JMeter Distributed (Remote) Testing
+### JMeter Distributed (Remote) Testing
 
 **Explanation:**
 
@@ -1259,7 +1278,7 @@ JMeter Distributed Testing allows you to distribute the load of your performance
 
 - [Jmeter Distributed (Remote) Testing: Master Slave Configuration](https://www.guru99.com/jmeter-distributed-testing.html)
 
-##### Master-Slave Configuration
+### Master-Slave Configuration
 
 **Explanation:** 
 
@@ -1273,7 +1292,7 @@ Distributed testing is useful when your load testing requirements exceed the cap
 
 - [Create Master-Slave Configuration](../tasks/QA/JMeter/masterSlaveConfig.md) 
 
-#### HTTP Proxy Server in JMeter
+### HTTP Proxy Server in JMeter
 
 **Explanation:**
 
@@ -1290,11 +1309,11 @@ The HTTP Proxy Server in JMeter is a component that allows you to record HTTP re
 
 ## Security Testing
 
-  - [Authentication authorization](#authentication-authorization)
-  - [Vulnerability Scanning](#vulnerability-scanning)
-  - [OWASP](#owasp)
-  - [Attack vectors](#attack-vectors)
-  - [Secrets Management](#secrets-management)
+- [Authentication authorization](#authentication-authorization)
+- [Vulnerability Scanning](#vulnerability-scanning)
+- [OWASP](#owasp)
+- [Attack vectors](#attack-vectors)
+- [Secrets Management](#secrets-management)
 
 **Explanation:**
 
@@ -1474,7 +1493,7 @@ Load testing involves assessing a system's performance under specific load condi
 
 - [Article: Load Testing](https://loadninja.com/load-testing/)
 
-**Tasks**
+**Tasks:**
 
 - [Loading Testing](../tasks/QA/testingTechniques/loadTesting.md)
 
@@ -1486,11 +1505,11 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 
 **Key Concepts:**
 
-- **Types**: Includes load testing, stress testing, and endurance testing.
+- **Types:** Includes load testing, stress testing, and endurance testing.
 
-- **Metrics**: Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
+- **Metrics:** Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
 
-- **Benefits**: Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
+- **Benefits:** Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
 
 ![Performance Testing](./images/PerformanceTesting.png)
 
@@ -1498,7 +1517,7 @@ Performance testing evaluates a system's responsiveness, stability, and overall 
 
 - [Article: Performance Testing](https://www.guru99.com/performance-testing.html)
 
-**Tasks**
+**Tasks:**
 
 - [performance Testing](../tasks/QA/testingTechniques/performanceTesting.md)
 
@@ -1510,11 +1529,11 @@ Stress testing evaluates a system's behavior under extreme conditions that excee
 
 **Key Concepts:**
 
-- **Types**: Overloading system resources, such as memory, CPU, or network.
+- **Types:** Overloading system resources, such as memory, CPU, or network.
 
-- **Purpose**: Determine system stability and reliability under high stress.
+- **Purpose:** Determine system stability and reliability under high stress.
 
-- **Challenges**: Requires careful planning to avoid damaging the system during testing.
+- **Challenges:** Requires careful planning to avoid damaging the system during testing.
 
 ![Stress Testing](./images/StressTesting.png)
 
@@ -1570,49 +1589,20 @@ Accessibility testing ensures that a software application is usable by people wi
 
 ### Functional Techniques
 
-  - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
+- [Experience-based](#experience-based)
   - [Exploratory Testing](#exploratory-testing)
-  - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
-  - [Regression Testing](#regression-testing)
-  - [Unit Testing](#unit-testing)
-  - [E2E testing](#e2e-testing)
-  - [Integration Testing](#integration-testing)
-
-#### User Acceptance Testing (UAT)
-
-**Explanation:**
-
-User Acceptance Testing (UAT) involves testing a software application from the user's perspective to ensure it meets business requirements and is ready for release.
-
-**Key Concepts:**
-
-1. **Testing by End-Users:** UAT typically involves real end-users or representatives from the target user group who test the software. They validate whether the application aligns with their expectations and fulfills its intended purpose.
-
-2. **Real-World Scenarios:** Testers in UAT simulate real-world scenarios and workflows that users are likely to encounter when using the software. This can include performing tasks, using features, and interacting with the system as they would in their daily work.
-
-3. **Use Cases and Business Processes:** UAT often involves testing based on specific use cases and business processes. Users test the application to ensure that it supports the tasks and functions they need to perform to achieve their objectives.
-
-4. **User Experience (UX) Testing:** UAT includes evaluating the overall user experience, usability, and user interface design. Testers provide feedback on the application's look and feel, navigation, and ease of use.
-
-5. **Requirements Validation:** UAT checks whether the software meets the documented requirements and aligns with the original project goals. It ensures that the software delivers the expected functionality.
-
-6. **Bugs and Defect Reporting:** Testers in UAT identify and report any defects, issues, or discrepancies they encounter during testing. These issues are then addressed by the development team.
-
-7. **Feedback and Improvements:** UAT provides a platform for users to offer feedback and suggestions for improvements. This feedback can influence refinements and enhancements to the software.
-
-8. **Sign-Off:** Once UAT is successfully completed and any identified issues are addressed, users or stakeholders often provide a formal sign-off, indicating their acceptance of the software.
+  - [Ad Hoc Testing](#ad-hoc-testing)
+- [Boundary value](#boundary-value)
+- [Equivalence](#equivalence)
+- [Decision table](#decision-table)
+- [State Transistion](#state-transistion)
+- [Smoke and Sanity Testing](#smoke-and-sanity-testing)
+- [Regression Testing](#regression-testing)
+- [Unit Testing](#unit-testing)
+- [E2E testing](#e2e-testing)
+- [Integration Testing](#integration-testing)
 
 
-![User Acceptance Testing (UAT)](./images/UAT.png)
-
-**Resources:**
-
-- [Article: User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
-- [Video: User Acceptance Testing (UAT)](https://www.youtube.com/watch?v=F5xaiKyJDNQ)
-
-**Tasks**
-
-- [User Acceptance Testing](../tasks/QA/testingTechniques/userAcceptanceTesting.md)
 
 #### Exploratory Testing
 
@@ -1747,7 +1737,7 @@ Integration Testing ensures that different components or modules of a software a
 
 Automated testing is a crucial practice in software development that involves using tools and scripts to automatically test software applications. This ensures that the software functions correctly, performs well, and meets its intended requirements. Automated testing helps identify bugs, regressions, and performance issues early in the development process.
 
-## Frontend automation
+## Frontend Automation
 
 - [Basic Introduction](#basic-introduction)
   - [HTML/CSS/JavaScript Basics](#html-css-javascript-basics)
@@ -1799,7 +1789,9 @@ Caching ensures that the resources downloaded once are reused instead of doing a
 **Key Concepts:**
 
 - **Browser Cache:** Browsers can cache static assets like images and stylesheets, improving page load times.
+
 - **Content Delivery Networks (CDNs):** CDNs use caching to distribute content globally, reducing server load and improving content delivery.
+
 - **Cache Control Headers:** Developers can control caching behavior using HTTP headers to set expiration times for cached resources.
 
 **Resources:**
@@ -1920,9 +1912,11 @@ These design approaches ensure optimal user experiences on various devices.
 
 ## Backend Automation
 
-## Frameworks
+### API
 
 - [Postman](#postman)
+
+# Frameworks
 
 ## Jest
 
