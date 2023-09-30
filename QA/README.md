@@ -25,13 +25,8 @@
   - [What is Assurance?](#what-is-assurance)
   - [Quality Assurance in Software Testing](#quality-assurance-in-software-testing)
 - [Tester Mindset](#tester-mindset)
-  - [Explanation of Tester Mindset](#explanation-of-tester-mindset)
 - [Test Oracles](#test-oracles)
-  - [Explanation of Test Oracles](#explanation-of-test-oracles)
-  - [Types of Test Oracles](#types-of-test-oracles)
 - [Test Prioritization](#test-prioritization)
-  - [Explanation of Test Prioritization](#explanation-of-test-prioritization)
-  - [Test Prioritization Techniques](#test-prioritization-techniques)
 - [Black Box vs Gray Box vs White Box Testing](#black-box-vs-gray-box-vs-white-box-testing)
   - [Differences and similarities](#differences-and-similarities)
   - [When to apply each approach](#when-to-apply-each-approach)
@@ -46,27 +41,27 @@
 
 **Explanation:**
 
-Quality refers to the degree of excellence or superiority of a product or service. In software, quality encompasses factors such as reliability, performance, security, usability, and meeting customer expectations.
+Quality refers to the degree of excellence or superiority of a product or service. These factors include reliability, performance, security, usability, and the ability to meet customer expectations effectively.
 
 **Key Concepts:**
 
-- **Fitness for Purpose**: A product meets its intended purpose effectively.
+- **Fitness for Purpose**: A product or service should effectively serve its intended purpose. This means that it should meet the specific needs and requirements
 
-- **Conformance to Requirements**: The product adheres to specified requirements.
+- **Conformance to Requirements**: Ultimately, quality is about satisfying customer needs and expectations.  
 
 - **Customer Satisfaction**: The product satisfies customer needs and expectations.
 
-- **Continuous Improvement**: Ongoing efforts to enhance quality.
+- **Continuous Improvement**: Quality is not a one-time achievement but an ongoing commitment.
 
 ### What is Assurance?
 
 **Explanation:**
 
-Assurance involves building confidence that a product will meet its quality objectives. It involves proactive activities that help prevent defects and issues.
+It involves activities aimed at building confidence that a product or service will meet its quality objectives.
 
 **Key Concepts:**
 
-- **Preventive Activities**: Measures taken to avoid defects in the first place.
+- **Preventive Activities**: Assurance includes a range of preventive activities that are designed to stop defects from occurring in the first place. 
 
 - **Process Adherence**: Ensuring that processes are followed consistently.
 
@@ -78,32 +73,31 @@ Assurance involves building confidence that a product will meet its quality obje
 
 **Explanation:**
 
-Quality Assurance (QA) in software testing involves processes and practices that ensure software products meet specified quality standards.
+Quality Assurance (QA): ensure software products meet specified quality standards.
 
 **Key Concepts:**
 
-- **Process Improvement**: Identifying areas for process enhancement.
+- **Process Improvement**: QA involves the continuous identification and implementation of improvements in the testing process.
 
 - **Standardization**: Establishing testing standards and guidelines.
 
-- **Test Planning**: Developing comprehensive test plans.
+- **Test Planning**: These plans outline the testing objectives, strategies, and schedules, ensuring that testing efforts align with project goals.
 
-- **Metrics and Measurement**: Using metrics to assess and improve quality.
+- **Metrics and Measurement**: Key performance indicators (KPIs).
 
 ![What is QA?](./images/whatIsQA.png)
 
 **Resources:**
 
 - [Article: What is Quality Assurance(QA)?](https://www.guru99.com/all-about-quality-assurance.html)
-- [Video: What Does a QA Engineer Actually Do?](https://www.youtube.com/watch?v=jVv3A3t2DBI)
+- [Article: Why Is ISTQB Certification Important for QA Professionals?](https://www.testdevlab.com/blog/why-is-istqb-certification-important-for-qa-professionals)
+- [Article: What is QA?](https://www.investopedia.com/terms/l/lean-six-sigma.asp)
 
 **Tasks**
 
-- [Intro](../images/taskManualTesting1.png)
+- [Intro](../tasks/QA/images/taskManualTesting1.png)
 
 ## Tester Mindset
-
-### Explanation of Tester Mindset
 
 **Explanation:**
 
@@ -111,21 +105,25 @@ The "Tester Mindset" refers to the collection of qualities, attitudes, and appro
 
 **Key Concepts:**
 
-- **Critical Thinking**: Testers analyze requirements, design, and code critically to identify potential defects.
+- **Attention to Details:** One of the primary mindsets for a successful software tester is attention to details. Testers need to develop the ability to spot even the smallest errors or anomalies within the application.
 
-- **Attention to Detail**: Testers meticulously scrutinize each component to catch even minor issues.
+- **Analytical Skills:** Building strong analytical skills is another key aspect. Testers should possess the capability to analyse complex systems and recognize or find out potential problems. This involves breaking down the software into its components, understanding their interactions, and identifying vulnerabilities.
 
-- **Empathy**: Testers put themselves in users' shoes to understand their needs and expectations.
+- **Curiosity:** Testers should have an innate motivation to explore various test scenarios. This curiosity is what drives including or dealing with all or nearly all elements or aspects test coverage, especially when dealing with intricate applications.
 
-- **Curiosity**: Testers are naturally curious, always exploring the application to uncover defects.
+- **Persistence:** Persistence plays a pivotal role in a tester's mindset. Testers must be unwavering in their efforts to discover and replicate bugs. This determination in locating and resolving issues is a cornerstone of effective testing.
 
-- **Open-Mindedness**: Testers approach testing with an open mind, avoiding assumptions.
+- **Creativity:** Creativity is a fundamental mindset for testers. It enables them to devise innovative solutions for testing challenges. Thinking creatively and employing unique approaches can be instrumental in uncovering latent problems.
 
-- **Communication Skills**: Testers effectively communicate issues to developers and stakeholders.
+- **Collaboration:** Effective collaboration skills are indispensable. Testers need to seamlessly interact with diverse stakeholders, including business analysts, developers, and scrum masters, especially in agile environments.
 
-- **Problem-Solving**: Testers have a knack for finding solutions to complex issues.
+- **Risk Management:** Testers should possess the capability to estimate and manage risks associated with the software. Understanding potential risks and executing robust testing strategies.
 
-- **Continuous Learning**: Testers stay updated with technology trends and testing methodologies.
+- **Customer Focus:** Testers should empathize with end-users, understand their needs and expectations. This user-centric approach ensures that the software aligns with user requirements, resulting in a positive user experience.
+
+- **Continuous Learning:** Commitment to continuous learning is a non-negotiable trait. Testers must stay updated on emerging technologies, evolving testing methodologies, and industry trends. Embracing new knowledge is vital for professional growth.
+
+- **Adaptability:** Testers should be flexible and capable of adjusting to changing project requirements, shifting environments, and software updates. Adaptability ensures that testing remains effective in dynamic situations.
 
 **Resources:**
 
@@ -133,87 +131,59 @@ The "Tester Mindset" refers to the collection of qualities, attitudes, and appro
 
 ## Test Oracles
 
-### Explanation of Test Oracles
-
 **Explanation:**
 
-A **test oracle** is a mechanism or principle used to determine the expected outcome of a test case. It's a benchmark against which the actual output of a software component or system is compared to determine if the behavior is correct or not.
+A test oracle is a fundamental concept in software testing. It acts as a reference point to verify whether the actual output of a software application aligns with the expected output defined in test cases. A match indicates a pass, while a mismatch results in a fail.
 
 **Key Concepts:**
 
-- **Expected Behavior**: Test oracles establish what the system's behavior should be under specific conditions.
+1. **Manual vs. Automated Test Oracles:** Test oracles come in two primary forms: manual and automated. Manual test oracles involve human experts who estimate the correctness of the software application's behavior. In contrast, automated test oracles use software tools or algorithms to perform the comparison.
 
-- **Validation**: Test oracles are used to validate the correctness of outputs.
+2. **Implementation Approaches:** Methods of implememnting:
 
-- **Manual and Automated**: Oracles can be manual (human judgment) or automated (defined by rules).
+  - **Requirement Specification:** Expected results are defined within the project's requirement specifications, and test cases are designed to verify compliance with these requirements.
 
-- **Dynamic and Static**: Dynamic oracles evaluate runtime behavior, while static oracles analyze code or documentation.
+  - **Historical Data:** Test cases can be based on the output of previous versions of the software, utilizing historical data to determine expected results.
 
-- **Challenges**: Creating accurate and reliable test oracles can be challenging.
+  - **Program Analysis:** Test cases are designed by analyzing the internal programming structure of the software application. The code is estimate and to determine expected outcomes, and these are validated against the actual application output.
+
+ - **Validation and Verification:** The primary purpose of test oracles is to validate and verify the correctness of a software   application. By comparing actual and expected outputs, testers can identify whether test cases pass or fail, ultimately ensuring the software meets its intended behavior.
 
 **Resources:**
 
 - [Video: Explanation of Test Oracles](https://www.youtube.com/watch?v=DR22zNNetp0)
 
-### Types of Test Oracles
-
-**Explanation:**
-
-There are different types of test oracles used to determine expected outcomes based on different criteria.
-
-
-*There are some types:*
-
-- **Explicit Oracles**: Clearly defined expected results based on specifications.
-
-- **Derived Oracles**: Derived from the same system or similar systems.
-
-- **Comparative Oracles**: Compare the system under test to another system or model.
-
-- **Stochastic Oracles**: Use statistical data to determine expected behavior.
-
 ## Test Prioritization
 
-### Explanation of Test Prioritization
-
 **Explanation:**
 
-Test prioritization is the process of ordering or ranking test cases based on their importance, risks, and potential impact on the system under test. It ensures that the most critical tests are executed first, optimizing testing efforts in scenarios where time and resources are limited.
+Test case prioritization becomes especially valuable when there is a large number of test cases, and there is a need to execute them efficiently within a limited time frame. 
 
 **Key Concepts:**
 
-- **Risk Assessment**: Test prioritization considers factors like critical functionalities, user impact, and potential defects.
+- **Risk-Based Prioritization:** This technique involves prioritizing test cases based on the associated risks. Test cases are estimate for their potential impact on the project, and those with higher risks are executed first. Conversely, if a test case poses minimal risk, it may not be executed.
 
-- **Resource Optimization**: It ensures that high-priority tests are executed within constrained resources.
+- **Requirements-Based Prioritization:** Test cases are prioritized according to the criticality of the requirements they cover. Essential features or requirements vital to the customer or business receive higher priority.
 
-- **Early Detection**: Prioritizing critical tests increases the chances of detecting showstopper issues early.
+- **Business Value-Based Prioritization:** Prioritizing test cases is aligned with the business's objectives and goals. If certain test cases contribute significantly to delivering business value, they are prioritized for execution.
 
-- **Test Dependencies**: Dependencies among test cases influence their order of execution.
+- **Functional Priority-Based Prioritization:** Test cases related to critical functionalities are given priority. This approach ensures that key functionalities are thoroughly tested, accounting for their complexity and importance.
 
-### Test Prioritization Techniques
+- **Time-Based Prioritization:** Test cases are prioritized to meet specific time constraints or deadlines. For instance, if there's a need to execute a set of test cases within a week, prioritization is adjusted to meet the timeline.
 
-**Explanation:**
+- **Customer Reputation-Based Prioritization:** Customer feedback and reputation play a significant role in prioritization. If a customer emphasizes the importance of specific test cases, they are prioritized to meet customer expectations.
 
-There are various techniques to prioritize test cases based on different criteria.
+- **Impact-Based Prioritization:** Test cases are prioritized based on their potential impact on the application. If a test case's absence could lead to significant issues, it receives a higher priority for execution.
 
-**Key Concepts:**
+- **Regression-Based Prioritization:** This method focuses on prioritizing test cases affected by recent changes or regression issues. Test cases related to areas with frequent regressions are prioritized to ensure stability.
 
-*There are some techniques:*
+- **Resource-Based Prioritization:** Resources like hardware, human resources, and test environments influence prioritization. Test cases are prioritized based on the availability of necessary resources, such as hardware or skilled testers.
 
-- **Risk-Based Prioritization**: Prioritize based on potential risks and their impact.
-
-- **Requirements-Based Prioritization**: Prioritize based on critical functionalities or requirements.
-
-- **Customer Impact Prioritization**: Prioritize based on user impact and customer needs.
-
-- **Automated Test Impact Analysis**: Prioritize tests affected by code changes.
-
-- **Dependency-Based Prioritization**: Prioritize tests with dependencies on other tests.
+- **Historical Failures-Based Prioritization:** Test cases that historically tend to fail when executed are given special attention. These consistently problematic test cases are prioritized to address recurring issues effectively.
 
 **Resources:**
 
 - [Video: Test Prioritization Techniques](https://www.youtube.com/watch?v=drUfHG6tav8)
-- [Article: Test Prioritization](https://www.professionalqa.com/test-prioritization)
 
 ## Black Box vs Gray Box vs White Box Testing
 
@@ -298,6 +268,7 @@ The choice of when to apply Black Box, Gray Box, or White Box Testing depends on
   - **Usability Testing:** For evaluating the software's user-friendliness and overall user experience.
 
 - **Advantages:**
+
   - Reflects how end-users interact with the software.
   - Doesn't require knowledge of internal code, making it suitable for non-technical testers.
   - Emphasizes real-world scenarios and user expectations.
@@ -340,43 +311,127 @@ The choice of when to apply Black Box, Gray Box, or White Box Testing depends on
 
 ## Test Case Design
 
-### Writing Effective Test Cases
+**Explanation:**
 
-Writing effective test cases is crucial for thorough testing and accurate defect detection. Effective test cases should be clear, concise, and detailed. They need to cover various scenarios, conditions, and user interactions to ensure comprehensive testing.
+We will explore the fundamentals of test case design, including the types, format, and requirements of test cases.
 
-**Key Points:**
+**Key Concepts:**
 
-- **Clear Steps:** Each test case should have a clear set of steps to execute.
+- Test case types (positive, negative, destructive)
 
-- **Expected Results:** Clearly define the expected outcomes and results.
+- Test case format (ID, summary, preconditions, steps, post conditions, expected results, actual results, status)
 
-- **Coverage:** Ensure that each test case covers a specific functionality or scenario.
+- Test case requirements (comprehensiveness, repeatability, reusability)
 
-- **Variety:** Include positive and negative scenarios, boundary conditions, and edge cases.
+### Types of Test Cases
 
-- **Reusability:** Design test cases that can be reused in different test cycles.
+**Explanation:**
 
-## Test Case Structure and Format
+The three types of test cases: positive, negative, and destructive.
 
-A standardized test case structure and format make test cases consistent and easy to understand for the entire testing team. A well-structured test case includes sections such as the test case ID, description, preconditions, steps, expected results, actual results, and status.
+**Key Concepts:**
 
-**Key Points:**
+- Positive test cases (using valid inputs)
 
-- **Test Case ID:** A unique identifier for each test case.
+- Negative test cases (using invalid inputs)
 
-- **Description:** Briefly describe the purpose of the test case.
+- Destructive test cases (stress testing)
 
-- **Preconditions:** List any conditions that must be met before executing the test case.
+**Example:**
 
-- **Steps:** Outline the steps needed to execute the test case.
+- Positive test cases are used to validate that software behaves correctly with valid inputs, such as logging in with correct credentials. 
 
-- **Expected Results:** Clearly state the expected outcomes after each step.
+- Negative test cases, on the other hand, aim to ensure the software handles invalid inputs appropriately, like incorrect login credentials. 
 
-- **Actual Results:** Record the actual outcomes during test execution.
+- Destructive test cases were also discussed, which test the software's limits and may involve actions like rapid clicking or stress testing.
 
-- **Status:** Indicate whether the test case passed, failed, or needs further investigation.
+### Test Case Format
 
-**Example**
+**Explanation:**
+
+We will break down the format of a test case, including its eight essential elements. Understanding this format is crucial for creating effective test cases.
+
+**Key Concepts:**
+
+- Test case elements (ID, summary, preconditions, steps, post conditions, expected results, actual results, status)
+
+**Example:**
+
+Eight elements that make up a test case format: 
+
+1. These elements include ID (unique identifier)
+
+2. Summary (brief description)
+
+3. Preconditions (actions needed before the test)
+
+4. Steps (actions for verification)
+
+5. Post conditions (actions to return the system to its original state)
+
+6. Expected results
+
+7. Actual results
+
+8. Status
+
+### Test Case Types
+
+**Explanation:**
+
+This section highlights that test cases can come in various formats, and their structure may vary based on project needs and complexity. It discusses the flexibility in naming and structuring test cases.
+
+**Key Concepts:**
+
+- Different test case formats
+
+- Variability in naming and section terminology
+
+**Example:**
+
+- That test cases can vary in format and structure. For instance, some may use a shorter format with only a few key elements like summary, priority, steps, and expected results. 
+
+- The terminology used in different sections may also vary, with "inputs" used instead of "steps" or "outputs" instead of "results."
+
+### Test Case Requirements
+
+**Explanation:**
+
+Discusses the need for accuracy, clarity, and repeatability in test case documentation.
+
+**Key Concepts:**
+
+- including or dealing with all or nearly all aspects of test cases
+
+- Clear and accurate descriptions
+
+- Repeatability and ease of understanding
+
+**Example:**
+
+- Test cases should be comprehensive and not depend on other cases
+
+- They should provide clear and accurate descriptions of steps and expected results to ensure repeatability.
+
+### Common Mistakes
+
+**Explanation:**
+
+Highlights common mistakes made by QA engineers when writing test cases.
+
+**Key Concepts:**
+
+- Avoiding abstract summaries
+
+- Ensuring clickable links
+
+- Balancing detail in descriptions
+
+**Example:**
+
+- Avoiding overly abstract summaries, advocating for specific and clear descriptions like `"check adding a product to the wishlist"` instead of a generalized `"check wishlist functionality."` 
+
+- Stressed the need to ensure that embedded links in test cases are clickable and lead to the correct pages. 
 
 - [Download: Test Case Table Credits Thomas Hamilton](https://drive.google.com/uc?export=download&id=0ByI5-ZLwpo25eXFlcU5ZMTJsT28)
 
@@ -385,29 +440,9 @@ A standardized test case structure and format make test cases consistent and eas
 - [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
 - [Article: Test Case Design](https://www.guru99.com/software-testing-techniques.html)
 
-## Test Case Prioritization
-
-Test case prioritization involves determining the order in which test cases should be executed based on factors such as business impact, risk, and critical functionality. Prioritization helps ensure that the most important areas are tested first, especially when time or resources are limited.
-
-**Key Points:**
-
-- **Business Impact:** Identify test cases that directly impact core business processes.
-
-- **Risk Analysis:** Assess potential risks and prioritize test cases in high-risk areas.
-
-- **Critical Functionality:** Prioritize test cases for critical features or functionalities.
-
-- **Dependencies:** Consider dependencies between test cases and prioritize accordingly.
-
-- **Regression Testing:** Prioritize test cases that cover areas prone to regression.
-
-**Resources:**
-
-- [Video: Test Case Design](https://www.youtube.com/watch?v=NKrFLbTiBQc)
-
 **Tasks:**
 
-- [Task: Introduction Into Test Cases](../tasks/QA/qaBasics/testCases.md)
+- []()
 
 # Teamwork(Project Managment)
 
