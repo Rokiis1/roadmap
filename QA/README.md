@@ -485,7 +485,7 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 **Resources:**
 
-- [Article: Test Planning](https://www.guru99.com/what-everybody-ought-to-know-about-test-planing.html)
+- [Docs: Test Plan](./assets/manualTesting/testPlanDocs.md)
 
 **Example**
 
