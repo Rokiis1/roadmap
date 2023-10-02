@@ -59,8 +59,6 @@ The internet is a vast and intricate network that connects billions of devices a
 - Organizations like ICANN manage IP address assignments, domain name registrations, and other critical aspects of the internet.
 - The internet operates as a global network with standardized rules and procedures.
 
-![Example of Internet](./images/internet.png)
-
 **Resources:**
 
 - [Article: How does the Internet Work?](https://cs.fyi/guide/how-does-internet-work) |
@@ -139,6 +137,8 @@ We will explore the workings of HTTP (Hypertext Transfer Protocol), HTTPS (Secur
 ## DNS (Domain Name System)
 
 - DNS, short for Domain Name System, is a fundamental component of the internet.
+
+![DNS](./images/DNS.png)
 
 - It serves as a crucial translator, converting human-readable domain names (google.com) into machine-readable IP addresses.
 
@@ -290,7 +290,7 @@ If you have an idea for a website and want to start building and designing it, y
 
 ### Browser Architecture
 
-![Example of Internet](./images/webWorking.png)
+![Example of Internet](./images/HowTheWebServerWorks.png)
 
 **User Interface:**
 
@@ -336,6 +336,8 @@ Once the browser obtains the IP address, it connects to the web server at that a
 
 ### Creating the DOM Tree
 
+![Creating the DOM Tree](./images/domTree.png)
+
 **Step 4: Parsing HTML:**
 
 The browser parses the HTML code and creates a Document Object Model (DOM) tree. The DOM tree represents the structure of the web page, with each HTML element corresponding to a node in the tree.
@@ -350,6 +352,8 @@ The DOM tree and CSSOM combine to form a render tree. This render tree represent
 
 ### Layout and Painting
 
+![DOM](./images/DOM.png)
+
 **Step 7: Layout:**
 
 The browser calculates the position and size of each element in the render tree during the layout process. This ensures that everything is correctly arranged on the page.
@@ -360,6 +364,6 @@ Finally, the browser paints the pixels on the screen, displaying the web page. I
 
 **Resources**
 
-- [(Video)How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
+- [Video: How Do Web Browsers Work?](https://www.youtube.com/watch?v=WjDrMKZWCt0)
 
 

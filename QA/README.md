@@ -1,7 +1,8 @@
 # Table of Contents
 
+- [Internet](#internet)
 - [QA Basics](#qa-basics)
-- [Teamwork(Project Managment)](#teamwork-project-managment)
+- [Project Managment](#project-managment)
 - [Manual Testing](#manual-testing)
 - [Software Testing and Development Life Cycle](#software-testing-and-development-life-cycle)
 - [Non-Functional Testing](#non-functional-testing)
@@ -446,7 +447,7 @@ Highlights common mistakes made by QA engineers when writing test cases.
 
 - [Tasks: Learning Write Test Cases](./tasks/testCaseDesignTask.md)
 
-# Teamwork(Project Managment)
+# Project Managment
 
 **Resources:**
 
