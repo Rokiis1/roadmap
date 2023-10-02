@@ -19,6 +19,12 @@
 - [Frameworks](#frameworks)
   - [Jest](#jest)
 
+# Internet
+
+**Resources:**
+
+- [Dosc](../internet/README.md)
+
 # QA Basics
 
 - [What is Quality Assurance?](#what-is-quality-assurance)
