@@ -382,7 +382,6 @@ Test the interactivity of CAPTCHAs that require user actions, such as selecting 
 
 CAPTCHAs are often used to prevent automated actions. Test scenarios should confirm that users cannot proceed to the next page or action until they have successfully completed the CAPTCHA challenge.
 
-##
 
 ## Test Cases For DATE OF BIRTH FIELD
 
@@ -430,8 +429,6 @@ CAPTCHAs are often used to prevent automated actions. Test scenarios should conf
 2.6. Test Case 6: Invalid Date Selection
 - Verify that the calendar prevents selecting invalid dates based on the chosen month and year, selecting February 30th.
 
-##
-
 ## Test Cases For CREDIT CARD FUNCTIONALITY
 
 1. Test Case 1: Valid Credit Card Number
@@ -478,8 +475,4 @@ CAPTCHAs are often used to prevent automated actions. Test scenarios should conf
 - Attempt to copy and paste data into any of the credit card input fields (card number, name, expiry date, CVV).
 - Ensure that the system disables the ability to copy and paste data into these fields, enhancing security.
 
-##
 
-## 
-
-##

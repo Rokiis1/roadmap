@@ -12,7 +12,7 @@
 | Steps to Reproduce   | [List of Steps to Reproduce the Issue]|
 | Expected Behavior    | [What Was Expected]                   |
 | Actual Behavior      | [What Actually Happened]              |
-| Attachments          | [Screenshots, Log Files, etc.]        |
+| Attachments          | [Screenshots, Log Files]        |
 | Environment          | [Testing Environment Details]          |
 | Status               | [Open, In Progress, Closed, Reopened]  |
 | Assigned To          | [Developer's Name or ID]              |

@@ -31,9 +31,11 @@
   - [Differences and similarities](#differences-and-similarities)
   - [When to apply each approach](#when-to-apply-each-approach)
 - [Test Case Design](#test-case-design)
-  - [Writing effective test cases](#writing-effective-test-cases)
-  - [Test case structure and format](#test-case-structure-and-format)
-  - [Test case prioritization](#test-case-prioritization)
+  - [Types of Test Cases](#types-of-test-cases)
+  - [Test Case Format](#test-case-format)
+  - [Test case Types](#test-case-types)
+  - [Test Case Requirements](#test-case-requirements)
+  - [Common Mistakes](#common-mistakes)
 
 ## What is Quality Assurance?
 
@@ -377,9 +379,9 @@ Eight elements that make up a test case format:
 
 ### Test Case Types
 
-**Explanation:**
+**Explanation:*
 
-This section highlights that test cases can come in various formats, and their structure may vary based on project needs and complexity. It discusses the flexibility in naming and structuring test cases.
+It discusses the flexibility in naming and structuring test cases.
 
 **Key Concepts:**
 
@@ -442,7 +444,7 @@ Highlights common mistakes made by QA engineers when writing test cases.
 
 **Tasks:**
 
-- []()
+- [Tasks: Learning Write Test Cases](./tasks/testCaseDesignTask.md)
 
 # Teamwork(Project Managment)
 
@@ -453,7 +455,7 @@ Highlights common mistakes made by QA engineers when writing test cases.
 # Manual Testing
 
 - [Test Planning](#test-planning)
-- [TDD - Test Driven Development](#tdd-test-driven-development)
+- [Test Driven Development vs Behavior Driven Development](#test-driven-development-vs-behavior-driven-development)
 - [Test Cases and Scenarios](#test-cases-and-scenarios)
 - [Reporting](#reporting)
   - [Test Summary Report](#test-summary-report)
@@ -487,25 +489,56 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 - [Docs: Test Plan](./assets/manualTesting/testPlanDocs.md)
 
-**Example**
+**Example:**
 
 - [Test Planning Example](./assets/manualTesting/testPlanning.md)
 
-## Test-Driven Development (TDD)
+## Test Driven Development vs Behavior Driven Development
 
-**Explanation:**
+### Explanation:
+Test Driven Development (TDD) and Behavior Driven Development (BDD) are two software development methodologies that prioritize writing tests before or alongside code to ensure software quality and behavior. While both share the goal of improving software quality, they differ in their focus, syntax, and application.
 
-Test-Driven Development (TDD) is a software development practice where tests are written before the actual code, promoting improved code quality and test coverage.
+### Key Concepts:
 
-**Key Concepts:**
+**Test Driven Development (TDD):**
 
-- **Red-Green-Refactor Cycle:** Write failing test (red), make it pass (green), and refactor.
+**Focus:** 
 
-- **Unit Testing:** Write unit tests for small code units.
+TDD primarily centers on writing unit tests for individual code components (functions, methods, or classes).
 
-- **Continuous Integration:** Frequent integration and automated testing.
+**Syntax:** 
 
-- **Benefits:** Reduces defects, enhances design, and supports refactoring.
+TDD tests are often written using testing frameworks like JUnit, NUnit, or pytest. These tests typically focus on inputs, expected outputs, and internal logic.
+
+**Example:** 
+
+In TDD, you'd write a test for a specific function, supply inputs, and verify that the function produces the expected outputs.
+
+**Behavior Driven Development (BDD):**
+
+- **Focus:** 
+
+BDD emphasizes specifying the behavior of a system or feature from a user's perspective, focusing on high-level functionality.
+
+- **Syntax:** 
+
+BDD tests use a more natural language format, often with "Given-When-Then" clauses. Tools like Cucumber and SpecFlow are commonly used for BDD tests.
+
+**Example:** 
+
+In BDD, you'd describe scenarios in a human-readable format, like "Given a user is logged in, when they click the 'logout' button, then they should be logged out."
+
+**Example:**
+
+**Test Driven Development (TDD):**
+1. Write a test case that checks if a sorting algorithm correctly sorts an array.
+2. Implement the sorting algorithm.
+3. Run the test case, ensuring it passes.
+
+**Behavior Driven Development (BDD):**
+1. Describe a high-level feature, such as user authentication.
+2. Define scenarios like user login and logout using "Given-When-Then" statements.
+3. Use BDD tools to automate and validate these scenarios against the actual application.
 
 **Resources:**
 
@@ -516,6 +549,8 @@ Test-Driven Development (TDD) is a software development practice where tests are
 **Explanation:**
 
 Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
+
+- [Test Cases and Scenarios](./assets/manualTesting/testCasesandScenarios.md)
 
 **Key Concepts:**
 
@@ -530,11 +565,6 @@ Test cases and scenarios define the steps, conditions, and expected outcomes for
 **Resources:**
 
 - [Article: Test Cases and Scenarios](https://www.guru99.com/test-case-vs-test-scenario.html)
-- [Video: Crash Course Test Cases and Scenarios](https://www.youtube.com/watch?v=St9Ep9gnvRw)
-
-**Example**
-
-- [Test Cases and Scenarios](./assets/manualTesting/testCasesandScenarios.md)
 
 ## Reporting
 
@@ -560,7 +590,7 @@ Reporting involves documenting and communicating testing activities, results, an
 
 **Explanation**
 
-You don't typically include a complete Test Summary Report within individual test cases. The Test Summary Report is a separate document that provides an overall summary of the testing activities, results, and findings across multiple test cases or an entire testing phase or project. It serves as a high-level summary and evaluation of the testing effort and its outcomes.
+- [Explanation: Test Summary Report](../QA/assets/explanation/testSummaryReport.md)
 
 **Example**
 
@@ -622,10 +652,6 @@ Once you have executed the regression tests, you compile the results into a Regr
 
 2. **Version Control and Code Reviews:** Implement robust version control practices and code review processes to catch issues early in the development cycle, reducing the likelihood of introducing regressions.
 
-**Example**
-
-- [Regression Test Report](./assets/manualTesting/regressionTestReport.md)
-
 ### Test Execution Log
 
 **Explanation:**
@@ -662,25 +688,57 @@ Compatibility testing ensures that software works across various environments, b
 
 ## Verification and Validation
 
-**Explanation:**
+**Explanation:** 
 
-Verification ensures that a software product meets specified requirements, while validation ensures it meets user expectations.
+Verification and validation are two independent procedures used together to ensure that a product, service, or system meets its requirements.
 
-**Key Concepts:**
+**Key Concepts:** 
 
-- **Verification:** Confirm software meets design specifications.
+Verification focuses on confirming whether the procedure used to achieve results is correct, while validation focuses on ensuring that the results themselves meet customer requirements.
 
-- **Validation:** Ensure software meets user needs and intended use.
+**Example:**
 
-- **Quality Assurance and Testing:** Part of V&V process.
+Verification is checking the correctness of the chosen path to reach a destination (point A to point B). Once the path is chosen, the validation step confirms whether it successfully fulfills the requirement of reaching point B.
 
-- **Validation Testing:** Focus on user acceptance and satisfaction.
+In the context of software development, verification involves reviewing work products like requirements, architecture, design, and code. Various types of reviews, such as requirement review, design review, and code review, are conducted to ensure that the chosen procedures are correct.
+
+On the other hand, validation in software development involves testing the results themselves. It checks whether the software output, behavior, or results align with customer requirements. This includes unit tests, integration tests, system tests, and acceptance tests.
+
+In summary, verification focuses on the procedure's correctness, while validation checks whether the results meet customer requirements.
 
 **Resources:**
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
 # Software Testing and Development Life Cycle
+
+**Explanation:**
+
+The Software Testing and Development Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
+
+**Key Concepts:**
+
+- **Requirement Analysis**: This initial phase involves understanding and documenting all project requirements, including functional and non-functional aspects. It sets the foundation for the entire testing process.
+
+- **Test Planning**: Test planning is crucial for outlining the scope of testing, identifying necessary resources, creating schedules, defining deliverables, and estimating efforts. It helps in organizing and managing the testing process effectively.
+
+- **Test Case Design**: In this phase, test cases are designed based on the identified requirements. Test scenarios and cases are created to cover various aspects of the software's functionality, ensuring comprehensive testing.
+
+- **Test Execution**: Test execution involves setting up the testing environment, running test cases, and documenting the results. Testers execute the test cases as per the test plan and report any defects they encounter.
+
+- **Defect Reporting and Tracking**: During test execution, defects or issues are identified and reported to the development team. A defect tracking system is used to manage and monitor the status of these reported defects until they are resolved.
+
+- **Test Closure**: Test closure marks the end of the testing phase. It involves evaluating whether all functionalities have been tested, no new defects are found, testing schedules are met, and there are no project risks related to testing.
+
+**Example:**
+
+For instance, when developing software, the initial requirement analysis phase involves understanding the customer's needs and creating a requirement traceability matrix (RTM) to map requirements to test cases.
+
+During test planning, the scope of testing is defined, resources are allocated, and schedules are established. Test cases are designed in the test case design phase, covering various scenarios and conditions.
+
+Test execution is where the actual testing takes place, with testers running test cases, documenting results, and reporting defects when issues are found. Defects are tracked and managed until closure.
+
+Finally, in the test closure phase, it is determined whether all planned testing activities have been completed successfully, and the project is ready for the next phase, which could be deployment or further development.
 
 # Non-Functional Testing
 
@@ -1417,9 +1475,9 @@ Accessibility testing ensures that a software application is usable by people wi
   - [Exploratory Testing](#exploratory-testing)
   - [Ad Hoc Testing](#ad-hoc-testing)
 - [Boundary value](#boundary-value)
-- [Equivalence](#equivalence)
-- [Decision table](#decision-table)
-- [State Transistion](#state-transistion)
+- [Equivalence Partitioning](#equivalence-partitioning)
+- [Decision Table Testing](#decision-table-testing)
+- [State Transition Testing](#state-transistion-testing)
 - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
 - [Regression Testing](#regression-testing)
 - [Unit Testing](#unit-testing)
@@ -1432,17 +1490,21 @@ Accessibility testing ensures that a software application is usable by people wi
 
 **Explanation:**
 
-Exploratory Testing involves simultaneous test design and execution, where testers explore the software dynamically without predefined test cases.
+Exploratory testing is a style of software testing that places emphasis on personal freedom and responsibility for individual testers. It involves testers exploring an application without predefined test cases or strict requirements. Testers aim to discover issues, learn about the application, and document their findings, often with a focus on finding bugs early in the development process.
 
 **Key Concepts:**
 
-- **Approach**: Relies on tester's creativity, intuition, and domain knowledge.
+- **Freedom and Responsibility:** Testers have the freedom to explore the application as they see fit, relying on their experience and intuition. They take personal responsibility for the quality of their work and continuously optimize their testing process.
 
-- **Flexibility**: Adaptation to evolving requirements.
+- **Learning and Discovery:** Exploratory testing is about learning and understanding the application, its features, and its behavior. Testers may identify potential issues that weren't apparent from the requirements or documentation.
 
-- **Bug Hunting**: Efficient for finding defects in an unscripted manner.
+- **Ad Hoc Testing:** Testers conduct testing sessions in an ad hoc manner, without rigid test scripts or predefined steps. They interact with the application as an end-user might, trying to uncover defects.
 
-- **Documentation**: Testers document actions, observations, and defects found.
+- **Session-Based Testing:** Exploratory testing is often organized into sessions with predefined time limits. Testers take notes during these sessions, recording what they've tested, what they've found, and any issues they've encountered.
+
+**Example:**
+
+In the provided video, the presenter demonstrates exploratory testing on a CRM (Customer Relationship Management) web application. The tester explores the application by adding a new user, observing how it responds to different inputs, noting down issues, and learning about its behavior. During the session, the tester records findings, such as the application's response to invalid input and the structure of HTTP requests. This hands-on approach helps identify potential defects and unexpected behavior.
 
 **Resources:**
 
@@ -1455,35 +1517,247 @@ Exploratory Testing involves simultaneous test design and execution, where teste
 
 ### Ad Hoc Testing
 
+**Explanation:**
+
+Ad hoc testing is an informal and unstructured approach to software testing. It involves testing an application randomly, without following a predefined test plan or documentation. The goal of ad hoc testing is to discover critical defects and vulnerabilities that may be missed in formal or structured testing methods.
+
+**Key Concepts:**
+
+- Random and unstructured testing.
+
+- Focuses on critical flows and breaking the application.
+
+- Relies on the tester's experience and intuition.
+
+- Minimal to no documentation.
+
+**Example:**
+
+Imagine testing a login page without a documented test plan. Testers might try various combinations of input, including special characters, non-English characters, and invalid data, to uncover potential issues.
+
 ### Boundary value
 
-### Equivalence
+**Explanation:**
+
+Boundary value analysis, also known as boundary value testing, is a black box testing technique used to design test cases by focusing on the boundaries of acceptable input values. In this technique, testers test the extreme values or boundaries of input ranges to ensure that the system functions correctly at these critical points.
+
+**Key Concepts:**
+
+- Black box testing technique.
+
+- Focuses on boundary values, including minimum and maximum acceptable inputs.
+
+- Aims to identify issues related to boundary conditions.
+
+- Typically applied to input fields or parameters.
+
+**Example:**
+
+Consider a test scenario where the speed of a car should be between 40 and 80 km/h to achieve optimal fuel efficiency. Test cases for boundary value analysis in this scenario could include:
+
+- Test case 1: Speed = 39 km/h (Below the minimum boundary) - Expect an invalid result.
+- Test case 2: Speed = 40 km/h (Minimum boundary) - Expect a valid result.
+- Test case 3: Speed = 41 km/h (Just above the minimum boundary) - Expect a valid result.
+- Test case 4: Speed = 79 km/h (Just below the maximum boundary) - Expect a valid result.
+- Test case 5: Speed = 80 km/h (Maximum boundary) - Expect a valid result.
+- Test case 6: Speed = 81 km/h (Above the maximum boundary) - Expect an invalid result.
+
+### Equivalence Partitioning
+
+**Explanation:**
+
+Equivalence Partitioning is a straightforward yet highly efficient software testing technique used to create test cases. It involves categorizing input data into partitions or groups based on certain characteristics or behaviors. The fundamental idea is to test representative values from each partition to ensure adequate test coverage.
+
+**Key Concepts:**
+
+- Input data is grouped into partitions.
+
+- Elements within the same partition behave similarly.
+
+- Testing is focused on representative values from each partition.
+
+- Helps reduce the number of test cases while maintaining coverage.
+
+**Syntax:**
+
+Equivalence Partitioning involves dividing input data into partitions based on their equivalence in terms of expected behavior. Each partition is then tested with at least one representative test case.
+
+**Example:**
+
+Consider a console-based application that determines whether a given number is even or odd. The partitions for this application could be:
+1. Even numbers: Numbers with no remainder when divided by 2.
+2. Odd numbers: Numbers with a remainder of 1 when divided by 2.
+3. Invalid input: Any input that is not a positive integer.
+
+Test cases based on equivalence partitions:
+- Test case 1: Input = 2 (Even number) - Expect "This number is even."
+- Test case 2: Input = 9 (Odd number) - Expect "This number is odd."
+- Test case 3: Input = "abc" (Invalid input) - Expect "Invalid input."
+- Test case 4: Input = 1.2 (Invalid input) - Expect "Invalid input."
+
+
+**Resources:**
 
 ### Decision table
 
-### State Transistion
+### Decision Table Testing
+
+**Explanation:**
+
+Decision Table Testing is a black-box testing technique used to systematically test combinations of input conditions or rules to determine the corresponding actions or outcomes. It is particularly useful when the behavior of a software application depends on multiple input conditions or factors.
+
+**Key Concepts:**
+
+- Decision tables are used to model combinations of input conditions and expected actions.
+
+- Each rule or condition combination in the decision table represents a test case.
+
+- Decision tables help identify valid and invalid input combinations.
+
+- Test cases are derived from the possible combinations of input conditions.
+
+**Syntax:**
+
+In decision table testing, you create a table that lists all possible combinations of input conditions and the corresponding expected actions or outcomes. Each row in the table represents a unique test case.
+
+**Example:**
+
+Consider a scenario where an insurance company determines insurance premiums based on the age of the policyholder and the insurance class. A decision table could look like this:
+
+| Rule | Age Range | Insurance Class | Premium | Excess |
+|------|-----------|-----------------|---------|--------|
+| 1    | 21-29     | A               | 90      | 2500   |
+| 2    | 30-39     | A               | 100     | 2200   |
+| 3    | 21-29     | B               | 70      | 500    |
+| 4    | 30-39     | B               | 80      | 700    |
+| 5    | 40-49     | C               | 120     | 1000   |
+| 6    | 50-59     | C               | 150     | 1200   |
+| 7    | 40-49     | D               | 100     | 800    |
+| 8    | 50-59     | D               | 130     | 900    |
+
+In this example, there are eight rules representing different combinations of age ranges and insurance classes. Each rule specifies the premium and excess amount based on these conditions. These rules can be used as test cases to validate the software's behavior.
+
+**Resources:**
+
+### State Transition Testing
+
+**Explanation:**
+
+State Transition Testing is a black-box testing technique that focuses on the behavior of a software application in response to different states and transitions between those states. In this technique, the software's behavior is analyzed based on various input events or conditions that trigger transitions from one state to another.
+
+**Key Concepts:**
+
+- State Transition Diagrams (also known as Statecharts) are often used to model the states and transitions of the software.
+
+- States represent the different conditions or modes in which the software can operate.
+
+- Transitions represent the events or inputs that cause the software to change from one state to another.
+
+- Test cases are designed to validate the software's behavior as it moves through different states and transitions.
+
+**Syntax:**
+
+State Transition Testing involves creating state transition diagrams that visually represent the states and transitions of the software. Test cases are derived from these diagrams to ensure comprehensive coverage of state transitions.
+
+**Example:**
+
+Consider an Automated Teller Machine (ATM) as an example. The ATM can be in various states, such as "Card Inserted," "PIN Entered," "Access Granted," and "Access Denied." The transitions between these states are triggered by events like "Card Insertion," "PIN Entry," and "Access Attempts."
+
+A simplified State Transition Diagram for ATM behavior could look like this:
+
+```
+Start
+|
+V
+Card Inserted --> PIN Entered --> Access Granted
+|               |
+|               |
+|               V
+|               Access Denied --> Card Retained
+|
++-------------- Card Ejected
+```
+
+In this diagram:
+- "Start" represents the initial state.
+- "Card Inserted" is a state triggered by the event of inserting a card.
+- "PIN Entered" represents the state when a correct PIN is entered.
+- "Access Granted" represents successful access to the account.
+- "Access Denied" represents failed attempts to access.
+- "Card Retained" is the state where the ATM retains the card after multiple failed attempts.
+- "Card Ejected" is the state when the card is ejected by the user.
+
+Test cases can be derived from different paths through this diagram to validate the ATM's behavior under various scenarios.
+
+**Resources:**
 
 ### Smoke and Sanity Testing
 
 **Explanation:**
 
-Smoke Testing and Sanity Testing are quick checks performed to determine whether a build is stable and if further testing can proceed.
+Smoke Testing and Sanity Testing are two essential levels of software testing that serve different purposes during the software development lifecycle. Both are preliminary tests performed before detailed testing begins.
 
 **Smoke Testing:**
 
-- **Objective**: Checks basic functionalities to validate if the build is stable.
+- **Definition:** Smoke Testing is a high-level, shallow, and non-exhaustive testing technique.
 
-- **Timing**: Performed after each new build.
+- **Objective:** It checks whether the essential and critical functionalities of the software are working without encountering major issues.
 
-- **Coverage**: Focuses on essential functionalities.
+- **Scope:** It covers the entire application but focuses on surface-level testing.
+
+- **Automation:** Smoke tests are often automated and executed frequently.
+
+- **Documentation:** Smoke testing results may be documented for traceability.
+
+- **Testing Responsibility:** Both developers and testers can perform smoke testing.
+
+- **Testing Occurrence:** It is typically performed after a new build is created to ensure basic functionality.
+
+- **Stability:** Conducted when the software build may not be entirely stable.
+
+- **Verification:** Validates if the build is acceptable for further testing.
+
+- **Purpose:** To quickly identify glaring issues and prevent wasting effort on unstable builds.
 
 **Sanity Testing:**
 
-- **Objective**: Ensures recent changes didn't adversely affect the system.
+- **Definition:** Sanity Testing is a narrow and deep testing technique.
 
-- **Timing**: After specific changes, fixes, or patches.
+- **Objective:** It verifies specific changes, new features, or bug fixes introduced in the software.
 
-- **Coverage**: Focuses on recent modifications.
+- **Scope:** It focuses on particular functionalities, areas, or modules of the software.
+
+- **Automation:** Sanity testing is usually manual and not frequently automated.
+
+- **Documentation:** Extensive documentation is not required for sanity testing.
+
+- **Testing Responsibility:** Primarily the responsibility of testers.
+
+- **Testing Occurrence:** Typically conducted after smoke testing, as the software build becomes more stable.
+
+- **Stability:** Performed when the software build is relatively stable.
+
+- **Verification:** Ensures that recent changes and fixes are working as intended.
+
+- **Purpose:** To verify that specific changes have not introduced new issues and that targeted areas are functioning correctly.
+
+**Comparison:**
+
+- **Smoke Testing** is a general health check-up of the software at a high level, like checking vital signs.
+
+- **Sanity Testing** is a specialized health check-up that delves deep into specific functionalities.
+
+- **Smoke Testing** helps determine if the build is acceptable for further testing.
+
+- **Sanity Testing** validates recent changes and fixes.
+
+- **Smoke Testing** is both automated and manual and can be performed by developers and testers.
+
+- **Sanity Testing** is primarily manual and is the responsibility of testers.
+
+- **Smoke Testing** is performed on less stable builds to quickly identify critical issues.
+
+- **Sanity Testing** is conducted on more stable builds to ensure recent changes are functioning correctly.
 
 **Resources:**
 
@@ -1493,6 +1767,8 @@ Smoke Testing and Sanity Testing are quick checks performed to determine whether
 **Tasks:**
 
 - [Smoke and Sanity Testing](../tasks/QA/testingTechniques/smokeAndSanityTesting.md)
+
+### Smoke and Sanity Testing
 
 ### Regression Testing
 
