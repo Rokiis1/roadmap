@@ -9,7 +9,47 @@
 
 # Live
 
-1. **Positive Test Case for Logging In**
+Certainly, here are positive and negative test cases for user registration:
+
+**Positive Test Case for User Registration**
+
+1. **Positive Test Case for User Registration**
+    - Description: Create a test case to ensure that users can successfully register on the demo page by providing valid and complete registration information.
+    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Positive Test Case for User Registration](https://momentoapp.emuel.me/login.php)
+
+**Negative Test Case for User Registration**
+
+2. **Negative Test Case for User Registration - Missing Information**
+    - Description: Develop a test case to verify that the system appropriately handles user registration attempts with missing or incomplete information (missing email address).
+    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Negative Test Case for User Registration](https://momentoapp.emuel.me/login.php)
+
+3. **Negative Test Case for User Registration - Invalid Email Format**
+    - Description: Create a test case to check how the system responds when a user tries to register with an invalid email format (without "@" symbol).
+    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Negative Test Case for User Registration - Invalid Email Format](https://momentoapp.emuel.me/login.php)
+
+# Easy
+
+1. **Negative Test Case for User Registration - Existing Email**
+    - Description: Develop a test case to verify that the system correctly handles registration attempts with an email address that already exists in the database.
+    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Negative Test Case for User Registration - Existing Email](https://momentoapp.emuel.me/login.php)
+
+2. **Positive Test Case for Logging In**
    - Description: Write a test case to ensure that users can log in successfully with valid credentials on the demo page.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -17,7 +57,7 @@
 
 - [Demo: Positive Logging In](https://momentoapp.emuel.me/login.php)
 
-2. **Negative Test Case for Logging In**
+3. **Negative Test Case for Logging In**
    - Description: Create a test case to verify that the system handles incorrect login credentials appropriately.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -25,7 +65,7 @@
 
 - [Demo: Negative Logging In](https://momentoapp.emuel.me/login.php)
 
-3. **Positive Test Case for Adding a Product to Cart**
+4. **Positive Test Case for Adding a Product to Cart**
    - Description: Develop a test case to confirm that users can add a product to the cart successfully.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -33,9 +73,7 @@
 
 - [Demo: Positive Adding a Product to Cart](https://www.demoblaze.com/index.html)
 
-# Easy
-
-1. **Destructive Test Case for Stress Testing**
+5. **Destructive Test Case for Stress Testing**
    - Description: Create a test case to simulate stress on the demo page, such as rapid clicking, and observe how the system behaves.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -43,7 +81,7 @@
 
 - [Demo: Destructive Test Case for Stress Testing](https://www.demoblaze.com/index.html)
 
-2. **Positive Test Case for Updating User Profile**
+6. **Positive Test Case for Updating User Profile**
    - Description: Develop a test case to ensure users can successfully update their profile information.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -51,7 +89,7 @@
 
 - [Demo: Positive Test Case for Updating User Profile](https://momentoapp.emuel.me/login.php)
 
-3. **Negative Test Case for Updating User Profile**
+7. **Negative Test Case for Updating User Profile**
    - Description: Write a test case to check how the system handles incorrect or incomplete data when updating a user profile.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -59,7 +97,7 @@
 
 - [Demo: Negative Test Case for Updating User Profile](https://momentoapp.emuel.me/login.php)
 
-4. **Positive Test Case for Searching Products**
+8. **Positive Test Case for Searching Products**
    - Description: Create a test case to confirm that the search functionality on the demo page returns relevant results.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -67,7 +105,7 @@
 
 - [Demo: Positive Test Case for Searching Products](https://automationbookstore.dev/)
 
-5. **Negative Test Case for Searching Products**
+9. **Negative Test Case for Searching Products**
    - Description: Write a test case to verify that the search functionality handles invalid or non-existent search queries gracefully.
    - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
@@ -75,10 +113,26 @@
 
 - [Demo: Negative Test Case for Searching Products](https://automationbookstore.dev/)
 
-6. **Comprehensive Test Case for Checkout Process**
+10. **Comprehensive Test Case for Checkout Process**
     - Description: Develop a comprehensive test case that covers the entire checkout process, from adding items to the cart to completing the purchase.
     - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
 
 **Demo**
 
 - [Demo: Comprehensive Test Case for Checkout Process](https://www.demoblaze.com/cart.html)
+
+11. **Positive Test Case for Product Sorting**
+   - Description: Write a test case to confirm that users can sort products on the demo page by various criteria, such as Product Name, price.
+   - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Positive Test Case for Product Sorting](https://magento.softwaretestingboard.com/)
+
+12. Positive Test Case for Product Filtering
+   - Description: Create a test case to ensure that users can successfully filter products on the demo page using valid and supported criteria, and that the filtered results are displayed correctly.
+   - Elements to Include: ID, summary, preconditions, steps, expected results, actual results, status.
+
+**Demo**
+
+- [Demo: Positive Positive Test Case for Product Filtering](https://magento.softwaretestingboard.com/)
