@@ -229,6 +229,10 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 ### Atlassian
 
+****
+
+- [Site: Atlassian](https://www.atlassian.com/)
+
 ### Jira
 
 Jira is a project and issue tracking software developed by Atlassian, primarily known for its capabilities in agile project management.
@@ -355,3 +359,4 @@ Backlog grooming is an essential practice in Agile project management, particula
 
 **Tasks:**
 
+- [Tasks: Backlog Grooming](../teamwork(Project-managment)/tasks/backlogGrooming.md)

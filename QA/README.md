@@ -502,6 +502,7 @@ Finally, in the test closure phase, it is determined whether all planned testing
   - [Test Execution Log](#test-execution-log)
 - [Compatibility](#compatibility)
 - [Verification and Validation](#verification-and-validation)
+  - [User Acceptance Testing](#user-acceptance-testing)
 
 ## Test Planning
 
