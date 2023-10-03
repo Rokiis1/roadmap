@@ -9,8 +9,6 @@
 
 # Live
 
-Certainly, here are positive and negative test cases for user registration:
-
 **Positive Test Case for User Registration**
 
 1. **Positive Test Case for User Registration**

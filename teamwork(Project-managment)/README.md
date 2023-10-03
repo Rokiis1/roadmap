@@ -255,40 +255,33 @@ Jira is a project and issue tracking software developed by Atlassian, primarily 
 
 - **Actors:** Actors are external entities, such as users, customers, administrators, or other systems, that interact with the application.
 
-- **Scenario:** This represents the steps required to achieve a specific user goal. It should focus on the user's intention and be described in a clear, non-technical language.
+- **Description:** This represents the steps required to achieve a specific user goal. It should focus on the user's intention and be described in a clear, non-technical language.
 
 - **User Stories:** User stories are concise descriptions of user goals, typically following the format: `"As a [user or role], I want [a goal] so that [I benefit in this way]."` 
 
 **Syntax:**
 
-- **Use Case:** 
+**Use Case:** 
 
-  - Title: Short phrase with an active verb describing the goal.
+- Title: Short phrase with an active verb describing the goal.
 
-  - Actor: The entity initiating the use case.
+- Actor: The entity initiating the use case.
+  
+- Description: A series of steps required to achieve the goal.
 
-  - Scenario: A series of steps required to achieve the goal.
+**User Story:** 
 
-  - Success Scenario: Description of the normal, expected flow.
-
-  - Extensions: Details about alternative or exceptional paths.
-
-  - Preconditions: Conditions that must be met before the use case begins.
-
-- **User Story:** 
-
-User stories follow a specific format: "As a [user or role], I want [a goal] so that [I benefit in this way]."
+User stories follow a specific format: `"As a [user or role], I want [a goal] so that [I benefit in this way]."`
 
 **Example:**
 
 - **Use Case Example:** 
 
 - Title: "Add a New Member"
+
 - Actor: Customer
-- Scenario: The customer selects the "Add New Member" option, enters the member's details, and confirms the addition.
-- Success Scenario: The member is successfully added to the system.
-- Extensions: Handling cases when the member information is incomplete or already exists.
-- Preconditions: A customer must be logged in and have access to the "Add New Member" feature.
+
+- Description: The customer selects the "Add New Member" option, enters the member's details, and confirms the addition.
 
 - **User Story Example:** 
 
@@ -333,4 +326,32 @@ For a user story related to displaying food allergies on a medical app:
 5. The user interface should be responsive, ensuring that allergy information is displayed correctly on different devices.
 
 ### Backlog grooming
+
+**Explanation:**
+
+Backlog grooming is an essential practice in Agile project management, particularly in Scrum. It involves the process of reviewing, refining, and prioritizing items in the product backlog to ensure they are well-prepared and ready for implementation. The backlog consists of user stories, features, and tasks that represent the work to be done in the project.
+
+**Key Concepts:**
+
+- **Purpose:** Backlog grooming helps keep the product backlog organized and ensures that the top-priority items are well-defined and ready for development. It also helps the team maintain a shared understanding of the work to be done.
+
+- **Timing:** Backlog grooming is an ongoing activity that takes place throughout the project's lifecycle. It is not limited to a specific phase but should occur regularly, typically before a sprint planning meeting.
+
+- **Prioritization:** During backlog grooming, the product owner and team prioritize backlog items based on their importance and value to the project. This ensures that the most critical work is at the top of the backlog.
+
+- **Refinement:** Backlog items may need refinement to make them clear, concise, and actionable. This includes adding details, acceptance criteria, estimates, and any necessary attachments (e.g., designs).
+
+- **Team Collaboration:** Backlog grooming is a collaborative effort involving the product owner, development team, and other stakeholders. It facilitates discussions, clarifications, and the resolution of any questions or concerns.
+
+**Syntax:**
+
+- Backlog grooming typically involves reviewing and discussing individual backlog items (user stories, features, etc.) one by one.
+- It may also include reprioritizing items within the backlog based on their current value and importance to the project.
+- Items that are ready for development are moved to the top of the backlog, making them candidates for inclusion in the next sprint.
+
+**Example:**
+
+- [Example: backlog](./assets/examples/backlog.md)
+
+**Tasks:**
 

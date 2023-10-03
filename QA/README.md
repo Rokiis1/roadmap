@@ -3,8 +3,8 @@
 - [Internet](#internet)
 - [QA Basics](#qa-basics)
 - [Project Managment](#project-managment)
-- [Manual Testing](#manual-testing)
 - [Software Testing and Development Life Cycle](#software-testing-and-development-life-cycle)
+- [Manual Testing](#manual-testing)
 - [Non-Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
@@ -23,7 +23,7 @@
 
 **Resources:**
 
-- [Dosc](../internet/README.md)
+- [Dosc: What is Internet?](../internet/README.md)
 
 # QA Basics
 
@@ -362,7 +362,7 @@ We will break down the format of a test case, including its eight essential elem
 
 **Key Concepts:**
 
-- Test case elements (ID, summary, preconditions, steps, post conditions, expected results, actual results, status)
+- Test case elements (ID, summary, preconditions, steps, expected results, actual results, status)
 
 **Example:**
 
@@ -375,8 +375,6 @@ Eight elements that make up a test case format:
 3. Preconditions (actions needed before the test)
 
 4. Steps (actions for verification)
-
-5. Post conditions (actions to return the system to its original state)
 
 6. Expected results
 
@@ -446,6 +444,7 @@ Highlights common mistakes made by QA engineers when writing test cases.
 
 **Resources:**
 
+- [Article: How To Write Test Cases - A Complete Guide With Examples And Best Practices](https://www.lambdatest.com/learning-hub/test-case)
 - [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
 - [Article: Test Case Design](https://www.guru99.com/software-testing-techniques.html)
 
@@ -458,6 +457,36 @@ Highlights common mistakes made by QA engineers when writing test cases.
 **Resources:**
 
 - [Page: Project Managment](../teamwork(Project-managment)/README.md)
+
+# Software Testing and Development Life Cycle
+
+**Explanation:**
+
+The Software Testing and Development Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
+
+**Key Concepts:**
+
+- **Requirement Analysis**: This initial phase involves understanding and documenting all project requirements, including functional and non-functional aspects. It sets the foundation for the entire testing process.
+
+- **Test Planning**: Test planning is crucial for outlining the scope of testing, identifying necessary resources, creating schedules, defining deliverables, and estimating efforts. It helps in organizing and managing the testing process effectively.
+
+- **Test Case Design**: In this phase, test cases are designed based on the identified requirements. Test scenarios and cases are created to cover various aspects of the software's functionality, ensuring comprehensive testing.
+
+- **Test Execution**: Test execution involves setting up the testing environment, running test cases, and documenting the results. Testers execute the test cases as per the test plan and report any defects they encounter.
+
+- **Defect Reporting and Tracking**: During test execution, defects or issues are identified and reported to the development team. A defect tracking system is used to manage and monitor the status of these reported defects until they are resolved.
+
+- **Test Closure**: Test closure marks the end of the testing phase. It involves evaluating whether all functionalities have been tested, no new defects are found, testing schedules are met, and there are no project risks related to testing.
+
+**Example:**
+
+For instance, when developing software, the initial requirement analysis phase involves understanding the customer's needs and creating a requirement traceability matrix (RTM) to map requirements to test cases.
+
+During test planning, the scope of testing is defined, resources are allocated, and schedules are established. Test cases are designed in the test case design phase, covering various scenarios and conditions.
+
+Test execution is where the actual testing takes place, with testers running test cases, documenting results, and reporting defects when issues are found. Defects are tracked and managed until closure.
+
+Finally, in the test closure phase, it is determined whether all planned testing activities have been completed successfully, and the project is ready for the next phase, which could be deployment or further development.
 
 # Manual Testing
 
@@ -716,36 +745,6 @@ In summary, verification focuses on the procedure's correctness, while validatio
 **Resources:**
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
-
-# Software Testing and Development Life Cycle
-
-**Explanation:**
-
-The Software Testing and Development Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
-
-**Key Concepts:**
-
-- **Requirement Analysis**: This initial phase involves understanding and documenting all project requirements, including functional and non-functional aspects. It sets the foundation for the entire testing process.
-
-- **Test Planning**: Test planning is crucial for outlining the scope of testing, identifying necessary resources, creating schedules, defining deliverables, and estimating efforts. It helps in organizing and managing the testing process effectively.
-
-- **Test Case Design**: In this phase, test cases are designed based on the identified requirements. Test scenarios and cases are created to cover various aspects of the software's functionality, ensuring comprehensive testing.
-
-- **Test Execution**: Test execution involves setting up the testing environment, running test cases, and documenting the results. Testers execute the test cases as per the test plan and report any defects they encounter.
-
-- **Defect Reporting and Tracking**: During test execution, defects or issues are identified and reported to the development team. A defect tracking system is used to manage and monitor the status of these reported defects until they are resolved.
-
-- **Test Closure**: Test closure marks the end of the testing phase. It involves evaluating whether all functionalities have been tested, no new defects are found, testing schedules are met, and there are no project risks related to testing.
-
-**Example:**
-
-For instance, when developing software, the initial requirement analysis phase involves understanding the customer's needs and creating a requirement traceability matrix (RTM) to map requirements to test cases.
-
-During test planning, the scope of testing is defined, resources are allocated, and schedules are established. Test cases are designed in the test case design phase, covering various scenarios and conditions.
-
-Test execution is where the actual testing takes place, with testers running test cases, documenting results, and reporting defects when issues are found. Defects are tracked and managed until closure.
-
-Finally, in the test closure phase, it is determined whether all planned testing activities have been completed successfully, and the project is ready for the next phase, which could be deployment or further development.
 
 # Non-Functional Testing
 
