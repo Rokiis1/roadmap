@@ -376,6 +376,8 @@ Eight elements that make up a test case format:
 
 4. Steps (actions for verification)
 
+3. Postconditions (actions what's happen after test)
+
 6. Expected results
 
 7. Actual results
@@ -494,9 +496,9 @@ Finally, in the test closure phase, it is determined whether all planned testing
 - [Test Driven Development vs Behavior Driven Development](#test-driven-development-vs-behavior-driven-development)
 - [Test Cases and Scenarios](#test-cases-and-scenarios)
 - [Reporting](#reporting)
-  - [Test Summary Report](#test-summary-report)
   - [Test Case Report](#test-case-report)
     - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
+  - [Test Summary Report](#test-summary-report)
   - [Defect Report (Bug Report)](#defect-report-bug-report)
   - [Regression Test Report](#regression-test-report)
   - [Test Execution Log](#test-execution-log)
@@ -532,10 +534,11 @@ Test planning involves defining the overall testing strategy for a project, outl
 
 ## Test Driven Development vs Behavior Driven Development
 
-### Explanation:
+**Explanation:**
+
 Test Driven Development (TDD) and Behavior Driven Development (BDD) are two software development methodologies that prioritize writing tests before or alongside code to ensure software quality and behavior. While both share the goal of improving software quality, they differ in their focus, syntax, and application.
 
-### Key Concepts:
+**Key Concepts:**
 
 **Test Driven Development (TDD):**
 
@@ -585,19 +588,27 @@ In BDD, you'd describe scenarios in a human-readable format, like "Given a user 
 
 **Explanation:**
 
-Test cases and scenarios define the steps, conditions, and expected outcomes for testing different aspects of a software application.
+**Test Scenario:**
+
+- Test scenarios are high-level, one-liner descriptions of what you are going to test in an application.
+- They provide a brief overview of what functionality or feature you will be testing.
+- Test scenarios are typically derived from requirement documents, such as software requirement specifications (SRS) or user stories.
+- They serve as the baseline for understanding what needs to be tested in a specific functionality or feature.
+
+**Test Case:**
+
+- Test cases are more detailed descriptions of how you will test a specific scenario.
+- Test cases are derived from test scenarios.
+- They include step-by-step instructions on how to perform the test, including actions to take, input data, and expected outcomes.
+- Test cases are used to execute and verify that a specific scenario works correctly.
+
+**Relation between Test Scenarios and Test Cases:**
+
+- Test scenarios serve as the basis for creating test cases.
+- Test cases provide detailed instructions on how to test each scenario.
+- Test scenarios help testers identify what needs to be tested, while test cases guide testers through the actual testing process.
 
 - [Test Cases and Scenarios](./assets/manualTesting/testCasesandScenarios.md)
-
-**Key Concepts:**
-
-- **Test Case:** A set of inputs, actions, and expected results.
-
-- **Test Scenario:** A sequence of related test cases.
-
-- **Coverage:** Ensure comprehensive coverage of functionalities.
-
-- **Traceability:** Link test cases to requirements for validation.
 
 **Resources:**
 
@@ -623,23 +634,13 @@ Reporting involves documenting and communicating testing activities, results, an
 
 - [Article: Reporting](https://www.guru99.com/defect-management-process.html)
 
-### Test Summary Report
-
-**Explanation**
-
-- [Explanation: Test Summary Report](../QA/assets/explanation/testSummaryReport.md)
-
-**Example**
-
-- [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
-
 ### Test Case Report
 
-**Explanation**
+**Explanation:**
 
 A Test Case Report, also known as a Test Execution Report, provides an overview of the status and results of executed test cases.
 
-**Example**
+**Example:**
 
 - [Test Case Report](./assets/manualTesting/testCaseReport.md)
 
@@ -661,15 +662,25 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
+### Test Summary Report
+
+**Explanation:**
+
+- [Explanation: Test Summary Report](../QA/assets/explanation/testSummaryReport.md)
+
+**Example:**
+
+- [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
+
 ### Defect Report (Bug Report)
 
-**Explanation**
+**Explanation:**
 
 Defect Reports are separate documents used to document and track issues or defects identified during testing. You do not typically write Defect Reports (Bug Reports) within individual test cases.
 
 - Defect Reports document issues found during testing, which may result from executing test cases. These reports are used to communicate the problems to developers or the relevant team responsible for fixing the defects.
 
-**Example**
+**Example:**
 
 - [Defect Report (Bug Report)](./assets/manualTesting/bugReport.md)
 
@@ -746,6 +757,8 @@ In summary, verification focuses on the procedure's correctness, while validatio
 **Resources:**
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
+
+### User Acceptance Testing
 
 # Non-Functional Testing
 

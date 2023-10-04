@@ -9,6 +9,21 @@
     - [Test Cases For DATE OF BIRTH FIELD](#test-cases-for-date-of-birth-field)
     - [Test Cases For CREDIT CARD FUNCTIONALITY](#test-cases-for-credit-card-functionality)
 
+
+# Test Plan
+
+1. **Sprint-Based Test Planning:**
+
+- In Agile methodologies like Scrum, it's typical to create test plans for each sprint. These sprint-specific test plans are often shorter and more focused, as they cover the testing activities for the features or user stories planned for that particular sprint.
+- Sprint-based test plans can include details about the user stories or features being developed in the sprint, the specific test cases related to those stories, and the testing approach for that sprint.
+- This approach allows for flexibility and adaptability since the testing plan can be adjusted as the project progresses.
+
+2. **Comprehensive Test Plan:**
+
+- In some cases, especially in Waterfall or more traditional project management approaches, a comprehensive test plan like the one you provided in your template can be created at the beginning of the project or for a larger phase of development.
+- This comprehensive test plan covers the entire project and provides a high-level overview of the testing strategy, objectives, and scope. It may also outline the testing activities for different phases of the project.
+- Updates to the comprehensive test plan can be made as the project evolves, but the plan itself serves as a foundational document.
+
 ## Test Cases For DROPDOWN FIELD
 
 **Example:**
