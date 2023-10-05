@@ -501,7 +501,6 @@ Finally, in the test closure phase, it is determined whether all planned testing
   - [Test Summary Report](#test-summary-report)
   - [Defect Report (Bug Report)](#defect-report-bug-report)
   - [Regression Test Report](#regression-test-report)
-  - [Test Execution Log](#test-execution-log)
 - [Compatibility](#compatibility)
 - [Verification and Validation](#verification-and-validation)
   - [User Acceptance Testing](#user-acceptance-testing)
@@ -662,6 +661,10 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
+**Tasks:**
+
+- [Task: Test Case Report](../QA/tasks/TestCaseReports.md)
+
 ### Test Summary Report
 
 **Explanation:**
@@ -671,6 +674,10 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 **Example:**
 
 - [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
+
+**Tasks:**
+
+- [Task: Test Summary Report](../QA/tasks/testSummaryReport.md)
 
 ### Defect Report (Bug Report)
 
@@ -682,7 +689,11 @@ Defect Reports are separate documents used to document and track issues or defec
 
 **Example:**
 
-- [Defect Report (Bug Report)](./assets/manualTesting/bugReport.md)
+- [Example: Defect Report (Bug Report)](./assets/manualTesting/bugReport.md)
+
+**Tasks:**
+
+- [Task: Defect Report (Bug Report)](../QA/tasks/bugReport.md)
 
 ### Regression Test Report
 
@@ -699,16 +710,6 @@ Once you have executed the regression tests, you compile the results into a Regr
 1. **Continuous Integration/Continuous Deployment (CI/CD):** Implement CI/CD pipelines to automate the build, testing, and deployment process. This ensures that regression tests are run automatically with each code change, reducing the risk of regression issues going unnoticed.
 
 2. **Version Control and Code Reviews:** Implement robust version control practices and code review processes to catch issues early in the development cycle, reducing the likelihood of introducing regressions.
-
-### Test Execution Log
-
-**Explanation:**
-
-Test logs provide a detailed record of the test execution process, including what was tested, how it was tested, and the results of the tests.
-
-**Example:**
-
-- [Test Execution Log](./assets/manualTesting/testExecutionLog.md)
 
 ## Compatibility
 
@@ -759,6 +760,8 @@ In summary, verification focuses on the procedure's correctness, while validatio
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
 ### User Acceptance Testing
+
+
 
 # Non-Functional Testing
 
