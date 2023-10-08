@@ -1,6 +1,6 @@
 Consider an Automated Teller Machine (ATM) as an example. The ATM can be in various states, such as "Card Inserted," "PIN Entered," "Access Granted," and "Access Denied." The transitions between these states are triggered by events like "Card Insertion," "PIN Entry," and "Access Attempts."
 
-A simplified State Transition Diagram for ATM behavior could look like this:
+# Example 1
 
 ```
 Start

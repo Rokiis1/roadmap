@@ -14,14 +14,3 @@ In this example, we are determining the discount percentage for customers based 
 | No Membership               | $50 to $100                      | 3%                          | Customers without a membership with moderate purchases get a 3% discount.  |
 | No Membership               | More than $100                  | 7%                          | Customers without a membership with large purchases get a 7% discount.  |
 
-In this decision table:
-
-- **Conditions**: Membership Status has three possible values (Regular, Premium, No Membership), and Total Purchase Amount is divided into three ranges.
-  
-- **Action**: The action is the Discount Percentage, which is the output of the decision based on the combination of conditions.
-
-- **Description**: A description is provided for each combination to explain the discount calculation logic.
-
-This decision table can serve as a reference for designing test cases and ensuring that various combinations of conditions are tested to verify the correct calculation of discount percentages in the e-commerce website's pricing system.
-
-In this example, there are eight rules representing different combinations of age ranges and insurance classes. Each rule specifies the premium and excess amount based on these conditions. These rules can be used as test cases to validate the software's behavior.

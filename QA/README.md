@@ -1209,20 +1209,13 @@ Boundary value analysis, also known as boundary value testing, is a black box te
 
 - Typically applied to input fields or parameters.
 
-**Example:**
+**Examples:**
 
-Consider a test scenario where the speed of a car should be between 40 and 80 km/h to achieve optimal fuel efficiency. Test cases for boundary value analysis in this scenario could include:
-
-- Test case 1: Speed = 39 km/h (Below the minimum boundary) - Expect an invalid result.
-- Test case 2: Speed = 40 km/h (Minimum boundary) - Expect a valid result.
-- Test case 3: Speed = 41 km/h (Just above the minimum boundary) - Expect a valid result.
-- Test case 4: Speed = 79 km/h (Just below the maximum boundary) - Expect a valid result.
-- Test case 5: Speed = 80 km/h (Maximum boundary) - Expect a valid result.
-- Test case 6: Speed = 81 km/h (Above the maximum boundary) - Expect an invalid result.
+- [Example: Boundry Value](./assets/examples/testingTechniques/boundyValue.md)
 
 **Tasks**
 
-- [Tasks: Boundary value](./tasks/boundryValueTesting.md)
+- [Tasks: ](./tasks/boundryValueTesting.md)
 
 ### Equivalence Partitioning
 
@@ -1314,67 +1307,7 @@ State Transition Testing involves creating state transition diagrams that visual
 
 Smoke Testing and Sanity Testing are two essential levels of software testing that serve different purposes during the software development lifecycle. Both are preliminary tests performed before detailed testing begins.
 
-**Smoke Testing:**
-
-- **Definition:** Smoke Testing is a high-level, shallow, and non-exhaustive testing technique.
-
-- **Objective:** It checks whether the essential and critical functionalities of the software are working without encountering major issues.
-
-- **Scope:** It covers the entire application but focuses on surface-level testing.
-
-- **Automation:** Smoke tests are often automated and executed frequently.
-
-- **Documentation:** Smoke testing results may be documented for traceability.
-
-- **Testing Responsibility:** Both developers and testers can perform smoke testing.
-
-- **Testing Occurrence:** It is typically performed after a new build is created to ensure basic functionality.
-
-- **Stability:** Conducted when the software build may not be entirely stable.
-
-- **Verification:** Validates if the build is acceptable for further testing.
-
-- **Purpose:** To quickly identify glaring issues and prevent wasting effort on unstable builds.
-
-**Sanity Testing:**
-
-- **Definition:** Sanity Testing is a narrow and deep testing technique.
-
-- **Objective:** It verifies specific changes, new features, or bug fixes introduced in the software.
-
-- **Scope:** It focuses on particular functionalities, areas, or modules of the software.
-
-- **Automation:** Sanity testing is usually manual and not frequently automated.
-
-- **Documentation:** Extensive documentation is not required for sanity testing.
-
-- **Testing Responsibility:** Primarily the responsibility of testers.
-
-- **Testing Occurrence:** Typically conducted after smoke testing, as the software build becomes more stable.
-
-- **Stability:** Performed when the software build is relatively stable.
-
-- **Verification:** Ensures that recent changes and fixes are working as intended.
-
-- **Purpose:** To verify that specific changes have not introduced new issues and that targeted areas are functioning correctly.
-
-**Comparison:**
-
-- **Smoke Testing** is a general health check-up of the software at a high level, like checking vital signs.
-
-- **Sanity Testing** is a specialized health check-up that delves deep into specific functionalities.
-
-- **Smoke Testing** helps determine if the build is acceptable for further testing.
-
-- **Sanity Testing** validates recent changes and fixes.
-
-- **Smoke Testing** is both automated and manual and can be performed by developers and testers.
-
-- **Sanity Testing** is primarily manual and is the responsibility of testers.
-
-- **Smoke Testing** is performed on less stable builds to quickly identify critical issues.
-
-- **Sanity Testing** is conducted on more stable builds to ensure recent changes are functioning correctly.
+- [Explanation: Table Smoke vs Sanity Testing](./assets/explanation/smokeAndSanityTesting.md)
 
 **Resources:**
 
@@ -1384,8 +1317,6 @@ Smoke Testing and Sanity Testing are two essential levels of software testing th
 **Tasks**
 
 - [Tasks: ](./tasks/)
-
-### Smoke and Sanity Testing
 
 ### Regression Testing
 
