@@ -2,9 +2,13 @@
 
 - [Internet](#internet)
 - [QA Basics](#qa-basics)
+  - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
 - [Project Managment](#project-managment)
-- [Software Testing and Development Life Cycle](#software-testing-and-development-life-cycle)
+- [Software Testing Life Cycle](#software-testing-life-cycle)
 - [Manual Testing](#manual-testing)
+  - [Tasks: Test Case Report](tasks-test-case-report)
+  - [Tasks: Test Summary Report](#tasks-test-summary-report)
+  - [Tasks: Bug Report](#tasks-bug-report)
 - [Non-Functional Testing](#non-functional-testing)
   - [Accessibility testing](#accessibility-testing)
   - [Load and Performance Testing](#load-and-performance-testing)
@@ -376,13 +380,11 @@ Eight elements that make up a test case format:
 
 4. Steps (actions for verification)
 
-3. Postconditions (actions what's happen after test)
+5. Expected results
 
-6. Expected results
+6. Actual results
 
-7. Actual results
-
-8. Status
+7. Status
 
 ### Test Case Types
 
@@ -450,7 +452,7 @@ Highlights common mistakes made by QA engineers when writing test cases.
 - [Article: Writing Effective Test Cases and Test Case Structure and Format](https://www.guru99.com/test-case.html)
 - [Article: Test Case Design](https://www.guru99.com/software-testing-techniques.html)
 
-**Tasks:**
+## Tasks: Learning Write Test Cases
 
 - [Tasks: Learning Write Test Cases](./tasks/testCaseDesignTask.md)
 
@@ -458,13 +460,13 @@ Highlights common mistakes made by QA engineers when writing test cases.
 
 **Resources:**
 
-- [Page: Project Managment](../teamwork(Project-managment)/README.md)
+- [Page: Project Managment](../project-managment/README.md)
 
-# Software Testing and Development Life Cycle
+# Software Testing Life Cycle
 
 **Explanation:**
 
-The Software Testing and Development Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
+The Software Testing Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
 
 **Key Concepts:**
 
@@ -539,7 +541,7 @@ Test Driven Development (TDD) and Behavior Driven Development (BDD) are two soft
 
 **Key Concepts:**
 
-**Test Driven Development (TDD):**
+*Test Driven Development (TDD):*
 
 **Focus:** 
 
@@ -553,7 +555,7 @@ TDD tests are often written using testing frameworks like JUnit, NUnit, or pytes
 
 In TDD, you'd write a test for a specific function, supply inputs, and verify that the function produces the expected outputs.
 
-**Behavior Driven Development (BDD):**
+*Behavior Driven Development (BDD):*
 
 - **Focus:** 
 
@@ -661,7 +663,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - **Focus**: Test Case Reports focus on summarizing the outcomes of testing efforts and providing stakeholders with a high-level view of the testing progress and results. They help project managers, stakeholders, and team members assess the quality and readiness of the software.
 
-**Tasks:**
+### Tasks: Test Case Report
 
 - [Task: Test Case Report](../QA/tasks/TestCaseReports.md)
 
@@ -675,7 +677,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
 
-**Tasks:**
+### Tasks: Test Summary Report
 
 - [Task: Test Summary Report](../QA/tasks/testSummaryReport.md)
 
@@ -691,7 +693,7 @@ Defect Reports are separate documents used to document and track issues or defec
 
 - [Example: Defect Report (Bug Report)](./assets/manualTesting/bugReport.md)
 
-**Tasks:**
+## Tasks: Bug Report
 
 - [Task: Defect Report (Bug Report)](../QA/tasks/bugReport.md)
 

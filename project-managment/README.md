@@ -1,8 +1,9 @@
 # Table of Contents
 
-- [Teamwork(Project Managment)](#teamwork-project-managment)
+- [Project Managment](#project-managment)
     - [Software Development Life Cycle](#software-development-Life-Cycle)
-    
+- [Tasks: Backlog Grooming](#tasks-backlog-grooming)
+
 # Software Development Life Cycle
 
 - [Software Development Approaches Comparison](#software-development-approaches-comparison)
@@ -357,6 +358,6 @@ Backlog grooming is an essential practice in Agile project management, particula
 
 - [Example: backlog](./assets/examples/backlog.md)
 
-**Tasks:**
+## Tasks: Backlog Grooming
 
-- [Tasks: Backlog Grooming](../teamwork(Project-managment)/tasks/backlogGrooming.md)
+- [Tasks: Backlog Grooming](../project-managment/tasks/backlogGrooming.md)

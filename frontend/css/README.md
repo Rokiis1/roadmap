@@ -37,21 +37,8 @@
   - [Floats](#floats)
   - [Position property](#position-property)
   - [Positioning and Z-index](#positioning-and-zindex)
-  - [Flexbox](#flexbox)
-    - [Getting Started](#flex-box-getting-started)
-    - [Flex Container](#flex-container)
-    - [Flex Items](#flex-items)
-    - [Flex Direction](#flex-directions)
-    - [Justify Content](#justify-content)
-    - [Align Items](#align-items)
-    - [Flex Wrap](#flex-wrap)
+  - [Flexbox](#flexbox))
   - [Grid](#grid)
-    - [Getting Started](#grid-box-getting-started)
-    - [Grid Container](#grid-container)
-    - [Grid Items](#grid-items)
-    - [Grid Template](#grid-templates)
-    - [Justify Content](#grid-justify-content)
-    - [Align Items](#grid-align-items)
 - [Media Queries](#media-queries)
   - [Introduction](#introduction)
   - [How do media queries work?](#how-do-media-queries-work)
@@ -463,6 +450,14 @@ Explanation of how the position property and `z-index` work together:
 
 ## Flexbox
 
+- [Getting Started](#flex-box-getting-started)
+- [Flex Container](#flex-container)
+- [Flex Items](#flex-items)
+- [Flex Direction](#flex-directions)
+- [Justify Content](#justify-content)
+- [Align Items](#align-items)
+- [Flex Wrap](#flex-wrap
+
 Flexbox is a CSS layout module that provides an efficient way to arrange and align elements within a container. It offers a flexible and responsive design approach, making it ideal for building user interfaces.
 
 ### Getting Started
@@ -558,9 +553,16 @@ By default, flex items are laid out on a single line. However, if the container'
 
 ## Grid
 
+- [Getting Started](#grid-box-getting-started)
+- [Grid Container](#grid-container)
+- [Grid Items](#grid-items)
+- [Grid Template](#grid-templates)
+- [Justify Content](#grid-justify-content)
+- [Align Items](#grid-align-items)
+
 ### Getting Started
 
-We will learn about CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
+CSS Grid, a powerful layout system that allows us to create flexible and responsive web designs. Grid provides a two-dimensional layout structure, allowing us to define both rows and columns to arrange elements on a webpage.
 
 ### Grid Container
 
