@@ -19,7 +19,7 @@
 - [Automated Testing](#automated-testing)
   - [Frontend Automation](#frontend-automation)
   - [Backend Automation](#backend-automation)
-    - [API](#api)
+    - [Postman](#postman)
 - [Frameworks](#frameworks)
   - [Jest](#jest)
 
@@ -502,10 +502,9 @@ Finally, in the test closure phase, it is determined whether all planned testing
     - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
   - [Test Summary Report](#test-summary-report)
   - [Defect Report (Bug Report)](#defect-report-bug-report)
-  - [Regression Test Report](#regression-test-report)
 - [Compatibility](#compatibility)
 - [Verification and Validation](#verification-and-validation)
-  - [User Acceptance Testing](#user-acceptance-testing)
+  - [User Acceptance Testing(TBD)](#user-acceptance-testing)
 
 ## Test Planning
 
@@ -697,22 +696,6 @@ Defect Reports are separate documents used to document and track issues or defec
 
 - [Task: Defect Report (Bug Report)](../QA/tasks/bugReport.md)
 
-### Regression Test Report
-
-Regression testing is performed to ensure that new code changes, updates, or enhancements to a software application do not introduce new defects or negatively impact existing functionality. 
-
-- **Regression Test Report:** 
-
-Once you have executed the regression tests, you compile the results into a Regression Test Report. This report summarizes the status of all the regression test cases, indicating which ones passed, which ones failed, and any other relevant information about the testing process.
-
-- **Mitigation Strategies:**
-
-- Managing and executing regression tests can be challenging, and there may be a need to modernize testing practices.
-
-1. **Continuous Integration/Continuous Deployment (CI/CD):** Implement CI/CD pipelines to automate the build, testing, and deployment process. This ensures that regression tests are run automatically with each code change, reducing the risk of regression issues going unnoticed.
-
-2. **Version Control and Code Reviews:** Implement robust version control practices and code review processes to catch issues early in the development cycle, reducing the likelihood of introducing regressions.
-
 ## Compatibility
 
 **Explanation:**
@@ -800,7 +783,12 @@ Accessibility testing is crucial for two primary reasons. First, it taps into an
 - [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
 - [Documentation: Chrome DevTools](https://developer.chrome.com/docs/devtools/)
 
-### Wave
+### TBD: Wave
+
+**Resources:**
+
+- [Site: Download Browser Extensions](https://wave.webaim.org/extension/)
+- [Site: Wave Tutorial](https://www.softwaretestinghelp.com/web-accessibility-testing-tools/)
 
 ## Load and Performance Testing
 
@@ -827,6 +815,13 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 - [Article: Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
 
+### TBD: JMeter
+
+**Resources:**
+
+- [Site: JMeter Dosc](https://jmeter.apache.org/)
+- [Video: JMeter Tutorial](https://www.youtube.com/playlist?list=PLJ9A48W0kpRIjLkZ32Do9yDZXnnm7_uj_)
+
 ## Security Testing
 
 - [Authentication authorization](#authentication-authorization)
@@ -835,7 +830,7 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 - [Attack vectors](#attack-vectors)
 - [Secrets Management](#secrets-management)
 - [Security Tools](#security-tools)
-  - [BurpSuite](#burpsuite)
+  - [TBD: BurpSuite](#burpsuite)
 
 **Explanation:**
 
@@ -862,6 +857,13 @@ Security Testing ensures that a software application is resilient to security th
 **Resources:**
 
 - [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
+
+### TBD: BurpSuite
+
+**Resources:**
+
+- [Site: Burp Suite Download](https://portswigger.net/burp/releases/professional-community-2023-10-1-2?requestededition=community&requestedplatform=)
+- [Site: Burp Suite Dosc](https://portswigger.net/burp/documentation)
 
 ### Authentication authorization
 
@@ -1199,7 +1201,7 @@ Imagine testing a login page without a documented test plan. Testers might try v
 
 **Explanation:**
 
-Boundary value analysis, also known as boundary value testing, is a black box testing technique used to design test cases by focusing on the boundaries of acceptable input values. In this technique, testers test the extreme values or boundaries of input ranges to ensure that the system functions correctly at these critical points.
+Boundary value a nalysis, also known as boundary value testing, is a black box testing technique used to design test cases by focusing on the boundaries of acceptable input values. In this technique, testers test the extreme values or boundaries of input ranges to ensure that the system functions correctly at these critical points.
 
 **Key Concepts:**
 
@@ -1575,7 +1577,7 @@ These design approaches ensure optimal user experiences on various devices.
 
 ## Backend Automation
 
-### API
+### Postman
 
 - [Postman](#postman)
 

@@ -32,7 +32,7 @@
   - [RGB Colors](#rgb)
   - [RGBA Colors](#rgba)
   - [HSL Colors](#hsl)
-- [CSS Layout](#css-layouts)
+- [CSS Layout](#css-layout)
   - [Box Model](#box-model)
   - [Floats](#floats)
   - [Position property](#position-property)
@@ -400,8 +400,8 @@ HSL colors offer a more intuitive way to manipulate colors, allowing you to adju
 
 CSS offers different techniques for creating layouts. Some commonly used layout methods include:
 
-- Positioning: Allows precise positioning of elements using properties like position, `top`, `right`, `bottom`, and `left`.
 - Floats: Allows elements to be positioned side-by-side.
+- Positioning: Allows precise positioning of elements using properties like position, `top`, `right`, `bottom`, and `left`.
 - Flexbox: Provides a flexible way to arrange elements in a container.
 - Grid: Enables the creation of complex grid-based layouts.
 
@@ -417,7 +417,35 @@ The CSS box model describes the layout of elements on a web page. It consists of
 
 ## Floats
 
-- The CSS `float` property is used to position elements horizontally within their parent container. When you apply the `float` property to an element, it essentially takes it out of the normal document flow and allows other elements to flow around it.
+**Explanation:**
+
+The CSS Float Property is a fundamental feature in CSS that allows elements to float to the left or right within their container, causing other elements to flow around them. This property is commonly used for creating text wrapping around images or positioning elements side by side.
+
+**Key Concepts:**
+
+- **Float Property:** The `float` property is used to specify whether an element should be floated to the left, right, or not at all. It is typically applied to block-level elements like images and divs.
+
+- **Text Wrapping:** When an element is floated, adjacent text and inline elements will wrap around it, filling the available space beside the floated element.
+
+- **Clear Property:** To prevent elements from floating around a floated element, you can use the `clear` property to ensure that no floating elements are allowed on a specific side of the cleared element.
+
+**Syntax:**
+
+```css
+selector {
+    float: left | right | none | inherit;
+}
+```
+- **left:** The element floats to the left.
+- **right:** The element floats to the right.
+- **none:** The element does not float, and content flows around it as normal.
+- **inherit:** The element inherits the float property from its parent.
+
+**Example:**
+
+- [Example: Float 1](https://codesandbox.io/s/float-j56g3x?file=/index.html)
+
+- [Example: Float 2](https://codesandbox.io/s/float-jpg-mmzccy?file=/styles.css)
 
 ## Position property:
 
@@ -443,7 +471,6 @@ Explanation of how the position property and `z-index` work together:
 
 ## Code example
 
-- [Float](https://codesandbox.io/s/float-j56g3x?file=/index.html)
 - [Fixed possition](https://codesandbox.io/s/fixedposistion-rm9xr6)
 - [Relative and Absolute position](https://codesandbox.io/s/relative-and-absolute-position-m6226x)
 - [z-index](https://codesandbox.io/s/vigorous-smoke-wqrz6c?file=/index.html)
