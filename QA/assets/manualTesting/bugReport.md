@@ -1,6 +1,7 @@
 # Content Table
 
 - [Bug Report Table](#bug-report-table)
+- [Bug Report Table example](#bug-report-table-example)
 - [What kind of bug we should write](#what-kind-of-bug-we-should-write)
 
 # Bug Report Table
@@ -25,6 +26,34 @@
 | Assigned To          | [Developer's Name or ID]              |
 | Date Fixed           | [Date when Fixed, if applicable]      |
 | Comments/Notes       | [Additional Information or Notes]      |
+
+# Bug Report Table example
+
+| Field               | Value                                     |
+|---------------------|-------------------------------------------|
+| Defect ID           | BUG-123                                   |
+| Date Reported       | 2023-10-10                                |
+| Project             | E-commerce Website                        |
+| Module/Component    | Checkout Process                          |
+| Severity            | High                                      |
+| Priority            | High                                      |
+| Reported By         | Rokas                            |
+| Summary             | Payment Error during Checkout             |
+| Description         | When attempting to make a payment during checkout, an error message is displayed, and the payment cannot be processed.           |
+| Steps to Reproduce  | 1. Add items to the cart.
+                       2. Proceed to checkout.
+                       3. Enter shipping and billing information.
+                       4. Select payment method and click 'Submit Payment'.
+                       5. Observe the error message.                |
+| Expected Behavior   | The payment should be processed successfully, and the user should receive a confirmation of the order.  |
+| Actual Behavior     | An error message is displayed, and the payment is not processed.                         |
+| Attachments         | [Screenshot of the error message]          |
+| Environment         | Web application, Chrome browser            |
+| Status              | Open                                      |
+| Assigned To         | John Smith                                |
+| Date Fixed          | Not fixed yet                             |
+| Comments/Notes      | The error seems to be related to a recent update in the payment gateway API. We should investigate and fix it as soon as possible. |
+
 
 # What kind of bug we should write
 
