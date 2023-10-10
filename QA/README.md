@@ -504,7 +504,9 @@ Finally, in the test closure phase, it is determined whether all planned testing
   - [Defect Report (Bug Report)](#defect-report-bug-report)
 - [Compatibility](#compatibility)
 - [Verification and Validation](#verification-and-validation)
-  - [User Acceptance Testing(TBD)](#user-acceptance-testing)
+  - [User Acceptance Testing](#user-acceptance-testing)
+- [Static Testing](#static-testing)
+- [Levels of Testing in Software Testing](#levels-of-testing-in-software-testing)
 
 ## Test Planning
 
@@ -744,14 +746,131 @@ In summary, verification focuses on the procedure's correctness, while validatio
 
 - [Article: Verification and Validation](https://www.guru99.com/verification-v-s-validation-in-a-software-testing.html)
 
+### User Acceptance Testing
+
+**Explanation:**
+
+User Acceptance Testing (UAT) is a crucial phase in software development where end users or clients evaluate the software to ensure it aligns with their business requirements and functions correctly before it's deployed in the production environment. UAT focuses on validating the end-to-end business processes and confirming that the software meets client expectations.
+
+**Key Concepts:**
+
+1. **Purpose of UAT:** UAT's primary purpose is to validate the business flow, emphasizing end-to-end functionality rather than cosmetic errors or system-level testing.
+
+2. **UAT Participants:** UAT is conducted by the client and end users of the software to ensure it meets their needs.
+
+3. **Need for UAT:** UAT becomes necessary to verify that the final product aligns with evolving requirements, as developers may not always interpret changes accurately during development.
+
+4. **Prerequisites:** Several criteria must be met before conducting UAT, including having business requirements available, completed unit, integration, and system testing, and no critical defects in system integration testing.
+
+5. **UAT Execution Steps:** UAT involves activities like analyzing business requirements, creating a UAT test plan, identifying test scenarios and cases, preparing test data, executing tests, recording results, and confirming business objectives.
+
+6. **Exit Criteria:** Before moving to production, certain conditions must be met, such as resolving critical defects, satisfactory business process functionality, and stakeholder sign-off.
+
+7. **Qualities of UAT Testers:** UAT testers should have a deep understanding of the business, think from the perspective of end users, and be analytical and independent thinkers.
+
+8. **Best Practices:** These include preparing a UAT plan early, conducting pre-UAT sessions during system testing, testing end-to-end business flows, and thinking like an unknown user.
+
+**Syntax:**
+
+UAT involves the following steps:
+1. Analyze business requirements.
+2. Create a UAT test plan.
+3. Identify test scenarios and test cases.
+4. Prepare realistic test data.
+5. Execute test cases and record results.
+6. Confirm that business objectives have been met.
+7. Consider exit criteria before moving to production.
+
+**Example:**
+
+In a software development project, UAT is conducted by the client and end users to ensure that the developed software meets their business requirements. The process includes analyzing business requirements, creating a detailed UAT test plan, identifying various test scenarios and test cases, and executing these test cases using realistic test data. Any issues or defects encountered during UAT are reported, and once they are addressed, and the business objectives are confirmed to be met, the software is ready for deployment in the production environment. UAT helps in preventing surprises and ensures that the final product aligns with client expectations.
+
+**Resources:**
+
+- [Article: User Acceptance Testing](https://www.guru99.com/user-acceptance-testing.html)
+
+## Static Testing
+
+**Explanation:**
+
+Static Testing is a software testing technique that aims to identify defects in a software application without executing its code. This method is employed to catch errors at an early stage of development, making it easier to detect and rectify issues. Static Testing is particularly effective at uncovering errors that may go unnoticed during Dynamic Testing, where code is executed.
+
+**Key Concepts:**
+
+1. **Static Testing Types:** Static Testing encompasses two primary types:
+   - **Manual Examinations (Reviews):** This involves a manual analysis of code and documentation.
+   - **Automated Analysis using Tools:** Automated analysis is performed using specialized tools.
+
+2. **Testing Review:** A critical aspect of Static Testing is the review process, which involves meetings to identify potential defects in the program's design. Reviews can be categorized into Informal Reviews, Walkthroughs, Technical Reviews, and Inspections.
+
+3. **Participants in the Review Process:** During the review process, several roles are involved, including the Moderator, Author, Scribe, Reviewer, and Manager. Each has specific responsibilities, such as overseeing the meeting, addressing defects, and ensuring the review's objectives are met.
+
+4. **Types of Defects Detected:** Static Testing is adept at finding various types of defects, including deviations from standards, non-maintainable code, design flaws, missing requirements, and inconsistent interface specifications. Common defects found include security vulnerabilities, undeclared variables, boundary violations, syntax errors, and inconsistent interfaces.
+
+5. **Tips for Successful Static Testing:** To ensure a successful static testing process, consider focusing on essential aspects, planning and tracking review activities, providing training with examples, addressing interpersonal issues, maintaining a formal process, and striving for continuous improvement in processes and tools.
+
+6. **Why Static Testing:** Static Testing is performed for several reasons, including early defect detection and correction, reduced development timescales, decreased testing costs and time, improved development productivity, and minimizing defects in later stages of testing.
+
+**Syntax:**
+
+Static Testing involves the following key activities:
+1. Reviewing code and documentation for defects.
+2. Using tools or manual analysis to uncover issues.
+3. Conducting review meetings to discuss potential defects.
+4. Assigning roles like Moderator, Author, Scribe, Reviewer, and Manager during reviews.
+
+**Example:**
+
+In the software development process, Static Testing plays a crucial role in identifying defects early on. By conducting code reviews, walkthroughs, technical reviews, and inspections, teams can catch issues related to code quality, design, and adherence to standards. This proactive approach helps reduce development timescales, testing costs, and the number of defects that may arise later in the project. Static Testing tools like Checkstyle and Soot automate parts of this process, further enhancing its efficiency.
+
+**Resources:**
+
+- [Article: Static Testing](https://www.guru99.com/testing-review.html)
+
+## Levels of Testing in Software Testing
+
+**Explanation:**
+
+In software testing, there are four primary levels of testing, each serving a specific purpose in ensuring the quality and functionality of a software system. These levels of testing are as follows:
+
+**Key Concepts:**
+
+1. **Unit Testing:** This level of testing focuses on testing individual software components, known as units or modules, in isolation. It aims to verify whether each module performs its intended functionality correctly. Unit testing is typically carried out by developers and is an essential step in ensuring that each part of the software functions as expected.
+
+2. **Integration Testing:** Integration testing involves testing the interaction and data flow between different software modules when they are integrated into a group or system. It ensures that modules work together seamlessly and that data passes correctly between them. Testers usually perform integration testing to validate the integration of various components.
+
+3. **System Testing:** System testing is conducted on the complete, integrated software system. It evaluates whether the system as a whole complies with specified requirements. This level of testing encompasses various aspects, including load testing, performance testing, reliability testing, and security testing. System testing is often the final step before releasing the software to ensure it meets both functional and non-functional requirements.
+
+4. **Acceptance Testing:** Acceptance testing assesses whether the software system meets the requirements outlined in a specification or contract, as per its delivery. This level of testing is typically carried out by end-users or customers, although other stakeholders may also be involved. It serves as a validation step to ensure that the software aligns with the user's needs and expectations.
+
+**Syntax:**
+
+The four levels of software testing are:
+
+1. **Unit Testing:** Testing individual software components.
+2. **Integration Testing:** Testing the interaction between integrated modules.
+3. **System Testing:** Testing the complete, integrated software system.
+4. **Acceptance Testing:** Validating software against specified requirements.
+
+**Example:**
+
+In the software development lifecycle, these four levels of testing play distinct roles:
+
+- **Unit Testing** helps developers ensure that each module functions correctly in isolation.
+- **Integration Testing** verifies the seamless interaction between modules.
+- **System Testing** evaluates the overall system's performance, reliability, and compliance with requirements.
+- **Acceptance Testing** allows users and customers to validate that the software meets their specified needs.
+
+**Resources:**
+
+- [Article: Levels of Testing in Software Testing](https://www.guru99.com/levels-of-testing.html)
+
 # Non-Functional Testing
 
 ## Accessibility Testing
 
 - [Accessibility Tools](#acessibility-tools)
   - [TBD: Wave](#wave)
-
-Certainly, here's the information from the video about accessibility testing organized into the provided template:
 
 **Explanation:**
 
@@ -850,10 +969,6 @@ Security Testing ensures that a software application is resilient to security th
 
 - **Secrets Management:** Secure handling of sensitive information.
 
-**Example:**
-
-- [Page: Live Demo](https://demo.testfire.net/index.jsp)
-
 **Resources:**
 
 - [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
@@ -906,7 +1021,7 @@ Vulnerability Scanning involves automated tools that scan an application or netw
 - **Continuous Scanning:** Regular scans to identify new vulnerabilities.
 
 - **Penetration Testing:** Manual testing to validate findings and identify unknown issues.
-
+ 
 **Resources:**
 
 ### OWASP
@@ -1107,7 +1222,6 @@ Security testing assesses a system's vulnerabilities and weaknesses to identify 
 **Resources:**
 
 - [Article: Security Testing](https://www.guru99.com/what-is-security-testing.html)
-- [Article: SQL Injection Tutorial](https://www.guru99.com/learn-sql-injection-with-practical-example.html)
 
 ### Accessibility Testing
 
