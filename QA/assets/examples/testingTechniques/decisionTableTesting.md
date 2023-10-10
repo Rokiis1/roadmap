@@ -2,15 +2,26 @@
 
 In this example, we are determining the discount percentage for customers based on their membership status and total purchase amount. The conditions (inputs) are "Membership Status" and "Total Purchase Amount," and the action (output) is "Discount Percentage."
 
-| Condition: Membership Status | Condition: Total Purchase Amount | Action: Discount Percentage | Description                                      |
-|-----------------------------|---------------------------------|-----------------------------|--------------------------------------------------|
-| Regular                     | Less than $50                    | 0%                          | Regular customers with small purchases get no discount.  |
-| Regular                     | $50 to $100                      | 5%                          | Regular customers with moderate purchases get a 5% discount.  |
-| Regular                     | More than $100                  | 10%                         | Regular customers with large purchases get a 10% discount.  |
-| Premium                     | Less than $50                    | 2%                          | Premium customers with small purchases get a 2% discount.  |
-| Premium                     | $50 to $100                      | 8%                          | Premium customers with moderate purchases get an 8% discount.  |
-| Premium                     | More than $100                  | 15%                         | Premium customers with large purchases get a 15% discount.  |
-| No Membership               | Less than $50                    | 0%                          | Customers without a membership with small purchases get no discount.  |
-| No Membership               | $50 to $100                      | 3%                          | Customers without a membership with moderate purchases get a 3% discount.  |
-| No Membership               | More than $100                  | 7%                          | Customers without a membership with large purchases get a 7% discount.  |
++------------------+----------------------+-------------------+
+| Membership Level | Total Purchase Amount | Discount Applied |
++------------------+----------------------+-------------------+
+| Silver           | $0-49                | No Discount       |
+| Silver           | $50-99               | 5% Discount       |
+| Silver           | $100-199             | 10% Discount      |
+| Silver           | $200+                | 15% Discount      |
+| Gold             | $0-49                | 2% Discount       |
+| Gold             | $50-99               | 7% Discount       |
+| Gold             | $100-199             | 12% Discount      |
+| Gold             | $200+                | 17% Discount      |
+| Platinum         | $0-49                | 5% Discount       |
+| Platinum         | $50-99               | 10% Discount      |
+| Platinum         | $100-199             | 15% Discount      |
+| Platinum         | $200+                | 20% Discount      |
++------------------+----------------------+-------------------+
 
+| Test Case | Membership Level | Total Purchase Amount | Expected Discount Applied |
+|-----------|------------------|------------------------|---------------------------|
+| Test Case 1 | Silver | $75 | 5% Discount |
+| Test Case 2 | Gold | $150 | 12% Discount |
+| Test Case 3 | Platinum | $25 | No Discount |
+| Test Case 4 | Gold | $225 | 17% Discount |

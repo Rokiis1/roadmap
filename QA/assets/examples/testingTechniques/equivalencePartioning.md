@@ -13,8 +13,16 @@ Test cases based on equivalence partitions:
 
 # Example 2
 
-| Test Case ID | Test Case Description               | Test Objective                                |  Preconditions                            | Test Steps                                                                                                                | Test Data                         | Expected Results                                  | Actual Results | Status   | Notes | Test Environment | Test Data Sources | Test Case Author | Date Created | Date Last Modified |
-|--------------|-----------------------------------|-----------------------------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------|--------------------------------------------------|----------------|----------|-------|-----------------|------------------|------------------|--------------|-------------------|
-| TC001        | Age Validation - Valid Input       | Verify that the system accepts valid ages.   | Equivalence Class 1: Valid input (18 to 65)   | 1. Navigate to the registration page. 2. Enter an age within the valid range (30). 3. Submit the registration form.   | Age: 30                           | The registration is successful.                   |                | Not Run  |       | Windows 11, Chrome | Database         | Rokas          | 2023-10-07   | 2023-10-07         |
-| TC002        | Age Validation - Invalid Input     | Verify that the system rejects invalid ages. | Equivalence Class 2: Invalid input (< 18)    | 1. Navigate to the registration page. 2. Enter an age less than 18 (16). 3. Submit the registration form.     | Age: 16                           | An error message is displayed.                    |                | Not Run  |       | Windows 12, Chrome | Database         | Rokas          | 2023-10-07   | 2023-10-07         |
-| TC003        | Age Validation - Invalid Input     | Verify that the system rejects invalid ages. | Equivalence Class 3: Invalid input (> 65)    | 1. Navigate to the registration page. 2. Enter an age greater than 65 (70). 3. Submit the registration form. | Age: 70                           | An error message is displayed.                    |                | Not Run  |       | Windows 13, Chrome | Database         | Rokas          | 2023-10-07   | 2023-10-07         |
+| Test Case   | Input                                | Expected Outcome                                         |
+|-------------|--------------------------------------|----------------------------------------------------------|
+| 1           | Valid Username: "john_doe123"        | Registration is successful.                             |
+| 2           | Invalid Username (Short): "abc"      | Registration fails with an error message.               |
+| 3           | Invalid Username (Long): "very_long_username_with_more_than_20_characters" | Registration fails with an error message. |
+| 4           | Valid Email Address: "user@example.com" | Registration is successful.                           |
+| 5           | Invalid Email Address (No "@"): "invalid-email" | Registration fails with an error message.         |
+| 6           | Invalid Email Format: "user[at]example[dot]com" | Registration fails with an error message.   |
+| 7           | Valid Password: "secure123" | Registration is successful. |
+| 8           | Invalid Password (Short): "short" | Registration fails with an error message. |
+| 9           | Invalid Password (No Alphanumeric Characters): "alllowercase" | Registration fails with an error message. |
+
+This table provides a clear overview of the test cases, including the input values and their expected outcomes, based on Equivalence Partitioning for the User Registration System.

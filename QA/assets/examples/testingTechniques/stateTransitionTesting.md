@@ -25,3 +25,11 @@ In this diagram:
 - "Card Ejected" is the state when the card is ejected by the user.
 
 Test cases can be derived from different paths through this diagram to validate the ATM's behavior under various scenarios.
+
+
+| Test Case | Initial State | Event(s) Triggered | Expected Final State | Expected Outcome |
+|-----------|---------------|---------------------|----------------------|------------------|
+| Test Case 1 | Start | Card Insertion | Card Inserted | User's card is successfully inserted. |
+| Test Case 2 | Start | Card Insertion, Invalid PIN Entry | Access Denied | User's card is retained due to multiple failed PIN attempts. |
+| Test Case 3 | Start | Card Insertion, Valid PIN Entry | Access Granted | User successfully enters a valid PIN and gains access to their account. |
+| Test Case 4 | Start | Card Insertion, Invalid PIN Entry, Card Ejection | Card Ejected | User ejects the card after multiple failed PIN attempts. |
