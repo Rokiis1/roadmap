@@ -45,8 +45,6 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 ![rest multiple servers](./assets/images/multipleServers.png)
 
-![good rest](./assets/images/GoodRest.png)
-
 **How it's working on single servers:**
 
 ![rest single server](./assets/images/singleServer.png)
@@ -83,11 +81,11 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 - **Resource-Oriented Design**: Design APIs around resources (customers, orders) rather than actions (create order).
 
-- **HTTP Verbs**: Use HTTP methods to perform actions on resources, maintaining consistency.
-
 **Simple as Possible**
 
 ![endPointsGood](./assets/images/goodEndPoints.png)
+
+- **HTTP Verbs**: Use HTTP methods to perform actions on resources, maintaining consistency.
 
 **HTTP Methods vs database Statement**
 
@@ -103,9 +101,14 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 ## Do Not Return Plain Text
 
+- [Wrong format](./assets/images/plainText.png)
+
 **Key Concepts**
 
 - **Structured Media Types**: Use structured media types like JSON, XML, or YAML to represent and transmit data.
+
+- [apisFormats](./assets/images/apisFormats.png)
+
 - **Content Type Header**: Allow clients to specify the content type in the request header.
 
 **Syntax**
