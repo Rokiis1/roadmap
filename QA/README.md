@@ -19,7 +19,7 @@
 - [Automated Testing](#automated-testing)
   - [Frontend Automation](#frontend-automation)
   - [Backend Automation](#backend-automation)
-    - [Postman](#postman)
+    - [APIs](#apis)
 - [Frameworks](#frameworks)
   - [Jest](#jest)
 
@@ -1690,6 +1690,12 @@ These design approaches ensure optimal user experiences on various devices.
 - [Article: Responsive web design vs. adaptive](https://www.wix.com/blog/responsive-vs-adaptive-design)
 
 ## Backend Automation
+
+### APIs
+
+**Resources:**
+
+- [Introduction: APIs](../api/README.md)
 
 ### Postman
 

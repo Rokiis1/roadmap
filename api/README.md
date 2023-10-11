@@ -4,7 +4,7 @@
     - [REST API Maturity Levels](#rest-api-maturity-levels)
     - [Stateless API](#stateless-api)
     - [Making Stateful Apps Stateless](#making-stateful-apps-stateless)
-    - [No Action for the API](#no-action-for-the-api)
+    - [Design for the APIs](#design-for-the-apis)
     - [Do Not Return Plain Text](#do-not-return-plain-text)
     - [WRONG!](#wrong)
     - [Handling Exceptions](#handling-exceptions)
@@ -17,6 +17,10 @@
 In the year 2000, Roy Fielding introduced the REST (Representational State Transfer) model, which has since become the industry standard for designing web services. RESTful web services are fundamental to building modern web applications and services.
 
 Roy Fielding's REST model defines different levels of API maturity, ranging from Level 0 to Level 3. These levels reflect the extent to which an API adheres to the principles of REST. In practice, many published web APIs fall somewhere around Level 1 or 2, with Level 2 being a significant milestone to achieve. We will explore these levels and understand why Level 3, which corresponds to a truly RESTful API, is often challenging to attain in the real world.
+
+**Others APIs:**
+
+![Graph](./assets/images/GraphApis.png)
 
 ## REST API Maturity Levels
 
@@ -35,6 +39,18 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 - **Stateless API**: In a distributed environment, a stateless API means that client requests are not bound to a specific server. Servers do not maintain any state with clients, ensuring clients can interact with any server in a load-balanced fashion.
 
+![restAPI](./assets/images/restAPI.png)
+
+**How it's working on multiple servers:**
+
+![rest multiple servers](./assets/images/multipleServers.png)
+
+![good rest](./assets/images/GoodRest.png)
+
+**How it's working on single servers:**
+
+![rest single server](./assets/images/singleServer.png)
+
 **Syntax**
 
 - **HTTP Methods**: Use HTTP methods (GET, POST, PUT, PATCH, DELETE) to handle actions on resources.
@@ -50,6 +66,8 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 - **External State**: Maintain application state externally, such as in a database or cache, rather than within the application.
 - **Session ID**: Use unique identifiers (session ID or cookies) in client requests to identify and access the correct state.
 
+![statelessApi](./assets/images/statelessApi.png)
+
 **Syntax**
 
 - **Parameterized URIs**: Use parameterized URIs to specify resource identities.
@@ -59,12 +77,21 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 - To get customer orders sorted by price and limited to the first 10 results: `GET /customers/{customer_id}/orders?sort=price&limit=10`
 
-## No Action for the API
+## Design for the APIs
 
 **Key Concepts**
 
 - **Resource-Oriented Design**: Design APIs around resources (customers, orders) rather than actions (create order).
+
 - **HTTP Verbs**: Use HTTP methods to perform actions on resources, maintaining consistency.
+
+**Simple as Possible**
+
+![endPointsGood](./assets/images/goodEndPoints.png)
+
+**HTTP Methods vs database Statement**
+
+![methods](./assets/images/methods.png)
 
 **Syntax**
 
@@ -120,6 +147,10 @@ Reaching Level 2 takes practice, but it offers substantial benefits in terms of 
 
 - Client error (400 Bad Request): `{ "error": "Invalid user ID" }`
 - Server error (500 Internal Server Error): `{ "error": "Server is currently unavailable" }`
+
+**Resources:**
+
+- [Docs: Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
 ## Worth to HATEOAS?
 
