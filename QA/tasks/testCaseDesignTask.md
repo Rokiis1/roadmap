@@ -1,5 +1,3 @@
-# Content Table
-
 # Table of Contents
 
 - [Live](#live)
