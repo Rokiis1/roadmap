@@ -46,31 +46,16 @@
  * Task 7: Break Statement
  * Write a 'for' loop that prints numbers from 1 to 10, but if it encounters the number 5, it should stop looping using the 'break' statement.
  */
-for (let i = 1; i <= 10; i++) {
-    console.log(i);
-    if (i === 5) {
-        break;
-    }
-}
 
 /**
  * Task 8: Continue Statement
  * Write a 'for' loop that prints numbers from 1 to 10, but if it encounters the number 5, it should skip that iteration using the 'continue' statement.
  */
-for (let i = 1; i <= 10; i++) {
-    if (i === 5) {
-        continue;
-    }
-    console.log(i);
-}
 
 /**
  * Task 9: Labelled Loop
  * Create a labelled 'for' loop that prints all even numbers from 2 to 10 using a 'continue' statement.
  */
-outerLoop: for (let i = 2; i <= 10; i += 2) {
-    console.log(i);
-}
 
 // # Easy
 
