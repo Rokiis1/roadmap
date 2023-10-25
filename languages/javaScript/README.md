@@ -993,6 +993,7 @@ do {
 
 - [`if` Statement](#if-statement)
 - [`Switch` Statement](#switch-statement)
+- [Ternary Operator](#ternary-operator)
 
 **Explanation:**
 
@@ -1032,6 +1033,10 @@ if (condition) {
 }
 ```
 
+**Example:**
+
+- [Example: if Statement](./assets/examples/conditionalStatment/ifStatment.js)
+
 **If else Statement:**
 
 ```javascript
@@ -1041,6 +1046,10 @@ if (condition) {
     // Code to execute if the condition is false
 }
 ```
+
+**Example:**
+
+- [Example: If else statment](./assets/examples/conditionalStatment/IfElseStatment.js)
 
 **Else If Statement:**
 
@@ -1054,15 +1063,9 @@ if (condition1) {
 }
 ```
 
-- `condition`: This is the expression or test that evaluates to either `true` or `false`. If it's true, the code inside the `if` block is executed; otherwise, the code inside the `else` block is executed.
-
-- `condition1`, `condition2`, and so on: These are expressions or tests to evaluate sequentially in the "Else If Statement." The first true condition triggers its associated code block.
-
 **Example:**
 
-- [if Statement](./assets/examples/conditionalStatement/ifStatment.js)
-- [else Statement](./assets/examples/conditionalStatment/elseStatement.js)
-- [else if Statment](./assets/examples/conditionalStatment/elseIfStatment.js)
+- [Example: Else If statment](./assets/examples/conditionalStatment/elseIfStatment.js)
 
 ### `Switch` Statement
 
@@ -1104,48 +1107,43 @@ switch (expression) {
 
 **Example:**
 
-- [Switch Statement](./assets/examples/conditionalStatment/switch.js)
+- [Example: Switch Statement](./assets/examples/conditionalStatment/switch.js)
 
-## Exception Handling
+### Ternary Operator
 
-Exception handling allows you to catch and handle errors that occur during the execution of your program.
+**Explanation:**
 
-### Utilizing Error Object
+The Ternary Operator in JavaScript provides a concise way to express conditional logic. It selects between two values or expressions based on the evaluation of a condition.
 
-JavaScript provides an `Error` object that represents runtime errors.
+**Key Concepts:**
 
-**Syntax**
+- Conditional Selection
 
-```js
-try {
-  // code that may throw an error
-} catch (error) {
-  // code to handle the error
-}
+- Conciseness
+
+**Syntax:**
+
+```javascript
+const result = condition ? expression_if_true : expression_if_false;
 ```
 
 **Example:**
 
-```js
-try {
-  const result = 10 / 0;
-  console.log(result);
-} catch (error) {
-  console.log("An error occurred:", error.message);
-}
-```
-
-**Output:**
-
-```js
-An error occurred: Division by zero
-```
+- [Example: Ternary Operator](./assets/examples/conditionalStatment/ternaryOperator.js)
 
 ### Tasks
 
-- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/4.utilizingErrorObject.js)
+- [Tasks: Conditional Statment](./assets/tasks/conditionalStatements.js)
+
+## Exception Handling
+
+**Explanation:**
+
+Exception handling allows you to catch and handle errors that occur during the execution of your program.
 
 ### Throw Statement
+
+**Explanation:**
 
 The `throw` statement allows you to create custom errors and throw them.
 
@@ -1170,17 +1168,36 @@ try {
 }
 ```
 
-### Tasks
+### Utilizing Error Object
 
-- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/5.throwStatement.js)
+**Explanation:**
 
-**Output:**
+JavaScript provides an `Error` object that represents runtime errors.
+
+**Syntax**
 
 ```js
-An error occurred: Invalid age. Must be at least 18 years old.
+try {
+  // code that may throw an error
+} catch (error) {
+  // code to handle the error
+}
+```
+
+**Example:**
+
+```js
+try {
+  const result = 10 / 0;
+  console.log(result);
+} catch (error) {
+  console.log("An error occurred:", error.message);
+}
 ```
 
 ### try/catch/finally
+
+**Explanation:**
 
 The `try/catch/finally` statement allows you to handle errors and execute cleanup code regardless of whether an error occurred or not.
 
@@ -1211,25 +1228,6 @@ try {
   console.log("Executing finally block.");
 }
 ```
-
-**Output:**
-
-```js
-Executing try block.
-An error occurred: Error occurred.
-Executing finally block.
-```
-
-### Tasks
-
-- [Exception Handling](../../tasks/vanilla%20JavaScript/Control%20Flow%20and%20Exception%20Handling/6.tryCatchFinally.js)
-
-## Resources
-
-- [(Article)Control flow](https://www.w3schools.com/js/js_if_else.asp)
-- [(Article)Conditional statements](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals)
-- [(Article)How to Throw Exceptions in JavaScript](https://rollbar.com/guides/javascript/how-to-throw-exceptions-in-javascript/)
-- [(Video)JavaScript error handling](https://www.youtube.com/watch?v=Z2l3cQ7bvBA)
 
 # Functions
 
