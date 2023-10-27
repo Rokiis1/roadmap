@@ -56,19 +56,10 @@
   - [Implicit Type Casting](#implicit-type-casting)
 - [Loops and Iterations](#loops-and-iterations)
 - [Control Flow and Exception Handling](#control-flow-and-exception-handling)
+  - [Conditional Statements](#conditional-statements)
   - [Exception Handling](#exception-handling)
-    - [Utilizing Error Object](#utilizing-error-object)
-    - [Throw Statement](#throw-statement)
-    - [try/catch/finally](#try-catch-finally)
 - [Functions](#functions)
-  - [Defining and Calling Functions](#defining-and-calling-functions)
-  - [Function Parameters](#function-parameters)
-    - [Default Parameters](#default-parameters)
-    - [Array destructuring](#array-destructuring)
-    - [Spread parameter](#spread-parameter)
-    - [Rest Parameters](#rest-parameters)
-  - [Arrow Functions](#arrow-functions)
-  - [Built-in Functions](#built-in-functions)
+
 - [Data Structures](#data-structures)
   - [Structured Data](#structured-data)
     - [JSON](#json)
@@ -85,6 +76,14 @@
     - [Keyed Collections](#keyed-collections)
       - [Map](#map)
       - [Objects](#objects)
+- [Asynchronous JavaScript](#asynchronous-javascript)
+  - [setTimeout](#settimeout)
+  - [setInterval](#setinterval)
+  - [Callbacks](#callbacks)
+    - [Callback Hell](#callback-hell)
+  - [Promises](#promises)
+    - [async / await](#async-await)
+- [Strict Mode](#strict-mode)
 - [DOM (Document Object Model)](#dom-document-object-model)
   - [Introduction to DOM](#introduction-to-dom)
   - [DOM Manipulation](#dom-manipulation)
@@ -101,14 +100,6 @@
   - [Module Bundlers](#module-bundlers)
     - [Vite](#vite)
     - [esbuild](#esbuild)
-- [Strict Mode](#strict-mode)
-- [Asynchronous JavaScript](#asynchronous-javascript)
-  - [setTimeout](#settimeout)
-  - [setInterval](#setinterval)
-  - [Callbacks](#callbacks)
-    - [Callback Hell](#callback-hell)
-  - [Promises](#promises)
-    - [async / await](#async-await)
 
 # JavaScript
 
@@ -988,6 +979,7 @@ do {
 # Control Flow and Exception Handling
 
 - [Conditional Statements](#conditional-statements)
+- [Exception Handling](#exception-handling)
 
 ## Conditional Statements
 
@@ -1131,11 +1123,15 @@ const result = condition ? expression_if_true : expression_if_false;
 
 - [Example: Ternary Operator](./assets/examples/conditionalStatment/ternaryOperator.js)
 
-### Tasks
+### Tasks: Conditional Statment
 
 - [Tasks: Conditional Statment](./assets/tasks/conditionalStatements.js)
 
 ## Exception Handling
+
+- [Utilizing Error Object](#utilizing-error-object)
+- [Throw Statement](#throw-statement)
+- [try/catch/finally](#try-catch-finally)
 
 **Explanation:**
 
@@ -1231,195 +1227,7 @@ try {
 
 # Functions
 
-## Defining and Calling Functions
-
-**Syntax:**
-
-```js
-function functionName(parameter1, parameter2) {
-  // Function body
-  // Code to be executed
-  return result;
-}
-```
-
-**Example:**
-
-```js
-function greet(name) {
-  return "Hello, " + name + "!";
-}
-
-console.log(greet("Alice"));
-```
-
-**Output:**
-
-```js
-Hello, Alice!
-```
-
-## Function Parameters
-
-In JavaScript, function parameters are the variables that are declared as part of a function's definition. They represent the values that can be passed into the function when it is called. Parameters allow you to provide input to a function and make it more flexible and reusable.
-
-### Default Parameters
-
-**Syntax:**
-
-```js
-function functionName(parameter1 = defaultValue1, parameter2 = defaultValue2) {
-  // Function body
-  // Code to be executed
-  return result;
-}
-```
-
-**Example:**
-
-```js
-function greet(name = "stranger") {
-  return "Hello, " + name + "!";
-}
-
-console.log(greet());
-console.log(greet("Alice"));
-```
-
-**Output:**
-
-```js
-Hello, stranger!
-Hello, Alice!
-```
-
-### Array destructuring
-
-**Description:** The spread parameter allows you to expand an iterable into individual elements.
-
-**Syntax:**
-
-```js
-let [var1, var2, ..., varN] = array;
-```
-
-Here, `var1` to `varN` are the variables where the elements of the array will be assigned. array is the `array` from which the values will be extracted.
-
-**Example:**
-
-```js
-// Define an array
-const numbers = [1, 2, 3];
-
-// Destructure the array
-const [first, second, third] = numbers;
-
-// Print the variables
-console.log(first);   // Output: 1
-console.log(second);  // Output: 2
-console.log(third);    // Output: 3
-```
-
-### Spread parameter
-
-**Description:** The spread parameter allows you to expand an iterable into individual elements.
-
-**Example:**
-
-*1. Function calls*
-
-```js
-function sum(a, b, c) {
-  return a + b + c;
-}
-
-const numbers = [1, 2, 3];
-
-const result = sum(...numbers);
-console.log(result); // Output: 6
-```
-
-*2. Array literals:*
-
-```js
-const arr1 = [1, 2, 3];
-const arr2 = [...arr1, 4, 5, 6];
-
-console.log(arr2); // Output: [1, 2, 3, 4, 5, 6]
-```
-
-**Output:**
-
-### Rest Parameters
-
-**Syntax:**
-
-```js
-function functionName(parameter1, parameter2, ...restParameters) {
-  // Function body
-  // Code to be executed
-  return result;
-}
-```
-
-**Example:**
-
-```js
-function sum(...numbers) {
-  let total = 0;
-  for (let number of numbers) {
-    total += number;
-  }
-  return total;
-}
-
-console.log(sum(1, 2, 3, 4, 5));
-```
-
-**Output:**
-
-```js
-15
-```
-
-## Arrow Functions
-
-**Syntax:**
-
-```js
-const functionName = (parameter1, parameter2) => {
-  // Function body
-  // Code to be executed
-  return result;
-};
-```
-
-**Example:**
-
-```js
-const add = (a, b) => a + b;
-
-console.log(add(3, 5));
-```
-
-**Output:**
-
-```
-8
-```
-
-### Tasks
-
-- [Functions](../../tasks/vanilla%20JavaScript/Functions/functions.js)
-
-## Resources
-
-- [(Article)Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
-- [(Video)How To Create/Use Functions - JavaScript Essentials](https://www.youtube.com/watch?v=FOD408a0EzU)
-
-## Built-in Functions
-
-JavaScript provides several built-in functions that can be directly used without defining them. Examples include `console.log()`, `Math.random()`, `parseInt()`, etc.
+**Explanation:**
 
 # Data Structures
 
