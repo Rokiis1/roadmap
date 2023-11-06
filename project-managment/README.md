@@ -2,22 +2,26 @@
 
 - [Project Managment](#project-managment)
     - [Software Development Life Cycle](#software-development-Life-Cycle)
+    - [Project Management Tools](#project-management-tools)
 - [Tasks: Backlog Grooming](#tasks-backlog-grooming)
 
-# Software Development Life Cycle
+# Project Managment
 
-- [Software Development Approaches Comparison](#software-development-approaches-comparison)
-  - [Waterfall Model](#waterfall-model)
-  - [V Model](#v-model)
-  - [Agile Methodologies](#agile-methodologies)
-    - [Scrum Framework](#scrum-framework)
-  - [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
-- [Project Management](#project-management)
-  - [Atlassian](#atlassian)
-    - [Jira](#jira)
-      - [User Story vs Use Cases](#user-story-vs-use-cases)
-      - [Acceptance Criteria](#acceptance-criteria)
-      - [Backlog grooming](#backlog-grooming)
+- [Project Managment](#project-managment)
+  - [Software Development Approaches Comparison](#software-development-approaches-comparison)
+    - [Waterfall Model](#waterfall-model)
+    - [V Model](#v-model)
+    - [Agile Methodologies](#agile-methodologies)
+      - [Scrum Framework](#scrum-framework)
+    - [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
+  - [Project Management Tools](#project-management-tools)
+    - [Atlassian](#atlassian)
+      - [Jira](#jira)
+        - [User Story vs Use Cases](#user-story-vs-use-cases)
+        - [Acceptance Criteria](#acceptance-criteria)
+        - [Backlog grooming](#backlog-grooming)
+
+## Software Development Life Cycle
 
 **Explanation:**
 

@@ -1,7 +1,7 @@
 **Use Case:**
 
 - **Title:** Resetting User Password
-- **Description:** This use case describes the process of resetting a registered user's password when they have forgotten it.
+- **Scenarios:** This use case describes the process of resetting a registered user's password when they have forgotten it.
 - **Actor:** Registered User
 
 **User Story:**
