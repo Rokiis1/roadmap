@@ -20,7 +20,6 @@
   - [Frontend Automation](#frontend-automation)
   - [Backend Automation](#backend-automation)
     - [APIs](#apis)
-- [Frameworks](#frameworks)
 
 # Internet
 
@@ -935,6 +934,10 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 
 ### TBD: JMeter
 
+**Example:**
+
+ - [Tasks: Load Testing and Stress Testing and Performance Testing](./assets/examples/jMeterExample/README.md)
+
 **Resources:**
 
 - [Site: JMeter Dosc](https://jmeter.apache.org/)
@@ -1515,179 +1518,6 @@ Integration Testing ensures that different components or modules of a software a
 
 Automated testing is a crucial practice in software development that involves using tools and scripts to automatically test software applications. This ensures that the software functions correctly, performs well, and meets its intended requirements. Automated testing helps identify bugs, regressions, and performance issues early in the development process.
 
-## Frontend Automation
-
-- [Basic Introduction](#basic-introduction)
-  - [HTML/CSS/JavaScript Basics](#html-css-javascript-basics)
-  - [Browser DevTools](#browser-devtools)
-  - [Caching](#caching)
-  - [SSR vs CSR vs SSG](#ssr-csr-ssg)
-  - [SWAs, PWAs and Jamstack](#swas-pwas-jamstack)
-  - [Responsive vs adaptive](#responsive-vs-adaptive)
-
-Frontend automation focuses on automating tasks related to the user interface (UI) and the frontend of web applications. It streamlines development processes, enhances code quality, and improves the overall user experience.
-
-### Basic Introduction
-
-#### HTML/CSS/JavaScript Basics
-
-**Resources:**
-
-*html*
-- [HTML](../frontend/html/README.md)
-
-*css*
-- [CSS](../frontend/css/README.md)
-
-*JavaScript*
-- [JavaScript](../languages/javaScript/README.md)
-
-#### Browser DevTools
-
-**Explanation:**
-
-Browser DevTools are integrated developer tools available in web browsers. They provide a set of features that aid in web development and debugging.
-
-**Key Concepts:**
-
-- **Inspecting and Debugging:** DevTools allow developers to inspect HTML, CSS, and JavaScript, making it easier to identify and fix issues in the frontend code.
-- **Network Monitoring:** You can monitor network requests and responses to optimize performance and troubleshoot issues.
-- **Performance Profiling:** DevTools offer performance profiling tools to identify bottlenecks and improve website speed.
-
-**Resources:**
-
-- [Article: What are browser developer tools?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools)
-
-#### Caching
-
-**Explanation:**
-
-Caching ensures that the resources downloaded once are reused instead of doing a fresh fetch again. It is useful for increasing subsequent page load speed by reusing cached images, fonts, and other static assets. Caching should not be typically done on dynamic content. For example list of posts or comments. As part of the testing strategy, both caching and cache invalidation (not getting stale dynamic content) needs to be tested.
-
-**Key Concepts:**
-
-- **Browser Cache:** Browsers can cache static assets like images and stylesheets, improving page load times.
-
-- **Content Delivery Networks (CDNs):** CDNs use caching to distribute content globally, reducing server load and improving content delivery.
-
-- **Cache Control Headers:** Developers can control caching behavior using HTTP headers to set expiration times for cached resources.
-
-**Resources:**
-
-- [Video: Caching - Simply Explained](https://www.youtube.com/watch?v=6FyXURRVmR0)
-
-#### SSR vs CSR vs SSG
-
-**Explanation:**
-
-These are different approaches to rendering web content that impact how web applications are built and perform.
-
-**Key Concepts:**
-
-- **Server-Side Rendering (SSR):** In SSR, web pages are rendered on the server and sent to the client as fully formed HTML. This can improve initial page load times and SEO.
-
-![SSR](./images/SSR.png)
-
-- **Advantages of Server-Side Rendering (SSR):**
-
-1. **Improved SEO:** One of the primary advantages of SSR is its positive impact on search engine optimization (SEO). Search engines can easily crawl and index content that is rendered on the server side. This can lead to better search engine rankings and increased discoverability of your web pages.
-
-2. **Faster Initial Page Load:** SSR can result in faster initial page loads compared to Client-Side Rendering (CSR) or Single-Page Applications (SPAs). When the server sends a fully rendered HTML page to the client, users can see and interact with the content sooner.
-
-3. **Accessibility:** SSR can improve accessibility by ensuring that the HTML content is available to assistive technologies and can be easily parsed by screen readers. This can help make your web application more inclusive.
-
-4. **Security:** SSR can enhance security by keeping sensitive logic and data on the server, reducing the risk of exposing critical information to the client-side code.
-
-**Disadvantages of Server-Side Rendering (SSR):**
-
-1. **Increased server load:** Since the server is responsible for rendering HTML, it can put a strain on the server’s resources, resulting in slower response times and increased server costs.
-
-2. **Increased complexity:** Since the server is responsible for rendering HTML, it requires more server-side code, which can be more challenging to maintain and debug. 
-
-- **Client-Side Rendering (CSR):** CSR relies on rendering content in the user's browser using JavaScript, enabling dynamic updates without full page reloads.
-
-![CSR](./images/CSR.png)
-
-**Advantages of Client-Side Rendering (CSR):**
-
-1. **Faster Subsequent Page Loads:** Once the initial page is loaded, subsequent interactions within the application can be very fast because only data needs to be fetched from the server, and the client can 
-handle rendering and updates. This can provide a more responsive user experience.
-
-2. **Reduced Server Load:** CSR offloads a significant portion of the rendering work to the client, which can lead to reduced server load and lower hosting costs, especially when dealing with a large number of users.
-
-**Disadvantages of Client-Side Rendering (CSR):**
-
-1. **SEO:** One of the primary limitations of CSR is its impact on search engine optimization (SEO). Search engines primarily crawl HTML content, and CSR applications rely heavily on JavaScript to render content. This can lead to indexing issues, resulting in lower search rankings.
-
-2. **Performance on slower devices or connections:** CSR can be more resource-intensive, which can lead to slower load times and poorer performance on slower devices or connections. This can result in a less optimal user experience, particularly for users on mobile devices or in areas with poor internet connectivity.
-
-3. **Accessibility:** CSR can pose challenges for web accessibility. Since much of the content is rendered dynamically on the client-side, it can be difficult for screen readers and other assistive technologies to navigate and interpret the content.
-
-4. **Initial load times:** While CSR can offer a more dynamic user experience once the page has loaded, the initial load time can be slower. This can result in a poor user experience, particularly for users who are not on high-speed connections.
-
-
-- **Static Site Generation (SSG):** SSG pre-generates web pages at build time, offering the benefits of both SSR and CSR for performance and security.
-
-![SSG](./images/SSG.png)
-
-**Advantages of Static Site Generation (SSG):**
-
-1. **Performance:** SSG generates pre-rendered HTML files, which can be served quickly to users. This results in fast page load times, benefiting both user experience and search engine rankings. There is no need for server-side processing or database queries during runtime.
-
-2. **Scalability:** Static sites are highly scalable because they can be served from a Content Delivery Network (CDN) with minimal server resources. Handling high traffic loads becomes more manageable and cost-effective.
-
-3. **SEO Benefits:** SSG is SEO-friendly by default. Search engines can easily crawl and index static HTML pages, leading to better search engine rankings.
-
-4. **Reliability:** With no server-side code execution, static sites are more reliable and less prone to server crashes or downtime.
-
-**Disadvantages of Static Site Generation (SSG):**
-
-1. **Limited Interactivity:** Static sites are less suitable for highly interactive web applications that require real-time data updates or user-generated content. Complex client-side functionality often requires additional JavaScript.
-
-2. **Content Updates:** Making real-time content updates can be challenging with SSG. When content changes frequently, regenerating and redeploying the entire site can become cumbersome.
-
-3. **Dynamic Data:** SSG is not well-suited for sites that heavily rely on dynamic data, such as e-commerce websites with real-time inventory tracking or forums with user-generated content.
-
-4. **Build Time:** Generating static sites can take longer, especially for large websites with a lot of content. This can impact development speed and time-to-market.
-
-5. **Complexity for Large Sites:** For very large websites with thousands of pages, managing content and build processes can become complex.
-
-**Resources:**
-
-- [Article: Comparison of CSR, SSR, SSG](https://dev.to/pahanperera/visual-explanation-and-comparison-of-csr-ssr-ssg-and-isr-34ea)
-
-#### SPAs(SWAs), PWAs and Jamstack
-
-**Explanation:**
-
-These are modern architectural patterns and approaches in web development.
-
-**Key Concepts:**
-
-**Single-Page Applications (SPAs):** SPAs load a single HTML page and dynamically update content, providing a smooth user experience.
-**Progressive Web Apps (PWAs):** PWAs offer app-like experiences on the web, including offline access and push notifications.
-**Jamstack:** Jamstack is an architectural pattern that decouples the frontend and backend, using APIs and pre-rendering for performance and security.
-
-**Resources:**
-
-- [Article: SPAs(SWAs)](https://www.staticapps.org/)
-- [Article: PWAs and Jamstack](https://bejamas.io/blog/jamstack-pwa/)
-
-#### Responsive vs adaptive
-
-**Explanation:**
-
-These design approaches ensure optimal user experiences on various devices.
-
-**Key Concepts:**
-
-**Responsive Design:** Responsive web design adapts to different screen sizes and orientations using flexible layouts and media queries, providing a consistent user experience.
-**Adaptive Design:** Adaptive design involves creating multiple versions of a website tailored to specific device categories, ensuring specialized user experiences.
-
-**Resources:**
-
-- [Article: Responsive web design vs. adaptive](https://www.wix.com/blog/responsive-vs-adaptive-design)
-
 ## Backend Automation
 
 ### APIs
@@ -1702,10 +1532,7 @@ These design approaches ensure optimal user experiences on various devices.
 
 **Example:**
 
-- [Example: Google APIs]()
+- [Tasks: Google APIs](./tasks/postManTesting/googleApis.md)
 
-# Frameworks
-
-- [Jest(TDB)](#jest)
 
 
