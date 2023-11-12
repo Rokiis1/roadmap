@@ -17,7 +17,6 @@
     - [Non-Functional Techniques](#non-functional-techniques)
     - [Functional Techniques](#functional-techniques)
 - [Automated Testing](#automated-testing)
-  - [Frontend Automation](#frontend-automation)
   - [Backend Automation](#backend-automation)
     - [APIs](#apis)
 
@@ -868,7 +867,7 @@ In the software development lifecycle, these four levels of testing play distinc
 ## Accessibility Testing
 
 - [Accessibility Tools](#acessibility-tools)
-  - [TBD: Wave](#wave)
+  - [Wave](#wave)
 
 **Explanation:**
 
@@ -900,43 +899,50 @@ Accessibility testing is crucial for two primary reasons. First, it taps into an
 - [Article: Accessibility Testing](https://www.geeksforgeeks.org/software-testing-accessibility-testing/)
 - [Documentation: Chrome DevTools](https://developer.chrome.com/docs/devtools/)
 
-### TBD: Wave
+### Wave
 
 **Resources:**
 
 - [Site: Download Browser Extensions](https://wave.webaim.org/extension/)
 - [Site: Wave Tutorial](https://www.softwaretestinghelp.com/web-accessibility-testing-tools/)
 
-## Load and Performance Testing
+**Tasks:**
 
-- [Load and Performance Tools](#load-and-performance-tools)
-  - [TBD: JMeter](#jmeter)
+- [Tasks:]()
+
+## Performance Testing
+
+- [Performance Testing](#performance-testing)
+- [Performance Tools](#load-and-performance-tools)
+  - [JMeter](#jmeter)
 
 **Explanation:**
 
-Load and Performance Testing assess the responsiveness, stability, and scalability of a software application under different levels of load and stress. It helps identify bottlenecks, analyze response times, and ensure optimal performance.
+Performance testing is a crucial phase in the development lifecycle of any product, ensuring the verification and validation of its overall performance before launch. This testing is versatile and can take different forms based on resource availability and the characteristics of the user base. Essentially, performance testing involves assessing a software application's behavior under specific workloads, focusing on factors such as speed, response time, stability, reliability, scalability, and resource usage.
 
 **Key Concepts:**
 
-- **Load Testing:** Evaluates application behavior under expected load.
+- **Speed:** Evaluating the responsiveness of the application to ensure it meets speed expectations.
 
-- **Stress Testing:** Tests application behavior under extreme load conditions.
+- **Scalability:** Determining the application's ability to handle an increasing volume of users.
 
-- **Performance Testing:** Ensures application meets response time requirements.
+- **Stability:** Checking the application's resilience under various workloads and its recovery from abnormal states.
 
-- **Metrics:** Response time, throughput, resource utilization, and error rates.
+- **Reliability:** Assessing whether the application returns to normal functioning after experiencing failures.
 
-- **Purpose:** Identify performance issues before application launch.
+- **Resource Usage:** Monitoring and optimizing the utilization of resources such as processor capacity, network bandwidth, memory, and disk capacity.
 
 **Resources:**
 
-- [Article: Load Testing vs Stress Testing vs Performance Testing](https://www.guru99.com/performance-vs-load-vs-stress-testing.html)
+- [Article: Performance Testing](https://www.guru99.com/performance-testing.html)
 
-### TBD: JMeter
+### Performance Tools
+
+### JMeter
 
 **Example:**
 
- - [Tasks: Load Testing and Stress Testing and Performance Testing](./assets/examples/jMeterExample/README.md)
+ - [Example: Performance Testing](./assets/examples/jMeterExample/README.md)
 
 **Resources:**
 
@@ -951,7 +957,7 @@ Load and Performance Testing assess the responsiveness, stability, and scalabili
 - [Attack vectors](#attack-vectors)
 - [Secrets Management](#secrets-management)
 - [Security Tools](#security-tools)
-  - [TBD: BurpSuite](#burpsuite)
+  - [BurpSuite](#burpsuite)
 
 **Explanation:**
 
@@ -975,7 +981,9 @@ Security Testing ensures that a software application is resilient to security th
 
 - [Article: What is Security Testing?](https://www.guru99.com/what-is-security-testing.html)
 
-### TBD: BurpSuite
+### Security Tools
+
+### BurpSuite
 
 **Resources:**
 
@@ -1110,33 +1118,7 @@ Secrets Management involves securely storing, accessing, and distributing sensit
 
 **Explanation:** 
 
-| Criteria                        | Non-Functional Techniques       | Functional Techniques       |
-|---------------------------------|---------------------------------|-----------------------------|
-| **Focus**                       | Evaluate system attributes,    | Verify specific software   |
-|                                 | performance, and usability.    | functions or features.     |
-| **Purpose**                     | Ensure quality attributes      | Validate correct behavior   |
-|                                 | like reliability, scalability, | of software against       |
-|                                 | and security.                  | predefined requirements.   |
-| **Examples**                    | - Load testing                | - Unit testing              |
-|                                 | - Security testing            | - Integration testing       |
-|                                 | - Usability testing           | - Regression testing        |
-|                                 | - Performance testing         | - Acceptance testing        |
-| **Test Cases**                  | Typically, test cases         | Test cases are based on   |
-|                                 | are based on user scenarios  | functional specifications |
-|                                 | and real-world usage.         | or use cases.              |
-| **Metrics**                     | Metrics include response      | Metrics may include test   |
-|                                 | time, throughput, error rate, | coverage, pass/fail rates, |
-|                                 | and resource utilization.     | and defect density.        |
-| **Testing Tools**               | Tools may include load        | Tools include testing      |
-|                                 | testing tools, security      | frameworks, test automation|
-|                                 | scanning tools, and           | tools, and test management |
-|                                 | usability testing tools.      | tools.                      |
-| **Challenges**                  | Challenges often revolve      | Challenges may involve    |
-|                                 | around simulating real-world  | keeping test cases in sync |
-|                                 | conditions and measuring     | with changing requirements|
-|                                 | subjective qualities like     | and ensuring thorough      |
-|                                 | usability.                    | coverage of functionality. |
-
+- [Explanation: Testing Techniques](./assets/explanation/testingTechniquesExplanation/README.md)
 
 **Resources:**
 
@@ -1144,17 +1126,20 @@ Secrets Management involves securely storing, accessing, and distributing sensit
 
 ## Non-Functional Techniques
 
-- [Load Testing](#load-testing)
-- [Performance Testing](#performance-testing)
-- [Stress Testing](#stress-testing)
-- [Security Testing](#security-testing)
 - [Accessibility Testing](#accessibility-testing)
+- [Load Testing](#load-testing)
+- [Stress Testing](#stress-testing)
+- [Volume Testing](#volume-testing)
+- [Capacity Testing](#capacity-testing)
+- [Reliability Testing](#reliability-testing)
+- [Scalability Testing](#scalability-testing)
+- [Security Testing](#security-testing)
 
 ### Load Testing
 
 **Explanation:**
 
-Load testing involves assessing a system's performance under specific load conditions to determine its capacity and capability to handle a certain volume of users or transactions.
+**Load Testing:** Assesses the application's performance under normal and peak usage to determine its maximum load capacity.
 
 **Key Concepts:**
 
@@ -1164,29 +1149,9 @@ Load testing involves assessing a system's performance under specific load condi
 
 - **Types:** Concurrent users, transactions, or data volume are typically tested.
 
-- **Tools:** Load testing tools like JMeter, Gatling, or locust can automate load simulations.
-
 **Resources:**
 
 - [Article: Load Testing](https://loadninja.com/load-testing/)
-
-### Performance Testing
-
-**Explanation:**
-
-Performance testing evaluates a system's responsiveness, stability, and overall performance under varying conditions, ensuring it meets user expectations.
-
-**Key Concepts:**
-
-- **Types:** Includes load testing, stress testing, and endurance testing.
-
-- **Metrics:** Key performance indicators (KPIs) such as response time, throughput, and resource utilization.
-
-- **Benefits:** Identifies performance bottlenecks, enables capacity planning, and ensures user satisfaction.
-
-**Resources:**
-
-- [Article: Performance Testing](https://www.guru99.com/performance-testing.html)
 
 ### Stress Testing
 
