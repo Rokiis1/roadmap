@@ -1,13 +1,8 @@
 # Table of Contents
 
-1. [What is Git?](#what-is-git)
-
-
-
-
-
-
-
-```bash
-git remote add origin https://<token>@github.com/<username>/<repo>
-```
+- [Setup and Config](#setup-and-config)
+- [Getting and Creating Projects](#getting-and-creating-projects)
+- [Basic Snapshotting](#basic-snapshotting)
+- [Sharing and Updating Projects](#sharing-and-updating-projects)
+- [Branching and Merging](#branching-and-merging)
+- [Plumbing Commands](#plumbing-commands)
