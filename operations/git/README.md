@@ -17,7 +17,6 @@
         - [Global](#global)
     - [core.editor](#coreeditor)
 
-
 ## Version Controller
 
 **Explanation:**
@@ -88,11 +87,10 @@ The core purpose of Git is to facilitate the coordination of work among programm
 
 **Resources:**
 
-## Manager repositories
-
-### Github
-
 ## Getting and Creating Projects
+
+- [git init](#git-init)
+- [git clone](#git-clone)
 
 ## Config
 
@@ -118,7 +116,11 @@ The most basic use case for git config is to invoke it with a configuration name
 
 **Explanation:**
 
+Will write to a local level if no configuration option is passed. Local level configuration is applied to the context repository `git config` gets invoked in.
+
 **Key Concepts:**
+
+1. File that can be found in the repo's `.git` directory: `.git/config`
 
 **Syntax:**
 
@@ -159,16 +161,6 @@ git config --list --local
 # user.name Test
 # user.email your.email@example.com
 ```
-
-### Global
-
-**Explanation:**
-
-**Key Concepts:**
-
-**Syntax:**
-
-**Example:**
 
 ### core.editor
 
@@ -293,22 +285,14 @@ git commit -m "Implement automatic login for new verified signups"
 
 - [Manager repositories](#manager-repositories)
     - [Github](#github)
+- [remote](#remote)
 - [push](#push)
 - [pull](#pull)
-- [remote](#remote)
 - [fetch](#fetch)
 
 ## Manager repositories
 
-**Explanation:**
-
-**Key Concepts:**
-
 ### Github
-
-**Explanation:**
-
-**Key Concepts:**
 
 **Example:**
 
