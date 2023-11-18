@@ -80,19 +80,19 @@ Now, try pushing your changes using the updated URL:
 git push -u origin main
 ```
 
-11.
+11. Click Sign in with your browser
 
-![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal1.PNG)
+![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal1.png)
 
 12. Authorize git to connect to github
 
-![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal2.PNG)
+![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GitHubLocal2.png)
 
 13. You should see what kind of files or folder upload into upstream repository
 
-![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal4.PNG)
+![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal3.png)
 
 14. If you wanna delete locally from the computer you can go in windows search and write `Credential Manager` >
 Then Click on this url and click on buitton `Remove`
 
-![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal3.PNG)
+![Local Github](../../../images/sharingUpdatingProjects/githubLocal/GithubLocal4.png)
