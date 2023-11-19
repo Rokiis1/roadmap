@@ -123,6 +123,7 @@ Also you can go to dosc and read:
 
 - [git init](#git-init)
 - [git clone](#git-clone)
+- [gitignore](#gitignore)
 
 ### git init
 
@@ -217,6 +218,16 @@ git clone https://github.com/example/repo.git
 # Clone a repository into a specific directory
 git clone https://github.com/example/repo.git my_project
 ```
+
+### gitignore
+
+**Explanation:**
+
+The `.gitignore` file is a configuration file used by Git to specify intentionally untracked files that Git should ignore. It allows developers to exclude certain files and directories from being tracked by Git, preventing them from being included in commits and version control.
+
+**Syntax:**
+
+`.gitignore` File
 
 ## Config
 
@@ -316,6 +327,7 @@ git config --global core.editor "code --wait"
 - [git status](#git-status)
 - [git commit](#git-commit)
 - [git log](#git-log)
+- [git reset](#git-reset)
 
 
 ## git add
@@ -464,6 +476,19 @@ git log --oneline
 git log --graph
 # Shows the commit history for all branches, not just the current branch.
 git log --all
+```
+
+## git reset
+
+This command will reset the branch to the commit before the last one (`HEAD^` means the parent commit of the current commit). The `--hard` option discards changes in your working directory and staging area, reverting everything to the state of the specified commit.
+
+If you only want to undo the last commit but keep the changes in your working directory, you can use `git reset` without the `--hard` option:
+
+```bash
+# Undo the last commit but keep changes in the working directory
+git reset HEAD^
+# Reset the branch to the last commit, discarding changes
+git reset --hard HEAD^
 ```
 
 # Branching and Merging
@@ -773,11 +798,15 @@ Content in dev branch
 
 ### Github
 
+**Resources:**
+
+- [Site: Github](https://github.com/)
+
 **Example:**
 
 - [Example: Local Connection setup](./assets/examples/connectToGithub/localConnection/README.md)
 
-## remote
+## git remote
 
 **Explanation:**
 
@@ -799,50 +828,176 @@ git set-url # Changes URLs for the remote. Sets first URL for remote <name> that
 
 **Example:**
 
+1. **SVN (Centralized Model):**
+
+```plaintext
+   Central Repository
+   |   |   |   |
+   A---B---C---D    (Commits by various developers)
+```
+
+2. **Git (Distributed Model):**
+
+```plaintext
+   Remote Repository (origin)
+   |   |   |   |
+   A---B---C---D    (Commits by various developers)
+
+   Local Repository (Developer 1)
+   |   |   |   |
+   A---B---C---D    (Local copy with its own history and branches)
+
+   Local Repository (Developer 2)
+   |   |   |   |
+   A---B---C---D    (Local copy with its own history and branches)
+```
+
 - [Example: How git remote work](./assets/examples/managerRepositories/remote/README.md)
 
-## push
+## git push
 
 **Explanation:**
 
-The `git push` command is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.
+The `git push` command is used to push local changes to a remote repository. It is used to update the remote repository with your local commits.
 
 **Key Concepts:**
 
-1. Push the specified branch to , along with all of the necessary commits and internal objects. 
+1. **Remote Repository:**
+
+- `git push` interacts with a specified remote repository, typically named "origin" by default.
+
+2. **Branch Updates:**
+
+- It updates the specified branch in the remote repository with the commits from the corresponding local branch.
+
+3. **Remote Tracking Branch:**
+
+- The push operation also updates the remote tracking branch associated with the local branch.
+
+### Syntax:
+
+```bash
+git push [<remote>] [<local-branch>:<remote-branch>]
+```
+
+- `<remote>` (optional): The name of the remote repository. If not specified, it defaults to "origin."
+- `<local-branch>`: The local branch that you want to push.
+- `<remote-branch>`: The remote branch that will be updated with the local commits. If not specified, it usually defaults to the same name as the local branch.
+
+**Examples:**
+
+```bash
+# Sets the upstream branch, associating the local branch with the specified remote branch for future pulls and pushes.
+git push -u origin main # OR --set-upstream
+# Push changes from the local 'main' branch to the 'main' branch on the remote 'origin'
+git push origin main
+# Push changes from the local 'feature' branch to the 'feature' branch on the remote 'origin'
+git push origin feature
+```
+
+**Notes:**
+
+- The `git push` command is commonly used after making local commits to share those changes with others or update a shared remote repository.
+
+- Pushing changes requires write permissions to the remote repository.
+
+## git pull
+
+**Explanation:**
+
+The `git pull` command is used to fetch changes from a remote repository and automatically merge them into the local working branch. It is a combination of the `git fetch` and `git merge` operations.
+
+**Key Concepts:**
+
+1. **Remote Repository:**
+
+- `git pull` interacts with a specified remote repository (commonly named "origin" by default).
+
+2. **Fetch and Merge:**
+
+- The command fetches changes from the remote repository using `git fetch` and then automatically merges those changes into the currently checked-out local branch using `git merge`.
+
+3. **Automatic Integration:**
+
+- Unlike `git fetch`, `git pull` integrates the changes into the local branch without requiring a separate merge command. It's a convenient way to keep the local branch up-to-date.
 
 **Syntax:**
 
 ```bash
-git push # Update remote refs along with associated objects
+git pull [<remote>] [<branch>]
 ```
 
-## pull
+- `<remote>` (optional): The name of the remote repository. If not specified, it defaults to "origin."
+- `<branch>` (optional): The name of the branch to pull. If not specified, it pulls changes from the remote branch that matches the currently checked-out local branch.
+
+**Examples:**
+
+```bash
+# Fetch and merge changes from the remote repository (default remote and branch)
+git pull
+
+# Fetch and merge changes from the remote repository (origin)
+git pull origin main
+```
+
+**Notes:**
+
+- `git pull` is a convenient way to fetch changes from a remote repository and integrate them into the local working branch in a single step.
+
+- Ensure that you are on the branch you want to update before running `git pull`.
+
+## git fetch
 
 **Explanation:**
 
-`git pull` Fetch from and integrate with another repository or a local branch
+The `git fetch` command is used to retrieve changes from a remote repository without merging them into the local working branch. It updates the remote tracking branches, allowing you to see changes made by others in the remote repository.
 
 **Key Concepts:**
+
+1. **Remote Repository:**
+
+- `git fetch` interacts with a specified remote repository, fetching changes made in that repository since the last fetch or clone.
+
+2. **Remote Tracking Branches:**
+
+- The command updates remote tracking branches (e.g., `origin/main`) to reflect the latest state of the branches in the remote repository.
+
+3. **No Automatic Merging:**
+
+- Unlike `git pull`, `git fetch` does not automatically merge the changes into the local working branch. It provides an opportunity to review the changes before merging.
+
+4. **Visibility of Changes:**
+
+- After a fetch, you can inspect the changes using commands like `git log` or `git diff` before deciding whether to merge them into your local branch.
 
 **Syntax:**
 
 ```bash
-git pull # Fetch from and integrate with another repository or a local branch
+git fetch [<remote>] [<branch>]
 ```
 
-## fetch
+- `<remote>` (optional): The name of the remote repository. If not specified, it defaults to "origin."
+- `<branch>` (optional): The name of the branch to fetch. If not specified, it fetches all branches from the remote.
 
-**Explanation:**
-
-git fetch Download objects and refs from another repository
-
-**Key Concepts:**
-
-**Syntax:**
+### Example:
 
 ```bash
-git fetch # Download objects and refs from another repository
+# Fetch changes from the remote repository (default remote and all branches)
+git fetch
+# Fetch changes from a specific remote upstream repository and branch
+git fetch -u main
 ```
+
+```bash
+git fetch origin
+git branch -r # or --all
+git checkout dev
+```
+
+**Notes:**
+
+- The `git fetch` command is often used before `git merge` or `git pull` to update the local repository with changes from the remote.
+
+- After fetching, you can inspect the changes using commands like `git log` or `git diff` and decide how to incorporate them into your local branch.
 
 # Plumbing Commands

@@ -34,3 +34,4 @@
 - Pushing commits sends the changes to the remote repository.
 - Pulling fetches changes from the remote repository to the local one.
 - The process repeats as developers collaborate on the codebase.
+
