@@ -1,27 +1,19 @@
 # Table of Contents
 
 - [Project Managment](#project-managment)
-    - [Software Development Life Cycle](#software-development-Life-Cycle)
-    - [Project Management Tools](#project-management-tools)
-- [Tasks: Backlog Grooming](#tasks-backlog-grooming)
 
 # Project Managment
 
-- [Project Managment](#project-managment)
-  - [Software Development Approaches Comparison](#software-development-approaches-comparison)
-    - [Waterfall Model](#waterfall-model)
-    - [V Model](#v-model)
-    - [Agile Methodologies](#agile-methodologies)
-      - [Scrum Framework](#scrum-framework)
-    - [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
-  - [Project Management Tools](#project-management-tools)
-    - [Atlassian](#atlassian)
-      - [Jira](#jira)
-        - [User Story vs Use Cases](#user-story-vs-use-cases)
-        - [Acceptance Criteria](#acceptance-criteria)
-        - [Backlog grooming](#backlog-grooming)
+- [Software Development Life Cycle](#software-development-life-cycle)
+- [Project Management Tools](#project-management-tools)
 
 ## Software Development Life Cycle
+
+- [Waterfall Model](#waterfall-model)
+- [V Model](#v-model)
+- [Agile Methodologies](#agile-methodologies)
+  - [Scrum Framework](#scrum-framework)
+- [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
 
 **Explanation:**
 
@@ -45,16 +37,6 @@
 
 7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.
 Monitoring and Performance Optimization: After the app's deployment, "X Company" continues to monitor its performance, availability, and user experience. This includes tracking key performance indicators (KPIs), server health, and user feedback.
-
-**Resources:**
-
-- [Software Development Life Cycle Software Development Process](https://www.guru99.com/software-development-life-cycle-tutorial.html)
-
-## Software Development Approaches Comparison
-
-**Key Concepts:**
-
-- [File: Software Development Approaches Comparison](./assets/sdlc/approachesComparison.md)
 
 ### Waterfall Model
 
@@ -230,11 +212,17 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 10. **Project-Specific Needs:** Ultimately, the choice of a mixed approach can depend on the unique requirements and constraints of a particular project. Companies may tailor their methodology to fit the specific circumstances.
 
-## Project Management
+## Project Management Tools
+
+- [Atlassian](#atlassian)
+  - [Jira](#jira)
+    - [User Story vs Use Cases](#user-story-vs-use-cases)
+    - [Acceptance Criteria](#acceptance-criteria)
+    - [Backlog grooming](#backlog-grooming)
 
 ### Atlassian
 
-****
+**Resources:**
 
 - [Site: Atlassian](https://www.atlassian.com/)
 
@@ -361,7 +349,3 @@ Backlog grooming is an essential practice in Agile project management, particula
 **Example:**
 
 - [Example: backlog](./assets/examples/backlog.md)
-
-## Tasks: Backlog Grooming
-
-- [Tasks: Backlog Grooming](../project-managment/tasks/backlogGrooming.md)
