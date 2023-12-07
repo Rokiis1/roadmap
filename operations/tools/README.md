@@ -2,8 +2,8 @@
 
 # Build Tools
 
+- [Package Management](#package-management)
 - [Module Bundlers](#module-bundlers)
-- [Task Runners](#tasks-runners)
 - [Linters and Formatters](#linters-and-formatters)
 
 **Explanation:**
@@ -30,10 +30,101 @@ Build tools are a crucial part of the software development process, providing au
 
 9. **Continuous Integration/Continuous Deployment (CI/CD):** Build tools play a crucial role in CI/CD pipelines, where they are used to automate testing, building, and deployment processes. This integration accelerates the delivery of software updates.
 
+## Package Management
+
+- [Task runners](#task-runners)
+
+**Explanation:**
+
+Package management is a modern software development that involves the systematic organization, installation, and maintenance of external dependencies, libraries, and tools essential for a software project. It simplifies the process of handling dependencies, ensuring consistency across different environments, and automating various development tasks.
+
+**Key Concepts:**
+
+1. **Package Managers:**
+   - **Definition:** Package managers are specialized tools that automate the management of project dependencies. They handle tasks such as installation, configuration, and updates.
+   - **Task runner:** npm, pnpm, yarn.
+
+2. **Package Files:**
+   - **package.json:**
+     - A central configuration file in JSON format that resides in the root of a project.
+     - Contains metadata about the project, list of dependencies, and custom scripts.
+
+3. **Dependencies:**
+   - **Definition:** Dependencies are external code or libraries that a project relies on for its functionality.
+   - **Types:** Runtime dependencies required for the application to run and development dependencies used during the development process.
+
+4. **Scripts:**
+   - **Definition:** Custom commands or tasks defined in the project's `package.json` file under the "scripts" section.
+   - **Purpose:** Automate repetitive development tasks such as building, testing, and starting the application.
+
+5. **Versioning:**
+   - **Semantic Versioning (SemVer):**
+     - A versioning scheme with three numbers (MAJOR.MINOR.PATCH) indicating compatibility.
+   - **Version Ranges:**
+     - Specify acceptable versions or version ranges in the `package.json` file.
+
+6. **Lockfiles:**
+   - **Definition:** Files (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`) that lock down dependency versions.
+   - **Purpose:** Ensures deterministic installations, preventing version mismatches across different environments.
+
+7. **Global vs. Local Installation:**
+   - **Global Installation:**
+     - Installs packages system-wide, making them available for any project.
+   - **Local Installation:**
+     - Installs packages specific to a project, enhancing version control and isolation.
+
+8. **Proxy Configuration:**
+   - **Definition:** Configuration settings for routing package requests through a proxy.
+   - **Usage:** Configurable via CLI options or dedicated configuration files.
+
+9. **Upgrade and Removal:**
+    - **Upgrade:** Commands to update dependencies to their latest compatible versions.
+    - **Removal:** Commands to uninstall and remove dependencies from the project.
+
+10. **Offline Mode:**
+    - **Definition:** The ability to install packages without an internet connection.
+    - **Purpose:** Useful for environments with limited or no internet access.
+
+11. **Multiple Environments:**
+    - **Development, Testing, Production:**
+      - Package management is crucial in different environments to ensure consistent and reliable software delivery.
+
+### Task runners
+
+- [npm scripts vs pnpm scripts](#npm-scripts-vs-pnpm-scripts)
+
+**Explanation:**
+
+Task runners are tools that automate and manage repetitive tasks in the software development workflow. They provide a streamlined way to define, configure, and execute tasks such as code compilation, asset minification, testing, and more. Task runners aim to enhance development efficiency, reduce manual effort, and ensure consistency in the execution of various tasks.
+
+**Key Concepts:**
+
+1. **Task Automation:**
+   - **Script Execution:** Task runners execute scripts or commands defined by developers. These scripts encapsulate various tasks, such as building the project, running tests, and handling deployment.
+   - **Workflow Automation:** By automating repetitive tasks, task runners help create efficient and reproducible development workflows. This is particularly beneficial in large projects or those with complex build requirements.
+
+2. **Dependency Management:**
+   - **Package Management Integration:** Task runners can integrate with package managers (npm for Node.js projects). This integration enables them to manage dependencies and ensure that the required tools and libraries are available for task execution.
+   - **Dependency Resolution:** Task runners can automatically resolve and fetch project dependencies, ensuring that the correct versions of tools and libraries are used during task execution.
+
+3. **Concurrency and Parallelism:**
+   - **Parallel Execution:** Task runners can execute multiple tasks in parallel, improving build performance and reducing overall execution time.
+   - **Concurrent Tasks:** Developers can define concurrent execution of tasks, allowing for efficient use of system resources and faster build times.
+
+4. **File Watching and Live Reloading:**
+   - **File Monitoring:** Task runners often include file-watching capabilities. They monitor file changes, triggering task re-execution when files are modified.
+   - **Live Reloading:** Some task runners support live reloading, refreshing the application or preview in real-time as changes are made to the source code. This enhances the developer experience during the development process.
+
+5. **Integration with Build Tools:**
+   - **Build Process Integration:** Task runners are often used in conjunction with build tools (Webpack, Vite, esbuild) to enhance the overall development and build process.
+   - **Script Execution in Pipelines:** Task runners are integrated into continuous integration/continuous deployment (CI/CD) pipelines, automating tasks in the deployment process.
+
+### npm scripts vs pnpm scripts
+
 ## Module Bundlers
 
 - [Vite](#vite)
-- [esbuild](#build)
+- [esbuild(TBD)](#build)
 
 **Explanation:**
 
@@ -61,47 +152,63 @@ Module bundlers are tools that facilitate the organization, packaging, and optim
 
 10. **Hot Module Replacement (HMR):** Some module bundlers provide HMR functionality, enabling developers to update modules in real-time during development without requiring a full page refresh. This accelerates the development feedback loop.
 
-## Task Runners
-
-- [npm scripts](#npm-scripts)
-- [pnpm scripts](#pnpm-scripts)
+### Vite
 
 **Explanation:**
 
-Task runners are tools that automate and manage repetitive tasks in the software development workflow. They provide a streamlined way to define, configure, and execute tasks such as code compilation, asset minification, testing, and more. Task runners aim to enhance development efficiency, reduce manual effort, and ensure consistency in the execution of various tasks.
+**[Vite](https://vitejs.dev/)** is a JavaScript build tool designed to simplify and streamline the development of front-end web applications. Created by Evan Yu, the same individual behind Vue.js, Vite focuses on enhancing the build process by serving two core functions:
+
+1. **Local Code Serving:**
+   - During development, Vite serves your code locally, providing a fast and efficient environment for building and testing your front-end applications.
+
+2. **Production Bundling:**
+   - For production, Vite bundles your JavaScript, CSS, and other assets together, optimizing them for deployment.
+
+- [Explanation: Vite](./assets/explanation/vite.md)
 
 **Key Concepts:**
 
-1. **Task Automation:**
-   - **Script Execution:** Task runners execute scripts or commands defined by developers. These scripts encapsulate various tasks, such as building the project, running tests, and handling deployment.
-   - **Workflow Automation:** By automating repetitive tasks, task runners help create efficient and reproducible development workflows. This is particularly beneficial in large projects or those with complex build requirements.
+- **ESM (ES Module) Imports:** 
+   - Vite leverages ES modules for importing dependencies. During development, when your application requests a module, Vite serves the module directly to the browser, without bundling it first.
 
-2. **Dependency Management:**
-   - **Package Management Integration:** Task runners can integrate with package managers (npm for Node.js projects). This integration enables them to manage dependencies and ensure that the required tools and libraries are available for task execution.
-   - **Dependency Resolution:** Task runners can automatically resolve and fetch project dependencies, ensuring that the correct versions of tools and libraries are used during task execution.
+- **ES Modules Leveraging:**
+  - Vite leverages native ECMAScript (ES) modules in the browser, introduced in 2015 and widely supported by 2020. This allows developers to import and export code from different files directly in the browser.
 
-3. **Concurrency and Parallelism:**
-   - **Parallel Execution:** Task runners can execute multiple tasks in parallel, improving build performance and reducing overall execution time.
-   - **Concurrent Tasks:** Developers can define concurrent execution of tasks, allowing for efficient use of system resources and faster build times.
+- **On-Demand Compilation:** 
+   - Instead of bundling the entire application, Vite compiles and serves individual modules on-demand as you navigate through your application. This  leads to faster development feedback and improved performance.
 
-4. **File Watching and Live Reloading:**
-   - **File Monitoring:** Task runners often include file-watching capabilities. They monitor file changes, triggering task re-execution when files are modified.
-   - **Live Reloading:** Some task runners support live reloading, refreshing the application or preview in real-time as changes are made to the source code. This enhances the developer experience during the development process.
+- **Instant Code Loading:**
+  - By utilizing native ES modules, Vite enables instant loading of your code, regardless of the application's size. This is a significant improvement over traditional tools like webpack, especially as the codebase and dependencies grow.
 
-5. **Popular Task Runners:**
-   - **npm Scripts:** While not a dedicated task runner, npm scripts (part of the npm package manager) allow developers to define and run scripts in their package.json files. npm scripts provide a lightweight and convenient way to automate tasks.
-   - **pnpm Scripts:** 
+- **Development Server:** 
+   - Vite includes a development server that runs in the browser and handles the on-the-fly transpilation and module serving. It also supports Hot Module Replacement (HMR), allowing you to see changes instantly without a full page reload.
 
-6. **Integration with Build Tools:**
-   - **Build Process Integration:** Task runners are often used in conjunction with build tools (Webpack, Vite, esbuild) to enhance the overall development and build process.
-   - **Script Execution in Pipelines:** Task runners are integrated into continuous integration/continuous deployment (CI/CD) pipelines, automating tasks in the deployment process.
+- **Production Build:** 
+   - When you are ready to deploy your application, Vite bundles and optimizes your code for production. This bundling process is similar to traditional build tools, but during development, Vite takes advantage of the native ESM support in modern browsers.
+
+**Example:**
+
+```bash
+# Create New Vite Project
+npm create-vite@latest
+# Or
+npm create-vite@latest project-name --template <template-name>
+# Install Dependencies
+npm install
+# Running the Development Server
+npm run dev
+# Building for Production
+npm run build
+```
+
+**Resources:**
+
+- [Docs: Vite](https://vitejs.dev/)
 
 ## Linters and Formatters
 
 - [Prettier](#prettier)
 - [ESLint](#eslint)
-
-## Linters and Formatters: An Overview
 
 **Explanation:**
 
