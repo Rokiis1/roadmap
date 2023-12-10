@@ -42,7 +42,7 @@ Package management is a modern software development that involves the systematic
 
 1. **Package Managers:**
    - **Definition:** Package managers are specialized tools that automate the management of project dependencies. They handle tasks such as installation, configuration, and updates.
-   - **Task runner:** npm, pnpm, yarn.
+   - **Task runner:** npm, pnpm, npx.
 
 2. **Package Files:**
    - **package.json:**
@@ -91,7 +91,7 @@ Package management is a modern software development that involves the systematic
 
 ### Task runners
 
-- [npm scripts vs pnpm scripts](#npm-scripts-vs-pnpm-scripts)
+- [npm vs pnpm vs npx scripts](#npm-vs-pnpm-vs-npx-scripts)
 
 **Explanation:**
 
@@ -119,7 +119,7 @@ Task runners are tools that automate and manage repetitive tasks in the software
    - **Build Process Integration:** Task runners are often used in conjunction with build tools (Webpack, Vite, esbuild) to enhance the overall development and build process.
    - **Script Execution in Pipelines:** Task runners are integrated into continuous integration/continuous deployment (CI/CD) pipelines, automating tasks in the deployment process.
 
-### npm scripts vs pnpm scripts
+### npm vs pnpm vs npx scripts
 
 ## Module Bundlers
 
