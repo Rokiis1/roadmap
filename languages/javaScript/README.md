@@ -1,2161 +1,1643 @@
 # Table of Contents
 
-- [JavaScript](#javascript)
-  - [Explaination how the JavaScript works](#explaination-how-the-javaScript-works)
-  - [Introduction to JavaScript](#introduction-to-javascript)
-  - [ECMAScript](#ecmascript)
-  - [Node.js](#nodejs)
-  - [How to run Javascript](#how-to-run-javascript)
-- [Javascript Variables](#javascript-variables)
-    - [Variable Declarations](#variable-declarations)
-    - [Hoisting](#hoisting)
-    - [Naming Rules](#naming-rules)
-    - [Variable Scopes](#variable-scopes)
-      - [Block scopes](#block-scopes)
-      - [Function scopes](#function-scopes)
-      - [Global scopes](#global-scopes)
+- [Introduction to JavaScript](#introduction-to-javascript)
+- [JavaScript Fundamentals](#javascript-fundamentals)
+- [JavaScript Operators](#javascript-operators)
+- [Control Flow](#control-flow)
+- [JavaScript functions](#javascript-functions)
+
+# Introduction to JavaScript
+
+- [What is JavaScript?](#what-is-javascript)
+- [History of JavaScript](#history-of-javascript)
+- [JavaScript Versions](#javascript-versions)
+- [How to run JavaScript?](#how-to-run-javascript)
+
+## What is JavaScript?
+
+**Explanation:**
+
+JavaScript is a programming language initially designed to interact with elements of web pages. In web browsers, JavaScript consists of three main parts:
+
+- ECMAScript provides the core functionality.
+
+         +--------------------------------------+
+         |            ECMAScript Core           |
+         |                                      |
+         |        +---------------------+       |
+         |        |   Language Syntax   |       |
+         |        +---------------------+       |
+         |                                      |
+         |        +---------------------+       |
+         |        |    Data Types       |       |
+         |        +---------------------+       |
+         |                                      |
+         |        +---------------------+       |
+         |        |   Control Flow      |       |
+         |        +---------------------+       |
+         |                                      |
+         |        +---------------------+       |
+         |        |   Functions         |       |
+         |        +---------------------+       |
+         |                                      |
+         |        +---------------------+       |
+         |        |    Objects          |       |
+         |        +---------------------+       |
+         |                                      |
+         +--------------------------------------+
+
+
+- The Document Object Model (DOM) provides interfaces for interacting with elements on web pages
+
+               +-------------------------------------------+
+               |            Document Object Model          |
+               |                                           |
+               |   +-----------------------------+         |
+               |   |            Document         |         |
+               |   +-----------------------------+         |
+               |         |                    |            |
+               |         v                    v            |
+               |   +-------------+     +----------------+  |
+               |   |  Element    |     |    Element     |  |
+               |   +-------------+     +----------------+  |
+               |         |                    |            |
+               |         v                    v            |
+               |   +-------------+     +----------------+  |
+               |   |  Attribute  |     |    Attribute   |  |
+               |   +-------------+     +----------------+  |
+               |                                           |
+               |   +-----------------------------+         |
+               |   |           Text Node         |         |
+               |   +-----------------------------+         |
+               |                                           |
+               +-------------------------------------------+
+
+
+- The Browser Object Model (BOM) provides the browser API for interacting with the web browser.
+
+                +---------------------------------------------+
+                |             Browser Object Model            |
+                |                                             |
+                |   +---------------------------+             |
+                |   |          Window           |             |
+                |   +---------------------------+             |
+                |       |                 |                   |
+                |       v                 v                   |
+                |   +----------+    +----------------+        |
+                |   | Location |    |    Document    |        |
+                |   +----------+    +----------------+        |
+                |       |                |     |              |
+                |       v                v     v              |
+                |   +-----------+   +----------------+        |
+                |   | Navigator |   |    History     |        |
+                |   +----------+    +----------------+        |
+                |                   |                         |
+                |                   v                         |
+                |               +----------------+            |
+                |               |   Screen       |            |
+                |               +----------------+            |
+                |                   |                         |
+                |                   v                         |
+                |               +----------+                  |
+                |               |  Console |                  |
+                |               +----------+                  |
+                +---------------------------------------------+
+
+JavaScript allows you to add interactivity to a web page. Typically, you use JavaScript with HTML and CSS to enhance a web page’s functionality, such as validating forms, creating interactive maps, and displaying animated charts.
+
+When a web page is loaded, after HTML and CSS have been downloaded, the JavaScript engine in the web browser executes the JavaScript code. The JavaScript code then modifies the HTML and CSS to update the user interface dynamically.
+
+The JavaScript engine is a program that executes JavaScript code. In the beginning, JavaScript engines were implemented as interpreters.
+
+However, modern JavaScript engines are typically implemented as just-in-time compilers that compile JavaScript code to bytecode for improved performance.
+
+*Client-side vs. Server-side JavaScript*
+
+When JavaScript is used on a web page, it is executed in web browsers. In this case, JavaScript works as a client-side language.
+
+JavaScript can run on both web browsers and servers. A popular JavaScript server-side environment is **Node.js**. Unlike client-side JavaScript, server-side JavaScript executes on the server and allows you to access databases, file systems, etc.
+
+## History of JavaScript
+
+In 1995, JavaScript was created by a Netscape developer named **Brendan Eich**. First, its name was Mocha. And then, its name was changed to LiveScript.
+
+Netscape decided to change LiveScript to JavaScript to leverage Java’s fame, which was popular. The decision was made just before Netscape released its web browser product Netscape Navigator 2. As a result, JavaScript entered version 1.0.
+
+Netscape released JavaScript 1.1 in Netscape Navigator 3. In the meantime, Microsoft introduced a web browser product called Internet Explorer 3 (IE 3), which competed with Netscape. However, IE came with its own JavaScript implementation called **JScript**. Microsoft used the name JScript to avoid possible license issues with Netscape.
+
+Two different JavaScript versions were in the market:
+
+JavaScript in Netscape Navigator
+
+JScript in Internet Explorer.
+
+JavaScript had no standards that governed its syntax and features. And the community decided that it was time to standardize the language.
+
+In 1997, JavaScript 1.1 was submitted to the European Computer Manufacturers Association (ECMA) as a proposal. Technical Committee #39 (TC39) was assigned to standardize the language to make it a general-purpose, cross-platform, and vendor-neutral scripting language.
+
+TC39 came up with ECMA-262, a standard for defining a new scripting language named ECMAScript (often pronounced Ek-ma-script).
+
+After that, the International Organization for Standardization and International Electrotechnical Commissions (ISO/IEC) adopted ECMAScript (ISO/IEC-16262).
+
+## JavaScript Versions
+
+**Explanation:**
+
+JavaScript is a widely-used programming language that is primarily used for creating dynamic and interactive web pages. Over the years, several versions of JavaScript have been released, each introducing new features, enhancements, and improvements. 
+
+**Key Concepts:**
+
+1. **ES1 (ECMAScript 1) - 1997:**
+   - The first standardized version of JavaScript.
+   - Introduced fundamental features like variables, loops, conditionals, and functions.
+
+2. **ES2 (ECMAScript 2) - 1998:**
+   - Minor updates and bug fixes.
+   - Introduced features like try/catch for error handling.
+
+3. **ES3 (ECMAScript 3) - 1999:**
+   - Added features such as regular expressions, exceptions, and better string handling.
+   - This version formed the basis for many browsers in the early 2000s.
+
+4. **ES4 (ECMAScript 4) - Abandoned:**
+   - Planned major update, but it was abandoned due to disagreements within the community.
+
+5. **ES5 (ECMAScript 5) - 2009:**
+   - Introduced strict mode, JSON support, and various utility functions.
+   - Enhanced the language with better error handling and overall improvements.
+
+6. **ES6/ES2015 (ECMAScript 2015):**
+   - A significant update with many new features.
+   - Introduced let and const for variable declaration, arrow functions, classes, promises, and template literals.
+   - Enhanced syntax and provided more ways to write expressive and concise code.
+
+7. **ES2016 (ES7):**
+   - Relatively small update with features like the Array.prototype.includes method.
+
+8. **ES2017 (ES8):**
+   - Introduced features such as async/await for handling asynchronous code, Object.values/Object.entries, and shared memory and atomics for multi-agent programming.
+
+9. **ES2018 (ES9):**
+   - Introduces features like asynchronous iteration, rest/spread properties for objects, and more.
+
+10. **ES2019 (ES10):**
+    - Introduced Array.prototype.flat and Array.prototype.flatMap, Object.fromEntries, and optional catch binding.
+
+11. **ES2020 (ES11):**
+    - Introduced features like BigInt for working with arbitrary precision integers, globalThis, and dynamic import().
+
+12. **ES2021 (ES12):**
+    - Introduces features such as String.prototype.replaceAll, Promise.any, and the logical assignment operators (&&=, ||=).
+
+13. **ES2022 (ES13):**
+    - Some proposed features include `Array.prototype.groupBy`, `String.prototype.splitGraphemes`, and others. The final features may vary.
+
+## How to run JavaScript?
+
+**Explanation:**
+
+Running JavaScript code can be done in various environments, depending on the context and the type of application you are developing.
+
+**Key Concepts:**
+
+1. **Web Browsers:**
+   - **Browser Console:** All major web browsers (Chrome, Firefox, Safari, Edge) come with a built-in JavaScript console. You can access it by right-clicking on a web page, selecting "Inspect" (or "Inspect Element"), and navigating to the "Console" tab. Here, you can type and execute JavaScript code directly.
+
+   - **HTML File:** You can include JavaScript code directly within an HTML file using the `<script>` tag.
+      
+      **Example:**
+
+     ```html
+     <!DOCTYPE html>
+     <html>
+     <head>
+       <title>My JavaScript Page</title>
+     </head>
+     <body>
+       <script>
+         // Your JavaScript code here
+         console.log("Hello, World!");
+       </script>
+     </body>
+     </html>
+     ```
+     Open the HTML file in a web browser to see the results.
+
+2. **Node.js:**
+   - Node.js is a JavaScript runtime that allows you to run JavaScript code outside of a web browser, typically on a server. You need to install Node.js on your machine. Once installed, you can create a JavaScript file (`app.js`) and run it using the command:
+
+      **Example:**
+
+     ```
+     node app.js
+     ```
+
+3. **Code Editors and IDEs:**
+   - Many code editors and integrated development environments (IDEs) support JavaScript development. Examples include Visual Studio Code, Neovim, and others. You can create JavaScript files, write your code, and execute it directly within these environments.
+
+4. **Online Editors:**
+   - There are online platforms that allow you to write and run JavaScript code directly in your web browser. Examples include CodeSandbox, CodePen, and Repl.it. These platforms provide an isolated environment for testing and experimenting with code.
+
+5. **Command Line (Using REPL):**
+   - Some systems come with a JavaScript REPL (Read-Eval-Print Loop) that allows you to execute JavaScript code interactively from the command line.
+
+    **Example:**
+    
+     ```
+     node
+     ```
+     This will open the Node.js REPL, where you can type and execute JavaScript code line by line.
+
+# JavaScript Fundamentals
+
+- [Syntax](#syntax)
+- [Variables](#variables)
 - [Data Types](#data-types)
-  - [string](#string)
-  - [Undefined](#undefined)
-  - [Number](#number)
-  - [BigInt](#big-int)
-  - [Boolean](#boolean)
-  - [Null](#null)
-  - [Symbol](#symbol)    
-  - [typeof Operator](#typeof-operator)
-  - [Built-in Objects](#built-in-objects)
-- [Equality Comparisons](#equality-comparisons)
-  - [The == Operator](#operator==)
-  - [The === Operator](#operator===)
-  - [The Object.is() Method](#object-method)
-- [Expressions and Operators](#expressions-and-operators)
-  - [Assignment Operators](#assignment-operators)
-  - [Comparison Operators](#comparison-operators)
-    - [Equal to (==)](#equal-to)
-    - [Equal value and equal type (===)](#equal-value-and-equal-type)
-    - [Not equal (!=)](#not-equal)
-    - [Not equal value or not equal type (!==)](#not-equal-value-or-not-equal-type)
-    - [Greater than (>)](#greater-than)
-    - [Less than (<)](#less-than)
-    - [Greater than or equal to (>=)](#greater-than-or-equal-to)
-    - [Less than or equal to (<=)](#less-than-or-equal-to)
-    - [Ternary operator (?)](#ternary-operator)
-  - [Arithmetic Operators](#arithmetic-operators)
-  - [Logical Operators](#logical-operators)
-    - [Logical AND (&&)](#logical-and)
-    - [Logical OR (||)](#logical-or)
-    - [Logical NOT (!)](#logical-not)
-  - [String Operators](#string-operators)
-  - [Conditional operators](#conditional-operators)
-  - [Comma Operators](#comma-operators)
-  - [Unary Operators](#unary-operators)
-- [Type Casting in JavaScript](#type-casting-in-javascript)
-  - [Type Conversion](#type-conversion)
-  - [Coercion](#coercion)
-  - [Explicit Type Casting](#explicit-type-casting)
-  - [Implicit Type Casting](#implicit-type-casting)
-- [Loops and Iterations](#loops-and-iterations)
-- [Control Flow and Exception Handling](#control-flow-and-exception-handling)
-  - [Conditional Statements](#conditional-statements)
-  - [Exception Handling](#exception-handling)
-- [Functions](#functions)
-
-- [Data Structures](#data-structures)
-  - [Structured Data](#structured-data)
-    - [JSON](#json)
-  - [Indexed Collections](#indexed-collections)
-    - [Arrays](#arrays)
-      - [Map()](#map)
-      - [Filter()](#filter)
-      - [ForEach()](#for-each)
-      - [find()](#find)
-      - [findIndex()](#find-index)
-      - [includes()](#includes)
-      - [sort()](#sort)
-      - [Reduce()](#reduce)
-    - [Keyed Collections](#keyed-collections)
-      - [Map](#map)
-      - [Objects](#objects)
-- [Asynchronous JavaScript](#asynchronous-javascript)
-  - [setTimeout](#settimeout)
-  - [setInterval](#setinterval)
-  - [Callbacks](#callbacks)
-    - [Callback Hell](#callback-hell)
-  - [Promises](#promises)
-    - [async / await](#async-await)
-- [Strict Mode](#strict-mode)
-- [DOM (Document Object Model)](#dom-document-object-model)
-  - [Introduction to DOM](#introduction-to-dom)
-  - [DOM Manipulation](#dom-manipulation)
-  - [DOM Traversal](#dom-traversal)
-  - [DOM Events](#dom-events)
-  - [DOM Styling](#dom-styling)
-- [Build Tools](#build-tools)
-  - [Linters formatters](#linters-formatters)
-    - [Prettier](#prettier)
-    - [ESLint](#eslint)
-  - [Task Runners](#task-runners)
-    - [Task Runners](#task-runners)
-    - [scripts](#scripts)
-  - [Module Bundlers](#module-bundlers)
-    - [Vite](#vite)
-    - [esbuild](#esbuild)
-
-# JavaScript
-
-JavaScript is a high-level programming language that is primarily used for web development. It enables the creation of interactive and dynamic elements on websites. JavaScript can be executed on both the client-side (in the web browser) and the server-side (on a web server).
-
-## Explaination how the JavaScript works
-
-When a user opens a website, the browser requests JavaScript files from the server. Once the files are received, the browser executes the JavaScript and manipulates the Document Object Model (DOM) to make changes to the website. Finally, the browser displays the website with the JavaScript changes to the user.
-
-![howJavaScriptWork](./images/howJavaScriptWork.png)
-
-## Introduction to JavaScript
-
-- Syntax and basic structure of JavaScript
-- Variables and data types
-- Control flow and decision-making with conditionals
-- Loops and iteration
-- Functions and scope
-- Manipulating the Document Object Model (DOM)
-- Event handling
-- Asynchronous programming with callbacks, promises, and async/await
+- [Primitive vs Reference Values](#primitive-vs-reference-values)
 
-## ECMAScript
+## Syntax
 
-ECMAScript is the standardized specification for JavaScript. It defines the language syntax, features, and behavior that all JavaScript implementations should follow. ECMAScript versions are often referred to as ES5, ES6 (or ES2015), ES7, and so on.
+**Explanation:**
 
-It's important to note that JavaScript is the most widely used implementation of ECMAScript. JavaScript engines in web browsers and server-side environments adhere to the ECMAScript specification to ensure consistent behavior across platforms.
+Syntax refers to the set of rules that dictate how programs written in a programming language should be structured. It is essentially the grammar of a programming language that defines how statements and expressions should be written to form a valid program.
 
-![howJavaScriptWork](./images/ECMAScript.png)
+- Carriage return
 
-## Node.js 
+- Space
 
-Node.js is a runtime environment that allows JavaScript to be executed on the server-side. It provides an event-driven architecture and a rich set of built-in modules, making it suitable for building scalable network applications. Node.js is built on the V8 JavaScript engine, which is also used by the Google Chrome browser.
+- New Line
 
-Node.js extends the capabilities of JavaScript beyond the web browser, enabling developers to build server-side applications, command-line tools, APIs, and more. It provides access to various APIs for file system operations, networking, database connectivity, and other system-level tasks.
+- tab
 
-![nodejs](./images/nodejs.png)    
+JavaScript engine ignores whitespace. However, you can use whitespace to format the code to make it easy to read and maintain.
 
-## Resources
+**Key Concepts:**
 
-- [(Article)JavaScript documentatio developer mozilla](https://developer.mozilla.org/en-US/)
-- [(Article) JavaScript documentation w3schools](https://www.w3schools.com/js/default.asp)
-- [(Article) The History of JavaScript](https://dev.to/iarchitsharma/the-history-of-javascript-5e98)
-- [(Video) JavaScript in 100 Seconds](https://www.youtube.com/watch?v=DHjqpvDnNGE)
+1. Use whitespace including carriage return, space, newline, and tab to format the code. The JavaScript engine ignores the whitespace.
+  
+  - The following JavaScript code doesn’t use whitespace:
 
-# Javascript Variables
+    **Example:**
 
-## Variable Declarations
+    ```javascript
+    let formatted = true; if (formatted) {console.log('The code is easy to read');}
+    ```
 
-**Description:** A variable declaration creates a new variable and optionally initializes it with a value.
+  - It is equivalent to the following code that uses whitespace. Hence, this code is much easier to read:
+  
+    **Example:**
 
-**Syntax:**
+    ```javascript
+    let formatted = true;
 
-```js
-var variableName;
-let variableName;
-const variableName = value;
-```
+    if (formatted) {
+      console.log('The code is easy to read');
+    }
+    ```
 
-**Example:**
+Note that JavaScript bundlers remove all whitespace from JavaScript files and put them into a single file for deployment. By doing this, JavaScript bundlers make the JavaScript code lighter and faster to load in web browsers.
 
-```js
-var age;
-let name;
-const PI = 3.14;
-```
+- Use a semicolon (;) to terminate a simple statement.
 
-## Hoisting
+- Use the curly braces ({}) to form a block that groups one or more simple statements.
 
-**Description:** Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase.
+- A single-line comment starts with // followed by a text. A block comment begins with /* and ends with */. The JavaScript engine also ignores the comments.
 
-**Example:**
+- Identifiers are names that you choose for variables, functions, classes.
 
-```js
-console.log(x); // Output: undefined
-var x = 10;
-console.log(x); // Output: 10
+- Do not use the reserved keywords and reserved words for identifiers.
 
-console.log(y); // ReferenceError: y is not defined
-let y = 20;
-console.log(y); // Output: 20
-```
+## Variables
 
-## Naming Rules
+- [Variable Declarations](#variable-declarations)
+- [Variable Scopes](#variable-scopes)
+  - [Block](#block)
+  - [Functions](#functions)
+  - [Global](#global)
 
-**Description:** Naming rules determine how variables can be named in JavaScript.
+**Explanation:**
 
-**Syntax:** 
+Variables are fundamental elements in programming that enable developers to store and manipulate data within a program. They play a pivotal role in managing information and facilitating dynamic behavior within code. 
 
-Variable names must start with a letter, underscore, or dollar sign.
-They can contain letters, digits, underscores, or dollar signs.
-Variable names are case-sensitive.
+**Key Concepts:**
 
-**Example:**
+1. **Storage and Manipulation of Data**
 
-```js
-var myVariable;
-let _score;
-const $PI = 3.14;
-```
+At its core, variables serve as containers for storing data values. These values can be of various types, such as numbers, strings, booleans, objects, or arrays. Variables provide a way to reference and manipulate this data throughout the execution of a program.
 
-## Variable Scopes
+2. **Dynamic Behavior**
 
-### Block scopes
+Variables contribute to the dynamic nature of a program by allowing values to change during execution. This dynamism is crucial for creating adaptive and responsive software. Developers can update variable values based on conditions, user input, or other factors, leading to varied program behavior.
 
-**Description:** Block scopes refer to variables that are only accessible within a specific block of code, such as within an `if` statement or a loop.
+3. **Variable Declarations**
 
-**Syntax:**
+The process of creating a variable is known as variable declaration. In JavaScript, commonly used keywords for variable declarations are `var`, `let`, and `const`. Each has its own characteristics regarding scope and reassignment, influencing how variables behave within the program.
 
-```js
-{
-  // Block scope
-  var x = 10;
-  let y = 20;
-  const z = 30;
-}
-```
+4. **Scope**
 
-**Example:**
+Variables have a scope, which defines the regions of code where they are accessible. Understanding variable scope is essential for preventing unintended side effects and ensuring proper encapsulation. Common scopes include block scope, function scope, and global scope.
 
-```js
-{
-  // Block scope
-  var x = 10;
-  let y = 20;
-  const z = 30;
+5. **Naming Rules**
 
-  console.log(x); // Output: 10
-  console.log(y); // Output: 20
-  console.log(z); // Output: 30
-}
+Variables must adhere to naming rules to enhance code clarity and maintainability. These rules typically include starting with a letter, using letters, digits, underscores, or dollar signs, and avoiding reserved words. Consistent and meaningful variable names contribute to code readability.
 
-console.log(x); // Output: 10
-console.log(y); // ReferenceError: y is not defined
-console.log(z); // ReferenceError: z is not defined
-```
+6. **Immutability and Constants**
 
-### Function scopes
+Some variables are declared as constants using the `const` keyword, indicating that their values should not be reassigned. Constants enhance code predictability and prevent inadvertent modifications, promoting a more robust and error-resistant program.
 
-**Description:** Function scopes refer to variables that are defined within a function and are only accessible within that function.
+7. **Preventing Unintended Behavior**
 
-**Syntax:**
+Proper variable usage is crucial for preventing unintended behavior in a program. Understanding concepts like hoisting, variable scoping, and the differences between declaration keywords helps developers write more reliable and maintainable code.
 
-```js
-function myFunction() {
-  // Function scope
-  var x = 10;
-  let y = 20;
-  const z = 30;
-}
-```
+### Variable Declarations
 
-**Example:**
+**Explanation:**
 
-```js
-function myFunction() {
-  // Function scope
-  var x = 10;
-  let y = 20;
-  const z = 30;
+Variable declarations in programming involve the process of introducing a new variable and specifying its characteristics, such as its name and data type. In JavaScript, there are three main ways to declare variables: using the `var` keyword, `let` keyword, and `const` keyword.
 
-  console.log(x); // Output: 10
-  console.log(y); // Output: 20
-  console.log(z); // Output: 30
-}
+**Key Concepts:**
 
-console.log(x); // ReferenceError: x is not defined
-console.log(y); // ReferenceError: y is not defined
-console.log(z); // ReferenceError: z is not defined
-```
+- A variable is a label that references a value.'
 
-### Global scopes
+*Variable names follow these rules:*
 
-**Description:** Global scopes refer to variables that are accessible throughout the entire JavaScript program.
+- Variable names are case-sensitive. This means that the `message` and `Message` are    different variables.
 
-**Example:**
+- Variable names can only contain letters, numbers, underscores, or dollar signs and cannot contain spaces. Also, variable names must begin with a letter, an underscore (`_`) or a dollar sign (`$`).
 
-```js
-var x = 10;
-let y = 20;
-const z = 30;
+- Variable names cannot use the reserved words.
+  
+- By convention, variable names use camelcase like `message`, `yourAge`, and `myName`.
 
-function myFunction() {
-  console.log(x); // Output: 10
-  console.log(y); // Output: 20
-  console.log(z); // Output: 30
-}
+JavaScript is a dynamically typed language. This means that you don’t need to specify the variable’s type in the declaration like other static-typed languages such as Java or C#.
 
-console.log(x); // Output: 10
-console.log(y); // Output: 20
-console.log(z); // Output: 30
-```
+  **Example:**
 
-# Data Types
+  ```javascript
+  // Valid variable names
+  var message;
+  var Message;
+  var yourAge;
+  var myName;
+  var _underscoreVariable;
+  var $dollarVariable;
+  var camelCaseVariable;
 
-## String
+  // Invalid variable names
+  // The following will throw an error or are not following the   rules
+  // var 123invalid;        // Cannot start with a number
+  // var space inName;      // Cannot contain spaces
+  // var special!Char;      // Cannot contain special characters  other than underscore and dollar sign
+  // var reserved;          // Cannot use reserved words
+  // var new;               // Cannot use reserved words
+  ```
 
-A string represents a sequence of characters and is enclosed in either single quotes (') or double quotes (").
+  A variable name can be any valid identifier. By default, the `message` variable has a special value `undefined` if you have not assigned a value to it.
 
-```js
-const greeting = 'Hello, world!';
-```
+- Use the let keyword to declare a variable.
 
-## Undefined
+    Starting in ES6, you can use the let keyword to declare a variable
 
-The undefined data type represents a value that is not assigned to a variable or not yet defined.
+    ```javascript
+    let message;
+    ```
 
-```js
-let username;
-console.log(username); // Output: undefined
-```
-## Number
+    It’s a good practice to use the let keyword to declare a variable.
 
-The number data type represents numeric values.
+    1. **Block Scope:**
 
-```js
-const age = 25;
-```
+    - `let`: Think of `let` as a note you write that can only be read by the people in the same room (block of code). Once you step out of the room, nobody knows about your note.
 
-## BigInt
+    ```javascript
+    // Using let
+    {
+        let x = 10;
+        console.log(x); // 10
+    }
+    console.log(x); // Error: x is not defined
+    ```
 
-The bigint data type represents integers with arbitrary precision, allowing you to work with numbers larger than the Number type can handle.
+    - `var` is like a note that can be seen by everyone in the entire function, even if it's written inside a block.
 
-```js
-const bigNumber = 123456789012345678901234567890n;
-```
+    ```javascript
+    // Using var
+    {
+        var y = 20;
+        console.log(y); // 20
+    }
+    console.log(y); // 20
+    ```
 
-## Boolean
+    2. Reassignment:
 
-The boolean data type represents a logical value, either true or false.
+    - `let`: If you say something and then someone else in the room tries to say the same thing, there's confusion. With `let`, you can't use the same name for a variable in the same room.
 
-```js
-const isLogged = true;
-```
-The null data type represents the intentional absence of any object value.
+    ```javascript
+    // Using let
+    let x = 5;
+    let x = 10; // Error: Identifier 'x' has already been  declared
+    ```
 
-## Null
+    - `var`: Now, imagine someone else saying the same thing on the big whiteboard; it's okay with `var`, but it might lead to misunderstandings.
 
-```js
-const user = null;
-```
-The symbol data type represents unique and immutable values that may be used as property keys of objects.
+    ```javascript
+    // Using var
+    var y = 15;
+    var y = 20; // No error, y is reassigned
+    ```
+    
+- An undefined variable is a variable that has been declared but not initialized while an
+  undeclared variable is a variable that has not been declared.
 
-## Symbol
+    Once you have declared a variable, you can initialize it with a value. To initialize a variable, you specify the variable name, followed by an equals sign (`=`) and a value.
 
-```js
-const id = Symbol('uniqueId');
-```
-## typeof Operator
+    ```javascript
+    let message;
+    message = "Hello";
+    ```
 
-The typeof operator is used to determine the data type of a value.
+    To declare and initialize a variable at the same time, you use the following syntax:
 
-```js
-const username = 'John';
-console.log(typeof username); // Output: string
-```
-## Built-in Objects
+    ```javascript
+    let variableName = value;
+    ```
 
-JavaScript provides several built-in objects that offer functionalities for specific purposes. Here are a few commonly used ones:
+    JavaScript allows you to declare two or more variables using a single statement. To separate two variable declarations, you use a comma (`,`)
 
-`Math`: Provides mathematical functions and constants.
-`Date`: Enables working with dates and times.
-`Array`: Represents an ordered list of elements.
-`Object`: Serves as a basic object type.
+    ```javascript
+    let message = "Hello",
+    counter = 100;
+    ```
 
-```js
-const randomNumber = Math.random();
-const currentDate = new Date();
-const fruits = ['apple', 'banana', 'orange'];
-const person = { name: 'John', age: 25 };
-```
-## Resources
+    Since JavaScript is a dynamically typed language, you can assign a value of a different type to a variable. Although, it is not recommended.
 
-- [(Article)Data types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+    ```javascript
+    let message = 'Hello';
+    message = 100;
+    ```
 
-# Expressions and Operators
+- Use the `const` keyword to define a readonly reference to a value.
 
-At a high level, an expression is a valid unit of code that resolves to a value. There are two types of expressions: those that have side effects (such as assigning values) and those that purely evaluate.
+    A constant holds a value that doesn’t change. To declare a constant, you use the const keyword. When defining a constant, you need to initialize it with a value. 
 
-## Assignment Operators
+    ```javascript
+    const workday = 5;
+    workday = 2;
+    // Uncaught TypeError: Assignment to constant variable.
+    ```
 
-Assignment operators are used to assign values to variables. They allow you to perform simple mathematical operations and update the value of a variable in a single step.
+## Data Types
 
-**Syntax:**
+- [string](#string)
+- [number](#number)
+  - [Numeric Separator](#numeric-separator)
+  - [NaN](#nan)
+  - [bigInt](#bigint)
+- [boolean](#boolean)
+- [null](#null)
+- [undefined](#undefined)
+- [symbol](#symbol)
+- [Array](#array)
 
-```js
-variable = value;
-```
+**Explanation:**
 
-**Example:**
+Data types in programming define the nature of variables and how they store and interact with data. Each type has specific characteristics and use cases.
 
-```js
-let x = 5;
-x += 3; // Equivalent to x = x + 3;
-console.log(x); // Output: 8
-```
-### Tasks
+![DataTypes](./assets/images/dataTypespng.png)
 
-- [Assignment Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/1.assignmentOperators.js)
+1. **String**
 
-## Comparison Operators
+Strings represent sequences of characters and are used to store textual data. They are enclosed in single (' '), double (" "), or backtick (` `) quotes. String manipulation is crucial for tasks involving text processing.
 
-Comparison operators are used to compare two values and return a Boolean result (true or false) based on the comparison.
+2. **Number**
 
-### Equal to (==)
+The `number` type represents numeric values. It includes integers and floating-point numbers. JavaScript supports various mathematical operations, making it versatile for arithmetic calculations.
 
-**Description:** The equal to operator (`==`) compares two values and returns `true` if they are equal, and `false` otherwise. It performs type coercion, meaning it can compare values of different types by converting them to a common type.
+- *Numeric Separator*
 
-**Syntax:**
+Numeric separators, represented by underscores (`_`), can be used to enhance readability in large numeric values, making it easier for developers to discern the magnitude of the number.
 
-```js
-value1 == value2
-```
+- *NaN (Not-a-Number)*
 
-**Example:**
+`NaN` is a special value representing an unrepresentable or undefined value in floating-point arithmetic. It is often the result of an invalid mathematical operation.
 
-```js
-let a = 5;
-let b = "5";
-console.log(a == b);  // true
-```
+- *bigInt*
 
-### Equal value and equal type (===)
+The `bigInt` type is used for representing integers of arbitrary precision. It allows the handling of very large numbers that exceed the limits of the regular `number` type.
 
-**Description:** The equal value and equal type operator (`===`) compares two values and returns `true` only if they have the same value and the same type. It does not perform type coercion.
+3. **Boolean**
 
-**Syntax:**
+The `boolean` type has two values: `true` and `false`. Booleans are fundamental for decision-making in control flow structures like `if` statements and loops.
 
-```js
-value1 === value2
-```
+4. **Null**
 
-**Example:**
+The `null` type represents the intentional absence of any object value. It is often used to signify that a variable or object property has no assigned value.
 
-```js
-let x = 10;
-let y = "10";
-console.log(x === y); // false
-```
+5. **Undefined**
 
-### Not equal (!=)
+The `undefined` type is a primitive value automatically assigned to variables that have been declared but not initialized with a value. It indicates the absence of a meaningful value.
 
-**Description:** The not equal operator (`!=`) compares two values and returns `true` if they are not equal, and `false` if they are equal. It performs type coercion.
+6. **Symbol**
 
-**Syntax:**
+Symbols are unique and immutable data types introduced in ECMAScript 6. They are often used to create private object properties and prevent unintended property name collisions.
 
-```js
-value1 != value2
-```
+7. **Array**
 
-**Example:**
+**Explanation:**
 
-```js
-let p = 8;
-let q = 5;
-console.log(p != q);  // true
-```
+Arrays are ordered, indexed collections of values. They can store elements of any data type, including other arrays. Array elements are accessed using numeric indices, starting from 0. Arrays in JavaScript are versatile and widely used for organizing and manipulating data, offering various built-in methods for operations like iteration, filtering, and mapping.
 
-### Not equal value or not equal type (!==)
+![array](./assets/images/array.png)
 
-**Description:** The not equal value or not equal type operator (`!==`) compares two values and returns `true` if they are not equal in value or not equal in type. It does not perform type coercion.
+**Key Concepts:**
 
-**Syntax:**
+1. **Dynamic Typing**: Most programming languages, including JavaScript, have dynamic typing, allowing variables to change types during runtime.
 
-```js
-value1 !== value2
-```
+    **Example:**
 
-**Example:**
+    ```javascript
+    let dynamicArray = [1, "two", true, null];
+    dynamicArray[1] = 2; // Changing the type dynamically
+    ```
 
-```js
-let m = 2;
-let n = "2";
-console.log(m !== n); // true
-```
+2. **Type Coercion**: JavaScript performs type coercion, automatically converting data types in certain operations. Understanding coercion is crucial for preventing unexpected behavior.
 
-### Greater than (>)
+    ```javascript
+    let numArray = [1, 2, 3];
+    let stringArray = ["4", "5"];
+    let result = numArray + stringArray; // Coercion to string and concatenation
+    ```
 
-**Description:** The greater than operator (`>`) compares two values and returns `true` if the left operand is greater than the right operand. Otherwise, it returns `false`.
+3. **Type Checking**: Developers often use typeof or other mechanisms to check the data type of a variable, ensuring it meets the expected requirements.
 
-**Syntax:**
+4. **Immutability and Mutability**: Some data types, like strings and symbols, are immutable, meaning their values cannot be changed after creation. Others, like arrays and objects, are mutable.
 
-```js
-value1 > value2
-```
+5. **NaN Handling**: Being aware of how to handle `NaN` and prevent unintended consequences in mathematical operations is important for robust code.
 
-**Example:**
+## Primitive vs Reference Values
 
-```js
-let num1 = 7;
-let num2 = 4;
-console.log(num1 > num2); // true
-```
+**Explanation:**
 
-### Less than (<)
+In programming, data values can be categorized into two main types: primitive and reference values. Understanding the distinction between these two categories.
 
-**Description:** The less than operator (`<`) compares two values and returns `true` if the left operand is less than the right operand. Otherwise, it returns `false`.
+**Key Concepts:**
 
-**Syntax:**
+1. **Memory Management**: Understanding the distinction between primitive and reference values is crucial for managing memory effectively, especially in scenarios where memory usage is critical.
 
-```js
-value1 < value2
-```
+2. **Copy Behavior**: Assigning a primitive value results in a copy of the value, while assigning a reference value results in both variables pointing to the same object in memory.
 
-**Example:**
+3. **Mutability Implications**: Primitive values are immutable, making them safer in certain scenarios where data integrity is crucial. Reference values, being mutable, require careful handling to avoid unintended side effects.
 
-```js
-let num3 = 3;
-let num4 = 6;
-console.log(num3 < num4); // true
-```
+4. **Comparisons**: Different rules apply when comparing primitive and reference values. Knowing how values are compared is essential for writing accurate and reliable code.
 
-### Greater than or equal to (>=)
+5. **Use Cases**: Different scenarios may call for the use of primitive or reference values based on their characteristics. Understanding these characteristics helps in making informed design decisions.
 
-**Description:** The greater than or equal to operator (>=) compares two values and returns true if the left operand is greater than or equal to the right operand. Otherwise, it returns false.
+### Primitive Values
 
-**Syntax:**
+Primitive values are simple, immutable data types directly stored in the variable's location.
 
-```js
-value1 >= value2
-```
+- **Number**: Represents numeric values (integers or floating-point numbers).
 
-**Example:**
+- **String**: Represents textual data.
 
-```js
-let value1 = 5;
-let value2 = 5;
-console.log(value1 >= value2); // true
-```
+- **Boolean**: Represents true or false values.
 
-### Less than or equal to (<=)
+- **Null**: Represents the intentional absence of any object value.
 
-**Description:** The less than or equal to operator (`<=`) compares two values and returns `true` if the left operand is less than or equal to the right operand. Otherwise, it returns `false`.
+- **Undefined**: Represents a variable that has been declared but not assigned a value.
 
-**Syntax:**
+- **Symbol**: Represents unique and immutable values introduced in ECMAScript 6.
 
-```js
-value1 <= value2
-```
+**Key Concepts:**
 
-**Example:**
+- **Immutability**: Primitive values are immutable, meaning their values cannot be changed after they are created. Any operation that seems to modify a primitive value actually creates a new value.
 
-```js
-let value3 = 8;
-let value4 = 10;
-console.log(value3 <= value4); // true
-```
+- **Stored by Value**: Primitive values are stored directly in the variable's memory location. When assigning a primitive value to a new variable or passing it as a function parameter, a copy of the value is made.
 
-### Ternary operator (?)
+- **Comparisons**: Primitive values are compared by value, meaning their actual content is compared. If the values are the same, they are considered equal.
 
-**Description:** The ternary operator (`?`) is a conditional operator that evaluates a condition and returns one of two values based on the result of the condition. It provides a compact way to write simple if-else statements.
+### Reference Values
 
-**Syntax:** 
+Reference values are more complex data types that are stored as references to memory locations. They include:
 
-```js
-condition ? value1 : value2
-```
+- **Objects**: Collections of key-value pairs, including arrays, functions, and other objects.
 
-**Example:**
+**Key Concepts:**
 
-```js
-let age = 20;
-let isAdult = (age >= 18) ? "Yes" : "No";
-console.log(isAdult);  // "Yes"
-```
+- **Mutability**: Reference values are mutable, meaning their content can be modified after creation. Operations on reference values may affect multiple variables referencing the same object in memory.
 
-### Tasks
+- **Stored by Reference**: Reference values are stored as references to memory locations. When assigning a reference value to a new variable or passing it as a function parameter, the reference to the same memory location is shared.
 
-- [Comparison Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/2.comparisonOperators.js)
+- **Comparisons**: Reference values are compared by reference, not by content. Two variables containing the same object will be considered equal only if they reference the exact same memory location.
 
+- **Dynamic Properties**: Objects (reference values) can have dynamic properties added or removed during runtime.
+
+# JavaScript Operators
+
+- [Arithmetic Operators](#arithmetic-operators)
+- [Comma Operator](#comma-operator)
+- [Remainder Operator](#remainder-operator)
+- [Assignment Operators](#assignment-operators)
+- [Unary Operators](#unary-operators)
+- [Comparison Operators](#comparison-operators)
+- [Logical Operators](#logical-operators)
+- [Logical Assignment Operators](#logical-assignment-operators)
+- [Nullish Coalescing Operator](#javaScript-nullish-coalescing-operator)
+- [Exponentiation Operator](#exponentiation-operator)
+
+**Explanation:**
+
+JavaScript operators are symbols that perform operations on variables and values. They allow developers to manipulate data and control program flow. Let's explore key concepts related to various JavaScript operators:
+
+**Key Concepts:**
+
+1. **Operator Precedence**: Operators have a specific order of precedence, determining the sequence in which they are evaluated in an expression.
+
+2. **Type Coercion**: Some operators perform type coercion, automatically converting values to the appropriate types for an operation.
+
+3. **Short-Circuiting**: Logical operators exhibit short-circuiting behavior, where the second operand is only evaluated if necessary.
+
+4. **Chaining Operators**: Operators can be chained together to form complex expressions, allowing concise and readable code.
 
 ## Arithmetic Operators
 
-Arithmetic operators are used to perform mathematical calculations on numeric values.
+Arithmetic operators perform basic mathematical operations on numeric values. They include addition (`+`), subtraction (`-`), multiplication (`*`), division (`/`), and modulus (`%`) for finding the remainder.
 
-**Syntax:**
+## Comma Operator
 
-```js
-value1 operator value2;
-```
+The comma operator `,` allows multiple expressions to be combined into a single statement. It evaluates each expression and returns the result of the last one.
 
-**Example:**
+## Remainder Operator
 
-```js
-let x = 5;
-let y = 3;
-console.log(x + y); // Output: 8
-```
+The remainder operator `%` returns the remainder of a division operation. It is useful for tasks such as checking if a number is even or odd.
 
-### Tasks
+## Assignment Operators
 
-- [Arithmetic Operators
-](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/3.arithmeticOperators.js)
-
-## Logical Operators
-
-Logical operators are used to combine or invert Boolean values and produce a Boolean result.
-
-### Logical AND (&&)
-
-**Description:** The logical AND operator (`&&`) returns `true` if both operands are true, and `false` otherwise. It evaluates the operands from left to right and stops evaluating as soon as a false value is encountered.
-
-**Syntax:**
-
-```js
-operand1 && operand2
-```
-
-**Example:**
-
-```js
-let x = 5;
-let y = 3;
-console.log(x > 3 && y < 10); // Output: true
-```
-
-### Logical OR (||)
-
-**Description:** The logical OR operator (`||`) returns `true` if at least one of the operands is true, and `false` if both operands are false. It evaluates the operands from left to right and stops evaluating as soon as a true value is encountered.
-
-**Syntax:**
-
-```js
-operand1 || operand2
-```
-
-**Example:**
-
-```js
-let x = true;
-let y = false;
-console.log(x || y); // true
-```
-
-### Logical NOT (!)
-
-**Description:** The logical NOT operator (`!`) negates the value of the operand. If the operand is true, it returns false, and if the operand is false, it returns true.
-
-**Syntax:**
-
-```js
-!operand
-```
-
-**Example:**
-
-```js
-let p = true;
-console.log(!p);  // false
-
-let q = false;
-console.log(!q);  // true
-```
-
-- [Logical Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/4.logicalOperators.js)
-
-
-## String Operators
-
-**Syntax:**
-
-```js
-string1 + string2;
-```
-
-**Example:**
-
-```js
-let greeting = "Hello";
-let name = "John";
-console.log(greeting + " " + name); // Output: "Hello John"
-```
-
-### Tasks
-
-- [String Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/5.stringOperators.js)
-
-## Conditional Operators
-
-Conditional operators are used for conditional statements and ternary expressions.
-
-**Syntax:**
-
-```js
-condition ? value1 : value2;
-```
-
-**Example:**
-
-```js
-let age = 20;
-let isAdult = (age >= 18) ? "Adult" : "Minor";
-console.log(isAdult); // Output: "Adult"
-```
-## Comma Operators
-
-Comma operators are used to separate multiple expressions within a single statement. The value of the entire expression is determined by the last expression.
-
-**Syntax:**
-
-```js
-expression1, expression2, expression3;
-```
-
-**Example:**
-
-```js
-let x = 1, y = 2, z = 3;
-console.log(x, y, z); // Output: 1 2 3
-```
-### Tasks
-
-- [Comma Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/7.commaOperators.js)
+Assignment operators (`=`, `+=`, `-=`, `*=`, `/=`) assign values to variables. They can also perform arithmetic operations in conjunction with assignment.
 
 ## Unary Operators
 
-**Description:** Unary operators in JavaScript are operators that perform operations on a single operand. They can be used to convert values, negate values, perform logical operations, or increment and decrement values.
+Unary operators operate on a single operand. Examples include the unary plus (`+`) and unary minus (`-`) used to convert values to numbers or change their sign.
 
-**Syntax:**
+## Comparison Operators
 
-- Unary Plus (+): `+operand`
-- Unary Negation (-): `-operand`
-- Logical NOT (!): `!operand`
-- Increment (++): `++operand` or `operand++`
-- Decrement (--): `--operand` or `operand--`
+Comparison operators (`==`, `===`, `!=`, `!==`, `>`, `<`, `>=`, `<=`) compare values and return a Boolean result. They are used in conditional statements and expressions.
 
-**Examples:**
+## Logical Operators
 
-```javascript
-// Unary Plus
-let x = "5";
-let y = +x;
-console.log(y); // Output: 5
+Logical operators (`&&`, `||`, `!`) perform logical operations on Boolean values. They are commonly used in conditions to make decisions based on multiple criteria.
 
-// Unary Negation
-let a = 10;
-let b = -a;
-console.log(b); // Output: -10
+## Logical Assignment Operators
 
-// Logical NOT
-let p = true;
-let q = !p;
-console.log(q); // Output: false
+Logical assignment operators (`&&=`, `||=`) combine logical operations with assignment. They are shorthand for common patterns of updating variables based on logical conditions.
 
-// Increment
-let i = 5;
-console.log(++i); // Output: 6 (prefix increment)
-console.log(i++); // Output: 6 (postfix increment)
-console.log(i);   // Output: 7
+## Nullish Coalescing Operator
 
-// Decrement
-let j = 5;
-console.log(--j); // Output: 4 (prefix decrement)
-console.log(j--); // Output: 4 (postfix decrement)
-console.log(j);   // Output: 3
-```
-### Tasks
+The nullish coalescing operator (`??`) is used to provide a default value when the left operand is `null` or `undefined`. It helps avoid unintended fallbacks for falsy values like `0` or an empty string.
 
-- [Unary Operators](../../tasks/vanilla%20JavaScript/Expressions%20and%20Operators/8.unaryOperators.js)
+## Exponentiation Operator
 
-## Resources
+The exponentiation operator (`**`) raises the left operand to the power of the right operand. It provides a concise way to perform exponentiation.
 
-- [(Article)Expressions and operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+# Control Flow
 
-# Type Casting in JavaScript
-
-## Type Conversion
-
-```js
-// Implicitly converting a number to a string
-const num = 42;
-const str = "The answer is: " + num; // Implicit type conversion
-console.log(str); // Output: "The answer is: 42"
-```
-The number `42` is implicitly converted to a string by JavaScript when it is concatenated with another string using the `+` operator.
-
-## Coercion
-
-```js
-// Implicitly converting a string to a number
-const num = 42;
-const str = "3";
-const result = num + str; // Implicit coercion
-console.log(result); // Output: "423"
-```
-The string `"3"` is implicitly coerced to a number, allowing JavaScript to perform the addition operation with the number `42`. However, since the `+` operator is used for both addition and concatenation, the result is the concatenated string `"423"`.
-
-## Explicit Type Casting
-
-```js
-// Explicitly converting a float to an integer
-const numFloat = 3.14;
-const numInt = parseInt(numFloat); // Explicit type casting
-console.log(numInt); // Output: 3
-```
-The `parseInt()` function is used to explicitly cast the floating-point number `3.14` to an integer. The function parses the integer portion of the number, discarding the decimal part, and returns the integer value `3`.
-
-## Implicit Type Casting
-
-```js
-// Implicitly converting an integer to a float
-const numInt = 42;
-const numFloat = numInt; // Implicit type casting
-
-console.log(numFloat); // Output: 42
-console.log(typeof numFloat); // Output: "number"
-```
- The integer value `42` is implicitly cast to a float by JavaScript without any explicit syntax. The result is the floating-point number `42.0`.
-
-## Resources
-
-- [(Article)JavaScript Type Conversion](https://www.w3schools.com/js/js_type_conversion.asp)
-
-# Loops and Iterations
-
-- [for Statement](#for-statement)
-- [for in Statement](#for-in-statement)
-- [for of Statement](#for-of-statement)
-- [while Statement](#while-statement)
-- [do while Statement](#do-while-statement)
-
-**Explanation:**
-
-Loops and iterations are fundamental concepts in JavaScript (and many other programming languages) that allow you to repeatedly execute a block of code. They are used when you want to perform the same operation multiple times or when you need to iterate through collections like arrays or objects. There are several types of loops and iteration constructs in JavaScript
-
-## for Statement
-
-**Explanation:**
-
-The `for` statement is one of the most common and versatile loop constructs in JavaScript. It allows you to create a loop that repeatedly executes a block of code while a specific condition is true. The `for` statement consists of three parts: initialization, condition, and iteration.
-
-**Key Concepts:**
-
-1. **Initialization:** This is where you declare and initialize a loop control variable. It usually starts with `let`, `var`, or `const`. This variable is used to keep track of the loop's progress.
-
-2. **Condition:** The loop continues executing as long as the condition specified here evaluates to `true`. When the condition becomes `false`, the loop terminates.
-
-3. **Iteration:** After each iteration of the loop, the iteration statement is executed, which typically updates the loop control variable. It is often used to increment or decrement the variable.
-
-**Syntax:**
-
-```js
-for (initialization; condition; increment/decrement) {
-  // Code to be executed
-}
-```
-
-- `initialization`: This part is executed only once when the loop starts. It initializes the loop control variable.
-
-- `condition`: The loop will continue to execute as long as this condition evaluates to `true`.
-
-- `iteration`: This part is executed after each iteration of the loop and is used to update the loop control variable.
-
-**Example:**
-
-- [Example: for statment](./assets/examples/loopsAndInterations/forStatment.md)
-
-## for in Statement
-
-**Explanation:**
-
-The `for...in` statement in JavaScript is used to iterate over the enumerable properties of an object. It's particularly useful for looping through the keys or properties of an object, such as the properties of an object literal or the elements of an array (though it's not recommended for iterating through arrays).
-
-**Key Concepts:**
-
-1. **Enumerability:** Not all properties of an object are enumerable. For example, properties defined with `Object.defineProperty` or certain built-in properties are not enumerable by default. You can specify the enumerability of a property when creating or modifying objects.
-
-2. **Iterating Over Keys:** A `for...in` loop is primarily used for iterating over keys or properties of an object, rather than their values.
-
-**Syntax:**
-
-The `for...in` statement iterates over the enumerable properties of an object. It can be used to loop through the keys of an object.
-
-```js
-for (variable in object) {
-  // Code to be executed for each property in the object
-}
-```
-
-- `variable:` This is a variable that represents the key or property name in each iteration.
-- `object:` The object over whose properties you want to iterate.
-
-**Example:**
-
-- [For in Statment](./assets/examples/loopsAndInterations/forInStatment.md)
-
-## for of Statement
-
-**Explanation:**
-
-The `for...of` statement in JavaScript is used for iterating over the values of iterable objects, such as arrays, strings, maps, sets, and more. It provides a cleaner and more straightforward way to loop through the elements of an iterable, as compared to the `for...in` loop which is primarily used for iterating over object keys.
-
-**Key Concepts:**
-
-1. **Iterable Objects:** An iterable object is an object that has an iterable protocol, which includes a method named `[Symbol.iterator]` that returns an iterator object. Arrays, strings, maps, and sets are examples of iterable objects.
-
-2. **Iterating Over Values:** The `for...of` loop directly iterates over the values of the iterable, rather than requiring you to access the values through an index or key.
-
-**Syntax:**
-
-```js
-for (variable of iterable) {
-  // Code to be executed
-}
-```
-
-- **variable:** This is a variable that represents each value in the iterable in each iteration.
-
-- **iterable:** The object you want to iterate over, which should be iterable.
-
-**Example:**
-
-- [For of Statment](./assets/examples/loopsAndInterations/forOfStatment.md)
-
-## while Statement
-
-**Explanation:**
-
-The `while` statement in JavaScript is a type of loop that repeatedly executes a block of code as long as a specified condition remains true. It is used when you want to create a loop that continues as long as the condition is met.
-
-**Key Concepts:**
-
-1. **Condition:** The while loop begins by evaluating a condition. As long as this condition is true, the code inside the loop continues to execute. If the condition is initially false, the code within the loop is never executed.
-
-2. **Iteration:** Inside the loop, you typically include code that changes the variables or values involved in the condition to eventually make the condition false and terminate the loop.
-
-**Syntax:**
-
-```js
-while (condition) {
-  // Code to be executed
-}
-```
-
-- `condition`: This is an expression or a boolean value. The loop will continue executing as long as this condition is `true`.
-
-**Example:**
-
-- [Example: While statment](./assets/examples/loopsAndInterations/whileStatment.md)
-
-## do while Statement
-
-**Explanation:**
-
-The `do...while` statement in JavaScript is a type of loop that is similar to the `while` loop, but with a crucial difference. It always executes the block of code at least once, regardless of whether the condition is true or false. After the first execution, it checks the condition, and if it's true, it continues to execute the code block. If the condition is false after the first execution, the loop terminates.
-
-**Key Concepts:**
-
-1. **Guaranteed Execution:** The primary feature of the `do...while` loop is that it guarantees the execution of the code block at least once, even if the condition is initially false.
-
-2. **Condition Checking:** After the initial execution, the condition is checked. If it's true, the loop continues; if it's false, the loop terminates.
-
-**Syntax:**
-
-```js
-do {
-  // Code to be executed at least once
-} while (condition);
-```
-
-- The code block within the `do` section is executed at least once before checking the condition.
-
-- condition: This is the expression or boolean value that is checked after the initial execution. If it's `true`, the loop continues; if it's `false`, the loop terminates.
-
-**Example:**
-
-- [Example: Do while statment](./assets/examples/loopsAndInterations/doWhileStatment.md)
-
-**Resources:**
-
-- [Resources: Loops and Iterations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-
-**Tasks:**
-
-- [Tasks: Loops and Iterations]()
-
-# Control Flow and Exception Handling
-
-- [Conditional Statements](#conditional-statements)
-- [Exception Handling](#exception-handling)
-
-## Conditional Statements
-
-- [`if` Statement](#if-statement)
-- [`Switch` Statement](#switch-statement)
+- [if](#if)
+  - [if else](#if-else)
+  - [if else if](#if-else-if)
 - [Ternary Operator](#ternary-operator)
+- [switch case](#switch-case)
+- [while](#while)
+- [do while](#do-while)
+- [for](#for)
+  - [break](#break)
+  - [continue](#continue)
 
 **Explanation:**
 
-Conditional statements in JavaScript are crucial for controlling the flow of a program based on specific conditions. They allow you to make decisions, execute loops, and handle errors. In JavaScript, there are three primary types of control flow statements: conditional statements, loops, and try-catch statements.
+Control flow structures in JavaScript dictate the order in which statements are executed, allowing developers to create dynamic and conditional behavior.
 
 **Key Concepts:**
 
-1. **Conditional Logic:** Conditional statements enable your code to make decisions based on whether a given condition is true or false.
+1. **Conditional Execution**: Control flow structures enable the execution of code based on specific conditions, making programs more dynamic and responsive.
 
-2. **Control Flow:** Conditional statements determine the order in which code is executed, providing a mechanism for branching within your program.
+2. **Looping Mechanisms**: Loops, such as `while`, `do-while`, and `for`, allow repetitive execution of code, reducing redundancy and improving code efficiency.
 
-3. **Boolean Values:** Conditions in conditional statements evaluate to boolean values, either `true` or `false`, to determine which code path to follow.
+3. **Decision Making**: Conditional statements (`if`, `switch`) are essential for decision-making in code, allowing different paths to be taken based on variable values or other conditions.
 
-### `if` Statement:
+4. **Code Readability**: Choosing the appropriate control flow structure enhances code readability and maintainability. It's important to select the structure that best fits the logic of the program.
+
+5. **Loop Control Statements**: The use of `break` and `continue` statements within loops provides control over the flow of iterations, allowing for more specific behavior.
+
+## if
+
+The `if` statement is a fundamental control flow structure that allows the execution of a block of code based on a specified condition.
+
+![if](./assets/images/if.png)
+
+### if else
+
+The `if-else` statement extends the `if` statement by providing an alternative block of code to execute when the initial condition is not met.
+
+![ifelse](./assets/images/ifelse.png)
+
+### if else if
+
+The `if-else if` chain allows testing multiple conditions sequentially. The first condition that evaluates to true will execute its corresponding block of code.
+
+![ifelseif](./assets/images/ifelseif.png)
+
+## 2. Ternary Operator
+
+The ternary operator (`condition ? expr1 : expr2`) provides a concise way to write simple if-else statements in a single line.
+
+## 3. switch case
+
+The `switch` statement provides a structured way to handle multiple cases based on the value of an expression. It is particularly useful when there are multiple possible matches.
+
+![switch](./assets/images/switch.png)
+
+## while
+
+The `while` loop repeatedly executes a block of code as long as a specified condition evaluates to true.
+
+![while](./assets/images/switch.png)
+
+## do while
+
+The `do-while` loop is similar to the `while` loop, but it guarantees that the block of code is executed at least once before checking the condition.
+
+![dowhile](./assets/images/dowhile.png)
+
+## for
+
+The `for` loop is a versatile loop structure that includes an initialization, condition, and iteration expression. It is commonly used for iterating over arrays or performing a specific number of iterations.
+
+![for](./assets/images/for.png)
+
+### break
+
+The `break` statement is used to exit a loop prematurely, bypassing the remaining iterations.
+
+![breakfor](./assets/images/breakfor.png)
+
+### continue
+
+The `continue` statement skips the rest of the current iteration and moves on to the next one in a loop.
+
+![continuesfor](./assets/images/continuesfor.png)
+
+# JavaScript functions
+
+- [Function](#function)
+  - [Function Parameters](#function-parameters)
+  - [Default Parameters](#default-parameters)
+  - [Rest Parameters](#rest-parameters)
+- [Functions are First-Class Citizens](#functions-are-first-class-citizens)
+- [Anonymous Functions](#anonymous-functions)
+- [Understanding Pass-By-Value in JavaScript](#understanding-pass-by-value-in-javaScript)
+- [Recursive Functions](#recursive-functions)
 
 **Explanation:**
 
-The "If Statement" and "Else If Statement" in JavaScript are fundamental control flow statements used for conditional execution of code. These statements enable you to define specific actions that should be taken when a given condition is evaluated as true. When the condition is false, you can also provide alternative code paths. The "Else If Statement" extends the capabilities of the "If Statement" by allowing you to check multiple conditions sequentially.
+Functions in JavaScript are fundamental building blocks that encapsulate a set of statements and can be reused throughout a program. They play a crucial role in structuring code, promoting reusability, and supporting various programming paradigms.
 
 **Key Concepts:**
 
-- **Conditional Execution:** Both the "If Statement" and "Else If Statement" are essential for executing code based on whether specified conditions are true or false.
+1. **Function Declaration and Expression:** Functions can be declared using the `function` keyword or expressed using anonymous functions.
 
-- **Branching Logic:** These statements introduce branching logic into your code, enabling different code paths depending on the outcomes of the conditions.
+    **Syntax:**
 
-- **Single Condition (If Statement):** The "If Statement" typically checks a single condition, and if that condition is met, the code block inside the `if` statement is executed.
+    The function name must be a valid JavaScript identifier. By convention, the function names are in camelCase and start with verbs like getData(), fetchContents(), and isValid().
 
-- **Multiple Conditions (Else If Statement):** The "Else If Statement" allows you to test a series of conditions sequentially. It executes the code block associated with the first true condition, providing a structured way to handle complex decision-making.
+    To declare a function, you use the function keyword, followed by the function name, a list of parameters, and the function body.
 
-**Syntax:**
+    ```javascript
+      function functionName(parameters) {
+        // function body
+        // ...
+      }
+    ```
 
-**if Statement:**
+    To use a function, you need to call it. Calling a function is also known as invoking a function.
 
-```javascript
-if (condition) {
-    // Code to execute if the condition is true
-}
-```
+    ```javascript
+    functionName(arguments);
+    ```
 
-**Example:**
+2. **Function Parameters:** Functions can accept parameters, allowing for dynamic behavior based on inputs.
 
-- [Example: if Statement](./assets/examples/conditionalStatment/ifStatment.js)
+    **Syntax:**
 
-**If else Statement:**
+    A function can accept zero, one, or multiple parameters. In the case of multiple parameters, you need to use a comma to separate two parameters.
 
-```javascript
-if (condition) {
-    // Code to execute if the condition is true
-} else {
-    // Code to execute if the condition is false
-}
-```
+    ```javascript 
+      function add(a, b) {
+      }
+    ```
 
-**Example:**
+3. **Default Parameters:** Default parameter values provide flexibility when calling functions with fewer arguments.
 
-- [Example: If else statment](./assets/examples/conditionalStatment/IfElseStatment.js)
+    **Syntax:**
 
-**Else If Statement:**
+    In JavaScript, default function parameters allow you to initialize named parameters with default values if no values or undefined are passed into the function.
 
-```javascript
-if (condition1) {
-    // Code to execute if condition1 is true
-} else if (condition2) {
-    // Code to execute if condition2 is true
-} else {
-    // Code to execute if none of the conditions are true
-}
-```
+    ```javascript
+    function say(message='Hi') {
+    }
+    ```
 
-**Example:**
+4. **Rest Parameters:** Rest parameters allow functions to accept a variable number of arguments as an array.
 
-- [Example: Else If statment](./assets/examples/conditionalStatment/elseIfStatment.js)
+    **Syntax:**
 
-### `Switch` Statement
+    ES6 provides a new kind of parameter so-called rest parameter that has a prefix of three dots (...). A rest parameter allows you to represent an indefinite number of arguments as an array. 
 
-**Explanation:**
+    ```javascript
+      function fn(a,b,...args) {
+      //...
+      } 
+    ```
 
-The "Switch Statement" in JavaScript is a versatile control flow statement used to select and execute a block of code from a list of multiple cases based on the value of a given expression. It provides a way to streamline decision-making when there are multiple possible outcomes.
+5. **Functions are First-Class Citizens:** Functions can be treated as variables, allowing them to be assigned, passed as arguments, and returned from other functions.
 
-**Key Concepts:**
+    **Syntax:**
 
-- **Multi-Case Selection:** The "Switch Statement" allows for the evaluation of multiple possible values or cases. The program flow will depend on which case matches the expression's value.
+    Functions are first-class citizens in JavaScript. In other words, you can treat functions like values of other types.
 
-- **Faster Execution:** Compared to multiple `if` conditions, a `switch` statement can be more efficient when checking against a large number of cases.
+    ```javascript
+    function add(a, b) {
+    return a + b;
+    }
 
-- **Fall-Through:** Each `case` block typically ends with a `break` statement to prevent fall-through. Fall-through occurs when one case block's code is executed, and execution continues into the following cases without a `break`.
+    let sum = add;
+    ```
 
-**Syntax:**
+6. **Anonymous Functions:** Functions without a specified name, including IIFE and arrow functions, provide flexibility in code organization.
 
-```javascript
-switch (expression) {
-    case value1:
-        // Code to execute if expression equals value1
-        break;
-    case value2:
-        // Code to execute if expression equals value2
-        break;
-    // ... (more cases)
-    default:
-        // Code to execute if none of the cases match
-}
-```
+    **Syntax**
 
-- `expression`: The value or expression that is evaluated in each `case`.
+    An anonymous function is a function without a name.
 
-- `case valueX`: Represents a specific case with a value to be compared to the `expression`.
-
-- `break`: The `break` statement is used to exit the `switch` statement when a match is found.
-
-- `default`: This is the block of code to execute when none of the `case` values match the `expression`. It is optional.
-
-**Example:**
-
-- [Example: Switch Statement](./assets/examples/conditionalStatment/switch.js)
-
-### Ternary Operator
-
-**Explanation:**
-
-The Ternary Operator in JavaScript provides a concise way to express conditional logic. It selects between two values or expressions based on the evaluation of a condition.
-
-**Key Concepts:**
-
-- Conditional Selection
-
-- Conciseness
-
-**Syntax:**
-
-```javascript
-const result = condition ? expression_if_true : expression_if_false;
-```
-
-**Example:**
-
-- [Example: Ternary Operator](./assets/examples/conditionalStatment/ternaryOperator.js)
-
-### Tasks: Conditional Statment
-
-- [Tasks: Conditional Statment](./assets/tasks/conditionalStatements.js)
-
-## Exception Handling
-
-- [Utilizing Error Object](#utilizing-error-object)
-- [Throw Statement](#throw-statement)
-- [try/catch/finally](#try-catch-finally)
-
-**Explanation:**
-
-Exception handling allows you to catch and handle errors that occur during the execution of your program.
-
-### Throw Statement
-
-**Explanation:**
-
-The `throw` statement allows you to create custom errors and throw them.
-
-**Syntax:**
-
-```js
-throw expression;
-```
-
-**Example:**
-
-```js
-let age = 15;
-
-try {
-  if (age < 18) {
-    throw new Error("Invalid age. Must be at least 18 years old.");
-  }
-  console.log("Age is valid.");
-} catch (error) {
-  console.log("An error occurred:", error.message);
-}
-```
-
-### Utilizing Error Object
-
-**Explanation:**
-
-JavaScript provides an `Error` object that represents runtime errors.
-
-**Syntax**
-
-```js
-try {
-  // code that may throw an error
-} catch (error) {
-  // code to handle the error
-}
-```
-
-**Example:**
-
-```js
-try {
-  const result = 10 / 0;
-  console.log(result);
-} catch (error) {
-  console.log("An error occurred:", error.message);
-}
-```
-
-### try/catch/finally
-
-**Explanation:**
-
-The `try/catch/finally` statement allows you to handle errors and execute cleanup code regardless of whether an error occurred or not.
-
-**Syntax:**
-
-```js
-try {
-  // code that may throw an error
-} catch (error) {
-  // code to handle the error
-} finally {
-  // code to be executed regardless of errors
-}
-```
-
-**Example:**
-
-```js
-try {
-  // code that may throw an error
-  console.log("Executing try block.");
-  throw new Error("Error occurred.");
-} catch (error) {
-  // code to handle the error
-  console.log("An error occurred:", error.message);
-} finally {
-  // code to be executed regardless of errors
-  console.log("Executing finally block.");
-}
-```
-
-# Functions
-
-**Explanation:**
-
-# Data Structures
-
-## Structured Data
-
-### JSON
-
-- **JSON (JavaScript Object Notation):**
-JSON is a lightweight data interchange format that is easy for humans to read and write, and easy for machines to parse and generate. It is often used for representing structured data in web applications. JSON data consists of key-value pairs and can be represented as a nested hierarchy.
-
-```js
-// JSON data representing a person
-const person = {
-  "name": "John Doe",
-  "age": 25,
-  "email": "johndoe@example.com"
-};
-```
-## Indexed Collections
-
-### Arrays
-
-1. **Arrays:**
-An array is a data structure that stores a collection of elements in a specific order. Each element in the array is identified by its index, starting from 0. Arrays in JavaScript can hold elements of any data type.
-
-```js
-// Array of numbers
-const numbers = [1, 2, 3, 4, 5];
-
-// Accessing array elements
-console.log(numbers[0]); // Output: 1
-
-// Modifying array elements
-numbers[2] = 10;
-console.log(numbers); // Output: [1, 2, 10, 4, 5]
-```
-
-2. **Strings:** 
-Strings are sequences of characters. While strings are not technically an indexed collection, they can be accessed using a similar indexing mechanism. Each character in a string has an index starting from 0.
-
-```js
-const message = 'Hello, world!';
-console.log(message[7]); // Output: w
-```
-#### Map()
-
-The `map()` method creates a new array by applying a provided function to each element of the calling array.
-
-**Syntax:**
-
-```js
-array.map(callback(element, index, array), thisArg)
-```
-
-- `callback`: A function to be called for each element in the array.
-- `element`: The current element being processed in the array.
-- `index` (optional): The index of the current element being processed.
-- `array` (optional): The array `map()` was called upon.
-- `thisArg` (optional): Value to use as `this` when executing the callback.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-const multiplied = numbers.map((num) => num * 2);
-
-console.log(multiplied);
-```
-
-**Output:**
-
-```
-[2, 4, 6, 8, 10]
-```
-
-#### Filter()
-
-The `filter()` method creates a new array with all elements that pass the provided function's test.
-
-**Syntax:**
-
-```js
-array.filter(callback(element, index, array), thisArg)
-```
-
-- `callback`: A function to be called for each element in the array.
-- `element`: The current element being processed in the array.
-- `index` (optional): The index of the current element being processed.
-- `array` (optional): The array `filter()` was called upon.
-- `thisArg` (optional): Value to use as `this` when executing the callback.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-const evenNumbers = numbers.filter((num) => num % 2 === 0);
-
-console.log(evenNumbers);
-```
-
-**Output:**
-
-```
-[2, 4]
-```
-
-#### forEach()
-
-The `forEach()` method executes a provided function once for each array element.
-
-**Syntax:**
-
-```js
-array.forEach(callback(element, index, array), thisArg)
-```
-- `callback`: A function to be called for each element in the array.
-- `element`: The current element being processed in the array.
-- `index` (optional): The index of the current element being processed.
-- `array` (optional): The array `forEach()` was called upon.
-- `thisArg` (optional): Value to use as `this` when executing the callback.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-numbers.forEach((num) => {
-  console.log(num);
-});
-```
-
-**Output:**
-
-```
-1
-2
-3
-4
-5
-```
-
-#### find()
-
-**Description:** The `Array.prototype.find()` method returns the first element in the array that satisfies the provided testing function. It searches through the array and stops as soon as it finds an element that passes the test.
-
-**Syntax:**
-
-```js
-array.find(callback(element[, index[, array]])[, thisArg])
-```
-- `callback` (required): A function that accepts up to three arguments and returns a Boolean value. It is called for each element in the array.
-- `element`: The current element being processed in the array.
-- `index` (optional): The index of the current element being processed.
-- `array` (optional): The array on which `find()` was called.
-- `thisArg` (optional): A value to use as `this` when executing the callback function.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-const evenNumber = numbers.find((number) => number % 2 === 0);
-
-console.log(evenNumber); // Output: 2
-```
-
-#### findIndex()
-
-**Description:** The `Array.prototype.findIndex()` method returns the index of the first element in the array that satisfies the provided testing function. It searches through the array and stops as soon as it finds an element that passes the test.
-
-**Syntax:**
-
-```js
-array.findIndex(callback(element[, index[, array]])[, thisArg])
-```
-
-- `callback` (required): A function that accepts up to three arguments and returns a Boolean value. It is called for each element in the array.
-- `element`: The current element being processed in the array.
-- `index` (optional): The index of the current element being processed.
-- `array` (optional): The array on which `findIndex()` was called.
-- `thisArg` (optional): A value to use as `this` when executing the callback function.
-
-The `findIndex()` method returns the index of the first element in the array that satisfies the provided testing function. If no element is found, `-1` is returned.
-
-**Example:**
-
-```js
-const numbers = [1, 2, 3, 4, 5];
-
-const index = numbers.findIndex((number) => number > 3);
-
-console.log(index); // Output: 3
-```
-
-**Output:**
-
-The output of the above example is `3` because the number `4` is the first element in the numbers array that is greater than `3`, and its index is `3`.
-
-#### includes()
-
-**Description:** The `Array.prototype.includes()` method determines whether an array includes a certain element, returning `true` or `false` as appropriate.
-
-**Syntax:**
-
-```js
-array.includes(searchElement[, fromIndex])
-```
-- `searchElement` (required): The element to search for within the array.
-- `fromIndex` (optional): The index at which to start searching for the `searchElement`. If omitted, the default is `0`.
-
-The `includes()` method returns a Boolean value indicating whether the `searchElement` is found in the array (`true`) or not (`false`).
-
-**Example:**
-
-```js
-const fruits = ['apple', 'banana', 'orange'];
-
-console.log(fruits.includes('banana')); // Output: true
-console.log(fruits.includes('grape')); // Output: false
-```
-
-#### sort()
-
-**Description:** The `sort()` method is used to sort the elements of an array in place and returns the sorted array.
-
-**Syntax:**
-
-```js
-array.sort([compareFunction])
-```
-
-- `array`: The array to be sorted.
-- `compareFunction` (optional): An optional function that defines the sort order. If omitted, the array elements are converted to strings and sorted based on their UTF-16 code unit values.
-
-**Example:**
-
-```js
-const fruits = ['apple', 'orange', 'banana', 'grape'];
-
-// Sorting without a compare function (default sort behavior)
-fruits.sort();
-console.log(fruits); // Output: ['apple', 'banana', 'grape', 'orange']
-
-// Sorting with a custom compare function (sorting by string length)
-fruits.sort((a, b) => a.length - b.length);
-console.log(fruits); // Output: ['apple', 'grape', 'banana', 'orange']
-```
-
-#### Reduce()
-
-**Description:** The `reduce()` method is used to reduce an array to a single value by applying a function to each element of the array.
-
-**Syntax:**
-
-```js
-array.reduce(callback[, initialValue])
-```
-
-- `callback`: The function to execute on each element of the array. It takes four arguments:
-- `accumulator`: The accumulator accumulates the callback's return values. It is the accumulated value previously returned in the last invocation of the callback or the initialValue, if supplied.
-- `currentValue`: The current element being processed in the array.
-- `currentIndex`: (Optional) The index of the current element being processed in the array.
-- `array`: (Optional) The array reduce was called upon.
-- `initialValue`: (Optional) The initial value of the accumulator. If not provided, the first element of the array will be used as the initial value, and the callback will start from the second element.
-
-**Example:**
-
-```js
-// Sum all the elements in an array
-const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-
-// Calculate the product of all elements in an array
-const numbers2 = [2, 3, 4, 5];
-const product = numbers2.reduce((accumulator, currentValue) => accumulator * currentValue, 1);
-```
-
-**Output:**
-
-```
-In the first example, the output will be 15, which is the sum of all elements in the `numbers` array (1 + 2 + 3 + 4 + 5).
-In the second example, the output will be 120, which is the product of all elements in the `numbers2` array (2 * 3 * 4 * 5).
-```
-
-### Keyed Collections
-
-#### Map
-
-The `Map` data structure in JavaScript is a built-in collection that allows you to store key-value pairs. It provides an easy way to associate values with unique keys and offers various methods to manipulate and retrieve data from the map.
-
-**Syntax:**
-
-```js
-let map = new Map();
-```
-
-**Example:**
-
-```js
-let map = new Map();
-
-map.set('name', 'John');
-map.set('age', 30);
-map.set('gender', 'male');
-
-console.log(map.get('name'));
-console.log(map.size);
-```
-
-**Output:**
-
-```
-John
-3
-```
-
-#### Objects
-
-In JavaScript, objects are a fundamental data type used to store collections of key-value pairs. They allow you to define custom data structures and store related data together. Objects can contain properties and methods that define their behavior.
-
-**Syntax:**
-
-```js
-let obj = {
-  key1: value1,
-  key2: value2,
-  // ...
-};
-```
-**Example:**
-
-```js
-let person = {
-  name: 'John',
-  age: 30,
-  gender: 'male'
-};
-
-console.log(person.name);
-console.log(person.age);
-```
-
-**Output:**
-
-```
-John
-30
-```
-
-#### Resources
-
-- [(Article)Data Structures in JavaScript – With Code Examples](https://www.freecodecamp.org/news/data-structures-in-javascript-with-examples/#what-is-a-data-structure)
-- [(Video) Intro to Recursion](https://www.youtube.com/watch?v=yBWlPte6FhA)
-- [(Video) JavaScript array.map()](https://www.youtube.com/watch?v=KZU4V38Cwfc)
-
-# DOM (Document Object Model)
-
-## Introduction to DOM
-
-The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of the document as a tree-like model, where each element in the document is a node in the tree. The DOM allows you to interact with and manipulate the elements and content of a web page dynamically using JavaScript.
-
-## DOM Manipulation
-
-DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
-
-*Selecting by ID*
-
-**Syntax:**
-
-```js
-const element = document.getElementById('elementId');
-```
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Example</title>
-</head>
-<body>
-    <div id="elementId">
-        This is the element with the ID 'elementId'.
-    </div>
-    <button id="clickButton" onclick="changeText()">Click me</button>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-function changeText() {
-    const element = document.getElementById('elementId');
-    element.innerText = 'Text changed! Now you clicked the button.';
-}
-```
-
-*Selecting by Class*
-
-**Syntax:**
-
-```js
-const elements = document.getElementsByClassName('className');
-```
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Example</title>
-</head>
-<body>
-    <div class="className">
-        This is the first element with the class 'className'.
-    </div>
-    <div class="className">
-        This is the second element with the class 'className'.
-    </div>
-    <div class="className">
-        This is the third element with the class 'className'.
-    </div>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-const elements = document.getElementsByClassName('className');
-
-// Simple example: Changing the text of each element with the class 'className'
-for (let i = 0; i < elements.length; i++) {
-    elements[i].innerText = `Element ${i + 1} has been selected.`
-};
-```
-
-*Selecting by Tag Name*
-
-**Syntax:**
-
-```js
-const elements = document.getElementsByTagName('tagName');
-```
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Example</title>
-</head>
-<body>
-    <p>This is a paragraph element.</p>
-    <div>This is a div element.</div>
-    <span>This is a span element.</span>
-    <p>This is another paragraph element.</p>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-const paragraphs = document.getElementsByTagName('p');
-
-// Simple example: Changing the text of each paragraph element
-for (let i = 0; i < paragraphs.length; i++) {
-    paragraphs[i].innerText = `Paragraph ${i + 1} has been selected.`;
-}
-```
-
-*Selecting by CSS Selector*
-
-**Syntax (querySelector):**
-
-```js
-const element = document.querySelector('selector');
-```
-
-**Example (querySelector):**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Example</title>
-</head>
-<body>
-    <p id="myParagraph">This is a paragraph element with the ID 'myParagraph'.</p>
-    <div>This is a div element.</div>
-    <span>This is a span element.</span>
-    <p>This is another paragraph element.</p>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-const paragraphElement = document.querySelector('p');
-
-// Simple example: Changing the text of the first paragraph element
-if (paragraphElement) {
-    paragraphElement.innerText = "This paragraph's text has been changed!";
-}
-```
-
-**Syntax (querySelectorAll):**
-
-```js
-const elements = document.querySelectorAll('selector');
-```
-
-**Example (querySelectorAll):**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Example</title>
-</head>
-<body>
-    <p class="selected">This is a paragraph element with the class 'selected'.</p>
-    <div>This is a div element.</div>
-    <span class="selected">This is a span element with the class 'selected'.</span>
-    <p>This is another paragraph element.</p>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-const selectedElements = document.querySelectorAll('.selected');
-
-// Simple example: Changing the text color of each element with the class 'selected'
-selectedElements.forEach(element => {
-    element.style.color = 'blue';
-});
-```
-
-## DOM Traversal
-
-DOM manipulation refers to the process of modifying the structure, content, or appearance of a web page using JavaScript. It allows you to add, remove, or modify elements and attributes in the DOM tree. DOM manipulation can be achieved using various methods and properties provided by the DOM API.
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>DOM Traversal Example</title>
-</head>
-<body>
-    <ul>
-        <li onclick="changeBackgroundColor(this)">
-            <span>Item 1</span>
-        </li>
-        <li onclick="changeBackgroundColor(this)">
-            <span>Item 2</span>
-        </li>
-        <li onclick="changeBackgroundColor(this)">
-            <span>Item 3</span>
-        </li>
-    </ul>
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// script.js
-
-function changeBackgroundColor(element) {
-    // Change the background color of the clicked <li> element
-    element.style.backgroundColor = 'yellow';
-}
-```
-
-## DOM Events
-
-DOM events are actions or occurrences that happen in the browser, such as a button click, mouse movement, or keypress. By handling events, you can respond to user interactions and perform specific actions. The DOM provides a set of event types and methods to attach event handlers to elements.
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Button Click Event Example</title>
-</head>
-<body>
-    <button id="myButton">Click me</button>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-```
-
-```js
-// Example of handling a button click event
-const button = document.getElementById('myButton');
-button.addEventListener('click', function(event) {
-  console.log('Button clicked!');
-});
-```
-
-## Code example
-
-- [How the addEventListener](https://codesandbox.io/s/addeventlistener-l42xyc?file=/src/index.js)
-
-## DOM Styling
-
-DOM styling allows you to manipulate the appearance of elements on a web page. You can modify CSS properties of elements to change their size, color, position, and more. The DOM provides properties and methods to access and modify the styles of elements.
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Changing Element Background Color Example</title>
-    <style>
-        /* Adding some styles to the element to make it visible */
-        .conatiner {
-            width: 200px;
-            height: 100px;
-            border: 1px solid black;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div id="myElement" class=conatiner>This is my element.</div>
-
-    <!-- Link to the script.js file -->
-    <script src="script.js"></script>
-</body>
-</html>
-
-```
-
-```js
-// Example of changing the background color of an element
-const element = document.getElementById('myElement');
-element.style.backgroundColor = 'red';
-```
-
-## Resources
-
-- [(Video) Learn DOM Manipulation](https://www.youtube.com/watch?v=y17RuWkWdn8)
-
-# Strict Mode
-
-When strict mode is enabled, certain actions that wouldotherwise result in silent errors or different behavior areinstead treated as syntax errors or throw exceptions. Strictmode helps you write cleaner and more reliable JavaScriptcode by catching common mistakes and preventing someproblematic features from being used.
-
-1. Enable strict mode for an entire script:
-
-```js
-"use strict";
-
-// Your code here
-```
-Placing the string "use strict"; at the beginning of your script (before any other statements) enables strict mode for the entire file.
-
-2. Enable strict mode for a specific function:
-
-```js
-function myFunction() {
-  "use strict";
-
-  // Your code here
-}
-```
-Adding the string "use strict"; as the first statement within a function enables strict mode for that function only.
-
-**Example**
-
-```js
-// Regular mode
-x = 10;  // This creates a global variable silently
-
-// Strict mode
-"use strict";
-y = 20;  // Throws an error: ReferenceError: y is not defined
-```
-
-Strict mode provides several benefits such as preventing accidental global variable creation, disallowing duplicate parameter names, making assignments to non-writable properties throw an error, and more.
-
-# Asynchronous JavaScript
-
-## setTimeout
-
-**Description**: The `setTimeout` function is used to schedule the execution of a function after a specified delay (in milliseconds). It allows for the execution of code after a certain amount of time has passed.
-
-**Syntax:**
-
-```js
-setTimeout(function, delay, param1, param2, ...);
-```
-`function`: The function to be executed.
-`delay`: The time (in milliseconds) to wait before executing the function.
-`param1, param2, ...`: Optional parameters to be passed to the function.
-
-**Example:**
-
-```js
-function greet(name) {
-  console.log("Hello, " + name + "!");
-}
-
-setTimeout(greet, 2000, "John");
-```
-
-## setInterval
-
-**Description:** The `setInterval` function is used to repeatedly execute a function at a specified interval (in milliseconds). It allows for the execution of code at regular intervals until stopped.
-
-**Syntax:**
-
-```js
-setInterval(function, delay, param1, param2, ...);
-```
-
-`function:` The function to be executed.
-`delay:` The time (in milliseconds) between each execution of the function.
-`param1, param2, ...`: Optional parameters to be passed to the function.
-
-**Example:**
-
-```js
-function countDown(seconds) {
-  console.log(seconds);
-  seconds--;
-
-  if (seconds < 0) {
-    clearInterval(intervalId);
-    console.log("Countdown complete!");
-  }
-}
-
-var intervalId = setInterval(countDown, 1000, 5);
-```
-
-**Output:**
-
-```js
-5
-4
-3
-2
-1
-Countdown complete!
-```
-
-## Callbacks
-
-**Description:** Callbacks are functions that are passed as arguments to other functions and are executed once a certain task is completed. They are commonly used in asynchronous programming to handle results or perform actions after an operation has finished.
-
-**Syntax:**
-
-```js
-function asyncFunction(param1, param2, ..., callback) {
-  // Perform asynchronous operation
-  // Once completed, invoke the callback function
-  callback(result);
-}
-```
-
-`param1, param2, ...`: Parameters required for the asynchronous operation.
-`callback`: A function to be called once the operation is completed, usually with the result as an argument.
-
-**Example:**
-
-```js
-function fetchData(url, callback) {
-  // Simulating asynchronous data fetching
-  setTimeout(function () {
-    const data = { id: 1, name: "John Doe" };
-    callback(data);
-  }, 2000);
-}
-
-function processData(data) {
-  console.log("Received data:", data);
-}
-
-fetchData("https://api.example.com/data", processData);
-```
-
-**Output:**
-
-```js
-After 2 seconds:
-Received data: { id: 1, name: 'John Doe' }
-```
-
-### Callback Hell
-
-**Description:** Callback hell refers to the situation when multiple asynchronous operations are nested within each other, leading to deeply nested callbacks. This can make the code harder to read and maintain. To mitigate this issue, other asynchronous patterns like promises and async/await are often used.
-
-```js
-asyncOperation1(function (result1) {
-  asyncOperation2(result1, function (result2) {
-    asyncOperation3(result2, function (result3) {
-      // More nested callbacks...
+    ```javascript
+    (function () {
+    //...
     });
-  });
-});
-```
+    ```
 
-## Promises
+7. **Understanding Pass-By-Value:** JavaScript uses pass-by-value for primitive data types and pass-by-reference (passing references by value) for objects.
 
-Description: Promises are a more structured way to handle asynchronous operations in JavaScript. A promise represents the eventual completion (or failure) of an asynchronous operation and allows you to attach callbacks for handling the results.
+8. **Recursive Functions:** Recursive functions call themselves and are often used for solving problems that involve breaking down a larger problem into smaller, similar sub-problems.
 
-**Syntax:**
+    **Syntax:**
 
-```js
-new Promise(function (resolve, reject) {
-  // Perform asynchronous operation
-  // If successful, call resolve(result)
-  // If an error occurs, call reject(error)
-}).then(function (result) {
-  // Handle the successful result
-}).catch(function (error) {
-  // Handle the error
-});
-```
+    A recursive function is a function that calls itself until it doesn’t. This technique is called recursion.
 
-**Example:**
+    ```javascript
+    function recurse() {
+    // ...
+    recurse();
+    // ...
+    }
+    ```
 
-```js
-function fetchData(url) {
-  return new Promise(function (resolve, reject) {
-    // Simulating asynchronous data fetching
-    setTimeout(function () {
-      const data = { id: 1, name: "John Doe" };
-      resolve(data);
-    }, 2000);
-  });
-}
+## Function
 
-fetchData("https://api.example.com/data")
-  .then(function (data) {
-    console.log("Received data:", data);
-  })
-  .catch(function (error) {
-    console.log("Error:", error);
-  });
-```
+**Explanation:**
 
-**Output:**
+A function in JavaScript is a block of code designed to perform a specific task. It is defined using the `function` keyword, followed by a name (optional) and a set of parentheses that may contain parameters.
 
-```js
-After 2 seconds:
-Received data: { id: 1, name: 'John Doe' }
-```
+**Key Concepts:**
 
-### async / await
+- Use the `function` keyword to declare a function.
 
-**Description:** The `async` and `await` keywords provide a more concise and synchronous-looking syntax for working with promises. `async` is used to define an asynchronous function, and `await` is used to pause the execution of the function until a promise is resolved or rejected.
+- Use the `functionName()` to call a function.
 
-**Syntax:**
+    **Example:**
 
-```js
-async function functionName() {
-  try {
-    // Asynchronous operations with await
-    const result = await promise;
-    // Handle the result
-  } catch (error) {
-    // Handle the error
+    ```javascript
+    function say(message) {
+      console.log(message);
+    }
+
+    say('Hello');
+
+    // Hello
+    ```
+
+- All functions implicitly return undefined if they don’t explicitly return a value.
+
+    **Example:**
+
+    ```javascript
+    function say(message) {
+      console.log(message);
+    }
+
+    let result = say('Hello');
+    console.log('Result:', result);
+
+    // Hello
+    // Result: undefined
+    ```
+
+- Use the `return` statement to return a value from a function explicitly.
+
+    To specify a return value for a function, you use the return statement followed by an expression or a value
+
+    ```javascript
+    return expression;
+    ```
+
+    ```javascript
+    function add(a, b) {
+      return a + b;
+    }
+
+    let sum = add(10, 20);
+    console.log('Sum:', sum);
+
+    // Sum: 30
+    ```
+    Multiple return statements in a function to return different values based on conditions
+
+    ```javascript
+    // The compare() function compares two values. It returns:
+    function compare(a, b) {
+      // -1 if the first argument is greater than the second one.
+      if (a > b) {
+          return -1;
+      // 1 if the first argument is less than the second one.
+      } else if (a < b) {
+          return 1;
+      }
+      // 0 if the first argument equals the second one.
+      return 0;
+    }
+
+    const result = compare(10, 5)
+    console.log(result)
+
+    // -1
+    ```  
+
+- The `arguments` variable is an array-like object inside a function, representing function arguments.
+
+    **Example:**
+
+    Inside a function, you can access an object called `arguments` that represents the named arguments of the function.
+
+    The `arguments` object behaves like an array though it is not an instance of the Array type.
+
+    For example, you can use the square bracket `[]` to access the arguments: `arguments[0]` returns the first argument, `arguments[1]` returns the second one, and so on.
+
+    Also, you can use the `length` property of the `arguments` object to determine the number of arguments.
+
+    The following example implements a generic `add()` function that calculates the sum of any number of arguments.
+
+  ```javascript
+    function add() {
+      let sum = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+      }
+
+      return sum;
+    }
+
+    console.log(add(1, 2)); // 3
+    console.log(add(1, 2, 3, 4, 5)); // 15
+  ```
+
+- The function hoisting allows you to call a function before declaring it.
+
+  **Example:**
+
+  ```javascript
+  showMe(); // a hoisting example
+
+  function showMe(){
+    console.log('an hoisting example');
   }
-}
-```
+  ```
 
-**Example:**
+  Function hoisting is a mechanism which the JavaScript engine physically moves function declarations to the top of the code before executing them.
 
-```js
-function fetchData(url) {
-  return new Promise(function (resolve, reject) {
-    // Simulating asynchronous data fetching
-    setTimeout(function () {
-      const data = { id: 1, name: "John Doe" };
-      resolve(data);
-    }, 2000);
+  ```javascript
+    function showMe(){
+      console.log('an hoisting example');
+    }
+
+  showMe(); // a hoisting example
+  ```
+
+### Function Parameters
+
+**Explanation:**
+
+Functions can accept parameters, which are values passed to the function when it is called. Parameters provide a way to make functions more flexible and reusable.
+
+**Key Concepts:**
+
+1. **Function Parameters:**
+   - Parameters are variables that are used in a function to receive values when the function is called.
+   - They act as placeholders for the values that a function expects to receive.
+
+   **Example:**
+
+   ```javascript
+   function greet(name) {
+    console.log(`Hello, ${name}!`);
+    }
+   ```
+
+2. **Parameter Types:**
+   - Parameters can be of various types, such as strings, numbers, objects, arrays, or other functions.
+   - The type and number of parameters a function expects define its signature.
+
+    **Example:**
+
+   ```javascript
+    javascript
+    function add(x, y) {
+        return x + y;
+    }
+    let result = add(3, 5); // Here, 3 and 5 are the arguments.
+   ```
+
+3. **Default Parameters:**
+   - Default parameters allow you to specify a default value for a parameter if no argument is provided during the function call.
+   - This enhances the flexibility of functions by making certain parameters optional.
+
+    **Example:**
+
+   ```javascript
+    function greet(name, greeting = "Hello") {
+      console.log(`${greeting}, ${name}!`);
+    }
+    greet("Rokas"); // Output: Hello, Rokas!
+   ```
+
+4. **Rest Parameters:**
+   - Rest parameters (often denoted by `...` followed by a parameter name) enable a function to accept an indefinite number of arguments as an array.
+   - They are useful when you want a function to handle a variable number of parameters.
+
+   **Example:**
+
+   ```javascript
+    function sum(...numbers) {
+      let total = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        total += numbers[i];
+      }
+      return total;
+    }   
+
+    console.log(sum(1, 2, 3)); // Output: 6
+   ```
+
+5. **Parameter Order:**
+   - The order in which parameters are defined in a function signature is crucial. Parameters are matched with arguments based on their order.
+
+    **Example:**
+
+   ```javascript
+    function displayOrder(a, b, c) {
+      console.log(`a: ${a}, b: ${b}, c: ${c}`);
+    }
+    displayOrder(1, 2, 3); // Output: a: 1, b: 2, c: 3
+   ```
+
+6. **Named Parameters:**
+   - Some programming languages support named parameters, allowing you to pass values to a function by explicitly mentioning the parameter names, regardless of the order.
+
+   **Example:**
+
+   ```javascript
+    function displayInfo(params) {
+      console.log(`Name: ${params.name}, Age: ${params.age}`);
+    }
+    displayInfo({ name: "Noname", age: 25 });
+   ```
+
+7. **Arity of a Function:**
+   - The arity of a function refers to the number of parameters it expects.
+   - Functions can be classified as nullary (zero parameters), unary (one parameter), binary (two parameters)
+
+    **Example:**
+
+   ```javascript
+   function binaryFunction(a, b) {
+      // Function with two parameters
+    }
+   ```
+
+8. **Callback Functions:**
+
+   - Functions can also receive other functions as parameters, known as callback functions.
+
+   - Callbacks are commonly used in asynchronous programming or to provide customization in certain operations.
+
+   **Example:**
+
+    ```javascript
+    function performOperation(x, y, operation) {
+        return operation(x, y);
+    }
+
+   function add(a, b) {
+      return a + b;
+   }
+
+   let result = performOperation(3, 4, add); // Callback  function
+    ```
+
+9. **Scope of Parameters:**
+
+    - Parameters have a local scope within the function. They are only accessible within the body of the function.
+
+    **Example:**
+
+    ```javascript
+    function example(parameter) {
+      console.log(parameter);
+    }
+
+    example("Hello"); // Output: Hello
+
+    // console.log(parameter); // This would result in an error since parameter is not defined outside the function.
+    ```
+
+### Default Parameters
+
+**Explanation:**
+
+Default parameters allow developers to assign default values to function parameters, making it possible to call a function with fewer arguments.
+
+**Key Concepts:**
+
+1. **Default Values:**
+
+   - Default parameters allow developers to specify a default value for a function parameter if no value is provided during the function call.
+
+2. **Optional Parameters:**
+
+   - Default parameters make certain function parameters optional, reducing the necessity for users to provide values for every parameter when calling the function.
+
+3. **Syntax:**
+
+   - Default parameters are defined in the function signature using the assignment operator (`=`). The default value follows the parameter name.
+
+     ```javascript
+     function example(param = defaultValue) {
+       // function body
+     }
+     ```
+
+4. **Parameter Position:**
+   - Default parameters can be applied to any parameter in a function, but they are often used for parameters that are likely to have default values.
+
+     ```javascript
+     function greet(name, greeting = "Hello") {
+       console.log(`${greeting}, ${name}!`);
+     }
+     ```
+
+5. **Undefined vs. Default:**
+
+   - If an argument is explicitly passed as `undefined`, the default value for the corresponding parameter will still be used.
+
+     ```javascript
+     function example(param = "default") {
+       console.log(param);
+     }
+
+     example(undefined); // Output: default
+     ```
+
+6. **Use Cases:**
+
+   - Default parameters are useful for providing sensible defaults in functions where certain parameters might not always have values passed during function calls.
+
+     ```javascript
+     function fetchData(url, method = "GET", headers = {}) {
+       // logic to fetch data
+     }
+     ```
+
+### Rest Parameters
+
+**Explanation:**
+
+Rest parameters enable a function to accept an arbitrary number of arguments as an array, providing flexibility when the number of parameters is not known in advance.
+
+**Key Concepts:**
+
+1. **Arbitrary Number of Arguments:**
+
+   - Rest parameters (denoted by `...` followed by a parameter name) allow a function to accept an arbitrary number of arguments as an array.
+
+3. **Syntax:**
+
+   - Rest parameters are introduced with the spread/rest syntax (`...`). They must be the last parameter in the function signature.
+
+     ```javascript
+     function example(firstParam, ...restParams) {
+       // function body
+     }
+     ```
+
+2. **Array Representation:**
+
+   - Rest parameters collect all the remaining arguments into an array, providing flexibility when the number of parameters is not known in advance.
+
+     ```javascript
+      function sum(...numbers) {
+        let total = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          total += numbers[i];
+        }
+        return total;
+      }
+
+      console.log(sum(1, 2, 3)); // Output: 6
+
+     ```
+
+3. **Zero or More Arguments:**
+
+   - A function with a rest parameter can accept zero or more arguments. The rest parameter will be an empty array if no additional arguments are provided.
+
+     ```javascript
+     function example(...restParams) {
+       console.log(restParams); // Output: []
+     }
+     ```
+
+4. **Combining with Other Parameters:**
+   - Rest parameters can be used in combination with other parameters, providing a way to handle a variable number of arguments while still having named parameters.
+
+     ```javascript
+     function example(a, b, ...restParams) {
+       // function body
+     }
+     ```
+
+## Functions are First-Class Citizens
+
+In JavaScript, functions are first-class citizens, meaning they can be treated like any other variable. They can be assigned to variables, passed as arguments to other functions, returned from functions, and stored in data structures.
+
+**Key Concepts:**
+
+- Functions are first-class citizens in JavaScript.
+You can pass functions to other functions as arguments, return them from other functions as values, and store them in variables.
+
+    **Example:**
+
+    Functions are first-class citizens in JavaScript. In other words, you can treat functions like values of other types.
+
+    ```javascript
+    function add(a, b) {
+      return a + b;
+    }
+
+    let sum = add;
+    ```
+    In the assignment statement, we don’t include the opening and closing parentheses at the end of the add identifier. We also don’t execute the function but reference the function.
+
+    By doing this, we can have two ways to execute the same function. 
+
+    ```javascript
+    let result = add(10, 20);
+    ```
+
+    Alternatively, we can all the add() function via the sum variable like this
+
+    ```javascript
+    let result = sum(10,20);
+    ```
+
+- You can pass functions to other functions as arguments, return them from other functions as values, and store them in variables.
+
+    Because functions are values, you can pass a function as an argument into another function.
+
+    The following declares the `average()` function that takes three arguments.
+
+    ```javascript
+    function average(a, b, fn) {
+      return fn(a, b) / 2;
+    }
+    ```
+
+    Now, you can pass the `sum` function to the `average()` function
+
+    ```javascript
+    let result = average(10, 20, sum);
+    ```
+
+    Combine Two functions:
+
+    ```javascript
+    function add(a, b) {
+      return a + b;
+    }
+
+    let sum = add;
+
+    function average(a, b, fn) {
+      return fn(a, b) / 2;
+    }
+
+    let result = average(10, 20, sum);
+
+    console.log(result);
+    ```
+
+## Anonymous Functions
+
+Anonymous functions are functions without a specified name. They are often used in scenarios where a function is used only once, such as when passing a function as an argument to another function.
+
+**Key Concepts:**
+
+- Anonymous functions are functions without names.
+
+  **Example:**
+
+  ```javascript
+  (function () {
+    //...
   });
-}
+  ```
 
-async function processData() {
-  try {
-    const data = await fetchData("https://api.example.com/data");
-    console.log("Received data:", data);
-  } catch (error) {
-    console.log("Error:", error);
+  Note that if you don’t place the anonymous function inside the `()`, you’ll get a syntax error. The `()` makes the anonymous function an expression that returns a function object.
+
+  An anonymous function is not accessible after its initial creation. Therefore, you often need to assign it to a variable.
+
+  ```javascript
+  let show = function() {
+    console.log('Anonymous function');
+  };
+
+  show();
+  ```
+  Because we need to call the anonymous function later, we assign the anonymous function to the show variable.
+
+  Since the whole assignment of the anonymous function to the show variable makes a valid expression, you don’t need to wrap the anonymous function inside the parentheses ().
+
+- Anonymous functions can be used as an argument to other functions or as an immediately invoked function execution.
+
+    **Example:**
+
+    In this example, we pass an anonymous function into the setTimeout() function. The setTimeout() function executes this anonymous function one second later.
+
+    ```javascript
+    setTimeout(function() {
+      console.log('Execute later after 1 second')
+    }, 1000);
+    ```
+  
+- If you want to create a function and execute it immediately after the declaration, you can declare an anonymous function
+
+    - Immediately invoked function execution
+
+    ```javascript
+    (function() {
+      console.log('IIFE');
+    })();
+    ```
+    How it works.
+
+    First, define a function expression:
+
+    ```javascript
+    (function () {
+      console.log('Immediately invoked function execution');
+    })
+    ```
+
+    This expression returns a function.
+
+    Second, call the function by adding the trailing parentheses ():
+
+    ```javascript
+    (function () {
+      console.log('Immediately invoked function execution');
+    })();
+    ```
+
+    and sometimes, you may want to pass arguments into it
+
+    ```javascript
+    const person = {
+      firstName: 'John',
+      lastName: 'Doe'
+    };
+
+    (function () {
+      console.log(person.firstName + ' ' + person.lastName);
+    })(person);
+    ```
+    - ES6 arrow functions provide you with an alternative way to write a shorter syntax compared to the function expression.
+
+      **Example:**
+
+      The following example is equivalent to the above add() function expression but use an arrow function instead
+
+      ```javascript
+      // In this example, the arrow function has one expression x + y so it returns the result of the expression.
+      const add = (x, y) => x + y;
+
+      console.log(add(10, 20)); // 30;
+      ```
+
+      However, if you use the block syntax, you need to specify the return keyword:
+
+      ```javascript
+      const add = (x, y) => { 
+        return x + y; 
+      };
+      ```
+
+## Understanding Pass-By-Value in JavaScript
+
+**Explanation:**
+
+In JavaScript, all function arguments are always passed by value. It means that JavaScript copies the values of the variables into the function arguments.
+
+Any changes that you make to the arguments inside the function do not reflect the passing variables outside of the function. In other words, the changes made to the arguments are not reflected outside of the function.
+
+If function arguments are passed by reference, the changes of variables that you pass into the function will be reflected outside the function. This is not possible in JavaScript.
+
+**Key Concepts:**
+
+- Pass-by-value of primitives values.
+
+    **Example:**
+
+    ```javascript
+    function square(x) {
+      x = x * x;
+      return x;
+    } 
+
+    let y = 10;
+    let result = square(y);
+
+    console.log(result); // 100 
+    console.log(y); // 10 -- no change
+    ```
+  
+  How the script works.
+
+  First, define a `square()` function that accepts an argument `x`. The function assigns the square of `x` to the `x` argument.
+  Next, declare the variable `y` and initialize its value to `10`
+
+ ![IMG](./assets/images/stack1.png)
+
+ Then, pass the `y` variable into the `square()` function. When passing the variable y to the `square()` function, JavaScript copies `y` value to the `x` variable.
+
+  ![IMG](./assets/images/stack2.png)
+
+  After that, the square() function changes the x variable. However, it does not impact the value of the y variable because x and y are separate variables.
+
+  ![IMG](./assets/images/stack3.png)
+
+  Finally, the value of the y variable does not change after the square() function completes.
+
+   ![IMG](./assets/images/stack4.png)
+
+- Pass-by-value of reference values
+
+  **Example:**
+
+  ```javascript
+  let person = {
+    name: 'John',
+    age: 25,
+  };
+
+  function increaseAge(obj) {
+    obj.age += 1;
   }
-}
 
-processData();
-```
+  increaseAge(person);
 
-**Output:**
+  console.log(person);
+  ```
 
-```js
-After 2 seconds:
-Received data: { id: 1, name: 'John Doe' }
-```
+  How the script works:
+
+  First, define the person variable that references an object with two properties `name` and `age`
+
+  ![IMG](./assets/images/heap1.png)
+
+  Next, define the `increaseAge()` function that accepts an object `obj` and increases the `age` property of the `obj` argument by one.
+  Then, pass the `person` object to the `increaseAge()` function
+
+  ![IMG](./assets/images/heap2.png)
+
+  Internally, the JavaScript engine creates the `obj` reference and make this variable reference the same object that the `person` variable references.
+
+  After that, increase the `age` property by one inside the `increaseAge()` function via the `obj` variable
+
+  ![IMG](./assets/images/heap3.png)
+
+  Finally, accessing the object via the `person` reference
+
+  ![IMG](./assets/images/heap4.png)
+
+  It seems that JavaScript passes an object by reference because the change to the object is reflected outside the function. However, this is not the case.
+
+  In fact, when passing an object to a function, you are passing the reference of that object, not the actual object. Therefore, the function can modify the properties of the object via its reference.
+
+## Recursive Functions
+
+**Explanation:**
+
+A recursive function is a function that calls itself until it doesn’t. Recursive functions are often used to solve problems that can be broken down into smaller, similar sub-problems.
+
+**Key Concepts:**
+
+- A recursive function is a function that calls itself until it doesn’t
+
+  Suppose that you have a function called recurse(). The recurse() is a recursive function if it calls itself inside its body
+
+  **Syntax:**
+
+  ```javascript
+  function recurse() {
+    // ...
+    recurse();
+    // ...
+  }
+  ```
+
+  **Example:**
+
+  ```javascript
+  function countDown(fromNumber) {
+    console.log(fromNumber);
+  }
+
+  countDown(3);
+  ```
+
+  This countDown(3) shows only the number 3.
+
+  To count down from the number 3 to 1, you can:
+
+  1. show the number 3.
+
+  2. and call the `countDown(2)` that shows the number 2.
+
+  3. and call the `countDown(1)` that shows the number 1.
+
+  The following changes the `countDown()` to a recursive function
+
+  ```javascript
+  function countDown(fromNumber) {
+    console.log(fromNumber);
+    countDown(fromNumber-1);
+  }
+
+  countDown(3);
+  ```
+
+  This `countDown(3)` will run until the call stack size is exceeded
+
+  ```Uncaught RangeError: Maximum call stack size exceeded.```
+
+  because it doesn’t have the condition to stop calling itself.
+
+- A recursive function always has a condition that stops the function from calling itself.
+
+  **Syntax:**
+
+  ```javascript
+  function recurse() {
+      if(condition) {
+          // stop calling itself
+          //...
+      } else {
+          recurse();
+      }
+  }
+  ```
+
+  The countdown will stop when the next number is zero. Therefore, you add an if condition
+
+  ```javascript
+    function countDown(fromNumber) {
+      console.log(fromNumber);
+
+      let nextNumber = fromNumber - 1;
+
+      if (nextNumber > 0) {
+          countDown(nextNumber);
+      }
+    }
+    countDown(3);
+  ```
+
+
+
+
