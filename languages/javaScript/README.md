@@ -547,13 +547,26 @@ Symbols are unique and immutable data types introduced in ECMAScript 6. They are
 
 Arrays are ordered, indexed collections of values. They can store elements of any data type, including other arrays. Array elements are accessed using numeric indices, starting from 0. Arrays in JavaScript are versatile and widely used for organizing and manipulating data, offering various built-in methods for operations like iteration, filtering, and mapping.
 
-![](./assets/images/array.png)
+![array](./assets/images/array.png)
 
 **Key Concepts:**
 
 1. **Dynamic Typing**: Most programming languages, including JavaScript, have dynamic typing, allowing variables to change types during runtime.
 
+    **Example:**
+
+    ```javascript
+    let dynamicArray = [1, "two", true, null];
+    dynamicArray[1] = 2; // Changing the type dynamically
+    ```
+
 2. **Type Coercion**: JavaScript performs type coercion, automatically converting data types in certain operations. Understanding coercion is crucial for preventing unexpected behavior.
+
+    ```javascript
+    let numArray = [1, 2, 3];
+    let stringArray = ["4", "5"];
+    let result = numArray + stringArray; // Coercion to string and concatenation
+    ```
 
 3. **Type Checking**: Developers often use typeof or other mechanisms to check the data type of a variable, ensuring it meets the expected requirements.
 
@@ -584,10 +597,15 @@ In programming, data values can be categorized into two main types: primitive an
 Primitive values are simple, immutable data types directly stored in the variable's location.
 
 - **Number**: Represents numeric values (integers or floating-point numbers).
+
 - **String**: Represents textual data.
+
 - **Boolean**: Represents true or false values.
+
 - **Null**: Represents the intentional absence of any object value.
+
 - **Undefined**: Represents a variable that has been declared but not assigned a value.
+
 - **Symbol**: Represents unique and immutable values introduced in ECMAScript 6.
 
 **Key Concepts:**
@@ -1032,19 +1050,7 @@ Functions can accept parameters, which are values passed to the function when it
     }
    ```
 
-2. **Arguments:**
-   - Arguments are the actual values passed to a function when it is called.
-   - Parameters inside the function get their values from the corresponding arguments provided during the function call.
-
-    **Example:**
-
-   ```javascript
-   function greet(name) {
-    console.log(`Hello, ${name}!`);
-    }
-   ```
-
-3. **Parameter Types:**
+2. **Parameter Types:**
    - Parameters can be of various types, such as strings, numbers, objects, arrays, or other functions.
    - The type and number of parameters a function expects define its signature.
 
@@ -1058,7 +1064,7 @@ Functions can accept parameters, which are values passed to the function when it
     let result = add(3, 5); // Here, 3 and 5 are the arguments.
    ```
 
-4. **Default Parameters:**
+3. **Default Parameters:**
    - Default parameters allow you to specify a default value for a parameter if no argument is provided during the function call.
    - This enhances the flexibility of functions by making certain parameters optional.
 
@@ -1071,7 +1077,7 @@ Functions can accept parameters, which are values passed to the function when it
     greet("Rokas"); // Output: Hello, Rokas!
    ```
 
-5. **Rest Parameters:**
+4. **Rest Parameters:**
    - Rest parameters (often denoted by `...` followed by a parameter name) enable a function to accept an indefinite number of arguments as an array.
    - They are useful when you want a function to handle a variable number of parameters.
 
@@ -1089,7 +1095,7 @@ Functions can accept parameters, which are values passed to the function when it
     console.log(sum(1, 2, 3)); // Output: 6
    ```
 
-6. **Parameter Order:**
+5. **Parameter Order:**
    - The order in which parameters are defined in a function signature is crucial. Parameters are matched with arguments based on their order.
 
     **Example:**
@@ -1101,7 +1107,7 @@ Functions can accept parameters, which are values passed to the function when it
     displayOrder(1, 2, 3); // Output: a: 1, b: 2, c: 3
    ```
 
-7. **Named Parameters:**
+6. **Named Parameters:**
    - Some programming languages support named parameters, allowing you to pass values to a function by explicitly mentioning the parameter names, regardless of the order.
 
    **Example:**
@@ -1113,7 +1119,7 @@ Functions can accept parameters, which are values passed to the function when it
     displayInfo({ name: "Noname", age: 25 });
    ```
 
-8. **Arity of a Function:**
+7. **Arity of a Function:**
    - The arity of a function refers to the number of parameters it expects.
    - Functions can be classified as nullary (zero parameters), unary (one parameter), binary (two parameters)
 
@@ -1125,8 +1131,10 @@ Functions can accept parameters, which are values passed to the function when it
     }
    ```
 
-9. **Callback Functions:**
+8. **Callback Functions:**
+
    - Functions can also receive other functions as parameters, known as callback functions.
+
    - Callbacks are commonly used in asynchronous programming or to provide customization in certain operations.
 
    **Example:**
@@ -1143,7 +1151,8 @@ Functions can accept parameters, which are values passed to the function when it
    let result = performOperation(3, 4, add); // Callback  function
     ```
 
-10. **Scope of Parameters:**
+9. **Scope of Parameters:**
+
     - Parameters have a local scope within the function. They are only accessible within the body of the function.
 
     **Example:**
@@ -1166,11 +1175,112 @@ Default parameters allow developers to assign default values to function paramet
 
 **Key Concepts:**
 
+1. **Default Values:**
 
+   - Default parameters allow developers to specify a default value for a function parameter if no value is provided during the function call.
+
+2. **Optional Parameters:**
+
+   - Default parameters make certain function parameters optional, reducing the necessity for users to provide values for every parameter when calling the function.
+
+3. **Syntax:**
+
+   - Default parameters are defined in the function signature using the assignment operator (`=`). The default value follows the parameter name.
+
+     ```javascript
+     function example(param = defaultValue) {
+       // function body
+     }
+     ```
+
+4. **Parameter Position:**
+   - Default parameters can be applied to any parameter in a function, but they are often used for parameters that are likely to have default values.
+
+     ```javascript
+     function greet(name, greeting = "Hello") {
+       console.log(`${greeting}, ${name}!`);
+     }
+     ```
+
+5. **Undefined vs. Default:**
+
+   - If an argument is explicitly passed as `undefined`, the default value for the corresponding parameter will still be used.
+
+     ```javascript
+     function example(param = "default") {
+       console.log(param);
+     }
+
+     example(undefined); // Output: default
+     ```
+
+6. **Use Cases:**
+
+   - Default parameters are useful for providing sensible defaults in functions where certain parameters might not always have values passed during function calls.
+
+     ```javascript
+     function fetchData(url, method = "GET", headers = {}) {
+       // logic to fetch data
+     }
+     ```
 
 ### Rest Parameters
 
+**Explanation:**
+
 Rest parameters enable a function to accept an arbitrary number of arguments as an array, providing flexibility when the number of parameters is not known in advance.
+
+**Key Concepts:**
+
+1. **Arbitrary Number of Arguments:**
+
+   - Rest parameters (denoted by `...` followed by a parameter name) allow a function to accept an arbitrary number of arguments as an array.
+
+3. **Syntax:**
+
+   - Rest parameters are introduced with the spread/rest syntax (`...`). They must be the last parameter in the function signature.
+
+     ```javascript
+     function example(firstParam, ...restParams) {
+       // function body
+     }
+     ```
+
+2. **Array Representation:**
+
+   - Rest parameters collect all the remaining arguments into an array, providing flexibility when the number of parameters is not known in advance.
+
+     ```javascript
+      function sum(...numbers) {
+        let total = 0;
+        for (let i = 0; i < numbers.length; i++) {
+          total += numbers[i];
+        }
+        return total;
+      }
+
+      console.log(sum(1, 2, 3)); // Output: 6
+
+     ```
+
+3. **Zero or More Arguments:**
+
+   - A function with a rest parameter can accept zero or more arguments. The rest parameter will be an empty array if no additional arguments are provided.
+
+     ```javascript
+     function example(...restParams) {
+       console.log(restParams); // Output: []
+     }
+     ```
+
+4. **Combining with Other Parameters:**
+   - Rest parameters can be used in combination with other parameters, providing a way to handle a variable number of arguments while still having named parameters.
+
+     ```javascript
+     function example(a, b, ...restParams) {
+       // function body
+     }
+     ```
 
 ## Functions are First-Class Citizens
 
@@ -1349,19 +1459,185 @@ Anonymous functions are functions without a specified name. They are often used 
 
 ## Understanding Pass-By-Value in JavaScript
 
-JavaScript uses pass-by-value for function arguments, but the values passed are references for objects. Understanding this distinction is crucial for working with functions and manipulating data.
+**Explanation:**
+
+In JavaScript, all function arguments are always passed by value. It means that JavaScript copies the values of the variables into the function arguments.
+
+Any changes that you make to the arguments inside the function do not reflect the passing variables outside of the function. In other words, the changes made to the arguments are not reflected outside of the function.
+
+If function arguments are passed by reference, the changes of variables that you pass into the function will be reflected outside the function. This is not possible in JavaScript.
+
+**Key Concepts:**
+
+- Pass-by-value of primitives values.
+
+    **Example:**
+
+    ```javascript
+    function square(x) {
+      x = x * x;
+      return x;
+    } 
+
+    let y = 10;
+    let result = square(y);
+
+    console.log(result); // 100 
+    console.log(y); // 10 -- no change
+    ```
+  
+  How the script works.
+
+  First, define a `square()` function that accepts an argument `x`. The function assigns the square of `x` to the `x` argument.
+  Next, declare the variable `y` and initialize its value to `10`
+
+ ![IMG](./assets/images/stack1.png)
+
+ Then, pass the `y` variable into the `square()` function. When passing the variable y to the `square()` function, JavaScript copies `y` value to the `x` variable.
+
+  ![IMG](./assets/images/stack2.png)
+
+  After that, the square() function changes the x variable. However, it does not impact the value of the y variable because x and y are separate variables.
+
+  ![IMG](./assets/images/stack3.png)
+
+  Finally, the value of the y variable does not change after the square() function completes.
+
+   ![IMG](./assets/images/stack4.png)
+
+- Pass-by-value of reference values
+
+  **Example:**
+
+  ```javascript
+  let person = {
+    name: 'John',
+    age: 25,
+  };
+
+  function increaseAge(obj) {
+    obj.age += 1;
+  }
+
+  increaseAge(person);
+
+  console.log(person);
+  ```
+
+  How the script works:
+
+  First, define the person variable that references an object with two properties `name` and `age`
+
+  ![IMG](./assets/images/heap1.png)
+
+  Next, define the `increaseAge()` function that accepts an object `obj` and increases the `age` property of the `obj` argument by one.
+  Then, pass the `person` object to the `increaseAge()` function
+
+  ![IMG](./assets/images/heap2.png)
+
+  Internally, the JavaScript engine creates the `obj` reference and make this variable reference the same object that the `person` variable references.
+
+  After that, increase the `age` property by one inside the `increaseAge()` function via the `obj` variable
+
+  ![IMG](./assets/images/heap3.png)
+
+  Finally, accessing the object via the `person` reference
+
+  ![IMG](./assets/images/heap4.png)
+
+  It seems that JavaScript passes an object by reference because the change to the object is reflected outside the function. However, this is not the case.
+
+  In fact, when passing an object to a function, you are passing the reference of that object, not the actual object. Therefore, the function can modify the properties of the object via its reference.
 
 ## Recursive Functions
 
-A recursive function is a function that calls itself. Recursive functions are often used to solve problems that can be broken down into smaller, similar sub-problems.
+**Explanation:**
 
-```javascript
-function factorial(n) {
-  if (n === 0 || n === 1) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
+A recursive function is a function that calls itself until it doesn’t. Recursive functions are often used to solve problems that can be broken down into smaller, similar sub-problems.
+
+**Key Concepts:**
+
+- A recursive function is a function that calls itself until it doesn’t
+
+  Suppose that you have a function called recurse(). The recurse() is a recursive function if it calls itself inside its body
+
+  **Syntax:**
+
+  ```javascript
+  function recurse() {
+    // ...
+    recurse();
+    // ...
   }
-}
-```
+  ```
+
+  **Example:**
+
+  ```javascript
+  function countDown(fromNumber) {
+    console.log(fromNumber);
+  }
+
+  countDown(3);
+  ```
+
+  This countDown(3) shows only the number 3.
+
+  To count down from the number 3 to 1, you can:
+
+  1. show the number 3.
+
+  2. and call the `countDown(2)` that shows the number 2.
+
+  3. and call the `countDown(1)` that shows the number 1.
+
+  The following changes the `countDown()` to a recursive function
+
+  ```javascript
+  function countDown(fromNumber) {
+    console.log(fromNumber);
+    countDown(fromNumber-1);
+  }
+
+  countDown(3);
+  ```
+
+  This `countDown(3)` will run until the call stack size is exceeded
+
+  ```Uncaught RangeError: Maximum call stack size exceeded.```
+
+  because it doesn’t have the condition to stop calling itself.
+
+- A recursive function always has a condition that stops the function from calling itself.
+
+  **Syntax:**
+
+  ```javascript
+  function recurse() {
+      if(condition) {
+          // stop calling itself
+          //...
+      } else {
+          recurse();
+      }
+  }
+  ```
+
+  The countdown will stop when the next number is zero. Therefore, you add an if condition
+
+  ```javascript
+    function countDown(fromNumber) {
+      console.log(fromNumber);
+
+      let nextNumber = fromNumber - 1;
+
+      if (nextNumber > 0) {
+          countDown(nextNumber);
+      }
+    }
+    countDown(3);
+  ```
+
+
+
 
