@@ -3,8 +3,15 @@
 - [Introduction to JavaScript](#introduction-to-javascript)
 - [JavaScript Fundamentals](#javascript-fundamentals)
 - [JavaScript Operators](#javascript-operators)
+- [String Methods](#string-methods)
 - [Control Flow](#control-flow)
 - [JavaScript functions](#javascript-functions)
+- [Array Methods](#array-methods)
+- [Asynchronous JavaScript](#asynchronous-javaScript)
+- [Working with APIs](#working-with-apis)
+- [Classes](#classes)
+- [Javascript Object](#javascript-object)
+- [JavaScript Runtime](#javaScript-runtime)
 
 # Introduction to JavaScript
 
@@ -701,16 +708,9 @@ The exponentiation operator (`**`) raises the left operand to the power of the r
 
 # Control Flow
 
-- [if](#if)
-  - [if else](#if-else)
-  - [if else if](#if-else-if)
-- [Ternary Operator](#ternary-operator)
-- [switch case](#switch-case)
-- [while](#while)
-- [do while](#do-while)
-- [for](#for)
-  - [break](#break)
-  - [continue](#continue)
+- [Loops and Iterations](#loops-and-iterations)
+- [Conditional statements](#conditional-statements)
+- [Exception Handling](#exception-handling)
 
 **Explanation:**
 
@@ -728,63 +728,11 @@ Control flow structures in JavaScript dictate the order in which statements are 
 
 5. **Loop Control Statements**: The use of `break` and `continue` statements within loops provides control over the flow of iterations, allowing for more specific behavior.
 
-## if
+## Loops and Iterations
 
-The `if` statement is a fundamental control flow structure that allows the execution of a block of code based on a specified condition.
+## Conditional statements
 
-![if](./assets/images/if.png)
-
-### if else
-
-The `if-else` statement extends the `if` statement by providing an alternative block of code to execute when the initial condition is not met.
-
-![ifelse](./assets/images/ifelse.png)
-
-### if else if
-
-The `if-else if` chain allows testing multiple conditions sequentially. The first condition that evaluates to true will execute its corresponding block of code.
-
-![ifelseif](./assets/images/ifelseif.png)
-
-## 2. Ternary Operator
-
-The ternary operator (`condition ? expr1 : expr2`) provides a concise way to write simple if-else statements in a single line.
-
-## 3. switch case
-
-The `switch` statement provides a structured way to handle multiple cases based on the value of an expression. It is particularly useful when there are multiple possible matches.
-
-![switch](./assets/images/switch.png)
-
-## while
-
-The `while` loop repeatedly executes a block of code as long as a specified condition evaluates to true.
-
-![while](./assets/images/switch.png)
-
-## do while
-
-The `do-while` loop is similar to the `while` loop, but it guarantees that the block of code is executed at least once before checking the condition.
-
-![dowhile](./assets/images/dowhile.png)
-
-## for
-
-The `for` loop is a versatile loop structure that includes an initialization, condition, and iteration expression. It is commonly used for iterating over arrays or performing a specific number of iterations.
-
-![for](./assets/images/for.png)
-
-### break
-
-The `break` statement is used to exit a loop prematurely, bypassing the remaining iterations.
-
-![breakfor](./assets/images/breakfor.png)
-
-### continue
-
-The `continue` statement skips the rest of the current iteration and moves on to the next one in a loop.
-
-![continuesfor](./assets/images/continuesfor.png)
+## Exception Handling
 
 # JavaScript functions
 
@@ -1638,6 +1586,51 @@ A recursive function is a function that calls itself until it doesn’t. Recursi
     countDown(3);
   ```
 
+# Array Methods
+
+**Explanation:**
+
+Array methods refer to a set of functions or operations specifically designed to work with arrays, which are a fundamental data structure in programming. These methods provide a way to manipulate, iterate over, and perform various operations on arrays efficiently.
+
+**Resources:**
+
+- [Resources: Array Methods](./assets/topics/arrayMethods.md)
+
+# Asynchronous JavaScript
+
+**Explanation:**
+
+Asynchronous JavaScript refers to the execution of code that allows certain tasks to be performed independently of the main program flow. This is particularly important in scenarios where operations may take some time to complete, such as network requests, file I/O, or other time-consuming tasks.
+
+**Key Concepts:**
+
+- **Asynchronous Execution:**
+  - In JavaScript, certain operations take time to complete (network requests, file I/O). Asynchronous programming allows the program to continue executing other tasks while waiting for these operations to finish.
+
+- **Event Loop:**
+  - The event loop is a crucial part of asynchronous JavaScript. It continuously checks the message queue for new tasks and executes them, ensuring non-blocking asynchronous behavior.
+
+- **Concurrency Model:**
+  - JavaScript is a single-threaded language with a concurrency model based on the event loop. This means it can only execute one operation at a time but efficiently handles asynchronous operations.
+
+- **Callback Functions:**
+  - Callbacks are functions passed as arguments to other functions. They are commonly used in asynchronous programming to handle the completion of tasks.
+
+- **Promises:**
+  - Promises provide a cleaner and more structured way to handle asynchronous code. They represent the outcome of an asynchronous operation and simplify error handling.
+
+- **Async/Await:**
+  - Async/await is a modern approach to asynchronous programming. It allows writing asynchronous code in a more synchronous style, making it easier to read and maintain.
+
+**Resources:**
+
+- [Resources: Asynchronous JavaScript](./assets/topics/asynchronousJavaScript.md)
+
+# Working with APIs
+
+# Javascript Object
+
+# JavaScript Runtime
 
 
 
