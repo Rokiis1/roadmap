@@ -224,7 +224,7 @@ The ```Array.prototype.push()``` method adds one or more elements to the end of 
 ```javascript
 array.push(newElement);
 array.push(newElement1,newElement2);
-array.push(newElement1,newElement2,...,newElementN);
+array.push(newElement1,newElement2,...newElementN);
 ```
 
 The `push()` method returns the new value of the length property of the array object on which you call the method.
@@ -429,7 +429,7 @@ Higher-order array methods in JavaScript that operate on arrays and allow you to
 
 1. **Callback Functions:**
 
-   - Higher-order array methods take callback functions as arguments. These functions define the operation to be performed on each element.
+   - Higher-order array methods take [callback functions](./asynchronousJavaScript.md) as arguments. These functions define the operation to be performed on each element.
 
 2. **Immutability:**
 
@@ -447,69 +447,237 @@ Higher-order array methods in JavaScript that operate on arrays and allow you to
 
    - In the `reduce` method, the accumulator is a variable that accumulates the results of the callback function.
 
-### Array `forEach`:
+## Array `forEach`:
 
 The `forEach` method is used to iterate over the elements of an array and perform a specified action for each element.
 
-```javascript
-const numbers = [1, 2, 3, 4];
+**Before ES6**
 
-numbers.forEach((number) => {
-  console.log(number);
-});
-// Output:
-// 1
-// 2
-// 3
-// 4
+Typically, when you want to execute a function on every element of an array, you use a for loop statement.
+
+*Sytax written in ES5*
+
+```javascript
+var myArray = [1, 2, 3, 4, 5];
+for (var i = 0; i < myArray.length; i++)
+  console.log('Element at index ' + i + ': ' + myArray[i]);
+
+var anotherArray = ['a', 'b', 'c'];
+for (var j = 0; j < anotherArray.length; j++)
+  console.log('Element at index ' + j + ': ' + anotherArray[j]);
 ```
 
-### Array `map`:
+*Using simple function*
+
+```javascript
+// ES5 version of forEach using a for loop
+function functionName(array) {
+  for (var i = 0; i < array.length; i++) {
+    console.log('Element at index ' + i + ': ' + array[i]);
+  }
+}
+
+// Example usage without a callback
+var myArray = [1, 2, 3, 4, 5];
+functionName(myArray);
+
+// Example usage without a callback for another array
+var anotherArray = ['a', 'b', 'c'];
+functionName(anotherArray);
+```
+
+*Using callback function:*
+
+```javascript
+// ES5 version of forEach using a for loop
+function functionName(array, callback) {
+  for (var i = 0; i < array.length; i++) {
+    callback(array[i], i);
+  }
+}
+
+// Example usage
+var myArray = [1, 2, 3, 4, 5];
+
+// Using forEachES5 to simulate forEach without passing the array to the callback
+functionName(myArray, function (element, index) {
+  console.log('Element at index ' + index + ': ' + element);
+});
+```
+
+**Syntax:**
+
+*Sytax: forEach*
+
+```javascript
+// Example usage with forEach in ES6
+const myArray = [1, 2, 3, 4, 5];
+myArray.forEach((element, index) => console.log(`Element at index ${index}: ${element}`));
+
+const anotherArray = ['a', 'b', 'c'];
+anotherArray.forEach((element, index) => console.log(`Element at index ${index}: ${element}`));
+```
+
+*Simple function:*
+
+```javascript
+function functionName(array) {
+  array.forEach((element, index) => {
+    console.log(`${index + 1} - ${element}`);
+  });
+}
+
+const myArray = ["Test1", "Test2", "Test3", "Test4", "Test5"];
+functionName(myArray);
+```
+
+*With callback function:*
+
+```javascript
+function functionName(array, processCallback) {
+  array.forEach((userName, index) => {
+    // This is the callback function being executed for each user name
+    processCallback(userName, index);
+  });
+}
+
+// Example usage: Displaying personalized greetings for users
+const myArray = ["Test1", "Test2", "Test3", "Test4", "Test5"];
+
+// Using processUserList to display personalized greetings
+functionName(myArray, (element, index) => {
+  console.log(`Hello, ${element}! You are user number ${index + 1}.`);
+});
+```
+
+**Demo: forEach**
+
+- [Demo: Live Tasks](../tasks/arrayMethods/highOrderMethods/forEachLive.js)
+
+## Array `map`:
 
 The `map` method creates a new array by applying a provided function to each element of the original array.
 
-```javascript
-const numbers = [1, 2, 3, 4];
+*Sytax written in ES5*
 
-const squaredNumbers = numbers.map((number) => {
-  return number * number;
+```javascript
+var myArray = [1, 2, 3, 4, 5];
+var mappedArray = myArray.map(function (element, index) {
+  return 'Element at index ' + index + ': ' + element;
 });
-// squaredNumbers is now [1, 4, 9, 16]
+console.log(mappedArray);
+
+var anotherArray = ['a', 'b', 'c'];
+var mappedAnotherArray = anotherArray.map(function (element, index) {
+  return 'Element at index ' + index + ': ' + element;
+});
+console.log(mappedAnotherArray);
 ```
 
-### Array `reduce`:
+*Using simple function*
+
+```javascript
+// ES5 version of map using a for loop
+function functionName(array) {
+  var result = [];
+  for (var i = 0; i < array.length; i++) {
+    result.push('Element at index ' + i + ': ' + array[i]);
+  }
+  return result;
+}
+
+var myArray = [1, 2, 3, 4, 5];
+var mappedArray = functionName(myArray);
+console.log(mappedArray);
+
+var anotherArray = ['a', 'b', 'c'];
+var mappedAnotherArray = functionName(anotherArray);
+console.log(mappedAnotherArray);
+
+```
+
+*Using callback function:*
+
+```javascript
+// ES5 version of map using a for loop
+function functionName(array, callback) {
+  var result = [];
+  for (var i = 0; i < array.length; i++) {
+    result.push(callback(array[i], i));
+  }
+  return result;
+}
+
+// Example usage
+var myArray = [1, 2, 3, 4, 5];
+
+// Using mapES5 to simulate map without passing the array to the callback
+var mappedArray = functionName(myArray, function (element, index) {
+  return 'Element at index ' + index + ': ' + element;
+});
+console.log(mappedArray);
+```
+
+**Syntax:**
+
+*Sytax: map*
+
+```javascript
+// Example usage with map in ES6
+// Example usage with map in ES6
+const myArray = [1, 2, 3, 4, 5];
+myArray.map((element, index) => console.log(`Element at index ${index}: ${element}`));
+
+const anotherArray = ['a', 'b', 'c'];
+anotherArray.map((element, index) => console.log(`Element at index ${index}: ${element}`));
+```
+
+*Simple function:*
+
+```javascript
+function functionName(array) {
+  array.map((element, index) => {
+    console.log(`${index + 1} - ${element}`);
+  });
+}
+
+const myArray = ["Test1", "Test2", "Test3", "Test4", "Test5"];
+functionName(myArray);
+```
+
+*With callback function:*
+
+```javascript
+function functionName(array, processCallback) {
+  array.map((userName, index) => {
+    // This is the callback function being executed for each user name
+    processCallback(userName, index);
+  });
+}
+
+// Example usage: Displaying personalized greetings for users
+const myArray = ["Test1", "Test2", "Test3", "Test4", "Test5"];
+
+// Using processUserList to display personalized greetings
+functionName(myArray, (element, index) => {
+  console.log(`Hello, ${element}! You are user number ${index + 1}.`);
+});
+```
+
+**Demo: forEach**
+
+- [Demo: Live Tasks](../tasks/arrayMethods/highOrderMethods/mapLive.js)
+
+## Array `reduce`:
 
 The `reduce` method is used to reduce the elements of an array to a single value. It takes a callback function and an initial accumulator value.
 
-```javascript
-const numbers = [1, 2, 3, 4];
-
-const sum = numbers.reduce((accumulator, number) => {
-  return accumulator + number;
-}, 0);
-// sum is 10
-```
-
-### Array `filter`:
+## Array `filter`:
 
 The `filter` method creates a new array with elements that satisfy a provided condition.
 
-```javascript
-const numbers = [1, 2, 3, 4];
-
-const evenNumbers = numbers.filter((number) => {
-  return number % 2 === 0;
-});
-// evenNumbers is now [2, 4]
-```
-
-### Array `sort`:
+## Array `sort`:
 
 The `sort` method is used to sort the elements of an array. By default, it sorts elements as strings. To sort numbers, a custom compare function can be provided.
 
-```javascript
-const fruits = ['banana', 'apple', 'orange'];
 
-const sortedFruits = fruits.sort();
-// sortedFruits is now ['apple', 'banana', 'orange']
-```

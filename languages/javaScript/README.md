@@ -7,10 +7,10 @@
 - [Control Flow](#control-flow)
 - [JavaScript functions](#javascript-functions)
 - [Array Methods](#array-methods)
-- [Javascript Object](#javascript-object)
 - [Asynchronous JavaScript](#asynchronous-javaScript)
 - [Working with APIs](#working-with-apis)
 - [Classes](#classes)
+- [Javascript Object](#javascript-object)
 - [JavaScript Runtime](#javaScript-runtime)
 
 # Introduction to JavaScript
@@ -1621,6 +1621,10 @@ Asynchronous JavaScript refers to the execution of code that allows certain task
 
 - **Async/Await:**
   - Async/await is a modern approach to asynchronous programming. It allows writing asynchronous code in a more synchronous style, making it easier to read and maintain.
+
+**Resources:**
+
+- [Resources: Asynchronous JavaScript](./assets/topics/asynchronousJavaScript.md)
 
 # Working with APIs
 
