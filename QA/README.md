@@ -2,7 +2,7 @@
 
 - [Internet](#internet)
 - [QA Basics](#qa-basics)
-  - [Tasks: Intro](#intro)
+  - [Tasks: Intro](#tasks-intro)
   - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
 - [Static Testing vs Dynamic Testing](#static-testing-vs-dynamic-testing)
 - [Testing Techniques and analysis](#testing-techniques-and-analysis)
@@ -257,11 +257,34 @@ Highlights common mistakes made by QA engineers when writing test cases.
 - [Static Testing](#static-testing)
 - [Dynamic Testing](#dynamic-testing)
 
-## Static Testing:
+## Static Testing
 
 **Explanation:**
 
-Static Testing refers to the process of evaluating a software application or component without executing it. It involves examining the code, design, and documentation to identify errors, ensure compliance with coding standards, and improve the overall quality of the software. This type of testing is performed during the early stages of the software development life cycle (SDLC) and is typically non-execution-based.
+Static Testing refers to the process of evaluating a software application or component without executing code. It involves examining the code, design, and documentation to identify errors, ensure compliance with coding standards, and improve the overall quality of the software. This type of testing is performed during the early stages of the software development life cycle (SDLC) and is typically non-execution-based.
+
+```
+   +-------------------+
+   |  Software Testing |
+   +---------+---------+
+             |
+   +---------v---------+
+   | Static Testing    |
+   |                   |
+   | - Reviews         |
+   | - Inspections     |
+   | - Walkthroughs    |
+   | - Static Analysis |
+   +-------------------+
+```
+
+  - **Reviews:** A process where team members examine code, design, or documentation to identify issues.
+  
+  - **Inspections:** A formal process of reviewing work products to find defects early in the development process.
+  
+  - **Walkthroughs:** An informal, yet structured, process of reviewing documents with the goal of finding defects.
+  
+  - **Static Analysis:** The examination of code or other software artifacts without executing them, often using automated tools to find issues.
 
 **Key Concepts:**
 
@@ -281,11 +304,43 @@ Static Testing refers to the process of evaluating a software application or com
 4. **Objective:**
    - **Defect Prevention:** Focuses on finding and fixing defects before the code is executed.
 
-## Dynamic Testing:
+## Dynamic Testing
 
 **Explanation:**
 
 Dynamic Testing involves the execution of the software to validate its behavior and functionality. It is performed during runtime and includes various testing techniques to ensure that the software meets specified requirements. Dynamic testing helps identify defects related to the system's actual execution and is typically conducted in later stages of the SDLC.
+
+```plaintext
+   +-------------------+
+   |  Software Testing |
+   +---------+---------+
+             |
+   +---------v---------+
+   | Dynamic Testing   |
+   |                   |
+   | - Unit Testing    |
+   | - Integration     |
+   |   Testing         |
+   | - System Testing  |
+   | - Acceptance      |
+   |   Testing         |
+   |   - End-to-End    |
+   +-------------------+
+```
+
+- **Software Testing:** The broader concept of ensuring the quality and correctness of software.
+
+- **Dynamic Testing:** A phase of testing that involves the execution of the software.
+
+  - **Unit Testing:** Testing individual units or components of the software in isolation.
+  
+  - **Integration Testing:** Testing the combination of units or systems to ensure they work together.
+  
+  - **System Testing:** Testing the entire system as a whole to verify that it meets the specified requirements.
+  
+  - **Acceptance Testing:** Verifying that the software meets the acceptance criteria and is ready for deployment.
+
+    - **End-to-End Testing:** Testing the entire application workflow, including all components and dependencies, to ensure the system works as intended from start to finish.
 
 **Key Concepts:**
 
@@ -384,6 +439,10 @@ Equivalence Partitioning is a black-box testing technique that divides the input
 10. **Error Detection:**
     - The technique is effective at detecting errors related to the handling of different types of inputs and their respective classes.
 
+**Example:**
+
+- [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/equivalencePartitioning.md)
+
 ### Boundary Value Analysis
 
 **Explanation:**
@@ -403,6 +462,10 @@ Boundary Value Analysis (BVA) is a black-box testing technique that focuses on t
 
 7. **Focus on Invalid Inputs:**
    - While BVA primarily focuses on valid input boundaries, it also considers values immediately outside the valid range to test the system's response to invalid inputs.
+
+**Example:**
+
+- [Example: Boundary Value Analysis](./assets/examples/testingTechniquesAndAnalysis/boundryValueAnalysis.md)
 
 ### Decision Table Testing
 
@@ -427,6 +490,10 @@ Decision Table Testing is a black-box testing technique used to design test case
 
 7. **Boundary Conditions:**
    - Decision tables can include boundary conditions to test the system's behavior at the edges of acceptable input ranges.
+
+**Example:**
+
+- [Example: Decision Table Testing](./assets/examples/testingTechniquesAndAnalysis/decisionTableTesting.md)
 
 ### State Transition Testing
 
@@ -457,7 +524,9 @@ State Transition Testing is a black-box testing technique that focuses on testin
 7. **Test Cases:**
    - Test cases for state transition testing are designed to cover different combinations of events and current states, ensuring that the system transitions correctly and performs the expected actions.
 
-###
+**Example:**
+
+- [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/stateTransitionTesting.md)
 
 # Test Levels and Test Types
 
@@ -468,7 +537,9 @@ State Transition Testing is a black-box testing technique that focuses on testin
 
 **Explanation:**
 
-In software testing, test levels represent different stages of testing that occur at various points in the software development life cycle (SDLC). Each test level has specific objectives, focuses on different aspects of the software, and involves different testing activities. These levels are organized hierarchically, with each subsequent level building on the results of the previous ones. 
+In software testing, test levels represent different stages of testing that occur at various points in the software development life cycle (SDLC). Each test level has specific objectives, focuses on different aspects of the software, and involves different testing activities. These levels are organized hierarchically, with each subsequent level building on the results of the previous ones.
+
+![Testing Levels](./assets/images/testLevelsAndTypes/testinglevels.png)
 
 **Key Concepts:**
 
@@ -492,41 +563,10 @@ In software testing, test levels represent different stages of testing that occu
    - **Explanation:** Acceptance testing is the final test level, determining if the software is ready for release. It validates that the software satisfies business requirements and is accepted by stakeholders.
    - **Key Concepts:** User Acceptance Testing (UAT) involving end-users, Alpha/Beta Testing involving external users, and a focus on overall system functionality and business objectives.
 
-**Key Concepts Across Test Levels:**
-
-1. **Test Planning:**
-   - Comprehensive test planning for each level, defining scope, objectives, resources, schedule, and deliverables.
-
-2. **Test Execution:**
-   - Execution of test cases designed for each level, recording results, identifying and reporting defects.
-
-3. **Defect Lifecycle:**
-   - Reporting, tracking, and managing defects identified during testing at different levels.
-
-4. **Traceability:**
-   - Establishing links between test cases and requirements using traceability matrices.
-
-5. **Exit Criteria:**
-   - Defined exit criteria for transitioning to the next level, ensuring completion of specific test activities and achievement of testing goals.
-
-6. **Feedback Loop:**
-   - Providing feedback to development teams based on information gathered during test levels, contributing to defect resolution and system improvement.
-
-7. **Automation:**
-   - Employing automation at different test levels to increase efficiency, especially for repetitive and regression testing tasks.
-
-8. **Parallelism:**
-   - Conducting different test levels in parallel for a more efficient testing process.
-
-9. **Continuous Improvement:**
-   - Applying lessons learned from one test level to subsequent levels and future projects, contributing to continuous improvement in testing processes.
-
 ## Test Types
 
   - [Functional testing](#functional-testing)
   - [Non-functional testing](#non-functional-testing)
-
-In software testing, test types represent different aspects or dimensions of testing that focus on specific characteristics or objectives. Each test type is designed to address specific testing goals and contribute to the overall assessment of the software's quality. Test types are chosen based on the nature of the software, project requirements, and the testing objectives.
 
 **Explanation:**
 
@@ -766,7 +806,6 @@ End-to-End (E2E) testing is a software testing methodology that evaluates the en
 9. **Cross-Browser and Cross-Device Testing:**
    - E2E testing verifies that the application functions consistently across different web browsers and devices. This is crucial for ensuring a broad user reach.
 
-
 ### Acceptance Testing
 
 **Explanation:**
@@ -884,7 +923,7 @@ Regression testing is a software testing practice that involves re-executing pre
 
 Non-functional testing is a type of software testing that evaluates the aspects of a system that are not related to specific behaviors or functions. Instead, it focuses on the performance, reliability, usability, and other non-functional attributes of the software. The goal of non-functional testing is to ensure that the software not only meets functional requirements but also exhibits high standards in terms of its overall quality and user experience.
 
-### Key Concepts:
+**Key Concepts:**
 
 1. **Performance Testing:**
    - **Objective:** Assess the responsiveness, speed, scalability, and overall performance of the software under various conditions.
@@ -1211,7 +1250,7 @@ A Test Case Report, also known as a Test Execution Report, provides an overview 
 
 - **Focus:** Test cases are focused on the specific actions to be taken during testing and the expected results, helping testers ensure that the software functions correctly.
 
-2. **Test Case Report** (or Test Execution Report):
+2. **Test Case Report (or Test Execution Report):**
 
 - **Purpose**: A Test Case Report, often referred to as a Test Execution Report, provides an overview of the status and results of executed test cases for a specific testing phase or cycle.
 
@@ -1241,9 +1280,7 @@ Defect Reports are separate documents used to document and track issues or defec
 
 ## Test Summary Report
 
-**Explanation:**
 
-- [Explanation: Test Summary Report](../QA/assets/explanation/testSummaryReport.md)
 
 **Example:**
 
