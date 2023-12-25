@@ -6,7 +6,8 @@
   - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
 - [Static Testing vs Dynamic Testing](#static-testing-vs-dynamic-testing)
 - [Testing Techniques and analysis](#testing-techniques-and-analysis)
-- [Test Levels and Test Types](#test-levels)
+   - [Tasks: Equivalence Partitioning](#tasks-equivalence-partitioning)
+- [Test Levels and Test Types](#test-levels-and-test-types)
 - [Project Managment](#project-managment)
   - [Tasks: Backlog Grooming](#tasks-backlog-grooming)
 - [Software Testing Life Cycle](#software-testing-life-cycle)
@@ -23,18 +24,14 @@
 # QA Basics
 
 - [What is Quality Assurance?](#what-is-quality-assurance)
-  - [What is Quality?](#what-is-quality)
-  - [What is Assurance?](#what-is-assurance)
-  - [Quality Assurance in Software Testing](#quality-assurance-in-software-testing)
 - [Testing Principles](#testing-principles)
 - [Test Case Design](#test-case-design)
-  - [Types of Test Cases](#types-of-test-cases)
-  - [Test Case Format](#test-case-format)
-  - [Test Case Types](#test-case-types)
-  - [Test Case Requirements](#test-case-requirements)
-  - [Common Mistakes](#common-mistakes) 
 
 ## What is Quality Assurance?
+
+- [What is Quality?](#what-is-quality)
+- [What is Assurance?](#what-is-assurance)
+- [Quality Assurance in Software Testing](#quality-assurance-in-software-testing)
 
 ### What is Quality?
 
@@ -134,6 +131,13 @@ Testing principles in Quality Assurance (QA) are fundamental guidelines and best
 
 ## Test Case Design
 
+- [Types of Test Cases](#types-of-test-cases)
+- [Test Case Format](#test-case-format)
+- [Test Case Types](#test-case-types)
+- [Test Scenarios vs Test Case](#test-scenarios-vs-test-case)
+- [Test Case Requirements](#test-case-requirements)
+- [Common Mistakes](#common-mistakes) 
+
 **Explanation:**
 
 We will explore the fundamentals of test case design, including the types, format, and requirements of test cases.
@@ -209,6 +213,8 @@ It discusses the flexibility in naming and structuring test cases.
 - That test cases can vary in format and structure. For instance, some may use a shorter format with only a few key elements like summary, priority, steps, and expected results. 
 
 - The terminology used in different sections may also vary, with "inputs" used instead of "steps" or "outputs" instead of "results."
+
+### Test Scenarios vs Test Case
 
 ### Test Case Requirements
 
@@ -364,18 +370,16 @@ Dynamic Testing involves the execution of the software to validate its behavior 
 # Testing Techniques and analysis
 
 - [Black-Box Test Techniques](#black-box-test-techniques)
-  - [Equivalence Partitioning](#equivalence-partitioning)
-  - [Boundary Value Analysis](#boundary-value-analysis)
-  - [Decision Table Testing](#decision-table-testing)
-  - [State Transition Testing](#state-transition-testing)
 - [White-Box Test Techniques](#white-box-test-techniques)
 - [Experience-based Test Techniques](#experience-based-test-techniques)
-  - [Exploratory Testing](#exploratory-testing)
 - [Collaboration-based Test Approaches](#collaboration-based-test-approaches)
-  - [Collaborative User Story Writing](#collaborative-user-story-writing)
-  - [Acceptance Criteria](#acceptance-criteria)
 
 ## Black-Box Test Techniques
+
+- [Equivalence Partitioning](#equivalence-partitioning)
+- [Boundary Value Analysis](#boundary-value-analysis)
+- [Decision Table Testing](#decision-table-testing)
+- [State Transition Testing](#state-transition-testing)
 
 **Explanation:**
 
@@ -441,7 +445,11 @@ Equivalence Partitioning is a black-box testing technique that divides the input
 
 **Example:**
 
-- [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/equivalencePartitioning.md)
+- [Example: Equivalence Partitioning](./assets/examples/testingTechniquesAndAnalysis/equivalencePartitioning.md)
+
+### Tasks: Equivalence Partitioning
+
+- [Tasks: Equivalence Partitioning](./tasks/testingTechniquesandAnalysis/equivalencePartitioning.md)
 
 ### Boundary Value Analysis
 
@@ -466,6 +474,10 @@ Boundary Value Analysis (BVA) is a black-box testing technique that focuses on t
 **Example:**
 
 - [Example: Boundary Value Analysis](./assets/examples/testingTechniquesAndAnalysis/boundryValueAnalysis.md)
+
+### Tasks: Boundary Value Analysis
+
+- [Tasks: Boundary Value Analysis](./tasks/testingTechniquesandAnalysis/boundaryValueAnalysis.md)
 
 ### Decision Table Testing
 
@@ -527,6 +539,23 @@ State Transition Testing is a black-box testing technique that focuses on testin
 **Example:**
 
 - [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/stateTransitionTesting.md)
+
+## White-Box Test Techniques
+
+## Experience-based Test Techniques
+
+- [Exploratory Testing](#exploratory-testing)
+
+### Exploratory Testing
+
+## Collaboration-based Test Approaches
+
+- [Collaborative User Story Writing](#collaborative-user-story-writing)
+- [Acceptance Criteria](#acceptance-criteria)
+
+### Collaborative User Story Writing
+
+### Acceptance Criteria
 
 # Test Levels and Test Types
 
@@ -1196,18 +1225,7 @@ Security testing is a type of non-functional testing that focuses on identifying
 
 - [Requirement Analysis](#requirement-analysis)
 - [Test Planning](#test-planning)
-  - [Purpose and Content of a Test Plan](#purpose-and-content-of-a-test-plan)
-  - [Tester's Contribution to Iteration and Release Planning](#testers-contribution-to-iteration-and-release-planning)
-  - [Entry Criteria and Exit Criteria](#entry-criteria-and-exit-criteria)
-  - [Estimation Techniques](#estimation-techniques)
-  - [Test Case Prioritization](#test-case-prioritization)
-- [Test Case](#test-case)
-- [Test Execution](#test-execution)
 - [Defect Reporting and Tracking](#defect-reporting-and-tracking)
-  - [Test Case Report](#test-case-report)
-    - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
-  - [Test Summary Report](#test-summary-report)
-  - [Defect Report (Bug Report)](#defect-report-bug-report)
 - [Test Closure](#test-closure)
 
 **Explanation:**
@@ -1228,7 +1246,32 @@ The Software Testing Life Cycle is a structured approach that encompasses variou
 
 - **Test Closure**: Test closure marks the end of the testing phase. It involves evaluating whether all functionalities have been tested, no new defects are found, testing schedules are met, and there are no project risks related to testing.
 
+## Requirement Analysis
+
+## Test Planning
+
+- [Purpose and Content of a Test Plan](#purpose-and-content-of-a-test-plan)
+- [Tester's Contribution to Iteration and Release Planning](#testers-contribution-to-iteration-and-release-planning)
+- [Entry Criteria and Exit Criteria](#entry-criteria-and-exit-criteria)
+- [Estimation Techniques](#estimation-techniques)
+- [Test Case Prioritization](#test-case-prioritization)
+
+### Purpose and Content of a Test Plan
+
+### Tester's Contribution to Iteration and Release Planning
+
+### Entry Criteria and Exit Criteria
+
+### Estimation Techniques
+
+### Test Case Prioritization
+
 ## Defect Reporting and Tracking
+
+- [Test Case Report](#test-case-report)
+   - [Test Case vs Test Case Report](#test-case-vs-test-case-report)
+- [Test Summary Report](#test-summary-report)
+- [Defect Report (Bug Report)](#defect-report-bug-report)
 
 ### Test Case Report
 
@@ -1280,11 +1323,42 @@ Defect Reports are separate documents used to document and track issues or defec
 
 ## Test Summary Report
 
+**Explanation:**
 
+A Test Summary Report is a comprehensive document that provides a consolidated overview of the testing activities conducted during a specific phase of a software development life cycle. It serves as a formal record of the testing process, presenting key findings, outcomes, and metrics to stakeholders involved in the project. The primary purpose of the Test Summary Report is to communicate the quality and readiness of the software being tested.
+
+**Key Concepts:**
+
+1. **Consolidation of Testing Information:**
+   - The Test Summary Report consolidates information from various testing activities, including test case execution, defect tracking, and other relevant testing processes.
+
+2. **Communication Tool:**
+   - It serves as a communication tool between different stakeholders, such as project managers, developers, quality assurance teams, and business analysts, providing them with a snapshot of the testing results.
+
+3. **Project Overview:**
+   - The report typically includes details about the project, such as the project name, test phase, and dates of testing. This contextual information helps readers understand the scope of the report.
+
+4. **Test Execution Details:**
+   - It provides details about the execution of test cases, including the total number of test cases, the number of test cases passed, and the number of test cases failed. This information indicates the level of test coverage and the overall success of the testing effort.
+
+5. **Defect Summary:**
+   - A Test Summary Report includes a summary of defects found during testing, highlighting their severity levels and current status. This section aids in assessing the impact of identified issues on the software.
+
+6. **Test Environment Information:**
+   - Details about the test environment, including the operating systems, browsers, and other relevant configurations, are often included. This information helps in understanding the conditions under which the testing was conducted.
+
+7. **Overall Test Status:**
+   - The report concludes with an overall test status, indicating whether the testing goals were achieved. The status is typically expressed as Pass or Fail, providing a clear indication of the software's readiness for the next phase.
+
+8. **Recommendations and Next Steps:**
+   - In some cases, the Test Summary Report may include recommendations for improvements or actions to be taken based on the testing outcomes. This guides future development and testing efforts.
+
+9. **Approval and Sign-off:**
+   - The report may include a section for approval and sign-off by relevant stakeholders, indicating their acceptance of the testing results and readiness to proceed with the next phase of the project.
 
 **Example:**
 
-- [Test Summary Report](./assets/manualTesting/testSummaryReport.md)
+- [Test Summary Report](./assets/examples/softwareTestingLifeCycle/testSummaryReport.md)
 
 ### Tasks: Test Summary Report
 
