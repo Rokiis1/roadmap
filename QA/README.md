@@ -2,18 +2,24 @@
 
 - [Internet](#internet)
 - [QA Basics](#qa-basics)
-  - [Tasks: Intro](#tasks-intro)
-  - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
+   - [Tasks: Intro](#tasks-intro)
+   - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
+   - [Examples of Test Case and Scenarios](#examples-of-test-case-and-scenarios)
 - [Static Testing vs Dynamic Testing](#static-testing-vs-dynamic-testing)
 - [Testing Techniques and analysis](#testing-techniques-and-analysis)
    - [Tasks: Equivalence Partitioning](#tasks-equivalence-partitioning)
+   - [Tasks: Boundary Value Analysis](#tasks-boundary-value-analysis)
 - [Test Levels and Test Types](#test-levels-and-test-types)
+   - [Tasks: Integration Testing](#test-integration-testing)
+   - [Tasks: Acceptance Testing](#tasks-acceptance-testing)
+   - [Tasks: Compatibility Testing](#compatibility-testing)
+   - [Tasks: Accessibility Testing](#accessibility-testing)
 - [Project Managment](#project-managment)
-  - [Tasks: Backlog Grooming](#tasks-backlog-grooming)
+   - [Tasks: Backlog Grooming](#tasks-backlog-grooming)
 - [Software Testing Life Cycle](#software-testing-life-cycle)
-  - [Tasks: Test Case Report](tasks-test-case-report)
-  - [Tasks: Bug Report](#tasks-bug-report)
-  - [Tasks: Test Summary Report](#tasks-test-summary-report)
+   - [Tasks: Test Case Report](tasks-test-case-report)
+   - [Tasks: Bug Report](#tasks-bug-report)
+   - [Tasks: Test Summary Report](#tasks-test-summary-report)
 
 # Internet
 
@@ -91,7 +97,7 @@ Quality Assurance (QA): ensure software products meet specified quality standard
 
 ### Tasks: Intro
 
-- [Tasks: Intro]()
+- [Tasks: Intro](./tasks/qaBasics/intro.md)
 
 ## Testing Principles
 
@@ -215,6 +221,83 @@ It discusses the flexibility in naming and structuring test cases.
 - The terminology used in different sections may also vary, with "inputs" used instead of "steps" or "outputs" instead of "results."
 
 ### Test Scenarios vs Test Case
+
+**Test scenarios**
+
+**Explanation:**
+
+Test scenarios are high-level descriptions of the end-to-end functionality of a system or a specific feature.
+
+- **Scope:** They cover broad functionalities and are often written in plain language, providing a general overview of what needs to be tested.
+
+- **Level of Detail:** Test scenarios are less detailed compared to test cases. They focus on the "what" rather than the "how."
+
+- **Use Case:** Test scenarios are often used in the early stages of test planning to outline the major paths or workflows that need to be tested.
+
+- **Example:**
+
+  - *Scenario:* Verify the login functionality.
+
+  - *Scenario:* Test the checkout process for an e-commerce website.
+
+**Test Cases**
+
+**Explanation:**
+
+Test cases are detailed step-by-step instructions that specify how to execute a test scenario. They are more granular and provide specific inputs, actions, and expected outcomes.
+
+- **Scope:** Test cases break down the test scenarios into smaller, manageable units. They are the building blocks for test execution.
+
+- **Level of Detail:** Test cases are highly detailed and include specific conditions, data, and steps required to validate a particular aspect of the system.
+
+- **Use Case:** Test cases are used during the execution phase of testing. Testers follow these detailed instructions to validate the functionality.
+
+- **Example:**
+
+  - *Test Case:* Enter valid username and password and click the "Login" button. Verify that the user is successfully logged in.'
+
+  - *Test Case:* Add a product to the cart, proceed to checkout, and confirm that the order is placed.
+
+**Key Concepts:**
+
+1. **Abstraction Level:**
+
+   - **Test Scenarios:** Higher abstraction level, focusing on overall functionalities.
+
+   - **Test Cases:** Lower abstraction level, providing detailed steps for execution.
+
+2. **Scope:**
+
+   - **Test Scenarios:** Cover broader functionalities or workflows.
+
+   - **Test Cases:** Break down scenarios into smaller, specific units for detailed testing.
+
+3. **Usage in Test Planning:**
+
+   - **Test Scenarios:** Often used in the initial stages of test planning to outline testing scope.
+   - **Test Cases:** Used during the execution phase to validate specific conditions and behaviors.
+
+4. **Detail Level:**
+
+   - **Test Scenarios:** Less detailed, providing a general overview.
+
+   - **Test Cases:** Highly detailed, specifying inputs, actions, and expected outcomes.
+
+5. **Execution Focus:**
+
+   - **Test Scenarios:** Focus on "what" needs to be tested.
+
+   - **Test Cases:** Focus on "how" to test a specific aspect of the scenario.
+
+6. **Relationship:**
+
+   - **Test Scenarios:** Act as a blueprint for testing, guiding the creation of detailed test cases.
+
+   - **Test Cases:** Implement the details outlined in test scenarios.
+
+### Examples of Test Case and Scenarios
+
+- [Examples of Test Case and Scenarios](./assets/examples/qaBasics/testCaseAndScenarios/README.md)
 
 ### Test Case Requirements
 
@@ -507,6 +590,8 @@ Decision Table Testing is a black-box testing technique used to design test case
 
 - [Example: Decision Table Testing](./assets/examples/testingTechniquesAndAnalysis/decisionTableTesting.md)
 
+### Tasks: Decision Table Testing
+
 ### State Transition Testing
 
 **Explanation:**
@@ -540,6 +625,8 @@ State Transition Testing is a black-box testing technique that focuses on testin
 
 - [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/stateTransitionTesting.md)
 
+### Tasks: State Transition Testing
+
 ## White-Box Test Techniques
 
 ## Experience-based Test Techniques
@@ -547,6 +634,10 @@ State Transition Testing is a black-box testing technique that focuses on testin
 - [Exploratory Testing](#exploratory-testing)
 
 ### Exploratory Testing
+
+### Tasks: Exploratory Testing
+
+- [Tasks: Exploratory Testing](./tasks/testingTechniquesandAnalysis/equivalencePartitioning.md)
 
 ## Collaboration-based Test Approaches
 
@@ -765,6 +856,8 @@ API (Application Programming Interface) testing in integration testing focuses o
 12. **Webhooks and Callbacks:**
     - Some APIs use webhooks or callbacks for asynchronous communication. API testing includes verifying that these mechanisms work as intended and trigger the expected actions.
 
+### Tasks: Integration Testing
+
 ### System Testing
 
 **Explanation:**
@@ -866,6 +959,8 @@ Acceptance testing is a software testing phase that assesses whether a system me
 
 9. **Documentation Verification:**
     - The testing process involves verifying that documentation, such as user manuals and training materials, accurately reflects the functionality of the software.
+
+### Tasks: Acceptance Testing
 
 ### Smoke Testing and Sanity Testing
 
@@ -1046,6 +1141,8 @@ Compatibility testing is a type of non-functional testing that assesses the soft
    - **Objective:** Confirm that the software works seamlessly with various plug-ins, extensions, or third-party integrations.
    - **Key Concepts:** Identifying conflicts or compatibility issues with additional software components.
 
+### Tasks: Compatibility Testing
+
 ### Accessibility Testing
 
 **Explanation:**
@@ -1098,6 +1195,7 @@ Accessibility testing is a type of non-functional testing that evaluates whether
     - **Objective:** Ensure that the software's design is responsive, providing a consistent and accessible experience across different devices.
     - **Key Concepts:** Testing on various screen sizes and ensuring responsive layouts.
 
+### Tasks: Accessibility Testing
 
 ### Performance Testing
 
