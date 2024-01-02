@@ -10,7 +10,7 @@
    - [Tasks: Equivalence Partitioning](#tasks-equivalence-partitioning)
    - [Tasks: Boundary Value Analysis](#tasks-boundary-value-analysis)
 - [Test Levels and Test Types](#test-levels-and-test-types)
-   - [Tasks: Integration Testing](#test-integration-testing)
+   - [Tasks: Integration Testing](#tasks-integration-testing)
    - [Tasks: Acceptance Testing](#tasks-acceptance-testing)
    - [Tasks: Compatibility Testing](#compatibility-testing)
    - [Tasks: Accessibility Testing](#accessibility-testing)
@@ -590,8 +590,6 @@ Decision Table Testing is a black-box testing technique used to design test case
 
 - [Example: Decision Table Testing](./assets/examples/testingTechniquesAndAnalysis/decisionTableTesting.md)
 
-### Tasks: Decision Table Testing
-
 ### State Transition Testing
 
 **Explanation:**
@@ -624,8 +622,6 @@ State Transition Testing is a black-box testing technique that focuses on testin
 **Example:**
 
 - [Example: State Transition Testing](./assets/examples/testingTechniquesAndAnalysis/stateTransitionTesting.md)
-
-### Tasks: State Transition Testing
 
 ## White-Box Test Techniques
 
@@ -818,6 +814,10 @@ Integration testing is a software testing technique that focuses on verifying th
 
 API (Application Programming Interface) testing in integration testing focuses on validating the interactions and communication between different software components through their APIs. APIs define the methods and protocols used for communication between software systems. API testing ensures that these interfaces function correctly, handle data appropriately, and maintain the expected behavior when integrated into the larger system.
 
+*Docs:*
+
+- [Docs: Whaty is APIs?](../api/README.md)
+
 **Key Concepts:**
 
 1. **API Endpoints:**
@@ -827,7 +827,7 @@ API (Application Programming Interface) testing in integration testing focuses o
    - Testing the requests sent to the API and the responses received is fundamental. This includes validating data formats, parameter values, and the correctness of the returned data.
 
 3. **HTTP Methods:**
-   - APIs typically use HTTP methods (GET, POST, PUT, DELETE, etc.) to perform operations. API testing ensures that these methods are implemented correctly, and each method produces the expected outcomes.
+   - APIs typically use HTTP methods (GET, POST, PUT, DELETE, PATCH) to perform operations. API testing ensures that these methods are implemented correctly, and each method produces the expected outcomes.
 
 4. **Data Formats:**
    - APIs often use specific data formats, such as JSON or XML, for data exchange. API testing includes verifying that data is serialized and deserialized correctly, ensuring compatibility between systems.
@@ -857,6 +857,8 @@ API (Application Programming Interface) testing in integration testing focuses o
     - Some APIs use webhooks or callbacks for asynchronous communication. API testing includes verifying that these mechanisms work as intended and trigger the expected actions.
 
 ### Tasks: Integration Testing
+
+- [Tasks: Integration Testing](./tasks/testTypes/integrationTesting.md)
 
 ### System Testing
 
