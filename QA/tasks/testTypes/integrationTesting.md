@@ -187,7 +187,7 @@ It's helps faster to create documentation file
 
 - [Tools: readme.so](https://readme.so/)
 
-## Task 3: Create in Github Repository and push local in upstream(Github)
+## Task 3: Create in Github Repository and push local project in upstream(Github)
 
 **Explanation:**
 
