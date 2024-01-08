@@ -66,10 +66,6 @@ Quality Assurance (QA): ensure software products meet specified quality standard
 - [Article: Why Is ISTQB Certification Important for QA Professionals?](https://www.testdevlab.com/blog/why-is-istqb-certification-important-for-qa-professionals)
 - [Article: What is QA?](https://www.investopedia.com/terms/l/lean-six-sigma.asp)
 
-### Tasks: Intro
-
-- [Tasks: Intro](./tasks/qaBasics/intro.md)
-
 ## Testing Principles
 
 **Explanation:**
@@ -266,10 +262,6 @@ Test cases are detailed step-by-step instructions that specify how to execute a 
 
    - **Test Cases:** Implement the details outlined in test scenarios.
 
-### Examples of Test Case and Scenarios
-
-- [Examples of Test Case and Scenarios](./assets/examples/qaBasics/testCaseAndScenarios/README.md)
-
 ### Test Case Requirements
 
 **Explanation:**
@@ -307,3 +299,11 @@ Highlights common mistakes made by QA engineers when writing test cases.
 **Example:**
 
 - Avoiding overly abstract summaries, advocating for specific and clear descriptions like `"check adding a product to the wishlist"` instead of a generalized `"check wishlist functionality."` 
+
+### Examples of Test Case and Scenarios
+
+- [Examples of Test Case and Scenarios](./assets/examples/qaBasics/testCaseAndScenarios/README.md)
+
+### Tasks: Intro
+
+- [Tasks: Intro](./tasks/qaBasics/intro.md)

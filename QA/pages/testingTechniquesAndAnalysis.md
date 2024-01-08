@@ -173,6 +173,48 @@ State Transition Testing is a black-box testing technique that focuses on testin
 
 ## White-Box Test Techniques
 
+Certainly! Let's consolidate the key concepts of white-box testing, as explained earlier, and the information from the ISTQB syllabus in a unified template:
+
+### White-Box Testing
+
+**Explanation:**
+
+White-box testing, also known as clear-box or glass-box testing, is a software testing technique that involves examining the internal structure, code, and logic of a software application. Testers have knowledge of the internal workings of the system being tested, and the tests are designed based on this understanding.
+
+**Key Concepts:**
+
+1. **Code Coverage:**
+
+   - White-box testing aims for high code coverage, measured through metrics like statement coverage and branch coverage.
+   - Code coverage provides insights into the percentage of code exercised by test cases.
+
+2. **Test Techniques:**
+
+   - Popular white-box test techniques include statement testing and branch testing.
+   - Statement testing involves designing test cases to exercise executable statements, while branch testing focuses on exercising branches in the code.
+
+3. **Branch Coverage Subsumes Statement Coverage:**
+
+   - In real-life testing scenarios, achieving 100% branch coverage to ensure 100% statement coverage, and vice versa, is often impractical and, in many cases, not possible.
+
+4. **Value of White-Box Testing:**
+
+   - Strengths include considering the entire software implementation during testing, facilitating defect detection even in the absence of clear specifications.
+   - Weaknesses include potential oversight of defects resulting from omitted requirements.
+
+5. **Use Cases and Techniques:**
+
+   - White-box techniques are applicable in static testing, such as during code reviews and dry runs.
+   - Useful for reviewing code not ready for execution, pseudocode, and high-level logic modeled with a control flow graph.
+
+6. **Coverage Measurement:**
+
+   - Code coverage measurements, including statement and branch coverage, provide an objective assessment of the thoroughness of testing.
+
+7. **Objective Measurement:**
+
+   - White-box coverage measures provide an objective benchmark, enabling the generation of additional tests to increase coverage and confidence in the code.
+
 ## Experience-based Test Techniques
 
 - [Exploratory Testing](#exploratory-testing)
@@ -181,7 +223,7 @@ State Transition Testing is a black-box testing technique that focuses on testin
 
 ### Tasks: Exploratory Testing
 
-- [Tasks: Exploratory Testing](./tasks/testingTechniquesandAnalysis/equivalencePartitioning.md)
+- [Tasks: Exploratory Testing](../tasks/testingTechniquesandAnalysis/exploratoryTesting.md)
 
 ## Collaboration-based Test Approaches
 
