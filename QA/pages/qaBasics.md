@@ -34,7 +34,7 @@ It involves activities aimed at building confidence that a product or service wi
 
 **Key Concepts:**
 
-- **Preventive Activities**: Assurance includes a range of preventive activities that are designed to stop defects from occurring in the first place. 
+- **Preventive Activities**: Assurance includes a range of preventive activities that are designed to stop defects from occurring in the first place.
 
 - **Process Adherence**: Ensuring that processes are followed consistently.
 
@@ -70,7 +70,7 @@ Quality Assurance (QA): ensure software products meet specified quality standard
 
 **Explanation:**
 
-Testing principles in Quality Assurance (QA) are fundamental guidelines and best practices that help ensure the effectiveness and efficiency of the testing process. These principles guide testing activities to identify and address issues in software, ultimately contributing to the development of high-quality products. 
+Testing principles in Quality Assurance (QA) are fundamental guidelines and best practices that help ensure the effectiveness and efficiency of the testing process. These principles guide testing activities to identify and address issues in software, ultimately contributing to the development of high-quality products.
 
 **Key Concepts:**
 
@@ -109,7 +109,7 @@ Testing principles in Quality Assurance (QA) are fundamental guidelines and best
 - [Test Case Types](#test-case-types)
 - [Test Scenarios vs Test Case](#test-scenarios-vs-test-case)
 - [Test Case Requirements](#test-case-requirements)
-- [Common Mistakes](#common-mistakes) 
+- [Common Mistakes](#common-mistakes)
 
 **Explanation:**
 
@@ -117,7 +117,7 @@ We will explore the fundamentals of test case design, including the types, forma
 
 **Key Concepts:**
 
-- Test case types (positive, negative, destructive)
+- Test case types (positive, negative)
 
 - Test case format (ID, summary, preconditions, steps, post conditions, expected results, actual results, status)
 
@@ -127,19 +127,63 @@ We will explore the fundamentals of test case design, including the types, forma
 
 **Explanation:**
 
-The two types of test cases: positive, negative.
+Test cases can be categorized into various types based on their purpose, methodology, level, and the aspect of the application they are intended to test.
 
 **Key Concepts:**
 
-- Positive test cases (using valid inputs)
+- **Positive Test Cases:** These are designed to test the system under normal conditions where the inputs are within the expected range.
 
-- Negative test cases (using invalid inputs)
+- **Negative Test Cases:** These are designed to test the system with inputs outside the expected range. The aim is to ensure the system can handle errors and exceptions gracefully.
 
 **Example:**
 
-- Positive test cases are used to validate that software behaves correctly with valid inputs, such as logging in with correct credentials. 
+- Positive test cases are used to validate that software behaves correctly with valid inputs, such as logging in with correct credentials.
 
-- Negative test cases, on the other hand, aim to ensure the software handles invalid inputs appropriately, like incorrect login credentials. 
+- Negative test cases, on the other hand, aim to ensure the software handles invalid inputs appropriately, like incorrect login credentials.
+
+```
+Test Case ID: TC001
+
+Summary: Verify that a user can log in with valid credentials
+
+Preconditions:
+- The application is running
+- The user is registered with username "testuser" and password "testpassword"
+
+Steps:
+1. Navigate to the login page
+2. Enter "testuser" in the username field
+3. Enter "testpassword" in the password field
+4. Click the "Login" button
+
+Postconditions:
+- The user is redirected to the homepage
+- The user's username is displayed in the top right corner
+
+Expected Results:
+- The user is redirected to the homepage
+- The user's username is displayed in the top right corner
+
+Actual Results: To be filled out after test execution
+
+Status: To be filled out after test execution
+```
+
+```
+Passed: The test case was executed, and the actual results matched the expected results.
+
+Failed: The test case was executed, and the actual results did not match the expected results.
+
+Blocked: The test case could not be executed because a bug or issue prevented it.
+
+Not Executed: The test case has not been executed yet.
+
+In Progress: The test case is currently being executed.
+
+Retest: The test case needs to be executed again, usually because a bug that was previously blocking it has been fixed.
+
+Deferred: The execution of the test case has been postponed, usually due to low priority or dependency on other test cases or requirements.
+```
 
 ### Test Case Format
 
@@ -163,11 +207,13 @@ Eight elements that make up a test case format:
 
 4. Steps (actions for verification)
 
-5. Expected results
+5. Postconditions
 
-6. Actual results
+6. Expected results
 
-7. Status
+7. Actual results
+
+8. Status
 
 ### Test Case Types
 

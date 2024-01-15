@@ -1,26 +1,25 @@
 # Table of Contents
 
 1. [Internet](#internet)
-   - [Resources: Internet](#resources-internet)
+   - [Topics: Internet](#topics-internet)
 2. [QA Basics](#qa-basics)
-   - [Resources: QA Basics](#resources-qa-basics)
-   - [Conspect: QA Basics](#conspect-qa-basics)
+   - [Topics: QA Basics](#topics-qa-basics)
    - [Tasks: Intro](#tasks-intro)
    - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
    - [Example: Test Case and Scenarios](#example-test-case-and-scenarios)
 3. [Static Testing vs Dynamic Testing](#static-testing-vs-dynamic-testing)
-   - [Resources: Static Testing vs Dynamic Testing](#resources-static-testing-vs-dynamic-testing)
+   - [Topics: Static Testing vs Dynamic Testing](#topics-static-testing-vs-dynamic-testing)
 4. [Testing Techniques and analysis](#testing-techniques-and-analysis)
-   - [Resources: Testing Techniques and analysis](#resources-testing-techniques-and-analysis)
-   - [Tasks: Equivalence Partitioning](#tasks-equivalence-partitioning)
+   - [Topics: Testing Techniques and analysis](#topics-testing-techniques-and-analysis)
+   - [Topics: Equivalence Partitioning](#tasks-equivalence-partitioning)
    - [Tasks: Boundary Value Analysis](#tasks-boundary-value-analysis)
    - [Example: Equivalence Partitioning](#example-equivalence-partitioning)
    - [Example: Boundary Value Analysis](#example-boundary-value-analysis)
    - [Example: State Transition Testing](#example-state-transition-testing)
    - [Example: Decision Table Testing](#example-decision-table-testing)
 5. [Test Levels and Test Types](#test-levels-and-test-types)
-   - [Resources: Test Levels and Test Types](#resources-test-levels-and-test-types)
-   - [Resources: What is APIs?](#resources-what-is-apis)
+   - [Topics: Test Levels and Test Types](#topics-test-levels-and-test-types)
+   - [Topics: What is APIs?](#topics-what-is-apis)
    - [Tasks: Integration Testing](#tasks-integration-testing)
    - [Tasks: Acceptance Testing](#tasks-acceptance-testing)
    - [Tasks: Compatibility Testing](#compatibility-testing)
@@ -28,7 +27,7 @@
 6. [Project Managment](#project-managment)
    - [Tasks: Backlog Grooming](#tasks-backlog-grooming)
 7. [Software Testing Life Cycle](#software-testing-life-cycle)
-   - [Resources: Software Testing Life Cycle](#resources-software-testing-life-cycle)
+   - [Topics: Software Testing Life Cycle](#topics-software-testing-life-cycle)
    - [Tasks: Test Case Report](#tasks-test-case-report)
    - [Tasks: Bug Report](#tasks-bug-report)
    - [Tasks: Test Summary Report](#tasks-test-summary-report)
@@ -37,19 +36,15 @@
 
 # Internet
 
-## Resources: Internet
+## Topics: Internet
 
-- [Resources: What is Internet?](../internet/README.md)
+- [Topics: What is Internet?](../internet/README.md)
 
 # QA Basics
 
-## Resources: QA Basics
+## Topics: QA Basics
 
-- [Resources: QA Basics](./pages/qaBasics.md)
-
-## Conspect: QA Basics
-
-- [Conspect: QA Basics](./assets/conspect/qaBasics.md)
+- [Topics: QA Basics](./pages/qaBasics.md)
 
 ## Tasks: Intro
 
@@ -65,15 +60,15 @@
 
 # Static Testing vs Dynamic Testing
 
-## Resources: Static Testing vs Dynamic Testing
+## Topics: Static Testing vs Dynamic Testing
 
-- [Resources: Static Testing vs Dynamic Testing](./pages/staticTestingVsDynamicTesting.md)
+- [Topics: Static Testing vs Dynamic Testing](./pages/staticTestingVsDynamicTesting.md)
 
 # Testing Techniques and analysis
 
-## Resources: Testing Techniques and analysis
+## Topics: Testing Techniques and analysis
 
-- [Resources: Testing Techniques and analysis](./pages/testingTechniquesAndAnalysis.md)
+- [Topics: Testing Techniques and analysis](./pages/testingTechniquesAndAnalysis.md)
 
 ## Tasks: Equivalence Partitioning
 
@@ -101,19 +96,19 @@
 
 # Test Levels and Test Types
 
-## Resources: Test Levels and Test Types
+## Topics: Test Levels and Test Types
 
-- [Resources: Test Levels and Test Types](./pages/testLevelsAndTestTypes.md)
+- [Topics: Test Levels and Test Types](./pages/testLevelsAndTestTypes.md)
 
-## Resources: What is APIs?
+## Topics: What is APIs?
 
-- [Resources: What is APIs?](../api/README.md)
+- [Topics: What is APIs?](../api/README.md)
 
 # Project Managment
 
-## Resources: Project Managment
+## Topics: Project Managment
 
-- [Resources: Project Managment](../project-managment/README.md)
+- [Topics: Project Managment](../project-managment/README.md)
 
 ## Tasks: Backlog Grooming
 
@@ -121,9 +116,9 @@
 
 # Software Testing Life Cycle
 
-## Resources: Software Testing Life Cycle
+## Topics: Software Testing Life Cycle
 
-- [Resources: Software Testing Life Cycle](./pages/softwareTestingLifeCycle.md)
+- [Topics: Software Testing Life Cycle](./pages/softwareTestingLifeCycle.md)
 
 ## Tasks: Test Case Report
 
@@ -144,10 +139,3 @@
 ## Tasks: Test Summary Report
 
 - [Task: Test Summary Report](../QA/tasks/testSummaryReport.md)
-
-
-
-
-
-
-

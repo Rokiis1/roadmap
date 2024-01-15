@@ -25,6 +25,41 @@ The Software Testing Life Cycle is a structured approach that encompasses variou
 
 ## Requirement Analysis
 
+**Explanation:**
+
+Requirement Analysis is the first phase in the Software Testing Life Cycle (STLC). In this phase, testers analyze the requirements from a testing perspective. This involves understanding the system, identifying testable requirements, and determining the testing strategies to be used.
+
+**Key Concepts:**
+
+- Understanding the system: Testers need to understand the functionality, architecture, and performance requirements of the system.
+
+- Identifying testable requirements: Not all requirements are testable. Testers need to identify which requirements can be validated through testing.
+
+- Determining testing strategies: Based on the requirements, testers decide the testing strategies like unit testing, integration testing, system testing, etc.
+
+**Syntax:**
+
+Typically a Requirement Traceability Matrix (RTM) which maps each requirement to its corresponding test cases to ensure all requirements are covered by testing.
+
+Understanding the system: The system is an online shopping platform where users can browse products, add them to a cart, and make a purchase. The system needs to handle user authentication, product management, cart management, and payment processing.
+
+*Identifying testable requirements:*
+
+Users should be able to register and log in.
+Users should be able to browse products.
+Users should be able to add products to a cart.
+Users should be able to make a purchase and receive a confirmation.
+
+*Determining testing strategies:*
+
+Unit testing: Test individual components like user registration, login, product browsing, cart management, and payment processing.
+Integration testing: Test the interaction between different components, like adding a product to the cart after browsing, and making a purchase after adding to the cart.
+System testing: Test the entire system as a whole to ensure all components work together as expected.
+
+*Requirement Traceability Matrix (RTM):*
+
+![Alt text](../assets/images/stlc/rtmTable.png)
+
 ## Test Planning
 
 - [Purpose and Content of a Test Plan](#purpose-and-content-of-a-test-plan)
@@ -35,13 +70,81 @@ The Software Testing Life Cycle is a structured approach that encompasses variou
 
 ### Purpose and Content of a Test Plan
 
+**Explanation:**
+
+A test plan is a detailed document that outlines the test strategy, testing objectives, resources (manpower, software, hardware) required for testing, test schedule, test estimation and test deliverables. The purpose of a test plan is to provide clear instructions on how the testing activity should be performed.
+
+**Key Concepts:**
+
+- Test Strategy: Describes the overall approach to testing.
+
+- Test Objectives: Describes what the goals of testing are.
+
+- Resources: Describes what resources are needed for testing.
+
+- Test Schedule: Describes when testing activities will take place.
+
+- Test Estimation: Describes how long testing activities are expected to take.
+
+- Test Deliverables: Describes what the outputs of testing activities will be.
+
 ### Tester's Contribution to Iteration and Release Planning
+
+**Explanation:**
+
+A test plan is a detailed document that outlines the test strategy, testing objectives, resources (manpower, software, hardware) required for testing, test schedule, test estimation and test deliverables. The purpose of a test plan is to provide clear instructions on how the testing activity should be performed.
+
+**Key Concepts:**
+
+- Test Strategy: Describes the overall approach to testing.
+
+- Test Objectives: Describes what the goals of testing are.
+
+- Resources: Describes what resources are needed for testing.
+
+- Test Schedule: Describes when testing activities will take place.
+
+- Test Estimation: Describes how long testing activities are expected to take.
+
+- Test Deliverables: Describes what the outputs of testing activities will be.
 
 ### Entry Criteria and Exit Criteria
 
+**Explanation:**
+
+Entry criteria are the conditions that must be met before testing can begin. Exit criteria are the conditions that must be met before testing can be considered complete.
+
+**Key Concepts:**
+
+- Entry Criteria: Conditions that must be met before testing can begin.
+
+- Exit Criteria: Conditions that must be met before testing can be considered complete.
+
 ### Estimation Techniques
 
+**Explanation:**
+
+Estimation techniques are used to estimate the time and effort required for testing. Common techniques include use case point method, function point method, and test point analysis.
+
+**Key Concepts:**
+
+- Use Case Point Method: An estimation technique based on the complexity and size of use cases.
+
+- Function Point Method: An estimation technique based on the functionality provided by the software.
+
+- Test Point Analysis: An estimation technique based on the number of test cases and their complexity.
+
 ### Test Case Prioritization
+
+**Explanation:**
+
+Test case prioritization involves ordering the test cases in a way that the most important or high-risk ones are executed first.
+
+**Key Concepts:**
+
+- Risk-Based Prioritization: Test cases are prioritized based on the risk associated with the functionality they are testing.
+
+- Business Value-Based Prioritization: Test cases are prioritized based on the business value of the functionality they are testing.
 
 ## Defect Reporting and Tracking
 

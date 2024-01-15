@@ -221,15 +221,90 @@ White-box testing, also known as clear-box or glass-box testing, is a software t
 
 ### Exploratory Testing
 
+**Explanation:**
+
+Exploratory testing is a type of testing where test cases are not created in advance but testers check the system on the fly. They may note down ideas about what to test before test execution. The focus of exploratory testing is more on testing as a "thinking" activity.
+
+**Key Concepts:**
+
+- Session-based testing
+
+- Charter
+
+- Time-boxing
+
+- Test oracles
+
+- Heuristics
+
 ### Tasks: Exploratory Testing
 
 - [Tasks: Exploratory Testing](../tasks/testingTechniquesandAnalysis/exploratoryTesting.md)
 
 ## Collaboration-based Test Approaches
 
-- [Collaborative User Story Writing](#collaborative-user-story-writing)
 - [Acceptance Criteria](#acceptance-criteria)
+- [Collaborative User Story Writing](#collaborative-user-story-writing)
+
+In an Agile development environment, Business Analysts (BAs) are often responsible for writing User Stories and Acceptance Criteria. They work closely with the Product Owner, stakeholders, and the development team to understand the business needs and translate them into User Stories.
+
+The Acceptance Criteria, which are part of the User Story, are the conditions that must be met for the User Story to be considered complete. They provide a clear understanding to the team about the expected outcome of a User Story.
+
+### Acceptance Criteria
+
+**Explanation:**
+
+Acceptance criteria are conditions that a software product must meet to be accepted by a user, a customer, or other system. They are unique for each user story and define the functionality to be developed and tested.
+
+**Key Concepts:**
+
+User story, Definition of Done, Scenarios.
+
+**Syntax:**
+
+Acceptance criteria are typically written in a simple language in the format: "Given [initial context], when [event occurs], then [ensure some outcomes]".
+
+```plaintext
+- Given I am on the product page,
+  When I click on 'Add to Cart',
+  Then the product should be added to my shopping cart.
+
+- Given I have a product in my shopping cart,
+  When I click on 'Checkout' and complete the payment process,
+  Then I should receive an order confirmation.
+```
 
 ### Collaborative User Story Writing
 
-### Acceptance Criteria
+**Explanation:**
+
+Collaborative user story writing involves the team working together to write user stories. This approach encourages active participation and shared understanding of user stories.
+
+**Key Concepts:**
+
+ User roles, User goals, Acceptance criteria, INVEST principle (Independent, Negotiable, Valuable, Estimable, Small, Testable).
+
+**Syntax:**
+
+A user story is typically written in the format: "As a [type of user], I want [an action] so that [a benefit/a value]".
+
+```plaintext
+User Story: 
+
+"As a Customer, I want to purchase a product so that I can own the product."
+
+Acceptance Criteria:
+
+I can add a product to the cart.
+I can complete the payment process.
+I receive an order confirmation after purchase.
+
+INVEST Principle:
+
+Independent: This story can be developed and tested separately from other stories.
+Negotiable: The details of how the purchase process works can be adjusted based on team discussions.
+Valuable: This story provides value to the customer by allowing them to purchase products.
+Estimable: The time and effort required to implement this story can be estimated based on the acceptance criteria and team's prior experience.
+Small: This story is small enough to be completed within one sprint.
+Testable: The completion of this story can be verified by checking whether the acceptance criteria are met.
+```

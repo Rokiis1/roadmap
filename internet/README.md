@@ -70,6 +70,8 @@ The internet is a vast and intricate network that connects billions of devices a
 
 We will explore the workings of HTTP (Hypertext Transfer Protocol), HTTPS (Secure Hypertext Transfer Protocol), SSL (Secure Sockets Layer), and TLS (Transport Layer Security). These protocols play crucial roles in ensuring the security and functionality of data transmission on the internet.
 
+![Image](https://comodosslstore.com/blog/wp-content/uploads/2017/04/http-vs-https.jpg)
+
 **HTTP - Hypertext Transfer Protocol:**
 
 - HTTP is the most widely used protocol for viewing web pages on the internet.
@@ -152,6 +154,8 @@ We will explore the workings of HTTP (Hypertext Transfer Protocol), HTTPS (Secur
 
 - An IP address, on the other hand, is a numerical identifier. It appears as a set of four numbers, such as 192.168.1.1.
 
+![Alt text](./images/ipAddress.png)
+
 **DNS Resolver - The Phone Book of the Internet:**
 
 - DNS is like a phone book for the internet, bridging the gap between human communication and the networking world.
@@ -189,6 +193,8 @@ We will explore the workings of HTTP (Hypertext Transfer Protocol), HTTPS (Secur
 **Introduction:**
 
 A domain name is like the address for your website on the internet. Every computer, including the server hosting your website, has a unique numerical identifier called an IP address. Without domain names, users would need to remember and enter these IP addresses to access websites.
+
+![Alt text](./images/domainName.png)
 
 **The Role of Domain Names:**
 
