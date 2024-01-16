@@ -4,19 +4,19 @@
    - [Topics: Internet](#topics-internet)
 2. [QA Basics](#qa-basics)
    - [Topics: QA Basics](#topics-qa-basics)
-   - [Tasks: Intro](#tasks-intro)
-   - [Tasks: Learning Write Test Cases](#tasks-learning-write-test-cases)
+   - [Task: Pencil Testing](#task-pencil-testing)
+   - [Tasks: Positive and Negative Testing](#tasks-positive-and-negative-testing)
    - [Example: Test Case and Scenarios](#example-test-case-and-scenarios)
 3. [Static Testing vs Dynamic Testing](#static-testing-vs-dynamic-testing)
    - [Topics: Static Testing vs Dynamic Testing](#topics-static-testing-vs-dynamic-testing)
 4. [Testing Techniques and analysis](#testing-techniques-and-analysis)
    - [Topics: Testing Techniques and analysis](#topics-testing-techniques-and-analysis)
-   - [Topics: Equivalence Partitioning](#tasks-equivalence-partitioning)
+   - [tasks: Equivalence Partitioning](#tasks-equivalence-partitioning)
    - [Tasks: Boundary Value Analysis](#tasks-boundary-value-analysis)
-   - [Example: Equivalence Partitioning](#example-equivalence-partitioning)
-   - [Example: Boundary Value Analysis](#example-boundary-value-analysis)
-   - [Example: State Transition Testing](#example-state-transition-testing)
-   - [Example: Decision Table Testing](#example-decision-table-testing)
+   - [Example: Equivalence Partitioning Tables](#example-equivalence-partitioning-tables)
+   - [Example: Boundary Value Analysis Tables](#example-boundary-value-analysis-tables)
+   - [Example: State Transition Testing Tables](#example-state-transition-testing-tables)
+   - [Example: Decision Table Testing Tables](#example-decision-table-testing-tables)
 5. [Test Levels and Test Types](#test-levels-and-test-types)
    - [Topics: Test Levels and Test Types](#topics-test-levels-and-test-types)
    - [Topics: What is APIs?](#topics-what-is-apis)
@@ -46,13 +46,13 @@
 
 - [Topics: QA Basics](./pages/qaBasics.md)
 
-## Tasks: Intro
+## Task: Pencil Testing
 
-- [Tasks: Intro](./tasks/qaBasics/intro.md)
+- [Tasks: Task: Pencil Testing](./tasks/qaBasics/intro.md)
 
-## Tasks: Learning Write Test Cases
+## Tasks: Positive and Negative Testing
 
-- [Tasks: Learning Write Test Cases](./tasks/qaBasics/testCaseDesignTask.md)
+- [Tasks: Positive and Negative Testing](./tasks/qaBasics/testCaseDesignTask.md)
 
 ## Example: Test Case and Scenarios
 
@@ -103,6 +103,10 @@
 ## Topics: What is APIs?
 
 - [Topics: What is APIs?](../api/README.md)
+
+## Task
+
+- [Task: Integration testing for API](./tasks/testTypes/integrationTesting.md)
 
 # Project Managment
 

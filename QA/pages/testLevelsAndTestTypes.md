@@ -14,29 +14,34 @@ In software testing, test levels represent different stages of testing that occu
 **Key Concepts:**
 
 1. **Unit Testing:**
+
    - **Explanation:** Unit testing involves testing individual units or components of the software in isolation to ensure that each unit functions as intended.
    - **Key Concepts:** Focus on the smallest parts of the system, typically automated, and defects are addressed before higher-level testing.
 
 2. **Integration Testing:**
+
    - **Explanation:** Integration testing involves testing combined units or components to ensure they work together as intended. It focuses on identifying interactions and interface issues.
    - **Key Concepts:** Different integration strategies, such as top-down and bottom-up testing, to verify the flow of data and control between integrated components.
 
-### 3. **System Testing:**
+3. **System Testing:**
+
    - **Explanation:** System testing assesses the entire system as a whole, verifying that all components, when integrated, meet specified requirements and ensuring the system functions correctly.
    - **Key Concepts:** Comprehensive functional and non-functional testing, test cases based on system requirements, and various testing techniques.
 
-### 4. **End-to-End (E2E) Testing:**
+4. **End-to-End (E2E) Testing:**
+
    - **Explanation:** End-to-End (E2E) testing evaluates the entire workflow of a software application from start to finish, ensuring that all integrated components work together seamlessly.
    - **Key Concepts:** Real-world scenarios, integration of all components, user interface testing, cross-browser and cross-device testing, data flow and transactions testing, and validation of business processes.
 
-### 5. **Acceptance Testing:**
+5. **Acceptance Testing:**
+
    - **Explanation:** Acceptance testing is the final test level, determining if the software is ready for release. It validates that the software satisfies business requirements and is accepted by stakeholders.
    - **Key Concepts:** User Acceptance Testing (UAT) involving end-users, Alpha/Beta Testing involving external users, and a focus on overall system functionality and business objectives.
 
 ## Test Types
 
-  - [Functional testing](#functional-testing)
-  - [Non-functional testing](#non-functional-testing)
+- [Functional testing](#functional-testing)
+- [Non-functional testing](#non-functional-testing)
 
 **Explanation:**
 
