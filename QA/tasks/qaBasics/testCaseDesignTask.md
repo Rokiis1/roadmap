@@ -58,43 +58,55 @@
    - Description: Confirm that the system handles login attempts with a blank email appropriately, displaying an error message.
    - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
-3. **Positive Test Case for Adding a Product to Cart and Checkout**
+3. **Comprehensive Test Case for Checkout Process**
 
    **Demo**
 
-   - [Demo: Positive Adding a Product to Cart and Checkout](https://www.demoblaze.com/index.html)
+   - [Demo: Product to Cart and Checkout](https://www.demoblaze.com/index.html)
 
-   2.1. **Comprehensive Test Case for Checkout Process**
-      - Description: Develop a comprehensive test case that covers the entire checkout process, from adding items to the cart to completing the purchase.
-      - Elements to Include: ID, summary, steps, expected results, actual results, status.
+   3.1. **Positive Test Case Successful Checkout with Valid Information**
 
-4. **Positive Test Case for Searching Products**
+   - Description: Verify that a user can successfully complete the checkout process by providing accurate and complete information, including Name, Country, City, Credit Card details, and Year.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
+
+   3.2. **Negative Test Case for Incomplete Checkout Information**
+
+   - Description: Attempt to complete the checkout process with missing or incomplete information and verify that the system prompts for the required details and does not process the order.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
+
+   3.3. **Negative Test Case for Checkout with Expired Credit Card**
+
+   - Description: Attempt to complete the checkout process with a credit card that has already expired and verify that the system handles the error appropriately.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
+
+   3.4. **Negative Test Case for Checkout with Missing Country Information**
+
+   - Description: Attempt to complete the checkout process with missing Country information and verify that the system prompts for the required details and does not process the order.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
+
+4. **Comprehensive Test Case for Searching Products**
 
    **Demo**
 
    - [Demo: Test Case for Searching Products](https://automationbookstore.dev/)
 
-   3.1. **Negative Test Case for Searching Products**
+   4.2. **Positive Test Case for Searching Products**
+      - Description: Verify that the search functionality successfully retrieves relevantproducts when provided with a valid search query.
+      - Elements to Include: ID, summary, steps, expected results, actual results, status.
+
+   4.1. **Negative Test Case for Searching Products**
       - Description: Write a test case to verify that the search functionality handles invalid or non-existent search queries gracefully.
       - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
-   **Demo**
-
-   - [Demo: Comprehensive Test Case for Checkout Process](https://www.demoblaze.com/cart.html)
-
-   3.1. **Comprehensive Test Case for Checkout Process**
-      - Description: Develop a comprehensive test case that covers the entire checkout process, from adding items to the cart to completing the purchase.
-      - Elements to Include: ID, summary, steps, expected results, actual results, status.
-
-5. **Positive Test Case for Product Sorting**
+5. **Comprehensive Test Case for Product Filtering**
 
    **Demo**
 
    - [Demo: Test Case for Product Sorting, Product Filtering](https://magento.softwaretestingboard.com/)
 
-   4.1. **Positive Test Case for Product Filtering**
-   - Description: Create a test case to ensure that users can successfully filter products on the demo page using valid and supported criteria, and that the filtered results are displayed correctly.
+   5.1. **Positive Test Case for Product Filtering**
 
+   - Description: Ensure that users can successfully filter products on the demo page using valid and supported criteria such as style, size, price, color, material, Eco Collection, Performance Fabric, Erin Recommends, New, Sale, Pattern, and Climate.
    - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
 6. **Comprehensive Testing for Adding Contact Information**
@@ -103,26 +115,22 @@
 
    - [Demo: Test Case for Adding Contact Information](https://magento.softwaretestingboard.com/)
 
-   5.1. **Positive Test Case for Successfully Adding Contact**
+   6.1. **Positive Test Case for Successfully Adding Contact**
 
-   - **Description:** Verify that users can successfully add contact information in the pop-up during the checkout process without encountering any errors. Confirm that the added contact details are properly stored, and the checkout process proceeds as expected.
-  
-   - **Elements to Include:** ID, summary, steps, expected results, actual results, status.
+   - Description: Verify that users can successfully add contact information in the pop-up during the checkout process without encountering any errors. Confirm that the added contact details are properly stored, and the checkout process proceeds as expected.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
-   5.2. **Negative Test Case for Missing Contact Email**
+   6.2. **Negative Test Case for Missing Contact Email**
 
-   - **Description:** Evaluate the system's response when attempting to add contact information without providing a Contact Email. Confirm that the system correctly identifies the missing information, displays an appropriate error message, and prevents the checkout process from proceeding.
+   - Description: Evaluate the system's response when attempting to add contact information without providing a Contact Email. Confirm that the system correctly identifies the missing information, displays an appropriate error message, and prevents the checkout process from proceeding.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
-   - **Elements to Include:** ID, summary, steps, expected results, actual results, status.
+   6.3. **Task 3: Negative Test Case for Invalid Contact Email**
 
-   5.3. **Task 3: Negative Test Case for Invalid Contact Email**
+   - Description: Assess the behavior of the system when users attempt to add contact information with an invalid Contact Email format. Ensure that the system detects the invalid format, displays a relevant error message, and prevents the checkout process from advancing.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
 
-   - **Description:** Assess the behavior of the system when users attempt to add contact information with an invalid Contact Email format. Ensure that the system detects the invalid format, displays a relevant error message, and prevents the checkout process from advancing.
+   6.4 **Negative Test Case Missing Contact Name**
 
-   - **Elements to Include:** ID, summary, steps, expected results, actual results, status.
-
-   5.4 **Negative Test Case Missing Contact Name**
-
-   - **Description:** Examine the system's response when users attempt to add contact information without providing a Contact Name. Verify that the system appropriately identifies the missing information, displays an informative error message, and restricts the checkout process until the required information is provided.
-
-   - **Elements to Include:** ID, summary, steps, expected results, actual results, status.
+   - Description: Examine the system's response when users attempt to add contact information without providing a Contact Name. Verify that the system appropriately identifies the missing information, displays an informative error message, and restricts the checkout process until the required information is provided.
+   - Elements to Include: ID, summary, steps, expected results, actual results, status.
