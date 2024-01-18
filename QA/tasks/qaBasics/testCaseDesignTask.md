@@ -113,7 +113,7 @@
 
    **Demo**
 
-   - [Demo: Test Case for Adding Contact Information](https://magento.softwaretestingboard.com/)
+   - [Demo: Test Case for Adding Contact Information](https://www.demoblaze.com/index.html)
 
    6.1. **Positive Test Case for Successfully Adding Contact**
 
