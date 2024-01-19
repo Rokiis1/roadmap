@@ -23,6 +23,16 @@
    11. As a new user, I can see an error message if I try to register with an email that is already in use.
    12. As a new user, I can see an error message if my name exceeds 50 characters.
    13. As a new user, I can see an error message if my password exceeds 20 characters.
+   14. As a new user, I can see an error message if my name contains symbols, numbers. Only alphabetic characters are allowed.
+   15. As a new user, I can see an error message if my email address exceeds 254 characters, which is the maximum length for an email address according to the specification.
+   16. As a new user, I can see an error message if my email address does not have a domain after the "@" symbol.
+   17. As a new user, I can see an error message if my email address contains more than one "@" symbol.
+   18. As a new user, I can see an error message if my email address contains spaces.
+   19. As a new user, I can see an error message if I enter a name that contains only spaces.
+   20. As a new user, I can see an error message if I enter a password that contains spaces at the beginning or end.
+   21. As a new user, I can see an error message if I try to submit the form with spaces in the email field at the beginning or end.
+   22. As a new user, I can see an error message if I try to submit the form with spaces in the name field at the beginning or end.
+   23. As a new user, I can see an error message if I enter a name that contains non-English alphabetic characters (like accented characters, Cyrillic characters, Chinese characters, etc.). This depends on the application's requirements - some applications may allow these characters.
 
 2. **Comprehensive Testing for User Login**
 
@@ -46,6 +56,16 @@
    8. As a registered user, I can see a confirmation message after successfully logging into my account.
    9. As a registered user, I can use the "Forgot Password" feature to reset my password if I forget it.
    10. As a registered user, I can choose to remember my login credentials so that I don't have to enter them again when I visit the site next time.
+   11. As a registered user, I can see an error message if I enter an email address in an invalid format.
+   12. As a registered user, I can see an error message if I exceed the maximum number of login attempts.
+   13. As a registered user, I can see a "Show Password" option to toggle the visibility of my password.
+   14. As a registered user, I can be redirected to the previous page I was on after successfully logging in.
+   15. As a registered user, I can see a "Keep me logged in" option that, if selected, keeps me logged in even after closing the browser.
+   16. As a registered user, I can see a password strength indicator when I type my password.
+   17. As a registered user, I can see an error message if my session expires while I'm on the login page.
+   18. As a registered user, I can log out from my account.
+   19. As a registered user, I can see an error message if I try to login while already logged in.
+   20. As a registered user, I can recover my account if it gets locked due to too many failed login attempts.
 
 3. **Comprehensive Test Case for Checkout Process**
 
@@ -66,7 +86,17 @@
    7. As a registered user, I can submit the form to complete the checkout process if all the inputs are valid.
    8. As a registered user, I can see a confirmation message after successfully completing the checkout process.
    9. As a registered user, I can receive a confirmation email after successfully completing the checkout process.
-   10. As a registered user, I can see an error message if the checkout process fails (e.g., due to insufficient funds).
+   10. As a registered user, I can see an error message if the checkout process fails (due to insufficient funds).
+   11. As a registered user, I can see an error message if I enter a CVV that is not three digits.
+   12. As a registered user, I can see an error message if I enter a credit card expiry date that is in the past.
+   13. As a registered user, I can see an error message if I enter a shipping address that is not valid or recognized.
+   14. As a registered user, I can see an error message if I enter a credit card number that is less than or more than 16 digits.
+   15. As a registered user, I can see the total price of the items in my cart, including taxes and shipping, before confirming the purchase.
+   16. As a registered user, I can see an error message if I try to checkout with an empty cart.
+   17. As a registered user, I can see an error message if my shipping address and billing address do not match.
+   18. As a registered user, I can choose a shipping method if more than one is available.
+   19. As a registered user, I can see an error message if I enter a name on the credit card that contains numbers or special characters.
+   20. As a registered user, I can see an error message if the name on the credit card does not match the name on the account.
 
 4. **Comprehensive Test Case for Searching Products**
 
@@ -113,6 +143,14 @@
    8. As a user, I can see the active filters applied to the product list.
    9. As a user, I can remove individual filters from the active filters list.
    10. As a user, the product count updates to reflect the number of products that match the current filters.
+   11. As a registered user, I can sort the filtered results by price, popularity, rating, and newness.
+   12. As a registered user, I can see a "loading" indicator while the products are being filtered.
+   13. As a registered user, I can filter products based on their ratings.
+   14. As a registered user, I can filter products based on their availability (in stock, out of stock).
+   15. As a registered user, I can see an error message if the filtering process fails due to a technical issue.
+   16. As a registered user, I can filter products based on their brand.
+   17. As a registered user, I can filter products based on their delivery time.
+   18. As a registered user, I can filter products based on their seller.
 
 6. **Comprehensive Testing for Adding Contact Information**
 
