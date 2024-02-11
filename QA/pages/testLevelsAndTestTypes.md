@@ -9,7 +9,7 @@
 
 In software testing, test levels represent different stages of testing that occur at various points in the software development life cycle (SDLC). Each test level has specific objectives, focuses on different aspects of the software, and involves different testing activities. These levels are organized hierarchically, with each subsequent level building on the results of the previous ones.
 
-![Testing Levels](./assets/images/testLevelsAndTypes/testinglevels.png)
+![Testing Levels](../assets/images/testLevelsAndTypes/testinglevels.png)
 
 **Key Concepts:**
 
@@ -145,6 +145,7 @@ Unit testing is a software testing technique where individual units or component
 ### Integration Testing 
 
 - [APIs Testing in Integration Testing](#apis-testing-in-integration-testing)
+   - [Postman](#postman)
 
 **Explanation:**
 
@@ -175,7 +176,11 @@ API (Application Programming Interface) testing in integration testing focuses o
 
 *Docs:*
 
-- [Docs: Whaty is APIs?](../api/README.md)
+- [Docs: What is APIs?](../api/README.md)
+
+### Postman
+
+- [Docs: Postman](../tools/postman.md)
 
 **Key Concepts:**
 
@@ -215,9 +220,7 @@ API (Application Programming Interface) testing in integration testing focuses o
 12. **Webhooks and Callbacks:**
     - Some APIs use webhooks or callbacks for asynchronous communication. API testing includes verifying that these mechanisms work as intended and trigger the expected actions.
 
-### Tasks: Integration Testing
 
-- [Tasks: Integration Testing](./tasks/testTypes/integrationTesting.md)
 
 ### System Testing
 
@@ -502,8 +505,6 @@ Compatibility testing is a type of non-functional testing that assesses the soft
    - **Objective:** Confirm that the software works seamlessly with various plug-ins, extensions, or third-party integrations.
    - **Key Concepts:** Identifying conflicts or compatibility issues with additional software components.
 
-### Tasks: Compatibility Testing
-
 ### Accessibility Testing
 
 **Explanation:**
@@ -555,8 +556,6 @@ Accessibility testing is a type of non-functional testing that evaluates whether
 11. **Responsive Design:**
     - **Objective:** Ensure that the software's design is responsive, providing a consistent and accessible experience across different devices.
     - **Key Concepts:** Testing on various screen sizes and ensuring responsive layouts.
-
-### Tasks: Accessibility Testing
 
 ### Performance Testing
 
