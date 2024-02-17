@@ -78,10 +78,6 @@ Equivalence Partitioning is a black-box testing technique that divides the input
 
 - [Example: Equivalence Partitioning](../assets/examples/testingTechniquesAndAnalysis/equivalencePartitioning.md)
 
-### Tasks: Equivalence Partitioning
-
-- [Tasks: Equivalence Partitioning](../tasks/testingTechniquesandAnalysis/equivalencePartitioning.md)
-
 ### Boundary Value Analysis
 
 **Explanation:**
@@ -105,10 +101,6 @@ Boundary Value Analysis (BVA) is a black-box testing technique that focuses on t
 **Example:**
 
 - [Example: Boundary Value Analysis](./assets/examples/testingTechniquesAndAnalysis/boundryValueAnalysis.md)
-
-### Tasks: Boundary Value Analysis
-
-- [Tasks: Boundary Value Analysis](./tasks/testingTechniquesandAnalysis/boundaryValueAnalysis.md)
 
 ### Decision Table Testing
 
@@ -237,10 +229,6 @@ Exploratory testing is a type of testing where test cases are not created in adv
 
 - Heuristics
 
-### Tasks: Exploratory Testing
-
-- [Tasks: Exploratory Testing](../tasks/testingTechniquesandAnalysis/exploratoryTesting.md)
-
 ## Collaboration-based Test Approaches
 
 - [Acceptance Criteria](#acceptance-criteria)
@@ -282,11 +270,23 @@ Collaborative user story writing involves the team working together to write use
 
 **Key Concepts:**
 
- User roles, User goals, Acceptance criteria, INVEST principle (Independent, Negotiable, Valuable, Estimable, Small, Testable).
+- User roles, User goals, Acceptance criteria
+
+- Prioritization
+
+- INVEST principle (Independent, Negotiable, Valuable, Estimable, Small, Testable)
+
+- SMART principle (Specific, Measurable, Achievable, Relevant, Time-bound).
+
+- Definition of Done (DoD)
 
 **Syntax:**
 
 A user story is typically written in the format: "As a [type of user], I want [an action] so that [a benefit/a value]".
+
+**Example:**
+
+*INVEST Principle:*
 
 ```plaintext
 User Story: 
@@ -308,3 +308,31 @@ Estimable: The time and effort required to implement this story can be estimated
 Small: This story is small enough to be completed within one sprint.
 Testable: The completion of this story can be verified by checking whether the acceptance criteria are met.
 ```
+
+*SMART Principle:*
+
+```plaintext
+
+User Story:
+
+"As a User, I want to reset my password so that I can regain access to my account."
+
+Acceptance Criteria:
+
+I can request a password reset from the login page.
+I receive an email with a password reset link.
+I can set a new password using the reset link.
+
+SMART Principle:
+
+Specific: The user story is specific about who the user is (a User), what they want to do (reset their password), and why they want to do it (to regain access to their account).
+
+Measurable: The acceptance criteria provide measurable outcomes. We can check if a password reset can be requested, if an email with a reset link is received, and if a new password can be set using the reset link.
+
+Achievable: The user story seems achievable based on the acceptance criteria. The team would need to have the necessary skills and resources to implement the features described in the user story.
+
+Relevant: The user story is relevant as it directly contributes to the overall functionality of the system (allowing users to regain access to their accounts).
+
+Time-bound: While the user story itself doesn't specify a time frame, it should be possible to complete within a single sprint. The actual time frame would be determined during sprint planning.
+```
+

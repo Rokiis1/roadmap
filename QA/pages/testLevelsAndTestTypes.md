@@ -220,8 +220,6 @@ API (Application Programming Interface) testing in integration testing focuses o
 12. **Webhooks and Callbacks:**
     - Some APIs use webhooks or callbacks for asynchronous communication. API testing includes verifying that these mechanisms work as intended and trigger the expected actions.
 
-
-
 ### System Testing
 
 **Explanation:**
@@ -323,8 +321,6 @@ Acceptance testing is a software testing phase that assesses whether a system me
 
 9. **Documentation Verification:**
     - The testing process involves verifying that documentation, such as user manuals and training materials, accurately reflects the functionality of the software.
-
-### Tasks: Acceptance Testing
 
 ### Smoke Testing and Sanity Testing
 

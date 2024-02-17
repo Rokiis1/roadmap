@@ -1,7 +1,3 @@
-# Table of Contents
-
-- [Project Managment](#project-managment)
-
 # Project Managment
 
 - [Software Development Life Cycle](#software-development-life-cycle)
@@ -11,9 +7,14 @@
 
 - [Waterfall Model](#waterfall-model)
 - [V Model](#v-model)
+- [Iterative Model](#iterative-model)
+- [Spiral Model](#spiral-model)
+- [DevOps Approach](#devops-approach)
+- [Lean Development](#lean-development)
 - [Agile Methodologies](#agile-methodologies)
   - [Scrum Framework](#scrum-framework)
 - [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
+- [Comparison of Different Models](#comparison-of-different-models)
 
 **Explanation:**
 
@@ -72,10 +73,6 @@ The Waterfall Model is a traditional and linear approach to software development
 
 - **Risk Management:** Risks and issues are often discovered later in the project lifecycle, which can lead to challenges in addressing them. Risk management is less continuous compared to Agile approaches.
 
-**Resources:**
-
-- [Article: Waterfall Model](https://www.guru99.com/what-is-sdlc-or-waterfall-model.html)
-
 ### V Model
 
 **Explanation:**
@@ -108,17 +105,89 @@ The V Model, also known as the Validation and Verification Model, is a software 
 
 - **Structured and Documented:** Like the Waterfall Model, the V Model places importance on documentation and thorough planning.
 
-**Resources:**
+### Iterative Model
 
-- [V Model](https://www.guru99.com/v-model-software-testing.html)
+**Explanation:**
+
+The Iterative Model is a particular implementation of a software development life cycle (SDLC) that emphasizes the repetition of a series of steps. The project goes through a set of iterations or cycles, each resulting in a new version of the software. After each iteration, the development team can refine and validate the features of the software, ensuring that it meets the requirements and functions correctly. This model allows for the early discovery of defects and changes, making it easier to manage scope and risk.
+
+**Key Concepts:**
+
+1. **Incremental Development:** The software is developed and enhanced through repeated cycles (iterations), with each iteration producing a new version of the software.
+
+2. **Feedback and Adaptation:** After each iteration, feedback is collected and used to improve the next iteration. This allows the team to adapt to changes and refine the software based on user feedback and testing results.
+
+3. **Risk Management:** The iterative model allows for early detection of defects and issues, which can be addressed in subsequent iterations. This helps to manage risk and ensure the quality of the software.
+
+4. **User Involvement:** Users are often involved in the iterative process, providing feedback and suggestions that can be incorporated into future iterations. This helps to ensure that the software meets user needs and expectations.
+
+5. **Flexibility:** The iterative model is flexible and can accommodate changes more easily than some other models. Changes can be implemented in the next iteration without disrupting the overall development process.
+
+### Spiral Model
+
+**Explanation:**
+
+The Spiral Model is a type of software development life cycle model that combines elements of both design and prototyping-in-stages, in an effort to combine advantages of top-down and bottom-up concepts. This model is best used for large projects which involve continuous enhancements. The development process in the Spiral Model starts with a small set of requirements and goes through each development phase for those set of requirements. The software is produced in a series of incremental releases. During each iteration, a new version of the software is produced and tested.
+
+**Key Concepts:**
+
+1. **Risk Analysis:** At each iteration, risks are identified and evaluated, and strategies are decided to manage them. This makes the model suitable for high-risk projects.
+
+2. **Prototyping:** The Spiral Model emphasizes prototyping of the software in the early stages of development. This allows users to interact with the prototype and provide feedback, which can be used to improve the software in the next iteration.
+
+3. **User Involvement:** Similar to the Iterative Model, the Spiral Model involves users early in the development process, which helps to ensure that the software meets user needs and expectations.
+
+4. **Flexibility:** The Spiral Model is flexible and allows for changes to be made in the later stages of development. This is particularly useful for large and complex projects.
+
+5. **Cost and Time:** The Spiral Model can be expensive and time-consuming due to the emphasis on risk analysis and user feedback. It's typically used for large, complex, and high-risk projects.
+
+### DevOps Approach
+
+**Explanation:**
+
+DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the system development life cycle and provide continuous delivery with high software quality. DevOps is complementary with Agile software development; several DevOps aspects came from Agile methodology.
+
+**Key Concepts:**
+
+1. **Continuous Integration and Continuous Delivery (CI/CD):** This is a method to frequently deliver apps to customers by introducing automation into the stages of app development. The main concepts attributed to CI/CD are continuous integration, continuous delivery, and continuous deployment.
+
+2. **Infrastructure as Code (IaC):** Infrastructure as code is a type of IT infrastructure that operations teams can automatically manage and provision through code, rather than using a manual process.
+
+3. **Microservices:** This is an architectural style that structures an application as a collection of services that are highly maintainable and testable, loosely coupled, independently deployable, organized around business capabilities, and owned by a small team.
+
+4. **Monitoring and Logging:** Keeping track of how applications and systems are performing to understand how they’re behaving, and why.
+
+5. **Communication and Collaboration:** One of the key tenets of DevOps is promoting better collaboration between all the parties involved in software development - developers, testers, operations staff, and even customers and management. Everyone collaborates on a project from start to finish.
+
+6. **Automation:** DevOps heavily emphasizes automation at all stages of software production - from integration, testing, to deployment, and infrastructure management. Automated pipelines are put in place to assist with software releases and reduce the possibility of human error.
+
+### Lean Development
+
+**Explanation:**
+
+Lean Software Development (LSD) is a translation of lean manufacturing and lean IT principles and practices to the software development domain. Adapted from the Toyota Production System, a pro-lean subculture is emerging from within the Agile community. The core idea of Lean Development is to maximize customer value while minimizing waste. This means creating more value for customers with fewer resources.
+
+**Key Concepts:**
+
+1. **Eliminate Waste:** Anything that does not add value to the customer is considered waste. This includes unnecessary code or functionality, delay in the software development process, unclear or ambiguous requirements.
+
+2. **Build Quality In:** Lean development emphasizes the importance of ensuring quality in every stage of the development process, rather than relying on inspection at the end of the process to remove defects.
+
+3. **Create Knowledge:** Lean development encourages creating knowledge within the team. This includes learning from failures and successes, and sharing this knowledge among team members.
+
+4. **Defer Commitment:** This principle suggests delaying decisions as much as possible until they can be made based on facts and not on uncertain assumptions and predictions.
+
+5. **Deliver Fast:** Lean development emphasizes the importance of quick delivery of software. The sooner the software is delivered without major defects, the sooner feedback can be received, and incorporation of changes becomes easier.
+
+6. **Respect People:** Lean development emphasizes giving respect to the people who actually carry out the work. The knowledge workers are considered the best people to understand how to carry out the work.
+
+7. **Optimize the Whole:** Lean development emphasizes the need to consider the entire value stream, from the customer's need, to the delivery of the product, and the final use of the product.
 
 ### Agile Methodologies
 
 **Explanation:**
 
 Agile Methodologies are a set of principles and practices for software development that prioritize flexibility, collaboration, and customer-centricity. Unlike traditional approaches that follow a rigid, linear path (such as the Waterfall model), Agile Methodologies embrace change and allow teams to adapt to evolving requirements throughout the development process.
-
-Methodologies provide a guiding philosophy and principles for how development teams should approach their work, while models define the specific steps and sequence of activities within a project. Agile is a methodology that embraces flexibility and collaboration, while Waterfall is a model that follows a sequential, phased approach to development.
 
 *Agile Methodologies value:*
 
@@ -132,6 +201,10 @@ Methodologies provide a guiding philosophy and principles for how development te
 
 - **Adaptability:** Agile teams embrace change and are responsive to shifting priorities or customer needs. This adaptability is a core principle of Agile development.
 
+**Example:**
+
+Company developing a new app might start with a basic version, then add features and make improvements based on user feedback in subsequent iterations. This approach allows the product to evolve and improve over time, rather than trying to get everything perfect in a single, upfront effort.
+
 **Key Concepts:**
 
 - **Scrum:** Scrum is one of the most popular Agile frameworks. It prescribes roles (Scrum Master, Product Owner, Development Team), events (Daily Standup, Sprint Planning, Sprint Review), and artifacts (Product Backlog, Sprint Backlog) to structure the development process.
@@ -143,10 +216,6 @@ Methodologies provide a guiding philosophy and principles for how development te
 - **Backlog:** The backlog is a prioritized list of features, user stories, or tasks to be completed. It serves as a dynamic document that guides development.
 
 - **Sprint:** In Scrum and some other Agile approaches, a sprint is a time-boxed development, usually lasting two to four weeks. 
-
-**Resources:**
-
-- [Agile Methodologies](https://www.guru99.com/agile-scrum-extreme-testing.html#:~:text=The%20Agile%20software%20development%20methodology%20is%20one%20of,improvement%2C%20team%20collaboration%2C%20evolutionary%20development%2C%20and%20early%20delivery.)
 
 ### Scrum Framework
 
@@ -184,10 +253,6 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 - **Sprint Retrospective:** After the Sprint Review, the team conducts a Sprint Retrospective to reflect on the sprint's performance. They discuss what went well, what could be improved, and identify action items for the next sprint.
 
-**Resources:**
-
-- [Article: Scrum Framework](https://www.guru99.com/scrum-testing-beginner-guide.html)
-
 ### Most Of Time Using Mixed Approach
 
 **Key Concepts:**
@@ -212,6 +277,8 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 10. **Project-Specific Needs:** Ultimately, the choice of a mixed approach can depend on the unique requirements and constraints of a particular project. Companies may tailor their methodology to fit the specific circumstances.
 
+### Comparison of Different Models
+
 ## Project Management Tools
 
 - [Atlassian](#atlassian)
@@ -228,67 +295,41 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 ### Jira
 
+**Explanation:**
+
 Jira is a project and issue tracking software developed by Atlassian, primarily known for its capabilities in agile project management.
-
-1. **What is Jira**: Jira is a versatile project management tool that is particularly popular for its use in agile project management. It is used for tracking and managing tasks, projects, and issues efficiently.
-
-2. **Different Jira Products**: There are four main Jira products: Jira Software, Jira Work Management, Jira Service Management, and Jira Align. The video mainly focuses on Jira Software, which is widely used in software development but can also be adapted for various other project management needs.
-
-3. **Use Cases for Jira Software**: Jira Software is used in various contexts, including:
-   - Agile project management, such as Scrum and Kanban.
-   - Requirement and test case management.
-   - Integrating with CI/CD (Continuous Integration/Continuous Deployment) tools and Git repositories.
-   - DevOps team collaboration and tracking.
-
-4. **Customizability**: Jira is highly customizable, allowing teams to tailor it to their specific project management needs and processes.
-
-5. **The Role of an Expert**: Due to its flexibility and complexity, engaging with an expert who understands Jira can be beneficial in configuring Jira to suit a team's unique requirements.
-
-### User Story vs Use Cases
 
 **Key Concepts:**
 
-- **Use Cases:** These are structured descriptions of how users interact with an application to achieve specific goals. A use case typically includes a title, actor, scenario, success scenario, extensions, and preconditions.
+- Agile project management, such as Scrum and Kanban.
+
+- Requirement and test case management.
+
+- Integrating with CI/CD (Continuous Integration/Continuous Deployment) tools and Git repositories.
+
+- DevOps team collaboration and tracking.
+
+### User Story vs Use Cases
+
+**Explanation:**
+
+User Stories and Use Cases are both methods used in software development to identify and describe the functionalities of a system. They serve as a means to communicate the requirements from the perspective of the user.
+
+**Key Concepts:**
+
+- **Use Cases:** provide a more detailed, structured, and formal description of the system behavior. A use case includes the type of user (actor) and what they can do (interactions), and may also include preconditions, postconditions, and error conditions. Use cases are used in more traditional development methodologies to define requirements.
+
+- **User Stories:**simple descriptions of a feature told from the perspective of the person who desires the new capability, usually a user or customer of the system. They typically follow a simple template: `"As a [type of user], I want [some goal] so that [some reason]"`. User stories are used in Agile development methodologies for defining requirements, but also as a way to create a conversation about the requirement.
 
 - **Actors:** Actors are external entities, such as users, customers, administrators, or other systems, that interact with the application.
 
-- **Description:** This represents the steps required to achieve a specific user goal. It should focus on the user's intention and be described in a clear, non-technical language.
-
-- **User Stories:** User stories are concise descriptions of user goals, typically following the format: `"As a [user or role], I want [a goal] so that [I benefit in this way]."` 
-
-**Syntax:**
-
-**Use Case:** 
-
-- Title: Short phrase with an active verb describing the goal.
-
-- Actor: The entity initiating the use case.
-  
-- Description: A series of steps required to achieve the goal.
-
-**User Story:** 
-
-User stories follow a specific format: `"As a [user or role], I want [a goal] so that [I benefit in this way]."`
-
-**Example:**
-
-- **Use Case Example:** 
-
-- Title: "Add a New Member"
-
-- Actor: Customer
-
-- Description: The customer selects the "Add New Member" option, enters the member's details, and confirms the addition.
-
-- **User Story Example:** 
-
-- User Story: "As a customer, I want to be able to sort the entries by date so that I can find the most recent content."
+- **Description:** The "Description" in the context of a User Story or Use Case is a brief explanation of the functionality or feature from the user's perspective. It outlines the expected behavior of the system when the user interacts with it to achieve a specific goal.
 
 ### Acceptance Criteria
 
 **Explanation:**
 
-Acceptance criteria are essential conditions that must be met to consider a user story completed and to satisfy the user or product owner. They serve as the definition of done for the user story and provide clear guidelines for the development team.
+These are the specific conditions or tasks that must be completed to fulfill a user story or use case. They should be clearly defined, measurable, and directly related to the user's goal. Acceptance criteria are written in a clear, non-technical language that focuses on the user's needs and expectations. Acceptance criteria define how to know when that goal has been met.
 
 **Key Concepts:**
 
@@ -297,30 +338,6 @@ Acceptance criteria are essential conditions that must be met to consider a user
 - They help ensure that the user story meets the user's expectations and fulfills its intended purpose.
 
 - Acceptance criteria should be written in collaboration with the product owner and stakeholders to ensure alignment with user needs.
-
-**Syntax:**
-
-- Acceptance criteria are typically listed as a set of bullet points or statements.
-
-- Each criterion should be clear, concise, and focus on one aspect of the user story.
-
-- Use specific language to describe what should happen when the user story is implemented.
-
-**Example:**
-
-For a user story related to displaying food allergies on a medical app:
-
-**Acceptance Criteria:**
-
-1. Food allergies should be sequenced in descending order of the harm they can do to the patient.
-
-2. Food allergies should be highlighted in red color.
-
-3. Allergy information should include the type of allergy, severity level, and any recommended actions.
-
-4. Users should be able to filter and search for specific allergies.
-
-5. The user interface should be responsive, ensuring that allergy information is displayed correctly on different devices.
 
 ### Backlog grooming
 
@@ -339,12 +356,6 @@ Backlog grooming is an essential practice in Agile project management, particula
 - **Refinement:** Backlog items may need refinement to make them clear, concise, and actionable. This includes adding details, acceptance criteria, estimates, and any necessary attachments (e.g., designs).
 
 - **Team Collaboration:** Backlog grooming is a collaborative effort involving the product owner, development team, and other stakeholders. It facilitates discussions, clarifications, and the resolution of any questions or concerns.
-
-**Syntax:**
-
-- Backlog grooming typically involves reviewing and discussing individual backlog items (user stories, features, etc.) one by one.
-- It may also include reprioritizing items within the backlog based on their current value and importance to the project.
-- Items that are ready for development are moved to the top of the backlog, making them candidates for inclusion in the next sprint.
 
 **Example:**
 
