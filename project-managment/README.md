@@ -23,24 +23,36 @@
 
 **Key Concepts:**
 
-1. **Planning and Requirement Analysis:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
+1. **Planning and Requirement Analysis:** In this initial phase, project objectives, scope, and requirements are defined. The team, which includes stakeholders such as clients and business analysts, outlines the project's goals, timeline, budget, and resources.
 
-2. **Defining Requirements:** The process of collecting and documenting detailed in Software Requirements Specification (SRS) from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
+2. **Defining Requirements:** The process of collecting and documenting detailed in Software Requirements Specification (SRS) from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do. During this phase, a Requirement Traceability Matrix (RTM) is created to capture all requirements proposed by the stakeholders.
 
     **Example:**
 
     - [Example: Software Requirements Specification](./assets/examples/srs.md)
 
-3. **Designing the Product Architecture:** Software Design Description (SDD), is a detailed description of how a software product or system will be built. It serves as a blueprint for the development process, outlining the system's architecture, components, interfaces, and data for a project.
+    - [Example: Traceability Matrix (RTM) in the Defining Requirements](./assets/examples/rtmDefiningRequirements.md)
+
+3. **Designing the Product Architecture:** Software Design Description (SDD), is a detailed description of how a software product or system will be built. It serves as a blueprint for the development process, outlining the system's architecture, components, interfaces, and data for a project. Simultaneously, the Requirement Traceability Matrix (RTM) is updated to reflect the design decisions made. Each requirement in the RTM is linked to the specific design document and design component that will implement it. This ensures that all requirements are accounted for in the design and provides a clear path from requirement to implementation.
 
     **Example:**
 
-    - [Example: Designing the Product Architecture](./assets/examples/sdd.md)
-  
-4. **Building:** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
+    - [Example: Software Design Description](./assets/examples/sdd.md)
 
-5. **Testing the Product:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing. The SDD can be used as a reference to ensure the software is built as designed.
+    - [Example: Traceability Matrix (RTM) in the Designing product architecture](./assets/examples/rtmDesigning.md)
   
+4. **Building:** Developers write the actual code based on the design specifications outlined in the Software Design Description (SDD). This phase involves coding, unit testing, and integration of software modules.
+
+    **Example:**
+
+    - [Example: Traceability Matrix (RTM) in the building phase](./assets/examples/rtmBuilding.md)
+
+5. **Testing the Product:** Comprehensive testing is performed as part of the Software Testing Life Cycle (STLC) to identify and fix defects or bugs. The STLC includes various stages such as test planning, test case development, test environment setup, test execution, and test cycle closure. Requirement Traceability Matrix (RTM) is updated to link each requirement to its corresponding test case(s). This ensures that all requirements have been tested and validated.
+
+    **Example:**
+
+    - [Example: Traceability Matrix (RTM) in the Testing the Product](./assets/examples/rtmTesting.md)
+
 6. **Deployment (Release):** Once the software passes testing and quality checks, it is deployed to production or made available to users. Deployment may involve data migration and system setup.
 
 7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.

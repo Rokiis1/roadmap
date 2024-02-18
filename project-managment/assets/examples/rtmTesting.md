@@ -1,0 +1,5 @@
+| Requirement ID | Requirement Description | Source Document | Design Document | Design Component | Requirement Source | Priority | Status | Test Case ID | Test Status | Notes |
+| -------------- | ----------------------- | --------------- | --------------- | ---------------- | ------------------ | -------- | ------ | ------------ | ----------- | ----- |
+| REQ-001        | The system should allow users to log in. | SRS v1.0 | Design Doc v1.0 | User Authentication Module | Client | High | Completed | TC-001 | Passed | Implemented and tested in Sprint 1 |
+| REQ-002        | The system should allow users to search for books. | SRS v1.0 | Design Doc v1.0 | Search Functionality Module | Users | Medium | Completed | TC-002 | Failed | Implemented in Sprint 2, but test failed |
+| REQ-003        | The system should allow users to reserve books. | SRS v1.0 | Design Doc v1.0 | Reservation Functionality Module | Client | Low | In Progress | TC-003 | Not Tested | Being implemented in Sprint 3 |
