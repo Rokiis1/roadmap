@@ -1,6 +1,6 @@
 1. **Use Case: Search for Products**
 
-   **User Story:** As a customer, I want to search for products so that I can find what I'm looking for quickly.
+   **User Story:** As a customer, I want to search for products so that I can find what I'm looking for.
 
    **Acceptance Criteria:**
 
@@ -72,7 +72,7 @@
 
       - Time-bound: The story can be completed within a single sprint.
 
-**DoD:**
+   **DoD:**
 
       - Code is written and reviewed.
 

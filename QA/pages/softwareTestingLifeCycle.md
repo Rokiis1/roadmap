@@ -7,7 +7,7 @@
 
 **Explanation:**
 
-The Software Testing Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements, is free of defects, and aligns with quality standards.
+The Software Testing Life Cycle is a structured approach that encompasses various phases from the inception of a software project to its completion and release. It ensures that the software meets its intended requirements.
 
 **Key Concepts:**
 
@@ -31,15 +31,27 @@ Requirement Analysis is the first phase in the Software Testing Life Cycle (STLC
 
 **Key Concepts:**
 
-- Understanding the system: Testers need to understand the functionality, architecture, and performance requirements of the system.
+- **Understanding the system:** Testers need to understand the functionality, architecture, and performance requirements of the system.
 
-- Identifying testable requirements: Not all requirements are testable. Testers need to identify which requirements can be validated through testing.
+- **Identifying testable requirements:** Not all requirements are testable. Testers need to identify which requirements can be validated through testing.
 
-- Determining testing strategies: Based on the requirements, testers decide the testing strategies like unit testing, integration testing, system testing, etc.
+- **Determining testing strategies:** Based on the requirements, testers decide the testing strategies like unit testing, integration testing, system testing.
+
+- **Creating a test plan:** Based on the understanding of the system and the testing strategies, testers create a test plan. This document outlines what will be tested, how it will be tested, and the expected outcomes.
+
+- **Preparing test cases and test data:** Testers prepare test cases to cover all the testable requirements. They also prepare test data that will be used to execute the test cases.
+
+- **Setting up the test environment:** Testers set up the test environment to match the conditions under which the system will be used. This includes setting up the hardware, software, and network configurations.
 
 **Syntax:**
 
 Typically a Requirement Traceability Matrix (RTM) which maps each requirement to its corresponding test cases to ensure all requirements are covered by testing.
+
+The Requirement Traceability Matrix (RTM) is typically created during the requirement analysis and planning phase of a project, which could be at the start of a sprint in an Agile development process.
+
+The responsibility for creating the RTM often falls on the Business Analysts or the QA (Quality Assurance) team. Business Analysts usually have a good understanding of the requirements, as they often play a key role in gathering and documenting them. The QA team, on the other hand, uses the RTM to ensure that all requirements are covered by test cases, so they also have a vested interest in its creation and maintenance.
+
+In an Agile development process, the Requirement Traceability Matrix (RTM) is typically updated for each sprint.
 
 Understanding the system: The system is an online shopping platform where users can browse products, add them to a cart, and make a purchase. The system needs to handle user authentication, product management, cart management, and payment processing.
 
@@ -52,9 +64,11 @@ Users should be able to make a purchase and receive a confirmation.
 
 *Determining testing strategies:*
 
-Unit testing: Test individual components like user registration, login, product browsing, cart management, and payment processing.
-Integration testing: Test the interaction between different components, like adding a product to the cart after browsing, and making a purchase after adding to the cart.
-System testing: Test the entire system as a whole to ensure all components work together as expected.
+- **Unit testing:** Test individual components like user registration, login, product browsing, cart management, and payment processing.
+
+- **Integration testing:** Test the interaction between different components, like adding a product to the cart after browsing, and making a purchase after adding to the cart.
+
+- **System Testing:** Is usually performed by testers. It involves testing the entire system as a whole to ensure that all parts work together as expected.
 
 *Requirement Traceability Matrix (RTM):*
 

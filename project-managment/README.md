@@ -13,8 +13,7 @@
 - [Lean Development](#lean-development)
 - [Agile Methodologies](#agile-methodologies)
   - [Scrum Framework](#scrum-framework)
-- [Most Of Time Using Mixed Approach](#most-of-time-using-mixed-approach)
-- [Comparison of Different Models](#comparison-of-different-models)
+- [Most Of the Time Using Mixed Approach](#most-of-the-time-using-mixed-approach)
 
 **Explanation:**
 
@@ -24,20 +23,27 @@
 
 **Key Concepts:**
 
-1. **Planning:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
-  
-2. **Requirements Gathering:** The process of collecting and documenting detailed requirements from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
+1. **Planning and Requirement Analysis:** In this initial phase, project objectives, scope, and requirements are defined. The team outlines the project's goals, timeline, budget, and resources.
 
-3. **Design:** During this phase, the software's architecture, data structures, user interface, and system components are planned and designed. It lays the foundation for actual development.
-  
-4. **Implementation (Coding):** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
+2. **Defining Requirements:** The process of collecting and documenting detailed in Software Requirements Specification (SRS) from stakeholders, including users, clients, and business analysts. This phase helps in understanding what the software should do.
 
-5. **Testing:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing.
+    **Example:**
+
+    - [Example: Software Requirements Specification](./assets/examples/srs.md)
+
+3. **Designing the Product Architecture:** Software Design Description (SDD), is a detailed description of how a software product or system will be built. It serves as a blueprint for the development process, outlining the system's architecture, components, interfaces, and data for a project.
+
+    **Example:**
+
+    - [Example: Designing the Product Architecture](./assets/examples/sdd.md)
+  
+4. **Building:** Developers write the actual code based on the design specifications. This phase involves coding, unit testing, and integration of software modules.
+
+5. **Testing the Product:** Comprehensive testing is performed to identify and fix defects or bugs. It includes various types of testing such as functional, integration, performance, and user acceptance testing. The SDD can be used as a reference to ensure the software is built as designed.
   
 6. **Deployment (Release):** Once the software passes testing and quality checks, it is deployed to production or made available to users. Deployment may involve data migration and system setup.
 
 7. **Maintenance and Support:** After deployment, the software requires ongoing maintenance, updates, and support to address issues, adapt to changing requirements, and ensure its continued functionality.
-Monitoring and Performance Optimization: After the app's deployment, "X Company" continues to monitor its performance, availability, and user experience. This includes tracking key performance indicators (KPIs), server health, and user feedback.
 
 ### Waterfall Model
 
@@ -95,10 +101,10 @@ The V Model, also known as the Validation and Verification Model, is a software 
 
 **Key Concepts:**
 
-- **Early Defect Detection: **The V Model places a strong emphasis on early defect detection and prevention through verification activities. This reduces the cost and effort required to fix issues later in the project.
+- **Early Defect Detection:** The V Model places a strong emphasis on early defect detection and prevention through verification activities. This reduces the cost and effort required to fix issues later in the project.
 
 - **Phased Testing:** Different levels of testing (unit testing, integration testing, system testing, and user acceptance testing) are planned and executed in parallel with corresponding development phases.
-0
+
 - **Traceability:** The V Model promotes traceability, ensuring that each requirement is traced to a corresponding design and testing activity. This helps maintain alignment with customer requirements.
 
 - **Iterative Feedback:** Feedback from validation activities can lead to adjustments in the development process, allowing for iterative improvements.
@@ -253,31 +259,17 @@ Scrum is one of the most widely adopted Agile frameworks for software developmen
 
 - **Sprint Retrospective:** After the Sprint Review, the team conducts a Sprint Retrospective to reflect on the sprint's performance. They discuss what went well, what could be improved, and identify action items for the next sprint.
 
-### Most Of Time Using Mixed Approach
+### Most of the Time Using Mixed Approach
 
-**Key Concepts:**
+- **Waterfall-Agile Hybrid:** For projects with well-defined requirements but also some degree of uncertainty, a combination of Waterfall and Agile can be used. The initial stages of the project (requirements, design) can be done using Waterfall, and the later stages (implementation, testing, deployment) can be done using Agile.
 
-1. **Project Complexity:** Companies may choose to use a mixed approach when dealing with projects of varying complexity within the same organization. For example, smaller, more straightforward projects may benefit from Agile, while larger, more complex projects may require a Waterfall approach.
+- **V Model-Agile Hybrid:** For projects that require rigorous testing and also need to accommodate changing requirements, a combination of the V Model and Agile can be used. The V Model can be used for the initial stages (requirements, design, implementation), and Agile can be used for the later stages (testing, deployment).
 
-2. **Legacy Systems:** Companies with existing legacy systems or technologies may find it challenging to fully adopt Agile practices. In such cases, they may use a mixed approach to accommodate both new and old systems or processes.
+- **Iterative-Spiral Hybrid:** For projects with high risk and also a need for frequent iterations, a combination of the Iterative and Spiral models can be used. The Iterative model can be used for the initial development, and the Spiral model can be used for risk analysis and mitigation.
 
-3. **Contractual Obligations:** External contracts or agreements with clients or partners may specify the use of Waterfall methodologies, while the company's internal development teams prefer Agile. To meet contractual obligations and maintain client relationships, a mixed approach may be chosen.
+- **DevOps-Lean Hybrid:** For projects that require frequent deployments and also a focus on waste reduction, a combination of DevOps and Lean can be used. DevOps can be used for the development and deployment processes, and Lean can be used for process improvement and waste reduction.
 
-4. **Risk Management:** Companies may opt for a mixed approach to balance risk. They might use Waterfall for critical project phases where requirements are well-defined and Agile for phases with more uncertainty or changing requirements.
-
-5. **Resource Constraints:** Limited resources, such as skilled Agile practitioners, can lead companies to use a mixed approach. They may allocate Agile teams to the most critical aspects of a project and use Waterfall for less critical components.
-
-6. **Organizational Culture:** Sometimes, organizations have a mix of project managers and team members with different skill sets and preferences. Adapting a mixed approach can align with the existing culture and capabilities.
-
-7. **Client Demands:** Clients may request a specific approach based on their familiarity with a methodology or industry norms. To accommodate client demands, a mixed approach may be employed.
-
-8. **Transition Period:** During the transition from Waterfall to Agile or vice versa, organizations may use a mixed approach as a temporary measure. This allows teams to gain experience with the new methodology while maintaining existing processes.
-
-9. **Regulatory Requirements:** In regulated industries, companies may need to adhere to certain Waterfall-like documentation and auditing processes for compliance. However, they can still incorporate Agile practices where feasible.
-
-10. **Project-Specific Needs:** Ultimately, the choice of a mixed approach can depend on the unique requirements and constraints of a particular project. Companies may tailor their methodology to fit the specific circumstances.
-
-### Comparison of Different Models
+- **Agile-DevOps Hybrid:** For projects that require flexibility in requirements and also frequent deployments, a combination of Agile and DevOps can be used. Agile can be used for the development process, and DevOps can be used for the deployment process.
 
 ## Project Management Tools
 
@@ -353,7 +345,7 @@ Backlog grooming is an essential practice in Agile project management, particula
 
 - **Prioritization:** During backlog grooming, the product owner and team prioritize backlog items based on their importance and value to the project. This ensures that the most critical work is at the top of the backlog.
 
-- **Refinement:** Backlog items may need refinement to make them clear, concise, and actionable. This includes adding details, acceptance criteria, estimates, and any necessary attachments (e.g., designs).
+- **Refinement:** Backlog items may need refinement to make them clear, concise, and actionable. This includes adding details, acceptance criteria, estimates, and any necessary attachments (designs).
 
 - **Team Collaboration:** Backlog grooming is a collaborative effort involving the product owner, development team, and other stakeholders. It facilitates discussions, clarifications, and the resolution of any questions or concerns.
 
