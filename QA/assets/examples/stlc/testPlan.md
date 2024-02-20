@@ -80,3 +80,15 @@ We will use one or more of the following estimation techniques based on the proj
 - **Test Metrics:** We will provide a set of metrics that give a quantitative measure of the quality of the software and the effectiveness of the testing. These metrics will be maintained in an Excel file. This could include metrics like defect density, defect removal efficiency, and test case effectiveness.
 
 - **Release Note:** A separate document, maintained in a Word file, that includes the details of the release, known issues, and workarounds if any. This document will be provided along with the final software release.
+
+Introduction: A brief overview of the release, including the version number and release date.
+
+New Features: A list of new features added in this release, with a brief description of each feature.
+
+Improvements: A list of improvements to existing features. This could include performance improvements, usability enhancements, or other non-functional improvements.
+
+Bug Fixes: A list of bugs that have been fixed in this release, with a brief description of each bug and its impact.
+
+Known Issues: A list of known issues that have not been fixed in this release, with a brief description of each issue and any available workarounds.
+
+Upgrade Instructions: Instructions for upgrading to this release from previous versions, if applicable.

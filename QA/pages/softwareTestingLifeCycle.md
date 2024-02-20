@@ -196,9 +196,9 @@ The main purpose of this phase is to evaluate the entire testing process, ensure
 
 - **Test Completion Check:** The team checks to ensure all testing has been completed and all test cases have been executed.
 
-- **Test Metrics Collection:** The team collects and analyzes test metrics, such as the number of test cases executed, the number of defects found and fixed, etc.
+- **Test Metrics Collection:** The team collects and analyzes test metrics, such as the number of test cases executed, the number of defects found and fixed.
 
-- **Test Documentation:** The team ensures all test documentation is complete and organized for future reference. This includes test plans, test cases, bug reports, etc.
+- **Test Documentation:** The team ensures all test documentation is complete and organized for future reference. This includes test plans, test cases, bug reports.
 
 - **Test Deliverables:** The team prepares all the deliverables to be handed over to the stakeholders. This includes the Test Case Document, Test Scripts, Bug Reports, Test Summary Report, Test Metrics, Release Note, and Sign-off Document.
 
