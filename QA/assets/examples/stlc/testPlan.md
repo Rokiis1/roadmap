@@ -53,6 +53,8 @@ We will use one or more of the following estimation techniques based on the proj
 
 - **Three Point Estimation:** We will use optimistic, most likely, and pessimistic scenarios to estimate the effort. For example, best case scenario (everything goes as planned), most likely scenario (minor issues occur), and worst case scenario (major issues occur) will be considered.
 
+- **Fibonacci Sequence Estimation:** We will use the Fibonacci sequence (1, 2, 3, 5, 8, 13) to estimate the effort of tasks. Each task is assigned a number from the Fibonacci sequence that best represents its estimated effort.
+
 ## 10. Test Case Prioritization
 
 - **Risk-Based Prioritization:** High-risk areas could include the system's ability to correctly track and update the status of books (checked out, returned, overdue), as errors here could lead to significant issues like loss of books or incorrect fines. Test cases that validate these functionalities would be given priority.
@@ -67,16 +69,14 @@ We will use one or more of the following estimation techniques based on the proj
 
 ## 11. Deliverables
 
-- **Test Case Document:** This document will contain all the test cases that were executed during the testing phase. It will include the test case ID, description, expected result, actual result, and status (pass/fail).
+- **Test Case Document:** This document, maintained in an Excel file, will contain all the test cases that were executed during the testing phase. It will include the test case ID, description, status (pass/fail). The Excel file will be delivered along with the final test report.
 
-- **Test Scripts:** If automated testing was used, the test scripts will be provided. These scripts can be used for regression testing in future development cycles.
+- **Test Scripts:** If automated testing was used, the test scripts will be provided. These scripts can be used for regression testing in future development cycles. The test scripts for this project are located in the `e2e` folder.
 
-- **Bug Reports:** A detailed report of all the bugs found during testing will be provided. Each bug report will include the bug ID, description, severity, status, and steps to reproduce the bug.
+- **Bug Reports:** A detailed report of all the bugs found during testing will be provided and tracked in Jira, and the link to the project's Jira board will be provided for easy access and tracking.
 
-- **Test Summary Report:** This report will provide a summary of the testing activities. It will include the number of test cases executed, the number of bugs found, the test coverage, and the overall status of the testing phase.
+- **Test Summary Report:** This report, maintained in an Excel file, will provide a summary of the testing activities. The Excel file will be delivered along with the final test report.
 
-- **Test Metrics:** We will provide a set of metrics that give a quantitative measure of the quality of the software and the effectiveness of the testing. This could include metrics like defect density, defect removal efficiency, and test case effectiveness.
+- **Test Metrics:** We will provide a set of metrics that give a quantitative measure of the quality of the software and the effectiveness of the testing. These metrics will be maintained in an Excel file. This could include metrics like defect density, defect removal efficiency, and test case effectiveness.
 
-- **Release Note:** A note that includes the details of the release, known issues, and workarounds if any.
-
-- **Sign-off Document:** A document indicating the formal closure of the testing phase. It signifies that the software has met the defined quality standards and is ready for release.
+- **Release Note:** A separate document, maintained in a Word file, that includes the details of the release, known issues, and workarounds if any. This document will be provided along with the final software release.
