@@ -168,19 +168,19 @@ A Test Summary Report is a document that provides a comprehensive summary of all
 
 **Key Concepts:**
 
-Test Summary: A brief overview of the testing activities, including the types of testing performed and the testing tools used.
+- **Test Summary:** A brief overview of the testing activities, including the types of testing performed and the testing tools used.
 
-Test Metrics: Quantitative measures of the testing process, such as the number of test cases executed, the number of defects found and fixed, test case effectiveness, etc.
+- **Test Metrics:** Quantitative measures of the testing process, such as the number of test cases executed, the number of defects found and fixed, test case effectiveness, etc.
 
-Defect Analysis: A detailed analysis of the defects found during testing, including their severity, priority, and status.
+- **Defect Analysis:** A detailed analysis of the defects found during testing, including their severity, priority, and status.
 
-Test Coverage: The extent to which the software has been tested. This can be measured in terms of requirements coverage, code coverage, etc.
+- **Test Coverage:** The extent to which the software has been tested. This can be measured in terms of requirements coverage, code coverage, etc.
 
-Challenges and Risks: Any challenges encountered during the testing process and any risks associated with the software going forward.
+- **Challenges and Risks:** Any challenges encountered during the testing process and any risks associated with the software going forward.
 
-Recommendations: Suggestions for improving the software or the testing process in future releases.
+- **Recommendations:** Suggestions for improving the software or the testing process in future releases.
 
-Approval: A sign-off from the test manager or other relevant stakeholder indicating that the testing process has been completed and the software is ready for release.
+- **Approval:** A sign-off from the test manager or other relevant stakeholder indicating that the testing process has been completed and the software is ready for release.
 
 **Example:**
 
