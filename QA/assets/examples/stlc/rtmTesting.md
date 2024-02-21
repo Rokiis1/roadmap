@@ -1,0 +1,12 @@
+| Requirement ID | Requirement Description | Source Document | Design Document | Design Component | Requirement Source | Priority | Status | Test Case ID | Test Status | Notes |
+| -------------- | ----------------------- | --------------- | --------------- | ---------------- | ------------------ | -------- | ------ | ------------ | ----------- | ----- |
+| REQ-001        | The system should allow users to log in. | SRS v1.0 | Design Doc v1.0 | User Authentication Module | Client | High | Completed | TC-001 | Passed | Implemented and tested in Sprint 1 |
+| REQ-002        | The system should allow users to search for books. | SRS v1.0 | Design Doc v1.0 | Search Functionality Module | Users | Medium | Completed | TC-002 | Failed | Implemented in Sprint 2, but test failed |
+| REQ-003        | The system should allow users to reserve books. | SRS v1.0 | Design Doc v1.0 | Reservation Functionality Module | Client | Low | In Progress | TC-003 | Not Tested | Being implemented in Sprint 3 |
+| REQ-004        | The system should allow users to check out books. | SRS v1.0 | Design Doc v1.0 | Checkout Functionality Module | Users | High | Not Started | TC-004 | Not Tested | To be implemented in Sprint 4 |
+| REQ-005        | The system should allow users to return books. | SRS v1.0 | Design Doc v1.0 | Return Functionality Module | Users | High | Not Started | TC-005 | Not Tested | To be implemented in Sprint 5 |
+| REQ-006        | The system should track late returns and apply fees. | SRS v1.0 | Design Doc v1.0 | Fee Calculation Module | Client | Medium | Not Started | TC-006 | Not Tested | To be implemented in Sprint 6 |
+| REQ-007        | The system should allow librarians to add new books to the system. | SRS v1.0 | Design Doc v1.0 | Book Addition Module | Librarians | High | Not Started | TC-007 | Not Tested | To be implemented in Sprint 7 |
+| REQ-008        | The system should allow librarians to remove books from the system. | SRS v1.0 | Design Doc v1.0 | Book Removal Module | Librarians | Medium | Not Started | TC-008 | Not Tested | To be implemented in Sprint 8 |
+| REQ-009        | The system should allow users to view their borrowing history. | SRS v1.0 | Design Doc v1.0 | Borrowing History Module | Users | Low | Not Started | TC-009 | Not Tested | To be implemented in Sprint 9 |
+| REQ-010        | The system should allow users to renew their borrowed books online. | SRS v1.0 | Design Doc v1.0 | Renewal Functionality Module | Users | Medium | Not Started | TC-010 | Not Tested | To be implemented in Sprint 10 |

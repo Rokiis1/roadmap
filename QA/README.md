@@ -104,10 +104,6 @@
 
 - [Topics: What is APIs?](../api/README.md)
 
-## Task
-
-- [Task: Integration testing for API](./tasks/testTypes/integrationTesting.md)
-
 # Project Managment
 
 ## Topics: Project Managment
@@ -143,3 +139,4 @@
 ## Tasks: Test Summary Report
 
 - [Task: Test Summary Report](../QA/tasks/testSummaryReport.md)
+

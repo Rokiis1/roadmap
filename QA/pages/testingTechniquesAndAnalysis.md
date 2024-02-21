@@ -78,10 +78,6 @@ Equivalence Partitioning is a black-box testing technique that divides the input
 
 - [Example: Equivalence Partitioning](../assets/examples/testingTechniquesAndAnalysis/equivalencePartitioning.md)
 
-### Tasks: Equivalence Partitioning
-
-- [Tasks: Equivalence Partitioning](../tasks/testingTechniquesandAnalysis/equivalencePartitioning.md)
-
 ### Boundary Value Analysis
 
 **Explanation:**
@@ -105,10 +101,6 @@ Boundary Value Analysis (BVA) is a black-box testing technique that focuses on t
 **Example:**
 
 - [Example: Boundary Value Analysis](./assets/examples/testingTechniquesAndAnalysis/boundryValueAnalysis.md)
-
-### Tasks: Boundary Value Analysis
-
-- [Tasks: Boundary Value Analysis](./tasks/testingTechniquesandAnalysis/boundaryValueAnalysis.md)
 
 ### Decision Table Testing
 
@@ -237,10 +229,6 @@ Exploratory testing is a type of testing where test cases are not created in adv
 
 - Heuristics
 
-### Tasks: Exploratory Testing
-
-- [Tasks: Exploratory Testing](../tasks/testingTechniquesandAnalysis/exploratoryTesting.md)
-
 ## Collaboration-based Test Approaches
 
 - [Acceptance Criteria](#acceptance-criteria)
@@ -282,11 +270,17 @@ Collaborative user story writing involves the team working together to write use
 
 **Key Concepts:**
 
- User roles, User goals, Acceptance criteria, INVEST principle (Independent, Negotiable, Valuable, Estimable, Small, Testable).
+- User roles, Acceptance criteria
+
+- Prioritization
 
 **Syntax:**
 
 A user story is typically written in the format: "As a [type of user], I want [an action] so that [a benefit/a value]".
+
+**Example:**
+
+*INVEST Principle:*
 
 ```plaintext
 User Story: 
@@ -299,12 +293,18 @@ I can add a product to the cart.
 I can complete the payment process.
 I receive an order confirmation after purchase.
 
-INVEST Principle:
+```
 
-Independent: This story can be developed and tested separately from other stories.
-Negotiable: The details of how the purchase process works can be adjusted based on team discussions.
-Valuable: This story provides value to the customer by allowing them to purchase products.
-Estimable: The time and effort required to implement this story can be estimated based on the acceptance criteria and team's prior experience.
-Small: This story is small enough to be completed within one sprint.
-Testable: The completion of this story can be verified by checking whether the acceptance criteria are met.
+```plaintext
+
+User Story:
+
+"As a User, I want to reset my password so that I can regain access to my account."
+
+Acceptance Criteria:
+
+I can request a password reset from the login page.
+I receive an email with a password reset link.
+I can set a new password using the reset link.
+
 ```
