@@ -5,7 +5,6 @@
 - [Package Manager](#package-manager)
 - [Working with Files](#working-with-files)
 - [Creating Server](#creating-server)
-- [Command Line Interface](#command-line-interface)
 - [Logging](#logging)
 
 # Node.js Introduction
@@ -86,8 +85,6 @@ export default fs;
 
 - [npm-vs-pnpm-vs-npx](#npm-vs-pnpm-vs-npx)
 - [Installing Packages](#installing-packages)
-    - [Local Installation](#local-installation)
-    - [Global Installation](#global-installation)
 - [Updating Packages](#updating-packages)
 - [Using Installed Packages](#using-installed-packages)
 - [Running Scripts](#running-scripts)
@@ -117,12 +114,6 @@ export default fs;
 - **Global Installation:** Package is installed system-wide and can be used in any project. However, it's not listed in the `dependencies` in the `package.json` file. `npm install -g`
 
 # Working with Files
-
-- [fs module](#fs-module)
-- [path module](#path-module)
-- [process.cwd()](#processcwd)
-- [__dirname](#dirname)
-- [__filename](#filename)
 
 **Explanation:**
 
@@ -183,28 +174,10 @@ Key Concepts:
 
 **Resource:**
 
-- [Resource: Express](./framework/express.md)
-
-# Command Line Interface
-
-- [Environment Variables](#environment-variables)
-    - [dotenv package](#dotenv-package)
-    - [process.env](#processenv)
-- [Exitting & Exit Codes](#exitting-exit-codes)
-- [Printing Output](#printing-output)
-    - [process.stdout](#processstdout)
-    - [process.stderr](#processstderr)
-    - [chalk package](#chalk-package)
-    - [figlet package](#figlet-package)
-    - [cli-progress package](#cli-progress-package)
-- [Taking Input](#taking-input)
-    - [process.stdin](#processstdin)
-    - [Prompts package](#promts-package)
-    - [Inquirer package](#inquirer-package)
-- [Command Line Args](#command-line-args)
-    - [process.argv](#processargv)
-    - [Commander.js Package](#commanderjs-package)
+- [Resource: Express framework](./framework/express.md)
 
 # Logging
 
 - [Winston](#winston)
+
+## Winston

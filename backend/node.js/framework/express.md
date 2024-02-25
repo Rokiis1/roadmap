@@ -4,7 +4,10 @@
 - [Working with Data](#working-with-data)
 - [Middleware](#middleware)
 - [Validation](#validation)
+- [Cookies and Sessions](#cookies-and-sessions)
 - [Working with Databases](#working-with-databases)
+- [Authentication](#authentication)
+- [Authorization](#authorization)
 
 # Setting up the development environment
 
@@ -233,3 +236,96 @@ Express-Validation is a middleware for Express.js that validates the body, param
 **Resources:**
 
 - [Docs: Express-Validation](https://express-validator.github.io/docs)
+
+# Cookies and Sessions
+
+**Explanation:**
+
+- [express-session](#express-session)
+- [cookie-parser](#cookie-parser)
+
+## express-session
+
+`express-session` is a middleware used in Express.js applications to manage sessions. Sessions are a way to store data for a specific client, which is useful for storing user login credentials, storing preferences of a particular user, etc. Session data is stored on the server side.
+
+```bash
+npm i express-session
+```
+
+**Key Concepts:**
+
+- **Session ID:** A unique identifier that is generated for each session.
+
+- **Session Store:** The place where the session data is stored. It could be a database or in-memory store.
+
+**Syntax:**
+
+```js
+
+const session = require('express-session');
+
+app.use(session({
+  secret: 'your secret key', // This is the secret used to sign the session ID cookie.
+  resave: false, // This forces the session to be saved back to the session store, even if the session was never modified during the request.
+  saveUninitialized: true, // This forces a session that is "uninitialized" to be saved to the store. A session is uninitialized when it is new but not modified.
+  cookie: { secure: true } // This option dictates whether cookies should be sent over secure connections only.
+}));
+
+```
+
+**Example:**
+
+```js
+
+app.use(session({
+  secret: 'simple secret',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.get('/', (req, res) => {
+  if (req.session.views) {
+    req.session.views++;
+  } else {
+    req.session.views = 1;
+  }
+  res.send(`This page has been viewed ${req.session.views} times`);
+});
+
+```
+
+## cookie-parser
+
+**Explanation:**
+
+`cookie-parser` is a middleware that parses cookies attached to the client request object. It populates `req.cookies` with an object keyed by the cookie names. This is useful to read the cookies sent from the client.
+
+**Key Concepts:**
+
+- **Cookie:** Small piece of data stored on the client's computer by the web browser while browsing a website.
+
+- **Signed Cookies:** Cookies that are signed to prevent tampering.
+
+**Syntax:**
+
+```js
+
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser()); // This tells your application to use the cookie-parser middleware. This will parse incoming cookies in the request headers and expose them as the 'cookies' property of the request object (req.cookies).
+
+```
+
+**Example:**
+
+```js
+
+const cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+
+app.get('/', function(req, res) {
+  console.log("Cookies: ", req.cookies);
+});
+
+```
