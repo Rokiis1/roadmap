@@ -5,9 +5,9 @@
 - [Middleware](#middleware)
 - [Validation](#validation)
 - [Cookies and Sessions](#cookies-and-sessions)
-- [Working with Databases](#working-with-databases)
-- [Authentication](#authentication)
-- [Authorization](#authorization)
+<!-- - [Working with Databases](#working-with-databases) -->
+<!-- - [Authentication](#authentication)
+- [Authorization](#authorization) -->
 
 # Setting up the development environment
 
@@ -329,3 +329,6 @@ app.get('/', function(req, res) {
 });
 
 ```
+
+<!-- # Working with Databases -->
+

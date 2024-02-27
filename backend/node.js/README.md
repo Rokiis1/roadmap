@@ -113,6 +113,16 @@ export default fs;
 
 - **Global Installation:** Package is installed system-wide and can be used in any project. However, it's not listed in the `dependencies` in the `package.json` file. `npm install -g`
 
+## Updating Packages
+
+**Explanation:**
+
+To update packages in npm, you can use the `npm update` command. This will update all packages in your project according to the version rules set in your `package.json` file.
+
+```bash
+npm update
+```
+
 # Working with Files
 
 **Explanation:**

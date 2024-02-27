@@ -2,7 +2,7 @@
 
 - [Server](#server)
 - [APIs](#apis)
-- [Authentication](#authentication)
+<!-- - [Authentication](#authentication)
     - [Cookie Based](#cookie-based)
     - [OAuth](#oauth)
     - [Basic Auth](#basic-auth)
@@ -15,7 +15,7 @@
     - [OWASP Security Risks](#owasp-security-risks)
     - [Secure Sockets Layer (SSL) and Transport Layer Security (TLS)](#ssl-tls)
     - [Server Security](#server-security)
-    - [Content Security Policy](#content-security-policy)
+    - [Content Security Policy](#content-security-policy) -->
 
 # Server
 
