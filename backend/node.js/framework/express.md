@@ -5,9 +5,9 @@
 - [Middleware](#middleware)
 - [Validation](#validation)
 - [Cookies and Sessions](#cookies-and-sessions)
-<!-- - [Working with Databases](#working-with-databases) -->
-<!-- - [Authentication](#authentication)
-- [Authorization](#authorization) -->
+- [Working with Databases](#working-with-databases)
+- [Password Hashing](#password-hashing)
+- [Authentication vs Authorization](#authentication-vs-authorization)
 
 # Setting up the development environment
 
@@ -246,7 +246,7 @@ Express-Validation is a middleware for Express.js that validates the body, param
 
 ## express-session
 
-`express-session` is a middleware used in Express.js applications to manage sessions. Sessions are a way to store data for a specific client, which is useful for storing user login credentials, storing preferences of a particular user, etc. Session data is stored on the server side.
+`express-session` is a middleware used in Express.js applications to manage sessions. Sessions are a way to store data for a specific client, which is useful for storing user login credentials, storing preferences of a particular user. Session data is stored on the server side.
 
 ```bash
 npm i express-session
@@ -330,5 +330,29 @@ app.get('/', function(req, res) {
 
 ```
 
-<!-- # Working with Databases -->
+# Working with Databases
 
+# Password Hashing
+
+- [bcrypt](#bcrypt)
+
+# Authentication vs Authorization
+
+- [passport-local](#passport-local)
+- [passport-jwt](#passport-jwt)
+
+**Explanation:**
+
+1. **Authentication** is a strategy provided by Passport.js for authenticating users with a username and password. When a user logs in, `passport-local` can be used to verify their credentials.
+
+2. **Authorization** is the process of verifying what a user has access to. Once a user is authenticated, they may be granted access to certain resources based on their privileges. `passport-jwt` can be used to handle authorization in your application. After the user is authenticated, a JWT can be generated and sent to the client. This token can then be included in the `Authorization` header of subsequent requests. passport-jwt can verify this token and allow the request to proceed if it's valid.
+
+3. **Role-based authorization** include the user's role in the JWT when it's created. Then, in your route handlers or a middleware, you can check this role to determine if the user is authorized to access the requested resource.
+
+**Key Concepts:**
+
+1. **Authentication**: The process of verifying a user's identity, typically through credentials like a username and password. In the context of Passport.js, the `passport-local` strategy is used for this purpose.
+
+2. **Authorization**: The process of granting or denying a user's access to resources. Once a user is authenticated, they may be granted access to certain resources based on their privileges. `passport-jwt` is used to handle authorization in an application.
+
+3. **Role-Based Authorization**: A method of authorization where access to resources is based on the user's role.
