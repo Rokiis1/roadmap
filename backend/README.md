@@ -56,9 +56,21 @@ Session management in backend development is a mechanism by which a server maint
 
 # Database
 
-**Resource:**
+- [node-postgres package](#node-postgres-package)
 
-- [Resource: Node.js](./node.js/README.md)
+**Resources:**
+
+- [Resource: datbase](../database/README.md)
+
+## node-postgres package
+
+**Explanation:**
+
+- [Explanation: node-postgres package](https://node-postgres.com/)
+
+**Resources:**
+
+- [Resource: SQL queries](../database/postgreSQL/sql.md)
 
 # Authentication vs Authorization
 
