@@ -12,7 +12,7 @@
     - [OWASP Security Risks](#owasp-security-risks)
     - [Secure Sockets Layer (SSL) and Transport Layer Security (TLS)](#ssl-tls)
     - [Server Security](#server-security)
-    - [Content Security Policy](#content-security-policy) --> -->
+    - [Content Security Policy](#content-security-policy) -->
 
 # Server
 
@@ -54,23 +54,6 @@ Session management in backend development is a mechanism by which a server maint
 
 6. **Token-based Authentication:** An alternative to session IDs, where the server generates a token that the client sends back with each request to prove its identity. Tokens can be designed to carry a payload of information and are particularly useful in stateless, RESTful architectures.
 
-# Database
-
-- [node-postgres package](#node-postgres-package)
-
-**Resources:**
-
-- [Resource: datbase](../database/README.md)
-
-## node-postgres package
-
-**Explanation:**
-
-- [Explanation: node-postgres package](https://node-postgres.com/)
-
-**Resources:**
-
-- [Resource: SQL queries](../database/postgreSQL/sql.md)
 
 # Authentication vs Authorization
 

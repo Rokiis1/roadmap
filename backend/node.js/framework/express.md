@@ -332,9 +332,59 @@ app.get('/', function(req, res) {
 
 # Working with Databases
 
+- [node-postgres package](#node-postgres-package)
+
+**Resources:**
+
+- [Resource: datbase](../../../database/README.md)
+
+## node-postgres package
+
+**Explanation:**
+
+- [Explanation: node-postgres package](https://node-postgres.com/)
+
+**Resources:**
+
+- [Resource: SQL queries](../../../database/postgreSQL/sql.md)
+
 # Password Hashing
 
 - [bcrypt](#bcrypt)
+
+**Explanation:**
+
+Password hashing is a way of securing user passwords by converting them into unreadable strings of characters. This is done to prevent the passwords from being stolen in the event of a data breach.
+
+**Key Concepts:**
+
+- **Hashing:** The process of converting an input of any length into a fixed size string of text, using a mathematical function.
+
+- **Salting:** A salt is random data that is used as an additional input to a one-way function that hashes data, a password or passphrase. Salts are used to safeguard passwords in storage.
+
+- **Work Factor:** This is a setting used in bcrypt that determines how CPU-intensive the hashing process is. The higher the work factor, the more secure the password hash, but the slower the process.
+
+**Syntax:**
+
+```js
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const plainTextPassword = "myPassword";
+
+bcrypt.hash(plainTextPassword, saltRounds, function(err, hash) {
+  // Store hash in your password DB.
+});
+
+bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+    // result is a boolean indicating whether the passwords matched
+});
+
+```
+
+**Resources:**
+
+- [Docs: bcrypt](https://www.npmjs.com/package/bcrypt)
 
 # Authentication vs Authorization
 
