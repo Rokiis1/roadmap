@@ -63,6 +63,46 @@ await client.query('DELETE FROM table_name WHERE condition');
 
 7. **JOIN:** Used to combine rows from two or more tables, based on a related column between them. There are different types of joins: INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN.
 
+  - **INNER JOIN:** Returns records that have matching values in both tables.
+
+  ```sql
+
+  SELECT Orders.OrderID, Customers.CustomerName
+  FROM Orders
+  INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID
+
+  ```
+
+  - **LEFT (OUTER) JOIN:** Returns all records from the left table, and the matched records from the right table. If there is no match, the result is NULL on the right side.
+  
+  ```sql
+
+  SELECT Customers.CustomerName, Orders.OrderID
+  FROM Customers
+  LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+  ```
+
+  - **RIGHT (OUTER) JOIN:** Returns all records from the right table, and the matched records from the left table. If there is no match, the result is NULL on the left side.
+
+  ```sql
+
+  SELECT Orders.OrderID, Customers.CustomerName
+  FROM Orders
+  RIGHT JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+
+  ```
+
+  - **FULL (OUTER) JOIN:** Returns all records when there is a match in either left or right table. If there is no match, the result is NULL on both sides.
+
+  ```sql
+
+  SELECT Customers.CustomerName, Orders.OrderID
+  FROM Customers
+  FULL OUTER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+  ```
+
 ```js
 
 const res = await client.query('SELECT * FROM table1 INNER JOIN table2 ON table1.matching_column = table2.matching_column');
