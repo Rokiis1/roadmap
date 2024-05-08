@@ -336,7 +336,7 @@ app.get('/', function(req, res) {
 
 **Resources:**
 
-- [Resource: datbase](../../../database/README.md)
+- [Resource: database](../../../database/README.md)
 
 ## node-postgres package
 
