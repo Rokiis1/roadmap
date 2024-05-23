@@ -13,15 +13,8 @@
     - [Exploratory Testing](#exploratory-testing)
     - [Checklist-Based Testing](#checklist-based-testing)
     - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
-  - [White-box Testing Techniques](#)
-    - [Statement Testing and Coverage](#)
-    - [Decision Testing and Coverage](#)
-    - [Branch Testing](#)
-    - [Graph-Based Testing](#)
-    - [Path Testing](#)
-  - [Confirmation Testing](#)
-    - [Re-testing](#)
-    - [Regression Testing](#)
+  - [Confirmation Testing](#confirmation-testing)
+    - [Regression Testing](#regression-testing)
 
 # Dynamic Techniques
 
@@ -39,7 +32,8 @@ Dynamic techniques are methods used in software development that involve the exe
 
 4. **White-box Testing Techniques:** These techniques, such as statement testing and coverage, decision testing and coverage, and path testing, focus on the internal structure of the software.
 
-5. **Confirmation Testing:** This includes re-testing and regression testing to ensure that defects have been corrected and that modifications have not introduced new issues.
+5. **Confirmation Testing:** This includes re-testing and regression testing to ensure 
+that defects have been corrected and that modifications have not introduced new issues.
 
 ## Collaboration-based Test Approaches
 
@@ -286,8 +280,6 @@ State Transition Testing is a software testing technique used to test the behavi
 
 **Feature to Test:** Online Music Player
 
-The music player has several states depending on user actions. The rules are as follows:
-
 1. When a user presses the 'Play' button, the player starts playing music.
 2. When a user presses the 'Pause' button, the player pauses the music.
 3. When a user presses the 'Stop' button, the player stops the music and resets to the beginning of the track.
@@ -324,3 +316,69 @@ Transitions:
 | Paused        | Stop      | Stopped    |
 | Playing       | Next      | Playing    |
 | Paused        | Next      | Playing    |
+
+## Experience-based Techniques
+
+**Explanation:**
+
+Experience-based techniques in software testing are those that leverage the tester's knowledge, skills, and background to design and execute tests. They are less formal and structured than specification-based or structure-based techniques.
+
+### Error Guessing
+
+**Explanation:**
+
+Error Guessing is a software testing technique where the tester applies their experience and intuition to guess the problematic areas of the application. This technique is based on the tester's ability to find bugs or defects based on their past experiences and knowledge.
+
+### Exploratory Testing
+
+**Explanation:**
+
+Exploratory Testing is a type of software testing where test design and test execution happen simultaneously without explicitly planning the detailed test cases in advance. The tester actively controls the design of the tests as they are performed and uses information gained while testing to design new and better tests.
+
+**Key Concepts:**
+
+1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
+
+![alt text](./images/charter.png)
+
+2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
+
+### Checklist-Based Testing
+
+**Explanation:**
+
+Checklist-Based Testing is a software testing technique where the tester uses a checklist as a guide during the testing process. The checklist contains a set of important aspects or features of the application that need to be tested. This method ensures that the tester does not miss out on testing critical functionalities of the application.
+
+**Key Concepts:**
+
+1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
+
+![alt text](./images/checklist.png)
+
+2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
+
+### Smoke and Sanity Testing
+
+- **Smoke Testing:** This is a high-level type of testing done to ensure that the basic functions of a program work correctly. It is often done when a new build is released to test if the build is stable and it can be tested thoroughly later.
+
+- **Sanity Testing:** This is a narrow regression testing that focuses on one or a few areas of functionality. Sanity testing is usually unscripted, helps to identify the dependent missing functionalities, and is used to determine if a section of the application is still working after a minor change.
+
+- **Difference between Smoke and Sanity Testing:** Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper. Smoke testing is scripted or documented, whereas Sanity testing is usually unscripted.
+
+## Confirmation Testing
+
+**Explanation:**
+
+Confirmation Testing, also known as re-testing, is a type of testing performed to confirm that a test case which previously failed has been corrected after the defects have been fixed. The purpose of confirmation testing is to verify that the original defect has been successfully removed; it is not to uncover new defects.
+
+**Key Concepts:**
+
+1. **Defect Fix Verification:** The main purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
+
+2. **Regression Testing:** Alongside confirmation testing, regression testing is often performed to ensure that the defect fixes haven't introduced new issues elsewhere in the system.
+
+### Regression Testing
+
+**Explanation:**
+
+Regression testing is a type of software testing that ensures that previously developed and tested software still performs the same way after it is changed or interfaced with other software. Changes may include software enhancements, patches, configuration changes. The purpose of regression testing is to ensure that code changes do not introduce new bugs or regressions.

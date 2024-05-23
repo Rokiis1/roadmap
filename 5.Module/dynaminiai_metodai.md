@@ -13,15 +13,8 @@
     - [Exploratory Testing](#exploratory-testing)
     - [Checklist-Based Testing](#checklist-based-testing)
     - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
-  - [White-box Testing Techniques](#)
-    - [Statement Testing and Coverage](#)
-    - [Decision Testing and Coverage](#)
-    - [Branch Testing](#)
-    - [Graph-Based Testing](#)
-    - [Path Testing](#)
-  - [Confirmation Testing](#)
-    - [Re-testing](#)
-    - [Regression Testing](#)
+  - [Confirmation Testing](#confirmation-testing)
+    - [Regression Testing](#regression-testing)
 
 # Dynamic Techniques
 
@@ -324,3 +317,69 @@ Transitions:
 | Paused        | Stop      | Stopped    |
 | Playing       | Next      | Playing    |
 | Paused        | Next      | Playing    |
+
+## Experience-based Techniques
+
+**Explanation:**
+
+Patirtimi pagrįsti programinės įrangos testavimo metodai - tai metodai, kurie naudoja testuotojo žinias, įgūdžius ir patirtį kuriant ir atliekant testus. Jie yra mažiau formalūs ir struktūrizuoti nei specifikacija ar struktūra pagrįsti metodai.
+
+### Error Guessing
+
+**Explanation:**
+
+Klaidų spėjimas - tai programinės įrangos testavimo metodas, kai testuotojas, pasitelkdamas savo patirtį ir intuiciją, spėja problemines programos vietas. Šis metodas grindžiamas testuotojo gebėjimu rasti klaidas ar defektus, remiantis jo ankstesne patirtimi ir žiniomis.
+
+### Exploratory Testing
+
+**Explanation:**
+
+Exploratory Testing - tai programinės įrangos testavimo rūšis, kai testų projektavimas ir testų vykdymas vyksta vienu metu, iš anksto neplanuojant išsamių testavimo atvejų. Testuotojas aktyviai kontroliuoja testų dizainą jų vykdymo metu ir naudoja testavimo metu gautą informaciją naujiems ir geresniems testams kurti.
+
+**Key Concepts:**
+
+1. **Charteriai:** Charteris - tai xploratory testing session užduotis arba tikslas. Joje nurodoma testavimo veiklos kryptis ir apimtis, įskaitant testavimo tikslą, testavimo sesijos trukmę, testavimo tipą arba testavimo idėjas, kurias reikia ištirti, ir tikėtiną rezultatą arba išvestį.
+
+![alt text](./images/charter.png)
+
+2. **Time-boxed Sessions:** exploratory testing dažnai atliekamas per sesijas, kurių trukmė paprastai būna nuo 60 iki 120 minučių.
+
+### Checklist-Based Testing
+
+**Explanation:**
+
+Testavimas pagal kontrolinį sąrašą - tai programinės įrangos testavimo metodas, kai testuotojas naudoja kontrolinį sąrašą, kuriuo vadovaujasi testavimo proceso metu. Kontroliniame sąraše pateikiami svarbūs programos aspektai arba funkcijos, kurias reikia išbandyti. Taikant šį metodą užtikrinama, kad testuotojas nepraleis svarbiausių programos funkcijų testavimo.
+
+**Key Concepts:**
+
+1. **Sąrašo sudarymas:** Kontrolinis sąrašas sudaromas remiantis paraiškos reikalavimais ir specifikacijomis. Į jį įtraukiamos visos svarbios savybės ir funkcijos, kurias reikia išbandyti.
+
+![alt text](./images/checklist.png)
+
+2. **Testavimo gairės:** Kontrolinis sąrašas yra testuotojo gairės testavimo proceso metu. Jis padeda užtikrinti, kad būtų aprėptos visos būtinos taikomosios programos sritys.
+
+### Smoke and Sanity Testing
+
+**Explanation:**
+
+- **Smoke testavimas:** Tai aukšto lygio testavimas, atliekamas siekiant užtikrinti, kad pagrindinės programos funkcijos veiktų teisingai. Jis dažnai atliekamas išleidžiant naują sąranką, kad būtų patikrinta, ar sąranka yra stabili ir ar vėliau ją bus galima nuodugniai išbandyti.
+
+- **Sanity testavimas:** Tai ribotas regresijos testavimas, kurio metu daugiausia dėmesio skiriama vienai ar kelioms funkcionalumo sritims. Sanity testavimas paprastai yra neskriptinis, padeda nustatyti priklausomas trūkstamas funkcijas ir yra naudojamas siekiant nustatyti, ar po nedidelio pakeitimo taikomosios programos dalis vis dar veikia.
+
+- **Skirtumas tarp "Smoke" ir "Sanity" testavimo:** "Smoke" testavimas atliekamas siekiant įsitikinti, kad programinės įrangos funkcionalumas veikia naujoje versijoje, o "Sanity" testavimas atliekamas išleidimo etape, siekiant patikrinti pagrindines programos funkcijas, nesigilinant į jas. Smoke testavimas atliekamas pagal scenarijų arba dokumentais, o Sanity testavimas paprastai atliekamas be scenarijaus.
+
+## Confirmation Testing
+
+**Explanation:**
+
+Patvirtinimo testavimas, dar vadinamas pakartotiniu testavimu, yra testavimo rūšis, atliekama siekiant patvirtinti, kad anksčiau nepavykęs testavimo atvejis buvo ištaisytas ištaisius defektus. Patvirtinamojo testavimo tikslas - patikrinti, ar pradinis defektas buvo sėkmingai pašalintas; juo nesiekiama atskleisti naujų defektų.
+
+**Key Concepts:**
+
+1. **Defektų ištaisymo patikrinimas:** Pagrindinis patvirtinimo testavimo tikslas - patikrinti, ar ankstesnių testų metu nustatyti defektai buvo ištaisyti.
+
+### Regression Testing
+
+**Explanation:**
+
+Regresinis testavimas - tai programinės įrangos testavimo rūšis, kuria užtikrinama, kad anksčiau sukurta ir išbandyta programinė įranga veiktų taip pat ir ją pakeitus arba sujungus su kita programine įranga. Pakeitimai gali apimti programinės įrangos patobulinimus, pataisas, konfigūracijos pakeitimus. Regresijos testavimo tikslas - užtikrinti, kad dėl kodo pakeitimų neatsirastų naujų klaidų ar regresijų.
