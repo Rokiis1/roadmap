@@ -1,3 +1,5 @@
+# Content of Table
+
 - [Dynamic Techniques](#dynamic-techniques)
   - [Collaboration-based Test Approaches](#collaboration-based-test-approaches)
     - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
@@ -16,7 +18,7 @@
   - [Confirmation Testing](#confirmation-testing)
     - [Regression Testing](#regression-testing)
 
-# Dynamic Techniques
+## Dynamic Techniques
 
 **Explanation:**
 
@@ -34,7 +36,7 @@ Dinaminiai metodai - tai programinės įrangos kūrimo metodai, susiję su progr
 
 5. **Patvirtinimo testavimas:** Tai apima pakartotinį testavimą ir regresinį testavimą, siekiant užtikrinti, kad defektai būtų ištaisyti ir kad modifikacijos nesukėlė naujų problemų.
 
-## Collaboration-based Test Approaches
+### Collaboration-based Test Approaches
 
 **Explanation:**
 
@@ -92,23 +94,23 @@ Bendradarbiaudami rašydami naudotojo istoriją, komandos nariai kartu rašo nau
 
 1. **Vartotojo istorijos:** Tai paprasti, aiškūs, trumpi funkcionalumo aprašymai, kaip juos mato vartotojas.
 
-  **Syntax:**
+    **Syntax:**
 
-  A user story is typically written in the format: **"As a [type of user], I want [an action] so that [a benefit/a value]"**.
+    A user story is typically written in the format: **"As a [type of user], I want [an action] so that [a benefit/a value]"**.
 
-  **Example:**
+    **Example:**
 
-  ```text
-  User Story: 
+    ```text
+    User Story: 
 
-  "As a Customer, I want to purchase a product so that I can own the product."
+    "As a Customer, I want to purchase a product so that I can own the product."
 
-  Acceptance Criteria:
+    Acceptance Criteria:
 
-  I can add a product to the cart.
-  I can complete the payment process.
-  I receive an order confirmation after purchase.
-  ```
+    I can add a product to the cart.
+    I can complete the payment process.
+    I receive an order confirmation after purchase.
+    ```
 
 2. **Bendradarbiavimas:** Šiame procese dalyvauja visos susijusios suinteresuotosios šalys, įskaitant kūrėjus, testuotojus, verslo analitikus ir naudotojus.
 
@@ -340,7 +342,7 @@ Exploratory Testing - tai programinės įrangos testavimo rūšis, kai testų pr
 
 1. **Charteriai:** Charteris - tai xploratory testing session užduotis arba tikslas. Joje nurodoma testavimo veiklos kryptis ir apimtis, įskaitant testavimo tikslą, testavimo sesijos trukmę, testavimo tipą arba testavimo idėjas, kurias reikia ištirti, ir tikėtiną rezultatą arba išvestį.
 
-![alt text](./images/charter.png)
+    ![alt text](./images/charter.png)
 
 2. **Time-boxed Sessions:** exploratory testing dažnai atliekamas per sesijas, kurių trukmė paprastai būna nuo 60 iki 120 minučių.
 
@@ -354,7 +356,7 @@ Testavimas pagal kontrolinį sąrašą - tai programinės įrangos testavimo met
 
 1. **Sąrašo sudarymas:** Kontrolinis sąrašas sudaromas remiantis paraiškos reikalavimais ir specifikacijomis. Į jį įtraukiamos visos svarbios savybės ir funkcijos, kurias reikia išbandyti.
 
-![alt text](./images/checklist.png)
+    ![alt text](./images/checklist.png)
 
 2. **Testavimo gairės:** Kontrolinis sąrašas yra testuotojo gairės testavimo proceso metu. Jis padeda užtikrinti, kad būtų aprėptos visos būtinos taikomosios programos sritys.
 

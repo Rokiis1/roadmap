@@ -53,7 +53,7 @@ Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, ku
 
 1. **Programinės įrangos kūrimo gyvavimo ciklo sąvokos:** SDLC - tai sistema, apibrėžianti programinės įrangos kūrimo etapus nuo pradinių reikalavimų surinkimo iki galutinio įdiegimo ir priežiūros.
 
-2. 2. **Į procesą orientuotas požiūris:** Šiame požiūryje daugiausia dėmesio skiriama programinės įrangos kūrimo procesui, akcentuojant planavimą, tvarkaraščius, tikslines datas, biudžetus ir visos sistemos įgyvendinimą vienu metu.
+2. **Į procesą orientuotas požiūris:** Šiame požiūryje daugiausia dėmesio skiriama programinės įrangos kūrimo procesui, akcentuojant planavimą, tvarkaraščius, tikslines datas, biudžetus ir visos sistemos įgyvendinimą vienu metu.
 
 3. **Programinės įrangos kūrimo metodikos:** Tai konkretūs metodai, naudojami programinės įrangos kūrimo procesui struktūrizuoti, planuoti ir kontroliuoti. Jie apima į aprėptį orientuotą kūrimą (daugiausia dėmesio skiriama testų aprėpčiai), į kokybę orientuotą kūrimą (daugiausia dėmesio skiriama bendrai kokybei) ir į funkcijas orientuotą kūrimą (daugiausia dėmesio skiriama funkcijų kūrimui).
 

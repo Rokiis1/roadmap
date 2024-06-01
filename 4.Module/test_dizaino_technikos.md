@@ -1,13 +1,14 @@
+# Content of Table
+
 - [Test Design Techniques](#test-design-techniques)
   - [Understanding Test Cases](#understanding-test-cases)
   - [Test Case Design Process](#test-case-design-process)
-  - [Test Case Design Strategies](#test-case-design-strategies)
   - [Testware](#testware)
   - [Test Case Management](#test-case-management)
 
-# Test Design Techniques
+## Test Design Techniques
 
-## Understanding Test Cases
+### Understanding Test Cases
 
 **Explanation:**
 
@@ -27,7 +28,7 @@ Testavimo scenarijai - tai sąlygų arba kintamųjų, pagal kuriuos testuotojas 
 10. **Statutas (įveiktas/neįveiktas):** ar testo atvejis buvo įveiktas, ar neįveiktas.
 11. **Pastabos:** Bet kokios papildomos pastabos apie bandymo atvejį.
 
-## Test Case Design Process
+### Test Case Design Process
 
 **Explanation:**
 
@@ -37,51 +38,51 @@ Testavimo atvejo projektavimo procesas - tai sisteminis požiūris į sąlygų a
 
 1. **Testavimo reikalavimų nustatymas:** Tai pirmas žingsnis, kurio metu nustatote, ką reikia testuoti. Tai gali būti pagrįsta programinės įrangos reikalavimais, naudotojų istorijomis, naudojimo atvejais ar bet kokios kitos formos programinės įrangos dokumentais.
 
-![alt text](./images/indentifyTestRequirements.png)
+    ![alt text](./images/indentifyTestRequirements.png)
 
 2. **Nustatykite testavimo scenarijus:** Nustatykite scenarijus, pagal kuriuos sistema bus naudojama. Šie scenarijai turėtų būti pagrįsti realiais naudojimo atvejais ir apimti visas pagrindines sistemos funkcijas.
 
-![alt text](./images/defineTestScenarios.png)
+    ![alt text](./images/defineTestScenarios.png)
 
 3. **Nustatykite testavimo atvejį:** Kiekvienam scenarijui nustatykite testavimo atvejų rinkinį, apimantį visus galimus kelius, kuriais gali eiti naudotojas. Apibrėžkite kiekvieno testavimo atvejo tikslą, ką jis turėtų pasiekti ir kokią funkciją ar sistemos dalį jis apima.
 
-![alt text](./images/defineTestCase.png)
+    ![alt text](./images/defineTestCase.png)
 
 4. **Projektuokite testavimo veiksmus:** Išsamiai aprašykite veiksmus, kuriuos reikia atlikti norint atlikti kiekvieną testavimo atvejį. Jie turėtų būti aiškūs ir glausti, nepaliekant vietos dviprasmybėms.
 
-![alt text](./images/designTestSteps.png)
+    ![alt text](./images/designTestSteps.png)
 
 5. **Nustatykite testavimo duomenis:** Nustatykite testavimui naudotinus duomenis.Tai gali būti sistemos įvesties duomenys arba duomenys, kuriuos sistema naudoja tam tikroms operacijoms atlikti.
 
-![alt text](./images/specifyTestData.png)
+    ![alt text](./images/specifyTestData.png)
 
 6. **Nustatykite išankstines ir paskesnes sąlygas:** Nurodykite sistemos būseną prieš ir po kiekvieno testavimo atvejo įvykdymo.Tai padeda užtikrinti, kad sistema būtų teisingai parengta bandymui ir kad bandymas turėtų laukiamą poveikį sistemai.
 
-![alt text](./images/definePreAndPostConditions.png)
+    ![alt text](./images/definePreAndPostConditions.png)
 
 7. **Nustatykite laukiamus rezultatus:** Apibrėžkite, koks yra laukiamas kiekvieno testavimo atvejo rezultatas.Būtent su juo lyginsite faktinius rezultatus, kad nustatytumėte, ar testavimo atvejis buvo sėkmingas, ar ne.
 
-![alt text](./images/specifyExpectedResults.png)
+    ![alt text](./images/specifyExpectedResults.png)
 
 8. **Peržiūrėkite ir patvirtinkite testavimo atvejį:** Paveskite kolegoms ar suinteresuotosioms šalims peržiūrėti testavimo atvejus, kad jie būtų tikslūs ir išsamūs.Patvirtinus testavimo atvejus, juos galima vykdyti.
 
 9. **Įvykdyti testavimo atvejį ir užregistruoti rezultatus:** Įvykdykite testavimo atvejus, užregistruokite rezultatus ir palyginkite juos su laukiamais rezultatais.
 
-| Scenario ID | Test Case ID | Test Case Description | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Postconditions | Status | Notes |
-|-------------|--------------|-----------------------|---------------|------------|-----------|-----------------|---------------|----------------|--------|-------|
-| SID001      | TCID001      | Check if a user can register with valid details | User is on the registration page | 1. Enter a valid name in the "Name" field. 2. Enter a valid email in the "Email" field. 3. Enter a valid password in the "Password" field. 4. Click on the "Register" button. | Name: "Test User", Email: "testuser@example.com", Password: "Test@123" | User is successfully registered and redirected to the dashboard | User is successfully registered and redirected to the dashboard | User is registered and redirected to the dashboard | Pass |  |
+    | Scenario ID | Test Case ID | Test Case Description | Preconditions | Test Steps | Test Data | Expected Result | Actual Result | Postconditions | Status | Notes |
+    |-------------|--------------|-----------------------|---------------|------------|-----------|-----------------|---------------|----------------|--------|-------|
+    | SID001      | TCID001      | Check if a user can register with valid details | User is on the registration page | 1. Enter a valid name in the "Name" field. 2. Enter a valid email in the "Email" field. 3. Enter a valid password in the "Password" field. 4. Click on the "Register" button. | Name: "Test User", Email: "<testuser@example.com>", Password: "Test@123" | User is successfully registered and redirected to the dashboard | User is successfully registered and redirected to the dashboard | User is registered and redirected to the dashboard | Pass |  |
 
-*Statutas:*
+    *Statutas:*
 
-  1. **Pass:** Testo atvejis išlaikytas, t. y. faktinis rezultatas sutampa su laukiamu rezultatu.
+    1. **Pass:** Testo atvejis išlaikytas, t. y. faktinis rezultatas sutampa su laukiamu rezultatu.
 
-  2. **Nepavykęs:** Bandymo atvejis nepavyko, t. y. faktinis rezultatas neatitiko laukiamo rezultato.
+    2. **Nepavykęs:** Bandymo atvejis nepavyko, t. y. faktinis rezultatas neatitiko laukiamo rezultato.
 
-  3. **Blocked:** Bandymo atvejis negalėjo būti įvykdytas, nes nepavyko atlikti būtino bandymo atvejo arba nebuvo atliktas sąrankos veiksmas.
+    3. **Blocked:** Bandymo atvejis negalėjo būti įvykdytas, nes nepavyko atlikti būtino bandymo atvejo arba nebuvo atliktas sąrankos veiksmas.
 
-  4. **Neįvykdytas:** Testo atvejis dar nebuvo įvykdytas.
+    4. **Neįvykdytas:** Testo atvejis dar nebuvo įvykdytas.
 
-  5. **Vykdoma:** Testo atvejis šiuo metu vykdomas.
+    5. **Vykdoma:** Testo atvejis šiuo metu vykdomas.
 
 10. **Prireikus atnaujinkite testavimo atvejį:** Jei sistema pasikeičia arba jei testavimo atvejis netiksliai išbandė sistemą, prireikus atnaujinkite testavimo atvejį.
 

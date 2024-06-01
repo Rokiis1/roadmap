@@ -110,13 +110,12 @@ Risk Management in Testing is a proactive approach to identify, assess, and miti
 
       You're managing a construction project for a new building. One potential risk could be a delay in the delivery of essential building materials.
 
-
       Cost Overruns: You might have to pay extra for expedited shipping or for buying materials from a different, more expensive supplier.
 
       Delays: The construction schedule could be pushed back, leading to a later completion date. This could have further impacts, such as penalties for late completion or loss of revenue if the building was intended to be rented or sold.
 
       Reduced Quality: If you're forced to use different materials due to the delay, the quality of the building might be compromised.
- 
+
       **Example 2:**
 
       Suppose you're managing a software development project and one potential risk is that a key developer might leave the team before the project is completed.

@@ -1,11 +1,12 @@
+# Content of Table
+
 - [Types of Testing](#types-of-testing)
   - [Functional Testing](#functional-testing)
   - [Non-functional Testing](#non-functional-testing)
-- [Summary](#summary)
 
-# Types of Testing
+## Types of Testing
 
-## Functional Testing
+### Functional Testing
 
 **Explanation:**
 
@@ -21,7 +22,7 @@
 
 - **Priėmimo testavimas:** Tai paskutinis testavimo lygmuo, kurio metu tikrinamas sistemos priimtinumas. Jis padeda patikrinti, ar sistema atitinka užsakovo reikalavimus ir ar sistema yra paruošta pristatymui.
 
-## Non-functional Testing
+### Non-functional Testing
 
 **Explanation:**
 

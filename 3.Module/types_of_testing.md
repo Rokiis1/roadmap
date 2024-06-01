@@ -1,10 +1,12 @@
+# Content of Table
+
 - [Types of Testing](#types-of-testing)
   - [Functional Testing](#functional-testing)
   - [Non-functional Testing](#non-functional-testing)
 
-# Types of Testing
+## Types of Testing
 
-## Functional Testing
+### Functional Testing
 
 **Explanation:**
 
@@ -20,7 +22,7 @@
 
 - **Acceptance Testing:** This is the final level of testing where the system is tested for acceptability. It helps to verify if the system meets the customer requirements and whether the system is ready for delivery.
 
-## Non-functional Testing
+### Non-functional Testing
 
 **Explanation:**
 

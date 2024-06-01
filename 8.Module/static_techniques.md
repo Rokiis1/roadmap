@@ -9,7 +9,7 @@
   - [Static Analysis](#static-analysis)
   - [Model-Based Analysis](#model-based-analysis)
 
-# Static Techniques
+## Static Techniques
 
 **Explanation:**
 
@@ -31,7 +31,7 @@ Static techniques in software testing involve examining the software's code, req
 
 7. **Model-Based Analysis:** This is a technique where models of the software (like data flow diagrams or entity-relationship diagrams) are analyzed to find errors or potential improvements.
 
-## Benefits of Early and Frequent Stakeholder Feedback
+### Benefits of Early and Frequent Stakeholder Feedback
 
 **Explanation:**
 
@@ -69,7 +69,7 @@ The review process in static techniques involves a systematic examination of sof
 
 6. **Follow-up:** The changes are verified to ensure they've been correctly implemented and have resolved the identified issues. The review process is also evaluated to identify any improvements that can be made for future reviews.
 
-## Review Types
+### Review Types
 
 **Explanation:**
 
@@ -85,7 +85,7 @@ Reviews are a type of static testing where software documents (like requirements
 
 4. **Inspections:** An inspection is a very formal review process where the document is examined in detail by a team of reviewers. The goal is to find and document defects for later correction. Inspections often follow a defined process and use checklists to guide the review.
 
-## Checklist-based reviewing
+### Checklist-based reviewing
 
 **Explanation:**
 
@@ -101,7 +101,7 @@ Checklist-based reviewing is a static testing technique where reviewers use a pr
 
 4. **Consistency:** Checklists help ensure consistency across reviews, as all reviewers are guided by the same list of items to check.
 
-## Scenario-based reviewing
+### Scenario-based reviewing
 
 **Explanation:**
 
@@ -119,7 +119,7 @@ Scenario-based reviewing is a static testing technique where reviewers use prede
 
 **User Perspective:** Scenario-based reviewing helps reviewers consider the user's perspective, improving the usability and user-friendliness of the software.
 
-## Static Analysis
+### Static Analysis
 
 **Explanation:**
 
@@ -137,7 +137,7 @@ Is a method of debugging by examining the code without executing the program. Th
 
 5. **Efficiency:** Static analysis tools can quickly scan large codebases, making them an efficient way to catch potential issues.
 
-## Model-Based Analysis
+### Model-Based Analysis
 
 **Explanation:**
 

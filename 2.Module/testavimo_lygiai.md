@@ -1,3 +1,5 @@
+# Content of Table
+
 - [Levels of Testing](#levels-of-testing)
   - [Component Testing (Unit Testing)](#component-testing-unit-testing)
   - [Component Integration Testing (Unit Integration Testing)](#component-integration-testing-unit-integration-testing)
@@ -5,11 +7,11 @@
   - [System Integration Testing](#system-integration-testing)
   - [Acceptance Testing](#acceptance-testing)
 
-# Levels of Testing
+## Levels of Testing
 
 ![alt images](./images/testLevels.png)
 
-## Component Testing (Unit Testing)
+### Component Testing (Unit Testing)
 
 **Explanation:**
 
@@ -29,7 +31,7 @@ Komponentų testavimas, dar vadinamas vienetų testavimu(Unit Testing), yra pirm
 
 6. **Apimtis(Coverage:)** - tai rodiklis, rodantis, kokia dalis kodo bazės yra patikrinta vienetiniais testais. Pageidautina didelė aprėptis, nes ji sumažina neaptiktos klaidos tikimybę.
 
-## Component Integration Testing (Unit Integration Testing)
+### Component Integration Testing (Unit Integration Testing)
 
 **Explanation:**
 
@@ -59,7 +61,7 @@ Sistemos testavimas - tai testavimo lygis, kuriuo patvirtinamas visas integruota
 
 4. **Testavimo aplinka:** Sistemos testavimas turėtų būti atliekamas aplinkoje, kuri tiksliai atspindi gamybinę aplinką.
 
-## System Integration Testing
+### System Integration Testing
 
 **Explanation:**
 
@@ -75,7 +77,7 @@ Sistemos integracijos testavimas (SIT) - tai testavimo etapas, kurio metu atskir
 
 4. **Testavimas nuo pradžios iki galo:** SIT dažnai laikomas testavimo nuo galo iki galo (angl. end-to-end, E2E) tipu, nes gali apimti testavimo procesus, kurie apima kelias sistemas nuo pradžios iki pabaigos.
 
-## Acceptance Testing
+### Acceptance Testing
 
 **Explanation:**
 

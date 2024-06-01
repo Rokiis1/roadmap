@@ -1,16 +1,17 @@
+# Content of Table
+
 - [Levels of Testing](#levels-of-testing)
   - [Component Testing (Unit Testing)](#component-testing-unit-testing)
   - [Component Integration Testing (Unit Integration Testing)](#component-integration-testing-unit-integration-testing)
   - [System Testing](#system-testing)
   - [System Integration Testing](#system-integration-testing)
   - [Acceptance Testing](#acceptance-testing)
-- [Summary](#summary)
 
-# Levels of Testing
+## Levels of Testing
 
 ![alt text](./images/testLevels.png)
 
-## Component Testing (Unit Testing)
+### Component Testing (Unit Testing)
 
 **Explanation:**
 
@@ -30,7 +31,7 @@ Component Testing, also known as Unit Testing, is the first level of software te
 
 6. **Coverage:** A measure of how much of the codebase is tested by unit tests. High coverage is desirable as it reduces the chance of an undetected bug.
 
-## Component Integration Testing (Unit Integration Testing)
+### Component Integration Testing (Unit Integration Testing)
 
 **Explanation:**
 
@@ -44,7 +45,7 @@ Component Integration Testing, also known as Unit Integration Testing, is the pr
 
 3. **Sandwich/Hybrid Approach:** This is a combination of top-down and bottom-up approaches. Some parts of the system are tested from top to bottom, while others are tested from bottom to top.
 
-## System Testing
+### System Testing
 
 **Explanation:**
 
@@ -60,7 +61,7 @@ System Testing is a level of testing that validates the complete and integrated 
 
 4. **Test Environment:** System testing should be conducted in an environment that closely mirrors the production environment.
 
-## System Integration Testing
+### System Integration Testing
 
 **Explanation:**
 
@@ -76,7 +77,7 @@ System Integration Testing (SIT) is a testing phase where individual units or co
 
 4. **End-to-End Testing:** SIT is often considered a type of end-to-end (E2E) testing, as it can involve testing processes that span multiple systems from start to finish.
 
-## Acceptance Testing
+### Acceptance Testing
 
 **Explanation:**
 
@@ -91,15 +92,3 @@ Acceptance Testing is the final level of software testing performed after System
 3. **Alpha and Beta Testing:** Alpha testing is conducted by the in-house testing teams, while Beta testing is done by a limited number of end users in the real environment.
 
 4. **User Acceptance Testing (UAT):** This is the final phase of acceptance testing where the actual users test the software to validate the functionality and usability of the system in a real-world scenario.
-
-# Summary
-
-1. **Component Testing (Unit Testing):** This is the first level of software testing where individual components (or units) of a software are tested in isolation. The purpose is to validate that each unit of the software performs as designed. Techniques like mocking or stubbing are used to achieve isolation.
-
-2. **Component Integration Testing (Unit Integration Testing):** This level of testing involves combining two or more units and testing them as a group. The purpose is to expose faults in the interaction between integrated units. Stubs and drivers are used to simulate the behavior of missing components.
-
-3. **System Testing:** This level involves testing the entire system as a whole to verify that it meets the specified requirements. It includes a wide range of testing types like functional testing, performance testing, security testing. It's a black box type of testing where the focus is on the input and output of the system without considering internal code structure.
-
-4. **System Integration Testing:** This level of testing checks how a system interacts with external systems. The goal is to identify issues that occur when the system is connected to external interfaces. It's often considered a type of end-to-end (E2E) testing, as it can involve testing processes that span multiple systems from start to finish.
-
-5. **Acceptance Testing:** This is the final level of software testing performed after System and Integration Testing. This type of testing is done to verify if the system is ready for delivery. It aims to evaluate the system's compliance with the business requirements and assess whether it is ready for delivery.

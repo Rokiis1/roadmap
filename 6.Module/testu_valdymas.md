@@ -117,7 +117,7 @@ Rizikos valdymo priemonės ir metodai - tai metodikos, naudojamos programinės �
 
 **Paaiškinimas:**
 
-Įėjimo kriterijai ir išėjimo kriterijai - tai pagrindinės programinės įrangos testavimo sąvokos, apibrėžiančios, kada testavimas turėtų būti pradėtas (įėjimo kriterijai) ir kada baigtas (išėjimo kriterijai). 
+Įėjimo kriterijai ir išėjimo kriterijai - tai pagrindinės programinės įrangos testavimo sąvokos, apibrėžiančios, kada testavimas turėtų būti pradėtas (įėjimo kriterijai) ir kada baigtas (išėjimo kriterijai).
 
 **Pagrindinės sąvokos:**
 

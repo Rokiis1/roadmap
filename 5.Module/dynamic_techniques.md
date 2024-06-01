@@ -1,3 +1,5 @@
+# Content of Table
+
 - [Dynamic Techniques](#dynamic-techniques)
   - [Collaboration-based Test Approaches](#collaboration-based-test-approaches)
     - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
@@ -16,7 +18,7 @@
   - [Confirmation Testing](#confirmation-testing)
     - [Regression Testing](#regression-testing)
 
-# Dynamic Techniques
+## Dynamic Techniques
 
 **Explanation:**
 
@@ -32,7 +34,7 @@ Dynamic techniques are methods used in software development that involve the exe
 
 4. **White-box Testing Techniques:** These techniques, such as statement testing and coverage, decision testing and coverage, and path testing, focus on the internal structure of the software.
 
-5. **Confirmation Testing:** This includes re-testing and regression testing to ensure 
+5. **Confirmation Testing:** This includes re-testing and regression testing to ensure
 that defects have been corrected and that modifications have not introduced new issues.
 
 ## Collaboration-based Test Approaches
@@ -93,23 +95,23 @@ Collaborative User Story Writing involves the team working together to write use
 
 1. **User Stories:** These are simple, clear, brief descriptions of functionality as viewed by a user.
 
-  **Syntax:**
+    **Syntax:**
 
-  A user story is typically written in the format: **"As a [type of user], I want [an action] so that [a benefit/a value]"**.
+    A user story is typically written in the format: **"As a [type of user], I want [an action] so that [a benefit/a value]"**.
 
-  **Example:**
+    **Example:**
 
-  ```text
-  User Story: 
+    ```text
+    User Story: 
 
-  "As a Customer, I want to purchase a product so that I can own the product."
+    "As a Customer, I want to purchase a product so that I can own the product."
 
-  Acceptance Criteria:
+    Acceptance Criteria:
 
-  I can add a product to the cart.
-  I can complete the payment process.
-  I receive an order confirmation after purchase.
-  ```
+    I can add a product to the cart.
+    I can complete the payment process.
+    I receive an order confirmation after purchase.
+    ```
 
 2. **Collaboration:** The process involves all relevant stakeholders, including developers, testers, business analysts, and users.
 
@@ -339,7 +341,7 @@ Exploratory Testing is a type of software testing where test design and test exe
 
 1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
 
-![alt text](./images/charter.png)
+    ![alt text](./images/charter.png)
 
 2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
 
@@ -353,7 +355,7 @@ Checklist-Based Testing is a software testing technique where the tester uses a 
 
 1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
 
-![alt text](./images/checklist.png)
+    ![alt text](./images/checklist.png)
 
 2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
 
