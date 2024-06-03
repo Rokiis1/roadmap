@@ -12,7 +12,7 @@
 
 **Explanation:**
 
-Test cases are a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly. The process of developing test cases can also help find problems in the requirements or design of an application, which can be fixed before coding or implementation.
+Test cases are a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly.
 
 **Key Concepts:**
 
@@ -26,7 +26,6 @@ Test cases are a set of conditions or variables under which a tester will determ
 8. **Actual Result:** The actual outcome of the test case, filled out after the test case execution.
 9. **Postconditions:** The state of the system after the test case has been executed.
 10. **Status (Pass/Fail):** Whether the test case passed or failed.
-11. **Notes:** Any additional comments on the test case.
 
 ## Test Case Design Process
 

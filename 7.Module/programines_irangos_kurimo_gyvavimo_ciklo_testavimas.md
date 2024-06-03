@@ -27,11 +27,23 @@ Programinės įrangos kūrimo testavimo metodai - tai strategijos, naudojamos pr
 
 **Pagrindinės sąvokos:**
 
-1. **Testavimo į kairę ir į dešinę metodas:** Šis metodas apima ankstyvą ir dažną testavimą kūrimo proceso pradžioje (poslinkis į kairę) ir tęstinį testavimą diegimo ir priežiūros etapuose (poslinkis į dešinę).
+1. **Testavimo į kairę ir į dešinę metodas:** Šis metodas apima ankstyvą ir dažną testavimą kūrimo proceso pradžioje (poslinkis į kairę) ir tęstinį testavimą diegimo ir priežiūros etapuose (poslinkis į dešinę). Kairę pusę galima laikyti planavimo ir dokumentavimo etapais, o dešiniąją - kodavimo, diegimo ir priežiūros etapais.
+
+    - **Vėlyvasis testavimas:** Testavimo „shift left“ esmė - perkelti visą testavimo veiklą į ankstesnius kūrimo proceso etapus, pageidautina - į reikalavimų rinkimo ir testavimo planavimo etapą.
+
+    - **Bendradarbiavimo metodas:** Testavimas „iš kairės į kairę“ skatina glaudų bendradarbiavimą ne tik tarp QA komandos ir kūrimo komandos, bet ir kitų suinteresuotųjų šalių, pavyzdžiui, verslo analitikų ar projektų vadovų.
+
+    - **Automatizavimas:** QA komandos, nusprendusios taikyti „shift left“ testavimą ir nuolatinį testavimą, taip pat pravartu investuoti į automatizavimą, kad pagreitintų testavimą ir padidintų veiklos efektyvumą.
+
+    - **Tęstinis integravimas ir tęstinis pristatymas (CI/CD):** Tęstinis integravimas (CI) ir tęstinis pristatymas (CD) - tai sujungtos praktikos ir priemonės, skirtos automatizuoti programinės įrangos pakeitimų kūrimo, testavimo ir diegimo procesą.
+
+    ![alt text](./assets/images/shiftleftright.png)
 
 2. **Nutrūkstamas testavimas:** Tai automatinių testų atlikimas viso kūrimo proceso metu, kad problemos būtų užfiksuotos iš karto, kai tik jų atsiranda.
 
 3. **Testais pagrįsta plėtra (TDD):** Tai kūrimo metodika, pagal kurią testai rašomi prieš pradedant rašyti tikrąjį kodą. Tada kodas rašomas taip, kad išlaikytų šiuos testus. Testų pirmumo metodas yra TDD dalis, kai pirmiausia rašomi testai, o kodas kuriamas remiantis šiais testais.
+
+    ![alt text](./assets/images/tdd.png)
 
 4. **Į elgseną orientuotas kūrimas (BDD):** Tai kūrimo metodika, pagal kurią elgsenos specifikacijos rašomos prieš faktinį kodą. Vėliau šios specifikacijos paverčiamos testais, o kodas rašomas taip, kad išlaikytų šiuos testus.
 
@@ -43,45 +55,111 @@ Programinės įrangos kūrimo testavimo metodai - tai strategijos, naudojamos pr
 
 8. **Testavimo kvadrantai:** Tai modelis, padedantis komandoms nustatyti, kokio tipo testavimo reikia, kada jį reikia atlikti ir kas jį turėtų atlikti. Pagal jį testavimas skirstomas į keturis kvadrantus, atsižvelgiant į tai, ar testai yra skirti verslui, ar technologijoms, ir į tai, ar jie padeda komandai, ar kritikuoja produktą.
 
+    - **Kvadrantas 1** - su technologijomis susiję testai, kurie padeda komandai: Šiam kvadrantui priskiriami į technologijas orientuoti testai, kuriais vadovaujamasi kuriant. Dažnai tai yra automatizuoti testai. Pavyzdžiai: vienetų testai, komponentų testai ir API testai.
+
+    - **2 kvadrantas** - į verslą orientuoti testai, padedantys komandai: Šiam kvadrantui priskiriami testai, kurie yra orientuoti į verslą ir naudojami aprašyti ir patvirtinti, ką sistema turėtų daryti. Šie testai dažnai yra automatizuoti ir apima tokius testus kaip funkciniai testai.
+
+    - **3 kvadrantas** - į verslą orientuoti testai, kurie kritikuoja produktą: Šiam kvadrantui priskiriami į verslą orientuoti testai, kurie naudojami grįžtamajam ryšiui teikti. Šie testai dažnai atliekami rankiniu būdu ir yra tiriamojo pobūdžio. Pavyzdžiai: tiriamasis testavimas, tinkamumo naudoti testavimas, naudotojo priėmimo testavimas ir alfa / beta testavimas.
+
+    - **4 kvadrantas** - į technologijas orientuoti bandymai, kuriais kritikuojamas produktas: Šiam kvadrantui priskiriami į technologijas orientuoti testai, kurie naudojami produktui kritikuoti iš nefunkcinių reikalavimų perspektyvos. Šie bandymai dažnai yra automatizuoti ir apima našumo testavimą, saugumo testavimą, apkrovos testavimą ir streso testavimą.
+
+    ![alt text](./assets/images/testQuandrants.png)
+
 ## Software Development Life Cycle (SDLC) Models
 
 **Paaiškinimas:**
 
 Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, kuriomis vadovaujamasi kuriant programinę įrangą. Šie modeliai suteikia struktūrizuotą požiūrį į programinės įrangos kūrimą, užtikrinantį, kad galutinis produktas būtų patikimas, kokybiškas ir atitiktų naudotojo reikalavimus.
 
+![alt image](./assets/images/SDLC.png)
+
 **Pagrindinės sąvokos:**
 
-1. **Programinės įrangos kūrimo gyvavimo ciklo sąvokos:** SDLC - tai sistema, apibrėžianti programinės įrangos kūrimo etapus nuo pradinių reikalavimų surinkimo iki galutinio įdiegimo ir priežiūros.
+1. **Į procesą orientuotas požiūris:** Šiame požiūryje daugiausia dėmesio skiriama programinės įrangos kūrimo procesui, akcentuojant planavimą, tvarkaraščius, tikslines datas, biudžetus ir visos sistemos įgyvendinimą vienu metu.
 
-2. **Į procesą orientuotas požiūris:** Šiame požiūryje daugiausia dėmesio skiriama programinės įrangos kūrimo procesui, akcentuojant planavimą, tvarkaraščius, tikslines datas, biudžetus ir visos sistemos įgyvendinimą vienu metu.
+2. **Programinės įrangos kūrimo metodikos:** Tai konkretūs metodai, naudojami programinės įrangos kūrimo procesui struktūrizuoti, planuoti ir kontroliuoti. Jie apima į aprėptį orientuotą kūrimą (daugiausia dėmesio skiriama testų aprėpčiai), į kokybę orientuotą kūrimą (daugiausia dėmesio skiriama bendrai kokybei) ir į funkcijas orientuotą kūrimą (daugiausia dėmesio skiriama funkcijų kūrimui).
 
-3. **Programinės įrangos kūrimo metodikos:** Tai konkretūs metodai, naudojami programinės įrangos kūrimo procesui struktūrizuoti, planuoti ir kontroliuoti. Jie apima į aprėptį orientuotą kūrimą (daugiausia dėmesio skiriama testų aprėpčiai), į kokybę orientuotą kūrimą (daugiausia dėmesio skiriama bendrai kokybei) ir į funkcijas orientuotą kūrimą (daugiausia dėmesio skiriama funkcijų kūrimui).
+    - **Coverage-Driven Development:**
 
-4. **Programinės įrangos kūrimo praktika:** Tai metodai, naudojami tobulinant kūrimo procesą, pavyzdžiui, ankstyvas ir dažnas grįžtamasis ryšys ir kodo peržiūros.
+      **Paaiškinimas:**
 
-5. **Sekvencinis SDLC modelis:** Tai SDLC modelio tipas, kai kūrimas vyksta nuosekliai žemyn per kelis etapus. Pavyzdžiai: krioklio modelis ir V formos modelis.
+      Apimtimi pagrįsta kūrimas - tai programinės įrangos kūrimo metodas, kuris pabrėžia testų aprėpties svarbą kūrimo procese.
 
-6. **Iteracinis ir inkrementinis SDLC modelis:** Tai SDLC modelio tipas, kai programinė įranga kuriama inkrementiniu būdu, o kūrimo procesas kartojamas mažomis iteracijomis. Pavyzdžiai: „Agile“ modelis, ekstremalusis programavimas (XP) ir spiralinis modelis.
+      ![alt text](./assets/images/cdd.png)
+  
+    - **Quality-Driven Development:**
 
-7. **Programinės įrangos kūrimo vaidmenys:** Tai įvairūs programinės įrangos kūrimo procese dalyvaujantys vaidmenys, kurių kiekvienas turi konkrečią atsakomybę ir užduotis. Jie gali apimti tokius vaidmenis kaip projekto vadovas, programinės įrangos kūrėjas, kokybės užtikrinimo testuotojas.
+      **Paaiškinimas:**
+
+      Į kokybę orientuoto kūrimo (angl. Quality-Driven Development, QDD) tikslas - užtikrinti, kad kokybės standartų būtų laikomasi kiekviename programinės įrangos kūrimo ciklo etape.
+
+      ![alt text](./assets/images/qdd.png)
+
+    - **Feature-Driven Development:**
+
+      **Paaiškinimas:**
+
+      Programinė įranga kuriama atliekant nedideles, klientui svarbias funkcijas arba ypatybes po vieną.
+
+      ![alt text](./assets/images/fdd.png)
+
+3. **Programinės įrangos kūrimo praktika:** Tai metodai, naudojami tobulinant kūrimo procesą, pavyzdžiui, ankstyvas ir dažnas grįžtamasis ryšys ir kodo peržiūros.
+
+4. **Sekvencinis SDLC modelis:** Tai SDLC modelio tipas, kai kūrimas vyksta nuosekliai žemyn per kelis etapus. Pavyzdžiai: krioklio modelis ir V formos modelis.
+
+    - **Waterfall Model:**
+
+      **Paaiškinimas:**
+
+      „Waterfall“ modelis yra linijinis programinės įrangos kūrimo metodas.
+
+      ![alt text](./assets/images/waterfallModel.png)
+
+    - **V-Shaped Model:**
+
+      **Paaiškinimas:**
+
+      Kiekvienas kūrimo ciklo etapas yra tiesiogiai susijęs su testavimo etapu.
+
+      ![alt text](./assets/images/vShapedModel.png)
+
+5. **Iteracinis ir inkrementinis SDLC modelis:** Tai SDLC modelio tipas, kai programinė įranga kuriama inkrementiniu būdu, o kūrimo procesas kartojamas mažomis iteracijomis. Pavyzdžiai: „Agile“ modelis, ekstremalusis programavimas (XP) ir spiralinis modelis.
+
+    **Agile modelis:**
+
+      **Paaiškinimas:**
+
+      Taikant „Agile“ metodiką, testavimas yra integruotas į visą kūrimo procesą, o ne atskiras etapas. Taikant šį metodą, dažnai vadinamą „Agile Testing“, pabrėžiamas bendradarbiavimas, klientų pasitenkinimas ir lankstumas prisitaikant prie pokyčių. Juo siekiama greitai sukurti aukštos kokybės programinę įrangą, testavimo veiklą vykdant nuolat per visą kūrimo ciklą.
+
+      **Pagrindinės sąvokos:**
+
+      1. **Agile manifestas:** Agile manifestas - tai dokumentas, kuriame išdėstytos pagrindinės Agile kūrimo vertybės ir principai. Jame pabrėžiami asmenys ir sąveika, veikianti programinė įranga, bendradarbiavimas su klientais ir reagavimas į pokyčius.
+
+      2. **Visos komandos požiūris:** Taikant „Agile“, už kokybę ir testavimą atsakinga visa komanda. Tai reiškia, kad testavimo veikloje dalyvauja visi - nuo programuotojų iki verslo analitikų. Toks požiūris skatina bendradarbiavimą, bendrą supratimą ir ankstyvą problemų nustatymą.
+
+      3. **Agile planavimas ir vykdymas:** Testavimas įtraukiamas į kiekvieną „Agile“ kūrimo proceso iteraciją (arba sprintą). Kiekvienos iteracijos pradžioje komanda suplanuoja atliktinus darbus, įskaitant testavimo veiklą. Per iteraciją testai nuolat projektuojami, vykdomi ir peržiūrimi.
+
+      ![alt text](./assets/images/agile.png)
+
+6. **Programinės įrangos kūrimo vaidmenys:** Tai įvairūs programinės įrangos kūrimo procese dalyvaujantys vaidmenys, kurių kiekvienas turi konkrečią atsakomybę ir užduotis. Jie gali apimti tokius vaidmenis kaip projekto vadovas, programinės įrangos kūrėjas, kokybės užtikrinimo testuotojas.
 
 ## Software Testing Life Cycle (STLC)
 
 **Paaiškinimas:**
 
-Programinės įrangos testavimo gyvavimo ciklas (angl. Software Testing Life Cycle, STLC) - tai konkrečių veiksmų, atliekamų testavimo proceso metu, seka, kuria siekiama užtikrinti programinės įrangos kokybę. Jis yra bendro programinės įrangos kūrimo gyvavimo ciklo (angl. Software Development Life Cycle, SDLC) dalis, tačiau jame daugiausia dėmesio skiriama būtent testavimo tikslams, strategijoms ir rezultatams.
+Programinės įrangos testavimo gyvavimo ciklas (angl. Software Testing Life Cycle, STLC) - tai konkrečių veiksmų, atliekamų testavimo proceso metu siekiant užtikrinti programinės įrangos kokybę, seka. Jis yra bendro programinės įrangos kūrimo gyvavimo ciklo (SDLC) dalis, tačiau jame daugiausia dėmesio skiriama būtent testavimo tikslams, strategijoms ir rezultatams.
 
 **Pagrindinės sąvokos:**
 
 1. **Programinės įrangos testavimo gyvavimo ciklo koncepcijos:** STLC apima keletą etapų, kurių kiekvienas turi savo tikslus ir rezultatus. Šie etapai paprastai apima reikalavimų analizę, testavimo planavimą, testavimo atvejų kūrimą, aplinkos sukūrimą, testavimo vykdymą ir testavimo ciklo užbaigimą.
 
-2. **Vaidmenys programinės įrangos testavime:** STLC dalyvauja įvairūs vaidmenys, kurių kiekvienas turi konkrečias pareigas. Tai gali būti testavimo vadovas (prižiūri testavimo procesą), testavimo vadovas (planuoja ir organizuoja testavimo veiksmus), testavimo analitikas (kuria testavimo atvejus), testavimo inžinierius (vykdo testus).
+2. **Vaidmenys programinės įrangos testavime:** STLC dalyvauja įvairūs vaidmenys, kurių kiekvienas turi konkrečias pareigas. Tai gali būti testavimo vadovas (prižiūri testavimo procesą), testavimo vadovas (planuoja ir organizuoja testavimo veiksmus), testavimo analitikas (kuria testavimo atvejus).
 
 ## Role of Testing in DevOps
 
 **Paaiškinimas:**
 
-DevOps metodikoje, kuri sujungia programinės įrangos kūrimą (Dev) ir IT operacijas (Ops). Jis nėra atskiras etapas, o integruotas į kiekvieną kūrimo ir diegimo proceso dalį. Šiuo metodu siekiama anksti pastebėti ir ištaisyti problemas, pagerinti programinės įrangos kokybę ir pagreitinti kūrimo ir diegimo laiką.
+DevOps metodikoje, kuri sujungia programinės įrangos kūrimą (Dev) ir IT operacijas (Ops). Jis nėra atskiras etapas, o integruotas į kiekvieną kūrimo ir diegimo proceso dalį.
 
 **Pagrindinės sąvokos:**
 
@@ -95,16 +173,4 @@ DevOps metodikoje, kuri sujungia programinės įrangos kūrimą (Dev) ir IT oper
 
 5. **Monitoringas ir registravimas:** DevOps sistemoje naudojamas nuolatinis monitoringas ir registravimas, kad būtų galima stebėti taikomosios programos našumą ir realiuoju laiku nustatyti problemas. Šie duomenys taip pat gali būti naudojami informuojant apie būsimus bandymus.
 
-## Role of Testing in Agile
-
-**Paaiškinimas:**
-
-Taikant „Agile“ metodiką, testavimas yra integruotas į visą kūrimo procesą, o ne atskiras etapas. Šis metodas, dažnai vadinamas „Agile Testing“, pabrėžia bendradarbiavimą, klientų pasitenkinimą ir lankstumą prisitaikant prie pokyčių. Juo siekiama greitai sukurti aukštos kokybės programinę įrangą, testavimo veiklą vykdant nuolat per visą kūrimo ciklą.
-
-**Pagrindinės sąvokos:**
-
-1. **Agile manifestas:** Agile manifestas - tai dokumentas, kuriame išdėstytos pagrindinės Agile kūrimo vertybės ir principai. Jame pabrėžiami asmenys ir sąveika, veikianti programinė įranga, bendradarbiavimas su klientais ir reagavimas į pokyčius.
-
-2. **Visos komandos požiūris:** Taikant „Agile“, už kokybę ir testavimą atsakinga visa komanda. Tai reiškia, kad testavimo veikloje dalyvauja visi - nuo programuotojų iki verslo analitikų. Toks požiūris skatina bendradarbiavimą, bendrą supratimą ir ankstyvą problemų nustatymą.
-
-3. **Agile planavimas ir vykdymas:** Testavimas įtraukiamas į kiekvieną „Agile“ kūrimo proceso iteraciją (arba sprintą). Kiekvienos iteracijos pradžioje komanda suplanuoja atliktinus darbus, įskaitant testavimo veiklą. Per iteraciją testai nuolat projektuojami, vykdomi ir peržiūrimi. Taip užtikrinama, kad visos naujos ar pakeistos funkcijos būtų kruopščiai išbandytos iki iteracijos pabaigos.
+![alt text](./assets/images/devops.png)

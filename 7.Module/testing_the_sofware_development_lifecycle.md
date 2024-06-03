@@ -5,7 +5,6 @@
   - [Software Development Life Cycle (SDLC) Models](#software-development-life-cycle-sdlc-models)
   - [Software Testing Life Cycle (STLC)](#software-testing-life-cycle-stlc)
   - [Role of Testing in DevOps](#role-of-testing-in-devops)
-  - [Role of Testing in Agile](#role-of-testing-in-agile)
 
 ## Testing Throughout the Software Development Lifecycle
 
@@ -27,11 +26,23 @@ Testing approaches in software development are strategies used to ensure the qua
 
 **Key Concepts:**
 
-1. **Shift Left and Right Approach:** This approach involves conducting testing early and often in the development process (shift left), and continuing testing into the deployment and maintenance stages (shift right).
+1. **Shift Left and Right Approach:** This approach involves conducting testing early and often in the development process (shift left), and continuing testing into the deployment and maintenance stages (shift right). The "left" side could be seen as the planning and documentation stages, and the "right" side as the coding, deployment, and maintenance stagesv
+
+    - **Early Testing:** The essence of shift left testing is moving all test activities to earlier stages in the development process, preferably at the requirements gathering and test planning stage.
+
+    - **Collaborative Approach:** Shift left testing promotes strong cooperation not only between the QA team and development team, but also other stakeholders, such as the Business Analyst or Project Managers.
+
+    - **Automation:** QA teams have decided to adopt shift left testing and continuous testing, it is wise to also invest in automation to speed up testing and increase operational efficiency.
+
+    - **Continuous Integration And Continuous Delivery (CI/CD):** Continuous Integration (CI) and Continuous Delivery (CD) are the combined practices and tools to automate the process of building, testing, and deploying software changes.
+
+    ![alt text](./assets/images/shiftleftright.png)
 
 2. **Continuous Testing:** This is the practice of conducting automated tests throughout the development process to catch issues as soon as they arise.
 
 3. **Test-Driven Development (TDD):** This is a development methodology where tests are written before the actual code. The code is then written to pass these tests. The Test-First Approach is a part of TDD where the tests are written first and the code is developed based on these tests.
+
+    ![alt text](./assets/images/tdd.png)
 
 4. **Behavior-Driven Development (BDD):** This is a development methodology where behavior specifications are written before the actual code. These specifications are then converted into tests and the code is written to pass these tests.
 
@@ -43,27 +54,93 @@ Testing approaches in software development are strategies used to ensure the qua
 
 8. **Testing Quadrants:** This is a model that helps teams identify what type of testing is needed, when it should be done, and who should do it. It divides testing into four quadrants based on whether the tests are business or technology-facing and whether they support the team or critique the product.
 
+    - **Quadrant 1** - Technology-Facing Tests that Support the Team: This quadrant includes tests that are technology-driven and are used to guide development. These are often automated tests. Examples include Unit Tests, Component Tests, and API Tests.
+
+    - **Quadrant 2** - Business-Facing Tests that Support the Team: This quadrant includes tests that are business-driven and are used to describe and validate what the system should do. These tests are often automated and include tests like Functional Tests.
+
+    - **Quadrant 3** - Business-Facing Tests that Critique the Product: This quadrant includes tests that are business-driven and are used to provide feedback. These tests are often manual and exploratory in nature. Examples include Exploratory Testing, Usability Testing, User Acceptance Testing, and Alpha/Beta Testing.
+
+    - **Quadrant 4** - Technology-Facing Tests that Critique the Product: This quadrant includes tests that are technology-driven and are used to critique the product from a non-functional requirement perspective. These tests are often automated and include Performance Testing, Security Testing, Load Testing, and Stress Testing.
+
+    ![alt text](./assets/images/testQuandrants.png)
+
 ## Software Development Life Cycle (SDLC) Models
 
 **Explanation:**
 
 Software Development Life Cycle (SDLC) models are methodologies that guide the process of developing software. These models provide a structured approach to software development, ensuring that the final product is reliable, high-quality, and meets the user's requirements.
 
+![alt image](./assets/images/SDLC.png)
+
 **Key Concepts:**
 
-1. **Concepts of Software Development Life Cycle:** The SDLC is a framework that defines the steps involved in the development of software, from initial requirement gathering to the final deployment and maintenance.
+1. **Process-oriented:** This approach focuses on the process of developing software, with an emphasis on planning, time schedules, target dates, budgets, and implementation of an entire system at one time.
 
-2. **Process-oriented:** This approach focuses on the process of developing software, with an emphasis on planning, time schedules, target dates, budgets, and implementation of an entire system at one time.
+2. **Software Development Methodologies:** These are specific methods used to structure, plan, and control the process of developing software. They include Coverage-Driven Development (focuses on test coverage), Quality-Driven Development (focuses on overall quality), and Feature-Driven Development (focuses on building features).
 
-3. **Software Development Methodologies:** These are specific methods used to structure, plan, and control the process of developing software. They include Coverage-Driven Development (focuses on test coverage), Quality-Driven Development (focuses on overall quality), and Feature-Driven Development (focuses on building features).
+    - **Coverage-Driven Development:**
 
-4. **Software Development Practices:** These are techniques used to improve the development process, such as early and frequent feedback and code reviews.
+        **Explanation:**
 
-5. **Sequential SDLC Model:** This is a type of SDLC model where development is seen as flowing steadily downwards through several phases. Examples include the Waterfall Model and V-Shaped Model.
+        Coverage-Driven Development is a software development approach that emphasizes the importance of test coverage in the development process.
 
-6. **Iterative and Incremental SDLC Model:** This is a type of SDLC model where the software is developed incrementally and the development process is repeated in small iterations. Examples include the Agile Model, Extreme Programming (XP), and Spiral Model.
+        ![alt text](./assets/images/cdd.png)
 
-7. **Roles in Software Development:** These are the different roles involved in the software development process, each with specific responsibilities and tasks. They can include roles like project manager, software developer, quality assurance tester.
+    - **Quality-Driven Development:**
+
+        **Explanation:**
+
+        Quality-Driven Development (QDD) is to ensure that quality standards are met at every stage of the software development lifecycle.
+
+        ![alt text](./assets/images/qdd.png)
+
+    - **Feature-Driven Development:**
+
+        **Explanation:**
+
+        Building software by completing small, client-valued functions, or features, one at a time.
+
+        ![alt text](./assets/images/fdd.png)
+
+3. **Software Development Practices:** These are techniques used to improve the development process, such as early and frequent feedback and code reviews.
+
+4. **Sequential SDLC Model:** This is a type of SDLC model where development is seen as flowing steadily downwards through several phases. Examples include the Waterfall Model and V-Shaped Model.
+
+    - **Waterfall Model:**
+
+      **Explanation:**
+
+      Waterfall Model, is a linear approach to software development.
+
+      ![alt text](./assets/images/waterfallModel.png)
+
+    - **V-Shaped Model:**
+
+      **Explanation:**
+
+      Every single phase in the development cycle, there is a directly associated testing phase.
+
+      ![alt text](./assets/images/vShapedModel.png)
+
+5. **Iterative and Incremental SDLC Model:** This is a type of SDLC model where the software is developed incrementally and the development process is repeated in small iterations. Examples include the Agile Model, Extreme Programming (XP), and Spiral Model.
+
+    - **Agile Model:**
+
+      **Explanation:**
+
+      In Agile methodologies, testing is integrated throughout the development process rather than being a separate phase. This approach, often referred to as Agile Testing, emphasizes collaboration, customer satisfaction, and flexibility to adapt to changes. It aims to deliver high-quality software quickly by conducting testing activities continuously throughout the development cycle.
+
+      **Key Concepts:**
+
+      1. **Agile Manifesto:** The Agile Manifesto is a document that outlines the key values and principles of Agile development. It emphasizes individuals and interactions, working software, customer collaboration, and responding to change.
+
+      2. **Whole Team Approach:** In Agile, the whole team is responsible for quality and testing. This means that everyone, from developers to business analysts, is involved in testing activities. This approach fosters collaboration, shared understanding, and early detection of issues.
+
+      3. **Iteration Planning and Execution in Agile:** Testing is included in every iteration (or sprint) of the Agile development process. At the start of each iteration, the team plans the work to be done, including testing activities. During the iteration, tests are continuously designed, executed, and reviewed.
+
+      ![alt text](./assets/images/agile.png)
+
+6. **Roles in Software Development:** These are the different roles involved in the software development process, each with specific responsibilities and tasks. They can include roles like project manager, software developer, quality assurance tester.
 
 ## Software Testing Life Cycle (STLC)
 
@@ -81,7 +158,7 @@ The Software Testing Life Cycle (STLC) is a sequence of specific activities cond
 
 **Explanation:**
 
-In DevOps, a methodology that integrates software development (Dev) and IT operations (Ops). It's not a separate phase but is integrated into every part of the development and deployment process. This approach aims to catch and fix issues early, improve software quality, and speed up development and deployment times.
+In DevOps, a methodology that integrates software development (Dev) and IT operations (Ops). It's not a separate phase but is integrated into every part of the development and deployment process.
 
 **Key Concepts:**
 
@@ -95,16 +172,4 @@ In DevOps, a methodology that integrates software development (Dev) and IT opera
 
 5. **Monitoring and Logging:** Continuous monitoring and logging are used in DevOps to track the application's performance and catch issues in real-time. This data can also be used to inform future testing efforts.
 
-## Role of Testing in Agile
-
-**Explanation:**
-
-In Agile methodologies, testing is integrated throughout the development process rather than being a separate phase. This approach, often referred to as Agile Testing, emphasizes collaboration, customer satisfaction, and flexibility to adapt to changes. It aims to deliver high-quality software quickly by conducting testing activities continuously throughout the development cycle.
-
-**Key Concepts:**
-
-1. **Agile Manifesto:** The Agile Manifesto is a document that outlines the key values and principles of Agile development. It emphasizes individuals and interactions, working software, customer collaboration, and responding to change.
-
-2. **Whole Team Approach:** In Agile, the whole team is responsible for quality and testing. This means that everyone, from developers to business analysts, is involved in testing activities. This approach fosters collaboration, shared understanding, and early detection of issues.
-
-3. **Iteration Planning and Execution in Agile:** Testing is included in every iteration (or sprint) of the Agile development process. At the start of each iteration, the team plans the work to be done, including testing activities. During the iteration, tests are continuously designed, executed, and reviewed. This ensures that any new or modified functionality is thoroughly tested before the iteration is complete.
+![alt text](./assets/images/devops.png)

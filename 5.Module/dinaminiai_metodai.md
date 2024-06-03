@@ -88,7 +88,7 @@ Vartotojo priėmimo testavimas (UAT) - tai paskutinis testavimo proceso etapas p
 
 **Explanation:**
 
-Bendradarbiaudami rašydami naudotojo istoriją, komandos nariai kartu rašo naudotojo istorijas, kurios yra programinės įrangos funkcijos aprašymai iš galutinio naudotojo perspektyvos. Šis bendradarbiavimo procesas padeda užtikrinti, kad būtų atsižvelgta į visas perspektyvas ir kad sukurta programinė įranga atitiktų visų suinteresuotųjų šalių poreikius.
+Bendradarbiaudami rašydami naudotojo istoriją, komandos nariai kartu rašo naudotojo istorijas, kurios yra programinės įrangos funkcijos aprašymai iš galutinio naudotojo perspektyvos.
 
 **Key Concepts:**
 
@@ -142,7 +142,7 @@ Alfa ir beta testavimas - tai programinės įrangos testavimo etapai, atliekami 
 
 **Explanation:**
 
-Juodosios dėžės" testavimo metodais daugiausia dėmesio skiriama programinės įrangos funkcionalumui, neatsižvelgiant į jos vidinę struktūrą. Testuotojas nežino apie vidinį sistemos veikimą ir testuoja programinę įrangą remdamasis įvesties ir išvesties duomenimis. Pagrindinis tikslas - patikrinti, kaip programinė įranga elgiasi reaguodama į įvairias įvestis, o ne patikrinti, kaip programinė įranga apdoroja įvestį ir sukuria išvestį.
+Juodosios dėžės" testavimo metodais daugiausia dėmesio skiriama programinės įrangos funkcionalumui, neatsižvelgiant į jos vidinę struktūrą. Testuotojas nežino apie vidinį sistemos veikimą ir testuoja programinę įrangą remdamasis įvesties ir išvesties duomenimis.
 
 **Key Concepts:**
 

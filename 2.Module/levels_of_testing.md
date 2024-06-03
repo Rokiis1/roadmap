@@ -15,7 +15,7 @@
 
 **Explanation:**
 
-Component Testing, also known as Unit Testing, is the first level of software testing where individual components (or units) of a software are tested. The purpose is to validate that each unit of the software performs as designed. A unit is the smallest testable part of any software, often a function or method in object-oriented programming.
+Component Testing, also known as Unit Testing, is the first level of software testing where individual components (or units) of a software are tested. The purpose is to validate that each unit of the software performs as designed.
 
 **Key Concepts:**
 
@@ -35,15 +35,11 @@ Component Testing, also known as Unit Testing, is the first level of software te
 
 **Explanation:**
 
-Component Integration Testing, also known as Unit Integration Testing, is the process of combining two or more units (components) and testing them as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units.
+Component Integration Testing, also known as Unit Integration Testing, is the process of combining two or more units (components) and testing them as a group.
 
 **Key Concepts:**
 
 1. **Interaction Between Units:** The main focus of integration testing is to test the interaction points between different units. It checks how well they work together and whether there are any issues when data is exchanged between them.
-
-2. **Top-Down and Bottom-Up Approaches:** These are two common approaches to integration testing. In the top-down approach, testing starts from the top modules and moves down to the lower levels. In the bottom-up approach, testing starts from the lower level modules and moves up to the higher levels.
-
-3. **Sandwich/Hybrid Approach:** This is a combination of top-down and bottom-up approaches. Some parts of the system are tested from top to bottom, while others are tested from bottom to top.
 
 ### System Testing
 
@@ -73,9 +69,7 @@ System Integration Testing (SIT) is a testing phase where individual units or co
 
 2. **Test Environment:** SIT should be conducted in an environment that closely mirrors the production environment.
 
-3. **Stubs and Drivers:** In SIT, stubs and drivers are used to simulate the behavior of missing components. A stub is a dummy module that simulates the behavior of a module that a unit under test interacts with. A driver is a module that invokes the unit under test.
-
-4. **End-to-End Testing:** SIT is often considered a type of end-to-end (E2E) testing, as it can involve testing processes that span multiple systems from start to finish.
+3. **End-to-End Testing:** SIT is often considered a type of end-to-end (E2E) testing, as it can involve testing processes that span multiple systems from start to finish.
 
 ### Acceptance Testing
 

@@ -12,7 +12,7 @@
 
 **Explanation:**
 
-Testavimo scenarijai - tai sąlygų arba kintamųjų, pagal kuriuos testuotojas nustato, ar testuojama sistema atitinka reikalavimus arba ar ji veikia teisingai, rinkinys. Testavimo atvejų kūrimo procesas taip pat gali padėti rasti problemų, susijusių su reikalavimais ar programos dizainu, kurias galima ištaisyti prieš kodavimą ar įgyvendinimą.
+Testavimo scenarijai - tai sąlygų arba kintamųjų, pagal kuriuos testuotojas nustato, ar testuojama sistema atitinka reikalavimus arba ar ji veikia teisingai, rinkinys.
 
 **Key Concepts:**
 
@@ -25,8 +25,7 @@ Testavimo scenarijai - tai sąlygų arba kintamųjų, pagal kuriuos testuotojas 
 7. **Tikėtinas rezultatas:** Tikėtinas testavimo atvejo rezultatas.
 8. ** Realus rezultatas: Faktinis testavimo atvejo rezultatas, užpildytas po testavimo atvejo vykdymo.
 9. **Postsąlygos:** Sistemos būsena po testo atvejo įvykdymo.
-10. **Statutas (įveiktas/neįveiktas):** ar testo atvejis buvo įveiktas, ar neįveiktas.
-11. **Pastabos:** Bet kokios papildomos pastabos apie bandymo atvejį.
+10. **Statutas (Pass/Fail):** ar testo atvejis buvo praėjas, ar nepraėjas.
 
 ### Test Case Design Process
 
@@ -74,9 +73,9 @@ Testavimo atvejo projektavimo procesas - tai sisteminis požiūris į sąlygų a
 
     *Statutas:*
 
-    1. **Pass:** Testo atvejis išlaikytas, t. y. faktinis rezultatas sutampa su laukiamu rezultatu.
+    1. **Pass:** Testo atvejis praėjas.
 
-    2. **Nepavykęs:** Bandymo atvejis nepavyko, t. y. faktinis rezultatas neatitiko laukiamo rezultato.
+    2. **Fail:** Bandymo atvejis nepraėjas.
 
     3. **Blocked:** Bandymo atvejis negalėjo būti įvykdytas, nes nepavyko atlikti būtino bandymo atvejo arba nebuvo atliktas sąrankos veiksmas.
 

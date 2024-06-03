@@ -13,7 +13,7 @@
 
 **Explanation:**
 
-Static techniques in software testing involve examining the software's code, requirements, and design documents without actually executing the software. These techniques are used to catch and prevent errors early in the software development life cycle, improving the quality of the software and reducing the cost of fixing errors later.
+In white box testing, the internal structure, design, and coding of the software are tested, which is known as structural testing. Static techniques are used in this process to validate the code, design documents, and software requirements without actually executing the software.
 
 **Key Concepts:**
 
@@ -27,7 +27,7 @@ Static techniques in software testing involve examining the software's code, req
 
 5. **Scenario-based reviewing:** In this technique, reviewers use a set of predefined scenarios to guide their review.
 
-6. **Static Analysis:** This is a technique where tools are used to analyze code for potential errors, code smells, and security vulnerabilities.
+6. **Static Analysis:** This is a technique where tools are used to analyze code for potential errors, and security vulnerabilities.
 
 7. **Model-Based Analysis:** This is a technique where models of the software (like data flow diagrams or entity-relationship diagrams) are analyzed to find errors or potential improvements.
 
@@ -45,7 +45,7 @@ It allows for the identification and rectification of misunderstandings or error
 
 3. **Risk Mitigation:** Early and frequent feedback can help identify and mitigate risks in the project, as potential issues can be identified and addressed sooner.
 
-4. **Better Alignment with Business Needs:** Regular interaction with stakeholders ensures that the software being developed aligns with the business needs and expectations, leading to higher stakeholder satisfaction.
+4. **Better Alignment with Business Needs:** Regular interaction with stakeholders ensures that the software being developed aligns with the business needs and expectations.
 
 5. **Efficient Use of Resources:** By catching and addressing issues early, resources can be used more efficiently, reducing the time and cost of development.
 
@@ -63,11 +63,11 @@ The review process in static techniques involves a systematic examination of sof
 
 3. **Individual Review:** Each reviewer independently examines the documents for potential issues. They may use techniques like checklist-based reviewing or scenario-based reviewing to guide their examination.
 
-4. **Review Meeting:** The reviewers meet to discuss their findings. Any disagreements or misunderstandings are resolved, and the team agrees on the issues that need to be addressed.
+4. **Review Meeting:** The reviewers meet to discuss their findings. Any disagreements or misunderstandings are resolved.
 
 5. **Rework:** Based on the review meeting, necessary changes are made to the documents or code.
 
-6. **Follow-up:** The changes are verified to ensure they've been correctly implemented and have resolved the identified issues. The review process is also evaluated to identify any improvements that can be made for future reviews.
+6. **Follow-up:** The changes are verified to ensure they've been correctly implemented and have resolved the identified issues.
 
 ### Review Types
 
@@ -79,11 +79,11 @@ Reviews are a type of static testing where software documents (like requirements
 
 1. **Informal Review:** An informal review is a flexible process where the documents are reviewed without a formal process or documentation of defects. It's often used for quickly catching obvious errors or getting an overview of the document's quality.
 
-2. **Walkthrough:** A walkthrough is a type of review where the author of the document presents it to the reviewers and walks them through it. The goal is to gather feedback and learn about any potential issues.
+2. **Walkthrough:** A walkthrough is a type of review where the author of the document presents it to the reviewers and walks them through it.
 
-3. **Technical Review:** A technical review is a more formal process where a team of qualified personnel reviews the technical content of the document. The goal is to ensure the document is technically sound and meets its requirements.
+3. **Technical Review:** A technical review is a more formal process where a team of qualified personnel reviews the technical content of the document.
 
-4. **Inspections:** An inspection is a very formal review process where the document is examined in detail by a team of reviewers. The goal is to find and document defects for later correction. Inspections often follow a defined process and use checklists to guide the review.
+4. **Inspections:** An inspection is a very formal review process where the document is examined in detail by a team of reviewers.
 
 ### Checklist-based reviewing
 
@@ -91,25 +91,25 @@ Reviews are a type of static testing where software documents (like requirements
 
 Checklist-based reviewing is a static testing technique where reviewers use a predefined checklist to guide their review of software documents like requirements, design documents, and code. The checklist typically includes common errors or issues to look for, ensuring a systematic and thorough review.
 
+![alt text](./assets/images/checklistReviewing.png)
+
 **Key Concepts:**
 
 1. **Systematic Review:** The use of a checklist ensures that the review is systematic and covers all important aspects of the document.
 
-2. **Common Errors:** The checklist typically includes common errors or issues to look for, based on past experience or industry standards.
+2. **Common Errors:** The checklist typically includes common errors or issues to look for.
 
-3. **Efficiency:** Using a checklist can make the review process more efficient, as it provides a clear guide for what to look for.
-
-4. **Consistency:** Checklists help ensure consistency across reviews, as all reviewers are guided by the same list of items to check.
+3. **Consistency:** Checklists help ensure consistency across reviews, as all reviewers are guided by the same list of items to check.
 
 ### Scenario-based reviewing
 
 **Explanation:**
 
-Scenario-based reviewing is a static testing technique where reviewers use predefined scenarios to guide their review of software documents like requirements, design documents, and code. These scenarios represent potential use cases or paths through the software, helping reviewers understand how the software is supposed to work and identify any potential issues.
+Scenario-based reviewing is a static testing technique where reviewers use predefined scenarios to guide their review of software documents like requirements, design documents, and code.
 
 **Key Concepts:**
 
-**Use Cases:** Scenarios often represent potential use cases for the software, helping reviewers understand the context in which the software will be used.
+**Use Cases:** Scenarios often represent potential use cases for the software.
 
 **Path Analysis:** Scenarios can also represent potential paths through the software, helping reviewers identify issues like unreachable code or potential bottlenecks.
 
@@ -117,25 +117,46 @@ Scenario-based reviewing is a static testing technique where reviewers use prede
 
 **Issue Identification:** Scenario-based reviewing can help identify issues that might not be caught in a more general review, like usability issues or issues that only occur in specific scenarios.
 
-**User Perspective:** Scenario-based reviewing helps reviewers consider the user's perspective, improving the usability and user-friendliness of the software.
+**User Perspective:** Helps improving the usability and user-friendliness of the software.
+
+**Example:**
+
+  **Scenario:** User logs in and updates profile information
+
+  **Steps:**
+
+  1. User navigates to the login page
+  2. User enters their username and password
+  3. User clicks the 'Log In' button
+  4. User is taken to their profile page
+  5. User clicks the 'Edit Profile' button
+  6. User updates their profile information
+  7. User clicks the 'Save Changes' button
+  8. User's updated profile information is saved
 
 ### Static Analysis
 
 **Explanation:**
 
-Is a method of debugging by examining the code without executing the program. The process provides an understanding of the code structure, and can help to ensure that the code adheres to industry standards. It can also identify potential flaws (like syntax errors, type mismatches, or memory leaks) that might lead to vulnerabilities.
+Is a method of debugging by examining the code without executing the program. Static Analysis is typically performed by both developers and software testers
+
+  1. **Developers** perform static analysis as part of their coding and debugging process. They use static analysis tools to check their code for errors, bugs, or code.
+
+  2. **Software Testers** Can use static analysis tools to check the code for potential issues that might not be caught by dynamic testing. This can include things like checking potential security vulnerabilities, or areas of the code that are overly complex and might need refactoring.
 
 **Key Concepts:**
 
-1. **Code Quality Assurance:** Static analysis helps maintain high code quality by enforcing coding standards and detecting anomalies early in the development cycle.
+1. **Choose a Static Analysis Tool:** The choice of tool depends on the programming language you're using and the specific requirements of your project. Examples Pylint for Python, ESLint for JavaScript.
 
-2. **Bug Detection:** It can identify potential bugs that might not be caught during dynamic testing.
+2. **Configure the Tool:** You can configure and choose which rules you want to enforce, based on your team's coding standards and the specific needs of your project.
 
-3. **Security:** Static analysis can detect vulnerabilities in the code that could be exploited, helping to improve the software's security.
+3. **Run the Tool:** This can be done manually, but it's often integrated into the build process or the continuous integration pipeline, so it runs automatically whenever the code is built or committed.
 
-4. **Maintainability:** By encouraging good coding practices and standards, static analysis can make the code more understandable and maintainable.
+4. **Review the Results:** The tool will provide a report of any issues it found, such as potential bugs, or violations of coding standards.
 
-5. **Efficiency:** Static analysis tools can quickly scan large codebases, making them an efficient way to catch potential issues.
+5. **Fix the Issues:** Update the source code to fix the issues identified by the static analysis tool. This might involve fixing bugs, refactoring code, or making the code conform to coding standards.
+
+6. **Repeat the Process:** Static analysis is not a one-time process. It should be done regularly, ideally every time the code is built or committed, to catch new issues as they are introduced.
 
 ### Model-Based Analysis
 
@@ -154,3 +175,9 @@ Model-based analysis is a static testing technique where models of the software 
 4. **Communication:** Models can serve as a communication tool between different stakeholders (like developers, testers, and business analysts), helping to ensure a shared understanding of the system.
 
 5. **Documentation:** The models used in model-based analysis can also serve as documentation, providing a visual representation of the system's behavior.
+
+**Example:**
+
+- **UML Class Diagram**
+
+  ![alt text](image.png)

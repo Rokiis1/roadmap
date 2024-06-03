@@ -15,19 +15,19 @@
 
 **Explanation:**
 
-Komponentų testavimas, dar vadinamas vienetų testavimu(Unit Testing), yra pirmasis programinės įrangos testavimo lygis, kai testuojami atskiri programinės įrangos komponentai (arba vienetai). Tikslas - patvirtinti, kad kiekvienas programinės įrangos vienetas veikia taip, kaip numatyta. Vienetas yra mažiausia testuojama bet kurios programinės įrangos dalis, dažnai funkcija arba metodas objektinio programavimo atveju.
+Komponentų testavimas, dar vadinamas vienetų testavimu(Unit Testing), yra pirmasis programinės įrangos testavimo lygis, kai testuojami atskiri programinės įrangos komponentai (arba vienetai). Tikslas - patvirtinti, kad kiekvienas programinės įrangos vienetas veikia taip, kaip numatyta.
 
 **Key Concepts:**
 
 1. **Izoliacija:** Atliekant vienetų testavimą, komponentai testuojami izoliuotai nuo likusios sistemos dalies. Tai reiškia, kad jei testas nepavyksta, aišku, jog klaida yra testuojamame vienete.
 
-2. **Atskyrimas ir (arba) modeliavimas:** Norint pasiekti izoliaciją, gali tekti imituoti kitus komponentus, su kuriais vienetas sąveikauja, dažnai naudojant tokius metodus kaip modeliavimas arba modeliavimas.
+2. **Kūrymas netikrų duomenų:** Norint pasiekti izoliaciją, gali tekti imituoti kitus komponentus, su kuriais vienetas sąveikauja, dažnai yra naudojami netikri duomėnys.
 
 3. **White-Box testavimas:** Vienetų testavimas yra "baltosios dėžės" testavimo rūšis, nes norint parašyti testus, reikia žinoti vidinį vieneto veikimą.
 
 4. **Automatizuoti:** Vieneto testai paprastai yra automatizuoti ir atliekami kaip surinkimo proceso dalis. Tai leidžia reguliariai atlikti regresinius testus, nes kodų bazė vystosi.
 
-5. **Test-Driven Development (TDD):** Vienetų testavimas yra pagrindinė TDD, kūrimo metodikos, pagal kurią prieš rašant kodą rašomi nesėkmingi vienetų testai, kad jie būtų atlikti, dalis.
+5. **Test-Driven Development (TDD):** Vienetų testavimas yra pagrindinė TDD, kūrimo metodikos, pagal kurią prieš rašant kodą rašomi nesėkmingi vienetų testai, kad jie būtų vėliau pavyke.
 
 6. **Apimtis(Coverage:)** - tai rodiklis, rodantis, kokia dalis kodo bazės yra patikrinta vienetiniais testais. Pageidautina didelė aprėptis, nes ji sumažina neaptiktos klaidos tikimybę.
 
@@ -35,15 +35,11 @@ Komponentų testavimas, dar vadinamas vienetų testavimu(Unit Testing), yra pirm
 
 **Explanation:**
 
-Komponentų integravimo testavimas, dar vadinamas vienetų integravimo testavimu, yra dviejų ar daugiau vienetų (komponentų) sujungimo ir jų kaip grupės testavimo procesas. Šio lygio testavimo tikslas - atskleisti integruotų vienetų sąveikos klaidas.
+Komponentų integravimo testavimas, dar vadinamas vienetų integravimo testavimu, yra dviejų ar daugiau vienetų (komponentų) sujungimo ir jų kaip grupės testavimo procesas.
 
 **Key Concepts:**
 
 1. **Vienetų sąveika:** Pagrindinis integracijos testavimo tikslas - patikrinti skirtingų vienetų sąveikos taškus. Tikrinama, kaip gerai jie veikia kartu ir ar nekyla problemų, kai tarp jų keičiamasi duomenimis.
-
-2. **Top-Down ir Bottom-Up požiūriai:** Tai du paplitę integracijos testavimo metodai. Taikant požiūrį "iš viršaus į apačią", testavimas pradedamas nuo viršutinių modulių ir pereinama į žemesnius lygius. Taikant metodą "iš apačios į viršų", testavimas pradedamas nuo žemesnio lygio modulių ir pereinama prie aukštesnio lygio modulių.
-
-3. **Sandvičo / hibridinis požiūris:** Tai iš viršaus žemyn ir iš apačios į viršų požiūrių derinys. Kai kurios sistemos dalys testuojamos nuo viršaus į apačią, o kitos - nuo apačios į viršų.
 
 ## System Testing
 
@@ -73,9 +69,7 @@ Sistemos integracijos testavimas (SIT) - tai testavimo etapas, kurio metu atskir
 
 2. **Testavimo aplinka:** SIT turėtų būti atliekamas aplinkoje, kuri tiksliai atspindi gamybinę aplinką.
 
-3. **Pagrindiniai elementai ir tvarkyklės:** SIT metu trūkstamų komponentų elgsenai imituoti naudojami pagrindiniai elementai ir tvarkyklės. Stubas - tai fiktyvus modulis, imituojantis modulio, su kuriuo sąveikauja testuojamas vienetas, elgseną. Vairuotojas yra modulis, kuris iškviečia testuojamą vienetą.
-
-4. **Testavimas nuo pradžios iki galo:** SIT dažnai laikomas testavimo nuo galo iki galo (angl. end-to-end, E2E) tipu, nes gali apimti testavimo procesus, kurie apima kelias sistemas nuo pradžios iki pabaigos.
+3. **Testavimas nuo pradžios iki galo:** SIT dažnai laikomas testavimo nuo galo iki galo (angl. end-to-end, E2E) tipu, nes gali apimti testavimo procesus, kurie apima kelias sistemas nuo pradžios iki pabaigos.
 
 ### Acceptance Testing
 
