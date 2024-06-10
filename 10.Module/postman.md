@@ -85,16 +85,7 @@ Tool that developers and testers use to send requests to and receive responses f
 
     **Examples:**
 
-    1. **Setting up an Authorization Token:**
-
-        This script retrieves an `authToken` from the environment variables, prepends 'Bearer ' to it, and then sets it as a new environment variable `bearerToken`.
-
-        ```js
-        token = 'Bearer ' + pm.environment.get('authToken');
-        pm.environment.set('bearerToken', token);
-        ```
-
-    2. **Generate Random User**
+    1. **Generate Random User**
 
         This script generate random data.
 
@@ -121,7 +112,7 @@ Tool that developers and testers use to send requests to and receive responses f
         pm.environment.set("password", "P@ssw0rd");
         ```
 
-    3. **Return Data from API:**
+    2. **Return Data from API:**
 
         Get from API from the forst object the title
 
@@ -134,6 +125,15 @@ Tool that developers and testers use to send requests to and receive responses f
                 pm.globals.set("firstProductTitle", firstProductTitle);
             }
         });
+        ```
+
+    3. **Setting up an Authorization Token:**
+
+        This script retrieves an `authToken` from the environment variables, prepends 'Bearer ' to it, and then sets it as a new environment variable `bearerToken`.
+
+        ```js
+        token = 'Bearer ' + pm.environment.get('authToken');
+        pm.environment.set('bearerToken', token);
         ```
 
     **Post-response:**
