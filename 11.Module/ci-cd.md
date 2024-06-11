@@ -4,7 +4,7 @@
 
 CI/CD introduces ongoing automation and continuous monitoring throughout the lifecycle of apps, from integration and testing phases to delivery and deployment. This process, also known as a CI/CD pipeline, is an part of DevOps practices.
 
-![ci/cdWorkflow](./images/image.png)
+![cicdWorkflow](./images/image.png)
 
 1. **Code:** Developers write and commit code in a version control system like Git.
 
