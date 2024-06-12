@@ -21,8 +21,6 @@ Testų valdymas - tai programinės įrangos kūrimo praktika, apimanti programin
 - Ataskaitų rengimas ir rodikliai
 - Komandos narių bendradarbiavimas
 
-Translated with DeepL.com (free version)
-
 ### Test Planning
 
 **Paaiškinimas:**

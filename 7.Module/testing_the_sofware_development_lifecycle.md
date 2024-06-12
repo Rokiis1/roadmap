@@ -26,7 +26,7 @@ Testing approaches in software development are strategies used to ensure the qua
 
 **Key Concepts:**
 
-1. **Shift Left and Right Approach:** This approach involves conducting testing early and often in the development process (shift left), and continuing testing into the deployment and maintenance stages (shift right). The "left" side could be seen as the planning and documentation stages, and the "right" side as the coding, deployment, and maintenance stagesv
+1. **Shift Left and Right Approach:** This approach involves conducting testing early and often in the development process (shift left), and continuing testing into the deployment and maintenance stages (shift right). The "left" side could be seen as the planning and documentation stages, and the "right" side as the coding, deployment, and maintenance stages
 
     - **Early Testing:** The essence of shift left testing is moving all test activities to earlier stages in the development process, preferably at the requirements gathering and test planning stage.
 
@@ -121,6 +121,12 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
       Every single phase in the development cycle, there is a directly associated testing phase.
 
       ![alt text](./assets/images/vShapedModel.png)
+
+      **Key Concepts:**
+
+      - **Verification:** Regularly evaluate intermediary work products during the software development lifecycle to ensure that you're on the right track. This could involve code reviews, design reviews, or reviewing other documentation.
+
+      - **Validation:** Once the final product is ready, compare it to the user’s requirements to ensure that it meets the specified requirements. This could involve user acceptance testing or beta testing.
 
 5. **Iterative and Incremental SDLC Model:** This is a type of SDLC model where the software is developed incrementally and the development process is repeated in small iterations. Examples include the Agile Model, Extreme Programming (XP), and Spiral Model.
 

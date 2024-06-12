@@ -180,4 +180,4 @@ Model-based analysis is a static testing technique where models of the software 
 
 - **UML Class Diagram**
 
-  ![alt text](image.png)
+  ![alt text](./assets/images/uml.png)

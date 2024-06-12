@@ -179,4 +179,4 @@ Modeliu pagrįsta analizė - tai statinio testavimo metodas, kai analizuojami pr
 
 - **UML Class Diagram**
 
-  ![alt text](image.png)
+  ![alt text](./assets/images/uml.png)

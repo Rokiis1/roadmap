@@ -5,7 +5,6 @@
   - [Software Development Life Cycle (SDLC) Models](#software-development-life-cycle-sdlc-models)
   - [Software Testing Life Cycle (STLC)](#software-testing-life-cycle-stlc)
   - [Role of Testing in DevOps](#role-of-testing-in-devops)
-  - [Role of Testing in Agile](#role-of-testing-in-agile)
 
 ## Testing Throughout the Software Development Lifecycle
 
@@ -115,13 +114,19 @@ Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, ku
 
       ![alt text](./assets/images/waterfallModel.png)
 
-    - **V-Shaped Model:**
+    - **V-Model:**
 
       **Paaiškinimas:**
 
       Kiekvienas kūrimo ciklo etapas yra tiesiogiai susijęs su testavimo etapu.
 
       ![alt text](./assets/images/vShapedModel.png)
+
+      **Pagrindinės sąvokos:**
+
+      - **Patikrinimas:** Programinės įrangos kūrimo ciklo metu reguliariai vertinkite tarpinius darbo produktus, kad įsitikintumėte, jog einate teisingu keliu. Tai gali būti kodo peržiūros, projekto peržiūros arba kitų dokumentų peržiūra.
+
+      - **Tvirtinimas:** Kai galutinis produktas bus paruoštas, palyginkite jį su naudotojo reikalavimais, kad įsitikintumėte, jog jis atitinka nurodytus reikalavimus. Tai gali būti naudotojo priėmimo testavimas arba beta testavimas.
 
 5. **Iteracinis ir inkrementinis SDLC modelis:** Tai SDLC modelio tipas, kai programinė įranga kuriama inkrementiniu būdu, o kūrimo procesas kartojamas mažomis iteracijomis. Pavyzdžiai: „Agile“ modelis, ekstremalusis programavimas (XP) ir spiralinis modelis.
 
