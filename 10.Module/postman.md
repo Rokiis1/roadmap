@@ -236,38 +236,60 @@ Tool that developers and testers use to send requests to and receive responses f
         expect(foo).to.not.eql({ bar: 'baz' });
         ```
 
-    7. **Negative Test:**
-
-    8. **Schema validation:**
+    7. **Schema validation:**
 
         ```js
         let schema = {
             "type": "object",
             "properties": {
-                "Id": { "type": "string"},
-                "Progress": { "type": "string"},
-                "Status": { "type": "string"},
-                "Info": { "type" : "boolean"},
-                "Created": {"type": "string","format": "date-time"},
-                "Ended": {"type": "boolean"},
-                "Operation": {"type": "string"},
-                "Requested": {"type": "array",
-                    "items" :{
-                        "type": "string"
-                    }
-                },
-            },
+                "id": { "type": "number" },
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "available": { "type": "boolean" }
+        },
+            "required": ["id", "name", "type", "available"]
         };
 
         let jsonData = pm.response.json();
 
-        pm.test("Schema is valid", function() {
-            let validation = tv4.validate(jsonData, schema);
-            pm.expect(validation).to.be.true;
+        function validateSchema(data, schema) {
+            // data (the object you want to validate) and schema (the schema you want to validate against).
+            for (let key of schema.required) {
+                // That iterates over each key in the required array of the schema.
+                if (!data.hasOwnProperty(key) || typeof data[key] !== schema.properties[key].type) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        pm.test("Schema is valid for all items", function() {
+            // check if all items in the jsonData array match the schema. The validateSchema function is called for each item in the array.
+            let allValid = jsonData.every(item => validateSchema(item, schema));
+            // All items in the jsonData array match the schema
+            pm.expect(allValid).to.be.true;
         });
         ```
 
 6. **Runner:** The collection runner lets you run all requests in a collection in a specified sequence. This can be useful for automated testing scenarios.
+
+    **Key Concepts:**
+
+    1. **Collection Runner:** A feature in Postman that allows you to run all requests in a collection in a specified sequence. Useful for automated testing scenarios. However, it has a limitation when used in CI/CD pipelines across different operating systems, as it may not work as expected.
+
+    2. **Newman:** Postman's command-line collection runner. It allows you to run and test a Postman collection directly from the command-line and integrate with various CI/CD systems.
+
+        1. Install Newman globally on your system using npm. Open your terminal and run the following command: `npm install -g newman`.
+
+        2. Verify the installation by checking the Newman version: `newman -v`.
+
+        3. Once Newman is installed, you can run a collection using the run command followed by the URL or local path to your Postman collection. `newman run mycollection.json`.
+
+        4. Or if your collection is hosted on the Postman cloud:
+
+        ```bash
+        newman run https://api.getpostman.com/collections/${POSTMAN_COLLECTION_UID}?apikey=${POSTMAN_API_KEY} -e https://api.getpostman.com/environments/${POSTMAN_ENVIRONMENT_UID}?apikey=${POSTMAN_API_KEY}
+        ```
 
 7. **Data-driven testing:**
 
@@ -277,4 +299,4 @@ Tool that developers and testers use to send requests to and receive responses f
 
 9. **Documentation:** Postman auto-generates and hosts browser-viewable API documentation.
 
-10. **Mock Servers:** Postman allows you to create mock servers. A mock server is a fake API before the real one is built, and can be used for testing, or as a placeholder.
+10. **Mock Servers:** Postman allows you to create mock servers. A mock server is a fake API before the real one is built, and can be used for testing.
