@@ -1,11 +1,26 @@
 1. **Correctness:** Does the endpoint return the expected data when given valid input.
 
 ```js
-pm.test("Check if endpoint returns expected data", function () {
+// Use jsonData directly when the response from the API is a single object, not an array.
+pm.test("Response body contains expected data", function () {
+    pm.expect(jsonData.name).to.eql(name);
+    pm.expect(jsonData.age).to.eql(parseInt(age));
+});
+
+// Use jsonData[0] when the response from the API is an array of objects and you want to test the properties of the first object in that array.
+pm.test("Response body contains expected data", function () {
     let jsonData = pm.response.json();
-    pm.expect(jsonData.name).to.eql('Testas');
-    pm.expect(jsonData.age).to.eql(30);
-    pm.expect(jsonData.email).to.eql('Testas');
+    pm.expect(jsonData[0].name).to.eql(name);
+    pm.expect(jsonData[0].age).to.eql(parseInt(age));
+});
+
+// If the response is an array of objects
+pm.test("Response body contains expected data", function () {
+    let jsonData = pm.response.json();
+    jsonData.forEach((item, index) => {
+        pm.expect(item.name).to.eql(name);
+        pm.expect(item.age).to.eql(parseInt(age));
+    });
 });
 ```
 
@@ -72,34 +87,7 @@ pm.test("Schema is valid for all items", function() {
 });
 ```
 
-4. **Query Parameters and Path Parameters:** Does the API correctly handle query and path parameters.
-
-```js
-
-// Use jsonData directly when the response from the API is a single object, not an array.
-pm.test("Response body contains expected data", function () {
-    pm.expect(jsonData.name).to.eql(name);
-    pm.expect(jsonData.age).to.eql(parseInt(age));
-});
-
-// Use jsonData[0] when the response from the API is an array of objects and you want to test the properties of the first object in that array.
-pm.test("Response body contains expected data", function () {
-    let jsonData = pm.response.json();
-    pm.expect(jsonData[0].name).to.eql(name);
-    pm.expect(jsonData[0].age).to.eql(parseInt(age));
-});
-
-// If the response is an array of objects
-pm.test("Response body contains expected data", function () {
-    let jsonData = pm.response.json();
-    jsonData.forEach((item, index) => {
-        pm.expect(item.name).to.eql(name);
-        pm.expect(item.age).to.eql(parseInt(age));
-    });
-});
-```
-
-5. **Response Structure:** Does the structure of the response match what you expect.
+4. **Response Structure:** Does the structure of the response match what you expect.
 
 ```js
 pm.test("Response has expected structure", function () {
@@ -117,7 +105,7 @@ pm.test("Response has expected structure", function () {
 });
 ```
 
-6. **Response Headers:** Does the response include the expected headers.
+5. **Response Headers:** Does the response include the expected headers.
 
 ```js
 pm.test("Response includes expected headers", function () {
@@ -129,7 +117,7 @@ pm.test("Response includes expected headers", function () {
 });
 ```
 
-7. **Data Consistency:** Write tests that check the consistency of the data.
+6. **Data Consistency:** Write tests that check the consistency of the data.
 
 ```js
 pm.sendRequest({
@@ -142,29 +130,56 @@ pm.sendRequest({
 });
 ```
 
-8. **Pagination:** If your API supports pagination, you might want to write tests that check this functionality.
+7. **Pagination:** If your API supports pagination, you might want to write tests that check this functionality.
 
 ```js
 let pageSize = 10;
 
-// Check if the response is an array
+// Set the expected page size to 1
+let pageSize = 1;
+
+// Parse the response body to JSON
+let jsonData = pm.response.json();
+
+// Test to check if the response is an array
 pm.test("Response is an array", function () {
+    // Expect that the parsed JSON data is an array
     pm.expect(jsonData).to.be.an('array');
 });
 
-// Check if the response has the expected number of items
+// Test to check if the response has the expected number of items
 pm.test("Response has expected number of items", function () {
+    // Expect that the length of the array is equal to the page size
     pm.expect(jsonData.length).to.eql(pageSize);
 });
 
-// Check if the response includes a 'next' link
+// Test to check if the response includes a 'next' link
 pm.test("Response includes 'next' link", function () {
+    // Expect that the response headers include a 'Link' header
     pm.expect(pm.response.headers.has('Link')).to.be.true;
+    // Expect that the 'Link' header includes 'rel="next"'
     pm.expect(pm.response.headers.get('Link')).to.include('rel="next"');
+});
+
+// Test to check if the 'next' link points to the next page
+pm.test("'next' link points to the next page", function () {
+    // Get the 'Link' header from the response headers
+    let linkHeader = pm.response.headers.get('Link');
+    // Find the 'next' link in the 'Link' header
+    let nextLink = linkHeader.split(', ').find(link => link.endsWith('rel="next"'));
+    // Extract the page number from the 'next' link
+    // 'page=' is a literal string that the regex will try to match exactly
+
+    // (\d+) is a group that matches one or more digit characters
+    // \d is a shorthand character class that matches any digit (equivalent to [0-9])
+    // + is a quantifier that means 'one or more'
+    let nextPageNumber = nextLink.match(/page=(\d+)/)[1];
+    // Expect that the page number of the 'next' link is 2
+    pm.expect(parseInt(nextPageNumber)).to.eql(2);
 });
 ```
 
-9. **Sorting and Filtering:** If your API supports sorting or filtering of resources, you would want to write tests to check these features.
+8. **Sorting:** If your API supports sorting, you would want to write tests to check these features.
 
 ```js
 let sortField = 'name';
@@ -172,29 +187,9 @@ let filterValue = 'Test';
 
 let jsonData = pm.response.json();
 
-// Filter
-pm.test("First item has expected filter value", function () {
-    pm.expect(jsonData[0].state).to.eql(filterValue);
-});
-
 // Check if the items in the response are sorted by the expected field
 pm.test("Items are sorted by expected field", function () {
     let sorted = [...jsonData].sort((a, b) => (a[sortField] > b[sortField]) ? 1 : -1);
-    pm.expect(jsonData).to.eql(sorted);
-});
-
-// OR
-pm.test("Items are sorted by expected fields", function () {
-    let sorted = [...jsonData].sort((a, b) => {
-        for (let field of sortField) {
-            if (a[field] > b[field]) {
-                return 1;
-            } else if (a[field] < b[field]) {
-                return -1;
-            }
-        }
-        return 0;
-    });
     pm.expect(jsonData).to.eql(sorted);
 });
 ```
