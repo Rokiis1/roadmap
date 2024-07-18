@@ -71,18 +71,25 @@ User Acceptance Testing (UAT) is the final phase in the testing process before t
 
 4. **Final Phase:** UAT is usually the last phase of testing, conducted after unit, integration, and system testing.
 
-5. **Acceptance Criteria:** The software is tested against predefined acceptance criteria to determine if it is ready for delivery.
+5. **Acceptance Criteria:** The software is tested against predefined acceptance criteria to determine if it is ready for delivery. These criteria are essential for ensuring the software meets the end users' needs and requirements. There are two common formats for writing acceptance criteria: the Given-When-Then (Behavior-Driven Development - BDD) format and the Checklist format.
 
-  **Syntax:**
+  **Given-When-Then (BDD) Format Example:**
 
-  Acceptance criteria are typically written in a simple language in the format: **"Given [initial context], when [event occurs], then [ensure some outcomes]"**.
-
-  **Example:**
+  1. Given some initial context (the state of the system),
+  2. When an event occurs (an action is carried out),
+  3. Then ensure some outcomes.
 
   ```text
   - Given I have a product in my shopping cart,
     When I click on 'Checkout' and complete the payment process,
     Then I should receive an order confirmation.
+  ```
+
+  **Checklist Format Example:**
+
+  ```text
+  -  Navigate from the homepage to the registration page.
+  -  View a form on the registration page requesting name, email address, and password.
   ```
 
 ### Collaborative User Story Writing

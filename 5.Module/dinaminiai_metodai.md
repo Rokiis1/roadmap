@@ -70,18 +70,25 @@ Vartotojo priėmimo testavimas (UAT) - tai paskutinis testavimo proceso etapas p
 
 4. **Galutinis etapas:** UAT paprastai būna paskutinis testavimo etapas, atliekamas po vienetų, integracijos ir sistemos testavimo.
 
-5. **Priėmimo kriterijai:** Programinė įranga tikrinama pagal iš anksto nustatytus priėmimo kriterijus, siekiant nustatyti, ar ji parengta pristatymui.
+5. **Acceptance Criteria:** Programinė įranga išbandoma pagal iš anksto nustatytus tinkamumo kriterijus, kad būtų nustatyta, ar ją galima pristatyti. Šie kriterijai yra labai svarbūs siekiant užtikrinti, kad programinė įranga atitiktų galutinių naudotojų poreikius ir reikalavimus. Yra du įprasti priėmimo kriterijų rašymo formatai: „duota, kada, kas“ (elgsena pagrįsta plėtra - BDD) ir sąrašo formatas.
 
-  **Syntax:**
+  **Given-When-Then (BDD) Format Example:**
 
-  Acceptance criteria are typically written in a simple language in the format: **"Given [initial context], when [event occurs], then [ensure some outcomes]"**.
-
-  **Example:**
+  1. Given some initial context (the state of the system),
+  2. When an event occurs (an action is carried out),
+  3. Then ensure some outcomes.
 
   ```text
   - Given I have a product in my shopping cart,
     When I click on 'Checkout' and complete the payment process,
     Then I should receive an order confirmation.
+  ```
+
+  **Checklist Format Example:**
+
+  ```text
+  -  Navigate from the homepage to the registration page.
+  -  View a form on the registration page requesting name, email address, and password.
   ```
 
 ### Collaborative User Story Writing
