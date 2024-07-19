@@ -100,33 +100,107 @@ Collaborative User Story Writing involves the team working together to write use
 
 **Key Concepts:**
 
-1. **User Stories:** These are simple, clear, brief descriptions of functionality as viewed by a user.
+1. **Collaboration:** The process involves all relevant stakeholders, including developers, testers, business analysts, and users.
 
-    **Syntax:**
+2. **End-user Perspective:** User stories are written from the perspective of the end user, focusing on their needs and experiences.
 
-    A user story is typically written in the format: **"As a [type of user], I want [an action] so that [a benefit/a value]"**.
+3. **Acceptance Criteria:** Each user story includes acceptance criteria, which define the boundaries of a user story and are used to confirm when a story is completed and working as intended.
 
-    **Example:**
+4. **Iteration Planning:** User stories are often used in agile development methodologies during iteration planning or sprint planning meetings.
 
-    ```text
-    User Story: 
+5. **User Stories:** A User Story is written from the perspective of a user who wants to derive value from the product. It should focus on the user's desired outcomes and be embedded in the context where the user seeks value from the product.
 
-    "As a Customer, I want to purchase a product so that I can own the product."
+6. **INVEST:** is an acronym to help teams write high-quality, specific user stories that are independent, negotiable, valuable, estimatable, small, and testable.
 
-    Acceptance Criteria:
+**Syntax:**
 
-    I can add a product to the cart.
-    I can complete the payment process.
-    I receive an order confirmation after purchase.
-    ```
+A user story is typically written in the format: **"As a [type of user], I want [an action] so that [benefit/a value]"**.
 
-2. **Collaboration:** The process involves all relevant stakeholders, including developers, testers, business analysts, and users.
+```text
+WHO: As a [user type]
+WHAT: I want [action to perform]
+WHY: So that [the desired outcome]
+```
 
-3. **End-user Perspective:** User stories are written from the perspective of the end user, focusing on their needs and experiences.
+- **Independent:** Each User Story should be self-contained and not depend on other stories.
 
-4. **Acceptance Criteria:** Each user story includes acceptance criteria, which define the boundaries of a user story and are used to confirm when a story is completed and working as intended.
+- **Negotiable:** The details of the User Story can be discussed and negotiated with the team and the stakeholders.
 
-5. **Iteration Planning:** User stories are often used in agile development methodologies during iteration planning or sprint planning meetings.
+- **Valuable:** The User Story delivers value to the user.
+
+- **Estimable:** It should be possible to estimate the effort required to complete the User Story.
+
+- **Small:** User Stories should be small enough to be completed within a single iteration. If you do not work in iterations, you might assume 2-4 weeks as the rule of thumb.
+
+- **Testable:** There are clear criteria to determine if the story has been successfully implemented.
+
+**Example:**
+
+*User Story 1:*
+
+```text
+
+User Story:
+
+"As a Online Shopper, I want to read reviews of a product before making the decision so that I can reduce the uncertainty."
+
+Acceptance Criteria:
+
+1. Review Display: The product page must display at least 5 reviews for each product to provide a range of opinions and insights.
+
+2. Review Types: Initially, the system should support text reviews. Future iterations can discuss and potentially include ratings and video reviews based on team and stakeholder negotiations.
+
+3. Filtering Capability: Users should have the option to filter reviews based on criteria such as date, rating, or helpfulness, to find the information most relevant to them.
+
+INVEST criteria:
+
+Independent: This story stands alone as it does not require other features to be implemented first.
+
+Negotiable: The team could discuss what types of reviews are most helpful (text, ratings, video) and how they should be presented.
+
+Valuable: The value is clear, it helps reduce purchase uncertainty for the shopper.
+
+Estimable: The team needs enough detail to estimate the effort, such as the source of reviews and integration points.
+
+Small: If too large (involving complex review), it might need to be broken down (start with text reviews only).
+
+Testable: Acceptance criteria could include displaying at least 5 reviews per product and updating reviews in real-time.
+```
+
+*User Story 2:*
+
+```text
+
+User Story:
+
+As a User,
+
+I want to drag and drop tasks within a list
+
+So that I can reorder them quicly and easily
+
+Acceptance Criteria:
+
+1. Functionality: Users must be able to drag any task within a list and drop it to a new position within the same list.
+
+2. List Update: After dropping a task to a new position, the list must immediately reflect the new order without requiring a page refresh or any additional user action.
+
+3. Accessibility: Ensure that the drag-and-drop functionality is accessible, allowing users who rely on keyboard navigation or screen readers to reorder tasks as well.
+
+INVEST criteria:
+
+Independent: This story is self-contained, assuming the basic task list functionality already exists.
+
+Negotiable: Details like the visual feedback during drag-and-drop and how the list updates can be discussed.
+
+Valuable: It directly addresses user efficiency in organizing tasks.
+
+Estimable: The team should understand the current list implementation to estimate the effort for adding drag-and-drop.
+
+Small: If implementing drag-and-drop is complex, consider initially supporting it for smaller lists.
+
+Testable: Criteria might include the ability to reorder tasks within a list and have the new order persist across sessions.
+```
 
 ### Alpha and Beta Testing
 
