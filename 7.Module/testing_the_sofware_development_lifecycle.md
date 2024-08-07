@@ -76,35 +76,7 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
 
 1. **Process-oriented:** This approach focuses on the process of developing software, with an emphasis on planning, time schedules, target dates, budgets, and implementation of an entire system at one time.
 
-2. **Software Development Methodologies:** These are specific methods used to structure, plan, and control the process of developing software. They include Coverage-Driven Development (focuses on test coverage), Quality-Driven Development (focuses on overall quality), and Feature-Driven Development (focuses on building features).
-
-    - **Coverage-Driven Development:**
-
-        **Explanation:**
-
-        Coverage-Driven Development is a software development approach that emphasizes the importance of test coverage in the development process.
-
-        ![alt text](./assets/images/cdd.png)
-
-    - **Quality-Driven Development:**
-
-        **Explanation:**
-
-        Quality-Driven Development (QDD) is to ensure that quality standards are met at every stage of the software development lifecycle.
-
-        ![alt text](./assets/images/qdd.png)
-
-    - **Feature-Driven Development:**
-
-        **Explanation:**
-
-        Building software by completing small, client-valued functions, or features, one at a time.
-
-        ![alt text](./assets/images/fdd.png)
-
-3. **Software Development Practices:** These are techniques used to improve the development process, such as early and frequent feedback and code reviews.
-
-4. **Sequential SDLC Model:** This is a type of SDLC model where development is seen as flowing steadily downwards through several phases. Examples include the Waterfall Model and V-Shaped Model.
+2. **Sequential SDLC Model:** This is a type of SDLC model where development is seen as flowing steadily downwards through several phases. Examples include the Waterfall Model and V-Shaped Model.
 
     - **Waterfall Model:**
 
@@ -128,7 +100,7 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
 
       - **Validation:** Once the final product is ready, compare it to the user’s requirements to ensure that it meets the specified requirements. This could involve user acceptance testing or beta testing.
 
-5. **Iterative and Incremental SDLC Model:** This is a type of SDLC model where the software is developed incrementally and the development process is repeated in small iterations. Examples include the Agile Model, Extreme Programming (XP), and Spiral Model.
+3. **Iterative and Incremental SDLC Model:** This is a type of SDLC model where the software is developed incrementally and the development process is repeated in small iterations. Examples include the Agile Model, Extreme Programming (XP), and Spiral Model.
 
     - **Agile Model:**
 
@@ -146,7 +118,7 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
 
       ![alt text](./assets/images/agile.png)
 
-6. **Roles in Software Development:** These are the different roles involved in the software development process, each with specific responsibilities and tasks. They can include roles like project manager, software developer, quality assurance tester.
+4. **Roles in Software Development:** These are the different roles involved in the software development process, each with specific responsibilities and tasks. They can include roles like project manager, software developer, quality assurance tester.
 
 ## Software Testing Life Cycle (STLC)
 

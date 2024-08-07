@@ -76,35 +76,7 @@ Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, ku
 
 1. **Į procesą orientuotas požiūris:** Šiame požiūryje daugiausia dėmesio skiriama programinės įrangos kūrimo procesui, akcentuojant planavimą, tvarkaraščius, tikslines datas, biudžetus ir visos sistemos įgyvendinimą vienu metu.
 
-2. **Programinės įrangos kūrimo metodikos:** Tai konkretūs metodai, naudojami programinės įrangos kūrimo procesui struktūrizuoti, planuoti ir kontroliuoti. Jie apima į aprėptį orientuotą kūrimą (daugiausia dėmesio skiriama testų aprėpčiai), į kokybę orientuotą kūrimą (daugiausia dėmesio skiriama bendrai kokybei) ir į funkcijas orientuotą kūrimą (daugiausia dėmesio skiriama funkcijų kūrimui).
-
-    - **Coverage-Driven Development:**
-
-      **Paaiškinimas:**
-
-      Apimtimi pagrįsta kūrimas - tai programinės įrangos kūrimo metodas, kuris pabrėžia testų aprėpties svarbą kūrimo procese.
-
-      ![alt text](./assets/images/cdd.png)
-  
-    - **Quality-Driven Development:**
-
-      **Paaiškinimas:**
-
-      Į kokybę orientuoto kūrimo (angl. Quality-Driven Development, QDD) tikslas - užtikrinti, kad kokybės standartų būtų laikomasi kiekviename programinės įrangos kūrimo ciklo etape.
-
-      ![alt text](./assets/images/qdd.png)
-
-    - **Feature-Driven Development:**
-
-      **Paaiškinimas:**
-
-      Programinė įranga kuriama atliekant nedideles, klientui svarbias funkcijas arba ypatybes po vieną.
-
-      ![alt text](./assets/images/fdd.png)
-
-3. **Programinės įrangos kūrimo praktika:** Tai metodai, naudojami tobulinant kūrimo procesą, pavyzdžiui, ankstyvas ir dažnas grįžtamasis ryšys ir kodo peržiūros.
-
-4. **Sekvencinis SDLC modelis:** Tai SDLC modelio tipas, kai kūrimas vyksta nuosekliai žemyn per kelis etapus. Pavyzdžiai: krioklio modelis ir V formos modelis.
+2. **Sekvencinis SDLC modelis:** Tai SDLC modelio tipas, kai kūrimas vyksta nuosekliai žemyn per kelis etapus. Pavyzdžiai: krioklio modelis ir V formos modelis.
 
     - **Waterfall Model:**
 
@@ -128,7 +100,7 @@ Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, ku
 
       - **Tvirtinimas:** Kai galutinis produktas bus paruoštas, palyginkite jį su naudotojo reikalavimais, kad įsitikintumėte, jog jis atitinka nurodytus reikalavimus. Tai gali būti naudotojo priėmimo testavimas arba beta testavimas.
 
-5. **Iteracinis ir inkrementinis SDLC modelis:** Tai SDLC modelio tipas, kai programinė įranga kuriama inkrementiniu būdu, o kūrimo procesas kartojamas mažomis iteracijomis. Pavyzdžiai: „Agile“ modelis, ekstremalusis programavimas (XP) ir spiralinis modelis.
+3. **Iteracinis ir inkrementinis SDLC modelis:** Tai SDLC modelio tipas, kai programinė įranga kuriama inkrementiniu būdu, o kūrimo procesas kartojamas mažomis iteracijomis. Pavyzdžiai: „Agile“ modelis, ekstremalusis programavimas (XP) ir spiralinis modelis.
 
     **Agile modelis:**
 
@@ -146,7 +118,7 @@ Programinės įrangos kūrimo gyvavimo ciklo (SDLC) modeliai - tai metodikos, ku
 
       ![alt text](./assets/images/agile.png)
 
-6. **Programinės įrangos kūrimo vaidmenys:** Tai įvairūs programinės įrangos kūrimo procese dalyvaujantys vaidmenys, kurių kiekvienas turi konkrečią atsakomybę ir užduotis. Jie gali apimti tokius vaidmenis kaip projekto vadovas, programinės įrangos kūrėjas, kokybės užtikrinimo testuotojas.
+4. **Programinės įrangos kūrimo vaidmenys:** Tai įvairūs programinės įrangos kūrimo procese dalyvaujantys vaidmenys, kurių kiekvienas turi konkrečią atsakomybę ir užduotis. Jie gali apimti tokius vaidmenis kaip projekto vadovas, programinės įrangos kūrėjas, kokybės užtikrinimo testuotojas.
 
 ## Software Testing Life Cycle (STLC)
 
