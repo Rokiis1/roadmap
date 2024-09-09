@@ -17,10 +17,6 @@ While JavaScript was traditionally used for client-side scripting in the browser
 
 **Key Concepts:**
 
-- **Event-driven** means that Node.js waits for events to happen and responds to them. This is different from traditional server-side programming, where the server may wait for requests to come in and then process them.
-
-- **Non-blocking I/O model** means that Node.js doesn't stop or "block" for Input/Output (I/O) operations like reading from the network, accessing the database or the filesystem. Instead, it continues to process other things and then comes back to the I/O operation when it's finished. This makes Node.js highly efficient and capable of handling a large number of simultaneous connections with high throughput.
-
 ![node image](./assets/images/ecmaScript/nodejs.png)
 
 # Modules
