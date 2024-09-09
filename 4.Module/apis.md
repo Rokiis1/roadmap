@@ -4,7 +4,6 @@
 - [What is an API architecture or protocol?](#what-is-an-api-architecture-or-protocol)
 - [RESTful API](#restful-api)
 - [Design for the APIs](#design-for-the-apis)
-- [HTTP Methods vs database Statement](#http-methods-vs-database-statement)
 
 ## What is API's?
 
