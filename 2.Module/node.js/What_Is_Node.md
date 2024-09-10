@@ -294,24 +294,32 @@ Node.js provides a built-in module called `fs` (file system) that allows you to 
   ```js
   import { readFile } from 'fs/promises';
 
-  try {
-    const data = await readFile('example.txt', 'utf8');
-    console.log(data);
-  } catch (err) {
-    console.error(err);
+  async function readFileAsync(fileName) {
+    try {
+      const data = await readFile(fileName, 'utf8');
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
   }
+
+  readFileAsync('example.txt');
 
 - **Reading a File (Synchronous):**
 
 ```js
 import { readFileSync } from 'fs';
 
-try {
-  const data = readFileSync('example.txt', 'utf8');
-  console.log(data);
-} catch (err) {
-  console.error(err);
+function readFileSyncFunction(fileName) {
+  try {
+    const data = readFileSync(fileName, 'utf8');
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+readFileSyncFunction('example.txt');
 ```
 
 - **Writing to a File (Asynchronous):**
@@ -319,14 +327,16 @@ try {
 ```js
 import { writeFile } from 'fs/promises';
 
-const content = 'Some content to write to the file';
-
-try {
-  await writeFile('example.txt', content);
-  console.log('File has been written');
-} catch (err) {
-  console.error(err);
+async function writeFileAsync(fileName, content) {
+  try {
+    await writeFile(fileName, content);
+    console.log('File has been written');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+writeFileAsync('example.txt', 'Some content to write to the file');
 ```
 
 - **Writing to a File (Synchronous):**
@@ -334,14 +344,17 @@ try {
 ```js
 import { writeFileSync } from 'fs';
 
-const content = 'Some content to write to the file';
-
-try {
-  writeFileSync('example.txt', content);
-  console.log('File has been written');
-} catch (err) {
-  console.error(err);
+function writeFileSyncFunction(fileName, content) {
+  try {
+    writeFileSync(fileName, content);
+    console.log('File has been written');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+
+writeFileSyncFunction('example.txt', 'Some content to write to the file');
 ```
 
 - **Appending to a File (Asynchronous):**
@@ -349,14 +362,17 @@ try {
 ```js
 import { appendFile } from 'fs/promises';
 
-const content = 'Some content to append to the file';
-
-try {
-  await appendFile('example.txt', content);
-  console.log('Content has been appended');
-} catch (err) {
-  console.error(err);
+async function appendFileAsync(fileName, content) {
+  try {
+    await appendFile(fileName, content);
+    console.log('Content has been appended');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+// Usage
+appendFileAsync('example.txt', 'Some content to append to the file');
 ```
 
 - **Appending to a File (Synchronous):**
@@ -364,14 +380,16 @@ try {
 ```js
 import { appendFileSync } from 'fs';
 
-const content = 'Some content to append to the file';
-
-try {
-  appendFileSync('example.txt', content);
-  console.log('Content has been appended');
-} catch (err) {
-  console.error(err);
+function appendFileSyncFunction(fileName, content) {
+  try {
+    appendFileSync(fileName, content);
+    console.log('Content has been appended');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+appendFileSyncFunction('example.txt', 'Some content to append to the file');
 ```
 
 - **Deleting a File (Asynchronous):**
@@ -379,12 +397,16 @@ try {
 ```js
 import { unlink } from 'fs/promises';
 
-try {
-  await unlink('example.txt');
-  console.log('File has been deleted');
-} catch (err) {
-  console.error(err);
+async function deleteFileAsync(fileName) {
+  try {
+    await unlink(fileName);
+    console.log('File has been deleted');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+deleteFileAsync('example.txt');
 ```
 
 - **Deleting a File (Synchronous):**
@@ -392,12 +414,17 @@ try {
 ```js
 import { unlinkSync } from 'fs';
 
-try {
-  unlinkSync('example.txt');
-  console.log('File has been deleted');
-} catch (err) {
-  console.error(err);
+
+function deleteFileSyncFunction(fileName) {
+  try {
+    unlinkSync(fileName);
+    console.log('File has been deleted');
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+deleteFileSyncFunction('example.txt');
 ```
 
 - **Using __dirname and __filename with Path Module:**
@@ -406,16 +433,20 @@ try {
 const { readFileSync } = require('fs');
 const { join } = require('path');
 
-console.log('__dirname:', __dirname);
-console.log('__filename:', __filename);
+function readFileWithDir(fileName) {
+  console.log('__dirname:', __dirname);
+  console.log('__filename:', __filename);
 
-const filePath = join(__dirname, 'example.txt');
-try {
-  const data = readFileSync(filePath, 'utf8');
-  console.log(data);
-} catch (err) {
-  console.error(err);
+  const filePath = join(__dirname, fileName);
+  try {
+    const data = readFileSync(filePath, 'utf8');
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+readFileWithDir('example.txt');
 ```
 
 ```js
@@ -427,16 +458,20 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-console.log('__dirname:', __dirname);
-console.log('__filename:', __filename);
+function readFileWithDir(fileName) {
+  console.log('__dirname:', __dirname);
+  console.log('__filename:', __filename);
 
-const filePath = join(__dirname, 'example.txt');
-try {
-  const data = readFileSync(filePath, 'utf8');
-  console.log(data);
-} catch (err) {
-  console.error(err);
+  const filePath = join(__dirname, fileName);
+  try {
+    const data = readFileSync(filePath, 'utf8');
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+readFileWithDir('example.txt');
 ```
 
 ## Environment Variables
