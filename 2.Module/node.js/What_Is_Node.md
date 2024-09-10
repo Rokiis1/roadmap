@@ -1,11 +1,12 @@
 # Table of Contents
 
 - [Node.js Introduction](#nodejs-introduction)
+- [Process](#process)
 - [Running application](#running-application)
 - [Monitor Change](#monitor-change)
 - [Modules](#modules)
 - [Working with Files](#working-with-files)
-- [Process](#process)
+- [Environment Variables](#environment-variables)
 
 ## Node.js Introduction
 
@@ -30,15 +31,77 @@ While JavaScript was traditionally used for client-side scripting in the browser
 
 - [Node: Docs](https://nodejs.org/en)
 
+## Process
+
+**Explanation:**
+
+Each program running on a computer represents a `process`. It's a top level task that an operating system such as Windows or Linux uses to encapsulate a running program:
+
+- Code that is running
+- Memory that is allocated to it by the OS
+- Files that it has open
+
+**Key Concepts:**
+
+- **Standard Input/Output (stdin/stdout)**: The `process` object allows you to read from the standard input and write to the standard output.
+- **Environment Variables**: You can access environment variables using `process.env`.
+- **Process Arguments**: The `process.argv` property returns an array containing the command-line arguments passed when the Node.js process was launched.
+- **Exit Codes**: The `process.exit()` method allows you to exit the current process with a specified exit code.
+- **Current Working Directory**: The `process.cwd()` method returns the current working directory of the Node.js process.
+
+**Syntax:**
+
+- **Reading from Standard Input**:
+
+  ```js
+  process.stdin.on('data', (data) => {
+    console.log(`You typed: ${data.toString()}`);
+  });
+  ```
+
+- **Writing to Standard Output:**
+
+  ```js
+  process.stdout.write('Hello, World!\n');
+  ```
+
+- **Accessing Environment Variables:**
+
+  ```js
+  console.log(process.env.PATH);
+  ```
+
+- **Accessing Process Arguments:**
+
+  ```js
+  process.argv.forEach((val, index) => {
+  console.log(`${index}: ${val}`);
+  });
+  ```
+
+- **Exiting the Process:**
+
+  ```js
+  process.exit(1); // Exit with a failure code
+  ```
+
+- **Getting Current Working Directory:**
+
+  ```js
+  console.log(`Current working directory: ${process.cwd()}`);
+  ```
+
 ## Running application
 
 **Explanation:**
 
 We can run applications in different ways using just `node`, `npm`, `npx`, or `pnpm`.
 
-- **Global Install** (`-g`): Installs the package globally on your system, making it available from any directory.
-- **Local Install**: Installs the package in the current project directory, making it available only within the project.
-- **Semantic Versioning (SemVer)**: Is a versioning scheme for software that uses a three-part version number: `MAJOR.MINOR.PATCH`.
+- **What is npm:** npm (Node Package Manager) is the default package manager for Node.js. It allows developers to install, share, and manage dependencies (libraries and packages) for their Node.js projects.
+- **The package.json:** It contains metadata about the project and its dependencies. You can create a `package.json` file manually or automatically using `npm init` or `npm init -y`.
+- **Global Install:** (`-g`): Installs the package globally on your system, making it available from any directory `npm install -g <pacakge name>`.
+- **Local Install:** Installs the package in the current project directory, making it available only within the project `npm install <pacakge name>`.
+- **Semantic Versioning (SemVer):** Is a versioning scheme for software that uses a three-part version number: `MAJOR.MINOR.PATCH`.
 
 **Key Concepts:**
 
@@ -119,7 +182,7 @@ Modules in Node.js are reusable pieces of code that can be exported from one fil
   - **Synchronous Loading**: CommonJS modules are loaded synchronously. This means that when you `require` a module, Node.js will read the file, execute it, and return the exports object before moving on to the next line of code.
 
 - **ES6 Modules**: A newer module system using `import` and `export` statements.
-  - **Asynchronous Loading**: ES6 modules are loaded asynchronously. This means that when you import a module, the loading and execution of the module can happen in parallel with other operations, which can improve performance.
+  - **Asynchronous Loading**: ES6 modules are loaded asynchronously. This means that when you import a module, the loading and execution of the module can happen in parallel with other operations.
 
 **Syntax:**
 
@@ -376,14 +439,91 @@ try {
 }
 ```
 
-## Process
+## Environment Variables
 
 **Explanation:**
 
-Each program running on a computer represents a `process`. It's a top level task that an operating system such as Windows or Linux uses to encapsulate a running program:
+Environment variables are key-value pairs that are used to configure the environment in which a process runs. They are often used to store configuration settings and sensitive information such as API keys, database connection strings, and other configuration data that should not be hard-coded into the application.
 
-- Code that is running
-- Memory that is allocated to it by the OS
-- Files or sockets that it has open
-- One or more threads running within the process
+**Key Concepts:**
 
+- **process.env**: The `process.env` object in Node.js provides access to the environment variables of the current process. You can read and set environment variables using this object.
+- **dotenv package**: The `dotenv` package is a popular Node.js module that loads environment variables from a `.env` file into `process.env`. This is useful for managing environment-specific configurations.
+- **cross-env**: The `cross-env` package allows you to set environment variables across different operating systems in a consistent manner. This is particularly useful for setting environment variables in npm scripts.
+
+**Why We Need to Use Environment Variables:**
+
+- **Configuration Management**: Environment variables allow you to manage configuration settings for different environments (development, testing, production) without changing the code.
+- **Security**: Sensitive information such as API keys, database credentials, and other secrets can be stored in environment variables instead of hard-coding them into the application.
+- **Flexibility**: Environment variables provide a flexible way to configure applications, making it easier to change settings without modifying the codebase.
+- **Portability**: Using environment variables makes it easier to deploy applications across different environments and platforms.
+
+**Why Node.js Might Be Challenging for Working with Environment Variables:**
+
+- **Lack of Built-in Support for Environment Files**: Node.js does not have built-in support for loading environment variables from files like `.env`. This requires the use of additional packages like `dotenv`.
+- **Cross-Platform Issues**: Setting environment variables can be different across operating systems (Windows vs. Unix-based systems). This can lead to inconsistencies and requires tools like `cross-env` to handle these differences.
+- **Process Restart Required**: Changes to environment variables typically require restarting the Node.js process to take effect, which can be inconvenient during development.
+- **Potential for Security Risks**: If not managed properly, environment variables can be exposed, leading to security vulnerabilities. It's not accidentally committed to version control.
+
+**Syntax:**
+
+- **Accessing Environment Variables with process.env**:
+
+  ```js
+  // Accessing an environment variable
+  const dbHost = process.env.DB_HOST;
+  console.log(`Database Host: ${dbHost}`);
+  ```
+
+- **Using dotenv to Load Environment Variables:**
+
+  ```bash
+  # Install the dotenv package:
+  npm install dotenv
+  ```
+
+- **Create environment-specific .env files:**
+
+  ```bash
+  # .env.prod:
+  DB_HOST=prod-db-host
+  DB_USER=prod-user
+  DB_PASS=prod-pass 
+  ```
+
+  ```bash
+  # .env.dev:
+  DB_HOST=dev-db-host
+  DB_USER=dev-user
+  DB_PASS=dev-pass
+
+- **Using cross-env to Set Environment Variables in npm Scripts:**
+
+  ```bash
+  # Install the cross-env package:
+  npm install cross-env
+  ```
+
+  ```json
+  // Use cross-env in your package.json scripts:
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app.js",
+    "dev": "cross-env NODE_ENV=development node app.js"
+  }
+
+  ```
+
+  ```js
+  // Run env files on specific requirements
+  if (process.env.NODE_ENV === "prod") {
+    dotenv.config({ path: ".env.prod" });
+  } else {
+    dotenv.config({ path: ".env.dev" });
+  }
+
+  ```
+
+  ```js
+  // Access the environment variable in your application:
+  console.log(`Running in ${process.env.NODE_ENV} mode`);
+  ```

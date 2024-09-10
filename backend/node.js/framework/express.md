@@ -35,13 +35,11 @@
 4. **Install Express.js:** Once you have Node.js and npm installed, you can install Express.js globally on your machine or locally in your project folder.
 
     ```bash
-    # Globally
-    npm install -g express
-
     # Locally
     npm install express
     ```
-5. "Creating a Basic Express.js Server". This step involves setting up a simple Express.js server that listens on a specific port and responds to GET requests at the root URL.
+
+5. **Creating a Basic Express.js Server:** This step involves setting up a simple Express.js server that listens on a specific port and responds to GET requests at the root URL.
 
     ```js
 
