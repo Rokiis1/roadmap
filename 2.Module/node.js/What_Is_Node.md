@@ -450,7 +450,7 @@ readFileWithDir('example.txt');
 ```
 
 ```js
-import { readFileSync } from 'fs';
+import { readFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -458,13 +458,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-function readFileWithDir(fileName) {
+async function readFileWithDir(fileName) {
   console.log('__dirname:', __dirname);
   console.log('__filename:', __filename);
 
   const filePath = join(__dirname, fileName);
   try {
-    const data = readFileSync(filePath, 'utf8');
+    const data = await readFile(filePath, 'utf8');
     console.log(data);
   } catch (err) {
     console.error(err);
