@@ -5,8 +5,6 @@
 - [Middleware 1 Part](#middleware-1-part)
 - [Routing](#routing)
 - [Handling Requests and Responses](#handling-requests-and-responses)
-- [Error Handling](#error-handling)
-- [Middleware](#middleware)
 
 ## Express.js Introduction
 
@@ -149,16 +147,8 @@ app.get('/', (req, res) => {
 // Handling GET request to send HTML
 app.get('/html', (req, res) => {
   const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Example Page</title>
-    </head>
-    <body>
       <h1>Welcome to the Example Page</h1>
       <p>This is a sample HTML response.</p>
-    </body>
-    </html>
   `;
   res.send(htmlContent);
 });
@@ -174,6 +164,7 @@ app.get('/', (req, res) => {
     }
   };
   res.json(responseObject);
+});
 
 // Handling GET request res.status(200).json();
 app.get('/', (req, res) => {
@@ -189,9 +180,11 @@ app.get('/', (req, res) => {
     res.status(200).json(responseObject);
   } catch (error) {
     console.error('Error handling GET request:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ 
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
   }
-});
 });
 
 ```
@@ -206,14 +199,18 @@ app.post('/status-json', (req, res) => {
     const responseObject = {
       message: 'POST request to /status-json',
       status: 'success',
-      receivedData: req.body // req.body is what information will to be request from server side
+      data: req.body // req.body is what information will to be request from server side
     };
     res.status(200).json(responseObject);
   } catch (error) {
     console.error('Error handling POST request:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    res.status(500).json({ 
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
   }
 });
+
 ```
 
 _*PUT*
@@ -221,8 +218,27 @@ _*PUT*
 ```js
 
 // Handling PUT request
-app.put('/user', (req, res) => {
-  res.send('PUT request to /user');
+app.put('/status-json/:id', (req, res) => {
+  try {
+    const statusId = req.params.id;
+    const updatedStatusData = req.body;
+
+    console.log('Received body data:', updatedStatusData);
+
+    const responseObject = {
+      message: `PUT request to /status-json with ID ${statusId}`,
+      status: 'success',
+      data: updatedStatusData // req.body is what information will be updated from server side
+    };
+    
+    res.status(200).json(responseObject);
+  } catch (error) {
+    console.error('Error handling PUT request:', error);
+    res.status(500).json({
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
+  }
 });
 
 ```
@@ -232,8 +248,23 @@ _*DELETE*
 ```js
 
 // Handling DELETE request
-app.delete('/user', (req, res) => {
-  res.send('DELETE request to /user');
+app.delete('/user/:id', (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const responseObject = {
+      message: `DELETE request to /user with ID ${userId}`,
+      status: 'success'
+    };
+
+    res.status(200).json(responseObject);
+  } catch (error) {
+    console.error('Error handling DELETE request:', error);
+    res.status(500).json({
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
+  }
 });
 
 ```
@@ -244,7 +275,29 @@ _*PATH params*
 
 // Handling URL parameters
 app.get('/users/:userId', (req, res) => {
-  res.send(`User ID is: ${req.params.userId}`);
+  try {
+    const userId = parseInt(req.params.userId, 10);
+    const user = users.find(u => u.id === userId);
+
+    if (user) {
+      res.status(200).json({
+        message: 'User found',
+        status: 'success',
+        data: user
+      });
+    } else {
+      res.status(404).json({
+        message: 'User not found',
+        status: 'failed'
+      });
+    }
+  } catch (error) {
+    console.error('Error handling GET request:', error);
+    res.status(500).json({
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
+  }
 });
 
 ```
@@ -255,13 +308,38 @@ _*QUERY params*
 
 // Handling query parameters
 app.get('/search', (req, res) => {
-  res.send(`You searched for: ${req.query.q}`);
+  try {
+    const query = req.query.q;
+    if (!query) {
+      return res.status(400).json({
+        message: 'Query parameter "q" is required',
+        status: 'failed'
+      });
+    }
+
+    const results = products.filter(product =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (results.length > 0) {
+      res.status(200).json({
+        message: 'Products found',
+        status: 'success',
+        data: results
+      });
+    } else {
+      res.status(404).json({
+        message: 'No products found',
+        status: 'failed'
+      });
+    }
+  } catch (error) {
+    console.error('Error handling search request:', error);
+    res.status(500).json({
+      message: 'Internal Server Error',
+      status: 'failed'
+    });
+  }
 });
 
 ```
-
-## Middleware
-
-**Explanation:**
-
-## Error Handling
