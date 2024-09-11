@@ -486,19 +486,17 @@ Environment variables are key-value pairs that are used to configure the environ
 - **dotenv package**: The `dotenv` package is a popular Node.js module that loads environment variables from a `.env` file into `process.env`. This is useful for managing environment-specific configurations.
 - **cross-env**: The `cross-env` package allows you to set environment variables across different operating systems in a consistent manner. This is particularly useful for setting environment variables in npm scripts.
 
-**Why We Need to Use Environment Variables:**
+| *Pros*
 
 - **Configuration Management**: Environment variables allow you to manage configuration settings for different environments (development, testing, production) without changing the code.
 - **Security**: Sensitive information such as API keys, database credentials, and other secrets can be stored in environment variables instead of hard-coding them into the application.
 - **Flexibility**: Environment variables provide a flexible way to configure applications, making it easier to change settings without modifying the codebase.
 - **Portability**: Using environment variables makes it easier to deploy applications across different environments and platforms.
 
-**Why Node.js Might Be Challenging for Working with Environment Variables:**
+| *Cons*
 
 - **Lack of Built-in Support for Environment Files**: Node.js does not have built-in support for loading environment variables from files like `.env`. This requires the use of additional packages like `dotenv`.
 - **Cross-Platform Issues**: Setting environment variables can be different across operating systems (Windows vs. Unix-based systems). This can lead to inconsistencies and requires tools like `cross-env` to handle these differences.
-- **Process Restart Required**: Changes to environment variables typically require restarting the Node.js process to take effect, which can be inconvenient during development.
-- **Potential for Security Risks**: If not managed properly, environment variables can be exposed, leading to security vulnerabilities. It's not accidentally committed to version control.
 
 **Syntax:**
 

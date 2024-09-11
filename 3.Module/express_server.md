@@ -2,8 +2,8 @@
 
 - [Express.js Introduction](#expressjs-introduction)
 - [Setting Up an Express Server](#setting-up-an-express-server)
-- [Routing](#routing)
 - [Middleware 1 Part](#middleware-1-part)
+- [Routing](#routing)
 - [Handling Requests and Responses](#handling-requests-and-responses)
 - [Error Handling](#error-handling)
 - [Middleware](#middleware)
@@ -74,6 +74,19 @@ Express.js is a minimal and flexible Node.js web application framework. It simpl
     npm start
     ```
 
+## Middleware 1 Part
+
+**Explanation:**
+
+Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle. These functions can perform various tasks such as executing code, modifying the request and response objects, ending the request-response cycle, and calling the next middleware function in the stack.
+
+![alt text](./assets/reqandrescycle.png)
+
+**Key Concepts:**
+
+1. **Application-Level Middleware:** Bind application-level middleware to an instance of the app object by using the `app.use()` and `app.METHOD()` functions.
+2. **Built-In Middleware:** Express has a few built-in middleware functions such as `express.json()` - Parsing JSON Payloads: It converts the JSON string in the request body into a JavaScript object and assigns it to `req.body`
+
 ## Routing
 
 **Explanation:**
@@ -84,7 +97,7 @@ Routing refers to how an application's endpoints (URIs) respond to client reques
 
 1. **Route Path:** In combination with a request method, a route path defines the endpoints at which requests can be made.
 
-2. **Route Handlers:** Functions that execute when a route is matched. These can be a single function, an array of functions, or combinations of both.
+2. **Route Handlers:** Functions that execute when a route is accessed. Handlers can be callbacks or middleware functions.
 
 3. **Route Parameters:** Parameters are variable parts of a route path. They can be used to capture dynamic values at specific positions in the route path.
 
@@ -102,24 +115,13 @@ app.METHOD(PATH, HANDLER)
 
 - `PATH` is a path on the server.
 
-- `HANDLER` is the function executed when the route is matched.
-
-## Middleware 1 Part
-
-**Explanation:**
-
-Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle. These functions can perform various tasks such as executing code, modifying the request and response objects, ending the request-response cycle, and calling the next middleware function in the stack.
-
-**Key Concepts:**
-
-1. **Application-Level Middleware:** Bind application-level middleware to an instance of the app object by using the `app.use()` and `app.METHOD()` functions.
-2. **Built-In Middleware:** Express has a few built-in middleware functions such as `express.json`
+- `HANDLER` is the function executed when the route accessed.
 
 ## Handling Requests and Responses
 
 **Explanation:**
 
-HTTP requests are the core of any web application. In Express.js, routes are defined to respond to HTTP requests. Each route can have one or more handler functions, which are executed when the route is matched.
+HTTP requests are the core of any web application. In Express.js, routes are defined to respond to HTTP requests. Each route can have one or more handler functions, which are executed when the route accessed.
 
 **Key Concepts:**
 
@@ -135,32 +137,121 @@ HTTP requests are the core of any web application. In Express.js, routes are def
 
 **Syntax:**
 
+_*GET*
+
 ```js
 
-// Handling GET request
+// Handling GET request send
 app.get('/', (req, res) => {
-  res.send('GET request to the homepage');
+  res.send('Hello');
 });
 
-// Handling POST request
-app.post('/', (req, res) => {
-  res.send('POST request to the homepage');
+// Handling GET request to send HTML
+app.get('/html', (req, res) => {
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Example Page</title>
+    </head>
+    <body>
+      <h1>Welcome to the Example Page</h1>
+      <p>This is a sample HTML response.</p>
+    </body>
+    </html>
+  `;
+  res.send(htmlContent);
 });
+
+// Handling GET request json
+app.get('/', (req, res) => {
+    const responseObject = {
+    message: 'GET request to the homepage',
+    status: 'success',
+    data: {
+      id: 1,
+      name: 'Example'
+    }
+  };
+  res.json(responseObject);
+
+// Handling GET request res.status(200).json();
+app.get('/', (req, res) => {
+  try {
+    const responseObject = {
+      message: 'GET request to the homepage',
+      status: 'success',
+      data: {show
+        id: 1,
+        name: 'Example'
+      }
+    };
+    res.status(200).json(responseObject);
+  } catch (error) {
+    console.error('Error handling GET request:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+});
+
+```
+
+_*POST*
+
+```js
+
+// Handling POST request
+app.post('/status-json', (req, res) => {
+  try {
+    const responseObject = {
+      message: 'POST request to /status-json',
+      status: 'success',
+      receivedData: req.body // req.body is what information will to be request from server side
+    };
+    res.status(200).json(responseObject);
+  } catch (error) {
+    console.error('Error handling POST request:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+```
+
+_*PUT*
+
+```js
 
 // Handling PUT request
 app.put('/user', (req, res) => {
   res.send('PUT request to /user');
 });
 
+```
+
+_*DELETE*
+
+```js
+
 // Handling DELETE request
 app.delete('/user', (req, res) => {
   res.send('DELETE request to /user');
 });
 
+```
+
+_*PATH params*
+
+```js
+
 // Handling URL parameters
 app.get('/users/:userId', (req, res) => {
   res.send(`User ID is: ${req.params.userId}`);
 });
+
+```
+
+_*QUERY params*
+
+```js
 
 // Handling query parameters
 app.get('/search', (req, res) => {
@@ -172,8 +263,5 @@ app.get('/search', (req, res) => {
 ## Middleware
 
 **Explanation:**
-
-Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle. These functions can perform a variety of tasks such as executing code, modifying the request and response objects, ending the request-response cycle, and calling the next middleware function in the stack.
-
 
 ## Error Handling
