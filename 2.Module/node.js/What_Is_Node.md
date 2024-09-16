@@ -116,8 +116,9 @@ We can run applications in different ways using just `node`, `npm`, `npx`, or `p
   - Example: `npm run start`
 
 - **npx**:
-  - Executes binaries from npm packages.
+  - Run npm packages
   - Useful for running one-off commands.
+  - Use tools that don't need to be installed globally.
   - Example: `npx nodemon app.mjs`
 
 - **pnpm**:

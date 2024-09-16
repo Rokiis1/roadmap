@@ -5,12 +5,15 @@
 - [Middleware 1 Part](#middleware-1-part)
 - [Routing](#routing)
 - [Handling Requests and Responses](#handling-requests-and-responses)
+- [Middleware 2 Part](#middleware-2-part)
 
 ## Express.js Introduction
 
 **Explanation:**
 
 Express.js is a minimal and flexible Node.js web application framework. It simplifies the process of creating server-side applications and APIs by providing a thin layer of fundamental web application features without obscuring Node.js features.
+
+- [Express: Docs](https://expressjs.com/)
 
 **Key Concepts:**
 
@@ -78,6 +81,10 @@ Express.js is a minimal and flexible Node.js web application framework. It simpl
 
 Middleware functions are functions that have access to the request object (`req`), the response object (`res`), and the next middleware function in the application’s request-response cycle. These functions can perform various tasks such as executing code, modifying the request and response objects, ending the request-response cycle, and calling the next middleware function in the stack.
 
+- **Request Object (`req`)**: The `req` object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and more. It is used to retrieve information about the client's request.
+
+- **Response Object (`res`)**: The `res` object represents the HTTP response that an Express app sends when it gets an HTTP request. It has methods for sending a response back to the client, such as `res.send()`, `res.json()`, and `res.status()`.
+
 ![alt text](./assets/reqandrescycle.png)
 
 **Key Concepts:**
@@ -98,6 +105,13 @@ Routing refers to how an application's endpoints (URIs) respond to client reques
 2. **Route Handlers:** Functions that execute when a route is accessed. Handlers can be callbacks or middleware functions.
 
 3. **Route Parameters:** Parameters are variable parts of a route path. They can be used to capture dynamic values at specific positions in the route path.
+
+4. **API Versioning Prefix:** Use versioning in your API endpoints to manage changes and updates without breaking existing clients. For example, /api/v1/users.
+
+5. **Endpoint Naming Conventions:**
+
+    - Use nouns and plural forms for resource names. `/users` instead of `/getUsers`.
+    - Use sub-resources to represent relationships. `/users/:userId/posts` to get posts for a specific user.
 
 **Syntax:**
 
@@ -333,6 +347,7 @@ app.get('/search', (req, res) => {
         status: 'failed'
       });
     }
+
   } catch (error) {
     console.error('Error handling search request:', error);
     res.status(500).json({
@@ -342,4 +357,97 @@ app.get('/search', (req, res) => {
   }
 });
 
+```
+
+## Middleware 2 Part
+
+**Explanation:**
+
+Middleware functions can be used to handle various tasks in an Express application. They can be categorized into router-level middleware, third-party middleware, and error-handling middleware.
+
+**Key Concepts:**
+
+1. **Router-Level Middleware:** Router-level middleware works in the same way as application-level middleware, except it is bound to an instance of `express.Router()`. This allows you to apply middleware only to specific route handlers.
+
+2. **Error-Handling Middleware:** Error-handling middleware functions are defined in the same way as other middleware functions, except they have four arguments instead of three: `err`, `req`, `res`, and `next`. These functions are used to handle errors that occur during the request-response cycle.
+    - **Next Function (`next`)**: The `next` function is a function in the Express router which, when invoked, executes the next middleware function in the stack. If the current middleware function does not end the request-response cycle, it must call `next()` to pass control to the next middleware function. Otherwise, the request will be left hanging.
+    - **Error Object (`err`)**: The `err` object contains information about the error that occurred. It is passed to the error-handling middleware by calling `next(error)` in the route handler or another middleware function.
+
+3. **Third-Party Middleware:** Third-Party Middleware: Third-party middleware functions are created by the community and can be used to add functionality to your Express application.
+    - **Winston:** Winston is a versatile logging library for Node.js.
+    - **express-validation:** express-validation is a middleware for validating request data schema.
+    - **Passport:** Passport is an authentication middleware for Node.js that supports various authentication strategies, such as local, OAuth, and JWT.
+
+**Syntax:**
+
+*Router-Level Middleware:*
+
+- **Applying Middleware to the Router**
+
+  ```js
+  const router = express.Router();
+
+  function logRequestDetails(req, res, next) {
+    console.log(`${req.method} request for '${req.url}'`);
+    next();
+  }
+
+  router.use(logRequestDetails);
+
+  router.get('/health', (req, res) => {
+    res.status(200).json({
+      status: "success",
+      message: "Server is healthy",
+    });
+  });
+  ```
+
+- **Applying Middleware to Specific Routes**
+
+  ```js
+  function logRequestDetails(req, res, next) {
+    console.log(`${req.method} request for '${req.url}'`);
+    next();
+  }
+
+  router.get('/health', logRequestDetails, (req, res) => {
+    res.status(200).json({
+      status: "success",
+      message: "Server is healthy",
+    });
+  });
+  ```
+
+*Error-Handling Middleware:*
+
+```javascript
+router.get(`${BASE_URL}/health`, (req, res, next) => {
+    try {
+        res.status(200).json({
+            status: "success",
+            message: "Server is healthy",
+        });
+    } catch (error) {
+        next(error);
+    }
+})
+
+function notFoundHandler(req, res, next) {
+  res.status(404).json({
+    status: "error",
+    message: "Resource Not Found"
+  });
+}
+app.use(notFoundHandler);
+
+function jsonErrorHandler(err, req, res, next) {
+    res.status(500).json({
+      status: "error",
+      message: `Internal Server Error, ${err.message}`
+    });
+}
+
+app.use(router);
+app.use(notFoundHandler);
+app.use(jsonErrorHandler);
 ```
