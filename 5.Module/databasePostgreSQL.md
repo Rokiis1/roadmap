@@ -10,6 +10,8 @@
 
 Connecting to a PostgreSQL database is the first step in interacting with it. In Node.js, the `node-postgres` library provides two main ways to connect: using `pg.Client` for single connections and `pg.Pool` for connection pooling. Connection pooling is generally recommended for applications that handle multiple concurrent requests.
 
+- [Docs: node-postgres](https://node-postgres.com/)
+
 **Key Concepts:**
 
 - **Connection String:** A string that contains the necessary information to connect to the database (user, host, database, password, port).
@@ -18,7 +20,7 @@ Connecting to a PostgreSQL database is the first step in interacting with it. In
 
 **Syntax:**
 
-    ```js
+```js
 
     import { Pool } from 'pg';
     import dotenv from 'dotenv';
@@ -38,13 +40,13 @@ Connecting to a PostgreSQL database is the first step in interacting with it. In
         connectionTimeoutMillis: 2000,              // How long to wait for a connection to be established before timing out (in milliseconds)
     });
 
-    ```
+```
 
 **Example:**
 
-    *pg.Client*
+- *pg.Client*
 
-    ```js
+```js
     // Function to execute a one-off query
     async function executeQuery() {
     try {
@@ -67,11 +69,11 @@ Connecting to a PostgreSQL database is the first step in interacting with it. In
     }
 
     executeQuery();
-    ```
+```
 
-    *pg.Pool*
+- *pg.Pool*
 
-    ```js
+```js
 
     async function executeQueries() {
         const client = await pool.connect();
@@ -97,7 +99,7 @@ Connecting to a PostgreSQL database is the first step in interacting with it. In
     }
 
     executeQueries(); 
-    ```
+```
 
 ## Queries
 
@@ -113,7 +115,7 @@ Queries are the primary means of interacting with a PostgreSQL database. They al
 
 **Syntax:**
 
-    ```js
+```js
 
     const client = await pool.connect();
     try {
@@ -122,13 +124,13 @@ Queries are the primary means of interacting with a PostgreSQL database. They al
         client.release();   
     }
 
-    ```
+```
 
 **Example:**
 
-    *Select Query:*
+*Select Query:*
 
-    ```js
+```js
     // Get all users
     const res = await client.query('SELECT * FROM users');
     // Get by id
@@ -151,72 +153,72 @@ Queries are the primary means of interacting with a PostgreSQL database. They al
     const res = await client.query('SELECT * FROM users LIMIT $1 OFFSET $2', [limit, offset]);
     // Aggregation COUNT, SUM, AVG, MIN, and MAX
     const res = await client.query('SELECT COUNT(*) FROM users');
-    ```
+```
 
-    *Insert Query:*
+- *Insert Query:*
 
-    ```js
+```js
     // Basic Insert
     const res = await client.query('INSERT INTO users (name, email) VALUES ($1, $2) RETURNING id', [name, email]);
     // Insert with Timestamp
     const res = await client.query('INSERT INTO users (name, email, created_at) VALUES ($1, $2, NOW()) RETURNING id', [name, email]);
-    ```
+```
 
-    *Update Query:*
+- *Update Query:*
 
-    ```js
+```js
     const res = await client.query('UPDATE users SET email = $1 WHERE id = $2', [email, userId]);
-    ```
+```
 
-    *Delete Query*
+- *Delete Query*
 
-    ```js
+```js
     const res = await client.query('DELETE FROM users WHERE id = $1', [userId]);
-    ```
+```
 
-   *Inner Join - Returns records that have matching values in both tables.*
+- *Inner Join - Returns records that have matching values in both tables.*
 
-    ```js
+```js
     const res = await client.query(`
         SELECT students.student_id, users.first_name, users.last_name
         FROM students
         INNER JOIN users ON students.user_id = users.user_id
     `);
-    ```
+```
 
-    *Left (Outer) Join - Returns all records from the left table, and the matched records from the right table.*
+- *Left (Outer) Join - Returns all records from the left table, and the matched records from the right table.*
 
-    ```js
+```js
     const res = await client.query(`
         SELECT students.student_id, users.first_name, users.last_name
         FROM students
         LEFT JOIN users ON students.user_id = users.user_id
     `);
-    ```
+```
 
-    *Right (Outer) Join - Returns all records from the right table, and the matched records from the left table.*
+- *Right (Outer) Join - Returns all records from the right table, and the matched records from the left table.*
 
-    ```js
+```js
     const res = await client.query(`
         SELECT students.student_id, users.first_name, users.last_name
         FROM students
         RIGHT JOIN users ON students.user_id = users.user_id
     `);
-    ```
+```
 
-    *Full (Outer) Join - Returns all records when there is a match in either left or right table.*
+- *Full (Outer) Join - Returns all records when there is a match in either left or right table.*
 
-    ```js
+```js
     const res = await client.query(`
         SELECT students.student_id, users.first_name, users.last_name
         FROM students
         FULL JOIN users ON students.user_id = users.user_id
     `);
-    ```
+```
 
-    *Multiple Joins*
+- *Multiple Joins*
 
-    ```js
+```js
     const res = await client.query(`
     SELECT 
         students.student_id, 
@@ -229,7 +231,7 @@ Queries are the primary means of interacting with a PostgreSQL database. They al
     INNER JOIN enrollments ON students.student_id = enrollments.student_id
     RIGHT JOIN courses ON enrollments.course_id = courses.course_id
     `);
-    ```
+```
 
 ## Transactions
 
@@ -246,7 +248,7 @@ A transaction in SQL is a sequence of one or more SQL statements that are execut
 
 **Syntax:**
 
-    ```js
+```js
     import pool from './db.mjs';
 
     async function performTransaction() {
@@ -280,4 +282,4 @@ A transaction in SQL is a sequence of one or more SQL statements that are execut
     }
 
     export default performTransaction;
-    ```
+```
