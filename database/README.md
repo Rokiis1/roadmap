@@ -2,10 +2,10 @@
 
 - [Relational Databases](#relational-databases)
 - [NoSQL Databases](#nosql-databases)
-    - [Document Databases](#document-databases)
-    - [Key-Value Databases](#key-value-database)
+  - [Document Databases](#document-databases)
+  - [Key-Value Database](#key-value-database)
 
-# Relational Databases
+## Relational Databases
 
 **Explanation:**
 
@@ -17,14 +17,6 @@ Relational databases are based on the relational model of data, where data is or
 
 - Strong data consistency and ACID (Atomicity, Consistency, Isolation, Durability) properties.
 
-- Support for complex queries and joins.
-
-- Ability to enforce data integrity using constraints.
-
-- Well-established and widely adopted technology.
-
-- Suitable for structured and tabular data.
-
 **Example:**
 
 - Business applications with well-defined and structured data requirements.
@@ -35,9 +27,9 @@ Relational databases are based on the relational model of data, where data is or
 
 - Applications requiring strong data consistency and integrity.
 
-# NoSQL Databases
+## NoSQL Databases
 
-## Document Databases
+### Document Databases
 
 **Explanation:**
 
@@ -51,11 +43,7 @@ Document databases are part of the NoSQL family and store data in flexible, semi
 
 - Queries are typically performed using document-based query languages or indexing mechanisms.
 
-- Horizontal scalability and distributed database systems.
-
-- Good performance for read-heavy workloads.
-
-**Explanation:**
+**Example:**
 
 - Content management systems with dynamic and evolving data structures.
 
@@ -65,7 +53,7 @@ Document databases are part of the NoSQL family and store data in flexible, semi
 
 - Collaborative environments and social networks.
 
-## Key-Value Databases
+### Key-Value Database
 
 **Explanation:**
 
@@ -78,10 +66,6 @@ Key-value databases are another type of NoSQL database that stores data as a col
 - High scalability and performance for read and write operations.
 
 - Minimal query functionality (usually limited to key-based retrieval).
-
-- Highly flexible and schemaless design.
-
-- Distributed systems with eventual consistency guarantees.
 
 **Example:**
 
