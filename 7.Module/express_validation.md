@@ -14,7 +14,6 @@ Express validation is a middleware for the Express.js framework that helps in va
 
 1. **Middleware:** Functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.
 2. **Validation:** The process of ensuring that the data meets certain criteria.
-3. **Sanitization:** The process of cleaning the data to prevent malicious input.
 
 **Example:**
 
