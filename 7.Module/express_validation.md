@@ -17,24 +17,7 @@ Express validation is a middleware for the Express.js framework that helps in va
 
 **Example:**
 
-1. **Basic Validation:**
-
-   ```js
-   import { body, validationResult } from 'express-validator';
-
-   app.post('/user', [
-     body('username').isLength({ min: 5 }).withMessage('Username must be at least 5 characters long'),
-     body('email').isEmail().withMessage('Email must be valid')
-   ], (req, res) => {
-     const errors = validationResult(req);
-     if (!errors.isEmpty()) {
-       return res.status(400).json({ errors: errors.array() });
-     }
-     res.send('User is valid');
-   });
-   ```
-
-2. **Chained Validation:**
+1. **Chained Validation:**
 
     ```js
     import { body, validationResult } from 'express-validator';
@@ -52,7 +35,7 @@ Express validation is a middleware for the Express.js framework that helps in va
     });
     ```
 
-3. **Schema Validation using `checkSchema`:**
+2. **Schema Validation using `checkSchema`:**
 
     ```js
     export const validate = (schema) => {
@@ -116,7 +99,7 @@ Express validation is a middleware for the Express.js framework that helps in va
     });
     ```
 
-4. **Custom Validator:**
+3. **Custom Validator:**
 
     ```js
     import { body, validationResult } from 'express-validator';
