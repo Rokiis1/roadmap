@@ -1,0 +1,29 @@
+# Authentication vs Authorization
+
+**Explanation:**
+
+1. Authentication is the process of verifying the identity of a user, device, or system. It often involves a username and password, but can include any method of demonstrating identity, such as email, social media, fingerprints, voice recognition.
+
+2. Authorization, is the process of granting or denying access to specific resources once a user's identity has been authenticated. Authorization verifies what an authenticated user is allowed to do. For example, a user might be authorized to view a resource, but not to modify it.
+
+![Authentication vs Authorization](./assets/images/authentication-vs-authorization/authenticationVsAuthorization.png)
+
+**Key Concepts:**
+
+1. **Credentials:** These are the pieces of information used to authenticate a user, like a username/password, a token, or a biometric data.
+
+2. **Basic Auth:** This is a simple authentication scheme built into the HTTP protocol. The client sends a HTTP header with the user and password fields base64 encoded. It's not secure on its own and should be used with HTTPS to protect the credentials from being intercepted.
+
+3. **Cookie-Based Authentication:** In this method, the server creates a session for the user after the user logs in, and the session ID is stored in a cookie on the user's browser. The browser then sends the cookie with each subsequent request, allowing the server to authenticate the user.
+
+4. **Tokens:** In some systems, after a user is authenticated, they are given a token. This token is then used for authorization in subsequent requests.
+
+5. **Token-Based Authentication:** In this method, the server generates a token that the client will send back to prove its identity. This can be an alternative to traditional session IDs. A common type of token used in this method is JWT (JSON Web Tokens). JWTs are digitally signed, stateless, and contain a payload with the claims or assertions that are being made about the subject (usually the user).
+
+6. **Bearer Tokens:** These are a type of access token that are delivered to the client after successful authentication. The client must send this token in the Authorization header when making requests to protected resources.
+
+7. **Role-Based Authorization:** In many systems, users are assigned roles, and those roles are given permissions. This is a way of managing what different users are authorized to do.
+
+8. **Access Control Lists (ACLs):** These are used in authorization and determine what resources a user or role can access.
+
+9. **OAuth:** This is a common protocol used for authorization, allowing users to authorize websites or applications to access their information on other websites but without giving them the passwords.
