@@ -31,6 +31,8 @@ Component Testing, also known as Unit Testing, is the first level of software te
 
 6. **Coverage:** A measure of how much of the codebase is tested by unit tests. High coverage is desirable as it reduces the chance of an undetected bug.
 
+7. **Functional Testing:** Functional testing can also be part of unit testing. It ensures that each function of the software operates in conformance with the requirement specification at the unit level.
+
 ### Component Integration Testing (Unit Integration Testing)
 
 **Explanation:**

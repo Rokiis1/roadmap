@@ -93,40 +93,47 @@ Risk Management in Testing is a proactive approach to identify, assess, and miti
       Suppose you're planning an outdoor event in a city where it rains about 10 days each month. 
 
       The likelihood of this risk can be calculated based on past weather data. If it rains 10 days out of 30 in a typical month, then the likelihood of it raining on any given day (and thus potentially disrupting your event) is 10/30, or 33.3%.
+      ```
 
       **Example 2:**
 
+      ```
       Company uses a specific type of software that has had 5 security breaches reported in the past year. The risk here is that your company's data could be compromised due to a security breach in this software.
 
       If there were 5 breaches in the past 365 days, the likelihood of a breach on any given day is 5/365, or approximately 1.37%. This means there's a 1.37% chance that a security breach could occur on any given day, based on past data.
+      ```
 
     - **Risk Impact:** This refers to the potential consequences if the risk were to occur. It can be assessed in terms of the potential damage to the project's objectives, such as cost overruns, delays, or reduced quality.
 
-      **Syntax:**
+        **Syntax:**
 
-      - If **(risk event)** occurs, it could lead to **(consequence/s)**.
+        If **(risk event)** occurs, it could lead to **(consequence/s)**.
 
-      **Example 1:**
+        **Example 1:**
 
-      You're managing a construction project for a new building. One potential risk could be a delay in the delivery of essential building materials.
+        ```text
+        You're managing a construction project for a new building. One potential risk could be a delay in the delivery of essential building materials.
 
-      Cost Overruns: You might have to pay extra for expedited shipping or for buying materials from a different, more expensive supplier.
+        Cost Overruns: You might have to pay extra for expedited shipping or for buying materials from a different, more expensive supplier.
 
-      Delays: The construction schedule could be pushed back, leading to a later completion date. This could have further impacts, such as penalties for late completion or loss of revenue if the building was intended to be rented or sold.
+        Delays: The construction schedule could be pushed back, leading to a later completion date. This could have further impacts, such as penalties for late completion or loss of revenue if the building was intended to be rented or sold.
 
-      Reduced Quality: If you're forced to use different materials due to the delay, the quality of the building might be compromised.
+        Reduced Quality: If you're forced to use different materials due to the delay, the quality of the building might be compromised.
+        ```
 
-      **Example 2:**
+        **Example 2:**
 
-      Suppose you're managing a software development project and one potential risk is that a key developer might leave the team before the project is completed.
+        ```
+        Suppose you're managing a software development project and one potential risk is that a key developer might leave the team before the project is completed.
 
-      Delays: The departure of a key team member could slow down the development process, leading to a delay in the project timeline.
+        Delays: The departure of a key team member could slow down the development process, leading to a delay in the project timeline.
 
-      Increased Costs: You might need to hire a new developer or pay overtime to other team members to cover the work. The cost of recruiting and training a new developer can also add to the project costs.
+        Increased Costs: You might need to hire a new developer or pay overtime to other team members to cover the work. The cost of recruiting and training a new developer can also add to the project costs.
 
-      Reduced Quality: If the new developer or the remaining team members are not as skilled or knowledgeable as the departing developer, the quality of the software could be compromised.
+        Reduced Quality: If the new developer or the remaining team members are not as skilled or knowledgeable as the departing developer, the quality of the software could be compromised.
 
-      Knowledge Loss: The departing developer might have critical knowledge about the project that is not fully documented or known by the rest of the team. This could lead to further delays and mistakes.
+        Knowledge Loss: The departing developer might have critical knowledge about the project that is not fully documented or known by the rest of the team. This could lead to further delays and mistakes.
+        ```
 
 ### Risk Response Strategies
 
@@ -142,27 +149,27 @@ Risk Response Strategies are the actions taken to address the risks identified d
 
 1. **Risk Acceptance:** This is a risk response strategy where the risk is accepted without any further actions to reduce its impact or likelihood. This strategy is often used for low-priority risks, where the cost of mitigation would exceed the potential impact of the risk.
 
-    **Example:**
+    **Example 1:**
 
-    - If **minor software bug that does not affect the functionality or user experience** occurs, it could lead to **minor inconsistencies in the user interface**. Given the low impact of this risk and the potentially high cost of fixing every minor bug, we could employ the **Risk Acceptance strategy** and accept this risk without taking further action to mitigate it.
+    - If **minor software bug that does not affect the functionality or user experience**, it could lead to **minor inconsistencies in the user interface**. Given the low impact of this risk and the potentially high cost of fixing every minor bug, we could employ the **Risk Acceptance strategy** and accept this risk without taking further action to mitigate it.
 
 2. **Risk Mitigation:** This is a risk response strategy where actions are taken to reduce the likelihood of the risk occurring or to reduce its impact if it does occur.
 
-    **Example:**
+    **Example 1:**
 
-    - If **critical software component is complex and prone to errors** occurs, it could lead to **system instability or crashes**. In response to this risk, we could employ the Risk **Mitigation strategy** by simplifying the component, writing additional tests to catch potential errors, and implementing additional security measures to prevent unauthorized access.
+    - If **critical software component is complex and prone to errors**, it could lead to **system instability or crashes**. In response to this risk, we could employ the Risk **Mitigation strategy** by simplifying the component, writing additional tests to catch potential errors, and implementing additional security measures to prevent unauthorized access.
 
 3. **Risk Transfer:** The risk is transfered to a third party. This could involve purchasing insurance, outsourcing a risky part of the project, or using contractual agreements to shift the risk to another party.
 
-    **Example:**
+   **Example 1:**
 
-    - If **the development of a complex and specialized software module** occurs, it could lead to **delays in the project and potential errors due to lack of expertise**. To manage this risk, we could use the **Risk Transfer strategy** by outsourcing the development of this module to a third-party vendor with proven expertise in this area.
+    - If **the development of a complex and specialized software module**, it could lead to **delays in the project and potential errors due to lack of expertise**. To manage this risk, we could use the **Risk Transfer strategy** by outsourcing the development of this module to a third-party vendor with proven expertise in this area.
 
 4. **Contingency Plan:** This is a backup plan that tells you what to do if something goes wrong.
 
-    **Example:**
+    **Example 1:**
 
-    - If **server outage** occurs, it could lead to **downtime and loss of user data**. A contingency plan for this risk could involve having a backup server ready to take over, and a data recovery plan in place to restore any lost data. This is an example of the **Contingency Plan strategy**.
+    - If **server outage**, it could lead to **downtime and loss of user data**. A contingency plan for this risk could involve having a backup server ready to take over, and a data recovery plan in place to restore any lost data. This is an example of the **Contingency Plan strategy**.
 
 ### Risk Management Tools and Techniques
 
@@ -178,13 +185,13 @@ Risk Management Tools and Techniques are methodologies used to identify, assess,
 
 1. **Risk-Based Testing:** This is a testing approach where the features and functions to be tested are prioritized based on risk. The risk could be related to functional, non-functional, or even structural aspects of the software.
 
-    **Example:**
+    **Example 1:**
 
     - To manage risks in **testing a new feature in our application**, we could use **Risk-Based Testing** to **identify and assess** risks. This would help to prioritize testing efforts on this new feature, ensure that it is thoroughly tested before release, and manage risks effectively throughout the testing process.
 
 2. **Product Risk Management:** This involves identifying, assessing, and managing risks related to the software product itself. This could include functional defects, performance issues, or security vulnerabilities.
 
-    **Example:**
+    **Example 1:**
 
     - Developing **healthcare management software**, risks like **data breaches, system downtime, or incorrect dosage calculations**. We can manage these risks using Product **Risk Management techniques**. This could involve focusing on high-risk areas with **risk-based testing**, thorough **code reviews** for potential security issues, and **automated testing** for performance standards. For functions like dosage calculations, we could add extra validation checks and thorough **unit testing**.
 
@@ -192,7 +199,7 @@ Risk Management Tools and Techniques are methodologies used to identify, assess,
 
     **Example:**
 
-    - During the development of a new **customer relationship management system**, potential risks such as **delays due to unforeseen technical challenges, cost overruns due to changes in requirements, or resource shortages due to team members leaving**. To manage these project risks, we could use **Project Risk Management** techniques. This involve using **project management tools** like Microsoft Project to monitor project progress, implementing **resource allocation strategies** to ensure efficient use of personnel and budget, and developing a **contingency plan** to handle potential delays or resource shortages, such as having backup personnel or additional funding sources.
+    - During the development of a new **customer relationship management system**, potential risks such as **delays due to unforeseen technical challenges, cost overruns due to changes in requirements, or resource shortages due to team members leaving**. To manage these project risks, we could use **Project Risk Management** techniques. This involve using **project management tools** like Jira to monitor project progress, implementing **resource allocation strategies** to ensure efficient use of personnel and budget, and developing a **contingency plan** to handle potential delays or resource shortages, such as having backup personnel or additional funding sources.
 
 ### Entry Criteria and Exit Criteria
 

@@ -41,7 +41,7 @@ that defects have been corrected and that modifications have not introduced new 
 
 **Explanation:**
 
-Collaboration-based test approaches involve the collective participation of various stakeholders in the testing process. These approaches aim to leverage the diverse perspectives, knowledge, and skills of the team to identify potential issues, improve the quality of the software, and ensure that it meets the needs of all stakeholders.
+Collaboration-based test approaches involve the collective participation of various stakeholders in the testing process.
 
 **Key Concepts:**
 

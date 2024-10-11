@@ -13,7 +13,7 @@
 
 **Explanation:**
 
-In white box testing, the internal structure, design, and coding of the software are tested, which is known as structural testing. Static techniques are used in this process to validate the code, design documents, and software requirements without actually executing the software.
+Static techniques are used in this process to validate the code, design documents, and software requirements without actually executing the software.
 
 **Key Concepts:**
 
@@ -162,7 +162,7 @@ Is a method of debugging by examining the code without executing the program. St
 
 **Explanation:**
 
-Model-based analysis is a static testing technique where models of the software (like data flow diagrams, entity-relationship diagrams, or state transition diagrams) are analyzed to find errors or potential improvements. This technique allows for a high-level understanding of the system's behavior and can help identify issues that might not be apparent from examining the code alone.
+Model-based analysis is a static testing technique where models of the software (like data flow diagrams, entity-relationship diagrams, or state transition diagrams) are analyzed to find errors or potential improvements.
 
 **Key Concepts:**
 

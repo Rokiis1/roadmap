@@ -106,13 +106,13 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
 
       **Explanation:**
 
-      In Agile methodologies, testing is integrated throughout the development process rather than being a separate phase. This approach, often referred to as Agile Testing, emphasizes collaboration, customer satisfaction, and flexibility to adapt to changes. It aims to deliver high-quality software quickly by conducting testing activities continuously throughout the development cycle.
+      In Agile methodologies, testing is integrated throughout the development process rather than being a separate phase. 
 
       **Key Concepts:**
 
       1. **Agile Manifesto:** The Agile Manifesto is a document that outlines the key values and principles of Agile development. It emphasizes individuals and interactions, working software, customer collaboration, and responding to change.
 
-      2. **Whole Team Approach:** In Agile, the whole team is responsible for quality and testing. This means that everyone, from developers to business analysts, is involved in testing activities. This approach fosters collaboration, shared understanding, and early detection of issues.
+      2. **Whole Team Approach:** In Agile, the whole team is responsible for quality and testing. This means that everyone, from developers to business analysts, is involved in testing activities.
 
       3. **Iteration Planning and Execution in Agile:** Testing is included in every iteration (or sprint) of the Agile development process. At the start of each iteration, the team plans the work to be done, including testing activities. During the iteration, tests are continuously designed, executed, and reviewed.
 
