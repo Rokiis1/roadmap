@@ -10,7 +10,7 @@
 
 **Explanation:**
 
-**Functional Testing:** This type of testing is performed to verify that each function of the software application behaves as specified in the requirement document. It mainly involves black box testing and it is not concerned about the source code of the application.
+**Functional Testing:** This type of testing is performed to verify that each function of the software application behaves as specified in the requirement document. It mainly involves black box testing
 
 **Key Concepts:**
 
@@ -26,7 +26,7 @@
 
 **Explanation:**
 
-Non-functional Testing: This type of testing is performed to check the non-functional aspects (performance, usability, reliability) of a software application. It is designed to test the readiness of a system as per nonfunctional parameters which are never addressed by functional testing.
+Non-functional Testing: This type of testing is performed to check the non-functional aspects (performance, usability, reliability) of a software application.
 
 **Key Concepts:**
 
