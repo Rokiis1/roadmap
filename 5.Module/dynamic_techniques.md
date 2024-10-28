@@ -92,6 +92,7 @@ User Story:
 
 "As a Online Shopper, I want to read reviews of a product before making the decision so that I can reduce the uncertainty."
 ```
+
 *User Story 2:*
 
 ```text
@@ -159,10 +160,6 @@ Alpha and Beta Testing are stages of software testing that are conducted to ensu
 
 3. **Feedback Loop:** Both alpha and beta testing provide valuable feedback that can be used to improve the quality of the software.
 
-4. **Real-world Exposure:** Beta testing exposes the software to real-world scenarios, which can reveal issues that may not have been identified during alpha testing.
-
-5. **Release Candidate:** The version of the software that is released for beta testing is often called a "release candidate" as it is close to the final version that will be released to the public.
-
 ## Black-box Testing Techniques
 
 **Explanation:**
@@ -185,100 +182,178 @@ Black-box testing techniques focus on the functionality of the software without 
 
 Equivalence Partitioning is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
 
+1. **Input Validation:**
+
+- **Scenario:** Validating user input in registration forms, login forms, or any data entry forms.
+- **Example:** Ensuring that a username is between 5 to 10 characters, a password meets complexity requirements, and an age is within a valid range.
+
 **Key Concepts:**
 
-1. **Partitioning:** In this context, partitioning refers to the division of a software unit's input data into different categories or partitions. Each partition should contain data that is equivalent in terms of the software unit's behavior.
+- **Partitioning:** Dividing input data into different **Equivalence Classes**. Each equivalence class represents a set of input values that are treated the same by the software, meaning that one test case can be used to test the entire class.
+- **Representative Values:** Selecting representative values from each partition for testing.
+- **Reduction of Test Cases:** Minimize the number of test cases by selecting representative values from each equivalence partition, ensuring comprehensive coverage with fewer tests. This approach eliminates the need for detailed step-by-step scenarios, as each equivalence class effectively acts as a scenario. Additionally, it removes the necessity for detailed steps to reproduce.
+- **In some scenarios:** Traditional test case tables might still be necessary, especially when preparing for automation testing that involves navigating through multiple pages or completing specific actions. While Equivalence Partitioning can handle input-based scenarios efficiently, when automating workflows that require multiple steps, such as navigating through pages, clicking buttons, or following a sequence of actions, detailed steps to reproduce are necessary.
 
-2. **Equivalence Class:** An equivalence class represents a set of valid or invalid states for input conditions. An equivalence class is a subset of data that is representative of a larger class.
+**Example 1 Equivalence Class, Test Input, Expected Outcome:**
 
-3. **Test Cases:** Test cases are derived from each partition or equivalence class. The fundamental idea is that if a test case uncovers a bug for one data point within the partition, it will likely uncover bugs for all other data points within the same partition.
+| Test Case ID    | Equivalence Class      | Test Input  | Expected Outcome                       |
+|-----------------|------------------------|-------------|----------------------------------------|
+| TCID-001        | Age less than 13       | 10          | Registration rejected, error message   |
+| TCID-002        | Age between 13 and 100 | 30          | Registration accepted                  |
+| TCID-003        | Age greater than 100   | 110         | Registration rejected, error message   |
 
-4. **Boundary Value Analysis:** This is often used in conjunction with Equivalence Partitioning. It involves testing the boundaries of the equivalence classes.
+**Example 2 Equivalence Class Description, Valid/Invalid, Expected Outcome:**
 
-**Example:**
+| Test Case ID    | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |
+|-----------------|------------------------------------------|---------------|----------------------------------------|
+| TCID-001        | String length between 5 to 10 characters | Valid         | Username accepted                      |
+| TCID-002        | String length less than 5 characters     | Invalid       | Username rejected, error message       |
+| TCID-003        | String length more than 10 characters    | Invalid       | Username rejected, error message       |
+| TCID-004        | Starts with a letter                     | Valid         | Username accepted                      |
+| TCID-005        | Does not start with a letter             | Invalid       | Username rejected, error message       |
+| TCID-006        | Non-string input                         | Invalid       | Username rejected, error message       |
 
-**Feature to Test:** User Age Validation during Registration
+**Example 3 Input Parameter, Equivalence Class Description, Valid/Invalid, Example Value, Expected Outcome:**
 
-The application requires that users be between 13 and 100 years old to register. Users outside this age range are not allowed to register.
-
-We can divide the input data (age) into three equivalence classes:
-
-1. Invalid inputs less than 13
-2. Valid inputs between 13 and 100
-3. Invalid inputs greater than 100
-
-| Equivalence Class    | Test Input | Expected Outcome                       |
-|----------------------|------------|----------------------------------------|
-| Age less than 13     | 10         | Registration rejected, error message   |
-| Age between 13 and 100 | 30       | Registration accepted                  |
-| Age greater than 100 | 110        | Registration rejected, error message   |
+| Test Case ID    | Input Parameter | Equivalence Class Description            | Valid/Invalid | Example Value   | Expected Outcome                       |
+|-----------------|-----------------|------------------------------------------|---------------|-----------------|----------------------------------------|
+| TCID-001        | Password        | Contains at least one number             | Valid         | "Passw0rd"      | Password accepted                      |
+| TCID-002        | Password        | Does not contain any number              | Invalid       | "Password"      | Password rejected, error message       |
+| TCID-003        | Password        | Contains at least one uppercase letter   | Valid         | "Passw0rd"      | Password accepted                      |
+| TCID-004        | Password        | Does not contain any uppercase letter    | Invalid       | "password1"     | Password rejected, error message       |
+| TCID-005        | Password        | Contains at least one lowercase letter   | Valid         | "Passw0rd"      | Password accepted                      |
+| TCID-006        | Password        | Does not contain any lowercase letter    | Invalid       | "PASSWORD1"     | Password rejected, error message       |
+| TCID-007        | Password        | String length at least 8 characters      | Valid         | "Passw0rd"      | Password accepted                      |
+| TCID-008        | Password        | String length less than 8 characters     | Invalid       | "Pass1"         | Password rejected, error message       |
+| TCID-009        | Password        | Non-string input                         | Invalid       | 12345678        | Password rejected, error message       |
 
 ### Boundary Value Analysis
 
 **Explanation:**
 
-Boundary Value Analysis (BVA) is a software testing technique used to identify errors at boundaries rather than finding those exist in the center of the input domain. It involves testing the extreme ends of the input domain, i.e., the smallest and largest values, including their just inside and just outside values.
+Boundary Value Analysis (BVA) is a software testing technique focused on identifying errors that occur at the boundaries of input domains rather than those in the middle. Since many defects often manifest at the edges of input ranges, BVA emphasizes testing values at and around these boundaries to ensure robust system behavior.
+
+1. **Input Range Validation:**
+
+- **Scenario:** Validating numerical input ranges in forms, configuration settings, or any system that requires numerical limits.
+- **Example:** Ensuring that an age is between 18 and 60, a temperature setting is between 15°C and 30°C, and a file upload size is between 1MB and 10MB.
+
+2. **Date Range Validation:**
+
+- **Scenario:** Validating date ranges in booking systems, scheduling applications, or any system that requires date inputs.
+- **Example:** Ensuring that a booking date is within the allowed range, a subscription start and end date are valid, and a project deadline is within the acceptable timeframe.
+
+3. **Financial Transactions:**
+
+- **Scenario:** Validating system that handles financial transactions.
+- **Example:** Ensuring that a transaction amount is within the allowed limits, a discount percentage is within the valid range, and a loan amount is between the minimum and maximum allowed values.
 
 **Key Concepts:**
 
-1. **Boundary Values:** These are the input values which divide the input domain into partitions. They are the extreme ends of the input domain like smallest and largest values.
+- **Boundary Values:** Many errors tend to occur at the edges of input ranges.
 
-2. **Edge Values:** These are the values just inside and just outside of the boundary values. They are very important as they often cause errors.
+- **Edge Values:** Edge values refer to inputs just inside and just outside the boundary values.
 
-3. **Valid and Invalid Partitions:** In BVA, the input domain is divided into valid and invalid partitions. The valid partition contains values that should be accepted by the system, while the invalid partition contains values that should be rejected.
+- **Valid and Invalid Partitions:** The input domain is divided into partitions of valid and invalid inputs. Testing is performed on both.
+  - **Valid Partition:** Contains input values that are within the acceptable range of the system.
+  - **Invalid Partition:** Contains input values that fall outside the acceptable range.
 
-4. **Testing:** The main idea behind BVA is to select input values from each partition and boundary values for testing. This helps in identifying errors at the boundaries that might have been missed out by other testing techniques.
+- **2-Value BVA (Two-Point Boundary Value Analysis):** In 2-value BVA, testing focuses on the exact boundary points. Each boundary is tested with two values: one at the lower boundary and one at the upper boundary. This approach provides basic coverage by verifying that the system correctly handles the minimum and maximum allowable inputs.
 
-**Example:**
+![2BVA](./images/2BVA.png)
 
-**Feature to Test:** Withdrawal from a Bank Account
+- **3-Value BVA (Three-Point Boundary Value Analysis):** In 3-value BVA, testing extends to include values just below, exactly at, and just above each boundary. Each boundary is tested with three values, ensuring that edge cases are handled properly and off-by-one errors are caught.
 
-The application allows a user to withdraw an amount between $20 and $1000 from their bank account in a single transaction. Withdrawals outside this range are not allowed.
+![3BVA](./images/3BVA.png)
 
-We can identify the boundary values as $19, $20, $1000, and $1001.
+- **Testing Strategy:** Select inputs from valid and invalid partitions, focusing on:
+  - **2-Value BVA:** Testing at the exact lower and upper boundaries.
+  - **3-Value BVA:** Testing just below, exactly at, and just above each boundary for thorough coverage.
 
-| Boundary Value Analysis | Test Input | Expected Outcome                       |
-|-------------------------|------------|----------------------------------------|
-| Just below lower limit  | $19        | Withdrawal rejected, error message     |
-| At lower limit          | $20        | Withdrawal processed                   |
-| At upper limit          | $1000      | Withdrawal processed                   |
-| Just above upper limit  | $1001      | Withdrawal rejected, error message     |
+- **Reduced Number of Test Cases:** By focusing on boundary values, the number of test cases is reduced compared to traditional methods, making it easier to maintain.
+
+- **Scenario Column:** While a "Scenario" column can provide additional context and make the test cases more understandable, it is not strictly necessary for BVA. The primary focus of BVA is on testing the boundaries of input ranges. Including a "Scenario" column can help testers and stakeholders understand the purpose of each test case more clearly, but it can be omitted if the table is already clear and understandable.
+
+  **Example 1: Age Validation**
+
+  | Test Case ID  | Boundary Type             | Value Description         | Value | Valid/Invalid | Scenario                          |
+  |---------------|---------------------------|---------------------------|-------|---------------|-----------------------------------|
+  | TC001         | Lower Boundary            | Exact lower boundary      | 18    | Valid         | Minimum age for registration      |
+  | TC002         | Upper Boundary            | Exact upper boundary      | 60    | Valid         | Maximum age for registration      |
+  | TC003         | Just Below Lower Boundary | Just below lower boundary | 17    | Invalid       | Below minimum age                 |
+  | TC004         | Just Above Lower Boundary | Just above lower boundary | 19    | Valid         | Just above minimum age            |
+  | TC005         | Just Below Upper Boundary | Just below upper boundary | 59    | Valid         | Just below maximum age            |
+  | TC006         | Just Above Upper Boundary | Just above upper boundary | 61    | Invalid       | Above maximum age                 |
 
 ### Decision Table Testing
 
 **Explanation:**
 
-Decision Table Testing is a software testing technique used in both functional and black box testing. This method is particularly helpful in designing test cases for complex business rules that involve various input combinations and have different outcomes.
+Decision Table Testing is a software testing technique used to test system behavior based on different combinations of inputs and their corresponding outputs.
+
+1. **Multiple criteria:**
+
+- **Scenario:** Validating system behavior based on various input conditions and their combinations.
+- **Example:** Ensuring that a system correctly processes user input based on different combinations of conditions such as user role, authentication status, and resource access level.
 
 **Key Concepts:**
 
-1. **Decision Table:** It's a table that lists out all possible input combinations and their corresponding output results. Each row represents a unique combination of conditions that leads to a decision.
+- **Notation:** refers to the symbols and conventions used to represent conditions and actions
+  - **domain-specific notation:** refers to the use of terms and symbols that are specific to a particular domain or industry.
+  - **Boolean Notation:** Boolean notation uses binary values (True/False or T/F) to represent conditions and actions. This type of notation is straightforward and commonly used in decision tables and logical expressions.
+- **Conditions:** The different input variables or conditions that affect the system's behavior.
+  - **T:** True, the condition is satisfied.
+  - **F:** False, the condition is not satisfied.
+  - **–:** Value of the condition is irrelevant for the action outcome. This means that regardless of whether the condition is true or false, it does not affect the resulting action.
+  - **N/A:** Not applicable, the condition is not relevant or cannot be applied in the context of the given rule.
+- **Actions:** The possible outcomes or actions that result from the combinations of conditions.
+  - **X:** The action should occur.
+  - **Blank:** The action should not occur.
+- **Decision Table:** A tabular representation that maps conditions to actions, showing all possible combinations of inputs and their corresponding outputs.
 
-2. **Conditions and Actions:** Conditions are the inputs or system states that can vary, and actions are the system behavior or output based on those conditions.
+| Test Case ID | Condition 1 | Condition 2 | Condition 3 | Action 1 | Action 2 |
+|--------------|-------------|-------------|-------------|----------|----------|
+| TC001        | T           | F           | T           | X        |          |
+| TC002        | F           | T           | F           |          | X        |
+| TC003        | –           | T           | F           | X        |          |
+| TC004        | T           | –           | T           |          | X        |
+| TC005        | N/A         | F           | T           |          |          |
+| TC006        | T           | T           | F           | X        |          |
 
-3. **Rules:** Each rule in the decision table represents a combination of conditions that leads to one or more actions. Each row in the decision table typically represents a rule.
+**Example 1 Loan Approval System:**
 
-4. **Simplicity:** Decision tables simplify complex business logic by presenting it in a structured and understandable way. This makes it easier to identify missing or incorrect requirements.
+| Test Case ID | Credit Score | Income Level | Employment Status | Loan Amount | Expected Result |
+|--------------|--------------|--------------|-------------------|-------------|-----------------|
+| TC001        | High         | High         | Employed          | Low         | Loan Approved   |
+| TC002        | Low          | High         | Employed          | Low         | Loan Denied     |
+| TC003        | High         | Low          | Employed          | High        | Loan Denied     |
+| TC004        | High         | High         | Unemployed        | Low         | Loan Denied     |
+| TC005        | High         | High         | Employed          | High        | Loan Approved   |
+| TC006        | Low          | Low          | Unemployed        | High        | Loan Denied     |
 
-5. **Comprehensive Coverage:** By considering all possible combinations of inputs, decision table testing ensures comprehensive test coverage.
+**Example 2 N/A:**
 
-**Example:**
+| Test Case ID | Condition 1 (User Authenticated) | Condition 2 (Admin Privileges) | Condition 3 (Resource Available) | Action 1 (Grant Access) | Action 2 (Deny Access) |
+|--------------|----------------------------------|--------------------------------|----------------------------------|-------------------------|------------------------|
+| TC001        | T                                | F                              | T                                | X                       |                        |
+| TC002        | F                                | T                              | F                                |                         | X                      |
+| TC003        | –                                | T                              | F                                | X                       |                        |
+| TC004        | T                                | –                              | T                                |                         | X                      |
+| TC005        | N/A                              | F                              | T                                |                         |                        |
+| TC006        | T                                | T                              | F                                | X                       |                        |
 
-**Feature to Test:** Discount Calculation in an E-commerce Application
+- In **TC005**, "N/A" for Condition 1 means that the user's authentication status does not matter for this particular test case. This could be used to test scenarios where the system's behavior is independent of whether the user is authenticated or not.
 
-The application provides discounts based on the type of user and the total purchase amount. The rules are as follows:
+**Example 4 Payment Processing System:**
 
-1. Regular users get a 5% discount on purchases over $500.
-2. Premium users get a 10% discount on purchases over $500 and a 15% discount on purchases over $1000.
-
-| Type of User | Purchase Amount > $500 | Purchase Amount > $1000 | Discount |
-|--------------|------------------------|-------------------------|----------|
-| Regular      | No                     | No                      | 0%       |
-| Regular      | Yes                    | No                      | 5%       |
-| Regular      | Yes                    | Yes                     | 5%       |
-| Premium      | No                     | No                      | 0%       |
-| Premium      | Yes                    | No                      | 10%      |
-| Premium      | Yes                    | Yes                     | 15%      |
+| Test Case ID | Condition 1 (Card Valid) | Condition 2 (Sufficient Funds) | Condition 3 (Payment Gateway Available) | Action 1 (Process Payment) | Action 2 (Show Error) |
+|--------------|--------------------------|--------------------------------|-----------------------------------------|----------------------------|-----------------------|
+| TC001        | T                        | T                              | T                                       | X                          |                       |
+| TC002        | F                        | T                              | T                                       |                            | X                     |
+| TC003        | T                        | F                              | T                                       |                            | X                     |
+| TC004        | T                        | T                              | F                                       |                            | X                     |
+| TC005        | F                        | F                              | T                                       |                            | X                     |
+| TC006        | T                        | F                              | F                                       |                            | X                     |
 
 ### State Transition Testing
 
@@ -286,62 +361,252 @@ The application provides discounts based on the type of user and the total purch
 
 State Transition Testing is a software testing technique used to test the behavior of an application under test (AUT) for different input conditions in a sequence. It is particularly useful for systems where the system's current state is dependent on a sequence of past events or inputs.
 
+- **Different input conditions in a sequence**
+
+  - **Scenario:** Testing an online booking system for flight reservations.
+  - **Example:** System correctly processes a sequence of inputs such as selecting a departure city, selecting a destination city, choosing travel dates, selecting a flight, and entering passenger details.
+
+- **Interactive Applications:**
+
+  - **Scenario:** Testing a role-playing game (RPG) where the player's state changes based on actions such as moving, attacking, or using items.
+  - **Example:** Move command transitions the player from "Idle" to "Moving."
+
+- **Interacting with External Applications in Web Workflows:**
+
+  - **Scenario:** Testing an integrated workflow in a stateful web application that requires interaction with multiple external programs.
+  - **Example:** Project management web application correctly handles a sequence of user actions that involve opening and interacting with external programs.
+
+- **Protocol Testing:**
+
+  - **Scenario:** Testing a network communication protocol for a client-server application.
+  - **Example:** Client and server correctly handle a sequence of messages such as connection requests, data transfers, file download requests, and disconnections.
+
+- **Embedded Systems:**
+
+  - **Scenario:** Testing the state transitions of thermostat system.
+  - **Example:** Ensuring that the smart thermostat correctly handles a sequence of inputs such as setting the desired temperature, detecting the current temperature, turning the heating or cooling system on or off, and entering energy-saving mode.
+
 **Key Concepts:**
 
-1. **State:** A distinct condition or mode of the system under different inputs or conditions.
+- **State:** Describe what the system is doing or what condition of the system under different inputs."
 
-2. **Transition:** The change from one state to another state of the system, usually triggered by events or conditions.
+  - **Initial and Final State:** The state in which the system starts is known as the initial state, and the state where it ends is known as the final state.
+    - **Initial Idle:** The thermostat starts in the "Idle" state, where it is not actively heating or cooling.
+    - **Final Idle:** The thermostat returns to the "Idle" state after completing its heating or cooling cycle, or after resolving an error.
 
-3. **State Diagram:** A graphical representation of all possible states, transitions, and events of the system.
+  ```text
+  States:
 
-4. **Initial and Final State:** The state in which the system starts is known as the initial state, and the state where it ends is known as the final state.
+  Idle: The thermostat is not actively heating or cooling.
 
-5. **Events:** An event is an occurrence that may trigger a state transition.
+  Heating: The thermostat is actively heating to reach the desired temperature.
 
-6. **State Table:** A tabular representation of all possible states, transitions, and events, similar to the state diagram but in a tabular form.
+  Cooling: The thermostat is actively cooling to reach the desired temperature.
 
-7. **Coverage:** The goal in state transition testing is to cover all possible states and transitions. This ensures that the system behaves correctly for all sequences of events.
+  Energy-Saving: The thermostat is in an energy-saving mode, maintaining a less aggressive temperature range.
 
-**Example:**
+  Error: The thermostat has encountered an error, such as a sensor failure.
+  ```
 
-**Feature to Test:** Online Music Player
+- **Events:** An event is an occurrence that may trigger a state condition.
 
-1. When a user presses the 'Play' button, the player starts playing music.
-2. When a user presses the 'Pause' button, the player pauses the music.
-3. When a user presses the 'Stop' button, the player stops the music and resets to the beginning of the track.
-4. When a user presses the 'Next' button, the player stops the current track and starts playing the next one.
+  - **Event Dependencies:** Events are often dependent on the current state of the system and can include user actions, system conditions, or external inputs.
 
-**State Diagram:**
+  ```text
+  Events:
 
-Initial State: Stopped
+  Set Heating: The user sets the thermostat to heating mode.
 
-States:
+  Set Cooling: The user sets the thermostat to cooling mode.
 
-1. Playing
-2. Paused
-3. Stopped
+  Set Energy-Saving: The user sets the thermostat to energy-saving mode.
 
-Transitions:
+  Temperature Reached: The desired temperature is reached.
 
-1. Press 'Play': Stopped -> Playing
-2. Press 'Pause': Playing -> Paused
-3. Press 'Play': Paused -> Playing
-4. Press 'Stop': Playing -> Stopped
-5. Press 'Stop': Paused -> Stopped
-6. Press 'Next': Playing -> Playing (next track)
-7. Press 'Next': Paused -> Playing (next track)
+  Error Detected: An error is detected in the system.
 
-**State Table:**
+  Reset: The system is reset after an error.
+  ```
 
-| Current State | Input     | Next State |
-|---------------|-----------|------------|
-| Stopped       | Play      | Playing    |
-| Playing       | Pause     | Paused     |
-| Paused        | Play      | Playing    |
-| Playing       | Stop      | Stopped    |
-| Paused        | Stop      | Stopped    |
-| Playing       | Next      | Playing    |
-| Paused        | Next      | Playing    |
+- **Actions:** Operations that occur as a result of a state transition. They define what the system does when it moves from one state to another based on an event.
+
+  ```text
+  Actions:
+
+  Start Heating: Begin heating to reach the desired temperature.
+
+  Start Cooling: Begin cooling to reach the desired temperature.
+
+  Enter Energy-Saving Mode: Adjust settings to maintain an energy-efficient temperature range.
+
+  Stop Heating/Cooling: Stop the heating or cooling process.
+
+  Display Error: Show an error message or indicator.
+
+  Clear Error: Clear the error state and return to idle.
+  ```
+
+- **Transition:** The change from one state to another state of the system.
+
+  - **Triggering Events:** triggered by events and often involve actions that the system performs as it moves from one state to another.
+
+  - **Scenario:** Each transition can be considered a scenario that describes how the system moves from one state to another based on specific events and actions.
+
+- **State Diagram:** A graphical representation of all possible states, transitions, and events of the system.
+
+  - **Non-Sequential Transitions:** State transitions do not necessarily follow a linear or sequential path. Instead, they represent how a system moves from one state to another based on specific events.
+
+  ```text
+  [Idle] --(Set Heating)--> [Heating]
+  [Idle] --(Set Cooling)--> [Cooling]
+  [Idle] --(Set Energy-Saving)--> [Energy-Saving]
+
+  [Heating] --(Temperature Reached)--> [Idle]
+  [Heating] --(Error Detected)--> [Error]
+
+  [Cooling] --(Temperature Reached)--> [Idle]
+  [Cooling] --(Error Detected)--> [Error]
+
+  [Energy-Saving] --(Set Heating)--> [Heating]
+  [Energy-Saving] --(Set Cooling)--> [Cooling]
+  [Energy-Saving] --(Error Detected)--> [Error]
+
+  [Error] --(Reset)--> [Idle]
+  ```
+
+  - **Sequential Transitions:** In some cases, it is important to represent sequential transitions, where the system must follow a specific order of states. Sequential transitions are needed when the system's behavior depends on a strict sequence of events.
+
+  ```text
+  [Idle] --(Set Heating)--> [Heating]
+  [Heating] --(Temperature Reached)--> [Idle]
+  [Idle] --(Set Cooling)--> [Cooling]
+  [Cooling] --(Temperature Reached)--> [Idle]
+  ```
+
+- **State Table:** A tabular representation of all possible states, transitions, and events, similar to the state diagram but in a tabular form.
+
+| Test Case ID | Current State   | Event              | Next State      | Action                  |
+|--------------|-----------------|--------------------|-----------------|-------------------------|
+| TC001        | Idle            | Set Heating        | Heating         | Start Heating           |
+| TC002        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
+| TC003        | Idle            | Set Energy-Saving  | Energy-Saving   | Enter Energy-Saving Mode|
+| TC004        | Heating         | Temperature Reached| Idle            | Stop Heating            |
+| TC005        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+| TC006        | Energy-Saving   | Set Heating        | Heating         | Start Heating           |
+| TC007        | Energy-Saving   | Set Cooling        | Cooling         | Start Cooling           |
+| TC008        | Heating         | Error Detected     | Error           | Display Error           |
+| TC009        | Cooling         | Error Detected     | Error           | Display Error           |
+| TC010        | Energy-Saving   | Error Detected     | Error           | Display Error           |
+| TC011        | Error           | Reset              | Idle            | Clear Error             |
+| TC012        | Idle            | Set Heating        | Heating         | Start Heating           |
+| TC013        | Heating         | Temperature Reached| Idle            | Stop Heating            |
+| TC014        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
+| TC015        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+
+- **Coverage:**
+
+  - **All states coverage:** Ensuring that every state in the system is tested at least once.
+  - **Valid transitions coverage:** Ensuring that all valid transitions between states are tested.
+  - **All transitions coverage:** Ensuring that every possible transition, including invalid ones, is tested to verify the system's behavior.
+
+**Example role-playing game (RPG):**
+
+  *States:*
+
+  ```text
+  Idle: The player is standing still and not performing any actions.
+  Moving: The player is moving from one location to another.
+  Attacking: The player is engaged in combat, attacking an enemy.
+  Defending: The player is defending against an enemy attack.
+  Using Item: The player is using an item from their inventory.
+  Dead: The player has been defeated and is no longer active
+  ```
+
+  *Events:*
+
+  ```text
+  Move Command: The player issues a command to move.
+  Attack Command: The player issues a command to attack.
+  Defend Command: The player issues a command to defend.
+  Use Item Command: The player issues a command to use an item.
+  Receive Damage: The player receives damage from an enemy.
+  Health Depleted: The player's health reaches zero.
+  ```
+
+  *Actions:*
+
+  ```text
+  Start Moving: The player begins moving.
+  Start Attacking: The player begins attacking.
+  Start Defending: The player begins defending.
+  Use Item: The player uses an item.
+  Take Damage: The player takes damage.
+  Die: The player dies.
+  ```
+
+  *State Diagram:*
+
+  ```text
+  [Idle] --(Move Command)--> [Moving]
+  [Idle] --(Attack Command)--> [Attacking]
+  [Idle] --(Defend Command)--> [Defending]
+  [Idle] --(Use Item Command)--> [Using Item]
+  [Idle] --(Receive Damage)--> [Idle]
+  [Idle] --(Health Depleted)--> [Dead]
+
+  [Moving] --(Stop Command)--> [Idle]
+  [Moving] --(Receive Damage)--> [Moving]
+  [Moving] --(Health Depleted)--> [Dead]
+
+  [Attacking] --(Stop Command)--> [Idle]
+  [Attacking] --(Receive Damage)--> [Attacking]
+  [Attacking] --(Health Depleted)--> [Dead]
+
+  [Defending] --(Stop Command)--> [Idle]
+  [Defending] --(Receive Damage)--> [Defending]
+  [Defending] --(Health Depleted)--> [Dead]
+
+  [Using Item] --(Item Used)--> [Idle]
+  [Using Item] --(Receive Damage)--> [Using Item]
+  [Using Item] --(Health Depleted)--> [Dead]
+
+  [Dead] --(Revive Command)--> [Idle]
+
+  [Idle] --(Attack Command)--> [Attacking]
+  [Attacking] --(Receive Damage)--> [Defending]
+  [Defending] --(Use Item Command)--> [Using Item]
+  [Using Item] --(Attack Command)--> [Attacking]
+  [Attacking] --(Health Depleted)--> [Dead]
+  ```
+
+  *State Transition Table:*
+
+  | Test Case ID | Current State | Event              | Next State  | Action             |
+  |--------------|---------------|--------------------|-------------|--------------------|
+  | TC001        | Idle          | Move Command       | Moving      | Start Moving       |
+  | TC002        | Idle          | Attack Command     | Attacking   | Start Attacking    |
+  | TC003        | Idle          | Defend Command     | Defending   | Start Defending    |
+  | TC004        | Idle          | Use Item Command   | Using Item  | Use Item           |
+  | TC005        | Idle          | Receive Damage     | Idle        | Take Damage        |
+  | TC006        | Idle          | Health Depleted    | Dead        | Die                |
+  | TC007        | Moving        | Stop Command       | Idle        | Stop Moving        |
+  | TC008        | Moving        | Receive Damage     | Moving      | Take Damage        |
+  | TC009        | Moving        | Health Depleted    | Dead        | Die                |
+  | TC010        | Attacking     | Stop Command       | Idle        | Stop Attacking     |
+  | TC011        | Attacking     | Receive Damage     | Attacking   | Take Damage        |
+  | TC012        | Attacking     | Health Depleted    | Dead        | Die                |
+  | TC013        | Defending     | Stop Command       | Idle        | Stop Defending     |
+  | TC014        | Defending     | Receive Damage     | Defending   | Take Damage        |
+  | TC015        | Defending     | Health Depleted    | Dead        | Die                |
+  | TC016        | Using Item    | Item Used          | Idle        | Finish Using Item  |
+  | TC017        | Using Item    | Receive Damage     | Using Item  | Take Damage        |
+  | TC018        | Using Item    | Health Depleted    | Dead        | Die                |
+  | TC019        | Dead          | Revive Command     | Idle        | Revive             |
+  | TC020        | Idle          | Attack Command     | Attacking   | Start Attacking    |
+  | TC021        | Attacking     | Receive Damage     | Defending   | Start Defending    |
+  | TC022        | Defending     | Use Item Command   | Using Item  | Use Item           |
+  | TC023        | Using Item    | Attack Command     | Attacking   | Start Attacking    |
+  | TC024        | Attacking     | Health Depleted    | Dead        | Die                |
 
 ## Experience-based Techniques
 
