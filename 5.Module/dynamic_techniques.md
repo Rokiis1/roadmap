@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD033 -->
+
 # Content of Table
 
 - [Dynamic Techniques](#dynamic-techniques)
@@ -24,7 +26,8 @@
 
 Dynamic techniques are methods used in software development that involve the execution of the software. These techniques are used to validate the functional behavior of software, to ensure it is working as expected. They are often used in conjunction with static techniques, which are used without executing the software.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Collaboration-based Test Approaches:** These approaches involve the team working together to write user stories, perform user acceptance testing, and conduct alpha and beta testing.
 
@@ -34,8 +37,9 @@ Dynamic techniques are methods used in software development that involve the exe
 
 4. **White-box Testing Techniques:** These techniques, such as statement testing and coverage, decision testing and coverage, and path testing, focus on the internal structure of the software.
 
-5. **Confirmation Testing:** This includes re-testing and regression testing to ensure
-that defects have been corrected and that modifications have not introduced new issues.
+5. **Confirmation Testing:** This includes re-testing and regression testing to ensure that defects have been corrected and that modifications have not introduced new issues.
+
+</details>
 
 ## Collaboration-based Test Approaches
 
@@ -43,7 +47,8 @@ that defects have been corrected and that modifications have not introduced new 
 
 Collaboration-based test approaches involve the collective participation of various stakeholders in the testing process.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **User Acceptance Testing (UAT):** This is the final phase in the testing process before the software is released for use. The aim is to validate the software against business requirements.
 
@@ -55,13 +60,16 @@ Collaboration-based test approaches involve the collective participation of vari
 
 5. **Contractual and regulatory acceptance testing:** This is performed to ensure that the system meets the requirements specified in the contract and any applicable regulations.
 
+</details>
+
 ### Collaborative User Story Writing
 
 **Explanation:**
 
 Collaborative User Story Writing involves the team working together to write user stories, which are descriptions of a software feature from an end-user perspective.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Collaboration:** The process involves all relevant stakeholders, including developers, testers, business analysts, and users.
 
@@ -73,7 +81,10 @@ Collaborative User Story Writing involves the team working together to write use
 
 5. **User Stories:** A User Story is written from the perspective of a user who wants to derive value from the product. It should focus on the user's desired outcomes and be embedded in the context where the user seeks value from the product.
 
-**Syntax:**
+</details>
+
+<details>
+  <summary>Syntax:</summary>
 
 A user story is typically written in the format: **"As a [type of user], I want [an action] so that [benefit/a value]"**.
 
@@ -83,7 +94,10 @@ WHAT: I want [action to perform]
 WHY: So that [the desired outcome]
 ```
 
-**Example:**
+</details>
+
+<details>
+  <summary>Example:</summary>
 
 *User Story 1:*
 
@@ -105,46 +119,54 @@ I want to drag and drop tasks within a list
 So that I can reorder them quicly and easily
 ```
 
+</details>
+
 ### User Acceptance Testing (UAT)
 
 **Explanation:**
 
-User Acceptance Testing (UAT) is the final phase in the testing process before the software is released for use. The aim of UAT is to validate the software against business requirements. It is typically conducted by the end-users or clients of the software to ensure that the system meets their needs and is ready for use in real-world scenarios.
+User Acceptance Testing (UAT) is the final phase in the testing process before the software is released for use. The aim of UAT is to validate the software against business requirements. It is typically conducted by the end-users or clients of the software.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
-1. **Real-world Scenarios:** UAT involves testing the software under real-world scenarios to ensure it can handle tasks it was designed for.
+1. **End-user Involvement:** The testing is typically conducted by the end-users or clients, not by the developers or testers.
 
-2. **End-user Involvement:** The testing is typically conducted by the end-users or clients, not by the developers or testers.
+2. **Business Requirements:** The focus of UAT is to validate that the software meets the business requirements and not just the technical specifications.
 
-3. **Business Requirements:** The focus of UAT is to validate that the software meets the business requirements and not just the technical specifications.
+3. **Final Phase:** UAT is usually the last phase of testing, conducted after unit, integration, and system testing.
 
-4. **Final Phase:** UAT is usually the last phase of testing, conducted after unit, integration, and system testing.
+4. **Acceptance Criteria:** The software is tested against predefined acceptance criteria to determine if it is ready for delivery. These criteria are essential for ensuring the software meets the end users' needs and requirements. There are two common formats for writing acceptance criteria: the Given-When-Then (Behavior-Driven Development - BDD) format and the Checklist format.
 
-5. **Acceptance Criteria:** The software is tested against predefined acceptance criteria to determine if it is ready for delivery. These criteria are essential for ensuring the software meets the end users' needs and requirements. There are two common formats for writing acceptance criteria: the Given-When-Then (Behavior-Driven Development - BDD) format and the Checklist format.
+</details>
 
-  **Given-When-Then (BDD) Format Example:**
+<details>
+  <summary>Example:</summary>
 
-  1. Given some initial context (the state of the system),
-  2. When an event occurs (an action is carried out),
-  3. Then ensure some outcomes.
+**Given-When-Then (BDD) Format Example:**
 
-  ```text
-  Acceptance Criteria:
+1. Given some initial context (the state of the system),
+2. When an event occurs (an action is carried out),
+3. Then ensure some outcomes.
 
-  - Given I have a product in my shopping cart,
-    When I click on 'Checkout' and complete the payment process,
-    Then I should receive an order confirmation.
-  ```
+```text
+Acceptance Criteria:
 
-  **Checklist Format Example:**
+- Given I have a product in my shopping cart,
+  When I click on 'Checkout' and complete the payment process,
+  Then I should receive an order confirmation.
+```
 
-  ```text
-  Acceptance Criteria:
+**Checklist Format Example:**
 
-  -  Navigate from the homepage to the registration page.
-  -  View a form on the registration page requesting name, email address, and password.
-  ```
+```text
+Acceptance Criteria:
+
+-  Navigate from the homepage to the registration page.
+-  View a form on the registration page requesting name, email address, and password.
+```
+
+</details>
 
 ### Alpha and Beta Testing
 
@@ -152,7 +174,8 @@ User Acceptance Testing (UAT) is the final phase in the testing process before t
 
 Alpha and Beta Testing are stages of software testing that are conducted to ensure the quality of the product before it is released to the end-users. Alpha testing is performed internally within the organization by a specialized testing team. Beta testing, on the other hand, is performed by a limited number of end-users who are not part of the organization.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Alpha Testing:** This is the first phase of testing where the software is tested internally within the organization. It is typically performed by a specialized testing team.
 
@@ -160,13 +183,16 @@ Alpha and Beta Testing are stages of software testing that are conducted to ensu
 
 3. **Feedback Loop:** Both alpha and beta testing provide valuable feedback that can be used to improve the quality of the software.
 
+</details>
+
 ## Black-box Testing Techniques
 
 **Explanation:**
 
 Black-box testing techniques focus on the functionality of the software without considering its internal structure. The tester is unaware of the internal workings of the system and tests the software based on the input and the output.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Equivalence Partitioning:** This is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
 
@@ -176,23 +202,36 @@ Black-box testing techniques focus on the functionality of the software without 
 
 4. **State Transition Testing:** This is used where some aspect of the system can be described in what is called a "finite state machine".
 
+</details>
+
 ### Equivalence Partitioning
 
 **Explanation:**
 
 Equivalence Partitioning is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
 
-1. **Input Validation:**
+<details>
+  <summary>Scenarios</summary>
 
-- **Scenario:** Validating user input in registration forms, login forms, or any data entry forms.
-- **Example:** Ensuring that a username is between 5 to 10 characters, a password meets complexity requirements, and an age is within a valid range.
+- **Input Validation:**
 
-**Key Concepts:**
+  - **Scenario:** Validating user input in registration forms, login forms, or any data entry forms.
+  - **Example:** Ensuring that a username is between 5 to 10 characters, a password meets complexity requirements, and an age is within a valid range.
+
+</details>
+
+<details>
+  <summary>Key Concepts:</summary>
 
 - **Partitioning:** Dividing input data into different **Equivalence Classes**. Each equivalence class represents a set of input values that are treated the same by the software, meaning that one test case can be used to test the entire class.
 - **Representative Values:** Selecting representative values from each partition for testing.
 - **Reduction of Test Cases:** Minimize the number of test cases by selecting representative values from each equivalence partition, ensuring comprehensive coverage with fewer tests. This approach eliminates the need for detailed step-by-step scenarios, as each equivalence class effectively acts as a scenario. Additionally, it removes the necessity for detailed steps to reproduce.
 - **In some scenarios:** Traditional test case tables might still be necessary, especially when preparing for automation testing that involves navigating through multiple pages or completing specific actions. While Equivalence Partitioning can handle input-based scenarios efficiently, when automating workflows that require multiple steps, such as navigating through pages, clicking buttons, or following a sequence of actions, detailed steps to reproduce are necessary.
+
+</details>
+
+<details>
+  <summary>Examples:</summary>
 
 **Example 1 Equivalence Class, Test Input, Expected Outcome:**
 
@@ -227,28 +266,36 @@ Equivalence Partitioning is a software testing technique that divides the input 
 | TCID-008        | Password        | String length less than 8 characters     | Invalid       | "Pass1"         | Password rejected, error message       |
 | TCID-009        | Password        | Non-string input                         | Invalid       | 12345678        | Password rejected, error message       |
 
+</details>
+
 ### Boundary Value Analysis
 
 **Explanation:**
 
 Boundary Value Analysis (BVA) is a software testing technique focused on identifying errors that occur at the boundaries of input domains rather than those in the middle. Since many defects often manifest at the edges of input ranges, BVA emphasizes testing values at and around these boundaries to ensure robust system behavior.
 
-1. **Input Range Validation:**
+<details>
+  <summary>Scenarios:</summary>
 
-- **Scenario:** Validating numerical input ranges in forms, configuration settings, or any system that requires numerical limits.
-- **Example:** Ensuring that an age is between 18 and 60, a temperature setting is between 15°C and 30°C, and a file upload size is between 1MB and 10MB.
+- **Input Range Validation:**
 
-2. **Date Range Validation:**
+  - **Scenario:** Validating numerical input ranges in forms, configuration settings, or any system that requires numerical limits.
+  - **Example:** Ensuring that an age is between 18 and 60, a temperature setting is between 15°C and 30°C, and a file upload size is between 1MB and 10MB.
 
-- **Scenario:** Validating date ranges in booking systems, scheduling applications, or any system that requires date inputs.
-- **Example:** Ensuring that a booking date is within the allowed range, a subscription start and end date are valid, and a project deadline is within the acceptable timeframe.
+- **Date Range Validation:**
 
-3. **Financial Transactions:**
+  - **Scenario:** Validating date ranges in booking systems, scheduling applications, or any system that requires date inputs.
+  - **Example:** Ensuring that a booking date is within the allowed range, a subscription start and end date are valid, and a project deadline is within the acceptable timeframe.
 
-- **Scenario:** Validating system that handles financial transactions.
-- **Example:** Ensuring that a transaction amount is within the allowed limits, a discount percentage is within the valid range, and a loan amount is between the minimum and maximum allowed values.
+- **Financial Transactions:**
 
-**Key Concepts:**
+  - **Scenario:** Validating system that handles financial transactions.
+  - **Example:** Ensuring that a transaction amount is within the allowed limits, a discount percentage is within the valid range, and a loan amount is between the minimum and maximum allowed values.
+
+</details>
+
+<details>
+  <summary>Key Concepts:</summary>
 
 - **Boundary Values:** Many errors tend to occur at the edges of input ranges.
 
@@ -274,16 +321,23 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 
 - **Scenario Column:** While a "Scenario" column can provide additional context and make the test cases more understandable, it is not strictly necessary for BVA. The primary focus of BVA is on testing the boundaries of input ranges. Including a "Scenario" column can help testers and stakeholders understand the purpose of each test case more clearly, but it can be omitted if the table is already clear and understandable.
 
-  **Example 1: Age Validation**
+</details>
 
-  | Test Case ID  | Boundary Type             | Value Description         | Value | Valid/Invalid | Scenario                          |
-  |---------------|---------------------------|---------------------------|-------|---------------|-----------------------------------|
-  | TC001         | Lower Boundary            | Exact lower boundary      | 18    | Valid         | Minimum age for registration      |
-  | TC002         | Upper Boundary            | Exact upper boundary      | 60    | Valid         | Maximum age for registration      |
-  | TC003         | Just Below Lower Boundary | Just below lower boundary | 17    | Invalid       | Below minimum age                 |
-  | TC004         | Just Above Lower Boundary | Just above lower boundary | 19    | Valid         | Just above minimum age            |
-  | TC005         | Just Below Upper Boundary | Just below upper boundary | 59    | Valid         | Just below maximum age            |
-  | TC006         | Just Above Upper Boundary | Just above upper boundary | 61    | Invalid       | Above maximum age                 |
+<details>
+  <summary>Examples:</summary>
+
+**Example 1 Age Validation:**
+
+| Test Case ID  | Boundary Type             | Value Description         | Value | Valid/Invalid | Scenario                          |
+|---------------|---------------------------|---------------------------|-------|---------------|-----------------------------------|
+| TC001         | Lower Boundary            | Exact lower boundary      | 18    | Valid         | Minimum age for registration      |
+| TC002         | Upper Boundary            | Exact upper boundary      | 60    | Valid         | Maximum age for registration      |
+| TC003         | Just Below Lower Boundary | Just below lower boundary | 17    | Invalid       | Below minimum age                 |
+| TC004         | Just Above Lower Boundary | Just above lower boundary | 19    | Valid         | Just above minimum age            |
+| TC005         | Just Below Upper Boundary | Just below upper boundary | 59    | Valid         | Just below maximum age            |
+| TC006         | Just Above Upper Boundary | Just above upper boundary | 61    | Invalid       | Above maximum age                 |
+
+</details>
 
 ### Decision Table Testing
 
@@ -291,12 +345,18 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 
 Decision Table Testing is a software testing technique used to test system behavior based on different combinations of inputs and their corresponding outputs.
 
+<details>
+  <summary>Scenarios:</summary>
+
 1. **Multiple criteria:**
 
 - **Scenario:** Validating system behavior based on various input conditions and their combinations.
 - **Example:** Ensuring that a system correctly processes user input based on different combinations of conditions such as user role, authentication status, and resource access level.
 
-**Key Concepts:**
+</details>
+
+<details>
+  <summary>Key Concepts:</summary>
 
 - **Notation:** refers to the symbols and conventions used to represent conditions and actions
   - **domain-specific notation:** refers to the use of terms and symbols that are specific to a particular domain or industry.
@@ -319,6 +379,11 @@ Decision Table Testing is a software testing technique used to test system behav
 | TC004        | T           | –           | T           |          | X        |
 | TC005        | N/A         | F           | T           |          |          |
 | TC006        | T           | T           | F           | X        |          |
+
+</details>
+
+<details>
+  <summary>Examples:</summary>
 
 **Example 1 Loan Approval System:**
 
@@ -355,11 +420,16 @@ Decision Table Testing is a software testing technique used to test system behav
 | TC005        | F                        | F                              | T                                       |                            | X                     |
 | TC006        | T                        | F                              | F                                       |                            | X                     |
 
+</details>
+
 ### State Transition Testing
 
 **Explanation:**
 
 State Transition Testing is a software testing technique used to test the behavior of an application under test (AUT) for different input conditions in a sequence. It is particularly useful for systems where the system's current state is dependent on a sequence of past events or inputs.
+
+<details>
+  <summary>Scenarios:</summary>
 
 - **Different input conditions in a sequence**
 
@@ -386,13 +456,19 @@ State Transition Testing is a software testing technique used to test the behavi
   - **Scenario:** Testing the state transitions of thermostat system.
   - **Example:** Ensuring that the smart thermostat correctly handles a sequence of inputs such as setting the desired temperature, detecting the current temperature, turning the heating or cooling system on or off, and entering energy-saving mode.
 
-**Key Concepts:**
+</details>
+
+<details>
+  <summary>Key Concepts:</summary>
 
 - **State:** Describe what the system is doing or what condition of the system under different inputs."
 
   - **Initial and Final State:** The state in which the system starts is known as the initial state, and the state where it ends is known as the final state.
     - **Initial Idle:** The thermostat starts in the "Idle" state, where it is not actively heating or cooling.
     - **Final Idle:** The thermostat returns to the "Idle" state after completing its heating or cooling cycle, or after resolving an error.
+
+  <details>
+    <summary>Snippet:</summary>
 
   ```text
   States:
@@ -408,9 +484,14 @@ State Transition Testing is a software testing technique used to test the behavi
   Error: The thermostat has encountered an error, such as a sensor failure.
   ```
 
+  </details>
+
 - **Events:** An event is an occurrence that may trigger a state condition.
 
   - **Event Dependencies:** Events are often dependent on the current state of the system and can include user actions, system conditions, or external inputs.
+
+  <details>
+    <summary>Snippet:</summary>
 
   ```text
   Events:
@@ -428,7 +509,12 @@ State Transition Testing is a software testing technique used to test the behavi
   Reset: The system is reset after an error.
   ```
 
+  </details>
+
 - **Actions:** Operations that occur as a result of a state transition. They define what the system does when it moves from one state to another based on an event.
+
+  <details>
+    <summary>Snippet:</summary>
 
   ```text
   Actions:
@@ -446,6 +532,8 @@ State Transition Testing is a software testing technique used to test the behavi
   Clear Error: Clear the error state and return to idle.
   ```
 
+  </details>
+
 - **Transition:** The change from one state to another state of the system.
 
   - **Triggering Events:** triggered by events and often involve actions that the system performs as it moves from one state to another.
@@ -455,6 +543,9 @@ State Transition Testing is a software testing technique used to test the behavi
 - **State Diagram:** A graphical representation of all possible states, transitions, and events of the system.
 
   - **Non-Sequential Transitions:** State transitions do not necessarily follow a linear or sequential path. Instead, they represent how a system moves from one state to another based on specific events.
+
+  <details>
+    <summary>Snippet:</summary>
 
   ```text
   [Idle] --(Set Heating)--> [Heating]
@@ -474,7 +565,12 @@ State Transition Testing is a software testing technique used to test the behavi
   [Error] --(Reset)--> [Idle]
   ```
 
+  </details>
+
   - **Sequential Transitions:** In some cases, it is important to represent sequential transitions, where the system must follow a specific order of states. Sequential transitions are needed when the system's behavior depends on a strict sequence of events.
+
+  <details>
+    <summary>Snippet:</summary>
 
   ```text
   [Idle] --(Set Heating)--> [Heating]
@@ -483,25 +579,30 @@ State Transition Testing is a software testing technique used to test the behavi
   [Cooling] --(Temperature Reached)--> [Idle]
   ```
 
+  </details>
+
 - **State Table:** A tabular representation of all possible states, transitions, and events, similar to the state diagram but in a tabular form.
 
-| Test Case ID | Current State   | Event              | Next State      | Action                  |
-|--------------|-----------------|--------------------|-----------------|-------------------------|
-| TC001        | Idle            | Set Heating        | Heating         | Start Heating           |
-| TC002        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
-| TC003        | Idle            | Set Energy-Saving  | Energy-Saving   | Enter Energy-Saving Mode|
-| TC004        | Heating         | Temperature Reached| Idle            | Stop Heating            |
-| TC005        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
-| TC006        | Energy-Saving   | Set Heating        | Heating         | Start Heating           |
-| TC007        | Energy-Saving   | Set Cooling        | Cooling         | Start Cooling           |
-| TC008        | Heating         | Error Detected     | Error           | Display Error           |
-| TC009        | Cooling         | Error Detected     | Error           | Display Error           |
-| TC010        | Energy-Saving   | Error Detected     | Error           | Display Error           |
-| TC011        | Error           | Reset              | Idle            | Clear Error             |
-| TC012        | Idle            | Set Heating        | Heating         | Start Heating           |
-| TC013        | Heating         | Temperature Reached| Idle            | Stop Heating            |
-| TC014        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
-| TC015        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+  <details>
+    <summary>Snippet:</summary>
+
+  | Test Case ID | Current State   | Event              | Next State      | Action                  |
+  |--------------|-----------------|--------------------|-----------------|-------------------------|
+  | TC001        | Idle            | Set Heating        | Heating         | Start Heating           |
+  | TC002        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
+  | TC003        | Idle            | Set Energy-Saving  | Energy-Saving   | Enter Energy-Saving Mode|
+  | TC004        | Heating         | Temperature Reached| Idle            | Stop Heating            |
+  | TC005        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+  | TC006        | Energy-Saving   | Set Heating        | Heating         | Start Heating           |
+  | TC007        | Energy-Saving   | Set Cooling        | Cooling         | Start Cooling           |
+  | TC008        | Heating         | Error Detected     | Error           | Display Error           |
+  | TC009        | Cooling         | Error Detected     | Error           | Display Error           |
+  | TC010        | Energy-Saving   | Error Detected     | Error           | Display Error           |
+  | TC011        | Error           | Reset              | Idle            | Clear Error             |
+  | TC012        | Idle            | Set Heating        | Heating         | Start Heating           |
+  | TC013        | Heating         | Temperature Reached| Idle            | Stop Heating            |
+  | TC014        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
+  | TC015        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
 
 - **Coverage:**
 
@@ -509,7 +610,12 @@ State Transition Testing is a software testing technique used to test the behavi
   - **Valid transitions coverage:** Ensuring that all valid transitions between states are tested.
   - **All transitions coverage:** Ensuring that every possible transition, including invalid ones, is tested to verify the system's behavior.
 
-**Example role-playing game (RPG):**
+</details>
+
+<details>
+  <summary>Examples:</summary>
+
+**Example 1 role-playing game (RPG):**
 
   *States:*
 
@@ -608,6 +714,8 @@ State Transition Testing is a software testing technique used to test the behavi
   | TC023        | Using Item    | Attack Command     | Attacking   | Start Attacking    |
   | TC024        | Attacking     | Health Depleted    | Dead        | Die                |
 
+</details>
+
 ## Experience-based Techniques
 
 **Explanation:**
@@ -626,7 +734,8 @@ Error Guessing is a software testing technique where the tester applies their ex
 
 Exploratory Testing is a type of software testing where test design and test execution happen simultaneously without explicitly planning the detailed test cases in advance. The tester actively controls the design of the tests as they are performed and uses information gained while testing to design new and better tests.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
 
@@ -634,13 +743,16 @@ Exploratory Testing is a type of software testing where test design and test exe
 
 2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
 
+</details>
+
 ### Checklist-Based Testing
 
 **Explanation:**
 
 Checklist-Based Testing is a software testing technique where the tester uses a checklist as a guide during the testing process. The checklist contains a set of important aspects or features of the application that need to be tested. This method ensures that the tester does not miss out on testing critical functionalities of the application.
 
-**Key Concepts:**
+<details>
+  <summary>Key Concepts:</summary>
 
 1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
 
@@ -648,13 +760,22 @@ Checklist-Based Testing is a software testing technique where the tester uses a 
 
 2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
 
+</details>
+
 ### Smoke and Sanity Testing
+
+**Explanation:**
+
+Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper.
+
+<details>
+  <summary>Key Concepts:</summary>
 
 - **Smoke Testing:** This is a high-level type of testing done to ensure that the basic functions of a program work correctly. It is often done when a new build is released to test if the build is stable and it can be tested thoroughly later.
 
 - **Sanity Testing:** This is a narrow regression testing that focuses on one or a few areas of functionality. Sanity testing is usually unscripted, helps to identify the dependent missing functionalities, and is used to determine if a section of the application is still working after a minor change.
 
-- **Difference between Smoke and Sanity Testing:** Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper. Smoke testing is scripted or documented, whereas Sanity testing is usually unscripted.
+</details>
 
 ## Confirmation Testing
 
@@ -662,11 +783,16 @@ Checklist-Based Testing is a software testing technique where the tester uses a 
 
 Confirmation Testing, also known as re-testing, is a type of testing performed to confirm that a test case which previously failed has been corrected after the defects have been fixed. The purpose of confirmation testing is to verify that the original defect has been successfully removed; it is not to uncover new defects.
 
+<details>
+  <summary>Key Concepts:</summary>
+
 **Key Concepts:**
 
 1. **Defect Fix Verification:** The main purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
 
 2. **Regression Testing:** Alongside confirmation testing, regression testing is often performed to ensure that the defect fixes haven't introduced new issues elsewhere in the system.
+
+</details>
 
 ### Regression Testing
 
