@@ -13,7 +13,7 @@
 
 ## Test Management
 
-Test management is a practice in software development that involves the planning, development, execution, and analysis of software tests. It includes tracking and reporting on test execution status, managing test data, maintaining test case documentation, and ensuring the quality of software products.
+Test management is a practice in software development that involves the planning, development, execution, and analysis of software tests. It includes tracking and reporting on test execution status, managing test data, maintaining test case documentation.
 
 - Test case creation and management
 - Test execution and tracking
