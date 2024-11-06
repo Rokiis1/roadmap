@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD033 -->
 # Content of Table
 
 - [Test Management](#test-management)
@@ -15,41 +16,95 @@
 
 Test management is a practice in software development that involves the planning, development, execution, and analysis of software tests. It includes tracking and reporting on test execution status, managing test data, maintaining test case documentation.
 
-- Test case creation and management
-- Test execution and tracking
-- Integration with bug tracking tools
-- Reporting and metrics
-- Collaboration among team members
+<details>
+    <summary>Key Concepts:</summary>
+
+- **Test case creation and management**
+  - Define and document test cases.
+  - Organize test cases into test suites.
+  - Maintain version control of test cases.
+
+- **Test Execution and Tracking**
+  - Schedule and execute test cases.
+  - Track test execution status.
+  - Record test results and logs.
+
+- **Integration with Bug Tracking Tools**
+  - Link test cases to bug reports.
+  - Create bug reports from failed tests.
+  - Track the status of bugs and their resolution.
+
+- **Reporting and Metrics**
+  - Generate test execution reports.
+  - Analyze test coverage and defect density.
+  - Monitor test progress.
+
+- **Collaboration Among Team Members**
+  - Share test cases and results with the team.
+  - Collaborate on test case development and execution.
+  - Communicate issues
+
+</details>
 
 ### Test Planning
 
 **Explanation:**
 
-Phase in the software testing life cycle that involves the documentation of the approach needed to test a software product.
+Test Planning It involves creating a detailed document that outlines the strategy and approach for testing a software product. This document serves as a blueprint for the entire testing process, ensuring that all aspects of testing are well-organized and systematically executed.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
-1. **Test Objectives:** These are what you want to achieve with your testing. They should be clear goals that you can measure and realistically reach. These goals should also match up with what you're trying to achieve with your software development.
+1. **Test Objectives:**
+    - Define what you want to achieve with your testing.
+    - Set clear, measurable, and realistic goals.
+    - Align these goals with the overall objectives of the software development project.
 
-2. **Test Methods:** These are the types of testing that will be conducted on the software, such as unit testing, integration testing, system testing, and acceptance testing.
+2. **Test Methods(types of testing):**
+    - Unit Testing
+    - Integration Testing
+    - System Testing
+    - Acceptance Testing
 
-3. **Resource Planning:** This involves determining and acquiring the necessary resources for the testing process, including the testing team, tools, and testing environment.
+3. **Resource Planning:**
+    - Testing team
+    - Tools
+    - Testing environment
 
 4. **Schedule and Estimation:** This involves estimating the time it will take to complete each task in the testing process and creating a schedule for the tasks.
 
-5. **Deliverables:** These are the outputs of the testing process, such as the test plan, test cases, test scripts, and test reports.
+5. **Deliverables(Outputs of the testing process):**
+    - Test Plan
+    - Test Cases
+    - Test Scripts
+    - Test Reports
 
-6. **Risk Analysis:** This involves identifying potential risks in the testing process and creating a plan to mitigate those risks.
+6. **Risk Analysis:**
+    - Identify potential risks in the testing process.
+    - Develop a plan to mitigate these risks.
 
-7. **Test Coverage:** This is a measure of the amount of testing done by a set of tests. It includes information about which parts of a program are actually executed when running the test suite in order to determine which branches of conditional statements have been taken.
+7. **Test Coverage:**
+    - Measure the amount of testing done by a set of tests.
+    - Determine which parts of the program are executed during testing.
+    - Ensure all branches of conditional statements are tested.
 
-8. **Traceability Matrix:** This is a tool that connects two important documents, typically the Software Requirements Specification (SRS) and the Test Plan. It ensures all requirements are covered by test cases, helping to track project needs and verify they are being met.
+8. **Traceability Matrix:**
+    - Connect two important documents, typically the Software Requirements Specification (SRS) and the Test Plan.
+    - Ensure all requirements are covered by test cases.
+    - Track project needs and verify they are being met.
 
-9. **Test Environment:** It includes the hardware and software environment in which tests will be executed, and any other software or tools that will be used for testing purposes.
+9. **Test Environment:**
+    - Define the hardware and software environment for test execution.
+    - Include any additional software or tools required for testing.
 
-**Example:**
+</details>
+
+<details>
+    <summary>Examples:</summary>
 
 - [Example: Test Plan](https://docs.google.com/document/d/1sYmLNT080yBU9CUZUcCcPY2frQwonLCC/edit?usp=sharing&ouid=107308472577516163164&rtpof=true&sd=true)
+
+</details>
 
 ### Test Pyramid
 
@@ -57,7 +112,8 @@ Phase in the software testing life cycle that involves the documentation of the 
 
 The Test Pyramid idea is for a large number of low-level unit tests, a smaller number of integration tests, and an even smaller number of end-to-end tests.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Unit Testing:** At the base of the pyramid, these tests are focused on individual components or units of a software system.
 
@@ -67,47 +123,66 @@ The Test Pyramid idea is for a large number of low-level unit tests, a smaller n
 
 4. **Acceptance Testing:** At the top of the pyramid, these tests are focused on the suitability of the system for business use.
 
+</details>
+
 ### Risk Management in Testing
 
 **Explanation:**
 
 Risk Management in Testing is a proactive approach to identify, assess, and mitigate risks that could negatively impact the software testing process and the quality of the final product.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Understanding Risk in Testing:** Risk in testing refers to the potential for a software product to fail to meet its requirements.
 
-2. **Risk Identification:** It involves identifying potential risks that could impact the software testing process. This could include technical risks (like software bugs or system failures), process risks (like delays or resource shortages), and external risks (like changes in market conditions or regulatory requirements).
+2. **Risk Identification:** Identify potential risks that could impact the software testing process.
+    - **Technical Risks:** Software bugs, system failures.
+    - **Process Risks:** Delays, resource shortages.
+    - **External Risks:** Changes in market conditions, regulatory requirements.
 
-3. **Risk Assessment:** Once risks have been identified, they need to be assessed in terms of their likelihood of occurrence and their potential impact. This helps to prioritize risks and to develop appropriate mitigation strategies.
+3. **Risk Assessment:** Once risks have been identified, they need to be assessed in terms of their likelihood of occurrence and their potential impact.
+    - **Risk Likelihood:** This refers to the probability that a particular risk will occur. It can be assessed based on past experience, statistical analysis.
 
-    - **Risk Likelihood:** This refers to the probability that a particular risk will occur. It can be assessed based on past experience, statistical analysis, or expert judgment.
+        <details>
+           <summary>Syntax:</summary>
 
-      **Syntax:**
+        **(Event that has an effect on objectives)** caused by **(cause/s)** resulting in **(consequence/s)**
 
-      **(Event that has an effect on objectives)** caused by **(cause/s)** resulting in **(consequence/s)**
+        </details>
 
-      **Example 1:**
+        <details>
+           <summary>Examples:</summary>
 
-      ```text
-      Suppose you're planning an outdoor event in a city where it rains about 10 days each month. 
+        **Example 1:**
 
-      The likelihood of this risk can be calculated based on past weather data. If it rains 10 days out of 30 in a typical month, then the likelihood of it raining on any given day (and thus potentially disrupting your event) is 10/30, or 33.3%.
-      ```
+        ```text
+        Suppose you're planning an outdoor event in a city where it rains about 10 days each month. 
 
-      **Example 2:**
+        The likelihood of this risk can be calculated based on past weather data. If it rains 10 days out of 30 in a typical month, then the likelihood of it raining on any given day (and thus potentially disrupting your event) is 10/30, or 33.3%.
+        ```
 
-      ```
-      Company uses a specific type of software that has had 5 security breaches reported in the past year. The risk here is that your company's data could be compromised due to a security breach in this software.
+        **Example 2:**
 
-      If there were 5 breaches in the past 365 days, the likelihood of a breach on any given day is 5/365, or approximately 1.37%. This means there's a 1.37% chance that a security breach could occur on any given day, based on past data.
-      ```
+        ```text
+        Company uses a specific type of software that has had 5 security breaches reported in the past year. The risk here is that your company's data could be compromised due to a security breach in this software.
+
+        If there were 5 breaches in the past 365 days, the likelihood of a breach on any given day is 5/365, or approximately 1.37%. This means there's a 1.37% chance that a security breach could occur on any given day, based on past data.
+        ```
+
+        </details>
 
     - **Risk Impact:** This refers to the potential consequences if the risk were to occur. It can be assessed in terms of the potential damage to the project's objectives, such as cost overruns, delays, or reduced quality.
 
-        **Syntax:**
+        <details>
+           <summary>Syntax:</summary>
 
         If **(risk event)** occurs, it could lead to **(consequence/s)**.
+
+        </details>
+
+        <details>
+           <summary>Examples:</summary>
 
         **Example 1:**
 
@@ -123,7 +198,7 @@ Risk Management in Testing is a proactive approach to identify, assess, and miti
 
         **Example 2:**
 
-        ```
+        ```text
         Suppose you're managing a software development project and one potential risk is that a key developer might leave the team before the project is completed.
 
         Delays: The departure of a key team member could slow down the development process, leading to a delay in the project timeline.
@@ -135,71 +210,137 @@ Risk Management in Testing is a proactive approach to identify, assess, and miti
         Knowledge Loss: The departing developer might have critical knowledge about the project that is not fully documented or known by the rest of the team. This could lead to further delays and mistakes.
         ```
 
+        </details>
+
+</details>
+
 ### Risk Response Strategies
 
 **Explanation:**
 
 Risk Response Strategies are the actions taken to address the risks identified during the risk assessment process. These strategies are designed to either reduce the likelihood of the risk occurring.
 
-**Syntax:**
+<details>
+    <summary>Syntax:</summary>
 
 - If **(risk event)** occurs, it could lead to **(consequence/s)**. In response to this risk, we could employ the **(Risk Response Strategy)** by **(specific actions)**.
 
-**Key Concepts:**
+</details>
+
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Risk Acceptance:** This is a risk response strategy where the risk is accepted without any further actions to reduce its impact or likelihood. This strategy is often used for low-priority risks, where the cost of mitigation would exceed the potential impact of the risk.
 
-    **Example 1:**
+    <details>
+       <summary>Examples:</summary>
 
     - If **minor software bug that does not affect the functionality or user experience**, it could lead to **minor inconsistencies in the user interface**. Given the low impact of this risk and the potentially high cost of fixing every minor bug, we could employ the **Risk Acceptance strategy** and accept this risk without taking further action to mitigate it.
 
+    </details>
+
 2. **Risk Mitigation:** This is a risk response strategy where actions are taken to reduce the likelihood of the risk occurring or to reduce its impact if it does occur.
 
-    **Example 1:**
+    <details>
+       <summary>Examples:</summary>
 
     - If **critical software component is complex and prone to errors**, it could lead to **system instability or crashes**. In response to this risk, we could employ the Risk **Mitigation strategy** by simplifying the component, writing additional tests to catch potential errors, and implementing additional security measures to prevent unauthorized access.
 
+    </details>
+
 3. **Risk Transfer:** The risk is transfered to a third party. This could involve purchasing insurance, outsourcing a risky part of the project, or using contractual agreements to shift the risk to another party.
 
-   **Example 1:**
+    <details>
+       <summary>Examples:</summary>
 
     - If **the development of a complex and specialized software module**, it could lead to **delays in the project and potential errors due to lack of expertise**. To manage this risk, we could use the **Risk Transfer strategy** by outsourcing the development of this module to a third-party vendor with proven expertise in this area.
 
+    </details>
+
 4. **Contingency Plan:** This is a backup plan that tells you what to do if something goes wrong.
 
-    **Example 1:**
+    <details>
+       <summary>Examples:</summary>
 
     - If **server outage**, it could lead to **downtime and loss of user data**. A contingency plan for this risk could involve having a backup server ready to take over, and a data recovery plan in place to restore any lost data. This is an example of the **Contingency Plan strategy**.
+
+    </details>
+
+</details>
 
 ### Risk Management Tools and Techniques
 
 **Explanation:**
 
-Risk Management Tools and Techniques are methodologies used to identify, assess, and mitigate risks in software testing. They help to prioritize testing efforts.
+Risk Management Tools and Techniques are methodologies used to identify, assess, and mitigate risks in software testing.
 
-**Syntax:**
+<details>
+    <summary>Syntax:</summary>
 
 - To manage risks in **(software testing scenario)**, we could use **(specific Risk Management Tool or Technique)** to **(identify/assess/mitigate)** risks.
 
-**Key Concepts:**
+</details>
 
-1. **Risk-Based Testing:** This is a testing approach where the features and functions to be tested are prioritized based on risk. The risk could be related to functional, non-functional, or even structural aspects of the software.
+<details>
+    <summary>Key Concepts:</summary>
 
-    **Example 1:**
+1. **Risk-Based Testing:** This approach prioritizes testing based on the risk associated with features and functions. Risks can be related to functional, non-functional, or structural aspects of the software.
 
-    - To manage risks in **testing a new feature in our application**, we could use **Risk-Based Testing** to **identify and assess** risks. This would help to prioritize testing efforts on this new feature, ensure that it is thoroughly tested before release, and manage risks effectively throughout the testing process.
+    <details>
+       <summary>Examples:</summary>
+
+    - **Identify Risks:**
+        - First, we identify potential risks associated with the new feature. For example, the new feature might have a high risk of causing performance issues or might be prone to security vulnerabilities.
+
+    - **Assess Risks:**
+        - Next, we assess the identified risks to determine their likelihood and impact. For example, if the new feature is complex and has many dependencies, it might have a high likelihood of causing bugs.
+
+    - **Prioritize Testing:**
+        - Based on the assessment, we prioritize our testing efforts. We focus more on high-risk areas to ensure they are thoroughly tested. For example, if the new feature has a high risk of performance issues, we perform extensive performance testing.
+
+    - **Execute Tests:**
+        - We execute the tests according to the priority. High-risk areas are tested first. For example, we might run multiple test cases to check for performance and security issues.
+
+    - **Manage Risks:**
+        - Throughout the testing process, we continuously monitor and manage risks. If new risks are identified, we reassess and adjust our testing priorities accordingly.
+
+    </details>
 
 2. **Product Risk Management:** This involves identifying, assessing, and managing risks related to the software product itself. This could include functional defects, performance issues, or security vulnerabilities.
 
-    **Example 1:**
+    <details>
+       <summary>Examples:</summary>
 
-    - Developing **healthcare management software**, risks like **data breaches, system downtime, or incorrect dosage calculations**. We can manage these risks using Product **Risk Management techniques**. This could involve focusing on high-risk areas with **risk-based testing**, thorough **code reviews** for potential security issues, and **automated testing** for performance standards. For functions like dosage calculations, we could add extra validation checks and thorough **unit testing**.
+    - **Data Breaches:**
+        - **Risk:** Unauthorized access to sensitive patient data.
+        - **Management:** We can manage this risk by conducting thorough code reviews to identify potential security vulnerabilities. We can also implement strong encryption and access control measures to protect data.
+
+    - **System Downtime:**
+        - **Risk:** The system might become unavailable, affecting healthcare operations.
+        - **Management:** We can use automated testing to ensure the system meets performance standards.
+
+    - **Incorrect Dosage Calculations:**
+        - **Risk:** Errors in dosage calculations could lead to serious health issues.
+        - **Management:** We can manage this risk by adding extra validation checks to ensure calculations are accurate. We can also perform thorough unit testing to verify the correctness of the dosage calculation functions.
+
+    </details>
 
 3. **Project Risk Management:** Involves identifying, assessing, and managing risks related to the process of developing and testing the software. This could include risks like delays, cost overruns, or resource shortages.
 
-    **Example:**
+    <details>
+       <summary>Examples:</summary>
 
-    - During the development of a new **customer relationship management system**, potential risks such as **delays due to unforeseen technical challenges, cost overruns due to changes in requirements, or resource shortages due to team members leaving**. To manage these project risks, we could use **Project Risk Management** techniques. This involve using **project management tools** like Jira to monitor project progress, implementing **resource allocation strategies** to ensure efficient use of personnel and budget, and developing a **contingency plan** to handle potential delays or resource shortages, such as having backup personnel or additional funding sources.
+    - **Delays Due to Unforeseen Technical Challenges:**
+        - **Risk:** The project might face delays because of unexpected technical problems.
+        - **Management:** We can manage this risk by using project management tools like Jira to monitor project progress and identify issues early. We can also allocate additional time in the project.
+
+    - **Cost Overruns Due to Changes in Requirements:**
+        - **Risk:** The project might exceed its budget if there are changes in requirements.
+        - **Management:** To manage this risk, we could ask more money from VC or then we could fire more people to give other more tasks.
+
+    </details>
+
+</details>
 
 ### Entry Criteria and Exit Criteria
 
@@ -207,11 +348,13 @@ Risk Management Tools and Techniques are methodologies used to identify, assess,
 
 Entry Criteria and Exit Criteria are key concepts in software testing that define when testing should start **(Entry Criteria)** and when it should end **(Exit Criteria)**.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Entry Criteria:** These are the conditions that must be met before testing can begin. They might include requirements like the completion of certain development activities, the availability of the test environment and test data, or completion of documentation.
 
-      **Example:**
+    <details>
+       <summary>Examples:</summary>
 
       - All development tasks have been completed and the code has been merged into the main branch.
 
@@ -223,9 +366,12 @@ Entry Criteria and Exit Criteria are key concepts in software testing that defin
 
       - The testing team has been trained on the new features and changes in the application.
 
+    </details>
+
 2. **Exit Criteria:** These are the conditions that must be met before testing can be considered complete. This include requirements like the achievement of are test coverage level, the resolution of all high-priority defects, or the completion of all planned test cases.
 
-      **Example:**
+    <details>
+       <summary>Examples:</summary>
 
       - All test cases have been executed.
 
@@ -235,17 +381,23 @@ Entry Criteria and Exit Criteria are key concepts in software testing that defin
 
       - The stakeholders have accepted the final testing report and given approval for the release.
 
+    </details>
+
+</details>
+
 ### Test Estimation
 
 **Explanation:**
 
 Test Estimation is the process of predicting the most the most useless thing. This includes the time, resources, and cost associated with testing activities. Various techniques can be used to estimate testing effort.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Three Point Estimation:** This technique uses three estimates to define an approximate range for an activity's cost: Most Likely (M), Optimistic (O), and Pessimistic (P). The expected cost E.
 
-    **Syntax:**
+    <details>
+       <summary>Syntax:</summary>
 
     - `E` is the expected duration
     - `O` is the optimistic duration (the shortest time in which the task can be completed)
@@ -254,7 +406,10 @@ Test Estimation is the process of predicting the most the most useless thing. Th
 
     `E = (O + 4M + P) / 6`
 
-    **Example:**
+    </details>
+
+    <details>
+       <summary>Example:</summary>
 
     - Optimistic duration `O` = 3 days (if everything goes perfectly)
 
@@ -264,29 +419,58 @@ Test Estimation is the process of predicting the most the most useless thing. Th
 
     - **Answer:** `E = (3 + 4*5 + 9) / 6 = 5.33 days`
 
+    </details>
+
 2. **Use Case Point Method:** This method is based on the use cases of the system. The number of use cases is counted and then adjusted based on the complexity of the system. The formula for this method is `UCP`.
 
-    **Syntax**
+    <details>
+       <summary>Syntax:</summary>
+
+    - `UCP (Use Case Points)` This is the final metric that represents the estimated effort for the project.
+
+    - `UUCW (Unadjusted Use Case Weight)` This is the sum of the weights of all use cases in the project. Each use case is assigned a weight based on its complexity (simple, average, or complex).
+
+    - `TCF (Technical Complexity Factor)` This is an adjustment factor that accounts for the technical complexity of the project. It is calculated based on various technical factors such as performance, security, and usability.
+
+    - `ECF (Environmental Complexity Factor)` This is an adjustment factor that accounts for the environmental factors of the project. It is calculated based on factors such as team experience, tools, and processes.
 
     `UCP = UUCW * TCF * ECF`
 
-    **Example:**
+    </details>
 
-    - Unadjusted Use Case Weight `UUCW` = 15 (based on the complexity of the use cases to be tested)
+    <details>
+       <summary>Example:</summary>
 
-    - Technical Complexity Factor `TCF` = 0.8 (based on the technical difficulty of the project, such as the complexity of the code or the technology used)
+    - `Unadjusted Use Case Weight UUCW` = Summing the weights of all use cases. For example, if we have 10 simple use cases (weight 5 each), 5 average use cases (weight 10 each), and 2 complex use cases (weight 15 each)
+        - `UUCW = (10 * 5) + (5 * 10) + (2 * 15) = 50 + 50 + 30 = 130`
 
-    - Environmental Complexity Factor `ECF` = 1.1 (based on the project's environmental factors, such as the experience of the testing team, the quality of the testing tools)
+    - `Technical Complexity Factor TCF` = 1.2 (based on the technical difficulty of the project, such as the complexity of the code or the technology used)
 
-    - **Answer:** `UCP = 15 * 0.8 * 1.1 = 13.2`
+    - `Environmental Complexity Factor ECF` = 1.9 (based on the project's environmental factors, such as the experience of the testing team, the quality of the testing tools)
+
+    - **Answer:** `UCP = 130 * 0.8 * 1.1 = 140.4`
+
+    This means the estimated effort for the project, based on the use case points, is 140.4 units. These units can be translated into other mathematic unit (hours, day, people), depending on the context of the project.
+
+    </details>
 
 3. **Function Point Analysis (FPA):** This method is based on the functionality provided by the system. It considers the number and complexity of inputs, outputs, inquiries, interfaces, and data files.
 
-    **Syntax:**
+    <details>
+       <summary>Syntax:</summary>
+
+    - `FP (Function Points)` This is the final metric that represents the functionality provided by the system.
+
+    - `Complexity Weight` This is a predefined weight assigned to each type of element (input, output, inquiry, interface, data file) based on its complexity.
+
+    - `Number of Elements` This is the count of each type of element in the system.
 
     `FP = ∑(Complexity Weight * Number of Elements)`
 
-     **Example:**
+    </details>
+
+    <details>
+       <summary>Example:</summary>
 
     1. **Simple Inputs:** These are the basic pieces of information that the system takes in. For example, in a calculator app, a simple input might be the numbers you want to add or subtract.
 
@@ -310,23 +494,29 @@ Test Estimation is the process of predicting the most the most useless thing. Th
 
     - **Answer:** `FP = (1*5) + (2*10) + (3*2) + (4*1) + (5*3) = 5 + 20 + 6 + 4 + 15 = 50`
 
+    </details>
+
 4. **Test Point Analysis (TPA):** This method is similar to FPA but is specifically designed for estimating testing effort. It considers the size of the system, the quality of the system, and the productivity of the test team.
 
-    **Syntax:**
+    <details>
+       <summary>Syntax:</summary>
 
     - `TP` is the Test Points, the result of the calculation and the estimate of the testing effort required.
 
-    `Complexity Weight` is a measure of the complexity of each functional element to be tested.
+    - `Complexity Weight` is a measure of the complexity of each functional element to be tested.
 
     - `Number of Elements` is the total number of such elements.
 
     - `Quality Factor` is a measure of the quality of the software, such as the number of defects.
 
-    - `Productivity Factor` is a measure of the productivity of the testing team.
+    - `Productivity Factor` Productivity of the testing team.
 
     `TP = ∑(Complexity Weight * Number of Elements) * Quality Factor * Productivity Factor`
 
-    **Example:**
+    </details>
+
+    <details>
+       <summary>Example:</summary>
 
     - 5 simple elements (complexity weight = 1)
 
@@ -340,130 +530,127 @@ Test Estimation is the process of predicting the most the most useless thing. Th
 
     - **Answer:** `FP = (1*5) + (2*10) + (3*2) = 5 + 20 + 6 = 31`
 
+    </details>
+
+</details>
+
 ### Test Case Prioritization
 
 **Explanation:**
 
-Test Case Prioritization is the process of ranking the test cases in order of their importance. Prioritization can be based on various factors such as the criticality of the functionality, the likelihood of failure, the impact of failure, and the cost of testing.
+Test Case Prioritization is the process of ranking the test cases in order of their importance.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Criteria for Test Case Prioritization:** Test cases can be prioritized based on various factors.
 
-    - **Business Impact:** Test cases that cover functionality with high business impact should be given higher priority.
+- **Business Impact:** Test cases that cover functionality with high business impact should be given higher priority.
 
-      **Example:**
+    <details>
+       <summary>Example:</summary>
 
-      e-commerce website. The website has various features like user registration, product browsing, adding items to the cart, and making a purchase.
+    e-commerce website. The website has various features like user registration, product browsing, adding items to the cart, and making a purchase.
 
-      1. **Users can add items to their cart and view their cart:** This is the first step in the purchasing process. If users can't add items to their cart or view their cart, they won't be able to make a purchase.
+    1. **Users can add items to their cart and view their cart:** This is the first step in the purchasing process. If users can't add items to their cart or view their cart, they won't be able to make a purchase.
 
-      2. **Users can proceed to checkout from their cart:** This is the next step in the purchasing process. If users can't proceed to checkout, they won't be able to complete their purchase.
+    </details>
 
-      3. **Users can enter their shipping and payment information:** This is a crucial step in the purchasing process. If users can't enter their shipping and payment information, they won't be able to complete their purchase.
+- **Risk Level:** Test cases that cover high-risk areas of the application should be given higher priority.
 
-      4. **Users receive a confirmation after making a purchase:** This is important for user satisfaction and trust. If users don't receive a confirmation after making a purchase, they might be unsure whether their purchase was successful.
+    <details>
+       <summary>Example:</summary>
 
-      5. **The inventory is updated after a purchase is made:** This is important for maintaining accurate inventory levels. However, it's less critical to the user's ability to make a purchase, so it's listed last.
+    The application has various features like viewing account balance, transferring money between accounts, and changing account settings.
 
-    - **Risk Level:** Test cases that cover high-risk areas of the application should be given higher priority.
+    1. **Users can enter the amount they want to transfer:** This is the first step in the money transfer process. If users can't enter an amount, they won't be able to initiate a transfer.
 
-      **Example:**
+    </details>
 
-      The application has various features like viewing account balance, transferring money between accounts, and changing account settings.
+- **Frequency of Use:** Test cases that cover frequently used functionality should be given higher priority.
 
-      1. **Users can enter the amount they want to transfer:** This is the first step in the money transfer process. If users can't enter an amount, they won't be able to initiate a transfer.
+    <details>
+       <summary>Example:</summary>
 
-      2. **Users can select the account they want to transfer money to:** This is the next step in the money transfer process. If users can't select an account, they won't be able to complete the transfer.
+    Music streaming application. The application has various features like searching for songs, creating playlists, playing songs, and sharing playlists with friends.
 
-      3. **The application correctly transfers the entered amount to the selected account:** This is a crucial step in the money transfer process. If the application doesn't correctly transfer the amount, it could lead to financial loss.
+    1. **Users can select a song to play:** This is the first step in the music playing process. If users can't select a song, they won't be able to listen to music.
 
-      4. **The application updates the account balances correctly after a transfer:** This is important for maintaining accurate account balances. If the application doesn't update the balances correctly, it could lead to confusion or financial issues.
+    </details>
 
-      5. **The application doesn't allow transfers that would result in a negative account balance:** This is important for preventing overdrafts. However, it's less critical to the basic functionality of money transfer, so it's listed last.
+- **Complexity:** Test cases that cover complex functionality should be given higher priority, as these areas are more prone to defects.
 
-    - **Frequency of Use:** Test cases that cover frequently used functionality should be given higher priority.
+    <details>
+       <summary>Example:</summary>
 
-        **Example:**
+    The application has various features like searching for flights, selecting flights, entering passenger details, making a payment, and receiving a booking confirmation.
 
-        Music streaming application. The application has various features like searching for songs, creating playlists, playing songs, and sharing playlists with friends.
+    1. **Users can enter their departure and arrival locations:** This is the first step in the flight search process. If users can't enter these details, they won't be able to search for flights.
 
-        1. **Users can select a song to play:** This is the first step in the music playing process. If users can't select a song, they won't be able to listen to music.
+    </details>
 
-        2. **The application plays the selected song:** This is the core functionality of the app. If the application doesn't play the selected song, it would significantly impact the user experience.
+- **Dependency:** Test cases that cover functionality with a lot of dependencies should be given higher priority.
 
-        3. **Users can pause, resume, skip, and replay the song:** These are important controls for the user while listening to music. If these controls don't work, it would affect the user's ability to interact with the app.
+    <details>
+       <summary>Example:</summary>
 
-        4. **The application correctly displays the song's title, artist, and album:** This is important for the user's understanding and enjoyment of the music. However, it's less critical to the basic functionality of playing music, so it's listed after the other test cases.
+    The application has various features like creating tasks, assigning tasks to team members, tracking task progress, and generating project reports.
 
-        5. **The application correctly updates the song's play count each time it's played:** This is important for features like most played songs. However, it's less critical to the basic functionality of playing music, so it's listed last.
+    1. **The application correctly includes all tasks in the report:** This is the first step in the report generation process. If tasks are missing from the report, the report will not be accurate.
 
-    - **Complexity:** Test cases that cover complex functionality should be given higher priority, as these areas are more prone to defects.
+    </details>
 
-        **Example:**
-
-        The application has various features like searching for flights, selecting flights, entering passenger details, making a payment, and receiving a booking confirmation.
-
-        1. **Users can enter their departure and arrival locations:** This is the first step in the flight search process. If users can't enter these details, they won't be able to search for flights.
-
-        2. **Users can select their departure and arrival dates:** This is the next step in the flight search process. If users can't select these dates, they won't be able to find flights that match their travel plans.
-
-        3. **Users can specify the number of passengers and flight class:** These details are important for finding flights that can accommodate the user's travel party and meet their comfort preferences.
-
-        4. **The application displays a list of flights that match the user's search criteria:** This is a crucial step in the flight search process. If the application doesn't display matching flights, users won't be able to proceed with booking.
-
-        5. **The application correctly sorts and filters the search results based on user preferences:** It's less critical to the basic functionality of searching for flights, so it's listed last.
-
-    - **Dependency:** Test cases that cover functionality with a lot of dependencies should be given higher priority.
-
-        **Example:**
-
-        The application has various features like creating tasks, assigning tasks to team members, tracking task progress, and generating project reports.
-
-        1. **The application correctly includes all tasks in the report:** This is the first step in the report generation process. If tasks are missing from the report, the report will not be accurate.
-
-        2. **The application correctly includes the assignment and progress information for each task in the report:** This is crucial for understanding the status of each task. If this information is incorrect, it could lead to misunderstandings about task progress.
-
-        3. **The application correctly calculates and displays summary statistics in the report (like total tasks, completed tasks):** These statistics provide a high-level overview of project progress. If they're incorrect, it could mislead stakeholders.
-
-        4. **The application allows users to filter and sort the report data:** It's less critical to the basic functionality of generating a report, so it's listed after the other test cases.
-
-        5. **The application correctly updates the report when tasks are added, assigned, or updated:** It's less critical to the basic functionality of generating a report, so it's listed last.
+</details>
 
 ## Test Monitoring and Control
 
 **Explanation:**
 
-Test Monitoring and Control is involves tracking the progress and quality of testing activities, making necessary adjustments to the testing process, and communicating testing status to stakeholders.
+Test Monitoring and Control is involves tracking the progress and testing activities, and communicating testing status to stakeholders.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
-1. **Test Reporting:** Test reports typically include information on the progress of testing, the quality of the system under test, and any risks or issues identified. Test reporting is a key tool for test monitoring and control.
+1. **Test Reporting:** Test reports provide information on the progress of testing, system quality, and any risks or issues identified.
 
-    **Key Concepts:**
+    <details>
+       <summary>Key Concepts:</summary>
 
-    - **Bug Report:** Provides detailed information about each bug found during testing, including the bug ID, description, severity, priority, status (new, open, fixed), steps to reproduce, and any associated test cases.
+    - **Bug Report:** Provides detailed information about each bug found during testing.
 
-    - **Test Case Report:** Provides detailed information about each test case, including the test case ID, description, expected result, actual result, pass/fail status, and any associated defects.
+    - **Test Case Report:** Provides detailed information about each test case.
 
-    - **Test Summary Report:** Provides an overview of the testing activities, including the total number of test cases, the number of test cases executed, passed, failed, and the number of defects found and fixed.
+    - **Test Summary Report:** provides an overview of the testing activities.
 
-    **Example:**
+    </details>
+
+    <details>
+       <summary>Examples:</summary>
 
     - [Example: Test Reporting](https://drive.google.com/file/d/1RRpEdycF14DR8FqvSk6qwz_y5ALvWvwu/view?usp=sharing)
 
-2. **Incident Management:** This is the process of managing the defects found during testing.
+    <details>
+
+2. **Incident Management:** This is the process of managing the defects found during testing. Ensures that defects are properly documented, tracked, and resolved.
 
 3. **Configuration Management:** This is the process of managing and controlling the versions of the software under test, the test environment, and the testware (test cases, test scripts, test data).
 
-    **Key Concepts:**
+    <details>
+       <summary>Key Concepts:</summary>
 
-    - **Software under test:** This pertains to the specific version of the software that is subjected to testing.
+    - **Software under test:** Refers to the specific version of the software that is being tested. Ensures that all testers are working with the same version of the software.
 
-    - **Test environment:** Configuration management guarantees that the test environment is correctly and consistently set up for all testers.
+    - **Test environment:** Configuration management guarantees that the test environment is correctly and consistently set up for all testers. Includes hardware, software, network configurations
 
-    - **Testware:** This refers to the artifacts generated during the testing process, including test cases, test scripts, and test data.
+    - **Testware:** Refers to the artifacts generated during the testing process. Includes test cases, test scripts, and test data.
 
-    **Example:**
+    </details>
+
+    <details>
+       <summary>Examples:</summary>
 
     - [Example: STLC](https://drive.google.com/file/d/1VAwjdRe9oz5pSBVZeZpkJGEOM4Z2ZnXw/view?usp=sharing)
+
+    </details>
+
+</details>
