@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD033 -->
 # Content of Table
 
 - [Test Design Techniques](#test-design-techniques)
@@ -14,26 +15,39 @@
 
 Test cases are a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Scenario ID:** Unique identifier for the scenario that this test case belongs to.
+
 2. **Test Case ID:** Unique identifier for each test case.
+
 3. **Test Case Description:** Brief about what the test case is all about.
+
 4. **Preconditions:** Conditions that must be met before the test case can be run.
+
 5. **Test Steps:** Detailed steps to follow to execute the test case.
+
 6. **Test Data:** The data that needs to be input into the system during the execution of the test case.
+
 7. **Expected Result:** The expected outcome of the test case.
+
 8. **Actual Result:** The actual outcome of the test case, filled out after the test case execution.
+
 9. **Postconditions:** The state of the system after the test case has been executed.
+
 10. **Status (Pass/Fail):** Whether the test case passed or failed.
+
+</details>
 
 ## Test Case Design Process
 
 **Explanation:**
 
-The Test Case Design Process is a systematic approach to creating a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly. The process incorporates a Scenario-oriented Approach, which focuses on real-world use cases and user paths.
+The Test Case Design Process is a systematic approach to creating a set of conditions or variables under which a tester will determine whether a system under test satisfies requirements or works correctly. The process incorporates a **Scenario-oriented Approach**.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Identify Test Requirements:** This is the first step where you identify what you need to test. This could be based on software requirements, user stories, use cases, or any other form of software documentation.
 
@@ -63,7 +77,7 @@ The Test Case Design Process is a systematic approach to creating a set of condi
 
     ![alt text](./images/specifyExpectedResults.png)
 
-8. **Review and Approve Test Case:** Have the test cases reviewed by peers or stakeholders for accuracy and completeness. Once approved, the test cases are ready to be executed.
+8. **Review and Approve Test Case:** Have the test cases reviewed for accuracy and completeness. Once approved, the test cases are ready to be executed.
 
 9. **Execute Test Case and Record Results:** Run the test cases, record the results, and compare them to the expected results.
 
@@ -85,13 +99,16 @@ The Test Case Design Process is a systematic approach to creating a set of condi
 
 10. **Update Test Case as Needed:** If the system changes, or if the test case did not accurately test the system, update the test case as needed.
 
+</details>
+
 ## Testware
 
 **Explanation:**
 
-Testware refers to the artifacts produced during the test process needed to plan, design, and execute tests, such as documentation, scripts, inputs, expected results, set-up and clear-up procedures, files, databases, environment, and any additional software or utilities used in testing.
+Testware refers to the artifacts produced during the test process.
 
-**Key Concepts:**
+<details>
+    <summary>Key Concepts:</summary>
 
 1. **Test Documentation:** This includes test plans, test designs, test cases, and test procedures.
 
@@ -105,22 +122,27 @@ Testware refers to the artifacts produced during the test process needed to plan
 
 6. **Test Utilities:** These are additional software or tools used to set up, execute, or verify the results of tests.
 
+</details>
+
 ## Test Case Management
 
-**Explanation:**
+<details>
+    <summary>Key Concepts:</summary>
 
-Test Case Management involves the process of managing and tracking the use of test cases during the testing process. It helps in organizing, documenting, and conducting tests by providing tools to write and manage test cases in a structured format.
+Test Case Management involves the process of managing and tracking the use of test cases during the testing process.
 
 **Key Concepts:**
 
-1. **Test Case Repository:** A centralized location where all the test cases are stored and managed. It helps in maintaining consistency and reusability of test cases.
+1. **Test Case Repository:** A centralized location where all the test cases are stored and managed.
 
 2. **Test Execution Tracking:** Keeping track of which test cases have been executed, their results, and any bugs or issues found.
 
-3. **Test Coverage:** Ensuring that all parts of the application are tested. It helps in identifying areas that have not been tested.
+3. **Test Coverage:** Ensuring that all parts of the application are tested.
 
 4. **Test Case Versioning:** Keeping track of changes to test cases over time. This is important when the application changes and test cases need to be updated.
 
 5. **Test Case Prioritization:** Determining the order in which test cases should be executed based on factors like risk, functionality importance.
 
 6. **Reporting and Metrics:** Providing insights into the testing process, like the number of test cases executed, passed, failed.
+
+</details>

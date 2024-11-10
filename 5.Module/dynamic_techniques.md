@@ -233,13 +233,13 @@ Equivalence Partitioning is a software testing technique that divides the input 
 <details>
   <summary>Examples:</summary>
 
-**Example 1 Equivalence Class, Test Input, Expected Outcome:**
+**Example 1 Equivalence Class, Test Input, Expected Outcome, PASS/FAIL:**
 
-| Test Case ID    | Equivalence Class      | Test Input  | Expected Outcome                       |
-|-----------------|------------------------|-------------|----------------------------------------|
-| TCID-001        | Age less than 13       | 10          | Registration rejected, error message   |
-| TCID-002        | Age between 13 and 100 | 30          | Registration accepted                  |
-| TCID-003        | Age greater than 100   | 110         | Registration rejected, error message   |
+| Test Case ID    | Equivalence Class      | Test Input  | Expected Outcome                       | PASS/FAIL |
+|-----------------|------------------------|-------------|----------------------------------------|-----------|
+| TCID-001        | Age less than 13       | 10          | Registration rejected, error message   |           |
+| TCID-002        | Age between 13 and 100 | 30          | Registration accepted                  |           |
+| TCID-003        | Age greater than 100   | 110         | Registration rejected, error message   |           |
 
 **Example 2 Equivalence Class Description, Valid/Invalid, Expected Outcome:**
 
@@ -328,14 +328,14 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 
 **Example 1 Age Validation:**
 
-| Test Case ID  | Boundary Type             | Value Description         | Value | Valid/Invalid | Scenario                          |
-|---------------|---------------------------|---------------------------|-------|---------------|-----------------------------------|
-| TC001         | Lower Boundary            | Exact lower boundary      | 18    | Valid         | Minimum age for registration      |
-| TC002         | Upper Boundary            | Exact upper boundary      | 60    | Valid         | Maximum age for registration      |
-| TC003         | Just Below Lower Boundary | Just below lower boundary | 17    | Invalid       | Below minimum age                 |
-| TC004         | Just Above Lower Boundary | Just above lower boundary | 19    | Valid         | Just above minimum age            |
-| TC005         | Just Below Upper Boundary | Just below upper boundary | 59    | Valid         | Just below maximum age            |
-| TC006         | Just Above Upper Boundary | Just above upper boundary | 61    | Invalid       | Above maximum age                 |
+| Test Case ID  | Boundary Type             | Value | Valid/Invalid | Scenario                          | PASS/FAIL |
+|---------------|---------------------------|-------|---------------|-----------------------------------|-----------|
+| TC001         | Lower Boundary            | 18    | Valid         | Minimum age for registration      |           |
+| TC002         | Upper Boundary            | 60    | Valid         | Maximum age for registration      |           |
+| TC003         | Just Below Lower Boundary | 17    | Invalid       | Below minimum age                 |           |
+| TC004         | Just Above Lower Boundary | 19    | Valid         | Just above minimum age            |           |
+| TC005         | Just Below Upper Boundary | 59    | Valid         | Just below maximum age            |           |
+| TC006         | Just Above Upper Boundary | 61    | Invalid       | Above maximum age                 |           |
 
 </details>
 

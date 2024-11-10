@@ -102,7 +102,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
 <details>
     <summary>Examples:</summary>
 
-- [Example: Test Plan](https://docs.google.com/document/d/1sYmLNT080yBU9CUZUcCcPY2frQwonLCC/edit?usp=sharing&ouid=107308472577516163164&rtpof=true&sd=true)
+- [Example: Test Plan](https://drive.google.com/drive/folders/1YpOM3AM-UVPRoFtmtZq2rziA-9x_76Wq)
 
 </details>
 
@@ -409,7 +409,7 @@ Test Estimation is the process of predicting the most the most useless thing. Th
     </details>
 
     <details>
-       <summary>Example:</summary>
+       <summary>Examples:</summary>
 
     - Optimistic duration `O` = 3 days (if everything goes perfectly)
 
@@ -439,7 +439,7 @@ Test Estimation is the process of predicting the most the most useless thing. Th
     </details>
 
     <details>
-       <summary>Example:</summary>
+       <summary>Examples:</summary>
 
     - `Unadjusted Use Case Weight UUCW` = Summing the weights of all use cases. For example, if we have 10 simple use cases (weight 5 each), 5 average use cases (weight 10 each), and 2 complex use cases (weight 15 each)
         - `UUCW = (10 * 5) + (5 * 10) + (2 * 15) = 50 + 50 + 30 = 130`
@@ -470,7 +470,7 @@ Test Estimation is the process of predicting the most the most useless thing. Th
     </details>
 
     <details>
-       <summary>Example:</summary>
+       <summary>Examples:</summary>
 
     1. **Simple Inputs:** These are the basic pieces of information that the system takes in. For example, in a calculator app, a simple input might be the numbers you want to add or subtract.
 
@@ -548,7 +548,7 @@ Test Case Prioritization is the process of ranking the test cases in order of th
 - **Business Impact:** Test cases that cover functionality with high business impact should be given higher priority.
 
     <details>
-       <summary>Example:</summary>
+       <summary>Examples:</summary>
 
     e-commerce website. The website has various features like user registration, product browsing, adding items to the cart, and making a purchase.
 
@@ -559,7 +559,7 @@ Test Case Prioritization is the process of ranking the test cases in order of th
 - **Risk Level:** Test cases that cover high-risk areas of the application should be given higher priority.
 
     <details>
-       <summary>Example:</summary>
+       <summary>Examples:</summary>
 
     The application has various features like viewing account balance, transferring money between accounts, and changing account settings.
 
