@@ -179,7 +179,7 @@ These are specific methods provided by Postman that allow you to manipulate scop
     <summary>Syntax:</summary>
 
 ```js
-// Set a variable in the Environment, Global, Collection scopes in Pre-request Script
+// Set a variable in the Environment, Global, Collection scopes in Pre-request Script and sometimes in Post-response 
 pm.[SCOPE].set("variable_key", variable_value);
 
 // Get the variable from the Environment, Global, Collection scopes in Test Script (Post-response)
@@ -195,13 +195,20 @@ pm.[SCOPE].unset("variable_key");
     <summary>Examples:</summary>
 
 ```js
-// Set a variable in the environment scope
-pm.environment.set("userId", "12345");
 
-// Get the variable from the environment scope in Test Script (Post-response)
+// Parse the response body
+let response = pm.response.json();
+
+// Extract the id from the response
+let id = response.id;
+
+// Set a variable in the environment scope
+pm.environment.set("userId", id);
+
+// Get the variable from the environment scope
 let userId = pm.environment.get("userId");
 
-// Unset the variable from the environment scope
+// Unset the variable from the environment scope 
 pm.environment.unset("userId");
 ```
 
