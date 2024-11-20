@@ -292,40 +292,7 @@ pm.environment.unset("userId");
 
     **Examples:**
 
-    1. **Status Code Check:**
-
-        ```js
-        pm.test("Status code is 200", function () {
-            pm.response.to.have.status(200);
-        });
-        ```
-
-    2. **Response Time Check:**
-
-        ```js
-        pm.test("Response time is less than 200ms", function () {
-            pm.expect(pm.response.responseTime).to.be.below(200);
-        });
-        ```
-
-    3. **Response Body Check:**
-
-        ```js
-        pm.test("Response contains name", function () {
-            let jsonData = pm.response.json();
-            pm.expect(jsonData.name).to.eql("Test");
-        });
-        ```
-
-    4. **Header Check:**
-
-        ```js
-        pm.test("Content-Type header is present", function () {
-            pm.response.to.have.header("Content-Type");
-        });
-        ```
-
-    5. **Chainable methods**
+    1. **Chainable methods**
 
         These are used to make your tests more readable and expressive. They don't affect the assertion itself but help to chain together different parts of an assertion.
 
@@ -349,7 +316,7 @@ pm.environment.unset("userId");
         expect(foo).to.not.be.a;
         ```
 
-    6. **Assertion methods**
+    2. **Assertion methods**
 
         These are used to assert certain conditions in your tests. If the condition is true, the test passes. If it's false, the test fails.
 
@@ -386,41 +353,6 @@ pm.environment.unset("userId");
 
         // Asserts that the target is not deeply equal to value
         expect(foo).to.not.eql({ bar: 'baz' });
-        ```
-
-    7. **Schema validation:**
-
-        ```js
-        let schema = {
-            "type": "object",
-            "properties": {
-                "id": { "type": "number" },
-                "name": { "type": "string" },
-                "type": { "type": "string" },
-                "available": { "type": "boolean" }
-        },
-            "required": ["id", "name", "type", "available"]
-        };
-
-        let jsonData = pm.response.json();
-
-        function validateSchema(data, schema) {
-            // data (the object you want to validate) and schema (the schema you want to validate against).
-            for (let key of schema.required) {
-                // That iterates over each key in the required array of the schema.
-                if (!data.hasOwnProperty(key) || typeof data[key] !== schema.properties[key].type) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        pm.test("Schema is valid for all items", function() {
-            // check if all items in the jsonData array match the schema. The validateSchema function is called for each item in the array.
-            let allValid = jsonData.every(item => validateSchema(item, schema));
-            // All items in the jsonData array match the schema
-            pm.expect(allValid).to.be.true;
-        });
         ```
 
 ## Runner

@@ -52,40 +52,33 @@ pm.test("Status code is 204 and no response body", function () {
 3. **Schema Validation:** Does the response body match the expected schema.
 
 ```js
-let schema = {
-    "type": "object",
-    "properties": {
-        "id": { "type": "number" },
-        "name": { "type": "string" },
-        "type": { "type": "string" },
-        "available": { "type": "boolean" }
-    },
-    "required": ["id", "name", "type", "available"]
+const Ajv = require('ajv');
+const ajv = new Ajv();
+
+const schema = {
+    type: "object",
+    properties: {
+        id: { type: "number" },
+        name: { type: "string" },
+        type: { type: "string" },
+        available: { type: "boolean" }
+},
+    required: ["id", "name", "type", "available"]
 };
 
 let jsonData = pm.response.json();
 
-// Define a function to validate a data object against the schema
-function validateSchema(data, schema) {
-    // Loop over each key in the required array of the schema
-    for (let key of schema.required) {
-        // Check if the key exists in the data object and if the type of the value matches the expected 
-        if (!data.hasOwnProperty(key) || typeof data[key] !== schema.properties[key].type) {
-            // If any key is missing or has a mismatched type, return false
-            return false;
-        }
-    }
-    // If all keys are present and have the correct types, return true
-    return true;
+const validate = ajv.compile(schema);
+const valid = validate(jsonData);
+
+if (!valid) {
+    console.log(validate.errors);
 }
 
-pm.test("Schema is valid for all items", function() {
-    // Check if every item in jsonData passes the validateSchema function
-    let allValid = jsonData.every(item => validateSchema(item, schema));
-    // Assert that allValid is true. If allValid is true, it means that every item in jsonData matches the schema, so the test passes. If allValid is false, it means that at least one item in jsonData does not match the schema, so the test fails.
-    pm.expect(allValid).to.be.true;
+pm.test("Response schema is valid", function () {
+    pm.expect(valid).to.be.true;
 });
-```
+ ```
 
 4. **Response Structure:** Does the structure of the response match what you expect.
 
