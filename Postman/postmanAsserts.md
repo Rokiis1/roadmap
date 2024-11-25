@@ -126,39 +126,27 @@ pm.sendRequest({
 7. **Pagination:** If your API supports pagination, you might want to write tests that check this functionality.
 
 ```js
-let pageSize = 10;
-
-// Set the expected page size to 1
 let pageSize = 1;
 
-// Parse the response body to JSON
 let jsonData = pm.response.json();
 
-// Test to check if the response is an array
-pm.test("Response is an array", function () {
-    // Expect that the parsed JSON data is an array
-    pm.expect(jsonData).to.be.an('array');
-});
+// Get the current page number from the request URL
+let currentPageNumber = parseInt(pm.request.url.query.find(param => param.key === 'page').value);
 
 // Test to check if the response has the expected number of items
 pm.test("Response has expected number of items", function () {
-    // Expect that the length of the array is equal to the page size
     pm.expect(jsonData.length).to.eql(pageSize);
 });
 
 // Test to check if the response includes a 'next' link
 pm.test("Response includes 'next' link", function () {
-    // Expect that the response headers include a 'Link' header
     pm.expect(pm.response.headers.has('Link')).to.be.true;
-    // Expect that the 'Link' header includes 'rel="next"'
     pm.expect(pm.response.headers.get('Link')).to.include('rel="next"');
 });
 
 // Test to check if the 'next' link points to the next page
 pm.test("'next' link points to the next page", function () {
-    // Get the 'Link' header from the response headers
     let linkHeader = pm.response.headers.get('Link');
-    // Find the 'next' link in the 'Link' header
     let nextLink = linkHeader.split(', ').find(link => link.endsWith('rel="next"'));
     // Extract the page number from the 'next' link
     // 'page=' is a literal string that the regex will try to match exactly
@@ -167,17 +155,44 @@ pm.test("'next' link points to the next page", function () {
     // \d is a shorthand character class that matches any digit (equivalent to [0-9])
     // + is a quantifier that means 'one or more'
     let nextPageNumber = nextLink.match(/page=(\d+)/)[1];
-    // Expect that the page number of the 'next' link is 2
-    pm.expect(parseInt(nextPageNumber)).to.eql(2);
+    pm.expect(parseInt(nextPageNumber)).to.eql(currentPageNumber + 1);
+});
+
+// Test to check if the response includes a 'prev' link
+pm.test("Response includes 'prev' link", function () {
+    pm.expect(pm.response.headers.has('Link')).to.be.true;
+    pm.expect(pm.response.headers.get('Link')).to.include('rel="prev"');
+});
+
+// Test to check if the 'prev' link points to the previous page
+pm.test("'prev' link points to the previous page", function () {
+    let linkHeader = pm.response.headers.get('Link');
+    let prevLink = linkHeader.split(', ').find(link => link.endsWith('rel="prev"'));
+    let prevPageNumber = prevLink.match(/page=(\d+)/)[1];
+    pm.expect(parseInt(prevPageNumber)).to.eql(currentPageNumber - 1);
+});
+
+// Test to check if the total count of items is provided
+pm.test("Response includes total count of items", function () {
+    pm.expect(pm.response.headers.has('X-Total-Count')).to.be.true;
+    let totalCount = parseInt(pm.response.headers.get('X-Total-Count'));
+    pm.expect(totalCount).to.be.above(0);
+});
+
+// Test to check if the response has the correct page size
+pm.test("Response has correct page size", function () {
+    pm.expect(jsonData.length).to.eql(pageSize);
+});
+
+// Test to check if the response has the correct page number
+pm.test("Response has correct page number", function () {
+    pm.expect(currentPageNumber).to.eql(3);
 });
 ```
 
 8. **Sorting:** If your API supports sorting, you would want to write tests to check these features.
 
 ```js
-let sortField = 'name';
-let filterValue = 'Test';
-
 let jsonData = pm.response.json();
 
 // Check if the items in the response are sorted by the expected field

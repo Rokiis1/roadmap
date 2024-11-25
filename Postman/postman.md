@@ -138,58 +138,58 @@ Tool that developers and testers use to send requests to and receive responses f
 
 1. **Generating Data Dynamically:**
 
-**Explanation:**
+    **Explanation:**
 
-You can also use pre-request scripts to generate built-in dynamic variables to generate random data for your requests.
+    You can also use pre-request scripts to generate built-in dynamic variables to generate random data for your requests.
 
-<details>
-    <summary>Syntax:</summary>
+    <details>
+        <summary>Syntax:</summary>
 
-```json
-{
-    "random": "{{$randomSomething}}",
-}
-```
+    ```json
+    {
+        "random": "{{$randomSomething}}"
+    }
+    ```
 
-</details>
+    </details>
 
-   <details>
-       <summary>Examples:</summary>
+    <details>
+        <summary>Examples:</summary>
 
-```json
-{
-  "id": "{{$randomInt}}",
-  "name": "{{$randomFullName}}",
-  "email": "{{$randomEmail}}",
-  "address": "{{$randomStreetAddress}}",
-  "city": "{{$randomCity}}",
-  "country": "{{$randomCountry}}"
-}
-```
+    ```json
+    {
+      "id": "{{$randomInt}}",
+      "name": "{{$randomFullName}}",
+      "email": "{{$randomEmail}}",
+      "address": "{{$randomStreetAddress}}",
+      "city": "{{$randomCity}}",
+      "country": "{{$randomCountry}}"
+    }
+    ```
 
-</details>
+    </details>
 
 2. **set(), get(), unset() methods:**
 
-**Explanation:**
+    **Explanation:**
 
-These are specific methods provided by Postman that allow you to manipulate scope variables. They are often used within pre-request scripts and tests, and can be used in conjunction with dynamically generated data.
+    These are specific methods provided by Postman that allow you to manipulate scope variables. They are often used within pre-request scripts and tests, and can be used in conjunction with dynamically generated data.
 
-<details>
-    <summary>Syntax:</summary>
+    <details>
+        <summary>Syntax:</summary>
 
-```js
-// Set a variable in the Environment, Global, Collection scopes in Pre-request Script and sometimes in Post-response 
-pm.[SCOPE].set("variable_key", variable_value);
+    ```js
+    // Set a variable in the Environment, Global, Collection scopes in Pre-request Script and sometimes in Post-response 
+    pm.[SCOPE].set("variable_key", variable_value);
 
-// Get the variable from the Environment, Global, Collection scopes in Test Script (Post-response)
-let value = pm.[SCOPE].get("variable_key");
+    // Get the variable from the Environment, Global, Collection scopes in Test Script (Post-response)
+    let value = pm.[SCOPE].get("variable_key");
 
-// Delete variable from Environment, Global, Collection scopes in Test Script (Post-response)
-pm.[SCOPE].unset("variable_key");
-```
+    // Delete variable from Environment, Global, Collection scopes in Test Script (Post-response)
+    pm.[SCOPE].unset("variable_key");
+    ```
 
-</details>
+    </details>
 
 <details>
     <summary>Examples:</summary>
@@ -224,7 +224,8 @@ pm.environment.unset("userId");
 
     Postman allows you to write test scripts and pre-request scripts for your API requests. Test scripts are executed after a response is received from the server, allowing you to validate the response data, status, performance, and more. Pre-request scripts are run before the request is sent, allowing you to set up variables, parameters, and other request data.
 
-    **Syntax:**
+    <details>
+        <summary>Syntax:</summary>
 
     ```js
     pm.test("Description of The Test", function () {
@@ -233,9 +234,13 @@ pm.environment.unset("userId");
     })
     ```
 
-    **Pre-request Script**
+    </details>
 
-    **Examples:**
+    <details>
+    <summary>Examples:</summary>
+
+    <details>
+    <summary>Pre-request Script:</summary>
 
     1. **Generate Random User**
 
@@ -288,9 +293,10 @@ pm.environment.unset("userId");
         pm.environment.set('bearerToken', token);
         ```
 
-    **Post-response:**
+    </details>
 
-    **Examples:**
+    <details>
+    <summary>Post-response:</summary>
 
     1. **Chainable methods**
 
@@ -354,6 +360,10 @@ pm.environment.unset("userId");
         // Asserts that the target is not deeply equal to value
         expect(foo).to.not.eql({ bar: 'baz' });
         ```
+
+    </details>
+
+    </details>
 
 ## Runner
 
