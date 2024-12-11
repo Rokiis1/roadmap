@@ -68,15 +68,10 @@ const schema = {
 
 let jsonData = pm.response.json();
 
-const validate = ajv.compile(schema);
-const valid = validate(jsonData);
-
-if (!valid) {
-    console.log(validate.errors);
-}
-
 pm.test("Response schema is valid", function () {
-    pm.expect(valid).to.be.true;
+    const validate = ajv.compile(schema);
+    const valid = validate(jsonData);
+    pm.expect(valid, JSON.stringify(validate.errors)).to.be.true;
 });
  ```
 
@@ -199,5 +194,89 @@ let jsonData = pm.response.json();
 pm.test("Items are sorted by expected field", function () {
     let sorted = [...jsonData].sort((a, b) => (a[sortField] > b[sortField]) ? 1 : -1);
     pm.expect(jsonData).to.eql(sorted);
+});
+```
+
+<!-- Unit test -->
+```js
+pm.sendRequest({
+    url: `${path}/Account/v1/User/${resourceId}`,
+    method: 'GET',
+    header: {
+        'Authorization': `Bearer ${token}`
+    }
+}, function (err, res) {
+    pm.test("Resource has been deleted", function () {
+        pm.expect(err).to.be.null;
+        pm.expect(res.status).to.eql(404); // Assuming a 404 status indicates deletion
+    });
+});
+```
+
+<!-- Integration Test -->
+```js
+pm.sendRequest({
+    url: `${path}/Account/v1/User`,
+    method: 'POST',
+    header: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    },
+    body: {
+        mode: 'raw',
+        raw: JSON.stringify({ username: 'testuser', password: 'password123' })
+    }
+}, function (err, res) {
+    pm.test("User created successfully", function () {
+        pm.expect(res.status).to.eql(201);
+        const userId = res.json().id;
+
+        // Get the created user
+        pm.sendRequest({
+            url: `${path}/Account/v1/User/${userId}`,
+            method: 'GET',
+            header: {
+                'Authorization': `Bearer ${token}`
+            }
+        }, function (err, res) {
+            pm.test("User retrieved successfully", function () {
+                pm.expect(res.status).to.eql(200);
+                pm.expect(res.json().username).to.eql('testuser');
+            });
+        });
+    });
+});
+```
+
+<!-- Functional Test -->
+```js
+pm.sendRequest({
+    url: `${path}/Account/v1/Login`,
+    method: 'POST',
+    header: {
+        'Content-Type': 'application/json'
+    },
+    body: {
+        mode: 'raw',
+        raw: JSON.stringify({ username: 'testuser', password: 'password123' })
+    }
+}, function (err, res) {
+    pm.test("Login successful", function () {
+        pm.expect(res.status).to.eql(200);
+        const token = res.json().token;
+
+        // Use the token to access a protected resource
+        pm.sendRequest({
+            url: `${path}/Account/v1/ProtectedResource`,
+            method: 'GET',
+            header: {
+                'Authorization': `Bearer ${token}`
+            }
+        }, function (err, res) {
+            pm.test("Access to protected resource successful", function () {
+                pm.expect(res.status).to.eql(200);
+            });
+        });
+    });
 });
 ```
