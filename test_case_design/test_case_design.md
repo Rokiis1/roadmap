@@ -2,7 +2,7 @@
 # Content of Table
 
 - [Test Case Design](#test-case-design)
-  - [Requirements](#requirements)
+  - [Basis for Creating Test Cases](basis-for-creating-test-cases)
   - [Test Specification Table](#test-specification-table)
   - [Test Execution Table](#test-execution-table)
   - [Test Coverage](#test-coverage)
@@ -20,9 +20,8 @@ Involves creating a set of conditions or variables under which a tester will det
 
 - **Positive and Negative Test Cases:** Both expected (positive) and unexpected (negative) behaviors are tested.
 - **Not Executed Test Cases:** Test cases that have been defined but not yet executed.
-- **Scenario:** A high-level description of a specific situation or user interaction that needs to be tested.
-- **Boundary and Edge Cases:** Tests the boundaries and edges of input ranges.
 - **Functional and Non-Functional Test Cases:** Both functional requirements (what the system should do) and non-functional requirements (how the system should perform).
+- **Boundary and Edge Cases:** Tests the boundaries and edges of input ranges.
 - **Preconditions and Postconditions:** Specifies the conditions that must be met before and after the test is executed.
 - **Test Case-Based Specification Table:** Focuses on individual test cases derived from scenarios, providing detailed descriptions of what needs to be tested.
 - **Scenario-Based Test Specification Table:** Focuses on scenarios and includes detailed information about each scenario, along with the test cases and steps.
@@ -30,7 +29,7 @@ Involves creating a set of conditions or variables under which a tester will det
 
 </details>
 
-### Requirements
+### Requirements for Test Basis to Creating Test Cases
 
 **Explanation:**
 
@@ -39,18 +38,12 @@ Requirements are detailed descriptions of the functionalities, behaviors.
 <details>
     <summary>Overview:</summary>
 
-- **Functional Requirements:**
-  - Describe what the system should do.
-  - Specify the functions and features that the system must provide.
-- **Non-Functional Requirements:**
-  - Describe how the system should perform.
-  - Specify the quality attributes.
 - **Sources of Requirements:**
   - **Requirement Specifications:**
     - Detailed documents that outline the system's functionalities.
     - Often created by business analysts or product owners.
   - **Design Documents:**
-    - Provide detailed descriptions of the system's architecture, components, and interactions.
+    - Design documents provide detailed descriptions of the system's architecture, components, interactions, and user interface (UI) design.
     - Help understanding how the system is built and how it should function.
   - **User Stories:**
     - Short descriptions of features from the perspective of the end user.
@@ -59,7 +52,32 @@ Requirements are detailed descriptions of the functionalities, behaviors.
     - Feedback and requirements from stakeholders such as clients, users, and business analysts.
   - **Use Cases:**
     - Detailed scenarios that describe how users will interact with the system.
-    - Use cases are typically documented in a **Use Case Document** or **Use Case Specification**. This document is often part of the broader requirements documentation and is used to understand and validate the system's functionality.
+    - Use cases are typically documented in a **Use Case Document** or **Use Case Specification**.
+
+</details>
+
+### Scenario
+
+**Explanation:**
+
+**Scenario:** A high-level description of a specific situation or user interaction that needs to be tested.
+
+<details>
+    <summary>Overview:</summary>
+
+- **Verify that:**
+  - Verify that a user can navigate to the registration page.
+  - Verify that a user can log in with valid credentials.
+  - Verify that the mobile app works on different screen sizes.
+- **Ensure that:**
+  - Ensure that a user receives a push notification when a new message is received.
+  - Ensure that a user can add an item to the shopping cart.
+- **Check that:**
+  - Check that the system displays an error message for invalid login attempts.
+  - Check that the user can update their profile information.
+- **Test that:**
+  - Test that the GPS navigation system calculates the correct route.
+  - Test that the voice assistant sets a reminder correctly.
 
 </details>
 
@@ -74,8 +92,8 @@ Focuses on scenarios and includes detailed information about each scenario.
 
 - **Test Case-Based Specification Table:**
 
-    1. **Scenario ID:** A unique identifier for each test scenario.
-    2. **Scenario Description:** A high-level description of the scenario being tested.
+    1. **Test Case ID:** A unique identifier for each test scenario.
+    2. **Test Case Description:** A high-level description of the scenario being tested.
     3. **Preconditions:** Any conditions that must be met before the scenario can be executed.
     4. **Test Data:** Specific data to be used during the scenario.
     5. **Expected Results:** The expected outcome of the scenario.
