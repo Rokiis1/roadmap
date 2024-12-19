@@ -16,22 +16,22 @@
 
 **Explanation:**
 
-Component Testing, also known as Unit Testing, is the first level of software testing where individual components (or units) of a software are tested. The purpose is to validate that each unit of the software performs as designed.
+Component Testing, also known as Unit Testing, is the first level of software testing where individual components (or units) of a software are tested.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Isolation:** In unit testing, components are tested in isolation from the rest of the system. This means that if a test fails, it's clear that the fault is within the unit under test.
+1. **Isolation:** In **unit testing**, components are tested in isolation from the rest of the system. This means that if a test fails, it's clear that the fault is within the unit under test.
 
-2. **Mocking:** To achieve isolation, other components that the unit interacts with may need to be simulated.
+2. **Mocking:** Creating mock objects to simulate the behavior of real objects.
 
-3. **White-Box Testing:** Unit testing is a type of white-box testing as it requires knowledge of the internal workings of the unit to write the tests.
+3. **White-Box Testing:** Unit testing is a type of **white-box testing** as it requires knowledge of the **internal structure** of the unit to write the tests.
 
-4. **Automated:** Unit tests are typically automated and run as part of the build process. This allows for regular regression testing as the codebase evolves.
+4. **Automated:** Unit tests are typically automated and run as part of the build process. This allows for regular **regression testing** as the codebase evolves.
 
-5. **Test-Driven Development (TDD):** Unit testing is a key part of TDD, a development methodology where failing unit tests are written before the code is written to make them pass.
+5. **Test-Driven Development (TDD):** Is a key part of TDD(Test-driven development), a **development methodology** where failing unit tests are written before the code is written to make them pass.
 
-6. **Coverage:** A measure of how much of the codebase is tested by unit tests. High coverage is desirable as it reduces the chance of an undetected bug.
+6. **Coverage:** A measure of how much of the codebase is tested by unit tests.
 
 </details>
 
@@ -39,7 +39,7 @@ Component Testing, also known as Unit Testing, is the first level of software te
 
 **Explanation:**
 
-Component Integration Testing, also known as Unit Integration Testing, is the process of testing the interactions or interfaces between two or more components within the same module or application.
+Component Integration Testing, also known as **Unit Integration Testing**, is the process of testing the interactions or interfaces between two or more components within the same module or application.
 
 <details>
     <summary>Overview:</summary>
@@ -52,7 +52,7 @@ Component Integration Testing, also known as Unit Integration Testing, is the pr
     - **Component Integration Testing:** Within the same module.
     - **System Integration Testing:** Between different modules or systems.
 
-4. **Web Services Integration:** Includes testing APIs to ensure correct request processing and response handling.
+4. **Web Services Integration:** Includes testing **APIs** to ensure correct request processing and response handling.
 
 5. **Integration Strategy:** Existing integration strategies such as **bottom-up**, **top-down**, or **big bang** approaches.
 
@@ -67,21 +67,21 @@ System Testing is a level of testing that validates the complete and integrated 
 <details>
     <summary>Overview:</summary>
 
-1. **Whole System:** System testing involves testing the entire system as a whole. To evaluate the system's compliance with its specified requirements.
+1. **Whole System:** When we checking the system based specified requirements.
 
 2. **Functional and Non-Functional Testing:**
-    - **Functional Testing:** System testing includes comprehensive functional testing to ensure that the system meets the functional requirements.
-    - **Non-Functional Testing:** Although system testing itself is primarily functional, it serves as a prerequisite for non-functional testing.
+    - **Functional Testing:** valdiate that the system meets the functional requirements.
+    - **Non-Functional Testing:** Although **system testing** itself is primarily **functional**, it serves as a prerequisite for **non-functional testing**.
 
-3. **Environment-Related Factors:** Testing environment-related factors, such as software and hardware configurations, which cannot be fully tested at lower levels.
+3. **End-to-End Testing:** Validates the complete workflow by checking integrated components function works together.
 
-4. **Representative Test Environment:** System testing is conducted in an environment that closely resembles the production environment but is not live.
+4. **Environment-Related Factors:** Testing the system in an environment that close the production environment, including hardware configurations, operating systems, network conditions, and software configurations.
 
-5. **Independent Test Team:** System testing is often performed by an independent test team, separate from the teams that conducted earlier test levels.
+5. **Independent Test Team:** System testing is often performed by an independent test team to provide an unbiased, fresh perspective, specialized skills, and increased accountability and transparency in the testing process.
 
-6. **Product Risks:** Mitigate product risks that can only be assessed when the system is fully integrated.
+6. **Product Risks:** Mitigate product risks that can only be assessed when the system is fully integrated, such as integration issues, performance bottlenecks, security vulnerabilities, end-to-end functionality, and user experience.
 
-7. **Incomplete Requirements:** System testing helps address incomplete requirements and product risks that were not fully understood or defined during earlier phases.
+7. **Incomplete Requirements:** If there are incomplete requirements and product risks that were not fully understood or defined during earlier phases, secure that the final product meets all user needs and business requirements.
 
 8. **Simulations and Subsystems:** System testing may use simulations of subsystems or services to create a representative test environment.
 
@@ -98,9 +98,9 @@ System Integration Testing (SIT) is a testing phase where individual units or co
 
 1. **Interaction Between Systems:** SIT focuses on testing the interfaces and interactions between two or more systems or components. This includes both internal and external systems that communicate with each other.
 
-2. **Test Environment:** SIT should be conducted in an environment that closely mirrors the production environment.
+2. **Test Environment:** SIT should be executed in an environment that close to the production environment.
 
-3. **End-to-End Testing:** SIT is often considered a type of end-to-end (E2E) testing, as it can involve testing processes that span multiple systems from start to finish.
+3. **End-to-End Testing:** Can also be part of SIT when it involves interactions between multiple systems or components, such as microservices.
 
 </details>
 

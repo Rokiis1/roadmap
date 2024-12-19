@@ -2,12 +2,14 @@
 # Content of Table
 
 - [Test Case Design](#test-case-design)
-  - [Basis for Creating Test Cases](basis-for-creating-test-cases)
+  - [Requirements Basis for Creating Test Cases](requirements-basis-for-creating-test-cases)
+  - [Scenario](#scenario)
   - [Test Specification Table](#test-specification-table)
   - [Test Execution Table](#test-execution-table)
   - [Test Coverage](#test-coverage)
   - [Good Practices](#good-practices)
   - [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Summarize](#summarize)
 
 ## Test Case Design
 
@@ -60,7 +62,7 @@ Requirements are detailed descriptions of the functionalities, behaviors.
 
 **Explanation:**
 
-**Scenario:** A high-level description of a specific situation or user interaction that needs to be tested.
+A high-level description of a specific situation or user interaction that needs to be tested.
 
 <details>
     <summary>Overview:</summary>
@@ -179,3 +181,21 @@ Shows perecentage of how much of the software's functionality is being tested.
 - **Overlooking Edge Cases:** Check that edge cases and boundary conditions are tested.
 - **Redundancy:** Avoid creating redundant test cases that do not add value.
 - **Lack of Documentation:**  All test cases are well-documented and traceable to requirements.
+
+## Summarize
+
+- **Test Case Design:** Focus on both positive and negative scenarios, functional and non-functional requirements, and boundary conditions.
+
+- **Requirements Basis:** Use detailed requirement specifications, design documents, user stories, stakeholder input, and use cases.
+
+- **Scenarios:** Clearly define what needs to be verified, ensured, checked, and tested.
+
+- **Specification Tables:** Use detailed tables to document test cases and scenarios.
+
+- **Test Execution:** Record execution details and outcomes.
+
+- **Test Coverage:** Aim for comprehensive coverage using different criteria and improve coverage by identifying gaps.
+
+- **Good Practices:** Ensure clarity, reusability, maintainability, and comprehensive coverage.
+
+- **Avoid Common Mistakes:** Ensure complete requirements, test edge cases, avoid redundancy, and maintain proper documentation.

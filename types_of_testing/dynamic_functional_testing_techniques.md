@@ -7,11 +7,6 @@
     - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
     - [Collaborative User Story Writing](#collaborative-user-story-writing)
     - [Alpha and Beta Testing](#alpha-and-beta-testing)
-  - [Black-box Testing Techniques](#black-box-testing-techniques)
-    - [Equivalence Partitioning](#equivalence-partitioning)
-    - [Boundary Value Analysis](#boundary-value-analysis)
-    - [Decision Table Testing](#decision-table-testing)
-    - [State Transition Testing](#state-transition-testing)
   - [Experience-based Techniques](#experience-based-techniques)
     - [Error Guessing](#error-guessing)
     - [Exploratory Testing](#exploratory-testing)
@@ -19,6 +14,11 @@
     - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
   - [Confirmation Testing](#confirmation-testing)
     - [Regression Testing](#regression-testing)
+  - [Black-box Testing Techniques](#black-box-testing-techniques)
+    - [Equivalence Partitioning](#equivalence-partitioning)
+    - [Boundary Value Analysis](#boundary-value-analysis)
+    - [Decision Table Testing](#decision-table-testing)
+    - [State Transition Testing](#state-transition-testing)
 
 ## Dynamic Functional Testing Techniques
 
@@ -27,15 +27,15 @@
 Dynamic Functional Testing Techniques involve executing the software to verify that it behaves as expected according to the specified requirements. These techniques focus on validating the correctness of the software's functionality. They are often used in conjunction with static techniques, which are used without executing the software.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 1. **Collaboration-based Test Approaches:** These approaches involve the team working together to write user stories, perform user acceptance testing, and conduct alpha and beta testing.
 
-2. **Black-box Testing Techniques:** These techniques, such as equivalence partitioning, boundary value analysis, and decision table testing, focus on the functionality of the software without considering its internal structure.
+2. **Experience-based Techniques:** These techniques, including error guessing, exploratory testing, and checklist-based testing, rely on the tester's experience and knowledge.
 
-3. **Experience-based Techniques:** These techniques, including error guessing, exploratory testing, and checklist-based testing, rely on the tester's experience and knowledge.
+3. **Confirmation Testing:** This includes re-testing and regression testing to ensure that defects have been corrected and that modifications have not introduced new issues.
 
-4. **Confirmation Testing:** This includes re-testing and regression testing to ensure that defects have been corrected and that modifications have not introduced new issues.
+4. **Black-box Testing Techniques:** These techniques, such as equivalence partitioning, boundary value analysis, and decision table testing, focus on the functionality of the software without considering its internal structure.
 
 5. **White-box Testing Techniques:** These techniques, such as statement testing and coverage, decision testing and coverage, and path testing, focus on the internal structure of the software. They are most often performed by developers or testers with a deep understanding of the codebase.
 
@@ -48,9 +48,9 @@ Dynamic Functional Testing Techniques involve executing the software to verify t
 Collaboration-based test approaches involve the collective participation of various stakeholders in the testing process.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
-1. **User Acceptance Testing (UAT):** This is the final phase in the testing process before the software is released for use. The aim is to validate the software against business requirements.
+1. **User Acceptance Testing:** This is the final phase in the testing process before the software is released for use. The aim is to validate the software against business requirements.
 
 2. **Collaborative User Story Writing:** This involves the team working together to write user stories, which are descriptions of a software feature from an end-user perspective.
 
@@ -58,7 +58,7 @@ Collaboration-based test approaches involve the collective participation of vari
 
 4. **Operational acceptance testing:** This is performed to ensure that the system meets the requirements for operation and maintenance.
 
-5. **Contractual and regulatory acceptance testing:** This is performed to ensure that the system meets the requirements specified in the contract and any applicable regulations.
+5. **Regulatory acceptance testing:** This is performed to ensure that the system meets the requirements specified in the contract and any applicable regulations.
 
 </details>
 
@@ -69,17 +69,22 @@ Collaboration-based test approaches involve the collective participation of vari
 Collaborative User Story Writing involves the team working together to write user stories, which are descriptions of a software feature from an end-user perspective.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
-1. **Collaboration:** The process involves all relevant stakeholders, including developers, testers, business analysts, and users.
+1. **Collaboration:** The process involves all relevant business representatives, product owner (PO), including developers, testers, and users.
 
-2. **End-user Perspective:** User stories are written from the perspective of the end user, focusing on their needs and experiences.
+2. **User Stories:** A User Story is written from the perspective of a user who wants to derive value from the product. It should focus on the user's desired outcomes and be embedded in the context where the user seeks value from the product.
 
-3. **Acceptance Criteria:** Each user story includes acceptance criteria, which define the boundaries of a user story and are used to confirm when a story is completed and working as intended.
+3. **3 C Concept:**
+    - **Card:** Represents the user story, can be physical (sticky note) or digital.
+    - **Conversation:** Details how the software will be used and the expectations from the business.
+    - **Confirmation:** Clear acceptance criteria that define when the story is complete.
 
-4. **Iteration Planning:** User stories are often used in agile development methodologies during iteration planning or sprint planning meetings.
+4. **End-user Perspective:** User stories are written from the perspective of the end user, focusing on their needs and experiences.
 
-5. **User Stories:** A User Story is written from the perspective of a user who wants to derive value from the product. It should focus on the user's desired outcomes and be embedded in the context where the user seeks value from the product.
+5. **Acceptance Criteria:** Each user story includes acceptance criteria, which define the boundaries of a user story and are used to confirm when a story is completed and working as intended.
+
+6. **Iteration Planning:** User stories are often used in agile development methodologies during iteration planning or sprint planning meetings.
 
 </details>
 
@@ -97,7 +102,7 @@ WHY: So that [the desired outcome]
 </details>
 
 <details>
-  <summary>Example:</summary>
+  <summary>Examples:</summary>
 
 *User Story 1:*
 
@@ -128,7 +133,7 @@ So that I can reorder them quicly and easily
 User Acceptance Testing (UAT) is the final phase in the testing process before the software is released for use. The aim of UAT is to validate the software against business requirements. It is typically conducted by the end-users or clients of the software.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 1. **End-user Involvement:** The testing is typically conducted by the end-users or clients, not by the developers or testers.
 
@@ -141,9 +146,9 @@ User Acceptance Testing (UAT) is the final phase in the testing process before t
 </details>
 
 <details>
-  <summary>Example:</summary>
+  <summary>Examples:</summary>
 
-**Given-When-Then (BDD) Format Example:**
+**Scenario-Oriented: Given-When-Then (BDD) Format Example:**
 
 1. Given some initial context (the state of the system),
 2. When an event occurs (an action is carried out),
@@ -157,7 +162,7 @@ Acceptance Criteria:
   Then I should receive an order confirmation.
 ```
 
-**Checklist Format Example:**
+**Rule-Oriented: Checklist Format Example:**
 
 ```text
 Acceptance Criteria:
@@ -175,15 +180,99 @@ Acceptance Criteria:
 Alpha and Beta Testing are stages of software testing that are conducted to ensure the quality of the product before it is released to the end-users. Alpha testing is performed internally within the organization by a specialized testing team. Beta testing, on the other hand, is performed by a limited number of end-users who are not part of the organization.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 1. **Alpha Testing:** This is the first phase of testing where the software is tested internally within the organization. It is typically performed by a specialized testing team.
 
 2. **Beta Testing:** This is the second phase of testing where the software is released to a limited number of end-users to gather feedback and identify any potential issues that were not found during alpha testing.
 
-3. **Feedback Loop:** Both alpha and beta testing provide valuable feedback that can be used to improve the quality of the software.
+3. **Feedback Loop:** Both alpha and beta testing provide feedback that can be used to improve the quality of the software.
 
 </details>
+
+## Experience-based Techniques
+
+**Explanation:**
+
+Experience-based techniques in software testing are those that leverage the tester's knowledge, skills, and background to design and execute tests. They are less formal and structured than specification-based or structure-based techniques.
+
+### Error Guessing
+
+**Explanation:**
+
+Error Guessing is a software testing technique where the tester applies their experience and intuition to guess the problematic areas of the application. This technique is based on the tester's ability to find bugs or defects based on their past experiences and knowledge.
+
+### Exploratory Testing
+
+**Explanation:**
+
+Exploratory Testing is a type of software testing where test design and test execution happen simultaneously without explicitly planning the detailed test cases in advance. The tester actively controls the design of the tests as they are performed and uses information gained while testing to design new and better tests.
+
+<details>
+  <summary>Key Concepts:</summary>
+
+1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
+
+    ![alt text](./images/charter.png)
+
+2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
+
+</details>
+
+### Checklist-Based Testing
+
+**Explanation:**
+
+Checklist-Based Testing is a software testing technique where the tester uses a checklist as a guide during the testing process. The checklist contains a set of important aspects or features of the application that need to be tested. This method ensures that the tester does not miss out on testing critical functionalities of the application.
+
+<details>
+  <summary>Key Concepts:</summary>
+
+1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
+
+    ![alt text](./images/checklist.png)
+
+2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
+
+</details>
+
+### Smoke and Sanity Testing
+
+**Explanation:**
+
+Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper.
+
+<details>
+  <summary>Key Concepts:</summary>
+
+- **Smoke Testing:** This is a high-level type of testing done to ensure that the basic functions of a program work correctly. It is often done when a new build is released to test if the build is stable and it can be tested thoroughly later.
+
+- **Sanity Testing:** This is a narrow regression testing that focuses on one or a few areas of functionality. Sanity testing is usually unscripted, helps to identify the dependent missing functionalities, and is used to determine if a section of the application is still working after a minor change.
+
+</details>
+
+## Confirmation Testing
+
+**Explanation:**
+
+Confirmation Testing, also known as re-testing, is a type of testing performed to confirm that a test case which previously failed has been corrected after the defects have been fixed. The purpose of confirmation testing is to verify that the original defect has been successfully removed; it is not to uncover new defects.
+
+<details>
+  <summary>Key Concepts:</summary>
+
+**Key Concepts:**
+
+1. **Defect Fix Verification:** The main purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
+
+2. **Regression Testing:** Alongside confirmation testing, regression testing is often performed to ensure that the defect fixes haven't introduced new issues elsewhere in the system.
+
+</details>
+
+### Regression Testing
+
+**Explanation:**
+
+Regression testing is a type of software testing that ensures that previously developed and tested software still performs the same way after it is changed or interfaced with other software. Changes may include software enhancements, patches, configuration changes. The purpose of regression testing is to ensure that code changes do not introduce new bugs or regressions.
 
 ## Black-box Testing Techniques
 
@@ -715,87 +804,3 @@ State Transition Testing is a software testing technique used to test the behavi
   | TC024        | Attacking     | Health Depleted    | Dead        | Die                |
 
 </details>
-
-## Experience-based Techniques
-
-**Explanation:**
-
-Experience-based techniques in software testing are those that leverage the tester's knowledge, skills, and background to design and execute tests. They are less formal and structured than specification-based or structure-based techniques.
-
-### Error Guessing
-
-**Explanation:**
-
-Error Guessing is a software testing technique where the tester applies their experience and intuition to guess the problematic areas of the application. This technique is based on the tester's ability to find bugs or defects based on their past experiences and knowledge.
-
-### Exploratory Testing
-
-**Explanation:**
-
-Exploratory Testing is a type of software testing where test design and test execution happen simultaneously without explicitly planning the detailed test cases in advance. The tester actively controls the design of the tests as they are performed and uses information gained while testing to design new and better tests.
-
-<details>
-  <summary>Key Concepts:</summary>
-
-1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
-
-    ![alt text](./images/charter.png)
-
-2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
-
-</details>
-
-### Checklist-Based Testing
-
-**Explanation:**
-
-Checklist-Based Testing is a software testing technique where the tester uses a checklist as a guide during the testing process. The checklist contains a set of important aspects or features of the application that need to be tested. This method ensures that the tester does not miss out on testing critical functionalities of the application.
-
-<details>
-  <summary>Key Concepts:</summary>
-
-1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
-
-    ![alt text](./images/checklist.png)
-
-2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
-
-</details>
-
-### Smoke and Sanity Testing
-
-**Explanation:**
-
-Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper.
-
-<details>
-  <summary>Key Concepts:</summary>
-
-- **Smoke Testing:** This is a high-level type of testing done to ensure that the basic functions of a program work correctly. It is often done when a new build is released to test if the build is stable and it can be tested thoroughly later.
-
-- **Sanity Testing:** This is a narrow regression testing that focuses on one or a few areas of functionality. Sanity testing is usually unscripted, helps to identify the dependent missing functionalities, and is used to determine if a section of the application is still working after a minor change.
-
-</details>
-
-## Confirmation Testing
-
-**Explanation:**
-
-Confirmation Testing, also known as re-testing, is a type of testing performed to confirm that a test case which previously failed has been corrected after the defects have been fixed. The purpose of confirmation testing is to verify that the original defect has been successfully removed; it is not to uncover new defects.
-
-<details>
-  <summary>Key Concepts:</summary>
-
-**Key Concepts:**
-
-1. **Defect Fix Verification:** The main purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
-
-2. **Regression Testing:** Alongside confirmation testing, regression testing is often performed to ensure that the defect fixes haven't introduced new issues elsewhere in the system.
-
-</details>
-
-### Regression Testing
-
-**Explanation:**
-
-Regression testing is a type of software testing that ensures that previously developed and tested software still performs the same way after it is changed or interfaced with other software. Changes may include software enhancements, patches, configuration changes. The purpose of regression testing is to ensure that code changes do not introduce new bugs or regressions.
