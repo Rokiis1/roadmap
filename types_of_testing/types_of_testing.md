@@ -93,3 +93,13 @@ Static testing involves validating the code, design documents, and software requ
 </details>
 
 ## Summarize
+
+- **Dynamic Testing:** Involves executing the software to find defects. Includes functional testing (unit, integration, system, acceptance) and non-functional testing (performance, usability, security, compatibility).
+
+- **Static Testing:** Involves reviewing documentation and code without executing the software. Includes manual reviews, static analysis, and model-based analysis.
+
+**Functional Testing:** Verifies that software functions as specified.
+Non-functional Testing: Checks performance, usability, security, and compatibility.
+
+**Static Analysis:** Uses tools to find potential errors and security
+vulnerabilities early in the development process.
