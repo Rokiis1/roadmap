@@ -129,4 +129,6 @@ Acceptance Testing is the final level of software testing performed after System
 
     - **Beta Testing:** Conducted by a limited number of end users in the real environment to gather feedback before the product is officially released.
 
+5. **End-user or Stakeholder Involvement:** Most of the time, end-users or stakeholders perform acceptance testing. QA teams prepare the environment and ensure everything is working correctly before handing it over for acceptance testing. QA teams may also perform preliminary acceptance testing to verify that the system is ready for end-user testing.
+
 </details>
