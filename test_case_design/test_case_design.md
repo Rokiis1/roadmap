@@ -125,7 +125,7 @@ Also known as the Test Results Table, documents the execution of scenarios and t
 <details>
     <summary>Overview:</summary>
 
-1. **Test ID:** A unique identifier for each test case within the scenario.
+1. **Test ID/Scenario ID:** A unique identifier for each test case or scenario.
 2. **Execution Date:** The date when the test case was executed.
 3. **Actual Results:** The actual outcome of the test case.
 4. **Pass/Fail Status:** Indicates whether the test case passed or failed.

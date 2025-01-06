@@ -79,7 +79,7 @@ System Testing is a level of testing that validates the complete and integrated 
 
 5. **Independent Test Team:** System testing is often performed by an independent test team to provide an unbiased, fresh perspective, specialized skills, and increased accountability and transparency in the testing process.
 
-6. **Product Risks:** Mitigate product risks that can only be assessed when the system is fully integrated, such as integration issues, performance bottlenecks, security vulnerabilities, end-to-end functionality, and user experience.
+6. **Product Risks:** Mitigate product risks that can only be assessed when the system is fully integrated, such as performance bottlenecks, security vulnerabilities, end-to-end functionality, and user experience.
 
 7. **Incomplete Requirements:** If there are incomplete requirements and product risks that were not fully understood or defined during earlier phases, secure that the final product meets all user needs and business requirements.
 

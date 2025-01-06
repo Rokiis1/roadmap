@@ -41,7 +41,7 @@ Functional testing is performed to verify that each function of the software app
   - **Defects Found:** Logic errors, calculation mistakes, boundary issues, and data handling problems.
 
 - **Integration Testing:** Involves testing the interaction between different software modules.
-  - **Defects Found:** Interface mismatches, data flow issues, integration logic errors integration issues.
+  - **Defects Found:** Interface mismatches, data flow issues, integration logic errors.
 
 - **System Testing:** Involves testing the entire system as a whole to check the requirements.
   - **Defects Found:** System-level functional issues, end-to-end functional issues.

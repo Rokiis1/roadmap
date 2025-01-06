@@ -12,13 +12,17 @@
     - [Exploratory Testing](#exploratory-testing)
     - [Checklist-Based Testing](#checklist-based-testing)
     - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
-  - [Confirmation Testing](#confirmation-testing)
+  - [Confirmation Testing and Regression Testing](#confirmation-testing-and-regression-testing)
     - [Regression Testing](#regression-testing)
   - [Black-box Testing Techniques](#black-box-testing-techniques)
     - [Equivalence Partitioning](#equivalence-partitioning)
     - [Boundary Value Analysis](#boundary-value-analysis)
     - [Decision Table Testing](#decision-table-testing)
     - [State Transition Testing](#state-transition-testing)
+  - [White-box Testing Techniques](#white-box-testing-techniques)
+    - [Statement Testing](#statement-testing)
+    - [Branch Testing](#branch-testing)
+    - [Path Testing](#path-testing)
 
 ## Dynamic Functional Testing Techniques
 
@@ -202,6 +206,19 @@ Experience-based techniques in software testing are those that leverage the test
 
 Error Guessing is a software testing technique where the tester applies their experience and intuition to guess the problematic areas of the application. This technique is based on the tester's ability to find bugs or defects based on their past experiences and knowledge.
 
+<details>
+  <summary>Overview:</summary>
+
+1. **Experience-Based Testing:** Relies on the tester's past experience with similar products, domain knowledge, and understanding of typical defects.
+
+2. **Intuition and Skills:** No formal approaches; it is completely dependent on the tester's judgment.
+
+3. **Fault Attack:** The systematic approach of conducting error guessing is called fault attack. The tester knows what type of defect they are looking for and targets those specific areas.
+
+4. **Win-Win Situation:** Whether defects are found or not, error guessing adds value by increasing confidence in the system.
+
+</details>
+
 ### Exploratory Testing
 
 **Explanation:**
@@ -209,13 +226,17 @@ Error Guessing is a software testing technique where the tester applies their ex
 Exploratory Testing is a type of software testing where test design and test execution happen simultaneously without explicitly planning the detailed test cases in advance. The tester actively controls the design of the tests as they are performed and uses information gained while testing to design new and better tests.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
-1. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
+1. **Simultaneous Design and Execution:** The tester explores the requirements and system behavior to gain a better understanding and identify potential defects.
+
+2. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
 
     ![alt text](./images/charter.png)
 
-2. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
+3. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
+
+4. **High-Level Documentation:** Test charters are used to document the steps followed, the discoveries made, and the overall findings of each test session.
 
 </details>
 
@@ -226,13 +247,15 @@ Exploratory Testing is a type of software testing where test design and test exe
 Checklist-Based Testing is a software testing technique where the tester uses a checklist as a guide during the testing process. The checklist contains a set of important aspects or features of the application that need to be tested. This method ensures that the tester does not miss out on testing critical functionalities of the application.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
 
     ![alt text](./images/checklist.png)
 
 2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
+
+3. **Functional and Non-Functional Testing:** Checklists can support various test types, including functional and non-functional testing.
 
 </details>
 
@@ -243,7 +266,7 @@ Checklist-Based Testing is a software testing technique where the tester uses a 
 Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 - **Smoke Testing:** This is a high-level type of testing done to ensure that the basic functions of a program work correctly. It is often done when a new build is released to test if the build is stable and it can be tested thoroughly later.
 
@@ -251,20 +274,40 @@ Smoke testing is done to make sure software functionalities are working for a ne
 
 </details>
 
-## Confirmation Testing
+## Confirmation Testing and Regression Testing
 
 **Explanation:**
 
-Confirmation Testing, also known as re-testing, is a type of testing performed to confirm that a test case which previously failed has been corrected after the defects have been fixed. The purpose of confirmation testing is to verify that the original defect has been successfully removed; it is not to uncover new defects.
+Confirmation Testing and Regression Testing are types of testing performed to ensure that changes made to the software do not introduce new defects and that previously identified defects have been fixed. These are collectively known as change-related testing.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
-**Key Concepts:**
+1. **Confirmation Testing (Retesting):**
+    - Confirmation testing is conducted to verify that a previously reported defect has been fixed.
+    - The tester reruns the same test cases that initially identified the defect to confirm that the issue has been resolved.
 
-1. **Defect Fix Verification:** The main purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
+2. **Regression Testing:**
+    - Regression testing ensures that recent changes, such as defect fixes or new features, have not adversely affected the existing functionality of the software.
+    - It involves re-running previously executed test cases to verify that the software still performs as expected.
+    - Regression testing is applicable not only when defects are fixed but also when updates, upgrades, or migrations occur.
 
-2. **Regression Testing:** Alongside confirmation testing, regression testing is often performed to ensure that the defect fixes haven't introduced new issues elsewhere in the system.
+</details>
+
+### Confirmation Testing (Retesting)
+
+**Explanation:**
+
+Performed to confirm that a previously reported defect has been fixed. The tester reruns the same test cases that initially identified the defect to ensure that the issue has been resolved.
+
+<details>
+  <summary>Overview:</summary>
+
+1. **Defect Fix Verification:** Purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
+
+2. **Objective:** The objective is to confirm that the reported defect has been resolved and that the software now behaves as expected.
+
+3. **Example:** If a tester reports that a phone's audio is not working, the confirmation testing involves playing a song to verify that the audio issue has been fixed.
 
 </details>
 
@@ -272,7 +315,18 @@ Confirmation Testing, also known as re-testing, is a type of testing performed t
 
 **Explanation:**
 
-Regression testing is a type of software testing that ensures that previously developed and tested software still performs the same way after it is changed or interfaced with other software. Changes may include software enhancements, patches, configuration changes. The purpose of regression testing is to ensure that code changes do not introduce new bugs or regressions.
+Ensure that recent changes, such as defect fixes or new features, have not adversely affected the existing functionality of the software. It involves re-running previously executed test cases to verify that the software still performs as expected.
+
+<details>
+  <summary>Overview:</summary>
+
+1. **Purpose:** The purpose of regression testing is to confirm that no adverse consequences have been caused by a change, including a fix that has already been confirmed through confirmation testing.
+
+2. **Scope:** Regression testing is applicable when defects are fixed, updates or upgrades are made, or migrations occur.
+
+3. **Example:** After fixing an audio issue in a phone, regression testing involves checking other functionalities like making calls, using the camera, and checking signal strength to ensure that the fix did not affect these features.
+
+</details>
 
 ## Black-box Testing Techniques
 
@@ -281,7 +335,7 @@ Regression testing is a type of software testing that ensures that previously de
 Black-box testing techniques focus on the functionality of the software without considering its internal structure. The tester is unaware of the internal workings of the system and tests the software based on the input and the output.
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 1. **Equivalence Partitioning:** This is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
 
@@ -300,7 +354,7 @@ Black-box testing techniques focus on the functionality of the software without 
 Equivalence Partitioning is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
 
 <details>
-  <summary>Scenarios</summary>
+  <summary>Scenarios:</summary>
 
 - **Input Validation:**
 
@@ -310,7 +364,7 @@ Equivalence Partitioning is a software testing technique that divides the input 
 </details>
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 - **Partitioning:** Dividing input data into different **Equivalence Classes**. Each equivalence class represents a set of input values that are treated the same by the software, meaning that one test case can be used to test the entire class.
 - **Representative Values:** Selecting representative values from each partition for testing.
@@ -384,7 +438,7 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 </details>
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 - **Boundary Values:** Many errors tend to occur at the edges of input ranges.
 
@@ -445,7 +499,7 @@ Decision Table Testing is a software testing technique used to test system behav
 </details>
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 - **Notation:** refers to the symbols and conventions used to represent conditions and actions
   - **domain-specific notation:** refers to the use of terms and symbols that are specific to a particular domain or industry.
@@ -548,7 +602,7 @@ State Transition Testing is a software testing technique used to test the behavi
 </details>
 
 <details>
-  <summary>Key Concepts:</summary>
+  <summary>Overview:</summary>
 
 - **State:** Describe what the system is doing or what condition of the system under different inputs."
 
@@ -804,3 +858,43 @@ State Transition Testing is a software testing technique used to test the behavi
   | TC024        | Attacking     | Health Depleted    | Dead        | Die                |
 
 </details>
+
+## White-box Testing Techniques
+
+**Explanation:**
+
+White box testing, also known as clear box or glass box testing, is a testing technique that involves testing the internal structures or workings of an application. The tester has knowledge of the internal code, architecture, and workflows.
+
+<details>
+  <summary>Overview:</summary>
+
+1. **Structure-Based Testing:** Derives tests from the system's implementation, including code, architecture, workflows, and data flows. The main objective is to cover the underlying structure by the tests to an acceptable level. Common techniques include: **Statement Testing**, **Branch Testing**, **Path Testing**.
+
+2. **Comprehensive Coverage:** White box testing ensures thorough testing of the internal logic and structure of the software.
+
+3. **Early Defect Detection:** Allows for early identification and fixing of bugs, reducing the cost and effort of fixing defects later in the development cycle.
+
+4. **Objective Measurement:** Provides an objective measurement of code coverage, allowing for additional tests to be generated to increase coverage and confidence in the code.
+
+</details>
+
+### Statement Testing
+
+**Explanation:**
+
+Technique to derive the minimum number of test cases needed to cover all the statements in a fragment of code. For example imagine you’re a teacher checking a student’s homework. Statement coverage would be like ensuring the student has answered every question on the assignment.
+
+<details>
+  <summary>Overview:</summary>
+
+<details>
+
+### Branch Testing
+
+**Explanation:**
+
+technique to ensure that each possible branch (decision) in the code is executed at least once. For example This would be like exploring all possible routes on a GPS. If you’re at an intersection, branch testing involves going straight, turning left, and turning right to ensure all paths lead to valid destinations.
+
+### Path Testing
+
+technique to ensure that all possible paths through the code are executed. For example This would be like a postman ensuring they can deliver mail to every house on their route. They need to make sure every possible path is covered.
