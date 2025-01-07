@@ -101,7 +101,7 @@ Focuses on scenarios and includes detailed information about each scenario.
     5. **Expected Results:** The expected outcome of the scenario.
     6. **Postconditions:** Any conditions that should be met after the scenario is executed.
 
-- **Scenario-Based Test Specification Table**
+- **Scenario-Based Test Specification Table:**
 
     1. **Scenario ID:** A unique identifier for each test scenario.
     2. **Scenario Description:** A high-level description of the scenario being tested.

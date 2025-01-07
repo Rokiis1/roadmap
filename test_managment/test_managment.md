@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD033 -->
 # Content of Table
 
-- [Test Management](#test-management)
+- [Managing the Test Activities](#managing-the-test-activities)
   - [Test Planning](#test-planning)
     - [Test Pyramid](#test-pyramid)
     - [Risk Management in Testing](#risk-management-in-testing)
@@ -12,7 +12,7 @@
     - [Test Case Prioritization](#test-case-prioritization)
   - [Test Monitoring and Control](#test-monitoring-and-control)
 
-## Test Management
+## Managing the Test Activities
 
 Test management is a practice in software development that involves the planning, development, execution, and analysis of software tests. It includes tracking and reporting on test execution status, managing test data, maintaining test case documentation.
 
