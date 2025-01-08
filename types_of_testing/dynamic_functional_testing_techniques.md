@@ -4,8 +4,8 @@
 
 - [Dynamic Functional Testing Techniques](#dynamic-functional-testing-techniques)
   - [Collaboration-based Test Approaches](#collaboration-based-test-approaches)
-    - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
     - [Collaborative User Story Writing](#collaborative-user-story-writing)
+    - [User Acceptance Testing (UAT)](#user-acceptance-testing-uat)
     - [Alpha and Beta Testing](#alpha-and-beta-testing)
   - [Experience-based Techniques](#experience-based-techniques)
     - [Error Guessing](#error-guessing)
@@ -24,26 +24,11 @@
     - [Branch Testing](#branch-testing)
     - [Path Testing](#path-testing)
 
-## Dynamic Functional Testing Techniques
+# Dynamic Functional Testing Techniques
 
 **Explanation:**
 
 Dynamic Functional Testing Techniques involve executing the software to verify that it behaves as expected according to the specified requirements. These techniques focus on validating the correctness of the software's functionality. They are often used in conjunction with static techniques, which are used without executing the software.
-
-<details>
-  <summary>Overview:</summary>
-
-1. **Collaboration-based Test Approaches:** These approaches involve the team working together to write user stories, perform user acceptance testing, and conduct alpha and beta testing.
-
-2. **Experience-based Techniques:** These techniques, including error guessing, exploratory testing, and checklist-based testing, rely on the tester's experience and knowledge.
-
-3. **Confirmation Testing:** This includes re-testing and regression testing to ensure that defects have been corrected and that modifications have not introduced new issues.
-
-4. **Black-box Testing Techniques:** These techniques, such as equivalence partitioning, boundary value analysis, and decision table testing, focus on the functionality of the software without considering its internal structure.
-
-5. **White-box Testing Techniques:** These techniques, such as statement testing and coverage, decision testing and coverage, and path testing, focus on the internal structure of the software. They are most often performed by developers or testers with a deep understanding of the codebase.
-
-</details>
 
 ## Collaboration-based Test Approaches
 
