@@ -137,8 +137,6 @@ Testing approaches in software development are strategies used to ensure the fun
 <details>
     <summary>Overview:</summary>
 
-1. **Requirement Analysis:** Tounderstand and analyze the requirements from a testing perspective by reviewing requirements documents, identifying testable requirements, and pinpointing any ambiguities or inconsistencies in the requirements, resulting in the creation of a requirement traceability matrix (RTM) and a list of testable requirements.
-
 2. **Test Planning:** To define the scope, approach, resources, and schedule for testing activities by developing the test plan document, identifying test objectives and criteria, estimating test effort and resources, defining test environment requirements, and identifying risks and mitigation plans, resulting in the creation of the test plan document, test effort estimation, and risk management plan.
 
 3. **Test Design:** To design test cases and test scripts based on the requirements by creating detailed test cases, developing test data, identifying test scenarios, and reviewing and baselining test cases, resulting in the creation of test cases, test scripts, test data, and test scenarios.
@@ -151,7 +149,7 @@ Testing approaches in software development are strategies used to ensure the fun
 
 7. **Test Closure:** To conclude testing activities and evaluate the testing process by ensuring all test cases are executed, documenting test results and metrics, conducting a test closure meeting, archiving test artifacts, resulting in a test summary report, test metrics, archived test artifacts, and documented.
 
-8. **Impact Analysis:**
+8. **Impact Analysis:** The purpose of impact analysis is to identify the areas of the application that will be impacted by a change and reduce the effort required for regression testing by focusing on the affected areas.
 
 9. **Maintenance Testing:** Involves testing an operational system to ensure that changes or enhancements do not introduce new defects. It is conducted after the software has been released and is in use by end-users.
 
