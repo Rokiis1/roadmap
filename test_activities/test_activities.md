@@ -3,32 +3,12 @@
 
 - [Test Planning](#test-planning)
 - [Test Monitoring and Control](#test-monitoring-and-control)
-- [Test Managment](#)
+- [Test Managment](#test-managment)
 - [Defect Management](#defect-management)
 
 **Explanation:**
 
 Managing test activities is a aspect of the software development lifecycle that ensures the quality and reliability of the software product. It involves a series of coordinated tasks and processes that guide the planning, execution, monitoring, and control of testing efforts.
-
-**Explanation:**
-
-Involves setting up, maintaining, and managing the environments in which testing activities are conducted. This ensures that the testing process is carried out in a stable, reliable, and consistent environment
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Test Environment Setup:** To prepare the hardware and software environment required for testing.
-    - Identify the hardware and software requirements.
-    - Configure the test environment according to the specifications.
-    - Install necessary tools, applications, and databases.
-
-2. **Test Data Management:** To manage the data required for testing, ensuring it is accurate, relevant, and secure.
-    - Identify the data requirements for different test scenarios.
-    - Create, generate, or extract test data.
-    - Ensure data privacy and security, especially when using production data.
-    - Maintain and refresh test data as needed.
-
-</details>
 
 ## Test Planning
 
@@ -514,6 +494,10 @@ Test Monitoring and Control are critical components of the test management proce
 
 </details>
 
+## Test Managment
+
+**Explanation:**
+
 ----------------------
 
 **Explanation:**
@@ -521,12 +505,12 @@ Test Monitoring and Control are critical components of the test management proce
 Test Monitoring and Control is involves tracking the progress and testing activities, and communicating testing status to stakeholders.
 
 <details>
-    <summary>Key Concepts:</summary>
+    <summary>Overview:</summary>
 
 1. **Test Reporting:** Test reports provide information on the progress of testing, system quality, and any risks or issues identified.
 
     <details>
-       <summary>Key Concepts:</summary>
+       <summary>Overview:</summary>
 
     - **Bug Report:** Provides detailed information about each bug found during testing.
 
@@ -552,7 +536,7 @@ Test Monitoring and Control is involves tracking the progress and testing activi
 
     - **Software under test:** Refers to the specific version of the software that is being tested. Ensures that all testers are working with the same version of the software.
 
-    - **Test environment:** Configuration management guarantees that the test environment is correctly and consistently set up for all testers. Includes hardware, software, network configurations
+    - **Test environment:** Configuration management guarantees that the test environment is correctly and consistently set up for all testers. Includes hardware, software, network configurations.
 
     - **Testware:** Refers to the artifacts generated during the testing process. Includes test cases, test scripts, and test data.
 
@@ -564,5 +548,25 @@ Test Monitoring and Control is involves tracking the progress and testing activi
     - [Example: STLC](https://drive.google.com/file/d/1VAwjdRe9oz5pSBVZeZpkJGEOM4Z2ZnXw/view?usp=sharing)
 
     </details>
+
+</details>
+
+**Explanation:**
+
+Involves setting up, maintaining, and managing the environments in which testing activities are conducted. This ensures that the testing process is carried out in a stable, reliable, and consistent environment
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Test Environment Setup:** To prepare the hardware and software environment required for testing.
+    - Identify the hardware and software requirements.
+    - Configure the test environment according to the specifications.
+    - Install necessary tools, applications, and databases.
+
+2. **Test Data Management:** To manage the data required for testing, ensuring it is accurate, relevant, and secure.
+    - Identify the data requirements for different test scenarios.
+    - Create, generate, or extract test data.
+    - Ensure data privacy and security, especially when using production data.
+    - Maintain and refresh test data as needed.
 
 </details>

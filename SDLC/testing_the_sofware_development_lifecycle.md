@@ -137,6 +137,8 @@ Testing approaches in software development are strategies used to ensure the fun
 <details>
     <summary>Overview:</summary>
 
+1. **Requirement Analysis:** To understand the testing requirements based on the requirements document by identifying testable requirements, defining test objectives, and preparing the Requirement Traceability Matrix (RTM), resulting in a clear understanding of what needs to be tested.
+
 2. **Test Planning:** To define the scope, approach, resources, and schedule for testing activities by developing the test plan document, identifying test objectives and criteria, estimating test effort and resources, defining test environment requirements, and identifying risks and mitigation plans, resulting in the creation of the test plan document, test effort estimation, and risk management plan.
 
 3. **Test Design:** To design test cases and test scripts based on the requirements by creating detailed test cases, developing test data, identifying test scenarios, and reviewing and baselining test cases, resulting in the creation of test cases, test scripts, test data, and test scenarios.
