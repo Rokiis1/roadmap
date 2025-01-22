@@ -1,17 +1,14 @@
 <!-- markdownlint-disable MD033 -->
-# Content of Table
+# Content of Table Test Case Design
 
-- [Test Case Design](#test-case-design)
-  - [Requirements Basis for Creating Test Cases](requirements-basis-for-creating-test-cases)
-  - [Scenario](#scenario)
-  - [Test Specification Table](#test-specification-table)
-  - [Test Execution Table](#test-execution-table)
-  - [Test Coverage](#test-coverage)
-  - [Good Practices](#good-practices)
-  - [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+- [Requirements Basis for Creating Test Cases](requirements-basis-for-creating-test-cases)
+- [Scenario](#scenario)
+- [Test Specification Table](#test-specification-table)
+- [Test Execution Table](#test-execution-table)
+- [Test Coverage](#test-coverage)
+- [Good Practices](#good-practices)
+- [Common Mistakes to Avoid](#common-mistakes-to-avoid)
 - [Summarize](#summarize)
-
-## Test Case Design
 
 **Explanation:**
 
@@ -31,7 +28,7 @@ Involves creating a set of conditions or variables under which a tester will det
 
 </details>
 
-### Requirements for Test Basis to Creating Test Cases
+## Requirements for Test Basis to Creating Test Cases
 
 **Explanation:**
 
@@ -58,7 +55,7 @@ Requirements are detailed descriptions of the functionalities, behaviors.
 
 </details>
 
-### Scenario
+## Scenario
 
 **Explanation:**
 

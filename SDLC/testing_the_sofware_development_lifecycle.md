@@ -5,6 +5,8 @@
 - [Testing Approaches in Software Development](#testing-approaches-in-software-development)
 - [Software Testing Life Cycle (STLC)](#software-testing-life-cycle-stlc)
 - [Role of Testing in DevOps](#role-of-testing-in-devops)
+- [Release and Iteration Planning](#release-and-iteration-planning)
+- [Maintenance Testing](#maintenance-testing)
 - [Other (SDLC) Models](#other-sdlc-models)
 
 ## Software Development Life Cycle (SDLC) Models
@@ -198,6 +200,45 @@ In DevOps, a methodology that integrates software development (Dev) and IT opera
 ![alt text](./assets/images/devops.png)
 
 </details>
+
+## Release and Iteration Planning
+
+**Explanation:**
+
+Release and iteration planning are essential components of the Agile methodology, ensuring that the project progresses smoothly and efficiently. These planning activities help in defining the scope of work, identifying risks, and determining the test approach for each release and iteration.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Release Planning:** Defining and refining the product backlog. It involves breaking down larger user stories into smaller, manageable ones. The primary goal is to identify the set of items to be worked on during the release and build a product backlog. The product owner (PO) is responsible for refining the backlog periodically. Testers contribute to release planning by participating in writing testable user stories and acceptance criteria, analyzing project and product risks, estimating test effort, and determining the test approach for the release.
+
+2. **Sprint Planning:** Sprint planning occurs at the beginning of each Sprint, focusing on selecting items from the product backlog to be implemented during the Sprint. Testers role in Sprint planning by reviewing work products, performing detailed risk analysis of user stories, determining the testability of user stories, breaking down user stories into testing tasks, estimating test effort, and identifying functional and non-functional aspects of the test object. The key difference between release planning and Sprint planning is the scope: release planning focuses on the entire release, while Sprint planning targets specific user stories for the Sprint.
+
+</details>
+
+## Maintenance Testing
+
+**Explanation:**
+
+Maintenance testing is performed on a live application that is already in use by end users. It involves testing enhancements, bug fixes, and other changes to ensure they do not adversely affect the existing system. Maintenance testing is essentially regression testing conducted whenever changes are made to an existing application.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Categories of Maintenance:**
+
+    - **Corrective:** Fixing known bugs or issues that were pending from previous releases.
+    - **Adaptive:** Making changes to adapt to new environments or improve performance and maintainability.
+    - **Enhancements:** Adding new features or improving existing ones based on user feedback and requirements.
+
+2. **Impact Analysis:** Impact analysis is a study to identify the areas of the application that will be affected by the change. It helps in determining the scope of regression testing required.
+
+3. **Triggers for Maintenance Testing:**
+
+    - **Modifications:** Planned enhancements, updates, and hot fixes.
+    - **Upgrades:** Introducing new features or moving from one version to another.
+    - **Migrations:** Moving an application from one platform to another.
+    - **Retirement:** Final versions of an application that will no longer receive updates or new releases.
 
 ## Other (SDLC) Models
 

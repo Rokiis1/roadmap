@@ -3,8 +3,10 @@
 
 - [Test Planning](#test-planning)
 - [Test Monitoring and Control](#test-monitoring-and-control)
-- [Test Managment](#test-managment)
+- [Configuration Management](#configuration-management)
 - [Defect Management](#defect-management)
+- [Test Reporting](#test-reporting)
+- [Testware Management](#testware-management)
 
 **Explanation:**
 
@@ -494,79 +496,75 @@ Test Monitoring and Control are critical components of the test management proce
 
 </details>
 
-## Test Managment
+## Configuration Management
 
 **Explanation:**
 
-----------------------
-
-**Explanation:**
-
-Test Monitoring and Control is involves tracking the progress and testing activities, and communicating testing status to stakeholders.
+Systematic process for maintaining consistency of a product's requirements. In the context of software testing, configuration management ensures that all test artifacts and related items are properly managed and controlled.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Test Reporting:** Test reports provide information on the progress of testing, system quality, and any risks or issues identified.
+1. **Unique Identification:** Every item involved in the testing process, such as test cases, test scripts, test data, and test environments, must have a unique identifier. This helps in tracking and managing these items effectively.
 
-    <details>
-       <summary>Overview:</summary>
+2. **Version Control:** Managing changes to test artifacts. It involves keeping track of different versions of each item, ensuring that changes are documented, and previous versions can be retrieved if necessary. This helps in maintaining the integrity of the testing process.
 
-    - **Bug Report:** Provides detailed information about each bug found during testing.
+3. **Change Management:** Involves controlling and documenting changes to test artifacts. Any modifications to test cases, test scripts, or other items must go through a formal process to ensure that changes are reviewed, approved, and tracked.
 
-    - **Test Case Report:** Provides detailed information about each test case.
+4. **Traceability:** Traceability ensures that all test artifacts are linked to their related requirements, design documents, and other relevant items. This helps in understanding the relationships between different items and ensures that all requirements are covered by test cases.
 
-    - **Test Summary Report:** provides an overview of the testing activities.
-
-    </details>
-
-    <details>
-       <summary>Examples:</summary>
-
-    - [Example: Test Reporting](https://drive.google.com/file/d/1RRpEdycF14DR8FqvSk6qwz_y5ALvWvwu/view?usp=sharing)
-
-    <details>
-
-2. **Incident Management:** This is the process of managing the defects found during testing. Ensures that defects are properly documented, tracked, and resolved.
-
-3. **Configuration Management:** This is the process of managing and controlling the versions of the software under test, the test environment, and the testware (test cases, test scripts, test data).
-
-    <details>
-       <summary>Key Concepts:</summary>
-
-    - **Software under test:** Refers to the specific version of the software that is being tested. Ensures that all testers are working with the same version of the software.
-
-    - **Test environment:** Configuration management guarantees that the test environment is correctly and consistently set up for all testers. Includes hardware, software, network configurations.
-
-    - **Testware:** Refers to the artifacts generated during the testing process. Includes test cases, test scripts, and test data.
-
-    </details>
-
-    <details>
-       <summary>Examples:</summary>
-
-    - [Example: STLC](https://drive.google.com/file/d/1VAwjdRe9oz5pSBVZeZpkJGEOM4Z2ZnXw/view?usp=sharing)
-
-    </details>
+5. **History of Revisions:** Maintaining a history of revisions allows teams to track changes made to test artifacts over time. This includes documenting what changes were made, who made them, and why they were made. This historical information is valuable for audits and for understanding the evolution of the testing process.
 
 </details>
 
+## Defect Management
+
 **Explanation:**
 
-Involves setting up, maintaining, and managing the environments in which testing activities are conducted. This ensures that the testing process is carried out in a stable, reliable, and consistent environment
+Defect management is the process of managing defects within the software testing lifecycle (STLC). It includes activities and artifacts involved in identifying, documenting, and resolving defects.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Test Environment Setup:** To prepare the hardware and software environment required for testing.
-    - Identify the hardware and software requirements.
-    - Configure the test environment according to the specifications.
-    - Install necessary tools, applications, and databases.
+1. **What is a Defect?** A defect is a deviation from the expected result or requirement, often referred to as an anomaly.
 
-2. **Test Data Management:** To manage the data required for testing, ensuring it is accurate, relevant, and secure.
-    - Identify the data requirements for different test scenarios.
-    - Create, generate, or extract test data.
-    - Ensure data privacy and security, especially when using production data.
-    - Maintain and refresh test data as needed.
+2. **Defect Reporting:** Communication of defect reports (also known as bug reports) is essential for ensuring that stakeholders are aware of the testing status and any issues that may arise. Different stakeholders may require different types of information, so reports should be tailored accordingly. Defect reports should include details such as the number of defects identified, their severity, status, and any trends observed.
+
+3. **Defect Management Process:**
+
+    - **Defect Identification:** Finding defects in the software.
+    - **Defect Logging:** Documenting the identified defects.
+    - **Defect Triage:** Prioritizing and categorizing defects.
+    - **Defect Assignment:** Assigning defects to the appropriate team members for resolution.
+    - **Defect Resolution:** Fixing the defects.
+    - **Defect Verification:** Verifying that the defects have been fixed.
+    - **Defect Closure:** Closing the defects once they are resolved and verified.
 
 </details>
+
+## Test Reporting
+
+**Explanation:**
+
+Test reporting involves tracking the progress and testing activities, and communicating testing status to stakeholders.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Test Progress Report:** The Test Summary Report is a comprehensive document that provides an overall summary of the testing activities and outcomes. It is typically prepared at the end of the testing phase or project and serves as a formal record of the testing effort. These reports are generated regularly (daily, weekly) and include details such as the test period, progress made, notable deviations, impediments, test metrics, new and changed risks, and plans for the next period.
+
+2. **Test Summary Report:** Test summary reports, also known as test completion reports, are prepared at the end of a project, test level, or test type. They summarize the testing activities and results, providing a comprehensive overview of the testing process. The purpose of test summary reports is to provide stakeholders with a detailed account of the testing activities and outcomes.
+
+3. **Communication:** Communication of test reports is essential for ensuring that stakeholders are aware of the testing status and any issues that may arise. Different stakeholders may require different types of information, so reports should be tailored accordingly.
+
+</details>
+
+## Testware Management
+
+**Explanation:**
+
+Refers to a collection of testing-related artifacts, including documents, tools, scripts, and other items used or produced in the testing process.
+
+- [Example: Test Reporting](https://drive.google.com/file/d/1RRpEdycF14DR8FqvSk6qwz_y5ALvWvwu/view?usp=sharing)
+
+- [Example: STLC](https://drive.google.com/file/d/1VAwjdRe9oz5pSBVZeZpkJGEOM4Z2ZnXw/view?usp=sharing)
