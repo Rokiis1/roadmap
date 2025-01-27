@@ -136,6 +136,8 @@ Testing approaches in software development are strategies used to ensure the fun
 
 **Explanation:**
 
+The Software Testing Life Cycle (STLC) is a sequence of specific activities conducted during the testing process to ensure software quality.
+
 <details>
     <summary>Overview:</summary>
 
@@ -185,7 +187,7 @@ Testing approaches in software development are strategies used to ensure the fun
 In DevOps, a methodology that integrates software development (Dev) and IT operations (Ops). It's not a separate phase but is integrated into every part of the development and deployment process.
 
 <details>
-    <summary>Overview::</summary>
+    <summary>Overview:</summary>
 
 1. **Continuous Testing:** In DevOps, testing is conducted continuously throughout the development process.
 
@@ -239,6 +241,8 @@ Maintenance testing is performed on a live application that is already in use by
     - **Upgrades:** Introducing new features or moving from one version to another.
     - **Migrations:** Moving an application from one platform to another.
     - **Retirement:** Final versions of an application that will no longer receive updates or new releases.
+
+</details>
 
 ## Other (SDLC) Models
 

@@ -1,13 +1,10 @@
 <!-- markdownlint-disable MD033 -->
 
-# Content of Table
+# Content of Table of the Types of Testing
 
-- [Types of Testing](#types-of-testing)
-  - [Dynamic Testing](#dynamic-testing)
-  - [Static Testing](#static-testing)
+- [Dynamic Testing](#dynamic-testing)
+- [Static Testing](#static-testing)
 - [Summarize](#summarize)
-
-# Types of Testing
 
 **Explanation:**
 
@@ -28,50 +25,48 @@ Dynamic testing involves methods used in software development that require the e
 <details>
     <summary>Overview:</summary>
 
-### Functional Testing
+- **Functional Testing**
 
-**Explanation:**
+  **Explanation:**
 
-Functional testing is performed to verify that each function of the software application behaves as specified in the requirement document.
+  Functional testing is performed to verify that each function of the software application behaves as specified in the requirement document.
 
-<details>
-    <summary>Overview:</summary>
+  <details>
+      <summary>Overview:</summary>
 
-- **Unit Testing:** Involves testing individual components of the software. This is usually done by the developers themselves.
-  - **Defects Found:** Logic errors, calculation mistakes, boundary issues, and data handling problems.
+  - **Unit Testing:** Involves testing individual components of the software. This is usually done by the developers themselves.
+    - **Defects Found:** Logic errors, calculation mistakes, boundary issues, and data handling problems.
 
-- **Integration Testing:** Involves testing the interaction between different software modules.
-  - **Defects Found:** Interface mismatches, data flow issues, integration logic errors.
+  - **Integration Testing:** Involves testing the interaction between different software modules.
+    - **Defects Found:** Interface mismatches, data flow issues, integration logic errors.
 
-- **System Testing:** Involves testing the entire system as a whole to check the requirements.
-  - **Defects Found:** System-level functional issues, end-to-end functional issues.
+  - **System Testing:** Involves testing the entire system as a whole to check the requirements.
+    - **Defects Found:** System-level functional issues, end-to-end functional issues.
 
-- **Acceptance Testing:** The final level of testing to verify if the system meets the customer requirements.
-  - **Defects Found:** Requirement mismatches, missing functionality, compliance issues.
+  - **Acceptance Testing:** The final level of testing to verify if the system meets the customer requirements.
+    - **Defects Found:** Requirement mismatches, missing functionality, compliance issues.
 
-</details>
+  </details>
 
-### Non-functional Testing
+- **Non-functional Testing**
 
-**Explanation:**
+  **Explanation:**
 
-Non-functional testing is performed to check the non-functional aspects of a software application. It focuses on how the system performs rather than specific behaviors.
+  Non-functional testing is performed to check the non-functional aspects of a software application. It focuses on how the system performs rather than specific behaviors.
 
-<details>
-    <summary>Overview:</summary>
+  <details>
+      <summary>Overview:</summary>
 
-- **Performance Testing:** Checks how a system performs under a particular load.
-  - **Defects Found:** Performance issues, slow response times, resource utilization issues.
-- **Usability Testing:** Checks the user-friendliness of the software to improve better user-experience.
-  - **Defects Found:** Poor navigation, confusing user interface, accessibility issues.
-- **Security Testing (Penetration Testing):** Checks if the system is secure from external threats and vulnerabilities.
+  - **Performance Testing:** Checks how a system performs under a particular load.
+    - **Defects Found:** Performance issues, slow response times, resource utilization issues.
+  - **Usability Testing:** Checks the user-friendliness of the software to improve better user-experience.
+    - **Defects Found:** Poor navigation, confusing user interface, accessibility issues.
+  - **Security Testing (Penetration Testing):** Checks if the system is secure from external threats and vulnerabilities.
   - **Defects Found:** SQL injection, cross-site scripting (XSS), unauthorized access.
-- **Compatibility Testing:** Ensures that the software can run in different environments (different hardware, operating systems, browsers).
-  - **Defects Found:** Rendering issues, functionality issues on specific platforms, browser compatibility issues.
+  - **Compatibility Testing:** Ensures that the software can run in different environments (different hardware, operating systems, browsers).
+    - **Defects Found:** Rendering issues, functionality issues on specific platforms, browser compatibility issues.
 
 </details>
-
-<details>
 
 ## Static Testing
 
@@ -98,8 +93,9 @@ Static testing involves validating the code, design documents, and software requ
 
 - **Static Testing:** Involves reviewing documentation and code without executing the software. Includes manual reviews, static analysis, and model-based analysis.
 
-**Functional Testing:** Verifies that software functions as specified.
-Non-functional Testing: Checks performance, usability, security, and compatibility.
+- **Functional Testing:** Verifies that software functions as specified.
 
-**Static Analysis:** Uses tools to find potential errors and security
+- **Non-functional Testing:** Checks performance, usability, security, and compatibility.
+
+- **Static Analysis:** Uses tools to find potential errors and security
 vulnerabilities early in the development process.

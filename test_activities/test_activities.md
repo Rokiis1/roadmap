@@ -31,8 +31,10 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
 2. **Test Items:**
 
-    - **List of Items to be Tested:** Enumerate the specific items, features, or components that will be tested.
-    - **Features to be Tested:** Detail the features and functionalities that will be included in the testing scope.
+    - **List of Items to be Tested:** Enumerate the specific items, features, or components that will be tested. This section provides a high-level overview of the main components, modules, or subsystems that will be tested.
+
+    - **Features to be Tested:** Detail the features and functionalities that will be included in the testing scope.This section provides a detailed description of the specific features and functionalities within the high-level items. It outlines what aspects of the application will be tested
+
     - **Features Not to be Tested:** Specify any features or functionalities that are out of scope for testing.
 
 3. **Test Approach(Test Strategy):**
@@ -165,9 +167,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
         - **Environment Maintenance:** Monitor and maintain the test environment to ensure stability and reliability.
 
-    - **Test Data:** Detail the test data requirements and how test data will be managed.
-
-    - **Tools:** List the tools that will be used for testing, including test management tools, automation tools, and defect tracking tools.
+        - **Tools:** List the tools that will be used for testing, including test management tools, automation tools, and defect tracking tools.
 
 5. **Schedule:**
 
@@ -463,13 +463,6 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
 </details>
 
-<details>
-    <summary>Examples:</summary>
-
-- [Example: Test Plan](https://drive.google.com/drive/folders/1YpOM3AM-UVPRoFtmtZq2rziA-9x_76Wq)
-
-</details>
-
 ## Test Monitoring and Control
 
 **Explanation:**
@@ -564,7 +557,3 @@ Test reporting involves tracking the progress and testing activities, and commun
 **Explanation:**
 
 Refers to a collection of testing-related artifacts, including documents, tools, scripts, and other items used or produced in the testing process.
-
-- [Example: Test Reporting](https://drive.google.com/file/d/1RRpEdycF14DR8FqvSk6qwz_y5ALvWvwu/view?usp=sharing)
-
-- [Example: STLC](https://drive.google.com/file/d/1VAwjdRe9oz5pSBVZeZpkJGEOM4Z2ZnXw/view?usp=sharing)

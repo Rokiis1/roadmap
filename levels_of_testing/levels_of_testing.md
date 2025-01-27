@@ -1,18 +1,15 @@
 <!-- markdownlint-disable MD033 -->
-# Content of Table
+# Content of Table on the Levels of Testing
 
-- [Levels of Testing](#levels-of-testing)
-  - [Component Testing (Unit Testing)](#component-testing-unit-testing)
-  - [Component Integration Testing (Unit Integration Testing)](#component-integration-testing-unit-integration-testing)
-  - [System Testing](#system-testing)
-  - [System Integration Testing](#system-integration-testing)
-  - [Acceptance Testing](#acceptance-testing)
-
-## Levels of Testing
+- [Component Testing (Unit Testing)](#component-testing-unit-testing)
+- [Component Integration Testing (Unit Integration Testing)](#component-integration-testing-unit-integration-testing)
+- [System Testing](#system-testing)
+- [System Integration Testing](#system-integration-testing)
+- [Acceptance Testing](#acceptance-testing)
 
 ![alt text](./images/testLevels.png)
 
-### Component Testing (Unit Testing)
+## Component Testing (Unit Testing)
 
 **Explanation:**
 
@@ -35,7 +32,7 @@ Component Testing, also known as Unit Testing, is the first level of software te
 
 </details>
 
-### Component Integration Testing (Unit Integration Testing)
+## Component Integration Testing (Unit Integration Testing)
 
 **Explanation:**
 
@@ -58,7 +55,7 @@ Component Integration Testing, also known as **Unit Integration Testing**, is th
 
 </details>
 
-### System Testing
+## System Testing
 
 **Explanation:**
 
@@ -87,7 +84,7 @@ System Testing is a level of testing that validates the complete and integrated 
 
 </details>
 
-### System Integration Testing
+## System Integration Testing
 
 **Explanation:**
 
@@ -104,7 +101,7 @@ System Integration Testing (SIT) is a testing phase where individual units or co
 
 </details>
 
-### Acceptance Testing
+## Acceptance Testing
 
 **Explanation:**
 

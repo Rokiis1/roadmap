@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 -->
 
-# Content of Table
+# Content of Table Dynamic Functional Testing Techniques
 
 - [Dynamic Functional Testing Techniques](#dynamic-functional-testing-techniques)
   - [Collaboration-based Test Approaches](#collaboration-based-test-approaches)

@@ -1,18 +1,15 @@
 <!-- markdownlint-disable MD033 -->
-# Content of Table
+# Content of Table of the Static Techniques
 
-- [Static Techniques](#static-techniques)
-  - [Benefits of Early and Frequent Stakeholder Feedback](#benefits-of-early-and-frequent-stakeholder-feedback)
-  - [Review Process Activities](#review-process-activities)
-  - [Review Types](#review-types)
-  - [Checklist-based reviewing](#checklist-based-reviewing)
-  - [Scenario-based reviewing](#scenario-based-reviewing)
-  - [Static Analysis](#static-analysis)
-  - [Model-Based Analysis](#model-based-analysis)
+- [Benefits of Early and Frequent Stakeholder Feedback](#benefits-of-early-and-frequent-stakeholder-feedback)
+- [Review Process Activities](#review-process-activities)
+- [Review Types](#review-types)
+- [Checklist-based reviewing](#checklist-based-reviewing)
+- [Scenario-based reviewing](#scenario-based-reviewing)
+- [Static Analysis](#static-analysis)
+- [Success Factors for Review](#success-factors-for-review)
 
-## Static Techniques
-
-### Benefits of Early and Frequent Stakeholder Feedback
+## Benefits of Early and Frequent Stakeholder Feedback
 
 **Explanation:**
 
@@ -160,32 +157,7 @@ Is a method of debugging by examining the code without executing the program. St
 
 </details>
 
-### Model-Based Analysis
+## Success Factors for Review
 
 **Explanation:**
 
-Model-based analysis is a static testing technique where models of the software (like data flow diagrams, entity-relationship diagrams, or state transition diagrams) are analyzed to find errors or potential improvements.
-
-<details>
-    <summary>Key Concepts:</summary>
-
-1. **High-Level Understanding:** Models provide a high-level view of the system, making it easier to understand the system's behavior and identify potential issues.
-
-2. **Error Detection:** By analyzing the models, errors in the system's design or behavior can be identified and corrected before the code is written.
-
-3. **Design Improvement:** Model-based analysis can also identify potential improvements in the system's design, leading to more efficient and effective software.
-
-4. **Communication:** Models can serve as a communication tool between different stakeholders (like developers, testers, and business analysts), helping to ensure a shared understanding of the system.
-
-5. **Documentation:** The models used in model-based analysis can also serve as documentation, providing a visual representation of the system's behavior.
-
-</details>
-
-<details>
-    <summary>Examples:</summary>
-
-- **UML Class Diagram**
-
-  ![alt text](./assets/images/uml.png)
-
-</details>
