@@ -848,7 +848,7 @@ State Transition Testing is a software testing technique used to test the behavi
 
 **Explanation:**
 
-White box testing, also known as clear box or glass box testing, is a testing technique that involves testing the internal structures or workings of an application. The tester has knowledge of the internal code, architecture, and workflows.
+White box testing is a testing technique that involves testing the internal structures or workings of an application. The tester has knowledge of the internal code, architecture, and workflows.
 
 <details>
   <summary>Overview:</summary>
@@ -872,14 +872,199 @@ Technique to derive the minimum number of test cases needed to cover all the sta
 <details>
   <summary>Overview:</summary>
 
+1. **Key Concepts:** Statement testing is the technique to derive the minimum number of test cases needed to cover all the statements in a fragment of code.
+
+2. **Statement:** A statement in programming is a single line of code that performs a specific action. Statements can include variable declarations, assignments, control flow statements (if, for, while), function calls
+
+3. **Statement Coverage:** Statement coverage is the measure of how much of the code's statements are covered by the test cases.
+
+    **Syntax:** `Statement coverage = (Number of executed statements / Total number of statements in source code) * 100`
+
+4. **Purpose:** The main purpose of statement testing is to ensure that every statement in the code is executed at least once, thereby identifying any statements that are not executed and potentially contain defects.
+
+5. **Practical Application:** In practice, statement testing helps in identifying the minimum number of test cases required to achieve full coverage of the code's statements, ensuring that all parts of the code are tested.
+
+</details>
+
 <details>
+  <summary>Examples:</summary>
+
+  1. **Calculation**
+
+  ```js
+    function compareNumbers(a, b) {
+      if (a > b) {
+          console.log("a is bigger");
+      } else {
+          console.log("b is bigger");
+      }
+  }
+  // function compareNumbers(a, b) { - Function declaration.
+  // if (a > b) { - Conditional statement.
+  // console.log("a is bigger"); - Statement inside the if block.
+  // else { - Else statement.
+  // console.log("b is bigger"); - Statement inside the else block.
+  ```
+
+- To achieve 100% statement coverage, we need two test cases:
+    1. Test Case 1: `compareNumbers(20, 10)`
+    2. Test Case 2: `compareNumbers(10, 20)`
+- Total number of statements: 5
+- Number of executed statements in Test Case 1: 3
+  - **Executed statements:**
+    1. `function compareNumbers(a, b) {`
+    2. `if (a > b) {`
+    3. `console.log("a is bigger");`
+- Number of executed statements in Test Case 2: 4
+  - **Executed statements:**
+    1. `function compareNumbers(a, b) {`
+    2. `if (a > b) {`
+    3. `else {`
+    4. `console.log("b is bigger");`
+- Number of unique executed statements in both test cases: 5
+
+**Statement coverage:**
+
+`(5 / 5) * 100 = 100%`
+
+</details>
 
 ### Branch Testing
 
 **Explanation:**
 
-technique to ensure that each possible branch (decision) in the code is executed at least once. For example This would be like exploring all possible routes on a GPS. If you’re at an intersection, branch testing involves going straight, turning left, and turning right to ensure all paths lead to valid destinations.
+Technique to ensure that each possible branch (decision) in the code is executed at least once. For example This would be like exploring all possible routes on a GPS. If you’re at an intersection, branch testing involves going straight, turning left, and turning right to ensure all paths lead to valid destinations.
+
+<details>
+  <summary>Overview:</summary>
+
+1. **Key Concepts:** Branch testing is the technique to derive the minimum number of test cases needed to cover all the branches (decisions) in a fragment of code.
+
+2. **Branches**  A branch in programming is a point in the code where the execution can take different paths based on a condition. This typically occurs with control flow statements like `if`, `else`, `switch`, and loops (`for`, `while`).
+
+3. **Purpose:** The main purpose of branch testing is to ensure that every possible branch (decision) in the code is executed at least once, thereby identifying any branches that are not executed and potentially contain defects.
+
+4. **Branch Coverage:** Branch coverage is the measure of how much of the code's branches are covered by the test cases.
+
+      **Syntax:** `Branch coverage = (Number of executed branches / Total number of branches in source code) * 100`
+
+5. **Practical Application:** In practice, branch testing helps in identifying the minimum number of test cases required to achieve full coverage of the code's branches, ensuring that all decision points are tested.
+
+6. **Stronger Technique:** Branch testing is considered a stronger technique than statement testing because 100% branch coverage guarantees 100% statement coverage, but not vice versa.
+
+</details>
+
+<details>
+  <summary>Examples:</summary>
+
+  1. **Calculation**
+
+  ```javascript
+  function compareNumbers(a, b) {
+      if (a > b) {
+          console.log("a is bigger");
+      } else {
+          console.log("b is bigger");
+      }
+  }
+  // function compareNumbers(a, b) { - Function definition.
+  // if (a > b) { - Conditional check.
+  // console.log("a is bigger"); - Action for true condition.
+  // else { - Alternative path.
+  // console.log("b is bigger"); - Action for false condition.
+  ```
+
+- To achieve 100% branch coverage, we need two test cases:
+  1. Test Case 1: `compareNumbers(20, 10)` (True branch)
+  2. Test Case 2: `compareNumbers(10, 20)` (False branch)
+- Total number of branches: 2
+- Number of executed branches in Test Case 1: 1
+  - **Executed branches:**
+    1. `if (a > b) {` (true branch)
+- Number of executed branches in Test Case 2: 1
+  - **Executed branches:**
+    1. `if (a > b) {` (false branch)
+- Number of unique executed branches in both test cases: 2
+
+**Branch coverage:**
+
+`(2 / 2) * 100 = 100%`
+
+</details>
 
 ### Path Testing
 
-technique to ensure that all possible paths through the code are executed. For example This would be like a postman ensuring they can deliver mail to every house on their route. They need to make sure every possible path is covered.
+Technique to ensure that all possible paths through the code are executed. For example This would be like a postman ensuring they can deliver mail to every house on their route. They need to make sure every possible path is covered.
+
+<details>
+  <summary>Overview:</summary>
+
+1. **Key Concepts:** Path testing is the technique to derive the minimum number of test cases needed to cover all possible paths in a fragment of code.
+
+2. **Path:** A path in programming is a sequence of statements or instructions that are executed from the entry point to the exit point of a program or a function. Each unique sequence of statements represents a different path. In a function with multiple conditional statements, loops, and branches, each combination of these control flow elements creates a different path. For example, in an `if-else` statement followed by a loop, there are multiple paths depending on whether the condition is true or false and how many times the loop executes.
+
+3. **Purpose:** Path testing is to ensure that every possible path through the code is executed at least once, thereby identifying any paths that are not executed and potentially contain defects.
+
+4. **Path Coverage:** Is the measure of how much of the code's paths are covered by the test cases.
+
+    **Syntax:** `Path coverage = (Number of executed paths / Total number of paths in source code) * 100`
+
+5. **Practical Application:** Helps in identifying the minimum number of test cases required to achieve full coverage of the code's paths, ensuring that all possible execution paths are tested.
+
+</details>
+
+<details>
+  <summary>Examples:</summary>
+
+  1. **Calculation**
+
+  ```js
+  function processNumbers(a, b) {
+    let result;
+    if (a > b) {
+        result = a - b;
+        console.log("a is greater");
+    } else if (a < b) {
+        result = b - a;
+        console.log("b is greater");
+    } else {
+        result = a + b;
+        console.log("a and b are equal");
+    }
+    return result;
+  }
+  // function processNumbers(a, b) { - Function definition.
+  // let result; - Variable declaration.
+  // if (a > b) { - Conditional check.
+  // result = a - b; - Action for true condition.
+  // console.log("a is greater"); - Action for true condition.
+  // else if (a < b) { - Alternative conditional check.
+  // result = b - a; - Action for else-if condition.
+  // console.log("b is greater"); - Action for else-if condition.
+  // else { - Alternative path.
+  // result = a + b; - Action for else condition.
+  // console.log("a and b are equal"); - Action for else condition.
+  // return result; - Return statement.
+  ```
+
+- To achieve 100% path coverage, we need three test cases:
+  1. Test Case 1: `processNumbers(20, 10)` (True path for the first if)
+  2. Test Case 2: `processNumbers(10, 20)` (True path for the else if)
+  3. Test Case 3: `processNumbers(10, 10)` (True path for the else)
+- Total number of paths: 3
+- Number of executed paths in Test Case 1: 1
+  - **Executed paths:**
+    1. `if (a > b) {` (true path)
+- Number of executed paths in Test Case 2: 1
+  - **Executed paths:**
+    1. `else if (a < b) {` (true path)
+- Number of executed paths in Test Case 3: 1
+  - **Executed paths:**
+    1. `else {` (true path)
+- Number of unique executed paths in all test cases: 3
+
+**Path coverage:**
+
+`(3 / 3) * 100 = 100%`
+
+</details>
