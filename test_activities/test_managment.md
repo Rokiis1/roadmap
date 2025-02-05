@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD033 -->
-# Content of Table Managing the Test Activities
+# Content of Table Managing the Test Managment
 
 - [Test Planning](#test-planning)
 - [Test Monitoring and Control](#test-monitoring-and-control)

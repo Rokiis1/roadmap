@@ -48,6 +48,15 @@ And where this technique is commonly used:
 
   Use the Tab key to navigate through the website.
 
+  - `tabindex="0" Default tab order (element is focusable in natural sequence).`
+  - `tabindex="-1" Element is not focusable via Tab but can be focused programmatically.`
+  - `tabindex="1" (or higher).`
+
+  ```html
+  <div role="button" tabindex="0" aria-label="Next Section">Next ➡️</div>
+  <div role="button" tabindex="0" aria-label="Previous Section">⬅️ Previous</div>
+  ```
+
   - **Alt Text:** Images and other non-text content provided with descriptive alt text.
 
     **Examples:**
@@ -80,22 +89,6 @@ And where this technique is commonly used:
     - **Properties:** Properties provide additional information about elements.
 
     ```html
-    <!-- aria-label: Provides an accessible name for the button -->
-    <button aria-label="Close">X</button>
-
-    <!-- aria-labelledby: Associates the dialog with a label -->
-    <div id="dialog1" role="dialog" aria-labelledby="dialogTitle">
-      <h2 id="dialogTitle">Dialog Title</h2>
-      <p>Dialog content goes here.</p>
-    </div>
-
-    <!-- aria-describedby: Provides a description for the input field -->
-    <div>
-      <label htmlFor="username">Username</label>
-      <input id="username" type="text" aria-describedby="usernameDesc" />
-      <small id="usernameDesc">Enter your username.</small>
-    </div>
-
     <!-- aria-required: Indicates that the input field is required -->
     <div>
       <label htmlFor="email">Email</label>

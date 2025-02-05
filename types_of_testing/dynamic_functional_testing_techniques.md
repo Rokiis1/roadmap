@@ -946,7 +946,7 @@ Technique to ensure that each possible branch (decision) in the code is executed
 
 4. **Branch Coverage:** Branch coverage is the measure of how much of the code's branches are covered by the test cases.
 
-      **Syntax:** `Branch coverage = (Number of executed branches / Total number of branches in source code) * 100`
+      **Syntax:** `Branch coverage = (Number of branches exercised by the test cases / Total number of branches in the code) * 100`
 
 5. **Practical Application:** In practice, branch testing helps in identifying the minimum number of test cases required to achieve full coverage of the code's branches, ensuring that all decision points are tested.
 
