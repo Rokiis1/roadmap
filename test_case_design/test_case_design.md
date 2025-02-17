@@ -5,10 +5,10 @@
 - [Scenario](#scenario)
 - [Test Specification Table](#test-specification-table)
 - [Test Execution Table](#test-execution-table)
+- [Traceability Matrix](#traceability-matrix)
 - [Test Coverage](#test-coverage)
 - [Good Practices](#good-practices)
 - [Common Mistakes to Avoid](#common-mistakes-to-avoid)
-- [Summarize](#summarize)
 
 **Explanation:**
 
@@ -59,24 +59,72 @@ Requirements are detailed descriptions of the functionalities, behaviors.
 
 **Explanation:**
 
-A high-level description of a specific situation or user interaction that needs to be tested.
+A test scenario is a high-level description of a specific situation or user interaction that needs to be tested. It outlines the context and conditions under which the software will be evaluated, providing a clear and comprehensive understanding of what needs to be tested, how it should be tested, and what the expected outcomes are. Test scenarios help ensure that all aspects of the functionality are covered and that the software meets the specified requirements.
 
 <details>
     <summary>Overview:</summary>
 
-- **Verify that:**
-  - Verify that a user can navigate to the registration page.
-  - Verify that a user can log in with valid credentials.
-  - Verify that the mobile app works on different screen sizes.
-- **Ensure that:**
-  - Ensure that a user receives a push notification when a new message is received.
-  - Ensure that a user can add an item to the shopping cart.
-- **Check that:**
-  - Check that the system displays an error message for invalid login attempts.
-  - Check that the user can update their profile information.
-- **Test that:**
-  - Test that the GPS navigation system calculates the correct route.
-  - Test that the voice assistant sets a reminder correctly.
+- **Purpose of a Test Scenario:**
+
+  1. **Identify Test Conditions**: Define the specific conditions and inputs under which the software will be tested.
+  2. **Ensure Comprehensive Coverage**: Ensure that all possible user interactions and system behaviors are covered.
+  3. **Facilitate Communication**: Provide a clear and concise description of the test conditions, making it easier for testers, developers, and stakeholders to understand and collaborate.
+  4. **Guide Test Case Development**: Serve as a foundation for developing detailed test cases, which include specific steps, test data, and expected results.
+
+- **Structure writting Traditional Scenario:**
+
+  - **Verify that:** Used to confirm that a specific functionality works as expected.
+  - **Ensure that:** Used to make sure that certain conditions or behaviors are met.
+  - **Check that:** Used to validate that specific conditions or behaviors are not met or that error handling works correctly.
+  - **Test that:** Used to confirm that specific outcomes or responses occur under certain conditions.
+
+- **Traditional Scenario Structure:**
+
+  1. **Scenario: User Authentication**
+
+      - **Verify that:**
+      - Verify that user can manage password change.
+      - Verify that user can log in with valid credentials.
+      - Verify that user can log out successfully.
+
+      - **Ensure that:**
+      - Ensure that user session expires after a period of inactivity.
+      - Ensure that user can reset password using the "Forgot Password" feature.
+
+      - **Check that:**
+      - Check that user cannot log in with invalid credentials.
+      - Check that user receives an error message for incorrect password.
+      - Check that user cannot access restricted pages without logging in.
+
+      - **Test that:**
+      - Test that user receives a confirmation email after password reset.
+      - Test that user is redirected to the login page when accessing a protected resource.
+      - Test that user account is locked after multiple failed login attempts.
+
+- **Structure writting Behavior-driven development Scenario:**
+
+  - **Given:** Describes the initial context or state of the system.
+  - **When:** Describes the action or event that triggers the scenario.
+  - **Then:** Describes the expected outcome or result of the action.
+
+- **Behavior-driven development Scenario:**
+
+  1. **Scenario: User Authentication**
+
+      - **Scenario: Valid User Login**
+      - **Given** the user is on the login page,
+      - **When** the user enters valid credentials and clicks the login button,
+      - **Then** the user should be redirected to the dashboard.
+
+      - **Scenario: Invalid User Login**
+      - **Given** the user is on the login page,
+      - **When** the user enters invalid credentials and clicks the login button,
+      - **Then** the user should see an error message indicating invalid credentials.
+
+      - **Scenario: Password Change**
+      - **Given** the user is logged in and on the account settings page,
+      - **When** the user enters the current password, a new password, and confirms the new password,
+      - **Then** the user should see a confirmation message indicating the password change was successful.
 
 </details>
 
@@ -84,32 +132,27 @@ A high-level description of a specific situation or user interaction that needs 
 
 **Explanation:**
 
-Focuses on scenarios and includes detailed information about each scenario.
-
 <details>
     <summary>Overview:</summary>
-
-- **Test Case-Based Specification Table:**
-
-    1. **Test Case ID:** A unique identifier for each test scenario.
-    2. **Test Case Description:** A high-level description of the scenario being tested.
-    3. **Preconditions:** Any conditions that must be met before the scenario can be executed.
-    4. **Test Data:** Specific data to be used during the scenario.
-    5. **Expected Results:** The expected outcome of the scenario.
-    6. **Postconditions:** Any conditions that should be met after the scenario is executed.
 
 - **Scenario-Based Test Specification Table:**
 
     1. **Scenario ID:** A unique identifier for each test scenario.
     2. **Scenario Description:** A high-level description of the scenario being tested.
     3. **Preconditions:** Any conditions that must be met before the scenario can be executed.
-    4. **Test Case ID:** A unique identifier for each test case derived from the scenario.
-    5. **Test Case Description:** A detailed description of the test case.
-    6. **Test Data:** Specific data to be used during the test case.
-    7. **Expected Results:** The expected outcome of the test case.
-    8. **Postconditions:** Any conditions that should be met after the test case is executed.
+    4. **Expected Results:** The expected outcome of the scenario.
+    5. **Postconditions:** Any conditions that should be met after the scenario is executed.
 
-- *Test Steps(Optional):* Because they may not be needed for all test cases, especially those focusing on specific inputs or conditions. They are more useful for test cases that involve navigating through different pages or performing a sequence of actions. Preparing test steps is good practice for future end-to-end (E2E) testing.
+- **Test Case-Based Specification Table:**
+
+    1. **Test Case ID:** A unique identifier for each test case.
+    2. **Scenario ID:** The identifier of the scenario this test case is derived from.
+    3. **Test Case Description:** A detailed description of the test case.
+    4. **Preconditions:** Any conditions that must be met before the test case can be executed.
+    5. **Test Data:** Specific data to be used during the test case.
+    6. **Expected Results:** The expected outcome of the test case.
+    7. **Postconditions:** Any conditions that should be met after the test case is executed.
+    8. **Test Steps(Optional):** Because they may not be needed for all test cases, especially those focusing on specific inputs or conditions. They are more useful for test cases that involve navigating through different pages or performing a sequence of actions. Preparing test steps is good practice for future end-to-end (E2E) testing.
 
 </details>
 
@@ -122,15 +165,38 @@ Also known as the Test Results Table, documents the execution of scenarios and t
 <details>
     <summary>Overview:</summary>
 
-1. **Test ID/Scenario ID:** A unique identifier for each test case or scenario.
-2. **Execution Date:** The date when the test case was executed.
-3. **Actual Results:** The actual outcome of the test case.
-4. **Pass/Fail Status:** Indicates whether the test case passed or failed.
-5. **Comments/Defects:** Any additional comments or details about defects found during testing.
+1. **Scenario ID:** A unique identifier for each test scenario. Useful when test cases are derived from high-level scenario. When using specific functional and non-functional testing techniques, scenarios may not be explicitly defined.
+2. **Test Case ID:** A unique identifier for each test case or scenario.
+3. **Execution Date:** The date when the test case was executed.
+4. **Tester Name:** The name of the person who executed the test case. This is useful for manual testing but may not be necessary for automated tests.
+5. **Actual Results:** The actual outcome of the test case.
+6. **Pass/Fail Status:** Indicates whether the test case passed or failed.
+7. **Comments/Defects:** Any additional comments or details about defects found during testing.
 
-- *Scenario ID(Optional):* A unique identifier for each test scenario. Useful when test cases are derived from high-level scenario. When using specific functional and non-functional testing techniques, scenarios may not be explicitly defined.
+</details>
 
-- *Tester Name (Optional):* The name of the person who executed the test case. This is useful for manual testing but may not be necessary for automated tests.
+### Traceability Matrix
+
+**Explanation:**
+
+A traceability matrix is a document that maps and traces user requirements with test cases.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Purpose**: To ensure that all requirements are covered by test cases and to identify any missing requirements or test cases.
+
+2. **Structure**:
+    - **Requirement ID**: Unique identifier for each requirement.
+    - **Requirement Description**: Detailed description of the requirement.
+    - **Test Case ID**: Unique identifier for each test case.
+    - **Test Case Description**: Detailed description of the test case.
+    - **Status**: Indicates whether the requirement is covered by the test case (Covered, Not Covered).
+
+3. **Types of Traceability Matrices**:
+    - **Forward Traceability**: Ensures that all requirements are covered by test cases.
+    - **Backward Traceability**: Ensures that all test cases are linked to requirements.
+    - **Bidirectional traceability**: Ability to trace forward (from requirement to test case) and backward (from test case to requirement).
 
 </details>
 
@@ -178,21 +244,3 @@ Shows perecentage of how much of the software's functionality is being tested.
 - **Overlooking Edge Cases:** Check that edge cases and boundary conditions are tested.
 - **Redundancy:** Avoid creating redundant test cases that do not add value.
 - **Lack of Documentation:**  All test cases are well-documented and traceable to requirements.
-
-## Summarize
-
-- **Test Case Design:** Focus on both positive and negative scenarios, functional and non-functional requirements, and boundary conditions.
-
-- **Requirements Basis:** Use detailed requirement specifications, design documents, user stories, stakeholder input, and use cases.
-
-- **Scenarios:** Clearly define what needs to be verified, ensured, checked, and tested.
-
-- **Specification Tables:** Use detailed tables to document test cases and scenarios.
-
-- **Test Execution:** Record execution details and outcomes.
-
-- **Test Coverage:** Aim for comprehensive coverage using different criteria and improve coverage by identifying gaps.
-
-- **Good Practices:** Ensure clarity, reusability, maintainability, and comprehensive coverage.
-
-- **Avoid Common Mistakes:** Ensure complete requirements, test edge cases, avoid redundancy, and maintain proper documentation.
