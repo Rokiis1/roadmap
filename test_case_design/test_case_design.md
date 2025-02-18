@@ -189,6 +189,8 @@ A traceability matrix is a document that maps and traces user requirements with 
 2. **Structure**:
     - **Requirement ID**: Unique identifier for each requirement.
     - **Requirement Description**: Detailed description of the requirement.
+    - **Scenario ID:** Unique identifier for each test scenario.
+    - **Scenario Description:** High-level description of the scenario being tested.
     - **Test Case ID**: Unique identifier for each test case.
     - **Test Case Description**: Detailed description of the test case.
     - **Status**: Indicates whether the requirement is covered by the test case (Covered, Not Covered).
