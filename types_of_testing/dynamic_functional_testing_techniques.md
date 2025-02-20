@@ -217,7 +217,7 @@ Exploratory Testing is a type of software testing where test design and test exe
 
 2. **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
 
-    ![alt text](./images/charter.png)
+    ![alt text](./assets/images/charter.png)
 
 3. **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
 
@@ -236,7 +236,7 @@ Checklist-Based Testing is a software testing technique where the tester uses a 
 
 1. **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
 
-    ![alt text](./images/checklist.png)
+    ![alt text](./assets/images/checklist.png)
 
 2. **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
 
@@ -435,11 +435,11 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 
 - **2-Value BVA (Two-Point Boundary Value Analysis):** In 2-value BVA, testing focuses on the exact boundary points. Each boundary is tested with two values: one at the lower boundary and one at the upper boundary. This approach provides basic coverage by verifying that the system correctly handles the minimum and maximum allowable inputs.
 
-![2BVA](./images/2BVA.png)
+![2BVA](./assets/images/2BVA.png)
 
 - **3-Value BVA (Three-Point Boundary Value Analysis):** In 3-value BVA, testing extends to include values just below, exactly at, and just above each boundary. Each boundary is tested with three values, ensuring that edge cases are handled properly and off-by-one errors are caught.
 
-![3BVA](./images/3BVA.png)
+![3BVA](./assets/images/3BVA.png)
 
 - **Testing Strategy:** Select inputs from valid and invalid partitions, focusing on:
   - **2-Value BVA:** Testing at the exact lower and upper boundaries.
@@ -456,14 +456,14 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
 
 **Example 1 Age Validation:**
 
-| Test Case ID  | Boundary Type             | Value | Valid/Invalid | Scenario                          | PASS/FAIL |
-|---------------|---------------------------|-------|---------------|-----------------------------------|-----------|
-| TC001         | Lower Boundary            | 18    | Valid         | Minimum age for registration      |           |
-| TC002         | Upper Boundary            | 60    | Valid         | Maximum age for registration      |           |
-| TC003         | Just Below Lower Boundary | 17    | Invalid       | Below minimum age                 |           |
-| TC004         | Just Above Lower Boundary | 19    | Valid         | Just above minimum age            |           |
-| TC005         | Just Below Upper Boundary | 59    | Valid         | Just below maximum age            |           |
-| TC006         | Just Above Upper Boundary | 61    | Invalid       | Above maximum age                 |           |
+| Test Case ID  | Boundary Type             | Value | Valid/Invalid | PASS/FAIL |
+|---------------|---------------------------|-------|---------------|-----------|
+| TC001         | Lower Boundary            | 18    | Valid         |           |
+| TC002         | Upper Boundary            | 60    | Valid         |           |
+| TC003         | Just Below Lower Boundary | 17    | Invalid       |           |
+| TC004         | Just Above Lower Boundary | 19    | Valid         |           |
+| TC005         | Just Below Upper Boundary | 59    | Valid         |           |
+| TC006         | Just Above Upper Boundary | 61    | Invalid       |           |
 
 </details>
 
