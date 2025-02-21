@@ -352,8 +352,12 @@ Equivalence Partitioning is a software testing technique that divides the input 
   <summary>Overview:</summary>
 
 - **Partitioning:** Dividing input data into different **Equivalence Classes**. Each equivalence class represents a set of input values that are treated the same by the software, meaning that one test case can be used to test the entire class.
+- **Equivalence Classes:** Each class represents a set of inputs that are expected to be treated the same by the system.
 - **Representative Values:** Selecting representative values from each partition for testing.
 - **Reduction of Test Cases:** Minimize the number of test cases by selecting representative values from each equivalence partition, ensuring comprehensive coverage with fewer tests. This approach eliminates the need for detailed step-by-step scenarios, as each equivalence class effectively acts as a scenario. Additionally, it removes the necessity for detailed steps to reproduce.
+- **Objective:** The objective is to achieve 100% equivalence partition coverage by testing each input condition at least once.
+- **Application:** This technique is applied when detailed requirements are available. If detailed requirements are not available, experience-based test techniques may be used instead.
+- **Multiple Inputs:** When dealing with multiple inputs, we need to combine them in a way that ensures all conditions are covered with the minimum number of test cases.
 - **In some scenarios:** Traditional test case tables might still be necessary, especially when preparing for automation testing that involves navigating through multiple pages or completing specific actions. While Equivalence Partitioning can handle input-based scenarios efficiently, when automating workflows that require multiple steps, such as navigating through pages, clicking buttons, or following a sequence of actions, detailed steps to reproduce are necessary.
 
 </details>
@@ -371,28 +375,20 @@ Equivalence Partitioning is a software testing technique that divides the input 
 
 **Example 2 Equivalence Class Description, Valid/Invalid, Expected Outcome:**
 
-| Test Case ID    | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |
-|-----------------|------------------------------------------|---------------|----------------------------------------|
-| TCID-001        | String length between 5 to 10 characters | Valid         | Username accepted                      |
-| TCID-002        | String length less than 5 characters     | Invalid       | Username rejected, error message       |
-| TCID-003        | String length more than 10 characters    | Invalid       | Username rejected, error message       |
-| TCID-004        | Starts with a letter                     | Valid         | Username accepted                      |
-| TCID-005        | Does not start with a letter             | Invalid       | Username rejected, error message       |
-| TCID-006        | Non-string input                         | Invalid       | Username rejected, error message       |
+| Test Case ID    | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |PASS/FAIL  |
+|-----------------|------------------------------------------|---------------|----------------------------------------|-----------|
+| TCID-001        | String length between 5 to 10 characters | Valid         | Username accepted                      |           |
+| TCID-002        | String length less than 5 characters     | Invalid       | Username rejected, error message       |           |
+| TCID-003        | String length more than 10 characters    | Invalid       | Username rejected, error message       |           |  
+| TCID-004        | Starts with a letter                     | Valid         | Username accepted                      |           |
+| TCID-005        | Does not start with a letter             | Invalid       | Username rejected, error message       |           |
+| TCID-006        | Non-string input                         | Invalid       | Username rejected, error message       |           |
 
-**Example 3 Input Parameter, Equivalence Class Description, Valid/Invalid, Example Value, Expected Outcome:**
+**Example 3 Multiple Input Parameters, Equivalence Class Description, Valid/Invalid, Expected Outcome:**
 
-| Test Case ID    | Input Parameter | Equivalence Class Description            | Valid/Invalid | Example Value   | Expected Outcome                       |
-|-----------------|-----------------|------------------------------------------|---------------|-----------------|----------------------------------------|
-| TCID-001        | Password        | Contains at least one number             | Valid         | "Passw0rd"      | Password accepted                      |
-| TCID-002        | Password        | Does not contain any number              | Invalid       | "Password"      | Password rejected, error message       |
-| TCID-003        | Password        | Contains at least one uppercase letter   | Valid         | "Passw0rd"      | Password accepted                      |
-| TCID-004        | Password        | Does not contain any uppercase letter    | Invalid       | "password1"     | Password rejected, error message       |
-| TCID-005        | Password        | Contains at least one lowercase letter   | Valid         | "Passw0rd"      | Password accepted                      |
-| TCID-006        | Password        | Does not contain any lowercase letter    | Invalid       | "PASSWORD1"     | Password rejected, error message       |
-| TCID-007        | Password        | String length at least 8 characters      | Valid         | "Passw0rd"      | Password accepted                      |
-| TCID-008        | Password        | String length less than 8 characters     | Invalid       | "Pass1"         | Password rejected, error message       |
-| TCID-009        | Password        | Non-string input                         | Invalid       | 12345678        | Password rejected, error message       |
+| Test Case ID    | Username Input | Age Input | Password Input | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |PASS/FAIL  |
+|-----------------|----------------|-----------|----------------|------------------------------------------|---------------|----------------------------------------|-----------|
+| TCID-010        | user123        | 25        | Passw0rd       | Valid username, valid age, valid password| Valid         | Login successful                       |           |
 
 </details>
 
@@ -433,17 +429,17 @@ Boundary Value Analysis (BVA) is a software testing technique focused on identif
   - **Valid Partition:** Contains input values that are within the acceptable range of the system.
   - **Invalid Partition:** Contains input values that fall outside the acceptable range.
 
-- **2-Value BVA (Two-Point Boundary Value Analysis):** In 2-value BVA, testing focuses on the exact boundary points. Each boundary is tested with two values: one at the lower boundary and one at the upper boundary. This approach provides basic coverage by verifying that the system correctly handles the minimum and maximum allowable inputs.
+- **Objective**: The main objective is to test the boundaries to ensure that the system handles boundary values correctly.
+
+- **Application**: This technique is applied when detailed requirements specify the boundaries of input ranges.
+
+- **2-Value BVA (Two-Point Boundary Value Analysis):** In 2-value BVA, testing focuses on the exact boundary points. Each boundary is tested with two values: one at the lower boundary and one at the upper boundary. This approach provides basic coverage by verifying that the system correctly handles the minimum and maximum allowable inputs. Specifically, it tests two values on each boundary: one inside the boundary and one outside the boundary.
 
 ![2BVA](./assets/images/2BVA.png)
 
-- **3-Value BVA (Three-Point Boundary Value Analysis):** In 3-value BVA, testing extends to include values just below, exactly at, and just above each boundary. Each boundary is tested with three values, ensuring that edge cases are handled properly and off-by-one errors are caught.
+- **3-Value BVA (Three-Point Boundary Value Analysis):** In 3-value BVA, testing extends to include values just below, exactly at, and just above each boundary. Each boundary is tested with three values, ensuring that edge cases are handled properly and off-by-one errors are caught. Specifically, it tests three values on each boundary: one inside the boundary, one on the boundary, and one outside the boundary.
 
 ![3BVA](./assets/images/3BVA.png)
-
-- **Testing Strategy:** Select inputs from valid and invalid partitions, focusing on:
-  - **2-Value BVA:** Testing at the exact lower and upper boundaries.
-  - **3-Value BVA:** Testing just below, exactly at, and just above each boundary for thorough coverage.
 
 - **Reduced Number of Test Cases:** By focusing on boundary values, the number of test cases is reduced compared to traditional methods, making it easier to maintain.
 
@@ -486,18 +482,24 @@ Decision Table Testing is a software testing technique used to test system behav
 <details>
   <summary>Overview:</summary>
 
+- **Decision Table:** A tabular representation that maps conditions to actions, showing all possible combinations of inputs and their corresponding outputs.
 - **Notation:** refers to the symbols and conventions used to represent conditions and actions
   - **domain-specific notation:** refers to the use of terms and symbols that are specific to a particular domain or industry.
   - **Boolean Notation:** Boolean notation uses binary values (True/False or T/F) to represent conditions and actions. This type of notation is straightforward and commonly used in decision tables and logical expressions.
 - **Conditions:** The different input variables or conditions that affect the system's behavior.
   - **T:** True, the condition is satisfied.
   - **F:** False, the condition is not satisfied.
-  - **–:** Value of the condition is irrelevant for the action outcome. This means that regardless of whether the condition is true or false, it does not affect the resulting action.
-  - **N/A:** Not applicable, the condition is not relevant or cannot be applied in the context of the given rule.
+  - **–:** Value of the condition is irrelevant for the action outcome. This means that regardless of whether the condition is true or false, it does not affect the resulting action. This can be used to show that certain combinations of conditions are not possible or not needed during testing.
+  - **N/A:**  Means that the condition or action is not relevant or cannot be applied in a specific context.
 - **Actions:** The possible outcomes or actions that result from the combinations of conditions.
   - **X:** The action should occur.
   - **Blank:** The action should not occur.
-- **Decision Table:** A tabular representation that maps conditions to actions, showing all possible combinations of inputs and their corresponding outputs.
+
+- **Steps to Apply Decision Table Testing:**
+
+  - **Identify Conditions and Actions:** Determine the conditions and actions based on the requirements.
+  - **Create the Table:** List all possible combinations of conditions and their corresponding actions.
+  - **Derive Test Cases:** Use the table to derive test cases that cover all combinations.
 
 | Test Case ID | Condition 1 | Condition 2 | Condition 3 | Action 1 | Action 2 |
 |--------------|-------------|-------------|-------------|----------|----------|
@@ -507,6 +509,16 @@ Decision Table Testing is a software testing technique used to test system behav
 | TC004        | T           | –           | T           |          | X        |
 | TC005        | N/A         | F           | T           |          |          |
 | TC006        | T           | T           | F           | X        |          |
+
+- **Benefits:**
+
+  - **Comprehensive Coverage:** Ensures that all possible combinations of conditions are tested.
+  - **Clear Documentation:** Provides a clear and concise representation of business rules and decision logic.
+
+- **Challenges:**
+
+  - **Complexity:** Creating decision tables for systems with many conditions can be complex and time-consuming.
+  - **Detailed Requirements:** Requires detailed and precise requirements to create accurate decision tables.
 
 </details>
 
