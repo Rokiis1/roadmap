@@ -13,7 +13,6 @@
     - [Checklist-Based Testing](#checklist-based-testing)
     - [Smoke and Sanity Testing](#smoke-and-sanity-testing)
   - [Confirmation Testing and Regression Testing](#confirmation-testing-and-regression-testing)
-    - [Regression Testing](#regression-testing)
   - [Black-box Testing Techniques](#black-box-testing-techniques)
     - [Equivalence Partitioning](#equivalence-partitioning)
     - [Boundary Value Analysis](#boundary-value-analysis)
@@ -263,7 +262,7 @@ Smoke testing is done to make sure software functionalities are working for a ne
 
 **Explanation:**
 
-Confirmation Testing and Regression Testing are types of testing performed to ensure that changes made to the software do not introduce new defects and that previously identified defects have been fixed. These are collectively known as change-related testing.
+Confirmation Testing(**Retesting**) and Regression Testing are types of testing performed to ensure that changes made to the software do not introduce new defects and that previously identified defects have been fixed. These are collectively known as change-related testing.
 
 <details>
   <summary>Overview:</summary>
@@ -276,40 +275,6 @@ Confirmation Testing and Regression Testing are types of testing performed to en
     - Regression testing ensures that recent changes, such as defect fixes or new features, have not adversely affected the existing functionality of the software.
     - It involves re-running previously executed test cases to verify that the software still performs as expected.
     - Regression testing is applicable not only when defects are fixed but also when updates, upgrades, or migrations occur.
-
-</details>
-
-### Confirmation Testing (Retesting)
-
-**Explanation:**
-
-Performed to confirm that a previously reported defect has been fixed. The tester reruns the same test cases that initially identified the defect to ensure that the issue has been resolved.
-
-<details>
-  <summary>Overview:</summary>
-
-1. **Defect Fix Verification:** Purpose of confirmation testing is to verify that the defects identified in earlier tests have been fixed.
-
-2. **Objective:** The objective is to confirm that the reported defect has been resolved and that the software now behaves as expected.
-
-3. **Example:** If a tester reports that a phone's audio is not working, the confirmation testing involves playing a song to verify that the audio issue has been fixed.
-
-</details>
-
-### Regression Testing
-
-**Explanation:**
-
-Ensure that recent changes, such as defect fixes or new features, have not adversely affected the existing functionality of the software. It involves re-running previously executed test cases to verify that the software still performs as expected.
-
-<details>
-  <summary>Overview:</summary>
-
-1. **Purpose:** The purpose of regression testing is to confirm that no adverse consequences have been caused by a change, including a fix that has already been confirmed through confirmation testing.
-
-2. **Scope:** Regression testing is applicable when defects are fixed, updates or upgrades are made, or migrations occur.
-
-3. **Example:** After fixing an audio issue in a phone, regression testing involves checking other functionalities like making calls, using the camera, and checking signal strength to ensure that the fix did not affect these features.
 
 </details>
 
