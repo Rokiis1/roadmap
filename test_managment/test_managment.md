@@ -624,6 +624,10 @@ Deliverables and testware are essential components of the testing process. They 
         - **Purpose:** Document defects identified during testing.
         - **Contents:** What is realates with defect reports.
 
+    - **Traceability Matrix:**
+        - **Purpose:** Map and trace user requirements with test cases.
+        - **Contents:** A table that links requirements to their corresponding test cases to ensure coverage.
+
     - **Test Logs:**
         - **Purpose:** Record the details of test execution.
         - **Contents:** Execution logs, timestamps, environment details, and issues encountered.

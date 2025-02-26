@@ -67,18 +67,22 @@ Reviews are a type of static testing where software documents (like requirements
 
 1. **Informal Review:**
     - Informal reviews do not follow a defined process and do not require formal documentation of defects. The main objective is to detect anomalies.
-    - Example: A tester asks a colleague to review their test cases. This involves just two people and is often referred to as a buddy check. No formal process and typically involves just two people.
+    - **Example:** A tester asks a colleague to review their test cases. This involves just two people and is often referred to as a buddy check. No formal process and typically involves just two people.
 
 2. **Walkthrough:**
     - A walkthrough is led by the author of the document and can serve multiple objectives such as evaluating quality, building confidence, educating reviewers, gaining consensus, generating new ideas, and detecting anomalies.
+    - **Unique Points:** Led by the author and individual review before the meeting is optional.
     - Reviewers might perform an individual review before the walkthrough, but this is not required. Led by the author and individual review before the meeting is optional.
 
 3. **Technical Review:**
-    - Performed by technically qualified reviewers and led by a moderator. The objective is to gain consensus and make decisions regarding technical problems, as well as to detect anomalies, evaluate quality, build confidence, and generate new ideas. Conducted by technical experts and led by a moderator.
+    - Performed by technically qualified reviewers and led by a moderator. The objective is to gain consensus and make decisions regarding technical problems, as well as to detect anomalies, evaluate quality, build confidence, and generate new ideas.
+    - **Unique Points:** Conducted by technical experts and led by a moderator.
+    - **Example:** A technical review of source code by subject matter experts to ensure adherence to coding standards.
 
 4. **Inspection:**
     - The most formal type of review, following a complete formal review process. The main objective is to find the maximum number of anomalies. Other objectives include evaluating quality, building confidence, and motivating authors to improve.
-    - Matrices are collected and used to improve the SDLC, including the inspection process. Entry and exit criteria, use of checklists, defined roles and responsibilities, and the author cannot act as a review leader or scribe.
+    - **Unique Points:** Matrices are collected and used to improve the SDLC, including the inspection process. Entry and exit criteria, use of checklists, defined roles and responsibilities, and the author cannot act as a review leader or scribe.
+    - **Example:** An inspection of a requirements document involving a structured process with a moderator, scribe, and multiple reviewers.
 
 </details>
 
@@ -120,6 +124,81 @@ Static testing technique where reviewers use a predefined checklist to guide the
 
 </details>
 
+<details>
+    <summary>Examples:</summary>
+
+- **Example Checklist for Reviewing Requirements Document**
+
+    **Checklist Items:**
+
+    1. **Clarity and Ambiguity:**
+        - Are all requirements clearly stated without ambiguity?
+        - Are terms and definitions used consistently throughout the document?
+
+    2. **Completeness:**
+        - Are all necessary requirements included?
+        - Are there any missing requirements that should be addressed?
+
+    3. **Consistency:**
+        - Are there any conflicting requirements?
+        - Is the terminology consistent with other related documents?
+
+    4. **Testability:**
+        - Can each requirement be tested?
+        - Are there clear acceptance criteria for each requirement?
+
+    5. **Traceability:**
+        - Are all requirements uniquely identified?
+        - Is there a traceability matrix linking requirements to their source?
+
+    6. **Implementability:**
+        - Are the requirements implementable given the current technology and constraints?
+        - Are there any unrealistic requirements?
+
+    7. **Prioritization:**
+        - Are the requirements prioritized?
+        - Is the prioritization rationale documented?
+
+    8. **Compliance with regulatory requirements:**
+        - Do the requirements comply with relevant standards and regulations?
+        - Are there any legal or regulatory requirements that need to be addressed?
+
+    **Checklist Items:**
+
+    1. **Code Structure:**
+        - Is the code organized logically?
+        - Are functions and methods appropriately named and scoped?
+
+    2. **Coding Standards:**
+        - Does the code keep to the project's coding standards?
+        - Are naming conventions followed consistently?
+
+    3. **Error Handling:**
+        - Is error handling implemented correctly?
+        - Are exceptions properly managed?
+
+    4. **Performance:**
+        - Are there any performance bottlenecks?
+        - Is the code optimized for efficiency?
+
+    5. **Security:**
+        - Are there any security vulnerabilities?
+        - Is sensitive data handled securely?
+
+    6. **Documentation:**
+        - Is the code adequately commented?
+        - Are there any missing or outdated comments?
+
+    7. **Testing:**
+        - Are there unit tests for the code?
+        - Do the tests cover all critical paths?
+
+    8. **Dependencies:**
+        - Are dependencies managed correctly?
+        - Are there any unnecessary dependencies?
+
+</details>
+
 ## Scenario-based reviewing
 
 **Explanation:**
@@ -137,6 +216,48 @@ Static testing technique where reviewers use predefined scenarios to guide their
 
 </details>
 
+<details>
+    <summary>Examples:</summary>
+
+- **Example Scenario for Reviewing Requirements Document:**
+
+    **Scenario:** User Registration Process
+
+    1. **Scenario Description:**
+        - A new user wants to register on the website. The user needs to provide personal information, create a username and password.
+
+    2. **Steps to Review:**
+        - Verify that the requirements document includes all necessary fields for user registration.
+        - Check that the requirements specify validation rules for each field.
+        - Ensure that the requirements include error messages for invalid inputs.
+        - Confirm that the requirements document specifies the process for handling duplicate usernames or emails.
+        - Verify that the requirements include a confirmation email process.
+
+    3. **User Perspective:**
+        - Consider the ease of use for the end user during the registration process.
+        - Ensure that the registration process is straightforward and user-friendly.
+
+- **Example Scenario for Reviewing Code:**
+
+    **Scenario:** User Login Functionality
+
+    1. **Scenario Description:**
+        - A registered user wants to log in to the website. The user needs to enter their username and password to access their account.
+
+    2. **Steps to Review:**
+        - Verify that the code includes input validation for the username and password fields.
+        - Check that the code handles incorrect login attempts appropriately.
+        - Ensure that the code includes secure handling of user credentials.
+        - Confirm that the code includes logging for login attempts for security monitoring.
+        - Verify that the code redirects the user to the appropriate page after a successful login.
+
+    3. **User Perspective:**
+        - Consider the user experience during the login process.
+        - Ensure that the login process is quick and efficient.
+        - Verify that the code addresses potential user concerns, such as account security and privacy.
+
+</details>
+
 ## Static Analysis
 
 **Explanation:**
@@ -151,6 +272,31 @@ Static analysis is a method of debugging by examining the source code before a p
 2. **Code Quality:** Static analysis helps improve code quality by identifying issues such as coding standard violations, potential bugs, and security vulnerabilities.
 
 3. **Early Detection:** Static analysis helps detect issues early in the development process, reducing the cost and effort required to fix them.
+
+</details>
+
+<details>
+    <summary>Examples:</summary>
+
+1. **SonarQube:**
+    - **Description:** SonarQube is an open-source platform for continuous inspection of code quality. It performs automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities. SonarQube also supports static application security testing (SAST) to identify security vulnerabilities in the code.
+    - **Features:** Supports multiple programming languages, integrates with CI/CD pipelines, provides detailed reports and dashboards, and includes SAST capabilities.
+
+2. **ESLint:**
+    - **Description:** ESLint is a static code analysis tool for identifying and fixing problems in JavaScript code. It helps ensure that code adheres to a set of predefined coding standards.
+    - **Features:** Customizable rules, integration with various development environments, automatic fixing of certain issues.
+
+3. **Pylint:**
+    - **Description:** Pylint is a static code analysis tool for Python. It checks for errors in Python code, enforces a coding standard, and looks for code smells.
+    - **Features:** Customizable rules, integration with various development environments, detailed reports on code quality.
+
+4. **Bandit:**
+    - **Description:** Bandit is an open-source static application security testing (SAST) tool designed to find common security issues in Python code.
+    - **Features:** Scans Python code for security vulnerabilities, integrates with CI/CD pipelines, provides detailed security reports.
+
+5. **NodeJsScan:**
+    - **Description:** NodeJsScan is an open-source static application security testing (SAST) tool specifically designed for Node.js applications. It helps identify security vulnerabilities in JavaScript code.
+    - **Features:** Scans JavaScript and Node.js code for security vulnerabilities, integrates with CI/CD pipelines, provides detailed security reports.
 
 </details>
 
@@ -176,13 +322,10 @@ Static analysis is a method of debugging by examining the source code before a p
 5. **Adequate Preparation Time:**
     - Provide adequate time for participants to prepare for the review. Management should support the review process by allocating sufficient time and resources.
 
-6. **Organizational Culture:**
-    - Make review processes a part of the organizational culture to promote learning and process improvement. Regular reviews should be integrated into the daily routine.
-
-7. **Training for Participants:**
+6. **Training for Participants:**
     - Provide adequate training to all participants so they understand their roles and responsibilities in the review process. Training ensures that participants can contribute effectively.
 
-8. **Facilitation by Trained Moderators:**
-    - Ensure that reviews are facilitated by trained moderators who understand the review process. Moderators play a crucial role in guiding the review and ensuring its success.
+7. **Facilitation by Trained Moderators:**
+    - Ensure that reviews are facilitated by trained moderators who understand the review process. Moderators play a role in guiding the review and ensuring its success.
 
 </details>
