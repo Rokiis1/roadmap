@@ -56,145 +56,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
     - **Features Not to be Tested:** Specify any features or functionalities that are out of scope for testing.
 
-3. **Test Approach(Test Strategy):**
-
-    - **Test Pyramid:** The Test Pyramid idea is for a large number of low-level unit tests, a smaller number of integration tests, and an even smaller number of end-to-end tests.
-    - **Test Levels:** Define the levels of testing based on the Test Pyramid (unit testing, integration testing, system testing, acceptance testing).
-    - **Test Types:** Specify the types of testing to be performed (functional testing, non-functional testing).
-    - **Test Techniques:** Describe the techniques and methodologies that will be used (White-box Testing, Black-box Testing, User Acceptance Testing (UAT)).
-    - **Entry and Exit Criteria:** Define the conditions that must be met to start and stop testing activities, ensuring that the testing process is well-structured and efficient.
-
-        <details>
-           <summary>Overview:</summary>
-
-        - **Entry Criteria:** These are the conditions that must be met before testing can begin. They ensure that all necessary preparations are completed and that the testing process can start smoothly without any blockers.
-
-            <details>
-              <summary>Examples:</summary>
-
-            - All development tasks have been completed and the code has been merged into the main branch.
-
-            - The application has been successfully deployed in the testing environment.
-
-            - All test cases have been reviewed and approved by the project manager.
-
-            - Test data required for testing has been created and is available in the testing environment.
-
-            - The testing team has been trained on the new features and changes in the application.
-
-            - Availability of resources (people, tools, environments, budget, and time).
-
-            - Initial quality level of the test object (conducting smoke tests to accept the build).
-
-            </details>
-
-        - **Exit Criteria:** These are the conditions that must be met before testing can be considered complete. They ensure that all planned testing activities have been executed and that the software meets the required quality standards.
-
-            <details>
-               <summary>Examples:</summary>
-
-            - All test cases have been executed.
-
-            - All critical and high severity defects have been fixed and retested.
-
-            - The testing team has completed a final review and approved the testing results.
-
-            - The stakeholders have accepted the final testing report and given approval for the release.
-
-            - Achieving the required level of coverage (requirement coverage, code coverage, functional coverage).
-
-            - Number of unresolved defects within the agreed limit.
-
-            - Completion of planned tests and execution of all test cases.
-
-            - All defects found have been reported and documented.
-
-            - Regression tests are automated and executed.
-
-            </details>
-
-        </details>
-
-    - **Test Prioritization:**  To determine the sequence of test case execution based on various factors such as risk, complexity, dependencies, and requirements.
-
-        <details>
-           <summary>Overview:</summary>
-
-        - **Risk-Based Prioritization:** Test cases are prioritized based on the results of risk analysis. High-risk areas are tested first.
-
-            <details>
-               <summary>Examples:</summary>
-
-            Test cases for high-risk areas are executed first, followed by medium-risk and low-risk areas.
-
-            </details>
-
-        - **Coverage-Based Prioritization:** Test cases are prioritized based on the coverage they provide, such as statement coverage or decision coverage.
-
-            <details>
-               <summary>Examples:</summary>
-
-            Test cases that achieve the highest coverage are executed first. For instance, a test case that covers 50% of the statements is executed before a test case that covers 20%.
-
-            </details>
-
-        - **Requirement-Based Prioritization:** Test cases are prioritized based on the priorities of the requirements they cover. High-priority requirements are tested first.
-
-            <details>
-               <summary>Examples:</summary>
-
-            Test cases related to high-priority requirements are executed first, followed by medium and low-priority requirements.
-
-            </details>
-
-        - **Test Execution Schedule:** To define the order in which test cases are executed, ensuring that dependencies are managed and high-priority tests are run first.
-
-        - **Technical Dependencies:** Test cases that are dependent on others must be executed in the correct order to avoid blockers.
-
-        - **Logical Dependencies:** Test cases that logically depend on the results of other tests should be executed in the appropriate sequence.
-
-        - **Priority Levels:** High-priority test cases should be executed before medium and low-priority test cases.
-
-            <details>
-              <summary>Examples:</summary>
-
-            - **Test Case ID:** T1, Priority: High, Technical Dependency: T2, Logical Dependency: None
-            - **Test Case ID:** T2, Priority: Medium, Technical Dependency: None, Logical Dependency: None
-            - **Test Case ID:** T3, Priority: High, Technical Dependency: T2, Logical Dependency: None
-            - **Test Case ID:** T4, Priority: Low, Technical Dependency: None, Logical Dependency: None
-
-            - **Step 1:** Execute T2 (Medium priority, no dependencies)
-            - **Step 2:** Execute T1 (High priority, dependent on T2)
-            - **Step 3:** Execute T3 (High priority, dependent on T2)
-            - **Step 4:** Execute T4 (Low priority, no dependencies)
-
-            </details>
-
-        - **Independence of Testing:** Ensure that testing is conducted independently from development to avoid bias.
-        - **Metrics:** Identify the metrics that will be collected to measure the effectiveness and progress of testing.
-
-       </details>
-
-4. **Resources:**
-
-    - **Roles and Responsibilities:** Define the roles and responsibilities of the testing team and other stakeholders.
-
-    - **Test Environment:**
-        - **Environment Setup:** Identify hardware and software requirements, configure the environment, and install necessary tools.
-
-        - **Test Data Management:** Identify data requirements, create or extract test data, ensure data privacy and security, and maintain test data.
-
-        - **Environment Maintenance:** Monitor and maintain the test environment to ensure stability and reliability.
-
-        - **Tools:** List the tools that will be used for testing, including test management tools, automation tools, and defect tracking tools.
-
-5. **Schedule:**
-
-    - **Testing Timeline:** Provide a timeline for the testing activities, including start and end dates.
-    - **Milestones:** Identify key milestones and deliverables throughout the testing process.
-    - **Deliverables:** List the expected deliverables from the testing activities (test cases, test scripts, test reports).
-
-6. **Risk Management:**
+3. **Risk Management:**
 
     - **Risk Register:** Maintain a register of identified risks that could impact testing.
 
@@ -408,7 +270,255 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
         </details>
 
-7. **Test Estimation:** Test Estimation is the process of predicting the time, effort, and cost required for testing activities.
+4. **Test Approach(Test Strategy):**
+
+    - **Test Pyramid:** The Test Pyramid idea is for a large number of low-level unit tests, a smaller number of integration tests, and an even smaller number of end-to-end tests.
+    - **Test Levels:** Define the levels of testing based on the Test Pyramid (unit testing, integration testing, system testing, acceptance testing).
+    - **Test Types:** Specify the types of testing to be performed (functional testing, non-functional testing).
+    - **Test Techniques:** Describe the techniques and methodologies that will be used (White-box Testing, Black-box Testing, User Acceptance Testing (UAT)).
+    - **Entry and Exit Criteria:** Define the conditions that must be met to start and stop testing activities, ensuring that the testing process is well-structured and efficient.
+
+        <details>
+           <summary>Overview:</summary>
+
+        - **Entry Criteria:** These are the conditions that must be met before testing can begin. They ensure that all necessary preparations are completed and that the testing process can start smoothly without any blockers.
+
+            <details>
+              <summary>Examples:</summary>
+
+            - All development tasks have been completed and the code has been merged into the main branch.
+
+            - The application has been successfully deployed in the testing environment.
+
+            - All test cases have been reviewed and approved by the project manager.
+
+            - Test data required for testing has been created and is available in the testing environment.
+
+            - The testing team has been trained on the new features and changes in the application.
+
+            - Availability of resources (people, tools, environments, budget, and time).
+
+            - Initial quality level of the test object (conducting smoke tests to accept the build).
+
+            </details>
+
+        - **Exit Criteria:** These are the conditions that must be met before testing can be considered complete. They ensure that all planned testing activities have been executed and that the software meets the required quality standards.
+
+            <details>
+               <summary>Examples:</summary>
+
+            - All test cases have been executed.
+
+            - All critical and high severity defects have been fixed and retested.
+
+            - The testing team has completed a final review and approved the testing results.
+
+            - The stakeholders have accepted the final testing report and given approval for the release.
+
+            - Achieving the required level of coverage (requirement coverage, code coverage, functional coverage).
+
+            - Number of unresolved defects within the agreed limit.
+
+            - Completion of planned tests and execution of all test cases.
+
+            - All defects found have been reported and documented.
+
+            - Regression tests are automated and executed.
+
+            </details>
+
+        </details>
+
+    - **Test Prioritization:**  To determine the sequence of test case execution based on various factors such as risk, complexity, dependencies, and requirements.
+
+        <details>
+           <summary>Overview:</summary>
+
+        - **Risk-Based Prioritization:** Test cases are prioritized based on the results of risk analysis. High-risk areas are tested first.
+
+            <details>
+               <summary>Examples:</summary>
+
+            Test cases for high-risk areas are executed first, followed by medium-risk and low-risk areas.
+
+            1. **Identify Risk Factors:**
+                - **Impact:** The potential impact on the system if a defect is found in this area (High, Medium, Low).
+                - **Likelihood:** The probability of defects occurring in this area (High, Medium, Low).
+
+            2. **Assign Scores to Each Factor:**
+                - **Impact:** High = 3, Medium = 2, Low = 1
+                - **Likelihood:** High = 3, Medium = 2, Low = 1
+
+            3. **Calculate Risk Score:** `c = a * b`
+
+            4. **Prioritize Test Cases:**
+
+                | Test Case ID | Description                        | Impact | Likelihood | Risk Score |
+                |--------------|------------------------------------|--------|------------|------------|
+                | T1           | Login with valid credentials       | High   | High       | 3 * 3 = 9  |
+                | T2           | Login with invalid credentials     | Medium | Medium     | 2 * 2 = 4  |
+                | T3           | Password reset functionality       | High   | Medium     | 3 * 2 = 6  |
+                | T4           | View user profile                  | Low    | Low        | 1 * 1 = 1  |
+                | T5           | Update user profile                | Medium | High       | 2 * 3 = 6  |
+
+            5. **Steps to Execute Test Cases:**
+
+                - **Step 1:** Execute T1 (Risk Score: 9)
+                - **Step 2:** Execute T3 (Risk Score: 6)
+                - **Step 3:** Execute T5 (Risk Score: 6)
+                - **Step 4:** Execute T2 (Risk Score: 4)
+                - **Step 5:** Execute T4 (Risk Score: 1)
+
+            </details>
+
+        - **Coverage-Based Prioritization:** Test cases are prioritized based on the coverage they provide, such as statement coverage or branch coverage.
+
+            <details>
+               <summary>Examples:</summary>
+
+            Test cases that achieve the highest coverage are executed first. For instance, a test case that covers 50% of the statements is executed before a test case that covers 20%.
+
+            1. **Identify Coverage Metrics:**
+                - **Statement Coverage:** The percentage of executable statements in the code that are executed by the test case.
+                - **Branch Coverage:** The percentage of branches (if-else conditions) that are executed by the test case.
+
+            2. **Assign Scores to Each Coverage Metric:**
+                - **High Coverage:** 80-100% = 3
+                - **Medium Coverage:** 50-79% = 2
+                - **Low Coverage:** 0-49% = 1
+
+            3. **Calculate Coverage Score:**
+                - Use the coverage percentage to determine the score for each test case.
+
+            4. **Prioritize Test Cases:**
+
+                | Test Case ID | Description                        | Statement Coverage  | Branch Coverage | Coverage Score |
+                |--------------|------------------------------------|---------------------|-----------------|----------------|
+                | T1           | Login with valid credentials       | 90%                 | 80%             | 3 + 3 = 6      |
+                | T2           | Login with invalid credentials     | 70%                 | 60%             | 2 + 2 = 4      |
+                | T3           | Password reset functionality       | 85%                 | 75%             | 3 + 2 = 5      |
+                | T4           | View user profile                  | 40%                 | 30%             | 1 + 1 = 2      |
+                | T5           | Update user profile                | 75%                 | 65%             | 2 + 2 = 4      |
+
+            5. **Steps to Execute Test Cases:**
+
+                1. **Step 1:** Execute T1 (Coverage Score: 6)
+                2. **Step 2:** Execute T3 (Coverage Score: 5)
+                3. **Step 3:** Execute T2 (Coverage Score: 4)
+                4. **Step 4:** Execute T5 (Coverage Score: 4)
+                5. **Step 5:** Execute T4 (Coverage Score: 2)
+
+            </details>
+
+        - **Requirement-Based Prioritization:** Test cases are prioritized based on the priorities of the requirements they cover. High-priority requirements are tested first.
+
+            <details>
+               <summary>Examples:</summary>
+
+            Test cases related to high-priority requirements are executed first, followed by medium and low-priority requirements.
+
+            1. **Identify Requirement Priorities:**
+                - **High Priority:** Critical requirements that are essential for the system's functionality.
+                - **Medium Priority:** Important requirements that are necessary but not critical.
+                - **Low Priority:** Requirements that are nice-to-have but not essential.
+
+            2. **Assign Scores to Each Requirement Priority:**
+                - **High Priority:** 3
+                - **Medium Priority:** 2
+                - **Low Priority:** 1
+
+            3. **Calculate Requirement Score:**
+                - Use the priority of the requirement to determine the score for each test case.
+
+            4. **Prioritize Test Cases:**
+
+                | Test Case ID | Description                        | Requirement Priority | Requirement Score |
+                |--------------|------------------------------------|----------------------|-------------------|
+                | T1           | Login with valid credentials       | High                 | 3                 |
+                | T2           | Login with invalid credentials     | Medium               | 2                 |
+                | T3           | Password reset functionality       | High                 | 3                 |
+                | T4           | View user profile                  | Low                  | 1                 |
+                | T5           | Update user profile                | Medium               | 2                 |
+
+            5. **Steps to Execute Test Cases:**
+
+                - **Step 1:** Execute T1 (Requirement Score: 3)
+                - **Step 2:** Execute T3 (Requirement Score: 3)
+                - **Step 3:** Execute T2 (Requirement Score: 2)
+                - **Step 4:** Execute T5 (Requirement Score: 2)
+                - **Step 5:** Execute T4 (Requirement Score: 1)
+
+            </details>
+
+        - **Test Execution Schedule:** To define the order in which test cases are executed, ensuring that dependencies are managed and high-priority tests are run first.
+
+            - **Technical Dependencies:** Test cases that are dependent on others must be executed in the correct order to avoid blockers.
+
+            - **Logical Dependencies:** Test cases that logically depend on the results of other tests should be executed in the appropriate sequence.
+
+            - **Priority Levels:** High-priority test cases should be executed before medium and low-priority test cases.
+
+            <details>
+               <summary>Examples:</summary>
+
+            1. **Identify Dependencies:**
+                - **Technical Dependencies:** Test cases that are dependent on the completion of other test cases.
+                - **Logical Dependencies:** Test cases that logically depend on the results of other tests.
+
+            2. **Assign Priority Levels:**
+                - **High Priority:** Critical test cases that need to be executed first.
+                - **Medium Priority:** Important test cases that are necessary but not critical.
+                - **Low Priority:** Test cases that are nice-to-have but not essential.
+
+            3. **Calculate Total Score for Each Test Case:**
+                - Combine the priority levels and dependencies to determine the execution order.
+
+            4. **Prioritize Test Cases Based on Total Score:**
+
+                | Test Case ID | Description                        | Priority | Technical Dependency | Logical Dependency | Total Score |
+                |--------------|------------------------------------|----------|----------------------|--------------------|-------------|
+                | T1           | Login with valid credentials       | High     | T2                   | None               | 3 + 2 = 5   |
+                | T2           | Login with invalid credentials     | Medium   | None                 | None               | 2 + 3 = 5   |
+                | T3           | Password reset functionality       | High     | T2                   | None               | 3 + 2 = 5   |
+                | T4           | View user profile                  | Low      | None                 | None               | 1 + 3 = 4   |
+                | T5           | Update user profile                | Medium   | T3                   | None               | 2 + 2 = 4   |
+
+            5. **Steps to Execute Test Cases:**
+
+                - **Step 1:** Execute T2 (Medium priority, no dependencies)
+                - **Step 2:** Execute T1 (High priority, dependent on T2)
+                - **Step 3:** Execute T3 (High priority, dependent on T2)
+                - **Step 4:** Execute T5 (Medium priority, dependent on T3)
+                - **Step 5:** Execute T4 (Low priority, no dependencies)
+
+            </details>
+
+       </details>
+
+5. **Resources:**
+
+    - **Roles and Responsibilities:** Define the roles and responsibilities of the testing team and other stakeholders.
+
+    - **Test Environment:**
+        - **Environment Setup:** Identify hardware and software requirements, configure the environment, and install necessary tools.
+
+        - **Test Data Management:** Identify data requirements, create or extract test data, ensure data privacy and security, and maintain test data.
+
+        - **Environment Maintenance:** Monitor and maintain the test environment to ensure stability and reliability.
+
+        - **Tools:** List the tools that will be used for testing, including test management tools, automation tools, and defect tracking tools.
+
+6. **Schedule:**
+
+    - **Testing Timeline:** Provide a timeline for the testing activities, including start and end dates.
+    - **Milestones:** Identify key milestones and deliverables throughout the testing process.
+    - **Deliverables:** List the expected deliverables from the testing activities (test cases, test scripts, test reports).
+
+7. **Test Estimation:**
+
+    **Explanation:**
+
+    Test Estimation is the process of predicting the time, effort, and cost required for testing activities.
 
     <details>
        <summary>Overview:</summary>
