@@ -616,6 +616,11 @@ Black-box testing techniques focus on the functionality of the software without 
 
       </details>
 
+      - **Handling Invalid Transitions:**
+        - **Explanation:** Invalid transitions are those that are not allowed as per the requirements and should be identified to ensure full coverage.
+        - **Example:** In the thermostat example, transitioning directly from "Idle" to "Error" without an intermediate event would be considered an invalid transition.
+        - **Testing Invalid Transitions:** Ensure that the system correctly handles invalid transitions by not allowing them and providing appropriate error messages or handling.
+
 </details>
 
 ## White-box Testing Techniques
