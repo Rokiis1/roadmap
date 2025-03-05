@@ -208,7 +208,7 @@ pm.sendRequest({
 }, function (err, res) {
     pm.test("Resource has been deleted", function () {
         pm.expect(err).to.be.null;
-        pm.expect(res.status).to.eql(404); // Assuming a 404 status indicates deletion
+        pm.expect(res.status).to.eql(404);
     });
 });
 ```

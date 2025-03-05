@@ -267,24 +267,24 @@ The Software Testing Life Cycle (STLC) is a sequence of specific activities cond
 
 9. **Maintenance Testing:** Involves testing an operational system to ensure that changes or enhancements do not introduce new defects. It is conducted after the software has been released and is in use by end-users.
 
-**There are different types of maintenance:**
+    **There are different types of maintenance:**
 
-- **Corrective:** Fixing known bugs or issues.
-- **Adaptive:** Adapting the software to changes in the environment or improving performance.
-- **Perfective:** Enhancing existing features or adding new features.
+    - **Corrective:** Fixing known bugs or issues.
+    - **Adaptive:** Adapting the software to changes in the environment or improving performance.
+    - **Perfective:** Enhancing existing features or adding new features.
 
-**Maintenance testing can be triggered by planned or unplanned releases:**
+    **Maintenance testing can be triggered by planned or unplanned releases:**
 
-- **Planned Releases:** Changes that were scheduled and known in advance, such as feature enhancements or updates.
+    - **Planned Releases:** Changes that were scheduled and known in advance, such as feature enhancements or updates.
 
-- **Unplanned Releases:** Changes that arise unexpectedly, such as hot fixes for critical issues reported by users.
+    - **Unplanned Releases:** Changes that arise unexpectedly, such as hot fixes for critical issues reported by users.
 
-**Triggers for maintenance testing include:**
+    **Triggers for maintenance testing include:**
 
-- **Modifications**: Updates or enhancements to existing features.
-- **Upgrades:** Introducing new features or significant changes to the software.
-- **Migrations:** Moving the application from one platform to another.
-- **Retirement:** Final versions of the application before it is retired, ensuring data archiving and retrieval procedures are in place.
+    - **Modifications**: Updates or enhancements to existing features.
+    - **Upgrades:** Introducing new features or significant changes to the software.
+    - **Migrations:** Moving the application from one platform to another.
+    - **Retirement:** Final versions of the application before it is retired, ensuring data archiving and retrieval procedures are in place.
 
 </details>
 
