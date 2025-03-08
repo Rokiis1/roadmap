@@ -28,8 +28,12 @@
   - **Examples:** Selenium, Playwright, JUnit, Jest, pytest
 
 - **Non-Functional Testing Tools:**
-  - **Explanation:** Non-functional testing tools are specialized tools designed for non-functional testing levels such as performance, security, usability, interoperability, and portability.
+  - **Explanation:** Non-functional testing tools are specialized tools designed for non-functional testing levels such as performance, security, usability, compatibility.
   - **Examples:** K6, OWASP ZAP
+
+- **API Testing Tools:**
+  - **Explanation:** API testing tools are designed to test the functionality.
+  - **Examples:** Postman, Bruno API
 
 - **DevOps Tools:**
   - **Explanation:** DevOps tools support the DevOps delivery pipeline, workflow tracking, and automated build processes of CI/CD.
@@ -45,7 +49,7 @@
 
 - **Other Tools:**
   - **Explanation:** Other tools that assist in various aspects of testing but do not fall under the specific categories.
-  - **Examples:** Microsoft Excel, Google Sheets, Postman, DevTools
+  - **Examples:** Microsoft Excel, Google Sheets, DevTools
 
 </details>
 
