@@ -22,8 +22,8 @@ Involves creating a set of conditions or variables under which a tester will det
 - **Functional and Non-Functional Test Cases:** Both functional requirements (what the system should do) and non-functional requirements (how the system should perform).
 - **Boundary and Edge Cases:** Tests the boundaries and edges of input ranges.
 - **Preconditions and Postconditions:** Specifies the conditions that must be met before and after the test is executed.
-- **Test Case-Based Specification Table:** Focuses on individual test cases derived from scenarios, providing detailed descriptions of what needs to be tested.
 - **Scenario-Based Test Specification Table:** Focuses on scenarios and includes detailed information about each scenario, along with the test cases and steps.
+- **Test Case-Based Specification Table:** Focuses on individual test cases derived from scenarios, providing detailed descriptions of what needs to be tested.
 - **Create a Test Case (if necessary):** If the bug reveals a missing test case or an edge case that was not previously covered, create a new test case.
 
 </details>
@@ -38,20 +38,25 @@ Requirements are detailed descriptions of the functionalities, behaviors.
     <summary>Overview:</summary>
 
 - **Sources of Requirements:**
-  - **Requirement Specifications:**
-    - Detailed documents that outline the system's functionalities.
-    - Often created by business analysts or product owners.
+  - **Requirement Documentation:**
+    - Functional and non-functional requirements.
+    - User stories and use cases.
+    - Business rules and specifications.
   - **Design Documents:**
     - Design documents provide detailed descriptions of the system's architecture, components, interactions, and user interface (UI) design.
-    - Help understanding how the system is built and how it should function.
-  - **User Stories:**
-    - Short descriptions of features from the perspective of the end user.
-    - Commonly used in Agile methodologies when working in the team.
-  - **Stakeholder Input:**
-    - Feedback and requirements from stakeholders such as clients, users, and business analysts.
-  - **Use Cases:**
-    - Detailed scenarios that describe how users will interact with the system.
-    - Use cases are typically documented in a **Use Case Document** or **Use Case Specification**.
+    - Database schemas and data models.
+  - **Code:**
+    - Source code and configuration files.
+    - API documentation and service contracts.
+  - **Risk Analysis Reports:**
+    - Identified risks and their potential impact.
+    - Risk mitigation strategies and priorities.
+  - **Regulatory and Compliance Standards:**
+    - Industry-specific regulations and standards.
+    - Compliance requirements and guidelines.
+  - **User Manuals and Guides:**
+    - User manuals and operational guides.
+    - Installation and setup instructions.
 
 </details>
 
@@ -214,7 +219,7 @@ Shows perecentage of how much of the software's functionality is being tested.
 1. **Coverage Criteria:** Different criteria can be used to measure test coverage:
     - **Code Coverage:**  By developers, the extent to which the source code of a program is executed when a particular test suite runs.
     - **Requirements coverage:** By testers and QA teams which the specified requirements (both functional and non-functional) calculate percentage of test case how widely the system have been tested.
-    - **Functional coverage:** By testers and QA teams based specified functionality of a software system calculate overall percetage what has been tested.
+
 2. **Measuring Coverage:** Tools and techniques for measuring test coverage, such as code coverage tools that measure the percentage of code executed by the tests.
     - **Based what we Calculate:**
         - Identify Criteria wich one gonna be test (code, requirements, functional).

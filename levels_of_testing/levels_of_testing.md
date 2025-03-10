@@ -47,11 +47,17 @@ Component Integration Testing, also known as **Unit Integration Testing**, is th
 
 3. **Integration Testing Levels:**
     - **Component Integration Testing:** Within the same module.
+
     - **System Integration Testing:** Between different modules or systems.
 
 4. **Web Services Integration:** Includes testing **APIs** to ensure correct request processing and response handling.
 
-5. **Integration Strategy:** Existing integration strategies such as **bottom-up**, **top-down**, or **big bang** approaches.
+5. **Integration Strategy:** Existing integration strategies approaches.
+    - **Bottom-Up Integration** is an approach where testing starts with the lower-level modules and progresses upwards. Lower-level modules are integrated and tested first, and then higher-level modules are added and tested incrementally.
+
+    - **Top-Down Integration**  is an approach where testing starts with the higher-level modules and progresses downwards. Higher-level modules are integrated and tested first, and then lower-level modules are added and tested incrementally.
+
+    - **Big Bang Integration** is an approach where all modules are integrated simultaneously after they have been developed and unit tested. The entire system is then tested as a whole.
 
 </details>
 
@@ -68,6 +74,7 @@ System Testing is a level of testing that validates the complete and integrated 
 
 2. **Functional and Non-Functional Testing:**
     - **Functional Testing:** valdiate that the system meets the functional requirements.
+
     - **Non-Functional Testing:** Although **system testing** itself is primarily **functional**, it serves as a prerequisite for **non-functional testing**.
 
 3. **End-to-End Testing:** Validates the complete workflow by checking integrated components function works together.

@@ -165,18 +165,75 @@ Experience-based techniques in software testing are those that leverage the test
 
     </details>
   
-3. **Checklist-Based Testing:**
+3. **Checklist-Based Testing:** Is a testing technique where testers use a predefined checklist to guide their testing process. The checklist includes important features, functionalities, and criteria that need to be verified. This approach ensures that all necessary areas of the application are covered without the need for detailed test cases.
+
+    <details>
+       <summary>Scenarios:</summary>
+
+    1. **General Layout:**
+        - Verify that the layout adjusts correctly on different screen sizes (mobile, tablet, desktop).
+        - Check that elements are not overlapping or misaligned.
+
+    2. **Navigation:**
+        - Ensure that the navigation menu is accessible and functional on all screen sizes.
+        - Verify that the hamburger menu appears and works correctly on smaller screens.
+
+    3. **Images and Media:**
+        - Check that images resize appropriately and maintain aspect ratio.
+        - Verify that videos and other media elements are responsive and playable on all devices.
+
+    4. **Text and Fonts:**
+        - Ensure that text is readable and does not overflow or get cut off.
+        - Verify that font sizes adjust appropriately for different screen sizes.
+
+    5. **Forms and Inputs:**
+        - Check that form elements (input fields, buttons) are usable and accessible on all devices.
+        - Verify that touch targets are appropriately sized for mobile devices.
+
+    6. **Performance:**
+        - Ensure that the page load time is acceptable on different devices and screen sizes.
+        - Verify that there are no performance issues or lags when resizing the browser window.
+
+    7. **Browser Compatibility:**
+        - Ensure that the responsive design works correctly across different browsers (Chrome, Firefox, Safari, Edge).
+        - Verify that there are no browser-specific issues affecting responsiveness.
+
+    </details>
 
     <details>
        <summary>Overview:</summary>
 
-    - **Checklist Creation:** The checklist is created based on the requirements and specifications of the application. It includes all the important features and functionalities that need to be tested.
-
-      ![alt text](./assets/images/checklist.png)
-
     - **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
 
     - **Functional and Non-Functional Testing:** Checklists can support various test types, including functional and non-functional testing.
+
+    - **Efficiency:** Checklists allow testers to quickly verify multiple aspects without the need for detailed documentation. They are particularly useful for high-level verification tasks.
+
+    - **Flexibility:** Checklists can be easily updated and adapted to include new features or design elements, ensuring comprehensive coverage.
+
+    - **Documentation:** While checklists provide high-level guidance, it is important to document the results of checklist-based testing, including any issues identified and actions taken. This helps in tracking progress and identifying areas for improvement.
+
+    - **Inclusion in Test Summary Report:** The findings from checklist-based testing should be included in the Test Summary Report. This ensures that stakeholders are aware of the overall testing outcomes and any issues that need to be addressed.
+
+    </details>
+
+    <details>
+       <summary>Examples:</summary>
+
+    | Description                                                                   | Status  |
+    |-------------------------------------------------------------------------------|---------|
+    | Verify that the layout adjusts correctly on different screen sizes.           |         |
+    | Check that elements are not overlapping or misaligned.                        |         |
+    | Ensure that the navigation menu is accessible and functional on all screens.  |         |
+    | Verify that the hamburger menu appears and works correctly on smaller screens.|         |
+    | Check that images resize appropriately and maintain aspect ratio.             |         |
+    | Verify that videos and other media elements are responsive and playable.      |         |
+
+    - **Completion Status:** Completed 95% of the checklist items. The remaining 5% were not completed due to time constraints and will be prioritized in the next sprint.
+
+    - **Defects Identified:** Identified 2 critical defects related to user authentication. These defects have been logged and are being addressed by the development team.
+
+    - **Coverage:** The checklist covered key functionalities such as user authentication, data validation, and UI responsiveness. All covered areas were verified to be functioning as expected, except for the identified defects.
 
     </details>
 
@@ -314,8 +371,6 @@ Black-box testing techniques focus on the functionality of the software without 
         ![3BVA](./assets/images/3BVA.png)
 
     - **Reduced Number of Test Cases:** By focusing on boundary values, the number of test cases is reduced compared to traditional methods, making it easier to maintain.
-
-    - **Scenario Column:** While a "Scenario" column can provide additional context and make the test cases more understandable, it is not strictly necessary for BVA. The primary focus of BVA is on testing the boundaries of input ranges. Including a "Scenario" column can help testers and stakeholders understand the purpose of each test case more clearly, but it can be omitted if the table is already clear and understandable.
 
     </details>
 

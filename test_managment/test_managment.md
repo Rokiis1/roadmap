@@ -85,7 +85,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
             <details>
                <summary>Syntax:</summary>
 
-            **(Event that has an effect on objectives)** caused by **(cause/s)** resulting in **(consequence/s)**
+            - **(Event that has an effect on objectives)** caused by **(cause/s)** resulting in **(consequence/s)**
 
             </details>
 
@@ -115,7 +115,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
         <details>
            <summary>Syntax:</summary>
 
-        If **(risk event)** occurs, it could lead to **(consequence/s)**.
+        - If **(risk event)** occurs, it could lead to **(consequence/s)**.
 
         </details>
 

@@ -132,8 +132,8 @@ Static testing involves validating the code, design documents, and software requ
     <summary>Overview:</summary>
 
 1. **Nature of Testing:**
-    - **Static Testing:** Involves reviewing work products without executing the code. It includes activities such as reviews and static analysis.
-    - **Dynamic Testing:** Involves executing the software to identify defects. It includes activities such as functional testing, performance testing, and security testing.
+    - **Static Testing:** Involves reviewing work products without executing the code.
+    - **Dynamic Testing:** Involves executing the software to identify defects.
 
 2. **Defect Detection:**
     - **Static Testing:** Directly identifies defects in work products, such as inconsistencies in requirements or design flaws.

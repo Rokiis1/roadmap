@@ -267,7 +267,7 @@ The principles of testing are fundamental guidelines that dictate what to test, 
 
 **Explanation:**
 
-Test activities, also known as the test process, involve various tasks and processes to ensure a software product meets the required quality standards. Understanding these phases is crucial for testers to know their contributions, involvement, and the deliverables expected from each phase. The artifacts produced during these activities are collectively known as testware.
+Test activities, also known as the test process, involve various tasks and processes to ensure a software product meets the required quality standards. The artifacts produced during these activities are collectively known as testware.
 
 - **Artifacts:** These are individual pieces of documentation or tools created and used during the testing process. Examples include a single test case, a defect report, or a test plan. Each artifact serves a specific purpose and provides detailed information about a particular aspect of the testing process.
 
@@ -319,7 +319,8 @@ Test activities, also known as the test process, involve various tasks and proce
     - **Deliverables (Artifacts):**
 
         - Prioritized Test Conditions
-        - Defect Report regarding defects in the test basis
+        - Defect Report regarding defects in the test basis.
+            - **Test Basis** is The documentation or source of information used to derive test cases and test conditions. It includes all the necessary details that guide the testing process.
 
 4. **Test Design:** It's involves test cases identifying other test artifacts.
 
@@ -352,7 +353,14 @@ Test activities, also known as the test process, involve various tasks and proce
         - Test Suites.
         - Test Data.
         - Execution Schedule.
-        - Environment Elements (stubs, drivers, simulators, service virtualization).
+        - Environment Elements
+            - **Stubs** are dummy components or modules that simulate the behavior of actual components. They are used to mimic the responses of lower-level modules that are not yet implemented or are unavailable during testing.
+
+            - **Drivers** are dummy components or modules that simulate the behavior of higher-level modules. They are used to invoke and test lower-level modules that are not yet integrated with the higher-level modules.
+
+            - **Simulators** are tools or software that mimic the behavior of real systems or devices. They are used to create a virtual environment that replicates the conditions of the actual system.
+
+            - **Service virtualization** is a technique used to simulate the behavior of dependent services or components that are not available or are difficult to access during testing. It creates virtual versions of these services to enable continuous testing.
 
 6. **Test Execution:** Executing the test cases.
 
