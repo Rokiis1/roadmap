@@ -6,21 +6,11 @@
 - [Static Testing](#static-testing)
 - [Differences Between Static Testing and Dynamic Testing](#differences-between-static-testing-and-dynamic-testing)
 
-**Explanation:**
-
-- **Dynamic Testing:** Involves executing the software to validate its behavior.
-  - **Purpose:** To find defects by executing the code.
-  - **Techniques:** Functional testing, non-functional testing.
-
-- **Static Testing:** Involves reviewing documentation and code without executing the software.
-  - **Purpose:** To find defects early in the development process.
-  - **Techniques:** Manual reviews, static analysis using tools.
-
 ## Dynamic Testing
 
 **Explanation:**
 
-Dynamic testing involves methods used in software development that require the execution of the software. These methods are used to validate both the functional and non-functional behavior of software. They are often used in conjunction with static testing methods, which do not require executing the software.
+Dynamic testing involves methods used in software development that require the execution of the software to find defects. These methods are used to validate both the functional and non-functional behavior of software.
 
 <details>
     <summary>Overview:</summary>
@@ -72,7 +62,7 @@ Dynamic testing involves methods used in software development that require the e
 
 **Explanation:**
 
-Static testing involves validating the code, design documents, and software requirements without actually executing the software. This type of testing is performed to identify defects early in the development process, ensuring that the work products meet the required standards and specifications.
+Static testing involves validating the code, design documents, and software requirements without actually executing the software to find defects early in the development process.
 
 <details>
     <summary>Overview:</summary>
