@@ -52,7 +52,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
     - **List of Items to be Tested:** Enumerate the specific items, features, or components that will be tested. This section provides a high-level overview of the main components, modules, or subsystems that will be tested.
 
-    - **Features to be Tested:** Detail the features and functionalities that will be included in the testing scope.This section provides a detailed description of the specific features and functionalities within the high-level items. It outlines what aspects of the application will be tested
+    - **Features to be Tested:** Detail the features and functionalities that will be included in the testing scope. This section provides a detailed description of the specific features and functionalities within the high-level items. It outlines what aspects of the application will be tested
 
     - **Features Not to be Tested:** Specify any features or functionalities that are out of scope for testing.
 
@@ -661,6 +661,57 @@ Defect management is the process of managing defects within the software testing
     - **Defect Resolution:** Fixing the defects.
     - **Defect Verification:** Verifying that the defects have been fixed.
     - **Defect Closure:** Closing the defects once they are resolved and verified.
+
+4. **Bug Severity Levels:**
+    - **Critical:** System crash, data loss, security vulnerability.
+    - **High:** Major feature broken but no system-wide failure.
+    - **Medium:** Functionality issue, but workaround available.
+    - **Low:** Minor UI bugs, spelling mistakes.
+
+5. **Bug Priority Levels:**
+    - **P1 (Urgent):** Must be fixed immediately.
+    - **P2 (High):** Should be fixed soon but not blocking.
+    - **P3 (Medium):** Fix when possible, minor impact.
+    - **P4 (Low):** Cosmetic or minor improvements.
+
+6. **Bug Report Structure:**
+    - **Bug ID:** Unique identifier for the bug (BUG-001).
+    - **Title:** A brief and descriptive title summarizing the bug ("Login button not responsive on mobile devices").
+    - **Description:** A detailed description of the bug, including what the bug is, where it occurs, and its impact on the application.
+    - **Steps to Reproduce:**
+        1. Step-by-step instructions to reproduce the bug.
+        2. Include any specific conditions or data required to reproduce the issue.
+    - **Expected Result:** A clear description of what should happen if the bug were not present.
+    - **Actual Result:** A clear description of what actually happens when the bug occurs.
+    - **Severity:** The severity level of the bug (Critical, High, Medium, Low).
+    - **Priority:** The priority level of the bug (P1 (Urgent), P2 (High), P3 (Medium), P4 (Low)).
+    - **Environment:**
+        - Browser (Chrome 92.0.4515.107)
+        - Operating System (Windows 11)
+        - Device (iPhone 12)
+        - Application version (v1.2.3)
+    - **Attachments:** Any relevant screenshots, videos, logs, or error messages that help illustrate the bug.
+    - **Additional Information:** Any other information that might be relevant, such as related bugs, recent changes, or possible causes.
+    - **Reporter:** Name and contact information of the person who reported the bug.
+    - **Status:** Current status of the bug (New, In Progress, Resolved, Closed).
+    - **Assigned To:** Name of the person or team responsible for fixing the bug.
+    - **Date Reported:** The date when the bug was reported.
+    - **Date Resolved:** The date when the bug was resolved (if applicable).
+
+7. **Common Mistakes to Identify:**
+    - Missing steps to reproduce.
+    - Vague or generic summaries.
+    - Lack of environment details (browser, OS, app version).
+    - No logs, error messages, or screenshots.
+    - Incorrect severity or priority labels.
+
+8. **Good Practices for Defect Management:**
+    - **Clear and Detailed Reporting:** Ensure that defect reports are clear, detailed, and include all necessary information such as steps to reproduce, environment details, logs, error messages, and screenshots.
+    - **Accurate Severity and Priority:** Assign accurate severity and priority levels to defects to ensure that critical issues are addressed promptly.
+    - **Regular Triage Meetings:** Conduct regular defect triage meetings to prioritize and categorize defects effectively.
+    - **Effective Communication:** Maintain open and effective communication between testers, developers, and other stakeholders to ensure that defects are resolved efficiently.
+    - **Continuous Monitoring:** Continuously monitor defect trends and metrics to identify areas for improvement and prevent recurring issues.
+    - **Documentation:** Keep detailed records of all defects, their status, and resolution steps to maintain a comprehensive defect management history.
 
 </details>
 

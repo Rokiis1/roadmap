@@ -163,6 +163,8 @@ Static testing technique where reviewers use a predefined checklist to guide the
         - Do the requirements comply with relevant standards and regulations?
         - Are there any legal or regulatory requirements that need to be addressed?
 
+- **Example Checklist for Reviewing Code**
+
     **Checklist Items:**
 
     1. **Code Structure:**
