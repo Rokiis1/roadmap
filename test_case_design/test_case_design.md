@@ -64,57 +64,77 @@ Requirements are detailed descriptions of the functionalities, behaviors.
 
 **Explanation:**
 
-A test scenario is a high-level description of a specific situation or user interaction that needs to be tested. It outlines the context and conditions under which the software will be evaluated, providing a clear and comprehensive understanding of what needs to be tested, how it should be tested, and what the expected outcomes are. Test scenarios help ensure that all aspects of the functionality are covered and that the software meets the specified requirements.
+A test scenario is a high-level description of a specific situation or user interaction that needs to be tested. It outlines the context and conditions under which the software will be evaluated, providing a clear and comprehensive understanding of what needs to be tested, how it should be tested, and what the expected outcomes are. Test scenarios help ensure that all aspects of the functionality are covered and that the software meets the specified requirements. They are also used for writing scripts for end-to-end (E2E) testing and non-functional.
 
 <details>
     <summary>Overview:</summary>
 
 - **Purpose of a Test Scenario:**
 
-  1. **Identify Test Conditions**: Define the specific conditions and inputs under which the software will be tested.
-  2. **Ensure Comprehensive Coverage**: Ensure that all possible user interactions and system behaviors are covered.
-  3. **Facilitate Communication**: Provide a clear and concise description of the test conditions, making it easier for testers, developers, and stakeholders to understand and collaborate.
-  4. **Guide Test Case Development**: Serve as a foundation for developing detailed test cases, which include specific steps, test data, and expected results.
+  1. **Identify Test Conditions:** Test scenarios help define the specific conditions and inputs under which the software will be tested. This ensures that all relevant aspects of the software are considered during testing.
+  2. **Ensure Comprehensive Coverage:** Test scenarios ensure that all possible user interactions and system behaviors are covered. This helps in identifying any gaps in the testing process and ensures that the software is thoroughly tested.
+  3. **Facilitate Communication:** Test scenarios provide a clear and concise description of the test conditions, making it easier for testers, developers, and stakeholders to understand and collaborate. This improves communication and ensures that everyone is on the same page.
+  4. **Guide Test Case Development:** Serve as a foundation for developing detailed test cases. The specific details and steps of the test cases are derived from the test scenarios, and the approach taken depends on the test design technique used.
+  5. **Writing Scripts:** Test scenarios are also used for writing scripts for end-to-end (E2E) testing and non-functional testing.
 
-- **Structure writting Traditional Scenario:**
+- **Traditional Scenario Structure:** Is a method used to outline test scenarios in a detailed and structured manner.
 
-  - **Verify that:** Used to confirm that a specific functionality works as expected.
-  - **Ensure that:** Used to make sure that certain conditions or behaviors are met.
-  - **Check that:** Used to validate that specific conditions or behaviors are not met or that error handling works correctly.
-  - **Test that:** Used to confirm that specific outcomes or responses occur under certain conditions.
+  <details>
+      <summary>Overview:</summary>
 
-- **Traditional Scenario Structure:**
+  1. **Writting Structure:**
 
-  1. **Scenario: User Authentication**
+      - **Verify that:** Used to confirm that a specific functionality works as expected.
+      - **Ensure that:** Used to make sure that certain conditions or behaviors are met.
+      - **Check that:** Used to validate that specific conditions or behaviors are not met or that error handling works correctly.
+      - **Test that:** Used to confirm that specific outcomes or responses occur under certain conditions.
+
+  2. **Scenario: User Authentication**
 
       - **Verify that:**
-      - Verify that user can manage password change.
-      - Verify that user can log in with valid credentials.
-      - Verify that user can log out successfully.
+        - Verify that user can manage password change.
+        - Verify that user can log in with valid credentials.
+        - Verify that user can log out successfully.
 
       - **Ensure that:**
-      - Ensure that user session expires after a period of inactivity.
-      - Ensure that user can reset password using the "Forgot Password" feature.
+        - Ensure that user session expires after a period of inactivity.
+        - Ensure that user can reset password using the "Forgot Password" feature.
 
       - **Check that:**
-      - Check that user cannot log in with invalid credentials.
-      - Check that user receives an error message for incorrect password.
-      - Check that user cannot access restricted pages without logging in.
+        - Check that user cannot log in with invalid credentials.
+        - Check that user receives an error message for incorrect password.
+        - Check that user cannot access restricted pages without logging in.
 
       - **Test that:**
-      - Test that user receives a confirmation email after password reset.
-      - Test that user is redirected to the login page when accessing a protected resource.
-      - Test that user account is locked after multiple failed login attempts.
+        - Test that user receives a confirmation email after password reset.
+        - Test that user is redirected to the login page when accessing a protected resource.
+        - Test that user account is locked after multiple failed login attempts.
 
-- **Structure writting Behavior-driven development Scenario:**
+  3. **When to Use:**
+      - **Familiarity:** Teams that are more familiar with traditional testing approaches may find this structure easier to use.
+      - **Detailed Steps:** When detailed, step-by-step instructions are needed for each test case.
+      - **Legacy Systems:** Often used in projects with legacy systems where traditional testing methods have been established.
+      - **Documentation Requirements:** When there is a need for comprehensive documentation that outlines each specific test condition and expected outcome.
+  
+  4. **Why should Use:**
+      - **Clarity:** Provides clear and detailed steps for each test case, making it easier for testers to follow.
+      - **Comprehensive Coverage:** Ensures that all aspects of the functionality are covered through specific test conditions.
+      - **Ease of Use:** Familiar to many testers and does not require learning new syntax or frameworks.
 
-  - **Given:** Describes the initial context or state of the system.
-  - **When:** Describes the action or event that triggers the scenario.
-  - **Then:** Describes the expected outcome or result of the action.
+  </details>
 
-- **Behavior-driven development Scenario:**
+- **Behavior-driven development Scenario:** Is an approach to software development that emphasizes collaboration between developers, testers, and non-technical stakeholders.
 
-  1. **Scenario: User Authentication**
+  <details>
+      <summary>Overview:</summary>
+
+  1. **Writting Structure:**
+
+      - **Given:** Describes the initial context or state of the system.
+      - **When:** Describes the action or event that triggers the scenario.
+      - **Then:** Describes the expected outcome or result of the action.
+
+  2. **Scenario: User Authentication**
 
       - **Scenario: Valid User Login**
       - **Given** the user is on the login page,
@@ -131,6 +151,22 @@ A test scenario is a high-level description of a specific situation or user inte
       - **When** the user enters the current password, a new password, and confirms the new password,
       - **Then** the user should see a confirmation message indicating the password change was successful.
 
+  3. **When to Use:**
+
+      - **Collaboration:** When there is a need for close collaboration between developers, testers, and non-technical stakeholders.
+      - **Agile Projects:** Commonly used in Agile projects where user stories and acceptance criteria are defined.
+      - **Automation:** When integrating with automated testing.
+      - **Readable Tests:** When tests need to be easily readable and understandable by all stakeholders, including non-technical team members.
+  
+  4. **Why should Use:**
+
+      - **Collaboration:** Encourages collaboration between technical and non-technical team members by using a common language.
+      - **Readability:** The Given-When-Then format is easy to read and understand, making it accessible to all stakeholders.
+      - **Automation Integration:** BDD scenarios can be directly integrated with automated testing tools, streamlining the testing process.
+      - **Focus on Behavior:** Emphasizes the behavior of the system from the user's perspective, ensuring that the software meets user needs.
+  
+  </details>
+
 </details>
 
 ### Test Specification Table
@@ -144,9 +180,7 @@ A test scenario is a high-level description of a specific situation or user inte
 
     1. **Scenario ID:** A unique identifier for each test scenario.
     2. **Scenario Description:** A high-level description of the scenario being tested.
-    3. **Preconditions:** Any conditions that must be met before the scenario can be executed.
-    4. **Expected Results:** The expected outcome of the scenario.
-    5. **Postconditions:** Any conditions that should be met after the scenario is executed.
+    3. **Expected Results:** The expected outcome of the scenario.
 
 - **Test Case-Based Specification Table:**
 

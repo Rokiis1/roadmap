@@ -19,13 +19,13 @@ It helps in identifying potential quality issues early, ensuring that the produc
 <details>
     <summary>Overview:</summary>
 
-1. **Early Communication of Quality Problems:** Allows for the identification of potential quality issues before they become significant problems. This helps in addressing issues promptly and prevents them from escalating.
+1. **Early Communication of Quality Problems:** Allows for the identification of potential quality issues before they become significant problems.
 
 2. **Prevents Misunderstandings:** Helps prevent misunderstandings about requirements and ensures that changes are understood and implemented correctly. This leads to a clearer understanding of the project goals and reduces the risk of rework.
 
 3. **Improves Understanding:** Helps the development team improve their understanding of what they are building. It ensures that the team is aligned with the stakeholders expectations and can deliver a product that meets their needs.
 
-4. **Prioritization:** Allows for prioritizing work items that identify risk areas early and deliver the most important features to the business first. This ensures that critical functionalities are developed and tested early in the process.
+4. **Prioritization:** Allows for prioritizing work items that identify risk areas early and deliver the most important features to the business first. This ensures that functionalities are developed and tested early in the process.
 
 5. **Cost and Time Savings:** By identifying and addressing issues early, the cost and effort required to fix defects are significantly reduced. This leads to more efficient use of resources and helps in meeting project deadlines.
 
@@ -42,17 +42,34 @@ Various stakeholders take on specific roles and responsibilities to ensure the e
 <details>
     <summary>Overview:</summary>
 
-1. **Manager:** Decides what is to be reviewed and provides resources such as staff time for the review.
+1. **Manager:**
+    - **Decides Scope:** Determines what documents or code will be reviewed.
+    - **Provides Resources:** Allocates necessary resources, including staff time and tools, to support the review process.
+    - **Supports Review:** Ensures that the review process aligns with organizational goals and provides the necessary support for its execution.
 
-2. **Author:** The person who created the document under review and is responsible for fixing any identified issues.
+2. **Author:**
+    - **Creates Document:** Responsible for creating the document or code that is being reviewed.
+    - **Fixes Issues:** Addresses and resolves any defects or issues identified during the review.
+    - **Provides Clarifications:** Offers explanations and clarifications about the document to the review team as needed.
 
-3. **Moderator:** Ensures the effective running of the review meeting, including mediation, time management, and maintaining a safe review environment.
+3. **Moderator:**
+    - **Facilitates Meeting:** Leads the review meeting, ensuring it runs smoothly and stays on schedule.
+    - **Mediates Discussions:** Manages discussions to keep them focused and productive.
+    - **Maintains Environment:** Ensures a respectful and constructive review environment.
 
 4. **Scribe:** Records all details during the review meeting, including decisions and new anomalies found.
+    - **Records Details:** Takes detailed notes during the review meeting, including decisions made, action items, and any new anomalies found.
+    - **Documents Outcomes:** Ensures that all relevant information from the review is accurately documented and distributed to the team.
 
-5. **Reviewers:** Perform the review and may be project members, subject matter experts, or other stakeholders.
+5. **Reviewers:**
+    - **Conducts Review:** Examines the document or code to identify defects, issues, and areas for improvement.
+    - **Provides Feedback:** Offers constructive feedback based on their expertise and perspective.
+    - **Collaborates:** Works with other reviewers and the author to ensure a thorough and effective review.
 
-6. **Review Leader:** Takes overall responsibility for the review, including deciding who will be involved and organizing when and where the review will take place.
+6. **Review Leader:**
+    - **Plans Review:** Organizes the review process, including selecting participants and scheduling the review meeting.
+    - **Coordinates Activities:** Ensures that all review activities are carried out as planned.
+    - **Ensures Objectives:** Makes sure that the review objectives are met and that the process is completed efficiently.
 
 </details>
 
@@ -295,10 +312,6 @@ Static analysis is a method of debugging by examining the source code before a p
 4. **Bandit:**
     - **Description:** Bandit is an open-source static application security testing (SAST) tool designed to find common security issues in Python code.
     - **Features:** Scans Python code for security vulnerabilities, integrates with CI/CD pipelines, provides detailed security reports.
-
-5. **NodeJsScan:**
-    - **Description:** NodeJsScan is an open-source static application security testing (SAST) tool specifically designed for Node.js applications. It helps identify security vulnerabilities in JavaScript code.
-    - **Features:** Scans JavaScript and Node.js code for security vulnerabilities, integrates with CI/CD pipelines, provides detailed security reports.
 
 </details>
 
