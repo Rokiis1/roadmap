@@ -48,7 +48,10 @@ Mean your software is always being improved, tested, and released in small, safe
 
             - Manual approval steps
 
-        6. **Why This Works:** Prevents "it works on my machine"
+        6. **Why This Works:**
+
+            - Catches security issues early ("shift left")
+            - Prevents "it works on my machine"
 
         </details>
 
