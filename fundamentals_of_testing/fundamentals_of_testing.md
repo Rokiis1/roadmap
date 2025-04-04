@@ -2,68 +2,77 @@
 # Content Of Table of the Fundamentals of Testing
 
 - [What is Testing?](#what-is-testing)
-- [Why Testing is Necessary?](#why-testing-is-necessary)
+- [Test Objectives](#test-objectives)
+- [Testing and Debugging](#testing-and-debugging)
+- [Errors, Defects, Failures, and Root Causes](#errors-defects-failures-and-root-causes)
+- [Principles of Testing](#principles-of-testing)
+- [Test Process](#test-process)
+- [Test Activities](#test-activities)
 - [Test Roles](#test-roles)
 - [QA vs QC](#qa-vs-qc)
-- [Errors, Defects, Failures, and Root Causes](#errors-defects-failures-and-root-causes)
-- [Testing and Debugging](#testing-and-debugging)
 - [Independence of Testing](#independence-of-testing)
 - [Whole Team Approach](#whole-team-approach)
-- [Test Objectives](#test-objectives)
-- [Principles of Testing](#principles-of-testing)
-- [Test Activities](#test-activities)
 
 ## What is Testing?
 
 **Explanation:**
 
-Testing is a fundamental process in software development that ensures a product or application functions as expected. It involves validating and verifying that a product meets the specified requirements and is free of defects. Testing is not limited to software; it applies to any product or application.
-
-![alt text](./assets/images/whatcanwetest.png)
+Testing is a process in software development that checks if a product or application works as required. It confirms that the product does what it is supposed to do without mistakes and meets quality standards. In short, testing makes sure every feature works as planned and performs well. This process applies not only to software but also to any product or system that needs to work reliably.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Historical Context:** Initially, developers were responsible for both development and testing, leading to many defects. It was realized that having a separate testing team could improve quality.
+1. **Verification:** Checking if the product is built correctly. It means reviewing work and ensuring that each part follows the design and requirements.
 
-2. **Human Psychology:** Humans are prone to errors and often cannot find all their mistakes. However, they are good at finding mistakes in others' work, justifying the need for independent testers.
+2. **Validation:** This step confirms that the product does what users need. It's about making sure the product is the right fit for its use.
 
-3. **Misconceptions:** Testing is not just about writing and executing test cases. It involves reviewing work products, planning, managing, estimating, monitoring, and controlling the testing process.
+3. **Reliability:** This ensures that the product works well every time it is used. Performs as expected, even under different conditions.
 
-4. **Product-Oriented Approach:** This approach focuses on the features and quality of the final product. The objective is to ensure that the product meets user needs and expectations.
+4. **Scope of Testing:** Testing isn’t limited to executing test cases or running software—it includes planning, managing, monitoring, and controlling the testing process (product-oriented, process-oriented, user-oriented, time-oriented, rules-oriented, and scenario-oriented approaches).
 
-5. **Process-Oriented Approach:** This approach emphasizes the processes and methodologies used to develop the product. The goal is to ensure efficient and standardized development processes.
+5. **Types of Testing:** Testing activities can be either dynamic (executing the software) or static (reviewing code and documentation).
 
-6. **User-Oriented Approach:** This approach involves the end-users in the development process. The objective is to ensure that the product is user-friendly and meets actual user needs.
+6. **Why Testing is Necessary?:** Software testing reduces the risk of failures in operation, ensuring that every feature works as planned and meets stakeholder expectations.
 
-7. **Time-Oriented Approach:** This approach focuses on the speed of development. The goal is to ensure rapid delivery to meet tight deadlines or market demands.
+7. **What can we test?:**
 
-8. **Rules-Oriented Approach:** This approach ensures compliance with specific rules, regulations, and standards. The objective is to ensure that the product and process meet legal and regulatory requirements.
-
-9. **Scenario-Oriented Approach:** This approach tests and validates the product based on practical use cases and user interactions. The goal is to consider how users will interact with the product in various scenarios.
+    ![alt text](./assets/images/whatcanwetest.png)
 
 </details>
 
-## Why Testing is Necessary?
+## Test Objectives
 
 **Explanation:**
 
-Testing is necessary because it adds value to the overall success of a product. It starts at the beginning of the Software Development Life Cycle (SDLC) and continues throughout. Testing helps identify ambiguities, contradictions, inconsistencies, and omissions in the requirements during the requirement gathering phase.
-
-## Test Roles
-
-**Explanation:**
-
-Test roles define the responsibilities and contributions of different individuals involved in the testing process.
+Test objectives are the specific goals and purposes of testing. They guide testers to align with the overall project goals and ensure that the software meets the required standards and user expectations.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Test Management:** Responsibility for the test process, and the test team. This role focuses on test planning, monitoring and control, and test completion. Activities include defining goals and objectives, determining the overall approach, timelines, resources, tools, and managing the test process.
+1. **Evaluating Work Products:** Review requirements, designs, and code to catch issues early.
 
-2. **Test Engineer:** Responsibility for the Technical aspects of testing. This role focuses on test analysis, design, implementation, and execution. Activities include analyzing the test basis, writing test cases, preparing test data, setting up the environment, executing tests, and reporting defects.
+2. **Triggering Failures and Finding Defects:** Trigger failures during tests to identify and fix defects.
 
-3. **Role Flexibility:** In small organizations, one person can take on both test management and test engineer roles. In other organizations, responsibilities may vary based on project context, skills, and the structure of the company. Different people may take on these roles at different times, and it is possible for one person to handle multiple roles depending on the availability and context.
+3. **Ensuring Required Coverage:** Confirm that all critical parts of the software are tested.
+
+4. **Reducing Risk:** Lower the risk of defects affecting production quality.
+
+5. **Verifying Requirements:** Ensure the software meets specified requirements and user expectations.
+
+</details>
+
+## Testing and Debugging
+
+**Explanation:**
+
+Testing and debugging are two steps in the software development process that work together.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Testing:** The process of finding defects. It involves executing the product to identify any issues. Performed by testers to find defects.
+
+2. **Debugging:** The process of analyzing and fixing defects. It involves root cause analysis and correcting the identified issues. Performed by developers to analyze and fix defects.
 
 </details>
 
@@ -102,140 +111,6 @@ These terms in the context of software testing to describe different aspects of 
 
 </details>
 
-## Testing and Debugging
-
-**Explanation:**
-
-Testing and debugging are two steps in the software development process that work together.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Testing:** The process of finding defects. It involves executing the product to identify any issues. Performed by testers to find defects.
-
-2. **Debugging:** The process of analyzing and fixing defects. It involves root cause analysis and correcting the identified issues. Performed by developers to analyze and fix defects.
-
-</details>
-
-## Independence of Testing
-
-**Explanation:**
-
-Independence of testing refers to the concept where the testing of a software product is conducted by a person or a team that is separate and independent from the team that developed the software.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Objectivity:** Independent testing provides an objective view of the software, which helps in identifying defects that might be overlooked by the development team due to familiarity with the code.
-
-2. **Bias Reduction:** Since the testing team is separate from the development team, it reduces the risk of bias and ensures a more thorough and impartial testing process.
-
-3. **Specialized skills:** Independent testers often have specialized skills in testing methodologies and tools, which can contribute to a more effective testing process.
-
-4. **Accountability:** Having a separate testing team holds the development team accountable for the quality of their work, as any defects found can be traced back to the development process.
-
-5. **Degrees of Independence:**
-
-    - **No Independence:** Work products are tested by their author. This means the developer who wrote the code also tests it.
-    - **Peer Review:** Work products are tested by the author's peer from the same team. For example, one developer tests another developer's code.
-    - **Separate Testing Team:** Testers from outside the author's team but within the same organization perform the testing. This is the most common practice today.
-    - **External Testing:** Testers from outside the organization perform the testing. This is often seen in small-scale organizations that outsource testing to third-party organizations.
-
-6. **Benefits and Drawbacks:**
-
-    - **Benefits:**
-        - Independent testers are likely to recognize different kinds of failures and defects compared to developers due to their different backgrounds and perspectives.
-        - Independent testers can verify, challenge, or disapprove assumptions made by stakeholders during the specification and implementation of the system.
-
-    - **Drawbacks:**
-        - Independent testers may be isolated from the development team, leading to a lack of collaboration and understanding.
-        - Developers may lose the sense of responsibility for quality if testing is entirely outsourced.
-        - Independent testers may be seen as a bottleneck or blamed for delays in release.
-
-7. **Best Practices:**
-
-    - For most projects, it is best to carry out testing with multiple levels of independence. For example, developers can perform component and component integration testing, the test team can perform system and system integration testing, and business representatives can perform acceptance testing. This blended approach leverages the benefits of different degrees of independence while mitigating the drawbacks.
-
-</details>
-
-## Whole Team Approach
-
-**Explanation:**
-
-The whole team approach emphasizes collaboration and coordination among all team members to ensure quality throughout the software development lifecycle.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Collaboration:** Emphasizes the importance of collaboration and coordination among all team members (developers, testers, business representatives). This improves team dynamics, enhances communication, and creates synergy by leveraging various skill sets within the team.
-
-2. **Shared Responsibility for Quality:** Quality is not just the responsibility of the testing team. Every team member, including developers and business representatives, is responsible for ensuring the product's quality.
-
-3. **Collocation:** Team members share the same workspace, whether physical or virtual, to facilitate communication and interaction. This helps in reducing communication gaps and ensures better understanding among team members.
-
-4. **Close Collaboration:** Testers work closely with other team members to ensure desired quality levels are achieved. This includes collaborating with business representatives to create suitable acceptance tests and working with developers to agree on test strategies and automation approaches.
-
-5. **Knowledge Transfer:** Testers transfer testing knowledge to other team members, influencing the development of the product. They act as quality coaches, educating others about testing and quality practices.
-
-6. **Limitations:** While the whole team approach has many benefits, it may not always be appropriate. In safety-critical situations, a high level of test independence may be needed to ensure unbiased testing.
-
-</details>
-
-## Test Objectives
-
-**Explanation:**
-
-Test objectives are the specific goals and purposes of testing. They guide testers to align with the overall project goals and ensure that the software meets the required standards and user expectations.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Evaluating Work Products:**
-    - **Description:** Review requirements, user stories, design documents, and code to identify defects early in the development process.
-    - **Purpose:** Catch defects early to reduce the cost and effort of fixing them later.
-
-2. **Triggering Failures and Finding Defects:**
-    - **Description:** Execute tests to intentionally trigger failures in the system under test.
-    - **Purpose:** Identify defects that need to be fixed to improve software quality.
-
-3. **Ensuring Required Coverage:**
-    - **Description:** Achieve a certain level of coverage, which could be in terms of requirements, risk, functionality, or code.
-    - **Purpose:** Ensure that all critical areas of the software are tested and validated.
-
-4. **Reducing Risk of Inadequate Software Quality:**
-    - **Description:** Conduct thorough testing to prevent major failures in the production environment.
-    - **Purpose:** Minimize the risk of software defects affecting end-users.
-
-5. **Verifying Requirements Fulfillment:**
-    - **Description:** Confirm that the software meets the specified requirements and user needs.
-    - **Purpose:** Ensure that the software delivers the expected functionality and performance.
-
-6. **Regulatory Compliance:**
-    - **Description:** Ensure that the software complies with regulatory requirements specific to the domain (healthcare, finance, automotive).
-    - **Purpose:** Avoid legal and compliance issues by meeting industry standards and regulations.
-
-7. **Providing Information to Stakeholders:**
-    - **Description:** Communicate test results, progress, and any identified issues to stakeholders.
-    - **Purpose:** Keep stakeholders informed to facilitate decision-making and project management.
-
-8. **Building Confidence in Product Quality:**
-    - **Description:** Conduct comprehensive testing to ensure the software meets quality standards.
-    - **Purpose:** Increase confidence among stakeholders and users in the reliability and performance of the software.
-
-9. **Validating Completeness and Functionality:**
-    - **Description:** Ensure that the software is complete and functions correctly as intended.
-    - **Purpose:** Verify that all features and functionalities are implemented and working as expected.
-
-10. **Supporting Decision Making:**
-    - **Description:** Provide detailed information about the software's quality and readiness for release.
-    - **Purpose:** Help stakeholders make informed decisions about the release and deployment of the software.
-
-11. **Improving Development Process:**
-    - **Description:** Identify areas for improvement in the development and testing processes.
-    - **Purpose:** Enhance overall software quality by refining processes and practices based on testing feedback.
-
-</details>
-
 ## Principles of Testing
 
 **Explanation:**
@@ -263,134 +138,127 @@ The principles of testing are fundamental guidelines that dictate what to test, 
 
 </details>
 
-## Test Activities
+## Test Process
 
 **Explanation:**
-
-Test activities, also known as the test process, involve various tasks and processes to ensure a software product meets the required quality standards. The artifacts produced during these activities are collectively known as testware.
-
-- **Artifacts:** These are individual pieces of documentation or tools created and used during the testing process. Examples include a single test case, a defect report, or a test plan. Each artifact serves a specific purpose and provides detailed information about a particular aspect of the testing process.
-
-- **Testware:** This is a collective term that encompasses all the artifacts produced during the testing process. It includes all the documentation, scripts, inputs, expected results, setup and cleanup procedures, files, databases, environment configurations, and any other software or hardware used during testing. Testware ensures that testing is thorough, repeatable, and consistent.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Test Planning:** The phase where the testing lifecycle begins. This involves defining the test objectives. Depending on the context.
+1. **Test Planning:** Define objectives, choose an approach, schedule resources, and set entry/exit criteria.
 
-    - **Activities:**
+2. **Test Monitoring and Control:** Continuously track progress against the plan, adjust as needed, and update risks.
 
-        - Define goals and objectives of testing.
-        - Determine the overall approach, timelines, resources, and tools.
-        - Define entry and exit criteria.
-        - Plan for monitoring and control.
+3. **Test Analysis:** Examine the documentation—the test basis (requirements, designs, user stories)—to identify what features or conditions need testing.
 
-    - **Deliverables (Artifacts):**
+4. **Test Design:** Develop test cases and related artifacts such as test data and test charters.
 
-        - Test Plan
-        - Test Schedule
-        - Risk Register
-        - Entry and Exit Criteria
+5. **Test Implementation:** Build or acquire the test artifacts needed for execution, including test procedures (step-by-step instructions), automation scripts, and setting up the test environment.
 
-2. **Test Monitoring and Control:** This involves the ongoing checking of all test activities and the comparison of actual progress against the plan.
+6. **Test Execution:** Run tests, compare actual and expected results, log outcomes, and report defects.
 
-    - **Activities:**
+7. **Test Completion:** inalize testing activities by reviewing exit criteria, archiving test artifacts, and documenting lessons learned.
 
-        - Monitor test progress.
-        - Compare actual progress against the plan.
-        - Document control directives(guidelines, policies, or instructions).
-        - Update risk information.
+<details>
 
-    - **Deliverables (Artifacts):**
+## Test Activities
 
-        - Test Progress Report
-        - Control Directives
-        - Updated Risk Information
+Test activities, often referred to as the test process, involve a series of tasks to ensure that a software product meets its quality standards. Throughout these activities, various tangible outputs are produced.
 
-3. **Test Analysis:** Analyzing the test basis to derive test cases.
+- **Artifact:** These are the individual pieces of documentation or tools created during the testing process. They serve as the building blocks of testing outputs.
 
-    - **Activities:**
+- **Deliverables:** A subset of artifacts, deliverables are the specific reports and documents provided to stakeholders. Examples include the Test Plan, Test Summary Reports, and Test Closure Report.
 
-        - Identify testable features.
-        - Define and prioritize test conditions (test scenarios).
-        - Evaluate test basis and test objects to identify defects.
-        - Use test techniques to identify test conditions.
+- **Testware (Test Artifacts):** This is the broader collection of all technical outputs used in or generated by the testing process. Along with deliverables, testware includes items such as test cases, test scripts, test data, and configuration files. These ensure that testing is thorough, repeatable, and consistent.
 
-    - **Deliverables (Artifacts):**
+<details>
+    <summary>Overview:</summary>
 
-        - Prioritized Test Conditions
-        - Defect Report regarding defects in the test basis.
-            - **Test Basis** is The documentation or source of information used to derive test cases and test conditions. It includes all the necessary details that guide the testing process.
+- **Test Planning:** Define test objectives, select an appropriate approach, establish timelines, resources, and criteria (entry/exit). This sets the stage for all subsequent test activities.
 
-4. **Test Design:** It's involves test cases identifying other test artifacts.
+- **Test Monitoring and Control:** Continuously review test progress against the plan and make adjustments as necessary. Activities here include tracking progress, issuing control directives, and updating risk information.
 
-    - **Activities:**
+- **Test Analysis:** Analyze the test basis to identify testable features, derive test conditions, and assess potential risks and defects. This stage answers the question: "What should we test?"
 
-        - Write test cases and testware (test data, configurations).
-        - Identify coverage items.
-        - Define test data requirements, environment, and tools.
+- **Test Design:** Elaborate the test conditions into detailed test cases and other supporting testware (test charters). It involves defining required test data, environment configurations, and applying appropriate test techniques — essentially answering “How to test?”
 
-    - **Deliverables (Artifacts):**
+- **Test Implementation:** Create or acquire the necessary testware, including writing test procedures and scripts, assembling test suites, and setting up the test environment to prepare for execution.
 
-        - Prioritized Test Cases
-        - Test Charters
-        - Test Data Requirements
-        - Test Environment Requirements
+- **Test Execution:** Carry out the test cases (either manually or automated), compare actual results with expected results, log test outcomes, and report any anomalies and defects.
 
-5. **Test Implementation:** Preparing for test execution.
+- **Test Completion:** Conclude test activities at project milestones by evaluating exit criteria, archiving useful testware, and producing a Test Completion Report that includes lessons learned and recommendations for future improvements.
 
-    - **Activities:**
+</details>
 
-        - Define test procedures(step-by-step instructions) and automation scripts.
-        - Create test suites (collection of test cases).
-        - Prioritize test procedures.
-        - Set up and verify the test environment,  including the installation and configuration of tools.
+## Test Roles
 
-    - **Deliverables (Artifacts):**
+**Explanation:**
 
-        - Test Procedures.
-        - Automated Test Scripts.
-        - Test Suites.
-        - Test Data.
-        - Execution Schedule.
-        - Environment Elements
-            - **Stubs** are dummy components or modules that simulate the behavior of actual components. They are used to mimic the responses of lower-level modules that are not yet implemented or are unavailable during testing.
+Test roles define the responsibilities and contributions of different individuals involved in the testing process.
 
-            - **Drivers** are dummy components or modules that simulate the behavior of higher-level modules. They are used to invoke and test lower-level modules that are not yet integrated with the higher-level modules.
+<details>
+    <summary>Overview:</summary>
 
-            - **Simulators** are tools or software that mimic the behavior of real systems or devices. They are used to create a virtual environment that replicates the conditions of the actual system.
+1. **Test Management:** Responsibility for the test process, and the test team. This role focuses on test planning, monitoring and control, and test completion. Activities include defining goals and objectives, determining the overall approach, timelines, resources, tools, and managing the test process.
 
-            - **Service virtualization** is a technique used to simulate the behavior of dependent services or components that are not available or are difficult to access during testing. It creates virtual versions of these services to enable continuous testing.
+2. **Test Engineer:** Responsibility for the Technical aspects of testing. This role focuses on test analysis, design, implementation, and execution. Activities include analyzing the test basis, writing test cases, preparing test data, setting up the environment, executing tests, and reporting defects.
 
-6. **Test Execution:** Executing the test cases.
+3. **Role Flexibility:** In small organizations, one person can take on both test management and test engineer roles. In other organizations, responsibilities may vary based on project context, skills, and the structure of the company. Different people may take on these roles at different times, and it is possible for one person to handle multiple roles depending on the availability and context.
 
-    - **Activities:**
+</details>
 
-        - Execute test cases and compare actual vs. expected results.
-        - Report defects and track them for closure.
-        - Perform retesting and regression testing.
-        - Debugging and root cause analysis.
+## Whole Team Approach
 
-    - **Deliverables (Artifacts):**
+**Explanation:**
 
-        - Test Logs.
-        - Defect Reports.
+The whole team approach means that everyone on the team—developers, testers, and business representatives—is responsible for quality. The team works in a shared space (physical or virtual), which improves communication and collaboration.
 
-7. **Test Completion:** Test completion is the last step in the software testing life cycle, where we finalize all testing activities and document the results.
+<details>
+    <summary>Overview:</summary>
 
-    - **Activities:**
+1. **Collaboration:** All team members work together closely, sharing information and responsibilities.
 
-        - Evaluate exit criteria.
-        - Hand over the product to the business.
-        - Document and archive test artifacts.
-        - Gather lessons learned.
-        - Prepare and share the test summary report.
+2. **Shared Responsibility for Quality:** Quality is everyone's job, not just the testers’. For example, developers help define tests and fix defects, while testers offer insights into improving the product.
 
-    - **Deliverables (Artifacts):**
+3. **Co-location:** Working in the same space (or virtually closely) helps reduce misunderstandings and speeds up problem-solving.
 
-        - Test Completion Report
-        - Action Items for Improvement
-        - Documented Lessons Learned
-        - Change Requests
+4. **Knowledge Transfer:** Testers pass on testing knowledge to developers and other team members, improving overall quality.
+
+5. **Context Matters:** In some cases (such as safety-critical systems), a higher level of test independence may be required.
+
+</details>
+
+## Independence of Testing
+
+**Explanation:**
+
+Independence of testing means that testing is performed by individuals or teams separate from those who developed the software. This helps to reduce bias and increases the chances of finding defects.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Objectivity:** Independent testers bring a fresh perspective, likely identifying defects that developers might overlook because of familiarity.
+
+2. **Degrees of Independence:**
+
+    - **No Independence:** Work products are tested by their author. This means the developer who wrote the code also tests it.
+    - **Peer Review:** Work products are tested by the author's peer from the same team. For example, one developer tests another developer's code.
+    - **Separate Testing Team:** Testers from outside the author's team but within the same organization perform the testing. This is the most common practice today.
+    - **External Testing:** Testers from outside the organization perform the testing. This is often seen in small-scale organizations that outsource testing to third-party organizations.
+
+3. **Benefits and Drawbacks:**
+
+    - **Benefits:**
+        - Independent testers are likely to recognize different kinds of failures and defects compared to developers due to their different backgrounds and perspectives.
+        - Independent testers can verify, challenge, or disapprove assumptions made by stakeholders during the specification and implementation of the system.
+
+    - **Drawbacks:**
+        - Independent testers may be isolated from the development team, leading to a lack of collaboration and understanding.
+        - Developers may lose the sense of responsibility for quality if testing is entirely outsourced.
+        - Independent testers may be seen as a bottleneck or blamed for delays in release.
+
+4. **Benefits:** Independent testers can challenge assumptions and discover different kinds of issues, helping to ensure a more reliable product.
+
+5. **Drawbacks:** Too much separation can lead to communication gaps. A balanced approach (combining several levels of independence) is often best.
 
 </details>
