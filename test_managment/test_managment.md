@@ -277,6 +277,37 @@ Test Planning It involves creating a detailed document that outlines the strateg
     - **Test Types:** Specify the types of testing to be performed (functional testing, non-functional testing).
     - **Test Techniques:** Describe the techniques and methodologies that will be used (White-box Testing, Black-box Testing, User Acceptance Testing (UAT)).
     - **Entry and Exit Criteria:** Define the conditions that must be met to start and stop testing activities, ensuring that the testing process is well-structured and efficient.
+    - **Testing Quadrants:** This is a model that helps teams identify what type of testing is needed, when it should be done, and who should do it. It divides testing into four quadrants    based on whether the tests are business or technology-facing and whether they support the team or critique the product.
+
+        - **Quadrant Q1: Technology-Facing Tests that Support the Team**
+            - **Purpose:** Ensure code quality and correctness.
+            - **Types of Tests:** Unit Tests, Integration Tests, System Tests.
+            - **Characteristics:** Automated, run frequently.
+            - **Example:** Writing unit tests for individual functions.
+
+        - **Quadrant Q2: Business-Facing Tests that Support the Team**
+            - **Purpose:** Validate business requirements and user scenarios.
+            - **Types of Tests:** Functional Tests, Story Tests, Prototypes, Simulations.
+                - **Functional tests** are designed to verify that the software performs its intended functions correctly. These tests focus on the functionality of the software and ensure that it meets the specified requirements.
+                - **Story tests** are acceptance tests that are derived from user stories. They are used to validate that the software meets the acceptance criteria defined for each user story.
+                - **Prototypes** are early models or versions of a product used to visualize and test design concepts. They help in understanding how the final product will look and function.
+                - **Simulations** are tools or software that mimic the behavior of real systems or environments. They are used to create a virtual environment for testing purposes.
+            - **Characteristics:** Can be automated or manual.
+            - **Example:** Creating functional tests for user purchase flows.
+
+        - **Quadrant Q3: Business-Facing Tests that Critique the Product**
+            - **Purpose:** Find defects and improve user experience.
+            - **Types of Tests:** Exploratory Testing, Usability Testing, User Acceptance Testing (UAT), Alpha/Beta Testing.
+            - **Characteristics:** Often manual.
+            - **Example:** Conducting usability testing for mobile app navigation.
+
+        - **Quadrant Q4: Technology-Facing Tests that Critique the Product**
+            - **Purpose:** Assess non-functional aspects like performance and security.
+            - **Types of Tests:** Performance Testing, Load Testing, Security Testing.
+            - **Characteristics:** Can be automated or manual.
+            - **Example:** Performing testing for web application scalability.
+
+            ![alt text](./assets/images/testQuandrants.png)
 
         <details>
            <summary>Overview:</summary>
