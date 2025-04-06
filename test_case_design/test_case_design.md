@@ -209,7 +209,7 @@ Also known as the Test Results Table, documents the execution of scenarios and t
 3. **Execution Date:** The date when the test case was executed.
 4. **Tester Name:** The name of the person who executed the test case. This is useful for manual testing but may not be necessary for automated tests.
 5. **Actual Results:** The actual outcome of the test case.
-6. **Pass/Fail Status:** Indicates whether the test case passed or failed.
+6. **Pass/Fail/Block Status:** Indicates whether the test case passed, failed, block.
 7. **Comments/Defects:** Any additional comments or details about defects found during testing.
 
 </details>
@@ -223,21 +223,21 @@ A traceability matrix is a document that maps and traces user requirements with 
 <details>
     <summary>Overview:</summary>
 
-1. **Purpose**: To ensure that all requirements are covered by test cases and to identify any missing requirements or test cases.
+1. **Purpose:** To ensure that all requirements are covered by test cases and to identify any missing requirements or test cases.
 
-2. **Structure**:
-    - **Requirement ID**: Unique identifier for each requirement.
-    - **Requirement Description**: Detailed description of the requirement.
+2. **Structure:**
+    - **Requirement ID:** Unique identifier for each requirement.
+    - **Requirement Description:** Detailed description of the requirement.
     - **Scenario ID:** Unique identifier for each test scenario.
     - **Scenario Description:** High-level description of the scenario being tested.
-    - **Test Case ID**: Unique identifier for each test case.
-    - **Test Case Description**: Detailed description of the test case.
-    - **Status**: Indicates whether the requirement is covered by the test case (Covered, Not Covered).
+    - **Test Case ID:** Unique identifier for each test case.
+    - **Test Case Description:** Detailed description of the test case.
+    - **Status:** Indicates whether the requirement is covered by the test case (Covered, Not Covered).
 
-3. **Types of Traceability Matrices**:
-    - **Forward Traceability**: Ensures that all requirements are covered by test cases.
-    - **Backward Traceability**: Ensures that all test cases are linked to requirements.
-    - **Bidirectional traceability**: Ability to trace forward (from requirement to test case) and backward (from test case to requirement).
+3. **Types of Traceability Matrices:**
+    - **Forward Traceability:** Ensures that all requirements are covered by test cases.
+    - **Backward Traceability:** Ensures that all test cases are linked to requirements.
+    - **Bidirectional traceability:** Ability to trace forward (from requirement to test case) and backward (from test case to requirement).
 
 </details>
 
