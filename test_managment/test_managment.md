@@ -2,11 +2,9 @@
 # Content of Table Managing the Test Managment
 
 - [Test Planning](#test-planning)
-- [Test Monitoring and Control](#test-monitoring-and-control)
+- [Test Monitoring, Control and Completion](#test-monitoring-control-and-completion)
 - [Configuration Management](#configuration-management)
 - [Defect Management](#defect-management)
-- [Test Reporting](#test-reporting)
-- [Deliverables and Testware After Testing Process](#deliverables-and-testware-after-testing-process)
 
 **Explanation:**
 
@@ -389,12 +387,38 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
 5. **Resources:**
 
-    - **Roles and Responsibilities:** Define the roles and responsibilities of the testing team and other stakeholders.
+    - **Roles and Responsibilities:** Clearly define who is involved and what they.
+
+        - Identify key testing roles (Test Lead, Test Analyst, Automation Engineer).
+
+        - Outline responsibilities for each role.
+
+        - Include stakeholder involvement (developers, product owners) as needed.
 
     - **Test Environment:**
-        - **Environment Setup:** Identify hardware and software requirements, configure the environment, and install necessary tools.
+        - **Environment Setup:** List the required hardware and software requirements, and configure the environment.
 
-        - **Test Data Management:** Identify data requirements, create or extract test data, ensure data privacy and security, and maintain test data.
+        - **Test Data Management:** Determine what kinds of data are needed for your tests. This involves reviewing requirements and design documents.
+
+            - **Define Data Requirements:**
+
+                - The types of data (numbers, text, dates)
+
+                - Valid and invalid input values
+
+                - Edge cases (like minimum and maximum values)
+
+            - **Create or Extract Test Data:** Produce or obtain the necessary data.
+
+                - Generate data manually or automatically if needed.
+
+                - Extract data from existing sources if it fits the testing scenarios.
+
+            - **Data Privacy and Security:** Protect sensitive information
+
+                - Anonymize or mask personal data.
+
+                - Follow data privacy regulations while using or sharing test data.
 
         - **Environment Maintenance:** Monitor and maintain the test environment to ensure stability and reliability.
 
@@ -402,111 +426,134 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
 6. **Schedule:**
 
-    - **Testing Timeline:** Provide a timeline for the testing activities, including start and end dates.
+    - **Testing Timeline:** Provide a detailed timeline for testing activities. Specify the start and end dates for major phases such as test planning, test design, environment setup, test execution, and test closure.
+
     - **Milestones:** Identify key milestones and deliverables throughout the testing process.
-    - **Deliverables:** List the expected deliverables from the testing activities (test cases, test scripts, test reports).
+
+        - Completion of the Test Plan
+
+        - Test Environment setup and validation
+
+        - Execution of the initial round of test cases
+
+        - Intermediate status reports or Test Progress Reports
+
+        - Final Test Execution and Regression Testing
+
+        - Test Closure and Stakeholder Acceptance
+
+    - **Deliverables:** Clearly list the outputs that you will provide at various stages.
+
+        - **Test Plan Document:** Outlines the testing strategy, scope, approach, resources, schedule, and risk management.
+
+        - **Test Cases and Test Scripts:** Detailed procedures and automation scripts used during testing.
+
+        - **Test Progress Reports:** Intermediate updates that track testing progress against the plan.
+
+        - **Test Execution Reports:** Detailed logs that document the outcomes of test runs, including defects logged.
+
+        - **Test Summary and Test Closure Report:** A final report summarizing test results, defect metrics, coverage, lessons learned, and any outstanding issues.
+
+        - **Metrics and Traceability Matrices:** Documentation that maps test cases to requirements and tracks test coverage.
 
 7. **Test Estimation:**
 
     **Explanation:**
 
-    Test Estimation is the process of predicting the time, effort, and cost required for testing activities.
+    Test Estimation is the process of forecasting the time, effort, and cost needed to complete testing activities. Since every estimate is based on assumptions and historical data, small tasks tend to be estimated more accurately than large ones. For larger tasks, it is advisable to break them down into smaller, manageable components and estimate each part individually.
 
     <details>
        <summary>Overview:</summary>
 
     1. **Metrics-Based Estimation:**
 
-        - **Estimation Based on Ratios:** This technique involves using data from previous projects to derive standard ratios that can be applied to new projects.
+        - **Estimation Based on Ratios:** Use historical data from previous projects to determine standard ratios (such as development-to-test effort ratios) and apply them to the current project.
 
             <details>
                <summary>Examples:</summary>
 
-            Development to test effort ratio in a previous project was 3:2, and the current project has a development effort of 600 person-days, the test effort can be estimated as 400 person-days.
+            If a previous project used a 3:2 ratio (3 person-days of development for every 2 person-days of testing) and the current project estimates 600 person-days of development, the testing effort is estimated around 400 person-days.
 
             </details>
 
-        - **Extrapolation:** This technique uses data from the current project to estimate future activities.
+        - **Extrapolation:** Gather data early from the current project and project future effort based on observed trends.
 
             <details>
                <summary>Examples:</summary>
 
-            Team completed 80 story points in the first sprint, they might estimate that they can complete 80 story points in the next sprint as well.
+            If a team completed 80 story points in the first sprint, they might estimate a similar effort in upcoming sprints by averaging past performance.
 
             </details>
 
     2. **Expert-Based Estimation:**
 
-    - **Wide Band Delphi:** In this iterative technique, people make experience-based estimations in isolation. The results are collected, and if there are significant deviations, the experts discuss their estimations and make new estimates based on the feedback. This process is repeated until a consensus is reached.
+        - **Wide Band Delphi:** Experts provide individual estimates in isolation. Their estimates are then discussed as a group, and adjustments are made iteratively until consensus is reached.
 
-    - **Three Point Estimation:** This technique uses three estimates to define an approximate range for an activity's cost: Most Likely (M), Optimistic (O), and Pessimistic (P). The expected cost E.
+        - **Three Point Estimation:** This technique uses three estimates to define an approximate range for an activity's cost: Most Likely (M), Optimistic (O), and Pessimistic (P). The expected cost E.
 
-        <details>
-           <summary>Syntax:</summary>
+            <details>
+               <summary>Syntax:</summary>
 
-        - `E` is the expected duration
-        - `O` is the optimistic duration (the shortest time in which the task can be completed)
-        - `M` is the most likely duration (the completion time having the highest probability)
-        - `P` is the pessimistic duration (the longest time the task might take, assuming everything goes wrong)
+            - `E` is the expected duration
+            - `O` is the optimistic duration (the shortest time in which the task can be completed)
+            - `M` is the most likely duration (the completion time having the highest probability)
+            - `P` is the pessimistic duration (the longest time the task might take, assuming everything goes wrong)
 
-        `E = (O + 4M + P) / 6`
+            - `E = (O + 4M + P) / 6`
 
-        </details>
+            </details>
 
-        <details>
-           <summary>Examples:</summary>
+            <details>
+               <summary>Examples:</summary>
 
-        - Optimistic duration `O` = 3 days (if everything goes perfectly)
+            - Optimistic duration `O` = 6 hours (if everything goes perfectly)
 
-        - Most likely duration `M` = 5 days (the most probable duration considering normal problems and delays)
+            - Most likely duration `M` = 9 hours (the most probable duration considering normal problems and delays)
 
-        - Pessimistic duration `P` = 9 days (if many issues are found during testing)
+            - Pessimistic duration `P` = 18 hours (if many issues are found during testing)
 
-        - **Answer:** `E = (3 + 4*5 + 9) / 6 = 5.33 days`
+            - **Answer:** `E = (6 + 4×9 + 18) / 6 = 10 hours`, with a standard deviation `SD = (O – P)/6` of 2 hours. This means you can expect the task to take between 8 and 12 hours.
 
-        </details>
+            </details>
 
     </details>
 
-8. **Communication Plan:**
-
-    - **Forms and Frequency of Communication:** Define how and when communication will occur among team members and stakeholders.
-    - **Documentation Templates:** Specify the templates to be used for documentation and reporting.
-
-9. **Budget:**
-
-    - **Budget Allocation:** Detail the budget allocated for testing activities.
-    - **Cost Estimates:** Provide cost estimates for resources, tools, and other expenses related to testing.
-
-10. **Approval:**
-
-    - **Sign-off by Stakeholders:** The sign-off section of a test plan is indicates that all stakeholders have reviewed and approved the test plan. This approval signifies that the stakeholders agree with the testing strategy, scope, objectives, and other details outlined in the test plan.
+8. **Communication Plan:** Describe the forms (emails, meetings, dashboards) and frequency (daily stand-ups, weekly status updates) of communication. Also mention any documentation templates used for reporting.
 
 </details>
 
-## Test Monitoring and Control
+## Test Monitoring, Control and Completion
 
 **Explanation:**
 
-Test Monitoring and Control are critical components of the test management process. They ensure that the testing activities are progressing as planned and help in identifying any deviations from the plan.
+Test Monitoring and Control are essential for ensuring that testing stays on track. Monitoring gathers data about testing progress, while control uses that data to make necessary adjustments. Test Completion then gathers all learnings and data for final reporting.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Test Monitoring:**
-    - Test monitoring involves the continuous observation and measurement of the testing process. It helps in tracking the progress of testing activities against the planned schedule and budget.
-    - Monitoring includes keeping an eye on various factors such as cost, time, effort, and resources. It ensures that the testing process is on track and any issues are identified early.
-    - The primary goal of test monitoring is to provide visibility into the testing process and ensure that the project is progressing as expected.
+1. **Test Monitoring:** Continuously gather information on testing activities to confirm that everything remains on track.
 
-2. **Test Control:**
-    - Test control involves taking corrective actions based on the information gathered from test monitoring. When deviations from the plan are observed, appropriate control actions are implemented to address these deviations.
-    - Control actions can include reprioritizing tests, reallocating resources, adjusting schedules, or modifying test plans. These actions help in bringing the testing process back on track.
-    - Test control ensures that the testing objectives are met and the quality of the product is maintained.
+    - **Track Progress:** Verify that test execution, effort, and resource usage remain on schedule.
 
-3. **Test Metrics:**
-    - Test metrics are quantitative measures used to assess various aspects of the testing process. They provide valuable insights into the effectiveness and efficiency of testing activities.
-    - Metrics can include project progress metrics (test completion, resource utilization), test progress metrics (test case implementation progress, test execution time), product quality metrics (defect density, response time).
-    - By analyzing these metrics, test managers can make informed decisions, identify areas for improvement, and ensure that the testing process aligns with the project goals.
+    - **Verify Quality Targets:** Ensure quality targets (test coverage, defect rates) are being meet predefined objectives.
+
+    - **Collect Simple Metrics:** Use simple metrics such as the number of executed test cases and defect counts.
+
+2. **Test Control:** Respond to the monitoring data with corrective or enhancement actions.
+
+    - **Identify Deviations:** Identify deviations from the plan (delays or unexpected defects).
+
+    - **Issue Control Directives:** Reprioritize tests, adjust schedules, or reallocate resources as needed to bring testing back in line.
+
+    - Reallocate resources when necessary.
+
+3. **Test Completion (and Reporting):** Compile and analyze data once a test phase or project is finished. This phase is where Test Reporting comes into play.
+
+    - **Gather Data and Learnings:** Collect all test results, issues, and lessons learned during the testing process.
+
+    - **Prepare Final Reporting:** Create a comprehensive Test Completion Report that summarizes outcomes, deviations, quality evaluations, and metrics. This report acts as your final Test Report, providing transparency to stakeholders and serving as a reference for continuous improvement.
+
+    - **Ensure Transparency:** Distribute the final report to stakeholders, ensuring they receive a clear and accountable record of the testing process.
 
 </details>
 
@@ -514,20 +561,20 @@ Test Monitoring and Control are critical components of the test management proce
 
 **Explanation:**
 
-Systematic process for maintaining consistency of a product's requirements. In the context of software testing, configuration management ensures that all test artifacts and related items are properly managed and controlled.
+Configuration Management (CM) is the systematic process for maintaining consistency and control over test artifacts and related items. It ensures that everything from test plans to test scripts is uniquely identified, controlled, and traceable.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Unique Identification:** Every item involved in the testing process, such as test cases, test scripts, test data, and test environments, must have a unique identifier. This helps in tracking and managing these items effectively.
+1. **Unique Identification:** Every test artifact (test cases, scripts, data, environments) gets a unique identifier to support effective tracking.
 
-2. **Version Control:** Managing changes to test artifacts. It involves keeping track of different versions of each item, ensuring that changes are documented, and previous versions can be retrieved if necessary. This helps in maintaining the integrity of the testing process.
+2. **Version Control:** Manage and record changes to test artifacts. This keeps a history of revisions so that previous versions can be retrieved if needed.
 
-3. **Change Management:** Involves controlling and documenting changes to test artifacts. Any modifications to test cases, test scripts, or other items must go through a formal process to ensure that changes are reviewed, approved, and tracked.
+3. **Change Management:** Control changes via a formal process. Any modifications must be reviewed, approved, and documented.
 
-4. **Traceability:** Traceability ensures that all test artifacts are linked to their related requirements, design documents, and other relevant items. This helps in understanding the relationships between different items and ensures that all requirements are covered by test cases.
+4. **Traceability:** Link all test artifacts to related requirements and design documents, ensuring that every requirement is covered and relationships are clear.
 
-5. **History of Revisions:** Maintaining a history of revisions allows teams to track changes made to test artifacts over time. This includes documenting what changes were made, who made them, and why they were made. This historical information is valuable for audits and for understanding the evolution of the testing process.
+5. **Baseline and Revisions:** Once approved for testing, a configuration item becomes a baseline. Changes are tracked so you can revert to previous configurations if necessary.
 
 </details>
 
@@ -535,38 +582,35 @@ Systematic process for maintaining consistency of a product's requirements. In t
 
 **Explanation:**
 
-Defect management is the process of managing defects within the software testing lifecycle (STLC). It includes activities and artifacts involved in identifying, documenting, and resolving defects.
+Defect management is the systematic process of identifying, documenting, prioritizing, and resolving anomalies (defects) found during testing. It ensures that every detected issue is tracked from discovery through resolution and closure.
 
 <details>
     <summary>Overview:</summary>
 
-1. **What is a Defect?** A defect is a deviation from the expected result or requirement, often referred to as an anomaly.
+1. **What is a Defect?** A defect (or anomaly) is any deviation from the expected result or requirement.
 
-2. **Defect Reporting:** Communication of defect reports (also known as bug reports) is essential for ensuring that stakeholders are aware of the testing status and any issues that may arise. Different stakeholders may require different types of information, so reports should be tailored accordingly. Defect reports should include details such as the number of defects identified, their severity, status, and any trends observed.
+2. **Defect Management Process:**
 
-3. **Defect Management Process:**
+    - **Defect Identification:** Discover defects during testing.
+    - **Defect Logging:** Record all essential details in a defect tracking tool.
+    - **Defect Triage:** Review, categorize, and prioritize defects.
+    - **Defect Assignment:** Assign defects to the appropriate team members for resolution.
+    - **Defect Resolution and Verification:** Fix the defect and verify that the fix resolves the issue.
+    - **Defect Closure:** Once verified, close the defect and record the resolution details.
 
-    - **Defect Identification:** Finding defects in the software.
-    - **Defect Logging:** Documenting the identified defects.
-    - **Defect Triage:** Prioritizing and categorizing defects.
-    - **Defect Assignment:** Assigning defects to the appropriate team members for resolution.
-    - **Defect Resolution:** Fixing the defects.
-    - **Defect Verification:** Verifying that the defects have been fixed.
-    - **Defect Closure:** Closing the defects once they are resolved and verified.
-
-4. **Bug Severity Levels:**
-    - **Critical:** System crash, data loss, security vulnerability.
+3. **Bug Severity Levels:**
+    - **Critical:** System crash, data loss, security issues.
     - **High:** Major feature broken but no system-wide failure.
     - **Medium:** Functionality issue, but workaround available.
-    - **Low:** Minor UI bugs, spelling mistakes.
+    - **Low:** Minor issues such as cosmetic defects.
 
-5. **Bug Priority Levels:**
+4. **Bug Priority Levels:**
     - **P1 (Urgent):** Must be fixed immediately.
     - **P2 (High):** Should be fixed soon but not blocking.
     - **P3 (Medium):** Fix when possible, minor impact.
     - **P4 (Low):** Cosmetic or minor improvements.
 
-6. **Bug Report Structure:**
+5. **Bug Report Structure:**
     - **Bug ID:** Unique identifier for the bug (BUG-001).
     - **Title:** A brief and descriptive title summarizing the bug ("Login button not responsive on mobile devices").
     - **Description:** A detailed description of the bug, including what the bug is, where it occurs, and its impact on the application.
@@ -575,13 +619,9 @@ Defect management is the process of managing defects within the software testing
         2. Include any specific conditions or data required to reproduce the issue.
     - **Expected Result:** A clear description of what should happen if the bug were not present.
     - **Actual Result:** A clear description of what actually happens when the bug occurs.
-    - **Severity:** The severity level of the bug (Critical, High, Medium, Low).
-    - **Priority:** The priority level of the bug (P1 (Urgent), P2 (High), P3 (Medium), P4 (Low)).
-    - **Environment:**
-        - Browser (Chrome 92.0.4515.107)
-        - Operating System (Windows 11)
-        - Device (iPhone 12)
-        - Application version (v1.2.3)
+    - **Severity:** The severity level of the bug (impact on the system).
+    - **Priority:** The priority level of the bug (urgency for fixing).
+    - **Environment:** Environment details (browser, OS, app version)
     - **Attachments:** Any relevant screenshots, videos, logs, or error messages that help illustrate the bug.
     - **Additional Information:** Any other information that might be relevant, such as related bugs, recent changes, or possible causes.
     - **Reporter:** Name and contact information of the person who reported the bug.
@@ -590,111 +630,18 @@ Defect management is the process of managing defects within the software testing
     - **Date Reported:** The date when the bug was reported.
     - **Date Resolved:** The date when the bug was resolved (if applicable).
 
-7. **Common Mistakes to Identify:**
+6. **Common Mistakes to Identify:**
     - Missing steps to reproduce.
     - Vague or generic summaries.
     - Lack of environment details (browser, OS, app version).
     - No logs, error messages, or screenshots.
     - Incorrect severity or priority labels.
 
-8. **Good Practices for Defect Management:**
-    - **Clear and Detailed Reporting:** Ensure that defect reports are clear, detailed, and include all necessary information such as steps to reproduce, environment details, logs, error messages, and screenshots.
-    - **Accurate Severity and Priority:** Assign accurate severity and priority levels to defects to ensure that critical issues are addressed promptly.
-    - **Regular Triage Meetings:** Conduct regular defect triage meetings to prioritize and categorize defects effectively.
-    - **Effective Communication:** Maintain open and effective communication between testers, developers, and other stakeholders to ensure that defects are resolved efficiently.
-    - **Continuous Monitoring:** Continuously monitor defect trends and metrics to identify areas for improvement and prevent recurring issues.
-    - **Documentation:** Keep detailed records of all defects, their status, and resolution steps to maintain a comprehensive defect management history.
+7. **Good Practices for Defect Management:**
+    - Use clear, consistent, and detailed reports.
+    - Conduct regular defect triage meetings to prioritize and categorize defects effectively.
+    - Maintain open and effective communication between testers, developers, and other stakeholders to ensure that defects are resolved efficiently.
+    - Continuously monitor defect trends and metrics to identify areas for improvement and prevent recurring issues.
+    - Keep detailed records of all defects, their status, and resolution steps to maintain a comprehensive defect management history.
 
 </details>
-
-## Test Reporting
-
-**Explanation:**
-
-Test reporting involves tracking the progress and testing activities, and communicating testing status to stakeholders.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Test Progress Report:** The Test Summary Report is a comprehensive document that provides an overall summary of the testing activities and outcomes. It is typically prepared at the end of the testing phase or project and serves as a formal record of the testing effort. These reports are generated regularly (daily, weekly) and include details such as the test period, progress made, notable deviations, impediments, test metrics, new and changed risks, and plans for the next period.
-
-2. **Test Summary Report:** Test summary reports, also known as test completion reports, are prepared at the end of a project, test level, or test type. They summarize the testing activities and results, providing a comprehensive overview of the testing process. The purpose of test summary reports is to provide stakeholders with a detailed account of the testing activities and outcomes.
-
-3. **Communication:** Communication of test reports is essential for ensuring that stakeholders are aware of the testing status and any issues that may arise. Different stakeholders may require different types of information, so reports should be tailored accordingly.
-
-</details>
-
-## Deliverables and Testware After Testing Process
-
-**Explanation:**
-
-Deliverables and testware are essential components of the testing process. They ensure that all testing activities are well-documented, transparent, and provide valuable insights to stakeholders.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Deliverables:**
-
-    - **Test Plan:**
-        - **Purpose:** Outlines the strategy and approach for testing.
-        - **Contents:** Objectives, scope, test items, test approach, resources, schedule, and risk management.
-
-    - **Test Summary Reports:**
-        - **Purpose:** Summarize the results of test execution.
-        - **Contents:** Number of test cases executed, passed, failed, blocked, and defect summary.
-
-    - **Test Metrics and KPIs:**
-        - **Purpose:** Measure the effectiveness and progress of testing.
-        - **Contents:** Test coverage metrics, performance metrics, defect density, and test execution efficiency.
-
-    - **Test Progress Reports:**
-        - **Purpose:** Provide ongoing updates on the status of testing activities.
-        - **Contents:** Progress against the test plan, issues encountered, and any deviations from the plan.
-
-    - **Test Execution Reports:**
-        - **Purpose:** Document the detailed results of test execution.
-        - **Contents:** Execution logs, actual vs. expected results, and any anomalies observed.
-
-    - **Test Closure Report:**
-        - **Purpose:** Provide a comprehensive summary of the testing activities upon completion.
-        - **Contents:** Test summary, final metrics, resolved and unresolved defects, lessons learned, and stakeholder sign-off.
-
-2. **Testware:**
-
-    - **Test Scenarios:**
-        - **Purpose:** Provide high-level descriptions of what needs to be tested.
-        - **Contents:** Scenarios derived from use cases, requirements, or user stories that ensure test coverage.
-
-    - **Test Cases and Test Scripts:**
-        - **Purpose:** Define the specific tests to be executed.
-        - **Contents:** What is realates with test cases.
-
-    - **Test Data:**
-        - **Purpose:** Provide the necessary data for executing test cases.
-        - **Contents:** Data sets, data sources, and any modifications made during testing.
-
-    - **Defect Reports:**
-        - **Purpose:** Document defects identified during testing.
-        - **Contents:** What is realates with defect reports.
-
-    - **Traceability Matrix:**
-        - **Purpose:** Map and trace user requirements with test cases.
-        - **Contents:** A table that links requirements to their corresponding test cases to ensure coverage.
-
-    - **Test Logs:**
-        - **Purpose:** Record the details of test execution.
-        - **Contents:** Execution logs, timestamps, environment details, and issues encountered.
-
-    - **Automation Scripts:**:
-        - **Purpose:** Automate the execution of test cases.
-        - **Contents:** Scripts for automated testing, including setup and teardown procedures.
-
-    - **Test Environment Configuration:**:
-        - **Purpose:** Document the setup and configuration of the test environment.
-        - **Contents:** Environment configuration, hardware, software, network settings, and environment issues.
-
-    - **Test Tools:**
-        - **Purpose:** Support the execution and management of testing activities.
-        - **Contents:** Tools for test management, automation, and defect tracking.
-
-<details>
