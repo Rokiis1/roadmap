@@ -2,9 +2,8 @@
 # Content of Table Testing Throughout the Software Development Lifecycle
 
 - [Software Development Life Cycle (SDLC) Models](#software-development-life-cycle-sdlc-models)
-- [Testing Approaches in Software Development](#testing-approaches-in-software-development)
 - [Software Testing Life Cycle (STLC)](#software-testing-life-cycle-stlc)
-- [Good Practices of Testing](#good-practices-of-testing)
+- [Testing Approaches in Software Development](#testing-approaches-in-software-development)
 
 ## Software Development Life Cycle (SDLC) Models
 
@@ -229,54 +228,6 @@ Software Development Life Cycle (SDLC) models are methodologies that guide the p
 
 </details>
 
-## Testing Approaches in Software Development
-
-**Explanation:**
-
-Testing approaches in software development are strategies used to ensure the functionality of software works.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Shift Left and Right Approach:** This approach involves conducting testing early and often in the development process (shift left), and continuing testing into the deployment and maintenance stages (shift right). The "left" side could be seen as the planning and documentation stages, and the "right" side as the coding, deployment, and maintenance stages.
-
-    - **Shift Left Approach:** The Shift Left Approach involves moving test activities to the earlier stages of the development process, such as during requirement gathering and design phases, and encouraging cooperation between QA teams, development teams, and other stakeholders like Business Analysts and Project Managers. It also includes integrating automated tests into the **Continuous Integration (CI)** pipeline for fast feedback on code changes and performing static analysis of the source code before dynamic testing to identify code quality issues early.
-
-    - **Shift Right Approach:** **Continuous Delivery (CD)** extending testing into the deployment and maintenance stages to ensure that the software continues to function correctly in production environments. This includes implementing monitoring and observability practices to detect issues in real-time and gather feedback from production usage. Additionally, it involves collecting and analyzing user feedback to identify areas for improvement and ensure that the software meets user expectations. Post-deployment testing, such as **performance testing**, **security testing**, and user **acceptance testing (UAT)**, is also conducted to validate the software in its live environment.
-
-    ![alt text](./assets/images/shiftleftright.png)
-
-2. **Test-Driven Development (TDD):** This is a development methodology where tests are written before the actual code.
-
-    - **Overview**: TDD directs coding through test cases instead of extensive software design. Tests are written first, then code is written to satisfy the tests, and finally, both tests and code are refactored.
-    - **Process**: Unit test cases are written prior to the unit code. Developers write code to make these tests pass, reducing the time spent on defect reporting and tracking.
-    - **How it's work:**
-        1. Write a unit test for a new function.
-        2. Run the test and see it fail (since the function is not yet implemented).
-        3. Write the minimum code required to pass the test.
-        4. Refactor the code while ensuring the test still passes.
-
-    ![alt text](./assets/images/tdd.png)
-
-3. **Behavior-Driven Development (BDD):** Focuses on the behavior of the application, using natural language to describe test cases.
-
-    - **Overview**: BDD expresses the desired behavior of an application with test cases written in natural language, making them easy to understand by any stakeholder.
-    - **Process**: Tests are written using the "Given-When-Then" format, which is derived from acceptance criteria. These scenarios are then translated into automated tests.
-    - **How it's work:**
-        1. Define acceptance criteria for a feature or user story.
-        2. Write scenarios in a Given-When-Then format.
-        3. Translate these scenarios into automated tests.
-        4. Develop the code to pass these tests.
-
-4. **Acceptance Test-Driven Development (ATDD):** BDD focuses on the behavior of the application, using natural language to describe test cases.
-
-    - **How it's work:**
-        1. Define acceptance criteria for a user story.
-        2. Write acceptance tests based on these criteria.
-        3. Develop the code to pass these tests.
-
-</details>
-
 ## Software Testing Life Cycle (STLC)
 
 **Explanation:**
@@ -286,65 +237,203 @@ The Software Testing Life Cycle (STLC) is a sequence of specific activities cond
 <details>
     <summary>Overview:</summary>
 
-1. **Requirement Analysis:** To understand the testing requirements based on the requirements document by identifying testable requirements, defining test objectives, and preparing the Requirement Traceability Matrix (RTM), resulting in a clear understanding of what needs to be tested.
+1. **Requirement Analysis:**
+    - **Objective:** Understand what needs to be tested.
+    - **Activities:**
+        - Review requirements documents.
+        - Identify testable requirements.
+        - Define test objectives.
+        - Prepare a Requirement Traceability Matrix (RTM).
+    - **Output:** Understand what needs to be tested.
 
-2. **Test Planning:** To define the scope, approach, resources, and schedule for testing activities by developing the test plan document, identifying test objectives and criteria, estimating test effort and resources, defining test environment requirements, and identifying risks and mitigation plans, resulting in the creation of the test plan document, test effort estimation, and risk management plan.
+2. **Test Planning:**
+    - **Objective:** Define the overall testing strategy and roadmap.
+    - **Activities:**
+        - Develop the test plan document, outlining scope, approach, resources, and schedule.
+        - Estimate test effort and resource requirements.
+        - Identify required test environment and potential risks with mitigation plans.
+    - **Output:** Test plan document, effort estimation, and risk management plan.
 
-3. **Test Design:** To design test cases and test scripts based on the requirements by creating detailed test cases, developing test data, identifying test scenarios, and reviewing and baselining test cases, resulting in the creation of test cases, test scripts, test data, and test scenarios.
+3. **Test Design:**
+    - **Objective:** Create detailed test cases and scenarios.
+    - **Activities:**
+        - Design test cases and test scripts based on requirements.
+        - Develop or identify test data.
+        - Identify test scenarios and review/baseline test cases.
+    - **Output:** Comprehensive test cases, scripts, test data, and defined test scenarios.
 
-4. **Test Environment Setup:** To prepare the test environment where testing will be conducted by setting up hardware and software requirements, configuring the test environment, installing necessary tools and applications, and verifying the test environment setup, resulting in the test environment being ready for execution.
+4. **Test Environment Setup:**
+    - **Objective:** Prepare the environment where testing will occur.
+    - **Activities:**
+        - Set up hardware, software, and network configurations.
+        - Install and configure necessary tools and applications.
+        - Verify that the test environment is complete and functional.
+    - **Output:** A stable, verified test environment ready for execution.
 
-5. **Test Implementation:** To develop and prioritize test cases and scripts by implementing test cases and scripts, creating test suites, and mapping test cases to requirements, resulting in test cases and scripts ready for execution and the creation of test suites.
+5. **Test Implementation:**
+    - **Objective:** Make sure test artifacts are executable and organized.
+    - **Activities:**
+        - Finalize and prioritize test cases and scripts.
+        - Create test suites and map test cases to requirements.
+    - **Output:** Executable test cases/scripts and organized test suites.
 
-6. **Test Execution:** To execute the test cases and report defects by executing test cases, logging defects and tracking their status, performing retesting and regression testing, and updating test cases based on feedback, resulting in test execution reports, defect logs, and updated test cases.
+6. **Test Execution:**
+    - **Objective:** Run tests and identify defects.
+    - **Activities:**
+        - Execute test cases.
+        - Log, track, and classify defects.
+        - Perform retesting and regression testing as needed.
+    - **Output:** Test execution reports, defect logs, and updated test cases.
 
-7. **Test Closure:** To conclude testing activities and evaluate the testing process by ensuring all test cases are executed, documenting test results and metrics, conducting a test closure meeting, archiving test artifacts, resulting in a test summary report, test metrics, archived test artifacts, and documented.
+7. **Test Closure:**
+    - **Objective:** Conclude testing activities and capture overall learnings.
+    - **Activities:**
+        - Ensure all planned tests are executed.
+        - Document results and metrics.
+        - Hold a test closure meeting and archive all test artifacts.
+    - **Output:** Final test summary report, historical test metrics, and archived documentation.
 
-8. **Impact Analysis:** The purpose of impact analysis is to identify the areas of the application that will be impacted by a change and reduce the effort required for regression testing by focusing on the affected areas.
+8. **Impact Analysis:**
+    - **Objective:** Focus on regression testing efforts when changes occur.
+    - **Activities:**
+        - Identify parts of the application affected by changes.
+        - Prioritize testing on affected areas to reduce overall regression effort.
 
 9. **Maintenance Testing:** Maintenance testing is performed on a live application that is already in use by end users. It involves testing enhancements, bug fixes, and other changes to ensure they do not adversely affect the existing system. Maintenance testing is essentially regression testing conducted whenever changes are made to an existing application.
 
-    1. **There are different types of maintenance:**
-
+    1. **Types of maintenance:**
         - **Corrective:** Fixing known bugs or issues.
-
         - **Adaptive:** Adapting the software to changes in the environment or improving performance.
-
         - **Perfective:** Enhancing existing features or adding new features.
 
-    2. **Maintenance testing can be triggered by planned or unplanned releases:**
-
+    2. **Planned or Unplanned releases:**
         - **Planned Releases:** Changes that were scheduled and known in advance, such as feature enhancements or updates.
-
         - **Unplanned Releases:** Changes that arise unexpectedly, such as hot fixes for critical issues reported by users.
 
-    3. **Triggers for maintenance testing include:**
-
+    3. **Triggers:**
         - **Modifications:** Updates or enhancements to existing features.
-
         - **Upgrades:** Introducing new features or significant changes to the software.
-
         - **Migrations:** Moving the application from one platform to another.
-
         - **Retirement:** Final versions of the application before it is retired, ensuring data archiving and retrieval procedures are in place.
+
+    4. **Output:** Stable software that continues to meet quality standards post-deployment.
 
 </details>
 
-## Good Practices of Testing
+## Testing Approaches in Software Development
 
 **Explanation:**
 
-Good testing practices should be followed in any development model. These practices ensure that all development activities are subjected to quality control and that testing is comprehensive and effective.
+Testing approaches in software development are strategies used to ensure the functionality of software works.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Corresponding Testing Activity:** For every development activity, there should be a corresponding testing activity. This ensures that all development activities are subjected to quality control.
+1. **Shift Left and Right Approach:** Testing approaches are strategies that ensure software functions correctly and meets quality standards throughout its lifecycle. Two widely adopted approaches are the Shift-Left and Shift-Right strategies.
 
-2. **Specific Test Objectives:** Different test levels should have specific and different test objectives to avoid redundancy and ensure comprehensive testing.
+    - **Shift Left Approach:** This approach involves moving testing activities earlier in the Software Development Life Cycle (SDLC). The idea is to catch defects as early as possible during requirement analysis, design, and coding.
 
-3. **Early Test Analysis and Design:** Test analysis and design for a given test level should begin during the corresponding development phase to adhere to the principles of early testing.
+        - **Early Involvement:** Engage testers during requirement reviews and design discussions to identify potential issues (ambiguities, inconsistencies) from the start.
 
-4. **Early Involvement of Testers:** Testers should be involved in reviewing work products as soon as drafts are available. This supports early testing and defect detection, aligning with the shift-left strategy.
+        - **Test Case Development:** Write test cases before the code is implemented. This can include defining acceptance criteria and even developing automated tests to run as part of a Continuous Integration (CI) pipeline.
+
+        - **Static Analysis:** Perform static analysis of the source code early to detect code quality issues before dynamic testing.
+
+        - **Non-Functional Testing:** Where feasible, begin non-functional tests (such as performance and security tests) at component level rather than waiting for a complete system.
+
+        - **Benefits:** Early detection of issues can reduce rework, lower overall costs, and improve product quality in later stages.
+
+    - **Shift Right Approach:** **Continuous Delivery (CD)** This approach extends testing into the later stages of the SDLC, including deployment and production. It ensures that the software continues to meet quality expectations in real-world environments.
+
+        - **Continuous Delivery (CD):** Integrate testing into the deployment pipeline to provide fast feedback on released code.
+
+        - **Production Monitoring:** Implement monitoring and observability practices to detect issues and gather real-time performance data in production.
+
+        - **User Feedback:** Collect and analyze user feedback post-deployment, which can inform future test design and continuous improvement.
+
+        - **Post-Deployment Testing:** Perform acceptance, performance, and security tests within the production or near-production environment.
+
+        - **Benefits:** By testing in production-like scenarios, organizations can validate non-functional requirements and ensure the software meets user expectations in its operational environment.
+
+    ![alt text](./assets/images/shiftleftright.png)
+
+2. **Test-Driven Development (TDD):** Write tests before code to direct implementation with a focus on unit behavior.
+
+    ![alt text](./assets/images/tdd.png)
+
+    <details>
+       <summary>Overview:</summary>
+
+    - **When Tests Are Written:** Before coding.
+
+    - **Primary Focus:** Unit-level functionality.
+
+    - **Format for Criteria:** Developer-written unit tests.
+
+    - **Team Involvement:** Mainly developers.
+
+    - **Process:**
+        1. **Write a Unit Test:** Create a test for a new function.
+        2. **Run the Test:** Confirm that the test fails, verifying that the function isn’t yet implemented.
+        3. **Implement Minimal Code:** Write just enough code to pass the test.
+        4. **Refactor:** Refine the code while ensuring the test continues to pass.
+
+    - **Key Focus:**
+        - Ensures that each unit of code does precisely what is expected.
+        - Primarily used by developers to design and verify small, individual functions.
+
+    </details>
+
+3. **Acceptance Test-Driven Development (ATDD):** Collaboratively define acceptance criteria and write tests based on these criteria before coding the feature.
+
+    <details>
+       <summary>Overview:</summary>
+
+    - **When Tests Are Written:** Before coding based on user stories.
+
+    - **Primary Focus:** End-to-end functional acceptance.
+
+    - **Format for Criteria:** Flexible (can be checklists, tables, or narrative).
+
+    - **Team Involvement:** Customers, testers, and developers collaboratively
+
+    - **Process:**
+        1. **Define Acceptance Criteria:** Collaborate with stakeholders to establish clear, mutually agreed-upon criteria for a user story.
+        2. **Write Acceptance Tests:** Create tests based on these criteria before any code is implemented.
+        3. **Develop Code:** Write the code necessary to pass the acceptance tests, ensuring that the feature meets real user needs.
+
+    - **Key Focus:**
+        - Bridges communication between business and technical teams.
+        - Validates that the feature delivers end-to-end functionality as expected in real-world scenarios.
+
+    </details>
+
+4. **Behavior-Driven Development (BDD):** Express behavior using natural language scenarios (Given/When/Then) so that technical and non-technical stakeholders share a common understanding.
+
+    <details>
+       <summary>Overview:</summary>
+
+    - **When Tests Are Written:** Before coding, using scenarios.
+
+    - **Primary Focus:** Desired behavior and user experience.
+
+    - **Format for Criteria:** Given/When/Then scenarios.
+
+    - **Team Involvement:** All stakeholders (technical and non-technical)
+
+    - **Process:**
+        1. **Define Acceptance Criteria:** Begin with clear acceptance criteria for a feature or user story, often in collaboration with stakeholders.
+        2. **Write Scenarios:** Express these criteria in structured scenarios using the Given/When/Then format:
+            - **Given:** The initial state or context.
+            - **When:** An event or action occurs.
+            - **Then:** The expected outcome follows.
+        3. **Automate the Scenarios:** Translate these scenarios into automated tests.
+        4. **Develop the Code:** Write the code required to pass these automated tests.
+
+    - **Key Focus:**
+        - Enhances clarity and shared understanding by using a common language for requirements.
+        - Serves as both documentation and testing, bridging the gap between business expectations and technical implementation.
+
+    </details>
 
 </details>

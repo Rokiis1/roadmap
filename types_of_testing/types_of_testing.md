@@ -1,5 +1,4 @@
 <!-- markdownlint-disable MD033 -->
-
 # Content of Table of the Types of Testing
 
 - [Dynamic Testing](#dynamic-testing)
@@ -24,17 +23,9 @@ Dynamic testing involves methods used in software development that require the e
   <details>
       <summary>Overview:</summary>
 
-  - **Unit Testing:** Involves testing individual components of the software. This is usually done by the developers themselves.
-    - **Defects Found:** Logic errors and data handling problems.
-
-  - **Integration Testing:** Involves testing the interaction between different software modules.
-    - **Defects Found:** Interface mismatches, data flow issues, integration logic errors.
-
-  - **System Testing:** Involves testing the entire system as a whole to check the requirements.
-    - **Defects Found:** System-level functional issues, end-to-end functional issues.
-
-  - **Acceptance Testing:** The final level is validating the system from the end user’s perspective.
-    - **Defects Found:** Requirement mismatches, missing functionality, compliance issues.
+  - **Objective:** Verify that each function of the system operates in conformance with the required specification.
+  
+  - **Focus:** Checks the "what" of system behavior—functional correctness, completeness, and appropriateness.
 
   </details>
 
@@ -47,14 +38,9 @@ Dynamic testing involves methods used in software development that require the e
   <details>
       <summary>Overview:</summary>
 
-  - **Performance Testing:** Checks how a system performs under a particular load.
-    - **Defects Found:** Performance issues, slow response times, resource utilization issues.
-  - **Usability Testing:** Checks the user-friendliness of the software to improve better user-experience.
-    - **Defects Found:** Poor navigation, confusing user interface, accessibility issues.
-  - **Security Testing (Penetration Testing):** Checks if the system is secure from external threats and vulnerabilities.
-  - **Defects Found:** SQL injection, cross-site scripting (XSS), unauthorized access.
-  - **Compatibility Testing:** Ensures that the software can run in different environments (different hardware, operating systems, browsers).
-    - **Defects Found:** Rendering issues, functionality issues on specific platforms, browser compatibility issues.
+  - **Objective:** Evaluate attributes other than specific behaviors (performance, usability, security).
+
+  - **Focus:** Tests the "how well" the system performs.  
 
 </details>
 
