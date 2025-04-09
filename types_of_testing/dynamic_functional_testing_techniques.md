@@ -141,18 +141,30 @@ Experience-based techniques in software testing are those that leverage the test
 <details>
   <summary>Overview:</summary>
 
-1. **Error Guessing:** Error Guessing is a software testing technique where the tester applies their experience and intuition to guess the problematic areas of the application. This technique is based on the tester's ability to find bugs or defects based on their past experiences and knowledge.
+1. **Error Guessing:** Error guessing is an experience-based testing technique where testers use their intuition, domain knowledge, and past experiences to anticipate and uncover potential errors, defects, and failures in the application. This technique works by targeting known error-prone areas and leveraging historical defect data.
 
     <details>
        <summary>Overview:</summary>
 
-    - **Experience-Based Testing:** Relies on the tester's past experience with similar products, domain knowledge, and understanding of typical defects.
+    - **Experience and Intuition:**
+      - Testers draw on their previous experiences with similar systems, common development pitfalls, and known weaknesses in the application.
+      - Domain knowledge helps in identifying patterns of defects commonly seen in that particular area of software.
 
-    - **Intuition and Skills:** No formal approaches; it is completely dependent on the tester's judgment.
+    - **Error Categories:**
+      - **Input Errors:** Identify issues with input validation for example, rejecting valid inputs or accepting invalid ones (wrong data types, out-of-range values).
+      - **Output Errors:** Verify that outputs conform to the expected format and content, ensuring consistency and correctness.
+      - **Processing Errors:** Detect flaws in internal logic and computations, such as missing cases, incorrect conditional operators, and arithmetic mistakes.
+      - **Interface Errors:** Focus on problems in component interactions, like parameter mismatches, incompatible data types, or violations of interface contracts.
+      - **Data Errors:** Ensure that data is correctly initialized, stored, and managed to prevent corruption and maintain type compatibility.
 
-    - **Fault Attack:** The systematic approach of conducting error guessing is called fault attack. The tester knows what type of defect they are looking for and targets those specific areas.
+    - **Fault Attack:**
+      - A systematic approach to error guessing, fault attacks involve mapping out all possible error conditions based on known defect patterns.
+      - Testers might create or use a pre-existing list of frequent error types from historical data to specifically target expected weaknesses.
 
-    - **Win-Win Situation:** Whether defects are found or not, error guessing adds value by increasing confidence in the system.
+    - **Practical Situation:**
+      - Use error guessing in conjunction with exploratory testing to quickly validate known risk areas.
+      - Document common error scenarios and patterns observed in previous projects to build a reference framework for future error guessing sessions.
+      - Even if error guessing does not reveal defects in every session, its value lies in increasing confidence in the system's resilience.
 
     </details>
 
@@ -161,67 +173,65 @@ Experience-based techniques in software testing are those that leverage the test
     <details>
        <summary>Overview:</summary>
 
-    - **Simultaneous Design and Execution:** The tester explores the requirements and system behavior to gain a better understanding and identify potential defects.
+    - **Simultaneous Design and Execution:** Testers actively explore application behavior and requirements to uncover hidden defects and gain a deeper understanding of the system.
 
-    - **Charters:** A charter is a mission or goal for the exploratory testing session. It provides direction and scope for the testing activities, including the target of the test, the duration of the test session, the type of testing or the test ideas to be explored, and the expected outcome or output.
+    - **Charters:** A charter is a mission or goal for the exploratory testing session. It outlines the target of the testing, the objectives, the types of tests or ideas to be explored, the duration of the session, and the expected outcomes.
 
       ![alt text](./assets/images/charter.png)
 
-    - **Time-boxed Sessions:** Exploratory testing is often conducted in time-boxed sessions, typically ranging from 60 to 120 minutes.
+    - **Time-boxed Sessions:** Exploratory testing is usually performed in fixed-duration sessions (60 to 120 minutes) to ensure efficient use of time and to structure
 
-    - **High-Level Documentation:** Test charters are used to document the steps followed, the discoveries made, and the overall findings of each test session.
+    - **High-Level Documentation:** Even though detailed test cases aren’t pre-written, high-level documentation is maintained. Test charters and session sheets document the test ideas, the steps executed, discoveries, and any defects found.
 
     </details>
   
-3. **Checklist-Based Testing:** Is a testing technique where testers use a predefined checklist to guide their testing process. The checklist includes important features, functionalities, and criteria that need to be verified. This approach ensures that all necessary areas of the application are covered without the need for detailed test cases.
+3. **Checklist-Based Testing:** Checklist-based testing is a technique in which testers design, implement, and execute tests based on a predefined list (checklist) of items. This checklist covers important features, functionalities, and critical criteria, ensuring that essential areas of the application are verified without the need for fully detailed test cases.
 
     <details>
        <summary>Scenarios:</summary>
 
     1. **General Layout:**
-        - Verify that the layout adjusts correctly on different screen sizes (mobile, tablet, desktop).
+        - Verify that the layout adjusts correctly on on various screen sizes (mobile, tablet, desktop).
         - Check that elements are not overlapping or misaligned.
 
     2. **Navigation:**
-        - Ensure that the navigation menu is accessible and functional on all screen sizes.
-        - Verify that the hamburger menu appears and works correctly on smaller screens.
+        - Confirm that images resize appropriately, maintaining the correct aspect ratio.
+        - Ensure that videos and other media elements are both responsive and playable.
 
     3. **Images and Media:**
         - Check that images resize appropriately and maintain aspect ratio.
         - Verify that videos and other media elements are responsive and playable on all devices.
 
     4. **Text and Fonts:**
-        - Ensure that text is readable and does not overflow or get cut off.
-        - Verify that font sizes adjust appropriately for different screen sizes.
+        - Validate that text is readable and appropriately responsive (no overflow or cutoff).
+        - Verify that touch targets are adequately sized for mobile devices
 
     5. **Forms and Inputs:**
-        - Check that form elements (input fields, buttons) are usable and accessible on all devices.
+        - Ensure that form elements (input fields, buttons) are accessible and usable on every device.
         - Verify that touch targets are appropriately sized for mobile devices.
 
     6. **Performance:**
-        - Ensure that the page load time is acceptable on different devices and screen sizes.
-        - Verify that there are no performance issues or lags when resizing the browser window.
+        - Validate that page load times meet acceptable thresholds on different devices.
+        - Monitor for performance lags or issues when resizing the browser window.
 
     7. **Browser Compatibility:**
-        - Ensure that the responsive design works correctly across different browsers (Chrome, Firefox, Safari, Edge).
-        - Verify that there are no browser-specific issues affecting responsiveness.
+        - Confirm that the responsive design works correctly across different browsers (Chrome, Firefox, Safari, Edge).
+        - Check for any browser-specific issues affecting responsiveness.
 
     </details>
 
     <details>
        <summary>Overview:</summary>
 
-    - **Guided Testing:** The checklist serves as a guide for the tester during the testing process. It helps to ensure that all necessary areas of the application are covered.
+    - **Guided Testing:** The checklist acts as a guide, ensuring all necessary areas are reviewed without extensive pre-planning.
 
-    - **Functional and Non-Functional Testing:** Checklists can support various test types, including functional and non-functional testing.
+    - **Functional and Non-Functional Testing:** Checklists can support both functional and non-functional testing, ensuring aspects like usability, performance, and compatibility are verified.
 
-    - **Efficiency:** Checklists allow testers to quickly verify multiple aspects without the need for detailed documentation. They are particularly useful for high-level verification tasks.
+    - **Efficiency and Flexibility:**
+      - They allow for quick verification steps and are easily adaptable to reflect new features or discovered defects.
+      - Regular updates based on defect analysis are must.
 
-    - **Flexibility:** Checklists can be easily updated and adapted to include new features or design elements, ensuring comprehensive coverage.
-
-    - **Documentation:** While checklists provide high-level guidance, it is important to document the results of checklist-based testing, including any issues identified and actions taken. This helps in tracking progress and identifying areas for improvement.
-
-    - **Inclusion in Test Summary Report:** The findings from checklist-based testing should be included in the Test Summary Report. This ensures that stakeholders are aware of the overall testing outcomes and any issues that need to be addressed.
+    - **Documentation:** Even though tests are not fully scripted, documenting results (test session logs or summary reports) is essential for tracking progress and identifying improvement areas. Findings should be included in the final Test Summary Report to inform stakeholders of outcomes and any defects addressed.
 
     </details>
 
@@ -232,16 +242,16 @@ Experience-based techniques in software testing are those that leverage the test
     |-------------------------------------------------------------------------------|---------|
     | Verify that the layout adjusts correctly on different screen sizes.           |         |
     | Check that elements are not overlapping or misaligned.                        |         |
-    | Ensure that the navigation menu is accessible and functional on all screens.  |         |
+    | Ensure that the navigation menu functions on all screens.                     |         |
     | Verify that the hamburger menu appears and works correctly on smaller screens.|         |
-    | Check that images resize appropriately and maintain aspect ratio.             |         |
-    | Verify that videos and other media elements are responsive and playable.      |         |
+    | Confirm that images resize appropriately and maintain aspect ratio.           |         |
+    | Ensure that media elements are responsive and playable.                       |         |
 
-    - **Completion Status:** Completed 95% of the checklist items. The remaining 5% were not completed due to time constraints and will be prioritized in the next sprint.
+    - **Completion Status:** Completed 95% of checklist items. The remaining items were deferred due to time constraints and will be addressed in the next iteration.
 
-    - **Defects Identified:** Identified 2 critical defects related to user authentication. These defects have been logged and are being addressed by the development team.
+    - **Defects Identified:** Found 2 critical defects related to user authentication; these have been logged for resolution.
 
-    - **Coverage:** The checklist covered key functionalities such as user authentication, data validation, and UI responsiveness. All covered areas were verified to be functioning as expected, except for the identified defects.
+    - **Coverage:** The checklist ensures that key functionalities (user authentication, data validation, UI responsiveness) are tested. Adjustments to the checklist are made over time to maintain its relevance as developers address common errors.
 
     </details>
 
@@ -278,7 +288,7 @@ Black-box testing techniques focus on the functionality of the software without 
 <details>
   <summary>Overview:</summary>
 
-1. **Equivalence Partitioning:** Equivalence Partitioning is a software testing technique that divides the input data of a software unit into partitions of equivalent data from which test cases can be derived.
+1. **Equivalence Partitioning:** Equivalence Partitioning (EP) is a black-box testing technique that divides input data into distinct classes or partitions (equivalence classes) that are expected to be treated similarly by the system. The basic theory is that if one test case in an equivalence class finds a defect, any other value in the same class is likely to reveal the same issue. Therefore, testing one representative value from each partition can provide effective coverage.
 
     <details>
        <summary>Scenarios:</summary>
@@ -294,17 +304,27 @@ Black-box testing techniques focus on the functionality of the software without 
 
     - **Partitioning:** Dividing input data into different **Equivalence Classes**. Each equivalence class represents a set of input values that are treated the same by the software, meaning that one test case can be used to test the entire class.
     - **Equivalence Classes:** Each class represents a set of inputs that are expected to be treated the same by the system.
-    - **Representative Values:** Selecting representative values from each partition for testing.
-    - **Reduction of Test Cases:** Minimize the number of test cases by selecting representative values from each equivalence partition, ensuring comprehensive coverage with fewer tests. This approach eliminates the need for detailed step-by-step scenarios, as each equivalence class effectively acts as a scenario. Additionally, it removes the necessity for detailed steps to reproduce.
-    - **Objective:** The objective is to achieve 100% equivalence partition coverage by testing each input condition at least once.
-    - **Application:** This technique is applied when detailed requirements are available. If detailed requirements are not available, experience-based test techniques may be used instead.
-    - **Multiple Inputs:** When dealing with multiple inputs, we need to combine them in a way that ensures all conditions are covered with the minimum number of test cases.
-    - **In some scenarios:** Traditional test case tables might still be necessary, especially when preparing for automation testing that involves navigating through multiple pages or completing specific actions. While Equivalence Partitioning can handle input-based scenarios efficiently, when automating workflows that require multiple steps, such as navigating through pages, clicking buttons, or following a sequence of actions, detailed steps to reproduce are necessary.
+      - **Valid Partitions:** Contain valid input values that should be accepted and processed by the system.
+      - **Invalid Partitions:** Contain input values that should be rejected or generate an error because they fall outside the defined criteria.
+    - **Coverage:** To achieve full coverage using EP, each identified partition (both valid and invalid) should be exercised by at least one test case. When a test object has multiple input parameters with their own partitions, the simplest criterion is Each Choice Coverage (testing one representative from each partition in every set).
+    - **Application:** EP is particularly useful when detailed requirements are available. It can simplify testing by reducing the total number of test cases required while still effectively identifying defects. However, in complex situations, understanding how different input values interact may require additional techniques or more detailed test case scenarios.
 
     </details>
 
     <details>
        <summary>Examples:</summary>
+
+    - **Implementation Steps:**
+
+    1. **Identify Input Data Elements:** Determine which inputs, outputs, configuration items, and parameters are relevant for the test object.
+
+    2. **Define Equivalence Classes:**
+       - **Valid Equivalence Class(es):** Values that should be processed correctly.
+       - **Invalid Equivalence Class(es):** Values that should be rejected or cause error handling.
+
+    3. **Select Representative Values:** Choose one value (or a minimal set of values) from each partition to use as a test input.
+
+    4. **Design Test Cases:** Create test cases that include these representative values. For objects with multiple parameters, consider techniques (Each Choice Coverage) to ensure every partition is tested at least once.
 
     **Example 1 Equivalence Class, Test Input, Expected Outcome, PASS/FAIL:**
 
@@ -314,7 +334,7 @@ Black-box testing techniques focus on the functionality of the software without 
     | TCID-002        | Age between 13 and 100 | 30          | Registration accepted                  |           |
     | TCID-003        | Age greater than 100   | 110         | Registration rejected, error message   |           |
 
-    **Example 2 Equivalence Class Description, Valid/Invalid, Expected Outcome:**
+    **Example 2 Equivalence Class Description, Valid/Invalid, Expected Outcome, PASS/FAIL:**
 
     | Test Case ID    | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |PASS/FAIL  |
     |-----------------|------------------------------------------|---------------|----------------------------------------|-----------|
@@ -325,7 +345,7 @@ Black-box testing techniques focus on the functionality of the software without 
     | TCID-005        | Does not start with a letter             | Invalid       | Username rejected, error message       |           |
     | TCID-006        | Non-string input                         | Invalid       | Username rejected, error message       |           |
 
-    **Example 3 Multiple Input Parameters, Equivalence Class Description, Valid/Invalid, Expected Outcome:**
+    **Example 3 Multiple Input Parameters, Equivalence Class Description, Valid/Invalid, Expected Outcome, PASS/FAIL:**
 
     | Test Case ID    | Username Input | Age Input | Password Input | Equivalence Class Description            | Valid/Invalid | Expected Outcome                       |PASS/FAIL  |
     |-----------------|----------------|-----------|----------------|------------------------------------------|---------------|----------------------------------------|-----------|
@@ -333,7 +353,7 @@ Black-box testing techniques focus on the functionality of the software without 
 
     </details>
 
-2. **Boundary Value Analysis:** Boundary Value Analysis (BVA) is a software testing technique focused on identifying errors that occur at the boundaries of input domains rather than those in the middle. Since many defects often manifest at the edges of input ranges, BVA emphasizes testing values at and around these boundaries to ensure robust system behavior.
+2. **Boundary Value Analysis:** is a software testing technique focused on testing the boundaries of input domains rather than values in the center. Since many defects tend to occur at the edges of input ranges, BVA is used to verify that the system handles boundary (and near-boundary) values correctly.
 
     <details>
        <summary>Scenarios:</summary>
@@ -358,17 +378,15 @@ Black-box testing techniques focus on the functionality of the software without 
     <details>
        <summary>Overview:</summary>
 
-    - **Boundary Values:** Many errors tend to occur at the edges of input ranges.
+    - **Ordered Partitions:** BVA applies to inputs that have ordered values (numeric, date ranges). The minimum and maximum values of an equivalence partition form its boundaries.
 
-    - **Edge Values:** Edge values refer to inputs just inside and just outside the boundary values.
+    - **Valid and Invalid Partitions:** The input domain is divided into partitions of valid and invalid inputs.
+      - **Valid Partition:** Inputs within the acceptable range.
+      - **Invalid Partition:** Inputs outside the acceptable range.
 
-    - **Valid and Invalid Partitions:** The input domain is divided into partitions of valid and invalid inputs. Testing is performed on both.
-      - **Valid Partition:** Contains input values that are within the acceptable range of the system.
-      - **Invalid Partition:** Contains input values that fall outside the acceptable range.
-
-    - **Objective**: The main objective is to test the boundaries to ensure that the system handles boundary values correctly.
-
-    - **Application**: This technique is applied when detailed requirements specify the boundaries of input ranges.
+    - **Boundary and Edge Values:**
+      - **Boundary Values:** The exact limits of the input domain.
+      - **Edge Values:** Values immediately inside (valid) and outside (invalid) the boundary.
 
     - **2-Value BVA (Two-Point Boundary Value Analysis):** In 2-value BVA, testing focuses on the exact boundary points. Each boundary is tested with two values: one at the lower boundary and one at the upper boundary. This approach provides basic coverage by verifying that the system correctly handles the minimum and maximum allowable inputs. Specifically, it tests two values on each boundary: one inside the boundary and one outside the boundary.
 
@@ -378,7 +396,7 @@ Black-box testing techniques focus on the functionality of the software without 
 
         ![3BVA](./assets/images/3BVA.png)
 
-    - **Reduced Number of Test Cases:** By focusing on boundary values, the number of test cases is reduced compared to traditional methods, making it easier to maintain.
+    - **Coverage and Efficiency:** Focusing on boundaries reduces the number of test cases while ensuring critical ranges are tested.
 
     </details>
 
