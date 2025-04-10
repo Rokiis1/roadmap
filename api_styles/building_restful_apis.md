@@ -99,22 +99,22 @@ Pagination is a technique used in APIs to divide large sets of data into smaller
 
 - **Common Pagination Methods:**
   - **Offset and Limit:**  Specify an offset (number of records to skip) and a limit (maximum number of records to return).
-  - **Usage:** Good for simple datasets or when browsing small-to-moderate lists of records.
-  - **Advantages:** Easy to implement and understand.
-  - **Limitation:** May become inefficient on very large datasets as the database must skip many records.
-  - **Example:** `?offset=20&limit=10`
+    - **Usage:** Good for simple datasets or when browsing small-to-moderate lists of records.
+    - **Advantages:** Easy to implement and understand.
+    - **Limitation:** May become inefficient on very large datasets as the database must skip many records.
+    - **Example:** `?offset=20&limit=10`
 
   - **Page-Based Pagination:** Use page numbers and define the number of items per page.
-  - **Usage:** Ideal for user interfaces that display paginated results, such as search results or list views where users jump between numbered pages.
-  - **Advantages:** Provides a familiar and intuitive experience for users.
-  - **Limitation:** Can result in inconsistent data if the underlying dataset changes frequently between page requests.
-  - **Example:** `?page=2&per_page=10`
+    - **Usage:** Ideal for user interfaces that display paginated results, such as search results or list views where users jump between numbered pages.
+    - **Advantages:** Provides a familiar and intuitive experience for users.
+    - **Limitation:** Can result in inconsistent data if the underlying dataset changes frequently between page requests.
+    - **Example:** `?page=2&per_page=10`
 
   - **Cursor-Based Pagination:** Use a cursor or token that points to the last retrieved item to load the next set of data.
-  - **Usage:** Best suited for large or dynamic datasets (such as social media feeds).
-  - **Advantages:** Offers more efficient and consistent pagination by using a cursor to reference the last record, avoiding the performance hit of large offsets.
-  - **Limitation:** More complex to implement and can be harder to understand compared to other methods.
-  - **Example:** `?cursor=abcdef123456`
+    - **Usage:** Best suited for large or dynamic datasets (such as social media feeds).
+    - **Advantages:** Offers more efficient and consistent pagination by using a cursor to reference the last record, avoiding the performance hit of large offsets.
+    - **Limitation:** More complex to implement and can be harder to understand compared to other methods.
+    - **Example:** `?cursor=abcdef123456`
 
 - **Response Metadata:**
   - **Total Record Count:** The total number of available records.
