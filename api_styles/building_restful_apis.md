@@ -18,15 +18,13 @@ REST (Representational State Transfer) is an architectural style for building we
 
 - **Statelessness:** Each request from the client must contain all the information needed to process that request. The server does not store any client context between requests.
 
-- **Resource Identification:** Each resource (data entity) is uniquely identified using URLs. This makes it easy to locate and manipulate resources using clear, well-defined endpoints.
+- **Resource Identification:** Every resource (user or product) is uniquely identified by a URL, making it clear and consistent for accessing and manipulating data.
 
-- **Uniform Interface:** A set of standard rules that all interactions must follow, such as using standard HTTP methods (GET, POST, PUT, PATCH, DELETE) and common data formats for request and response bodies (typically JSON or XML).
+- **Uniform Interface:** A consistent set of rules is used for interactions. This means using standard HTTP methods (GET, POST, PUT, DELETE) and common data formats (JSON or XML) for both requests and responses.
 
-- **Client-Server Architecture:** The client and server are separate entities, allowing them to evolve independently. The client handles the presentation and user experience, while the server manages data storage and business logic.
+- **Client-Server Architecture:** The client handles the user interface and presentation, while the server manages data processing and storage. This separation allows each side to evolve independently.
 
-- **Cacheability:** Responses should indicate whether they are cacheable, which can reduce latency and server load by allowing clients to store responses for later use.
-
-- **Layered System:** The architecture can be composed of multiple layers (such as load balancers, proxies, or caching servers), which can improve scalability and security without the client needing to be aware of the underlying layers.
+- **Cacheability:** Responses can be marked as cacheable, which helps reduce server load and improve performance by allowing clients to store and reuse previous responses.
 
 </details>
 
@@ -82,6 +80,9 @@ URI design involves crafting well-structured Uniform Resource Identifiers (URIs)
     - **Using Verbs in the URI:** Avoid URIs like `/getUser` or `/createProduct` the action should be represented by the HTTP method, not the URI.  
     - **Inconsistent Naming Conventions:** Mixing singular and plural forms (`/user/orders`) can lead to confusion.  
     - **Overly Complex or Irrelevant Terms:** Avoid adding unnecessary details (`/listAllUsers`) that do not add clarity to the resource being accessed.
+    - **Case Inconsistency:**
+      - Using uppercase letters for resource names or path parameters (`/Users` instead of `/users`) can cause issues on case-sensitive servers.
+      - Path and query parameters should be written in lowercase for consistency.
 
 </details>
 
