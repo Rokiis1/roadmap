@@ -286,7 +286,7 @@ The success of a review process depends on both planning and execution. In line 
 <details>
     <summary>Overview:</summary>
 
-1. **Clear Objectives and Measurable Exit Criteria:** Define measurable goals for the review—evaluation of participants should not be the focus.
+1. **Clear Objectives and Measurable Exit Criteria:** Define measurable goals for the review evaluation of participants should not be the focus.
 
 2. **Appropriate Review Type:** Select the review type that best fits the work product, project context, and resource availability.
 

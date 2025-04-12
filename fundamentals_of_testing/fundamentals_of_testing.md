@@ -84,8 +84,6 @@ Quality Assurance (QA) and Quality Control (QC) are two aspects of quality manag
 
 ![QAvsQC](./assets/images/qavsqc.png)
 
-They serve different purposes and involve different activities:
-
 - **Quality Assurance (QA):** Proactive process that focuses on preventing defects in the development process. QA is **process-oriented** and aims to improve and stabilize production and associated processes to avoid issues that lead to defects.
 
 - **Quality Control (QC):** Reactive process that focuses on identifying defects in the final product. **product-oriented** and aims to identify and correct defects in the finished product before it reaches the customer.
@@ -120,27 +118,43 @@ The principles of testing are fundamental guidelines that dictate what to test, 
 <details>
     <summary>Overview:</summary>
 
-1. **Testing shows presence of defects:** Testing can show that defects are present, but cannot prove that there are no defects. Testing reduces the probability of undiscovered defects remaining in the software but, even if no defects are found, it is not a proof of correctness.
+1. **Testing shows presence of defects:**
+    - Testing can reveal the existence of defects but cannot guarantee that all defects have been found.
+    - Even if no issues are detected, it does not prove that the software is completely correct.
 
-2. **Exhaustive testing is impossible:** It's not possible to test all combinations of inputs, scenarios, and paths in the software. Instead, risk analysis, priorities, and techniques like boundary value analysis and equivalence partitioning are used to focus the testing effort.
+2. **Exhaustive testing is impossible:**
+    - It is impractical to test every possible input, scenario, or execution path.
+    - Instead, testing efforts focus on the most critical areas using techniques such as risk analysis, boundary value analysis, and equivalence partitioning.
 
-3. **Early testing:** To find defects early, testing activities should start as early as possible in the software development lifecycle and should be focused on defined objectives.
+3. **Early testing:**
+    - Starting testing activities as early as possible in the development cycle helps catch defects sooner.
+    - Early defect detection reduces the cost and impact of later, more extensive rework.
 
     ![alt text](./assets/images/earlyTesting.png)
 
-4. **Defect clustering:** A small number of modules usually contain most of the defects discovered during pre-release testing, or are responsible for most of the operational failures. This is also known as the **Pareto principle**, or the 80-20 rule, which states that approximately 80% of the issues occur due to 20% of the modules.
+4. **Defect clustering (Pareto Principle):**
+    - A small number of modules or components often contain the majority of the defects.
+    - For example, roughly 80% of problems may be found in 20% of the modules, highlighting where risk-based testing should concentrate.
 
-5. **Pesticide paradox:** If the same tests are repeated over and over again, eventually they will no longer find new bugs. This is also known as **test wear out**. To overcome this, the test cases need to be regularly reviewed and revised, and new and different tests need to be written to exercise different parts of the software or system.
+5. **Pesticide paradox (Tests Wear Out):**
+    - Repeating the same set of test cases over time may lead them to lose effectiveness in detecting new defects.
+    - Regularly reviewing, updating, and adding new tests is essential to keep the test suite fresh and relevant.
 
-6. **Testing is context dependent:** Testing is done differently in different contexts. For example, Android application software is tested differently from an e-commerce site. The approach and techniques used should be appropriate for the specific context of the software being tested."
+6. **Testing is context dependent:**
+    - Different types of software (mobile apps, e-commerce sites, embedded systems) require different testing approaches and techniques.
+    - The testing strategy should be tailored to the specific characteristics and risks of the project.
 
-7. **Absence-of-errors fallacy:** If the system does not fulfill the users' needs and expectations, finding and fixing defects does not necessarily improve the system. A system that is 100% bug-free is not necessarily useful to the user. The ultimate goal of testing is to ensure that the software meets the requirements and provides value to the users.
+7. **Absence-of-errors fallacy:**
+    - A defect-free system is not automatically a useful or successful system.
+    - Even with all detected defects fixed, the software must also meet users needs and deliver business value. Validation ensuring the right product is built is as important as verification.
 
 </details>
 
 ## Test Process
 
 **Explanation:**
+
+The test process is a structured approach that covers all activities from planning through closure. It ensures that testing is aligned with project objectives, risks are managed, and the final product is validated against its requirements.
 
 <details>
     <summary>Overview:</summary>
@@ -163,11 +177,13 @@ The principles of testing are fundamental guidelines that dictate what to test, 
 
 ## Test Activities
 
+**Explanation:**
+
 Test activities, often referred to as the test process, involve a series of tasks to ensure that a software product meets its quality standards. Throughout these activities, various tangible outputs are produced.
 
 - **Artifact:** These are the individual pieces of documentation or tools created during the testing process. The raw outputs produced during testing (test cases, scripts, data, logs).
 
-- **Testware (Test Artifacts):** This is the broader collection of all technical outputs used in or generated by the testing process. Including artifacts and any supporting configuration or code—which makes testing thorough, repeatable, and consistent.
+- **Testware (Test Artifacts):** This encompasses all technical outputs created or used during testing such as test cases, scripts, logs, configuration files, and tools that help ensure testing is complete, can be easily repeated, and produces consistent results.
 
 - **Deliverables:** A subset of artifacts, deliverables are formally provided to stakeholders (Test Plan, Test Summary Report, Test Closure Report). These documents convey testing status, results, and insights.
 
@@ -211,16 +227,16 @@ Test roles define the responsibilities and contributions of different individual
 
 **Explanation:**
 
-The whole team approach means that everyone on the team—developers, testers, and business representatives—is responsible for quality. The team works in a shared space (physical or virtual), which improves communication and collaboration.
+The whole team approach means that everyone on the team developers, testers, and business representatives is responsible for quality. The team works in a shared space (physical or virtual), which improves communication and collaboration.
 
 <details>
     <summary>Overview:</summary>
 
 1. **Collaboration:** All team members work together closely, sharing information and responsibilities.
 
-2. **Shared Responsibility for Quality:** Quality is everyone's job, not just the testers’. For example, developers help define tests and fix defects, while testers offer insights into improving the product.
+2. **Shared Responsibility for Quality:** Quality is everyones job, not just the testers. For example, developers help define tests and fix defects, while testers offer insights into improving the product.
 
-3. **Co-location:** Working in the same space (or virtually closely) helps reduce misunderstandings and speeds up problem-solving.
+3. **Co-location:** Working in the same space (or virtually closely) helps reduce misunderstandings and speeds up problem solving.
 
 4. **Knowledge Transfer:** Testers pass on testing knowledge to developers and other team members, improving overall quality.
 
@@ -242,9 +258,9 @@ Independence of testing means that testing is performed by individuals or teams 
 2. **Degrees of Independence:**
 
     - **No Independence:** Work products are tested by their author. This means the developer who wrote the code also tests it.
-    - **Peer Review:** Work products are tested by the author's peer from the same team. For example, one developer tests another developer's code.
-    - **Separate Testing Team:** Testers from outside the author's team but within the same organization perform the testing. This is the most common practice today.
-    - **External Testing:** Testers from outside the organization perform the testing. This is often seen in small-scale organizations that outsource testing to third-party organizations.
+    - **Peer Review:** Work products are tested by the authors peer from the same team. For example, one developer tests another developers code.
+    - **Separate Testing Team:** Testers from outside the authors team but within the same organization perform the testing. This is the most common practice today.
+    - **External Testing:** Testers from outside the organization perform the testing. This is often seen in small scale organizations that outsource testing to third party organizations.
 
 3. **Benefits and Drawbacks:**
 

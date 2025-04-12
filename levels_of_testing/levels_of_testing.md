@@ -28,7 +28,7 @@ Component testing(unit testing) verifies that individual units of code function 
 
 5. **Test-Driven Development (TDD):** Unit tests are often written before the code to drive development.
 
-6. **Coverage:** Measures how much of the component's code is tested.
+6. **Coverage:** Measures how much of the components code is tested.
 
 </details>
 
@@ -101,7 +101,7 @@ Acceptance testing confirms that the system meets business requirements and is r
 <details>
     <summary>Key Concepts:</summary>
 
-1. **User Perspective:** Tests are based on real-world scenarios and business needs.
+1. **User Perspective:** Tests are based on real world scenarios and business needs.
 
 2. **Types of Acceptance Testing:**
     - **User Acceptance Testing (UAT):** Final validation by end users.
@@ -111,10 +111,10 @@ Acceptance testing confirms that the system meets business requirements and is r
     - **Contract and Regulatory Acceptance Testing:** Ensures that the system meets contract obligations and regulatory standards.
 
 3. **Alpha and Beta Testing:**
-    - **Alpha Testing:** Conducted by the customer in a pre-production environment to validate the product before it is released.
+    - **Alpha Testing:** Conducted by the customer in a pre production environment to validate the product before it is released.
 
     - **Beta Testing:** Conducted by a limited number of end users in the real environment to gather feedback before the product is officially released.
 
-4. **End-user and Stakeholder Involvement:** Most of the time, end-users or stakeholders perform acceptance testing. QA teams prepare the environment and ensure everything is working correctly before handing it over for acceptance testing. QA teams may also perform preliminary acceptance testing to verify that the system is ready for end-user testing.
+4. **End-user and Stakeholder Involvement:** Most of the time, end users or stakeholders perform acceptance testing. QA teams prepare the environment and ensure everything is working correctly before handing it over for acceptance testing. QA teams may also perform preliminary acceptance testing to verify that the system is ready for end user testing.
 
 </details>

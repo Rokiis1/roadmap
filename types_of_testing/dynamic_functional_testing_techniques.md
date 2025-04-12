@@ -511,126 +511,96 @@ Black-box testing techniques focus on the functionality of the software without 
 
     </details>
 
-4. **State Transition Testing:** State Transition Testing is a software testing technique used to test the behavior of an application under test (AUT) for different input conditions in a sequence. It is particularly useful for systems where the system's current state is dependent on a sequence of past events or inputs.
+4. **State Transition Testing:** State Transition Testing is a software testing technique used to verify that an application behaves correctly as it moves between various states based on sequences of events.
 
     <details>
       <summary>Scenarios:</summary>
 
     - **Different input conditions in a sequence**
 
-      - **Scenario:** Testing an online booking system for flight reservations.
-      - **Example:** System correctly processes a sequence of inputs such as selecting a departure city, selecting a destination city, choosing travel dates, selecting a flight, and entering passenger details.
+      - **Scenario:** Testing an online booking system that processes a series of actions (selecting departure city, destination, travel dates, flight, and finally entering passenger details).
 
     - **Interactive Applications:**
 
-      - **Scenario:** Testing a role-playing game (RPG) where the player's state changes based on actions such as moving, attacking, or using items.
-      - **Example:** Move command transitions the player from "Idle" to "Moving."
+      - **Scenario:** Testing a role-playing game (RPG) where the player state changes with actions such as moving, attacking, or using items.
+      - **Example:** A move command transitions the player from "Idle" to "Moving."
 
     - **Interacting with External Applications in Web Workflows:**
 
-      - **Scenario:** Testing an integrated workflow in a stateful web application that requires interaction with multiple external programs.
-      - **Example:** Project management web application correctly handles a sequence of user actions that involve opening and interacting with external programs.
+      - **Scenario:** Validating a project management web application that interacts with external programs.
+      - **Example:** Ensuring the application transitions correctly when opening and interacting with an external document editor.
 
-    - **Protocol Testing:**
+    - **Protocol and Embedded Systems:**
 
-      - **Scenario:** Testing a network communication protocol for a client-server application.
-      - **Example:** Client and server correctly handle a sequence of messages such as connection requests, data transfers, file download requests, and disconnections.
-
-    - **Embedded Systems:**
-
-      - **Scenario:** Testing the state transitions of thermostat system.
-      - **Example:** Ensuring that the smart thermostat correctly handles a sequence of inputs such as setting the desired temperature, detecting the current temperature, turning the heating or cooling system on or off, and entering energy-saving mode.
+      - **Scenario:** Testing a client-server network protocol or a thermostat that adjusts states (from "Idle" to "Heating" or "Cooling") based on sensor inputs or user commands.
 
     </details>
 
     <details>
        <summary>Overview:</summary>
 
-    - **State:** Describe what the system is doing or what condition of the system under different inputs."
-
-      - **Initial and Final State:** The state in which the system starts is known as the initial state, and the state where it ends is known as the final state.
-          - **Initial Idle:** The thermostat starts in the "Idle" state, where it is not actively heating or cooling.
-          - **Final Idle:** The thermostat returns to the "Idle" state after completing its heating or cooling cycle, or after resolving an error.
+    - **State:** The system's status at a particular point. The initial state is where the system begins (Idle) and the final state is the state after a sequence of events (which could also be Idle).
 
         <details>
            <summary>Snippet:</summary>
 
         ```text
-        States:
 
-        Idle: The thermostat is not actively heating or cooling.
+        Idle: Not actively heating or cooling.
 
-        Heating: The thermostat is actively heating to reach the desired temperature.
+        Heating: Actively increasing temperature.
 
-        Cooling: The thermostat is actively cooling to reach the desired temperature.
+        Cooling: Actively decreasing temperature.
 
-        Energy-Saving: The thermostat is in an energy-saving mode, maintaining a less aggressive temperature range.
+        Energy-Saving: Operating with reduced intensity.
 
-        Error: The thermostat has encountered an error, such as a sensor failure.
+        Error: A fault condition, such as sensor failure.
         ```
 
         </details>
 
-    - **Events:** An event is an occurrence that may trigger a state condition.
-
-      - **Event Dependencies:** Events are often dependent on the current state of the system and can include user actions, system conditions, or external inputs.
+    - **Events:** Triggers that cause state transitions (user actions, sensor readings).
 
         <details>
            <summary>Snippet:</summary>
 
         ```text
-        Events:
 
-        Set Heating: The user sets the thermostat to heating mode.
+        Set Heating, Set Cooling, or Set Energy-Saving
 
-        Set Cooling: The user sets the thermostat to cooling mode.
+        Temperature Reached - The desired temperature is reached.
 
-        Set Energy-Saving: The user sets the thermostat to energy-saving mode.
+        Error Detected and Reset — to handle faults.
 
-        Temperature Reached: The desired temperature is reached.
-
-        Error Detected: An error is detected in the system.
-
-        Reset: The system is reset after an error.
         ```
 
         </details>
 
-      - **Actions:** Operations that occur as a result of a state transition. They define what the system does when it moves from one state to another based on an event.
+      - **Actions:** Operations performed during a transition.
 
         <details>
            <summary>Snippet:</summary>
 
         ```text
-        Actions:
 
-        Start Heating: Begin heating to reach the desired temperature.
+        Start Heating or Start Cooling
 
-        Start Cooling: Begin cooling to reach the desired temperature.
+        Enter Energy - Saving Mode
 
-        Enter Energy-Saving Mode: Adjust settings to maintain an energy-efficient temperature range.
+        Display Error or Clear Error
 
-        Stop Heating/Cooling: Stop the heating or cooling process.
-
-        Display Error: Show an error message or indicator.
-
-        Clear Error: Clear the error state and return to idle.
         ```
 
         </details>
 
-      - **Transition:** The change from one state to another state of the system.
+      - **Transition:** The change from one state to another, triggered by an event ([Idle] --(Set Heating)--> [Heating]).
 
-        - **Triggering Events:** triggered by events and often involve actions that the system performs as it moves from one state to another.
+      - **State Diagram:** graphical shows all valid states and the transitions between them.
 
-        - **Scenario:** Each transition can be considered a scenario that describes how the system moves from one state to another based on specific events and actions.
-
-      - **State Diagram:** A graphical representation of all possible states, transitions, and events of the system.
-
-        - **Non-Sequential Transitions:** State transitions do not necessarily follow a linear or sequential path. Instead, they represent how a system moves from one state to another based on specific events.
+        - **Non-Sequential Transitions:** These are common when the system's state changes depend on various independent events. The diagram shows all possible valid transitions, regardless of order. This is typical for many real-world systems where users or external events can trigger transitions in any order.
 
           <details>
-             <summary>Snippet:</summary>
+             <summary>Non-Sequential State Transitions Example:</summary>
 
           ```text
           [Idle] --(Set Heating)--> [Heating]
@@ -652,10 +622,10 @@ Black-box testing techniques focus on the functionality of the software without 
 
           </details>
 
-        - **Sequential Transitions:** In some cases, it is important to represent sequential transitions, where the system must follow a specific order of states. Sequential transitions are needed when the system's behavior depends on a strict sequence of events.
+        - **Sequential Transitions:** These are used when the system behavior strictly depends on a defined order of events. They are useful for processes that must follow a specific workflow or sequence
 
           <details>
-             <summary>Snippet:</summary>
+             <summary>Sequential State Transitions Example:</summary>
 
           ```text
           [Idle] --(Set Heating)--> [Heating]
@@ -666,41 +636,40 @@ Black-box testing techniques focus on the functionality of the software without 
 
           </details>
 
-      - **State Table:** A tabular representation of all possible states, transitions, and events, similar to the state diagram but in a tabular form.
+      - **State Table:** A tabular representation of the current state, events, and the expected next state plus actions.
 
-      <details>
-         <summary>Snippet:</summary>
+        <details>
+           <summary>Non-Sequential State Table Example:</summary>
 
-      | Test Case ID | Current State   | Event              | Next State      | Action                  |
-      |--------------|-----------------|--------------------|-----------------|-------------------------|
-      | TC001        | Idle            | Set Heating        | Heating         | Start Heating           |
-      | TC002        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
-      | TC003        | Idle            | Set Energy-Saving  | Energy-Saving   | Enter Energy-Saving Mode|
-      | TC004        | Heating         | Temperature Reached| Idle            | Stop Heating            |
-      | TC005        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
-      | TC006        | Energy-Saving   | Set Heating        | Heating         | Start Heating           |
-      | TC007        | Energy-Saving   | Set Cooling        | Cooling         | Start Cooling           |
-      | TC008        | Heating         | Error Detected     | Error           | Display Error           |
-      | TC009        | Cooling         | Error Detected     | Error           | Display Error           |
-      | TC010        | Energy-Saving   | Error Detected     | Error           | Display Error           |
-      | TC011        | Error           | Reset              | Idle            | Clear Error             |
-      | TC012        | Idle            | Set Heating        | Heating         | Start Heating           |
-      | TC013        | Heating         | Temperature Reached| Idle            | Stop Heating            |
-      | TC014        | Idle            | Set Cooling        | Cooling         | Start Cooling           |
-      | TC015        | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+          | Test Case ID | Current State   | Event              | Next State      | Action                  |
+          |--------------|-----------------|--------------------|-----------------|-------------------------|
+          | TC001        | Idle            | Set Heating        | Heating         | Start Heating           |
+          | TC002        | Heating         |Temperature Reached | Idle            | Stop Heating            |
+          | TC003        | Cooling         | Error Detected     | Error           | Display Error           |
+          | TC04         | Error           | Reset              | Idle            | Clear Error             |
+
+        </details>
+
+        <details>
+           <summary>Sequential State Table Example:</summary>
+
+          | Step         | Current State   | Event              | Next State      | Action                  |
+          |--------------|-----------------|--------------------|-----------------|-------------------------|
+          | 1            | Idle            | Set Heating        | Heating         | Start Heating           |
+          | 2            | Heating         |Temperature Reached | Idle            | Stop Heating            |
+          | 3            | Idle            | Set Cooling        | Error           | Display Error           |
+          | 4            | Cooling         | Temperature Reached| Idle            | Stop Cooling            |
+
+        </details>
 
       - **Coverage:**
+        - **All states coverage:** Every state is visited at least once.
+        - **Valid transitions coverage (0-switch):** Every valid transition is exercised.
+        - **All transitions coverage:** Both valid and invalid transitions (attempted transitions) are tested.
+          - **Note:** Testing one invalid transition in a single test case is often sufficient to avoid fault masking.
 
-        - **All states coverage:** Ensuring that every state in the system is tested at least once.
-        - **Valid transitions coverage:** Ensuring that all valid transitions between states are tested.
-        - **All transitions coverage:** Ensuring that every possible transition, including invalid ones, is tested to verify the system's behavior.
-
-      </details>
-
-      - **Handling Invalid Transitions:**
-        - **Explanation:** Invalid transitions are those that are not allowed as per the requirements and should be identified to ensure full coverage.
-        - **Example:** In the thermostat example, transitioning directly from "Idle" to "Error" without an intermediate event would be considered an invalid transition.
-        - **Testing Invalid Transitions:** Ensure that the system correctly handles invalid transitions by not allowing them and providing appropriate error messages or handling.
+      - **Invalid Transitions:** Testing invalid or infeasible transitions ensures that the system prevents or correctly handles unexpected changes.
+          - **Example:** Transitioning directly from "Idle" to "Error" without an intermediary event should be rejected.
 
 </details>
 

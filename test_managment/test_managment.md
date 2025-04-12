@@ -14,7 +14,7 @@ Managing test activities is a aspect of the software development lifecycle that 
 
 **Explanation:**
 
-Test Planning It involves creating a detailed document that outlines the strategy and approach for testing a software product. This document serves as a blueprint for the entire testing process, ensuring that all aspects of testing are well-organized and systematically executed.
+Test Planning It involves creating a detailed document that outlines the strategy and approach for testing a software product. This document serves as a blueprint for the entire testing process, ensuring that all aspects of testing are well organized and systematically executed.
 
 <details>
     <summary>Overview:</summary>

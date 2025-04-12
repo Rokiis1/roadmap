@@ -3,9 +3,10 @@
 
 - [Requirements Basis for Creating Test Cases](requirements-basis-for-creating-test-cases)
 - [Scenario](#scenario)
+- [Traceability Between the Test Basis and Testware](#traceability-between-the-test-basis-and-testware)
+- [Traceability Matrix](#traceability-matrix)
 - [Test Specification Table](#test-specification-table)
 - [Test Execution Table](#test-execution-table)
-- [Traceability Matrix](#traceability-matrix)
 - [Test Coverage](#test-coverage)
 - [Good Practices](#good-practices)
 - [Common Mistakes to Avoid](#common-mistakes-to-avoid)
@@ -73,7 +74,7 @@ A test scenario is a high-level description of a specific situation or user inte
 
   1. **Identify Test Conditions:** Test scenarios help define the specific conditions and inputs under which the software will be tested. This ensures that all relevant aspects of the software are considered during testing.
   2. **Ensure Comprehensive Coverage:** Test scenarios ensure that all possible user interactions and system behaviors are covered. This helps in identifying any gaps in the testing process and ensures that the software is thoroughly tested.
-  3. **Facilitate Communication:** Test scenarios provide a clear and concise description of the test conditions, making it easier for testers, developers, and stakeholders to understand and collaborate. This improves communication and ensures that everyone is on the same page.
+  3. **Facilitate Communication:** Test scenarios provide a clear and concise description of the test conditions, making it easier for testers, developers, and stakeholders to understand and collaborate.
   4. **Guide Test Case Development:** Serve as a foundation for developing detailed test cases. The specific details and steps of the test cases are derived from the test scenarios, and the approach taken depends on the test design technique used.
   5. **Writing Scripts:** Test scenarios are also used for writing scripts for end-to-end (E2E) testing and non-functional testing.
 
@@ -169,7 +170,53 @@ A test scenario is a high-level description of a specific situation or user inte
 
 </details>
 
-### Test Specification Table
+## Traceability Between the Test Basis and Testware
+
+**Explanation:**
+
+Establishing traceability means linking every element of your test basis (requirements, risks, and design specifications) to corresponding testware (test conditions, test cases, and test results) and, in turn, to detected defects.
+
+<details>
+    <summary>Overview:</summary>
+
+- **Coverage Evaluation:** By mapping test cases to requirements, you can verify that every requirement is addressed and measure the extent of your coverage. For example, you can confirm that all high-risk requirements are tested, and any missing tests are quickly identified.
+
+- **Impact Analysis:** When changes occur in the requirements or design, traceability helps you assess and manage the impact on the test cases and test results. This supports faster test updates and better maintenance.
+
+- **Test Audits and IT Governance:** Good traceability facilitates audits and meets governance criteria, as it provides a clear record of how testing efforts align with requirements and business goals. This transparency makes test progress and completion reports easier to understand.
+
+- **Communication with Stakeholders:** A well-maintained traceability process makes it simpler to convey the technical details of testing to non-technical stakeholders. It provides meaningful insights into product quality, process capability, and overall project progress.
+
+</details>
+
+## Traceability Matrix
+
+**Explanation:**
+
+A traceability matrix is a document that maps user requirements to test cases. It serves as a tool to confirm that every requirement is tested and to highlight any gaps in the test coverage.
+
+<details>
+    <summary>Overview:</summary>
+
+1. **Purpose:**
+    - Ensure that all requirements are covered by test cases.
+    - Identify missing requirements or test cases.
+
+2. **Structure:**
+    - **Requirement ID:** Unique identifier for each requirement.
+    - **Requirement Description:** Detailed description of the requirement.
+    - **Test Case ID:** Unique identifier for each test case.
+    - **Test Case Description:** Detailed description of the test case.
+    - **Status:** Indicates whether the requirement is covered by the test case (Covered, Not Covered) or the current execution status.
+
+3. **Types of Traceability Matrices:**
+    - **Forward Traceability:** Links requirements to test cases to ensure every requirement is addressed by one or more tests.
+    - **Backward Traceability:** Links test cases back to their original requirements to confirm that each test has a purpose.
+    - **Bidirectional traceability:** Combines both forward and backward traceability, helping ensure full alignment between requirements and test cases.
+
+</details>
+
+## Test Specification Table
 
 **Explanation:**
 
@@ -195,7 +242,7 @@ A test scenario is a high-level description of a specific situation or user inte
 
 </details>
 
-### Test Execution Table
+## Test Execution Table
 
 **Explanation:**
 
@@ -214,61 +261,36 @@ Also known as the Test Results Table, documents the execution of scenarios and t
 
 </details>
 
-### Traceability Matrix
+## Test Coverage
 
 **Explanation:**
 
-A traceability matrix is a document that maps and traces user requirements with test cases.
+Test coverage measures the proportion of the software's functionality or code that is exercised by your test suite. It helps identify untested areas and guides improvements in testing.
 
 <details>
     <summary>Overview:</summary>
 
-1. **Purpose:** To ensure that all requirements are covered by test cases and to identify any missing requirements or test cases.
+1. **Coverage Criteria:**
+    - **Requirements coverage:**Evaluates the percentage of specified requirements (both functional and non-functional) that are validated by test cases. Testers and QA teams use this metric to ensure that all requirements are addressed.
+    - **Functional Coverage:** Measures the percentage of the software functionalities (user interactions or workflows) that are exercised by the test cases. This metric ensures that the system behaves as expected from a users perspective, covering use cases and business scenarios.
+    - **Code Coverage:** Measures the percentage of source code executed during testing. This metric is primarily used by developers.
 
-2. **Structure:**
-    - **Requirement ID:** Unique identifier for each requirement.
-    - **Requirement Description:** Detailed description of the requirement.
-    - **Scenario ID:** Unique identifier for each test scenario.
-    - **Scenario Description:** High-level description of the scenario being tested.
-    - **Test Case ID:** Unique identifier for each test case.
-    - **Test Case Description:** Detailed description of the test case.
-    - **Status:** Indicates whether the requirement is covered by the test case (Covered, Not Covered).
+2. **Measuring Coverage:**
+    - **Identify Criteria:** Decide whether you are measuring code, requirements, or functional coverage.
+    - **Mapping:** Map each requirement or code segment to corresponding test cases so that you know which areas have tests.
+    - **Execution:** Run your test cases and record outcomes (pass/fail) for each requirement or code segment.
+    - **Calculation:** `coverage = (tested_requirements / total_requirements) * 100`.
+    - **Pass/Fail Status:** Coverage is generally measured regardless of whether the tests pass or fail it indicates the extent of testing performed
+    - **Realistic Goal:** Achieving 100% coverage for all requirements or code is an ideal that is rarely attainable due to constraints in time, resources, or software complexity.
 
-3. **Types of Traceability Matrices:**
-    - **Forward Traceability:** Ensures that all requirements are covered by test cases.
-    - **Backward Traceability:** Ensures that all test cases are linked to requirements.
-    - **Bidirectional traceability:** Ability to trace forward (from requirement to test case) and backward (from test case to requirement).
-
-</details>
-
-### Test Coverage
-
-**Explanation:**
-
-Shows perecentage of how much of the software's functionality is being tested.
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Coverage Criteria:** Different criteria can be used to measure test coverage:
-    - **Code Coverage:**  By developers, the extent to which the source code of a program is executed when a particular test suite runs.
-    - **Requirements coverage:** By testers and QA teams which the specified requirements (both functional and non-functional) calculate percentage of test case how widely the system have been tested.
-
-2. **Measuring Coverage:** Tools and techniques for measuring test coverage, such as code coverage tools that measure the percentage of code executed by the tests.
-    - **Based what we Calculate:**
-        - Identify Criteria wich one gonna be test (code, requirements, functional).
-        - Map test cases and choose those criteria test case wich will be gonna check coverage.
-        - Execute test cases and record results it's (pass/fail).
-        - Calculate the percentage of requirements that have been tested.
-    - **Pass/Fail Status:** The coverage percentage includes all tested requirements, regardless of whether the test cases passed or failed.
-    - **Coverage calcualtion formula:** `coverage = (tested_requirements / total_requirements) * 100`.
-    - **Achieving 100% coverage:** For all requirements or functionalities is an ideal goal, it is not practical or possible due to various constraints such as time, resources, and the complexity of the software.
-    - **Coverage reflect:** To which the requirement has been fully tested. If any test case for a requirement is not executed, it means that the requirement has not been completely tested.
 3. **Improving Coverage:** Strategies for improving test coverage, such as adding more test cases to cover untested areas and using different test design techniques to identify gaps.
+    - Adding additional test cases to address previously untested functional areas or code paths.
+    - Using a variety of test design techniques (like boundary value analysis, equivalence partitioning) to identify gaps in testing.
+    - Regularly reviewing the traceability matrix to ensure all requirements are covered by at least one test case.
 
 </details>
 
-### Good Practices
+## Good Practices
 
 **Explanation:**
 
