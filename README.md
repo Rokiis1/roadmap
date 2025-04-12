@@ -1,3 +1,1 @@
-# Table of Content
-
-[QA](https://github.com/Rokiis1/roadmap/tree/QA)
+# Table of Content Web Development
