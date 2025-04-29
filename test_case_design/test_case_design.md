@@ -271,7 +271,7 @@ Test coverage measures the proportion of the software's functionality or code th
     <summary>Overview:</summary>
 
 1. **Coverage Criteria:**
-    - **Requirements coverage:**Evaluates the percentage of specified requirements (both functional and non-functional) that are validated by test cases. Testers and QA teams use this metric to ensure that all requirements are addressed.
+    - **Requirements coverage:** Evaluates the percentage of specified requirements (both functional and non-functional) that are validated by test cases. Testers and QA teams use this metric to ensure that all requirements are addressed.
     - **Functional Coverage:** Measures the percentage of the software functionalities (user interactions or workflows) that are exercised by the test cases. This metric ensures that the system behaves as expected from a users perspective, covering use cases and business scenarios.
     - **Code Coverage:** Measures the percentage of source code executed during testing. This metric is primarily used by developers.
 

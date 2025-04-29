@@ -173,7 +173,7 @@ The test process is a structured approach that covers all activities from planni
 
 7. **Test Completion:** inalize testing activities by reviewing exit criteria, archiving test artifacts, and documenting lessons learned.
 
-<details>
+</details>
 
 ## Test Activities
 
