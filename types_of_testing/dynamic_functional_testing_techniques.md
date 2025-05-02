@@ -146,25 +146,15 @@ Experience-based techniques in software testing are those that leverage the test
     <details>
        <summary>Overview:</summary>
 
-    - **Experience and Intuition:**
-      - Testers draw on their previous experiences with similar systems, common development pitfalls, and known weaknesses in the application.
-      - Domain knowledge helps in identifying patterns of defects commonly seen in that particular area of software.
-
     - **Error Categories:**
       - **Input Errors:** Identify issues with input validation for example, rejecting valid inputs or accepting invalid ones (wrong data types, out-of-range values).
       - **Output Errors:** Verify that outputs conform to the expected format and content, ensuring consistency and correctness.
       - **Processing Errors:** Detect flaws in internal logic and computations, such as missing cases, incorrect conditional operators, and arithmetic mistakes.
       - **Interface Errors:** Focus on problems in component interactions, like parameter mismatches, incompatible data types, or violations of interface contracts.
-      - **Data Errors:** Ensure that data is correctly initialized, stored, and managed to prevent corruption and maintain type compatibility.
 
     - **Fault Attack:**
       - A systematic approach to error guessing, fault attacks involve mapping out all possible error conditions based on known defect patterns.
       - Testers might create or use a pre-existing list of frequent error types from historical data to specifically target expected weaknesses.
-
-    - **Practical Situation:**
-      - Use error guessing in conjunction with exploratory testing to quickly validate known risk areas.
-      - Document common error scenarios and patterns observed in previous projects to build a reference framework for future error guessing sessions.
-      - Even if error guessing does not reveal defects in every session, its value lies in increasing confidence in the system's resilience.
 
     </details>
 
