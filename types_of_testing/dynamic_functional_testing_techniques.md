@@ -185,11 +185,11 @@ Experience-based techniques in software testing are those that leverage the test
         - Check that elements are not overlapping or misaligned.
 
     2. **Navigation:**
-        - Confirm that images resize appropriately, maintaining the correct aspect ratio.
-        - Ensure that videos and other media elements are both responsive and playable.
+        - Confirm that navigation elements (menus, links) are clearly visible and accessible.
+        - Ensure that navigation menus respond appropriately on all devices (collapsible on mobile, expanded on desktop).
 
     3. **Images and Media:**
-        - Check that images resize appropriately and maintain aspect ratio.
+        - Confirm that images resize appropriately while maintaining their aspect ratio.
         - Verify that videos and other media elements are responsive and playable on all devices.
 
     4. **Text and Fonts:**
@@ -237,15 +237,15 @@ Experience-based techniques in software testing are those that leverage the test
     | Confirm that images resize appropriately and maintain aspect ratio.           |         |
     | Ensure that media elements are responsive and playable.                       |         |
 
-    - **Completion Status:** Completed 95% of checklist items. The remaining items were deferred due to time constraints and will be addressed in the next iteration.
-
-    - **Defects Identified:** Found 2 critical defects related to user authentication; these have been logged for resolution.
-
     - **Coverage:** The checklist ensures that key functionalities (user authentication, data validation, UI responsiveness) are tested. Adjustments to the checklist are made over time to maintain its relevance as developers address common errors.
 
     </details>
 
-4. **Smoke and Sanity Testing:** Smoke testing is done to make sure software functionalities are working for a new build, while Sanity testing is done during the release phase to check for the main functionalities of the application without going deeper.
+4. **Smoke and Sanity Testing:**
+
+    - **Smoke Testing:** Basic set of tests run on a new software build to quickly verify that its most critical functions (such as launching the application, logging in, or basic navigation) work.
+
+    - **Sanity Testing:** Performed after minor changes or fixes have been made in a build. It focuses on verifying that the specific changes work as expected and that the primary functionalities of the application have not been broken. This is a narrower, more focused set of tests compared to smoke testing.
 
 </details>
 
@@ -297,7 +297,7 @@ Black-box testing techniques focus on the functionality of the software without 
       - **Valid Partitions:** Contain valid input values that should be accepted and processed by the system.
       - **Invalid Partitions:** Contain input values that should be rejected or generate an error because they fall outside the defined criteria.
     - **Coverage:** To achieve full coverage using EP, each identified partition (both valid and invalid) should be exercised by at least one test case. When a test object has multiple input parameters with their own partitions, the simplest criterion is Each Choice Coverage (testing one representative from each partition in every set).
-    - **Application:** EP is particularly useful when detailed requirements are available. It can simplify testing by reducing the total number of test cases required while still effectively identifying defects. However, in complex situations, understanding how different input values interact may require additional techniques or more detailed test case scenarios.
+    - **Application:** EP is particularly useful when detailed requirements are available. It can simplify testing by reducing the total number of test cases required while still effectively identifying defects.
 
     </details>
 
@@ -475,30 +475,6 @@ Black-box testing techniques focus on the functionality of the software without 
     | TC005        | High         | High         | Employed          | High        | Loan Approved   |
     | TC006        | Low          | Low          | Unemployed        | High        | Loan Denied     |
 
-    **Example 2 N/A:**
-
-    | Test Case ID | Condition 1 (User Authenticated) | Condition 2 (Admin Privileges) | Condition 3 (Resource Available) | Action 1 (Grant Access) | Action 2 (Deny Access) |
-    |--------------|----------------------------------|--------------------------------|----------------------------------|-------------------------|------------------------|
-    | TC001        | T                                | F                              | T                                | X                       |                        |
-    | TC002        | F                                | T                              | F                                |                         | X                      |
-    | TC003        | –                                | T                              | F                                | X                       |                        |
-    | TC004        | T                                | –                              | T                                |                         | X                      |
-    | TC005        | N/A                              | F                              | T                                |                         |                        |
-    | TC006        | T                                | T                              | F                                | X                       |                        |
-
-    - In **TC005**, "N/A" for Condition 1 means that the user's authentication status does not matter for this particular test case. This could be used to test scenarios where the system's behavior is independent of whether the user is authenticated or not.
-
-    **Example 4 Payment Processing System:**
-
-    | Test Case ID | Condition 1 (Card Valid) | Condition 2 (Sufficient Funds) | Condition 3 (Payment Gateway Available) | Action 1 (Process Payment) | Action 2 (Show Error) |
-    |--------------|--------------------------|--------------------------------|-----------------------------------------|----------------------------|-----------------------|
-    | TC001        | T                        | T                              | T                                       | X                          |                       |
-    | TC002        | F                        | T                              | T                                       |                            | X                     |
-    | TC003        | T                        | F                              | T                                       |                            | X                     |
-    | TC004        | T                        | T                              | F                                       |                            | X                     |
-    | TC005        | F                        | F                              | T                                       |                            | X                     |
-    | TC006        | T                        | F                              | F                                       |                            | X                     |
-
     </details>
 
 4. **State Transition Testing:** State Transition Testing is a software testing technique used to verify that an application behaves correctly as it moves between various states based on sequences of events.
@@ -672,7 +648,7 @@ White box testing is a testing technique that involves testing the internal stru
 <details>
   <summary>Overview:</summary>
 
-1. **Structure-Based Testing:** Derives tests from the system's implementation, including code, architecture, workflows, and data flows. The main objective is to cover the underlying structure by the tests to an acceptable level. Common techniques include: **Statement Testing**, **Branch Testing**, **Path Testing**.
+1. **Structure-Based Testing:** Derives tests from the system's implementation, including code, architecture, workflows, and data flows. The main objective is to cover the underlying structure by the tests to an acceptable level. Common techniques: **Statement Testing**, **Branch Testing**, **Path Testing**.
 
 2. **Early Defect Detection:** Allows for early identification and fixing of bugs, reducing the cost and effort of fixing defects later in the development cycle.
 
