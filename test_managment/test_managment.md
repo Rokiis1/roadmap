@@ -21,32 +21,66 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
 1. **Introduction:**
 
-    - **Purpose of the Test Plan:** Explain why the test plan exists (to ensure the software meets its requirements and functions correctly before release).
+    - **Purpose of the Test Plan:** The purpose of this test plan is to outline the strategy and approach for testing the Task Management System software. The primary goal is to ensure the software meets its specified functional and non-functional requirements and performs as expected before its release.
 
-    - **Scope of Testing:** Define what will be tested and what won't.
-        - **In Scope:** Functional testing of the user interface, integration testing of backend services, and performance testing under load.
-        - **Out of scope:** Security and usability testing.
+    - **Scope of Testing:** Focus on **what parts of the system will be tested**. You don't go into specific testing techniques.
+        - **In Scope(What will be tested):** should describe what **features or components** of the system will be tested.
+        - **Out of scope:** should describe what **aspects or areas not** are part of this test cycle.
 
-    - **Objectives:** List the main testing goals:
-        - Identify and resolve defects.
-        - Verify that the software meets requirements.
-        - Ensure proper performance under expected conditions.
+    - **Objectives:** The main objectives of the testing process:
+        - **Ensure Software Quality:** Confirm that the application meets the required quality standards in terms of functionality, usability, performance, and security, ensuring a positive user experience and meeting business needs.
 
-    - **Constraints:** Note any limitations.
-        - Testing must be completed within a four-week timeframe.
-        - Limited access to the production environment may impact the ability to perform end-to-end testing.
+        - **Verify Functional Correctness:** Ensure that the core functionalities of the software perform as intended and that the system operates according to the specified business requirements.
 
-    - **Assumptions:** List any assumptions made during the planning process.
-        - Stable builds will be provided every two weeks.
-        - Test environments will be available and properly set up.
+        - **Validate System Performance:** Assess how the system behaves under varying loads, ensuring that it performs efficiently and can handle expected and peak user traffic.
+
+        - **Assess System Integration:** Ensure all components of the software and its integrations (both internal and third-party systems) work seamlessly together
+
+        - **Mitigate Risks:** Identify potential issues or defects early in the development cycle to minimize the risk of failures or disruptions after release.
+
+    - **Constraints:** The testing process is subject to several factors that may limit its scope or impact.
+        - **Time Constraints:** The testing phase must be completed within a defined timeframe, which may restrict the depth of testing and the number of cycles that can be conducted before the software release.
+
+        - **Environment Limitations:** Access to certain testing environments, including production-like setups, may be limited, potentially affecting the ability to conduct comprehensive end-to-end or performance testing.
+
+        - **Resource Availability:** The availability of key testing resources such as test environments, tools, and skilled personnel may impact the execution of the testing process, especially if they are shared with other teams or projects.
+
+        - **External Dependencies:** Some tests may rely on third party systems or services (external APIs or integrations), which may not always be fully reliable or available, potentially delaying or limiting testing efforts.
+
+    - **Assumptions:** The testing process is based on several key assumptions that have been made to ensure the smooth execution of the testing phase:
+        - **Stable Software Builds:** It is assumed that software builds provided for testing will be stable, free from major defects, and suitable for comprehensive testing, ensuring the testing team can proceed without significant delays.
+
+        - **Availability of Test Environments:** It is assumed that the necessary test environments will be set up and available on time, with the proper configurations and data required for testing.
+
+        - **Feature Completeness:** All features outlined in the requirements and agreed upon by stakeholders are expected to be completed and functional by the start of the testing phase.
 
 2. **Test Items:**
 
-    - **List of Items to be Tested:** List the main components, modules, or subsystems that will be tested.
+    - **List of Items to be Tested:** These are the components, modules, or subsystems that you will validate in your testing. They are typically the main areas of the application that you know need to be functional for the software to work.
 
-    - **Features to be Tested:** Describe the specific functionalities or features within those components that will be included in testing.
+        - **Core Features:** Any feature that provides key functionality should be included. These are typically critical operations such as logging in, creating tasks, or generating reports.
 
-    - **Features Not to be Tested:** Specify any features or functionalities that are out of scope for testing.
+        - **Business Logic:** Functions that ensure the business requirements of the software are met (creating a user profile, assigning roles).
+
+        - **User-Facing Components:** These are features the end-user will interact with directly. These might include a task dashboard, user profiles, or report generation tools.
+
+        - **External Integrations:** Any features that interact with external systems, such as email notifications or third-party API integrations.
+
+    - **Features to be Tested:** These are the specific functionalities or behaviors within the above test items that will be validated during testing. The purpose is to ensure that each function works as expected according to the requirements.
+
+        - **Functional Features:** Identify the actual tasks users will perform with the system. For instance, in task management, testing features might include task creation, editing, deleting, and tracking progress.
+
+        - **Edge Cases:** You may also consider testing specific edge cases related to features. For example, testing maximum character limits when creating a task description or ensuring users can’t assign tasks with past due dates.
+
+        - **User Flow:** Think about how users will interact with these features. For instance, testing whether a user can log in, then assign tasks successfully, and then generate reports.
+
+    - **Features Not to be Tested:** This section clarifies what will not be covered in the testing cycle. These features are considered out of scope for the current testing phase and may be addressed in a future testing cycle or by different teams (like a security or usability team).
+
+        - **Non-Critical Features:** If the feature does not affect core functionalities, it can be excluded (for example, advanced reporting features that aren't essential for the initial product release).
+
+        - **Planned Future Enhancements:** Features that are planned for future versions but are not yet implemented or completed can be excluded.
+
+        - **Outside of Testing Scope:** Features that don’t fall within the focus of your current testing phase, like usability testing or security vulnerabilities that will be handled later.
 
 3. **Risk Management:**
 

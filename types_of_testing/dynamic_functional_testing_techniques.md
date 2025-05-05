@@ -219,7 +219,7 @@ Experience-based techniques in software testing are those that leverage the test
 
     - **Efficiency and Flexibility:**
       - They allow for quick verification steps and are easily adaptable to reflect new features or discovered defects.
-      - Regular updates based on defect analysis are must.
+      - Regular updates based on defect analysis.
 
     - **Documentation:** Even though tests are not fully scripted, documenting results (test session logs or summary reports) is essential for tracking progress and identifying improvement areas. Findings should be included in the final Test Summary Report to inform stakeholders of outcomes and any defects addressed.
 
@@ -236,8 +236,6 @@ Experience-based techniques in software testing are those that leverage the test
     | Verify that the hamburger menu appears and works correctly on smaller screens.|         |
     | Confirm that images resize appropriately and maintain aspect ratio.           |         |
     | Ensure that media elements are responsive and playable.                       |         |
-
-    - **Coverage:** The checklist ensures that key functionalities (user authentication, data validation, UI responsiveness) are tested. Adjustments to the checklist are made over time to maintain its relevance as developers address common errors.
 
     </details>
 

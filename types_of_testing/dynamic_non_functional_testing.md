@@ -52,20 +52,6 @@ And where this technique is commonly used:
 
   - **Screen Readers:** Compatible with screen readers.
   - **Keyboard Navigation:** Users navigate the site using only a keyboard.
-
-  **Examples:**
-
-  Use the Tab key to navigate through the website.
-
-  - `tabindex="0" Default tab order (element is focusable in natural sequence).`
-  - `tabindex="-1" Element is not focusable via Tab but can be focused programmatically.`
-  - `tabindex="1" (or higher).`
-
-  ```html
-  <div role="button" tabindex="0" aria-label="Next Section">Next ➡️</div>
-  <div role="button" tabindex="0" aria-label="Previous Section">⬅️ Previous</div>
-  ```
-
   - **Alt Text:** Images and other non-text content provided with descriptive alt text.
 
     **Examples:**
@@ -94,28 +80,6 @@ And where this technique is commonly used:
     <main role="main">
     <footer role="contentinfo">
     ```
-
-    - **Properties:** Properties provide additional information about elements.
-
-    ```html
-    <!-- aria-required: Indicates that the input field is required -->
-    <div>
-      <label htmlFor="email">Email</label>
-      <input id="email" type="email" aria-required="true" />
-    </div>
-    ```
-
-    - **States:** Describe the current condition of an element and can change dynamically.
-
-      - **aria-expanded:** Indicates whether an element, such as a menu or a section, is currently expanded or collapsed.
-
-      - **aria-hidden:** Indicates whether an element is currently visible or hidden.
-
-      - **aria-checked:** Indicates the current "checked" state of checkboxes, radio buttons, and other widgets.
-
-      - **aria-disabled:** Indicates that an element is perceivable but disabled, so it is not interactive.
-
-      - **aria-selected:** Indicates the current "selected" state of elements like tabs or options in a list.
 
 </details>
 
