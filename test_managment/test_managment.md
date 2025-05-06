@@ -399,23 +399,28 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
                 | Test Case ID | Description                        | Priority | Technical Dependency | Logical Dependency |
                 |--------------|------------------------------------|----------|----------------------|--------------------|
-                | T1           | Login with valid credentials       | High     | T2                   | None               |
-                | T2           | Login with invalid credentials     | Medium   | None                 | None               |
-                | T3           | Password reset functionality       | High     | T2                   | None               |
-                | T4           | View user profile                  | Low      | None                 | None               |
-                | T5           | Update user profile                | Medium   | T3                   | None               |
+                | T1           | Login with valid credentials       | High     | None                 | None               |
+                | T2           | Login with invalid credentials     | High     | T1                   | None               |
+                | T3           | Password reset functionality       | Medium   | T2                   | None               |
+                | T4           | View user profile                  | Medium   | T3                   | T5                 |
+                | T5           | Update user profile                | High     | T3                   | None               |
+
+                - T2 has a **technical dependency** on T1 (needs user created first).
+                - T3 needs the login session from T2 → **technical**.
+                - T4 has a **logical dependency** on T5 — it checks success *after* form submission.
+                - T4 also has a technical dependency on T3 — needs dashboard session/context.
 
             2. **Example: Hierarchical Bullet List:**
 
-                - **Step 1:** Run Test T2 (Medium priority(acts as a setup); no dependencies).
-                - **Step 2:** Run Test T1 (high priority; depends on T2).
-                - **Step 3:** Run Test T3 (high priority; also depends on T2).
-                - **Step 4:** Run Test T5 (medium priority; depends on T3).
-                - **Step 5:** Run Test T4 (low priority; no dependencies).
+                - **Step 1:** Run **T1** – Create user (no dependencies).
+                - **Step 2:** Run **T2** – Login (depends technically on T1).
+                - **Step 3:** Run **T3** – View dashboard (depends technically on T2).
+                - **Step 4:** Run **T5** – Submit form (depends technically on T3).
+                - **Step 5:** Run **T4** – Verify success message (technical on T3, logical on T5).
 
             3. **Example: Narrative Statment**
 
-                Based on our risk analysis, tests covering the most critical risks will be executed first. Coverage data and requirement priorities are also factored in. Even if a test is high priority, if it depends on another test (technical or logical dependency), that dependency will be scheduled to run before it.
+                During test execution, we prioritize based on both business risk and dependency rules. For example, viewing a success message after submitting a form only makes sense if the form was actually submitted — a **logical dependency**. Similarly, login tests must run only after a user account exists — a **technical dependency**. Our execution order ensures such dependencies are respected, even when priority levels differ.
 
             </details>
 
