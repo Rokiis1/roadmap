@@ -397,13 +397,13 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
             1. **Example: Test Case Prioritization:**
 
-                | Test Case ID | Description                        | Priority | Technical Dependency | Logical Dependency |
-                |--------------|------------------------------------|----------|----------------------|--------------------|
-                | T1           | Login with valid credentials       | High     | None                 | None               |
-                | T2           | Login with invalid credentials     | High     | T1                   | None               |
-                | T3           | Password reset functionality       | Medium   | T2                   | None               |
-                | T4           | View user profile                  | Medium   | T3                   | T5                 |
-                | T5           | Update user profile                | High     | T3                   | None               |
+                | Test Case ID | Description                                | Priority | Technical Dependency | Logical Dependency |
+                |--------------|--------------------------------------------|----------|----------------------|--------------------|
+                | T1           | Create user account                        | High     | None                 | None               |
+                | T2           | Log in with created account                | High     | T1                   | None               |
+                | T3           | View user dashboard                        | Medium   | T2                   | None               |
+                | T4           | Perform action and expect success message  | Medium   | T3                   | T5                 |
+                | T5           | Submit form with valid data                | High     | T3                   | None               |
 
                 - T2 has a **technical dependency** on T1 (needs user created first).
                 - T3 needs the login session from T2 → **technical**.
