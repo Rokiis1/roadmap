@@ -363,7 +363,7 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
             </details>
 
-        - **Test Execution Schedule:**This schedule defines the order in which test cases are executed so that high-priority tests run first while all dependencies are respected.
+        - **Test Execution Schedule:** This schedule defines the order in which test cases are executed so that high-priority tests run first while all dependencies are respected.
 
             - **Dependencies:**
 
@@ -397,15 +397,9 @@ Test Planning It involves creating a detailed document that outlines the strateg
                 | T4           | View user profile                  | Low      | None                 | None               |
                 | T5           | Update user profile                | Medium   | T3                   | None               |
 
-                - **Step 1:** Execute T2 (Medium priority, no dependencies)
-                - **Step 2:** Execute T1 (High priority, dependent on T2)
-                - **Step 3:** Execute T3 (High priority, dependent on T2)
-                - **Step 4:** Execute T5 (Medium priority, dependent on T3)
-                - **Step 5:** Execute T4 (Low priority, no dependencies)
-
             2. **Example: Hierarchical Bullet List:**
 
-                - **Step 1:** Run Test T2 (acts as a setup; no dependencies).
+                - **Step 1:** Run Test T2 (Medium priority(acts as a setup); no dependencies).
                 - **Step 2:** Run Test T1 (high priority; depends on T2).
                 - **Step 3:** Run Test T3 (high priority; also depends on T2).
                 - **Step 4:** Run Test T5 (medium priority; depends on T3).
