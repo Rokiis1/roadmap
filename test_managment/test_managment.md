@@ -367,9 +367,17 @@ Test Planning It involves creating a detailed document that outlines the strateg
 
             - **Dependencies:**
 
-                - **Technical Dependencies:** Some test cases must run before others to properly set up the test environment or state. For example, if Test A configures a user session that Test B relies on, Test A must execute before Test B.
+                - **Technical Dependencies:** These happen when one test needs to run first to prepare the system (like logging in or setting up data). If the first test doesn’t run, the next one can’t start or will fail because something it needs is missing.
 
-                - **Logical Dependencies:** Some test cases depend on the results or outcomes of previous tests to validate a complete scenario. Even if one test is high priority, it cannot run until its prerequisite test (with lower numerical priority) has completed successfully.
+                    - **When it's triggered:** When a test needs something set up in advance — like a user session, a database entry, or a service started.
+
+                    - **Example:** Test A logs in a user. Test B needs the user to be logged in. **Test A must run before Test B**.
+
+                - **Logical Dependencies:** These happen when a test only makes sense after another one has passed. Even if it can technically run, the result wouldn’t mean anything unless the earlier test worked.
+
+                    - **When it's triggered:** When a test is part of a flow or process — like placing an order, then checking if the email confirmation was sent.
+
+                    - **Example:** Test A places an order. Test B checks if the confirmation email was received. **Test B depends on Test A passing first**.
 
             - **Priority Levels:** Test cases are assigned priorities (High, Medium, Low) based on factors such as risk, coverage, and criticality of the requirements.
 
