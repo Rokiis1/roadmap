@@ -23,9 +23,9 @@ Involves creating a set of conditions or variables under which a tester will det
 - **Functional and Non-Functional Test Cases:** Both functional requirements (what the system should do) and non-functional requirements (how the system should perform).
 - **Boundary and Edge Cases:** Tests the boundaries and edges of input ranges.
 - **Preconditions and Postconditions:** Specifies the conditions that must be met before and after the test is executed.
-- **Scenario-Based Test Specification Table:** Focuses on scenarios and includes detailed information about each scenario, along with the test cases and steps.
+- **Scenario-Based Test Specification Table:** Focuses on scenarios and includes detailed information about each scenario.
 - **Test Case-Based Specification Table:** Focuses on individual test cases derived from scenarios, providing detailed descriptions of what needs to be tested.
-- **Create a Test Case (if necessary):** If the bug reveals a missing test case or an edge case that was not previously covered, create a new test case.
+- **Create a Test Case (if necessary):** If the bug reveals a missing test case that was not previously covered, create a new test case.
 
 </details>
 

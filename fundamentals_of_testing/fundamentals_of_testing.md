@@ -28,7 +28,7 @@ Testing is a process in software development that checks if a product or applica
 
 3. **Reliability:** This ensures that the product works well every time it is used. Performs as expected, even under different conditions.
 
-4. **Scope of Testing:** Testing isn’t limited to executing test cases or running software—it includes planning, managing, monitoring, and controlling the testing process (product-oriented, process-oriented, user-oriented, time-oriented, rules-oriented, and scenario-oriented approaches).
+4. **Scope of Testing:** Testing isn’t limited to executing test cases or running software it includes planning, managing, monitoring, and controlling the testing process (product-oriented, process-oriented, user-oriented, time-oriented, rules-oriented, and scenario-oriented approaches).
 
 5. **Types of Testing:** Testing activities can be either dynamic (executing the software) or static (reviewing code and documentation).
 
