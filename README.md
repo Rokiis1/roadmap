@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD033 -->
 # Introduction
 
 In this course, we’ll follow a clear, step-by-step path designed to help you learn Python by building your skills gradually - like leveling up in a game.
