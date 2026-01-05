@@ -6,6 +6,7 @@
 - [Return vs print](#return-vs-print)
 - [Control flow inside functions](#control-flow-inside-functions)
 - [Functions with collections](#functions-with-collections)
+- [Built-in numeric utility functions](#built-in-numeric-utility-functions)
 
 ## What is a function?
 
@@ -140,4 +141,71 @@ c = [1, 2]
 
 demo_identity(a, b) # Output: Both objects are identical (the same object).
 demo_identity(a, c) # Output: The objects are not identical (different objects).
+```
+
+So far, we have learned **how functions work**, how they take **parameters**, and how they **return values**. We have also already used some **built-in functions** provided by Python.
+
+Now, let’s focus on a specific group of built-in functions that are commonly used when working with numbers.
+
+## Built-in numeric utility functions
+
+So far, we have learned **how functions work**, how they take **parameters**, and how they **return values**.
+
+Now let’s look at some **built-in functions** that Python provides to help us work with numbers.
+
+These are called **numeric utility functions**.
+
+The `abs()` function returns the absolute value of a number. It basically converts a **negative number into a positive one** (or leaves a positive number unchanged).
+
+```py
+print(abs(10)) # 10
+print(abs(-10)) # 10
+```
+
+The `round()` function rounds a number to the nearest value.
+
+```py
+print(round(3.6)) # 4
+print(round(3.14159, 2)) # 3.14
+```
+
+The first argument is the number to round, and the second argument is **optional** and specifies how many **decimal places** to keep.
+
+Another useful pair of functions is `min()` and `max()`.
+
+- The `min()` function returns the **smallest value**
+- The `max()` function returns the **largest value**
+
+```py
+print(min(3, 7, 1)) # 1
+print(max(3, 7, 1)) # 7
+```
+
+They also work with **collections**, such as lists.
+
+```py
+numbers = [4, 9, 2, 8]
+print(min(numbers)) # 2
+print(max(numbers)) # 9
+```
+
+The `sum()` function adds all numeric values in a collection.
+
+```py
+numbers = [1, 2, 3, 4]
+print(sum(numbers)) # 10
+```
+
+This function is useful when working with lists of numbers.
+
+Another useful numeric utility is the `pow()` function, which raises a number to a power.
+
+```py
+print(pow(2, 3)) # 8
+```
+
+This is equivalent to using the exponent operator `**`, which I already introduced earlier.
+
+```py
+print(2 ** 3) # 8
 ```

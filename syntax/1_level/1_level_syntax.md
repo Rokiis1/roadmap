@@ -4,6 +4,7 @@
 - [Comments](#comments)
 - [Variables (as names)](#variables-as-names)
 - [Literals & basic types](#literals--basic-types)
+- [What is an object?](#what-is-an-object)
 - [Built-in functions](#built-in-functions)
 
 ## Indentation & blocks
@@ -93,12 +94,30 @@ a, b, c = 1, 2, 3
 x = y = z = 10
 ```
 
-With a solid grasp of variables, let's shift our focus to built-in functions.
+With a solid grasp of variables, it’s important to understand what those variables actually refer to. In Python, variables do not hold values directly. Instead, they point to values that Python treats as objects.
+
+## What is an object?
+
+In Python, everything you work with is an **object**. An object is simply a value that exists in your program and can be passed around, stored in variables, and used by functions.
+
+You have already been using objects without realizing it. When you write a **string**, a **number**, or a **boolean** value, you are creating an object.
+
+```py
+user_name = "example"
+item_count = 5
+is_active = True
+```
+
+In these examples, `"example"`, `5`, and `True` are objects. The variable names do not store the values themselves, they reference these objects so you can use them later in your code.
+
+Now that we know values in Python are objects, we can better understand how functions interact with them. Many of the tools provided by Python are designed to work with objects directly, regardless of whether they are **strings**, **numbers**, or other types. These tools are called **built-in functions**.
 
 ## Built-in functions
 
 Built-in functions in Python are ready to use functions provided by the language. They are available by default. When you type the name `print` of a built-in function in the **Python interpreter**, you get the output like `<built-in function print>`, which indicates that the function is provided by Python itself.
 
-For example, the built-in function `print(object)` displays output to the console. `dir(object)` is a built-in function that returns a list of names representing all the **attributes** (*Imagine a face is like a Python object. Its **attributes** are the **characteristics** of that face*) and methods (*These are **functions** the face can perform*) linked to an object, and `help(object)` provides the help documentation for a function, module, or object.
+For example, the built-in function `print(object)` displays output to the console. The built-in function `type(object)` returns the type of an object, helping you understand what kind of value you are working with. The built-in function `len(object)` returns the number of elements in an object such as a string, list, or other collection.
+
+The built-in function `dir(object)` is a built-in function that returns a list of names representing all the **attributes** (*Imagine a face is like a Python object. Its **attributes** are the **characteristics** of that face*) and methods (*These are **functions** the face can perform*) linked to an object, and `help(object)` provides the help documentation for a function, module, or object.
 
 When calling these functions, you use parentheses `()`, which is known as **function call notation**. Think of the parentheses as a container that holds any input called `arguments` or `parameters` that the function needs to perform its task. For instance, in `print("Hello, world!")`, the string `"Hello, world!"` is passed as an argument to the `print()`.
