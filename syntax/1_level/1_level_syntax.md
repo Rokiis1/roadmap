@@ -54,9 +54,7 @@ Now that we've seen how comments provide clarity in our code, let's look at anot
 
 **Variables in Python are labels (names) that refer to data stored somewhere in memory**. When you create a variable, you give a name to a value so you can reuse it later in your code.
 
-By convention, variable names are written in **snake_case** (`user_name`, `item_count`). Names written in **UPPERCASE** (like `DEBUG` or `CONFIG`) are used by convention to represent constants, but Python does not enforce immutability, they can still be changed.
-
-Variables in Python are like labeled boxes that store data. When you create a variable, you can assign a value to it and then use that label throughout your code. By convention, variable names are written in **snake_case** (`user_name` or `item_count`), although sometimes you'll see names in uppercase (like `DEBUG` or `CONFIG`) to indicate constants. However, unlike immutable constants in some other languages, these uppercase names are simply a convention and can still be modified they are mostly used as configuration parameters.
+By convention, variable names are written in **snake_case** (`user_name`, `item_count`). Names written in **UPPERCASE** (like `DEBUG` or `CONFIG`) are used by convention to represent constants, but Python does not enforce immutability, they can still be changed and are often used for configuration values.
 
 ## Literals & basic types
 
