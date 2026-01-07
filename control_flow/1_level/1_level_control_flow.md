@@ -1,5 +1,14 @@
 # Content of Python control flow 1 level
 
+- [Control Flow Overview](#content-of-python-control-flow-1-level)
+- [If Statement](#if-statement)
+- [If-Else Statement](#if-else-statement)
+- [If-Elif-Else Statement](#if-elif-else-statement)
+- [Loops Overview](#loops-overview)
+- [For Loop](#for-loop)
+- [Range Function](#range-function)
+- [While Loop](#while-loop)
+
 Let's take these core concepts and start with conditional branching to see how it works. Python uses the keywords `if`, `elif`, and `else` for decision-making. You start with an `if` statement followed by a boolean expression and a colon (`:`). The colon begins an indented block of code that runs only if the expression is **True**.
 
 Below you can see syntax:
@@ -15,7 +24,7 @@ else:
 
 If the boolean expression in the `if` statement is **False**, Python will skip that indented block and look for an `elif` statement (if one exists) to evaluate the next condition. If none of the `if` or `elif` conditions are met, and there is an `else` statement, then the code inside the `else` block will run.
 
-## if-statement
+## If Statement
 
 Let's start with `if` statements to see how they work. In Python, an `if` statement begins with the keyword `if`, followed by a boolean expression and a colon (`:`). The colon marks the beginning of an indented block of code that executes only if the condition evaluates to **True**.
 
@@ -57,6 +66,8 @@ if (temperature > 20) and (humidity < 50):
 
 When using an `if` statement, the code block inside it runs only if the condition is true. If the condition is false, nothing is displayed or executed.
 
+## If-Else Statement
+
 However, when you combine `if` with `else`, the code inside the `else` block will run if the condition is false, allowing you to display an alternative message or perform different actions.
 
 ![if_else_statment](../assets/images/if_else_statment.png)
@@ -82,6 +93,8 @@ else:
 ```
 
 You can extend your decision making using `elif` (short for "else if"). Basically, if the condition in your initial `if` statement is false, Python will check the `elif` conditions one by one.
+
+## If-Elif-Else Statement
 
 In this image, we can see the complete flow of `if`, `elif`, and `else` statements.
 
@@ -117,6 +130,8 @@ else:
 
 Next, we will explore how **loops** work, starting with string data types. In the **data types 2 level**, we will discuss how to implement loops with other **iterable** data types such as **lists**, **dictionaries**, **sets**, and **tuples**.
 
+## loops overview
+
 A **loop** is a control structure in programming that allows you to repeatedly execute a block of code as long as a specified condition is met or for each item in a collection. There are different types of loops available in programming, including the `for` loop and the `while` loop.
 
 Let's start with the `for` loop. Below, you can see an image that illustrates its structure.
@@ -131,6 +146,8 @@ for item in collection:
 ```
 
 *Loops are designed to work with **sequences** or **collections** of multiple elements. Single values such as a **number**, **boolean**, or **None** are not **iterable** and cannot be used directly in loops.*
+
+## for-loop
 
 And there is example image that illustrates how for loop works.
 
@@ -148,6 +165,8 @@ print("Done.") # Stop after all items are processed
 ```
 
 *We have seen how to iterate over strings because they are sequences containing individual characters. Although individual numeric values cannot be iterated over.*
+
+## range-function
 
 There is appear sequential data type called `range()` that represents an interval of numbers.
 
@@ -168,6 +187,8 @@ for i in range(5):
 ```
 
 Next, we will see how the `while` loop works.
+
+## while-loop
 
 A `while` loop repeatedly executes a block of code as long as a specified condition remains True.
 

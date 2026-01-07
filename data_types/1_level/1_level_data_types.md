@@ -36,13 +36,23 @@ Data types can also be categorized based on whether they preserve a specific seq
 **Numeric types:** Numeric data types are **immutable** and represent numbers. The `int` type stores whole numbers (`42` or `-7`), while `float` handles decimal numbers (`3.14` or `-0.001`). For more advanced mathematics, Python also supports `complex` numbers. These types enable standard **arithmetic operations** and **augmented assignment**.
 
 ```py
-example_number = 2
+# Integer literal
+integer_literal = 30
+
+# Floating-point literal
+floating_literal = 19.99
+
+# Large numbers using underscores for readability
+large_integer = 1_000_000
+large_float = 1_234.56
 ```
 
 **Text** The `str` (string) type is **immutable** once created and is used to represent textual data as a sequence of characters. Strings can be defined using single quotes (`'Hello'`), double quotes (`"Hello"`), or triple quotes as I mentioned previous. They support operations like **concatenation** (joining strings), **slicing** (extracting substrings), and **formatting** (embedding variables or expressions within text).
 
 ```py
-example_text = "Hello"
+double_quotes = "Hello"
+single_quotes = 'Hello'
+triple_quotes = """Hello"""
 ```
 
 **Boolean** data types are **immutable** and represent the two truth values in Python: `True` and `False`. They are commonly used in **conditions**, **control flow** and **loops**, where expressions evaluate to either `True` or `False`.
@@ -60,7 +70,7 @@ example_none = None
 
 ## Type casting
 
-If we want to change the type of a variable by converting an `int` to a `float` or a `str` to an `int` or other type we can use Python's **built-in class constructors** (*a recipe that creates a meal from ingredients*) to perform **type conversion(casting)**. This allows you to explicitly convert values from one data type to another, making it easier to work with different representations of data.
+If we want to change the type of a variable by converting an `int` to a `float` or a `str` to an `int` or other type we can use Python **built-in class constructors** (*a recipe that creates a meal from ingredients*) to perform **type conversion(casting)**. This allows you to explicitly convert values from one data type to another, making it easier to work with different representations of data.
 
 Below are some examples of how to change types
 

@@ -1,50 +1,17 @@
 # Content of Python data types 2 level
 
-In the previous Level 1, we covered the basics of data types and discussed their differences. We examined simple data types such as **strings**, **numbers** (*including floats*), **booleans**, and **None**.
+- [Collections Overview](#collections-overview)
+- [Sequence Types](#sequence-types)
+- [Mapping Types (Dictionary)](#mapping-types-dictionary)
+- [Set Types](#set-types)
+- [Collection Type Casting](#collection-type-casting)
+- [len() Function](#len-function)
 
-```py
-# Nummeric
-example_number = 2
-floating_literal = 19.99
-# String
-example_text = "Hello"
-# Bolean
-example_boolean = True
-example_boolean = False
-# None
-example_none = None
-```
+In the previous Level 1, we covered the basics of data types and discussed their differences. We examined simple data types such as **strings**, **numbers**, **booleans**, and **None**.
 
-Now, let's dive deeper into how we can represent data types more broadly and explore what we can do with them. In this level, I will explain each type in detail and demonstrate how to write them. After discussing these basic data types, we will move on to collections.
+Let's move on to collections.
 
-In the previous level, we saw how to write integer and float numbers, and we learned how to use them in basic operations.
-
-```py
-# Integer literal
-integer_literal = 30
-# Floating-point literal
-floating_literal = 19.99
-```
-
-However, for large numbers, you can improve readability by using underscores to separate groups of digits.
-
-```py
-# Large integer literal
-large_integer = 1_000_000
-# Large floating-point literal
-large_float = 1_234.56
-```
-
-Another important type is the **string**. In the previous level, we learned that strings can be written in different ways.
-
-```py
-# String
-double_quotes = "Hello"
-single_quotes = 'Hello'
-triple_quotes = """Hello"""
-```
-
-Now that we've explored how to write more complex simple data type literals, let's move on to collections.
+## Collections Overview
 
 Collections allow you to group multiple items into a single container. Imagine a container like a box where you can store different objects, each one may be distinct, yet they all reside together in one place.
 
@@ -53,6 +20,8 @@ In Python, collections include data types such as **strings**, **range**, **list
 We already have a glimpse of collection types specifically **sequences** through **strings** and **range**.
 
 Let's see how we can write a simple format for these data types. We'll start with **sequences**.
+
+## Sequence Types
 
 A **list** is an **ordered** and **mutable** collection that can store various data types.
 
@@ -145,6 +114,8 @@ You can also specify the step parameter to control the increment
 element_length = range(1, 5, 2)
 ```
 
+## Mapping Types (Dictionary)
+
 There are also **mapping** types. Mapping types are **mutable** and store data as **key–value pairs**. They are accessed by **keys rather than indexes**, which means you do not use positions to retrieve values.
 
 Let's see how to create a mapping collection data type dictionary.
@@ -167,6 +138,8 @@ example_dict = {
 ```
 
 *Remember that the keys in a dictionary must be **unique**.*
+
+## Set Types
 
 And finally, our last collection type is **sets**. Sets are **non-indexed** collections that store **unique elements**. If duplicate values are provided, only one instance of each element is kept.
 
@@ -199,6 +172,8 @@ print(frozen_set_element) # Output: frozenset({1, 2, 3, 4})
 *In this example, duplicates are automatically removed, similar to a mutable set, but the resulting frozenset cannot be modified.*
 
 We touched `frozenset()` built-in function, but there is more those build in functions `list()`, `tuple()`, `set()`, `dict()` so there is what we can do in **Data Types Level 1** we have touch type casting with basic data types
+
+## Collection Type Casting
 
 Let's see how we can writte when we use collection type casting
 
@@ -238,6 +213,8 @@ print(new_tuple) # Output: (1, 2, 3)
 ```
 
 We discussed in **Syntax Level 1** that you can use the built-in function `len()` to determine the number of elements in a container.
+
+## len() Function
 
 Most of the time, we use the `len()` function on these collection data types **lists**, **dictionaries**, and **strings** because they are commonly used for managing a list of items, validating input, or storing configuration data.
 

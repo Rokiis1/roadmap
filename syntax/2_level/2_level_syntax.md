@@ -1,111 +1,65 @@
 # Content of Python syntax 2 level
 
-Literals are the constant, hard-coded values in your code, written directly in your source file.
+- [Literals as Syntax](#literals-as-syntax)
+- [Objects Revisited](#objects-revisited)
+- [Class Syntax Introduction](#class-syntax-introduction)
+- [Creating Objects from Classes](#creating-objects-from-classes)
 
-**Numeric literals** represent numbers directly and form the backbone of arithmetic operations in Python. They come in various forms, including integers, floating-point numbers, and complex numbers.
+## Literals as Syntax
 
-```py
-# Integer literal
-integer_literal = 30
+In previous levels, we learned how literals are written and how they are assigned to variables.
 
-# Large integer literal
-large_integer = 1_000_000
-
-# Floating-point literal
-floating_literal = 19.99
-
-# Large floating-point literal
-large_float = 1_234.56
-```
-
-**String Literals** represent any **sequence of characters** enclosed within quotes and are used to store text. They can be written using different quoting styles.
+In this level, we use literals as **building blocks** to show how Python creates objects
+and how those objects are later reused by functions and classes.
 
 ```py
-# Using single quotes
-regular_string1 = 'Hello'
-  
-# Using double quotes
-regular_string2 = "Hello"
-
-# Escape sequences: Here \n represents a newline, and \t represents a tab
-escape_string = "Hello,\nWorld!\tAnd good night."
-
-# Prefix the string with r so that escape characters are not processed
-raw_string = r"C:\folder\file"
-
-# Prefix the string with `f` to embed expressions inside using curly braces
-name = "Example"
-formatted_string = f"Hello, {name}"
+number = 42
+text = "Hello"
+items = [1, 2, 3]
 ```
 
-**Boolean Literals** represent **truth values** in Python. There are only two Boolean literals: `True` and `False`. Commonly used in **conditional statements**, **comparisons**, and **logical operations**.
+## Objects Revisited
+
+In **Syntax Level 1**, we learned that everything in Python is an object. At this level, we move one step forward and focus on **where objects come from**.
+
+Objects can be created from **literals**, **function calls**, **class instantiation**
 
 ```py
-# Boolean literals
-boolean_true = True
-boolean_false = False
+x = 10
+name = str(42)
 ```
 
-**None Literal** represents the **absence of a value** in Python. The literal `None` is a special constant that indicates “no value” or “nothing”. Often used to initialize variables or signal that a function does not return any value.
+Variables do not store values themselves. They are names that refer to objects created by Python.
+
+So far, all objects we used were created using Python **built-in types**. That include **numbers**, **strings**, **lists**, and **dictionaries**.
+
+Python also allows programmers to define their own object types.
+This is done using a special syntax called a **class**.
+
+A class does not create an object by itself.
+Instead, it defines how objects of that type should be created.
+
+## Class Syntax Introduction
+
+The syntax used to define a new object type in Python is the `class` keyword.
 
 ```py
-# None literal
-none_literal = None
+class User:
+    pass
 ```
 
-**List Literals** represent **ordered collections** of items in Python. They are **mutable sequences** that can store elements of various data types, and the order of the elements is preserved.
+This code defines a new type called `User`. At this level, the class does not contain data or behavior. The `pass` keyword is used only to keep the syntax valid.
+
+## Creating Objects from Classes
+
+Once a class is defined, it can be used to create objects.
 
 ```py
-# Empty list literal
-empty_list = []
+user1 = User()
+user2 = User()
 ```
 
-**Tuple Literals** are similar to lists but are **immutable** (their contents cannot be changed after creation).
+Each call to `User()` creates a new object.
+Even though both objects come from the same class, they are separate instances.
 
-```py
-# An empty tuple
-empty_tuple = ()
-```
-
-**Dictionary Literals** represent **key-value pairs** `{'key': 'value'}` in Python. Dictionaries are **mutable** and allow you to organize data by associating each key with a corresponding value.
-
-```py
-# An empty dictionary
-empty_dict = {}
-
-# A dictionary literal
-dict_literal = {"key1": "value1", "key2": 42, "key3": True}
-
-# Dictionary with various data types as values
-mixed_dict = {
-    "name": "Example",
-    "age": 30,
-    "is_member": True,
-    "balance": 99.95
-}
-
-# Nested dictionary literal
-nested_dict = {
-    "user": {
-        "id": 1,
-        "username": "Example"
-    },
-    "settings": {
-        "theme": "dark",
-        "notifications": True
-    }
-}
-```
-
-**Set Literals** represent **unordered collections** of unique items in Python. They allow you to store values without any specific order, and **duplicate elements** are **automatically removed**.
-
-```py
-# A set literal with numeric values
-number_set = {1, 2, 3}
-
-# A set literal with string values
-string_set = {"apple", "banana", "cherry"}
-
-# A set literal with mixed data types
-mixed_set = {1, "apple", True}
-```
+The behavior of objects and class design is covered later in **OOP Level 1**.
