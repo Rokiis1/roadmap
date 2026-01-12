@@ -13,268 +13,200 @@
 - [Independence of Testing](#independence-of-testing)
 - [Whole Team Approach](#whole-team-approach)
 
+In this module, we build the foundation for everything else in QA. Before learning techniques, writing test cases, or using tools, we need to understand what testing is, why we do it, and how teams talk about quality.
+
+We will start with the meaning of testing and the ideas behind it (**verification**, **validation**, **reliability**). Then we’ll move to test objectives, clarify the difference between **testing** and **debugging**, and learn the key terms used in QA: **error**, **defect**, **failure**, and **root cause**. After that, we’ll cover testing principles and the test process, and finish with roles and how teams organize quality work.
+
 ## What is Testing?
 
 **Explanation:**
 
 Testing is a process in software development that checks if a product or application works as required. It confirms that the product does what it is supposed to do without mistakes and meets quality standards. In short, testing makes sure every feature works as planned and performs well. This process applies not only to software but also to any product or system that needs to work reliably.
 
-<details>
-    <summary>Overview:</summary>
+When we talk about testing, two important ideas appear very early: **verification** and **validation**.
 
-1. **Verification:** Checking if the product is built correctly. It means reviewing work and ensuring that each part follows the design and requirements.
+**Verification** is about checking whether the product is built correctly. This is typically done by reviewing work and confirming that each part follows the design and requirements.
 
-2. **Validation:** This step confirms that the product does what users need. It's about making sure the product is the right fit for its use.
+**Validation** is about confirming that the product solves the user’s real needs. In other words, even if something is built “correctly,” it still must be the right solution for its intended use.
 
-3. **Reliability:** This ensures that the product works well every time it is used. Performs as expected, even under different conditions.
+Testing is also connected to reliability. Reliability means the product works well every time it is used and performs as expected, even under different conditions.
 
-4. **Scope of Testing:** Testing isn’t limited to executing test cases or running software it includes planning, managing, monitoring, and controlling the testing process (product-oriented, process-oriented, user-oriented, time-oriented, rules-oriented, and scenario-oriented approaches).
+Another important point is that **testing is bigger than executing test cases**. Testing also includes **planning**, **managing**, **monitoring**, and **controlling the testing process**. Different approaches can exist depending on what you focus on, such as **product-oriented**, **process-oriented**, **user-oriented**, **time-oriented**, **rules-oriented**, and **scenario-oriented**.
 
-5. **Types of Testing:** Testing activities can be either dynamic (executing the software) or static (reviewing code and documentation).
+Testing activities can be **dynamic** or **static**. **Dynamic testing** means executing the software. **Static testing** means reviewing code and documentation without execution.
 
-6. **Why Testing is Necessary?:** Software testing reduces the risk of failures in operation, ensuring that every feature works as planned and meets stakeholder expectations.
+Finally, testing is necessary because it reduces the risk of failures in operation. It helps ensure that features work as planned and meet stakeholder expectations.
 
-7. **What can we test?:**
+![alt text](./assets/images/whatcanwetest.png)
 
-    ![alt text](./assets/images/whatcanwetest.png)
-
-</details>
+Now that we understand what testing is, we need to answer the next question: what exactly are we trying to achieve when we test? That is where test objectives come in.
 
 ## Test Objectives
 
-**Explanation:**
-
 Test objectives are the specific goals and purposes of testing. They guide testers to align with the overall project goals and ensure that the software meets the required standards and user expectations.
 
-<details>
-    <summary>Overview:</summary>
+One objective is **evaluating work products**. That means **reviewing requirements**, **designs**, and **code to catch issues early**, before they become expensive problems later.
 
-1. **Evaluating Work Products:** Review requirements, designs, and code to catch issues early.
+Another objective is **triggering failures and finding defects**. During testing we try to create situations where the system fails, because failures help reveal defects that need to be fixed.
 
-2. **Triggering Failures and Finding Defects:** Trigger failures during tests to identify and fix defects.
+Testing also aims to ensure **required coverage**. This means confirming that **critical parts** of the software are actually tested, instead of testing randomly or only the “easy” paths.
 
-3. **Ensuring Required Coverage:** Confirm that all critical parts of the software are tested.
+A purpose of testing is **reducing risk**. Testing reduces the chance that defects will reach production and affect quality.
 
-4. **Reducing Risk:** Lower the risk of defects affecting production quality.
+Finally, testing **verifies requirements**. It checks whether the software matches the specified **requirements** and **meets user expectations**.
 
-5. **Verifying Requirements:** Ensure the software meets specified requirements and user expectations.
-
-</details>
+At this point we know what testing is and what testing tries to achieve. But in teams, people often mix up **testing** with **debugging**. These are related, but they are not the same, so we separate them clearly next.
 
 ## Testing and Debugging
 
-**Explanation:**
+**Testing** and **debugging** are two steps in the software development process that work together.
 
-Testing and debugging are two steps in the software development process that work together.
+**Testing** is the process of **finding defects**. It involves executing the product to identify issues. This activity is performed by testers to discover defects and report them.
 
-<details>
-    <summary>Overview:</summary>
+**Debugging** is the process of **analyzing and fixing defects**. It involves **root cause analysis** and correcting the identified issues. This activity is performed by developers to analyze why the defect happened and to implement a fix.
 
-1. **Testing:** The process of finding defects. It involves executing the product to identify any issues. Performed by testers to find defects.
+So **testing** reveals that a problem exists. **Debugging** explains why it exists and removes it.
 
-2. **Debugging:** The process of analyzing and fixing defects. It involves root cause analysis and correcting the identified issues. Performed by developers to analyze and fix defects.
-
-</details>
-
-## QA vs QC
-
-**Explanation:**
-
-Quality Assurance (QA) and Quality Control (QC) are two aspects of quality management.
-
-![QAvsQC](./assets/images/qavsqc.png)
-
-- **Quality Assurance (QA):** Proactive process that focuses on preventing defects in the development process. QA is **process-oriented** and aims to improve and stabilize production and associated processes to avoid issues that lead to defects.
-
-- **Quality Control (QC):** Reactive process that focuses on identifying defects in the final product. **product-oriented** and aims to identify and correct defects in the finished product before it reaches the customer.
+To communicate clearly about problems, QA uses specific terminology. The next section explains the difference between an **error**, a **defect**, and a **failure**, and also introduces the idea of **root cause**.
 
 ## Errors, Defects, Failures, and Root Causes
+
+These terms describe different aspects of problems that can occur during development and operation.
 
 **Explanation:**
 
 These terms in the context of software testing to describe different aspects of problems that can occur during the development and operation of software.
 
+An **error** (a mistake) is a human action or decision that produces an incorrect or unexpected result.
+
+A **defect** (a bug) is a flaw in the system. It is the result of an error made by the creators of the application.
+
+A **failure** happens during execution. It is the result of a defect when the software runs and behaves incorrectly.
+
+A **root cause** is the deepest underlying reason for a defect or a failure.
+
 ![alt text](./assets/images/errors_defects_failures_root_cause.png)
 
-<details>
-    <summary>Overview:</summary>
-
-1. **Error:** An error, also known as a mistake, is a human action or decision that produces an incorrect or unexpected result.
-
-2. **Defect:** A defect, also known as a bug, is a flaw in the system. It's the result of an error made by the creators of the app.
-
-3. **Failure:** A failure is the result of defect during execution of the software.
-
-4. **Root Cause:** The root cause is the deepest underlying cause of a defect or a failure.
-
-</details>
+Now that we have the basic vocabulary, we can talk about the principles of testing. These principles guide testing decisions, especially because we cannot test everything.
 
 ## Principles of Testing
 
-**Explanation:**
+The principles of testing are fundamental guidelines that dictate **what to test**, **how to test**, and **when to test**, following a **rule-oriented approach**.
 
-The principles of testing are fundamental guidelines that dictate what to test, how to test, and when to test, following a **rule-oriented approach**.
+**Testing can show the presence of defects**, but it cannot prove that there are no defects. Even if no issues are detected, it does not mean the software is completely correct.
 
-<details>
-    <summary>Overview:</summary>
+**Exhaustive testing is impossible**. It is not practical to test every possible **input**, **scenario**, or **path**. Because of this, testing focuses on **critical areas**, often using techniques such as **risk analysis**, **black-box**.
 
-1. **Testing shows presence of defects:**
-    - Testing can reveal the existence of defects but cannot guarantee that all defects have been found.
-    - Even if no issues are detected, it does not prove that the software is completely correct.
+**Early testing is important**. Starting testing activities early helps catch defects sooner and reduces the cost and impact of later rework.
 
-2. **Exhaustive testing is impossible:**
-    - It is impractical to test every possible input, scenario, or execution path.
-    - Instead, testing efforts focus on the most critical areas using techniques such as risk analysis, boundary value analysis, and equivalence partitioning.
+![alt text](./assets/images/earlyTesting.png)
 
-3. **Early testing:**
-    - Starting testing activities as early as possible in the development cycle helps catch defects sooner.
-    - Early defect detection reduces the cost and impact of later, more extensive rework.
+**Defect clustering (Pareto principle)** means that a small number of modules often contain the majority of defects. This helps guide where to focus testing effort.
 
-    ![alt text](./assets/images/earlyTesting.png)
+**The pesticide paradox** means that repeating the same tests over time can reduce their effectiveness. Tests need to be reviewed and updated to remain useful.
 
-4. **Defect clustering (Pareto Principle):**
-    - A small number of modules or components often contain the majority of the defects.
-    - For example, roughly 80% of problems may be found in 20% of the modules, highlighting where risk-based testing should concentrate.
+**Testing is context dependent**. Different products require **different testing approaches**. A **testing strategy** must be tailored to the specific project characteristics and risks.
 
-5. **Pesticide paradox (Tests Wear Out):**
-    - Repeating the same set of test cases over time may lead them to lose effectiveness in detecting new defects.
-    - Regularly reviewing, updating, and adding new tests is essential to keep the test suite fresh and relevant.
+**The absence-of-errors fallacy** means that even if a system has no detected defects, it might still fail to deliver value. A product must meet user needs and business goals, not only be defect-free. **Validation** matters as much as **verification**.
 
-6. **Testing is context dependent:**
-    - Different types of software (mobile apps, e-commerce sites, embedded systems) require different testing approaches and techniques.
-    - The testing strategy should be tailored to the specific characteristics and risks of the project.
-
-7. **Absence-of-errors fallacy:**
-    - A defect-free system is not automatically a useful or successful system.
-    - Even with all detected defects fixed, the software must also meet users needs and deliver business value. Validation ensuring the right product is built is as important as verification.
-
-</details>
+Principles explain how we should think about testing. Next, we need a structured way to apply that thinking in projects. That structure is the **test process**.
 
 ## Test Process
 
-**Explanation:**
+The test process is a structured approach that covers all activities from **planning** through **closure**. It ensures that testing is aligned with project **objectives**, **risks** are **managed**, and the final product is validated against its requirements.
 
-The test process is a structured approach that covers all activities from planning through closure. It ensures that testing is aligned with project objectives, risks are managed, and the final product is validated against its requirements.
+**Test planning** defines **objectives**, **approach**, **schedule**, **resources**, and **entry/exit criteria**.
 
-<details>
-    <summary>Overview:</summary>
+**Test monitoring and control** tracks progress against the plan, makes adjustments, and updates risks.
 
-1. **Test Planning:** Define objectives, choose an approach, schedule resources, and set entry/exit criteria.
+**Test analysis** examines the **test basis** (**requirements**, **designs**, **user stories**) to identify what needs testing.
 
-2. **Test Monitoring and Control:** Continuously track progress against the plan, adjust as needed, and update risks.
+**Test design** develops **test cases** and related **artifacts** such as **test data** and **test charters**.
 
-3. **Test Analysis:** Examine the documentation—the test basis (requirements, designs, user stories)—to identify what features or conditions need testing.
+**Test implementation** prepares the **artifacts** needed for **execution**, including **test procedures**, **automation scripts**, and **test environment** setup.
 
-4. **Test Design:** Develop test cases and related artifacts such as test data and test charters.
+**Test execution** runs tests, compares **actual** and **expected** results, **logs outcomes**, and **reports defects**.
 
-5. **Test Implementation:** Build or acquire the test artifacts needed for execution, including test procedures (step-by-step instructions), automation scripts, and setting up the test environment.
+**Test completion** finalizes testing by reviewing **exit criteria**, **archiving artifacts**, and **documenting lessons learned**.
 
-6. **Test Execution:** Run tests, compare actual and expected results, log outcomes, and report defects.
-
-7. **Test Completion:** inalize testing activities by reviewing exit criteria, archiving test artifacts, and documenting lessons learned.
-
-</details>
+After we understand the process, we can describe what gets produced during testing work. That brings us to test activities and the outputs they create.
 
 ## Test Activities
 
-**Explanation:**
+**Test activities** involve a series of tasks to ensure that a software product meets quality standards. Throughout these activities, tangible outputs are produced.
 
-Test activities, often referred to as the test process, involve a series of tasks to ensure that a software product meets its quality standards. Throughout these activities, various tangible outputs are produced.
+An **artifact** is an individual piece produced during testing, such as **test cases**, **scripts**, **data**, or **logs**.
 
-- **Artifact:** These are the individual pieces of documentation or tools created during the testing process. The raw outputs produced during testing (test cases, scripts, data, logs).
+**Testware (test artifacts)** includes all technical outputs created or used during testing, such as **test cases**, **scripts**, **logs**, **configuration files**, and **tools** that support repeatable and consistent testing.
 
-- **Testware (Test Artifacts):** This encompasses all technical outputs created or used during testing such as test cases, scripts, logs, configuration files, and tools that help ensure testing is complete, can be easily repeated, and produces consistent results.
+**Deliverables** are artifacts that are formally provided to **stakeholders**, such as a **Test Plan**, **Test Summary Report**, or **Test Closure Report**.
 
-- **Deliverables:** A subset of artifacts, deliverables are formally provided to stakeholders (Test Plan, Test Summary Report, Test Closure Report). These documents convey testing status, results, and insights.
+**Test planning** sets **objectives**, **timelines**, **resources**, and **entry/exit criteria**.
 
-<details>
-    <summary>Overview:</summary>
+**Test monitoring and control** **tracks progress**, **issues control** directives, and **updates risks**.
 
-- **Test Planning:** Define test objectives, select an appropriate approach, establish timelines, resources, and criteria (entry/exit). This sets the stage for all subsequent test activities.
+**Test analysis** identifies **testable features**, derives **test conditions**, and **assesses risks**.
 
-- **Test Monitoring and Control:** Continuously review test progress against the plan and make adjustments as necessary. Activities here include tracking progress, issuing control directives, and updating risk information.
+**Test design** expands conditions into detailed **test cases** and **supporting testware**, defining **test data** and **environment** needs.
 
-- **Test Analysis:** Analyze the test basis to identify testable features, derive test conditions, and assess potential risks and defects. This stage answers the question: "What should we test?"
+**Test implementation** prepares the **testware**, builds **test suites**, and sets up the **environment**.
 
-- **Test Design:** Elaborate the test conditions into detailed test cases and other supporting testware (test charters). It involves defining required test data, environment configurations, and applying appropriate test techniques — essentially answering “How to test?”
+**Test execution** performs the **tests**, **logs results**, and **reports defects**.
 
-- **Test Implementation:** Create or acquire the necessary testware, including writing test procedures and scripts, assembling test suites, and setting up the test environment to prepare for execution.
+**Test completion** evaluates **exit criteria**, archives useful **testware**, and **produces** a completion report with lessons learned.
 
-- **Test Execution:** Carry out the test cases (either manually or automated), compare actual results with expected results, log test outcomes, and report any anomalies and defects.
-
-- **Test Completion:** Conclude test activities at project milestones by evaluating exit criteria, archiving useful testware, and producing a Test Completion Report that includes lessons learned and recommendations for future improvements.
-
-</details>
+Now that we know what happens in testing work, we need to clarify who does what. That is why test roles exist.
 
 ## Test Roles
 
-**Explanation:**
-
 Test roles define the responsibilities and contributions of different individuals involved in the testing process.
 
-<details>
-    <summary>Overview:</summary>
+**Test management** is responsible for the test process and the test team. This role focuses on planning, monitoring and control, and test completion. The work includes defining objectives, choosing the approach, setting timelines, selecting tools, and managing the overall process.
 
-1. **Test Management:** Responsibility for the test process, and the test team. This role focuses on test planning, monitoring and control, and test completion. Activities include defining goals and objectives, determining the overall approach, timelines, resources, tools, and managing the test process.
+A **test engineer** is responsible for technical testing work. This role focuses on analysis, design, implementation, and execution. The work includes analyzing the test basis, writing test cases, preparing data, setting up environments, executing tests, and reporting defects.
 
-2. **Test Engineer:** Responsibility for the Technical aspects of testing. This role focuses on test analysis, design, implementation, and execution. Activities include analyzing the test basis, writing test cases, preparing test data, setting up the environment, executing tests, and reporting defects.
+In small organizations, one person may cover both roles. In other organizations, responsibilities vary depending on context, skills, and team structure. Different people may take on different responsibilities at different times.
 
-3. **Role Flexibility:** In small organizations, one person can take on both test management and test engineer roles. In other organizations, responsibilities may vary based on project context, skills, and the structure of the company. Different people may take on these roles at different times, and it is possible for one person to handle multiple roles depending on the availability and context.
+Organizations also use the terms **QA** and **QC**, and these terms affect how quality work is organized. So we clarify them next.
 
-</details>
-
-## Whole Team Approach
+## QA vs QC
 
 **Explanation:**
 
-The whole team approach means that everyone on the team developers, testers, and business representatives is responsible for quality. The team works in a shared space (physical or virtual), which improves communication and collaboration.
+Quality Assurance (**QA**) and Quality Control (**QC**) are two aspects of quality management.
 
-<details>
-    <summary>Overview:</summary>
+![QAvsQC](./assets/images/qavsqc.png)
 
-1. **Collaboration:** All team members work together closely, sharing information and responsibilities.
+**Quality Assurance** is a proactive process that focuses on **preventing defects in the development process**. **QA** is **process-oriented** and aims to improve and stabilize production and associated processes to avoid issues that lead to defects.
 
-2. **Shared Responsibility for Quality:** Quality is everyones job, not just the testers. For example, developers help define tests and fix defects, while testers offer insights into improving the product.
+**Quality Control** is a reactive process that focuses on **identifying defects in the final product**. **QC** is **product-oriented** and aims to identify and correct defects in the finished product before it reaches the customer.
 
-3. **Co-location:** Working in the same space (or virtually closely) helps reduce misunderstandings and speeds up problem solving.
-
-4. **Knowledge Transfer:** Testers pass on testing knowledge to developers and other team members, improving overall quality.
-
-5. **Context Matters:** In some cases (such as safety-critical systems), a higher level of test independence may be required.
-
-</details>
+Even though teams collaborate, independence of testing is still a key idea. Independence affects objectivity and how likely it is to find defects.
 
 ## Independence of Testing
 
-**Explanation:**
+**Independence of testing** means that testing is performed by **individuals** or **teams separate** from those who **developed the software**. This helps reduce **bias** and increases the chances of finding defects.
 
-Independence of testing means that testing is performed by individuals or teams separate from those who developed the software. This helps to reduce bias and increases the chances of finding defects.
+Independent testers can bring objectivity and recognize issues that developers may overlook due to familiarity.
 
-<details>
-    <summary>Overview:</summary>
+Independence can exist at different levels. Testing may be done by the **author**, by a **peer**, by a **separate testing team** within the organization, or by e**xternal testers** outside the organization.
 
-1. **Objectivity:** Independent testers bring a fresh perspective, likely identifying defects that developers might overlook because of familiarity.
+Independence has **benefits**, such as challenging assumptions and finding different types of failures. It also has **drawbacks**, such as isolation, reduced collaboration, or reduced developer ownership of quality.
 
-2. **Degrees of Independence:**
+A balanced approach that matches project context is often best.
 
-    - **No Independence:** Work products are tested by their author. This means the developer who wrote the code also tests it.
-    - **Peer Review:** Work products are tested by the authors peer from the same team. For example, one developer tests another developers code.
-    - **Separate Testing Team:** Testers from outside the authors team but within the same organization perform the testing. This is the most common practice today.
-    - **External Testing:** Testers from outside the organization perform the testing. This is often seen in small scale organizations that outsource testing to third party organizations.
+Modern teams often try to combine quality responsibility across the team. That is why the whole team approach is important to understand.
 
-3. **Benefits and Drawbacks:**
+## Whole Team Approach
 
-    - **Benefits:**
-        - Independent testers are likely to recognize different kinds of failures and defects compared to developers due to their different backgrounds and perspectives.
-        - Independent testers can verify, challenge, or disapprove assumptions made by stakeholders during the specification and implementation of the system.
+The whole team approach means that everyone on the team **developers**, **testers**, and **business representatives** is responsible for quality. The team works in a shared space (physical or virtual), which improves communication and collaboration.
 
-    - **Drawbacks:**
-        - Independent testers may be isolated from the development team, leading to a lack of collaboration and understanding.
-        - Developers may lose the sense of responsibility for quality if testing is entirely outsourced.
-        - Independent testers may be seen as a bottleneck or blamed for delays in release.
+Collaboration and shared responsibility reduce misunderstandings and help quality become part of everyday work, not something “added at the end.”
 
-4. **Benefits:** Independent testers can challenge assumptions and discover different kinds of issues, helping to ensure a more reliable product.
+Developers can help define **tests** and **fix defects**, while testers contribute insights that improve the product.
 
-5. **Drawbacks:** Too much separation can lead to communication gaps. A balanced approach (combining several levels of independence) is often best.
+**Co-location** (or close virtual collaboration) supports faster problem solving.
 
-</details>
+Knowledge transfer improves the team overall quality capability.
+
+Context matters, and some projects (such as safety-critical systems) may still require higher independence.
