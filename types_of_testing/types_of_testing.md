@@ -1,101 +1,63 @@
-<!-- markdownlint-disable MD033 -->
 # Content of Table of the Types of Testing
 
 - [Dynamic Testing](#dynamic-testing)
 - [Static Testing](#static-testing)
-- [Differences Between Static Testing and Dynamic Testing](#differences-between-static-testing-and-dynamic-testing)
+
+In previous sections, we learned what testing is and at which levels it is performed. Now we move to another important classification: how testing is performed.
+
+From this perspective, testing can be divided into two main types:
+
+- Dynamic testing
+- Static testing
+
+These two types complement each other and are both essential for software quality.
 
 ## Dynamic Testing
 
 **Explanation:**
 
-Dynamic testing involves methods used in software development that require the execution of the software to find defects. These methods are used to validate both the functional and non-functional behavior of software.
+Dynamic testing involves methods that require the **execution of the software** in order to **find defects**. In **dynamic testing**, the system is run, and its behavior is observed and evaluated.
 
-<details>
-    <summary>Overview:</summary>
+Dynamic testing is used to validate both **functional** and **non-functional** aspects of software.
 
-- **Functional Testing**
+When we perform dynamic testing, we are checking what the system does and how it behaves during execution.
 
-  **Explanation:**
+Dynamic testing can be **divided into two main categories**.
 
-  Verifying what the system should do by checking its functionality against the specifications.
+**Functional Testing** verifies what the system should do. It checks whether the software behaves according to the specifications and requirements.
 
-  <details>
-      <summary>Overview:</summary>
+The objective of functional testing is to ensure that each function of the system **operates in accordance with the required specification**.
 
-  - **Objective:** Verify that each function of the system operates in conformance with the required specification.
-  
-  - **Focus:** Checks the "what" of system behavior—functional correctness, completeness, and appropriateness.
+The focus is on the **correctness**, **appropriateness** of system behavior. In simple words, functional testing answers the question. **Does the system do what it is supposed to do?**
 
-  </details>
+Examples of functional testing include checking **login functionality**, **validating form submissions**, **verifying calculations**, and **confirming business rules**.
 
-- **Non-functional Testing**
+**Non-functional Testing** testing focuses on how the system performs rather than what specific functions it provides.
 
-  **Explanation:**
+The objective of **non-functional** testing is to evaluate attributes such as **performance**, **usability**, **reliability**, **scalability**, **security** and **compatibility**.
 
-  Non-functional testing is performed to check the non-functional aspects of a software application. It focuses on how the system performs rather than specific behaviors.
+The focus is on **how well** the system performs its functions.
 
-  <details>
-      <summary>Overview:</summary>
+Examples include performance testing (**such as load testing**), **reliability testing** (stability and recovery behavior), **scalability testing** (growth under increasing load), security testing (**OWASP vulnerability categories**), usability testing (**including accessibility testing**), and **compatibility testing** across browsers, devices, and operating systems.
 
-  - **Objective:** Evaluate attributes other than specific behaviors (performance, usability, security).
-
-  - **Focus:** Tests the "how well" the system performs.  
-
-</details>
+Dynamic testing is essential because many defects can only be detected when the system is actually executed.
 
 ## Static Testing
 
-**Explanation:**
+Static testing involves validating software work products without executing the software.
 
-Static testing involves validating the code, design documents, and software requirements without actually executing the software. This process aims to detect defects early, reducing both the cost and effort of fixing them later in the development cycle.
+Instead of running the code, static testing focuses on reviewing and **analyzing artifacts** (*requirements, design documents, source code, user manuals*)
 
-<details>
-    <summary>Overview:</summary>
+The main goal of **static testing** is to detect defects as early as possible.
 
-1. **Early Detection of Defects:** Identifies issues such as requirement ambiguities, design inconsistencies, and coding errors before they manifest at runtime.
+Static testing helps identify problems such as **ambiguous requirements**, **design inconsistencies**, **coding mistakes** before they become runtime failures.
 
-2. **Work Product Evaluation:** Involves examining all work products (requirements, design documents, source code) to ensure they are complete, clear.
+By **finding defects early**, static testing **saves time**.
 
-3. **Cost and Time Savings:** Early identification allows for quick resolution, reducing rework and lowering overall development costs.
+Static testing also improves **Reviews**.
 
-4. **Enhanced Collaboration:** Static reviews, walkthroughs, and inspections encourage team collaboration and ensure alignment of stakeholder expectations.
+Static testing contributes to **quality assurance** because it improves the **maintainability**, **readability**, and **reliability** of work products.
 
-5. **Quality Assurance:** Provides a means to measure and improve the quality of work products while building confidence in the software’s maintainability and reliability.
+Static testing can be performed using both **reviews** and **automated tools**.
 
-6. **Techniques and Tools:**
-    - **Reviews, Walkthroughs, and Inspections:** Structured meetings where team members check documents and code for errors.
-    - **Static Analysis Tools:** Automated tools that examine code for compliance with coding standards, potential security vulnerabilities, and other quality metrics.
-
-</details>
-
-## Differences Between Static Testing and Dynamic Testing
-
-<details>
-    <summary>Overview:</summary>
-
-1. **Nature of Testing:**
-    - **Static Testing:** Involves reviewing work products without executing the code.
-    - **Dynamic Testing:** Involves executing the actual software to identify defects and determine behavior.
-
-2. **Defect Detection:**
-    - **Static Testing:** Uncovers issues such as ambiguities, inconsistencies, and design flaws directly from the artifacts.
-    - **Dynamic Testing:** Identifies failures caused by defects, which are then analyzed to determine the root cause.
-
-3. **Applicability:**
-    - **Static Testing:** Can be applied to non-executable work products, such as requirements, design documents, and user manuals.
-    - **Dynamic Testing:** Can only be applied to executable work products, such as the software code.
-
-4. **Quality Characteristics:**
-    - **Static Testing:** Focuses on maintainability, readability, and adherence to standards.
-    - **Dynamic Testing:** Assesses functional correctness, performance, security, and overall system behavior.
-
-5. **Efficiency:**
-    - **Static Testing:** More easily detects defects in rarely executed or hard-to-reach paths through the code.
-    - **Dynamic Testing:** May not cover all paths through the code, especially those that are rarely executed.
-
-6. **Cost and Time:**
-    - **Static Testing:** Detects defects early in the development lifecycle, which reduces rework costs.
-    - **Dynamic Testing:** Finds defects later during or after execution, often resulting in higher correction costs and longer debugging cycles.
-
-</details>
+Automated static analysis tools examine code to check **coding standards**, detect potential **security vulnerabilities**, and **identify risks**.

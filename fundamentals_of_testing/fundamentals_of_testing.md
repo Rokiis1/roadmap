@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD033 -->
 # Content Of Table of the Fundamentals of Testing
 
 - [What is Testing?](#what-is-testing)
