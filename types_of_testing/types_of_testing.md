@@ -14,8 +14,6 @@ These two types complement each other and are both essential for software qualit
 
 ## Dynamic Testing
 
-**Explanation:**
-
 Dynamic testing involves methods that require the **execution of the software** in order to **find defects**. In **dynamic testing**, the system is run, and its behavior is observed and evaluated.
 
 Dynamic testing is used to validate both **functional** and **non-functional** aspects of software.

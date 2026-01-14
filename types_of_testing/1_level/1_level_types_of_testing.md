@@ -1,4 +1,13 @@
-# Content of Table Experience-based Techniques
+# Content of types of testing level 1
+
+- [Error Guessing](#error-guessing)
+- [Exploratory Testing](#exploratory-testing)
+- [Checklist-Based Testing](#checklist-based-testing)
+- [Ad-Hoc Testing](#ad-hoc-testing)
+- [Smoke Testing](#smoke-testing)
+- [Sanity Testing](#sanity-testing)
+- [Confirmation Testing (Retesting)](#confirmation-testing-retesting)
+- [Regression Testing](#regression-testing)
 
 Experience-based testing techniques rely on the tester’s knowledge, intuition, and prior experience to design and execute tests. These techniques are less formal than specification-based or structure-based techniques and are especially useful when requirements are incomplete or time is limited.
 
@@ -22,8 +31,7 @@ Error guessing is an experience-based testing technique where testers predict wh
 Exploratory testing is a **testing approach** where **test design** and **execution** happen at the same time. Testers learn about the system while testing and use that knowledge to design better tests.
 
 - No predefined detailed test cases  
-- Tester controls test flow  
-- Continuous learning  
+- Tester controls test flow
 - Focus on discovering unknown defects
 
 **Charters:** A charter is a mission or goal for the exploratory testing session. It outlines the target of the testing, the objectives, the types of tests or ideas to be explored, the duration of the session, and the expected outcomes.
@@ -32,7 +40,7 @@ Exploratory testing is a **testing approach** where **test design** and **execut
 
 **Documentation** Testers record **tested areas**, **steps performed**, **issues found**.
 
-![alt text](./assets/images/charter.png)
+![alt text](../assets/images/charter.png)
   
 ## Checklist-Based Testing
 
@@ -40,7 +48,7 @@ Checklist-based testing uses a predefined **list of items** to verify important 
 
 **Guided Testing:** The checklist acts as a guide, ensuring all necessary areas are reviewed without extensive pre-planning.
 
-**Functional and Non-Functional Testing:** Checklists can support both functional and non-functional testing, ensuring aspects like usability, performance, and compatibility are verified.
+**Functional and Non-Functional Testing:** Checklists can support both functional and non-functional testing, ensuring aspects like **usability**, **performance**, and **compatibility** are verified.
 
 **Documentation:** Even though tests are not fully scripted, documenting results (test session logs or summary reports) is essential for tracking progress and identifying improvement areas. Findings should be included in the final Test Summary Report to inform stakeholders of outcomes and any defects addressed.
 
@@ -62,3 +70,38 @@ Ad-hoc testing is an unstructured testing technique where testers freely explore
 - Fast defect discovery
 
 **Click** random buttons, **resize** the screen, **enter** unexpected inputs
+
+## Smoke Testing
+
+Smoke testing is a basic set of tests run on a new software build to quickly verify that the most critical functionalities work.
+
+Typical smoke test areas include
+
+- Application launch  
+- Login functionality  
+- Basic navigation  
+- Core feature access  
+
+If smoke testing fails, the build is usually rejected for further testing.
+
+## Sanity Testing
+
+Sanity testing is performed after minor changes or defect fixes. It focuses on verifying that the specific changes work correctly and that related core functionality has not been broken.
+
+Sanity testing is narrower and more focused than smoke testing and is usually executed quickly.
+
+## Confirmation Testing (Retesting)
+
+Confirmation testing, also called retesting, verifies that a previously reported defect has been fixed.
+
+The tester reruns the same test cases that originally detected the defect to confirm that the issue no longer occurs.
+
+Confirmation testing checks only the fixed defect, not the surrounding functionality.
+
+## Regression Testing
+
+Regression testing ensures that recent changes such as defect fixes, enhancements, upgrades, or migrations have not negatively affected existing functionality.
+
+Regression testing involves re-running previously executed test cases to verify that the software still behaves as expected.
+
+Regression testing protects the stability of the system over time.
