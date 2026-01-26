@@ -1,11 +1,8 @@
 # Content of Python syntax 2 level
 
-- [Literals as Syntax](#literals-as-syntax)
 - [Objects Revisited](#objects-revisited)
 - [Class Syntax Introduction](#class-syntax-introduction)
 - [Creating Objects from Classes](#creating-objects-from-classes)
-
-## Literals as Syntax
 
 In previous levels, we learned how literals are written and how they are assigned to variables.
 

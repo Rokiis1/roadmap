@@ -1,14 +1,12 @@
 # Content of Python function programming 1 level
 
-- [What is a function?](#what-is-a-function)
 - [Function definition vs function call](#function-definition-vs-function-call)
 - [Parameters vs arguments](#parameters-vs-arguments)
 - [Return vs print](#return-vs-print)
+- [Function composition](#function-composition)
 - [Control flow inside functions](#control-flow-inside-functions)
 - [Functions with collections](#functions-with-collections)
 - [Built-in numeric utility functions](#built-in-numeric-utility-functions)
-
-## What is a function?
 
 Functions are reusable blocks of code designed to perform a specific task and help you organize your code.
 
@@ -88,6 +86,41 @@ print(result)
 ```
 
 *Using `print()` inside a function is generally for debugging purposes. It's best to use `return` to send a value back, allowing the function's output to be reused elsewhere.*
+
+Because a function can return a value, that returned result can be used just like any other value in your program. One common and useful pattern is passing the result of one function directly into another function call.
+
+## Function composition
+
+Function composition means using the return value of one function as the input (argument) for another function.
+
+```py
+def double(x):
+    return x * 2
+
+def add_five(x):
+    return x + 5
+
+result = add_five(double(3))
+print(result) # 11
+```
+
+Here, the number is first multiplied and then added. This works because `double()` uses `return`, so its result can be passed to another function.
+
+If a function uses `print()` instead of `return`, its result cannot be used in another function call.
+
+```py
+def double(x):
+    print(x * 2)
+
+def add_five(x):
+    return x + 5
+
+add_five(double(3)) 
+```
+
+In this example, `double(3)` prints the value `6` but does not return anything. When a function does not use `return`, Python automatically returns `None`. Since `add_five()` tries to add `5` to `None`, Python raises the error `TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'`
+
+So far, the examples focused on how functions return values and interact with each other. Next, we will look at how to control the logic *inside* a function using conditionals and loops.
 
 ## Control flow inside functions
 
