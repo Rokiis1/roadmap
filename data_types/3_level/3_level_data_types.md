@@ -91,7 +91,139 @@ item_dict = {"a": 1, "b": 2}
 print(item_dict[0]) # Raises KeyError because there is no key 0
 ```
 
-Now that we understand how different data types support (or do not support) element access, let’s look at another important characteristic. **Mutable vs immutable**.
+So far, we’ve focused on **which data types allow square bracket access (`[]`) and which do not**.
+
+In programs, data is rarely flat. You will often work with **nested structures**, meaning one data type contains another data type inside it.
+
+- lists containing other lists
+- lists containing dictionaries
+- lists containing sets
+- lists containing tuples
+- dictionaries containing lists
+- dictionaries containing other dictionaries
+
+In these cases, square brackets are not used just once, they are **chained together** to move step by step through the structure.
+
+Before discussing mutability, it’s important to understand how square bracket notation can be used not only to **access** nested elements, but also to **add**, **update** using assignment (`=`).
+
+## Nested access and assignment using square brackets (`[]`)
+
+Square brackets `[]` are used to access elements by `index` in sequences, and by `key` in dictionaries.
+
+When a structure is nested, you simply apply this multiple times.
+
+Here is an example of a **list** containing another **list**
+
+```py
+numbers = [1, 2, [10, 20, 30]]
+
+print(numbers[2]) # Output: [10, 20, 30]
+print(numbers[2][1]) # Output: 20
+```
+
+Because lists are **mutable**, nested values can be **updated** using assignment.
+
+```py
+numbers[2][1] = 99
+print(numbers)
+# [1, 2, [10, 99, 30]]
+```
+
+Here is an example of a **dictionary** containing a **list**.
+
+```py
+profile = {
+    "username": "admin",
+    "roles": ["editor", "moderator"]
+}
+
+print(profile["roles"][0]) # editor
+```
+
+**Updating** a nested value works the same way.
+
+```py
+profile["roles"][0] = "admin"
+print(profile)
+```
+
+Here is an example of a **dictionary** containing another **dictionary**.
+
+```py
+config = {
+    "database": {
+        "host": "localhost",
+        "port": 5432
+    }
+}
+
+print(config["database"]["port"]) # 5432
+```
+
+**Updating** and **adding** nested values using square brackets.
+
+```py
+config["database"]["port"] = 3306
+config["database"]["user"] = "root"
+print(config)
+```
+
+Now consider a **list** containing a **set**.
+
+```py
+data = [
+    {1, 2, 3},
+    {4, 5, 6}
+]
+
+print(data[0]) # {1, 2, 3}
+```
+
+Square brackets can be used to access the **set object itself**, because it is stored inside a list.
+
+However, sets are **non-indexed**. This means you cannot access or update individual set elements using square brackets.
+
+```py
+data[0][1] # TypeError
+```
+
+What assignment can do in this case is **replace the entire set**, not modify its internal elements.
+
+```py
+data[0] = {10, 20, 30}
+print(data)
+```
+
+Now consider a **list** containing a **tuple**.
+
+```py
+data = [
+    (10, 20, 30),
+    (40, 50, 60)
+]
+
+print(data[0]) # (10, 20, 30)
+print(data[0][1]) # 20
+```
+
+Tuples are **indexed**, so values can be accessed using square brackets.
+
+However, tuples are **immutable**, so their internal values **cannot be updated** using assignment.
+
+```py
+data[0][1] = 99 # TypeError
+```
+
+What assignment can do is **replace the entire tuple**, because the list itself is mutable.
+
+```py
+data[0] = (100, 200, 300)
+print(data)
+```
+
+Square brackets are therefore used to **navigate** through nested structures, while assignment determines whether a value is **updated** or an object is **replaced**.
+
+This distinction becomes essential when we examine how **mutable** and **immutable** data types behave in memory.
 
 ## How mutable and immutable data types work
 
