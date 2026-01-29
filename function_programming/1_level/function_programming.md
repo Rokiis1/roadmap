@@ -120,62 +120,6 @@ add_five(double(3))
 
 In this example, `double(3)` prints the value `6` but does not return anything. When a function does not use `return`, Python automatically returns `None`. Since `add_five()` tries to add `5` to `None`, Python raises the error `TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'`
 
-So far, the examples focused on how functions return values and interact with each other. Next, we will look at how to control the logic *inside* a function using conditionals and loops.
-
-## Control flow inside functions
-
-But most of the time, simple logic isn’t enough. We need to handle more complex decision-making to solve problems. One way to do this is by combining control flow constructs like **conditionals** and **loops** within a function and then using a loop to call the function with multiple inputs.
-
-Below is an example that demonstrates a more advanced control flow using a function with conditional logic and a for-loop for iteration.
-
-```py
-def classify_number(num):
-    if num < 0:
-        return "Negative"
-    elif num == 0:
-        return "Zero"
-    else:
-        return "Positive"
-
-for i in range(-2, 3):
-    print(f"{i} is {classify_number(i)}")
-```
-
-There is another example with the membership operator.
-
-## Functions with collections
-
-This function checks if a target element is present in a given collection.
-
-```py
-def demo_membership(target, collection):
-    if target in collection:
-        print(f"{target} is in the collection.")
-    else:
-        print(f"{target} is not in the collection.")
-
-my_list = [1, 2, 3, 4]
-demo_membership(3, my_list)
-demo_membership(5, my_list)
-```
-
-Example with identity operator.
-
-```py
-def demo_identity(obj1, obj2):
-    if obj1 is obj2:
-        print("Both objects are identical (the same object).")
-    else:
-        print("The objects are not identical (different objects).")
-
-a = [1, 2]
-b = a
-c = [1, 2]
-
-demo_identity(a, b) # Output: Both objects are identical (the same object).
-demo_identity(a, c) # Output: The objects are not identical (different objects).
-```
-
 So far, we have learned **how functions work**, how they take **parameters**, and how they **return values**. We have also already used some **built-in functions** provided by Python.
 
 Now, let’s focus on a specific group of built-in functions that are commonly used when working with numbers.
@@ -241,4 +185,60 @@ This is equivalent to using the exponent operator `**`, which I already introduc
 
 ```py
 print(2 ** 3) # 8
+```
+
+So far, the examples focused on how functions return values and interact with each other. Next, we will look at how to control the logic *inside* a function using conditionals and loops.
+
+## Control flow inside functions
+
+But most of the time, simple logic isn’t enough. We need to handle more complex decision-making to solve problems. One way to do this is by combining control flow constructs like **conditionals** and **loops** within a function and then using a loop to call the function with multiple inputs.
+
+Below is an example that demonstrates a more advanced control flow using a function with conditional logic and a for-loop for iteration.
+
+```py
+def classify_number(num):
+    if num < 0:
+        return "Negative"
+    elif num == 0:
+        return "Zero"
+    else:
+        return "Positive"
+
+for i in range(-2, 3):
+    print(f"{i} is {classify_number(i)}")
+```
+
+There is another example with the membership operator.
+
+## Functions with collections
+
+This function checks if a target element is present in a given collection.
+
+```py
+def demo_membership(target, collection):
+    if target in collection:
+        print(f"{target} is in the collection.")
+    else:
+        print(f"{target} is not in the collection.")
+
+my_list = [1, 2, 3, 4]
+demo_membership(3, my_list)
+demo_membership(5, my_list)
+```
+
+Example with identity operator.
+
+```py
+def demo_identity(obj1, obj2):
+    if obj1 is obj2:
+        print("Both objects are identical (the same object).")
+    else:
+        print("The objects are not identical (different objects).")
+
+a = [1, 2]
+b = a
+c = [1, 2]
+
+demo_identity(a, b) # Output: Both objects are identical (the same object).
+demo_identity(a, c) # Output: The objects are not identical (different objects).
 ```

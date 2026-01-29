@@ -25,6 +25,8 @@ Let's see how we can write a simple format for these data types. We'll start wit
 
 A **list** is an **ordered** and **mutable** collection that can store various data types.
 
+Lists are commonly used when working with **collections of items that may change over time**, such as product lists, or records fetched from a database.
+
 Here's how you can create a list.
 
 ```py
@@ -47,6 +49,8 @@ You can also create a list with elements of a single data type.
 single_data_type_list = ["apple", "orange", "banana"]
 ```
 
+This kind of list is commonly used for things like **shopping items**, **menu options**, or **tags**.
+
 And a list that contains elements of different data types.
 
 ```py
@@ -55,6 +59,8 @@ multi_data_type_list = ["Hello", 20, True]
 ```
 
 A **tuple** is an **ordered** and **immutable** collection that can store various data types.
+
+Tuples are typically used when **values belong together** and should **not change** during the program execution.
 
 Here's how you can create a tuple.
 
@@ -73,6 +79,8 @@ multi_data_type_tuple = ("Hello", 20, True)
 # length of the tuple
 print(len(multi_data_type_tuple))
 ```
+
+A common use of tuples is storing **fixed records**, such as coordinates, configuration values, or personal details where each position has a specific meaning.
 
 *Use tuples only if you are sure that the data will not change during the execution of the program.*
 
@@ -114,11 +122,15 @@ You can also specify the step parameter to control the increment
 element_length = range(1, 5, 2)
 ```
 
+In programs, `range` is often used to represent positions, iterations, or controlled numeric sequences, without storing unnecessary **data in memory**.
+
 ## Mapping Types (Dictionary)
 
-There are also **mapping** types. Mapping types are **mutable** and store data as **key–value pairs**. They are accessed by **keys rather than indexes**, which means you do not use positions to retrieve values.
+There are also **mapping** types. Mapping types are **mutable** and store data as **key–value pairs**.
 
-Let's see how to create a mapping collection data type dictionary.
+Unlike sequences (**lists**, **tuples**, **strings**), dictionaries are not accessed by position. Instead, values are retrieved using a `key`, which acts as a unique identifier for the data.
+
+Dictionaries are commonly used when data has **labels**, **names**, such as **configuration settings**, **user profiles**.
 
 Dictionaries are represented using curly braces `{}`.
 
@@ -142,6 +154,8 @@ example_dict = {
 ## Set Types
 
 And finally, our last collection type is **sets**. Sets are **non-indexed** collections that store **unique elements**. If duplicate values are provided, only one instance of each element is kept.
+
+Typical use cases include **filtering duplicates**, **tracking** **unique values**, or **omparing groups of data**.
 
 Python provides both **mutable sets** (created using `set`) and **immutable sets** (created using `frozenset`).
 
