@@ -177,10 +177,13 @@ The important idea is that a `for` loop does not depend on *what* the values are
 This is commonly the case when working with **lists**. For example, when **processing items in a shopping cart**, each item must be **handled one by one**.
 
 ```py
-items = ["apple", "banana", "cherry"]
+emails = ["user@example.com", "admin@", "contact@site.com"]
 
-for item in items:
-    print(f"Processing item: {item}")
+for email in emails:
+    if "@" in email:
+        print(f"Valid email: {email}")
+    else:
+        print(f"Invalid email: {email}")
 ```
 
 Each iteration handles one item independently, allowing the same logic to scale to **any number of items**.
@@ -188,10 +191,10 @@ Each iteration handles one item independently, allowing the same logic to scale 
 Tuples behave in the same way. They are often used when **values belong together** and their position gives them meaning. For example, **personal information** can be stored as a single unit.
 
 ```py
-person = ("Jane", 25, "Python Dev", "Canada")
+location = (40.7128, -74.0060)
 
-for field in person:
-    print(field)
+for value in location:
+    print(value)
 ```
 
 Here, the loop moves through all details of one person without needing to know how many fields exist.
@@ -380,6 +383,15 @@ while True:
 # Press Ctrl + C to stop the program
 ```
 
-In this example, the condition is always `True`, so the loop never stops on its own. This kind of loop can be useful in specific situations, such as continuously running programs, but it must be stopped manually.
+A `while` loop is often used when the number of iterations is not known in advance, such as when waiting for user input or a specific action to occur.
 
-In general, a `while` loop should always include logic that allows the condition to become `False` at some point.
+In these cases, it is common to use `True` as the condition and control the loop from inside.
+
+```py
+while True:
+    choice = input("Enter 'q' to quit: ")
+
+    if choice == "q":
+        print("Exiting program")
+        break
+```
