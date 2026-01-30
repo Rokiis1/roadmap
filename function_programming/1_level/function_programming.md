@@ -91,34 +91,132 @@ Because a function can return a value, that returned result can be used just lik
 
 ## Function composition
 
-Function composition means using the return value of one function as the input (argument) for another function.
+Function composition means using the return value of one function as the input (`argument`) for another function.
+
+The general pattern looks like this.
 
 ```py
-def double(x):
-    return x * 2
-
-def add_five(x):
-    return x + 5
-
-result = add_five(double(3))
-print(result) # 11
+result = function_two(function_one(value))
 ```
 
-Here, the number is first multiplied and then added. This works because `double()` uses `return`, so its result can be passed to another function.
+There are examples how function composition can be implemented.
+
+```py
+def add_tax(price):
+    return price + (price * 0.21)
+
+def add_shipping(price):
+    return price + 5
+
+price = 20
+result = add_shipping(add_tax(price))
+print(result) # 29.2
+```
+
+Function composition can also be used together with conditional logic.
+
+```py
+def apply_discount(price):
+    if price >= 50:
+        return price - 10
+    return price
+
+def add_shipping(price):
+    return price + 5
+
+price = 60
+result = add_shipping(apply_discount(price))
+print(result) # 55
+```
+
+Function composition can also be implemented by calling one function inside the body of another function.
+
+```py
+def add_tax(price):
+    return price + (price * 0.21)
+
+def add_shipping(price):
+    return price + 5
+
+def calculate_total(price):
+    taxed_price = add_tax(price)
+    final_price = add_shipping(taxed_price)
+    return final_price
+
+price = 20
+result = calculate_total(price)
+print(result) # 29.2
+```
+
+In this example, `calculate_total()` calls other functions inside its function block, stores their returned values, and returns the final result.
+
+A function may return multiple values, which can be assigned to multiple variables.
+
+```py
+def get_user_data():
+    return "admin", True, 3
+
+username, is_active, login_count = get_user_data()
+print(username) # admin
+print(login_count) # 3
+```
+
+Function can also be implemented using functions that return multiple values inside another function.
+
+```py
+def get_order_data():
+    return 20, True
+
+def add_tax(price):
+    return price + (price * 0.21)
+
+def calculate_total():
+    price, is_active = get_order_data()
+    taxed_price = add_tax(price)
+    return taxed_price
+
+result = calculate_total()
+print(result) # 24.2
+```
+
+In this example, `calculate_total()` receives multiple values from another function, uses only the required value, and returns the final result.
+
+Not all returned values must be used. In that case, we can assign unused values to `_`.
+
+```py
+def get_user_data():
+    return "admin", True, 3
+
+username, _, _ = get_user_data()
+print(username) # admin
+```
+
+Here is another example where we keep only the middle value.
+
+```py
+def get_user_data():
+    return "admin", True, 3
+
+_, is_active, _ = get_user_data()
+print(is_active) # True
+```
 
 If a function uses `print()` instead of `return`, its result cannot be used in another function call.
 
 ```py
-def double(x):
-    print(x * 2)
+ef add_tax(price):
+    print(price + (price * 0.21))
 
-def add_five(x):
-    return x + 5
+def add_shipping(price):
+    return price + 5
 
-add_five(double(3)) 
+price = 20
+add_shipping(add_tax(price))
 ```
 
-In this example, `double(3)` prints the value `6` but does not return anything. When a function does not use `return`, Python automatically returns `None`. Since `add_five()` tries to add `5` to `None`, Python raises the error `TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'`
+In this example, `add_tax(price)` prints the value but does not return it. When a function does not use `return`, Python automatically returns `None`.
+
+Since `add_shipping()` tries to add `5` to `None`, Python raises the error, `TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'`.
 
 So far, we have learned **how functions work**, how they take **parameters**, and how they **return values**. We have also already used some **built-in functions** provided by Python.
 
@@ -191,54 +289,57 @@ So far, the examples focused on how functions return values and interact with ea
 
 ## Control flow inside functions
 
-But most of the time, simple logic isn’t enough. We need to handle more complex decision-making to solve problems. One way to do this is by combining control flow constructs like **conditionals** and **loops** within a function and then using a loop to call the function with multiple inputs.
+In programs, functions often need to make decisions based on input values. This is done using **conditional statements** inside the function.
 
-Below is an example that demonstrates a more advanced control flow using a function with conditional logic and a for-loop for iteration.
+A common use case is validating or categorizing input data.
 
 ```py
-def classify_number(num):
-    if num < 0:
-        return "Negative"
-    elif num == 0:
-        return "Zero"
+def check_password_length(password):
+    if len(password) < 8:
+        return "Password too short"
     else:
-        return "Positive"
-
-for i in range(-2, 3):
-    print(f"{i} is {classify_number(i)}")
+        return "Password length is OK"
 ```
 
-There is another example with the membership operator.
+The same function can be reused for multiple inputs using a loop.
+
+```py
+passwords = ["1234", "mypassword", "securepass123"]
+
+for pwd in passwords:
+    print(check_password_length(pwd))
+```
 
 ## Functions with collections
 
-This function checks if a target element is present in a given collection.
+Functions often need to work with **collections**, such as lists, to check permissions or allowed values.
 
 ```py
-def demo_membership(target, collection):
-    if target in collection:
-        print(f"{target} is in the collection.")
+def is_allowed_user(username, allowed_users):
+    if username in allowed_users:
+        return True
     else:
-        print(f"{target} is not in the collection.")
+        return False
 
-my_list = [1, 2, 3, 4]
-demo_membership(3, my_list)
-demo_membership(5, my_list)
+allowed_users = ["admin", "editor", "viewer"]
+
+print(is_allowed_user("admin", allowed_users)) # True
+print(is_allowed_user("guest", allowed_users)) # False
 ```
 
-Example with identity operator.
+Functions can also compare objects using **identity**, which is important when tracking shared state.
 
 ```py
-def demo_identity(obj1, obj2):
-    if obj1 is obj2:
-        print("Both objects are identical (the same object).")
+def is_same_config(config_a, config_b):
+    if config_a is config_b:
+        return "Same configuration"
     else:
-        print("The objects are not identical (different objects).")
+        return "Different configuration"
 
-a = [1, 2]
-b = a
-c = [1, 2]
+default_config = {"theme": "dark"}
+active_config = default_config
+custom_config = {"theme": "dark"}
 
-demo_identity(a, b) # Output: Both objects are identical (the same object).
-demo_identity(a, c) # Output: The objects are not identical (different objects).
+print(is_same_config(default_config, active_config))
+print(is_same_config(default_config, custom_config))
 ```

@@ -66,6 +66,79 @@ print(text[::2], numbers[::2], tupl[::2])
 
 *When you use a **step** with **negative indices** (`text[-4:-1:2]`), Python applies the step **interval** in the same way as with **positive indices**.*
 
+One important thing to understand about **slicing** is that it **never raises an error**. If the slice boundaries do not produce any valid elements, Python simply returns an **empty sequence**.
+
+```py
+text = "Python"
+numbers = [10, 20, 30, 40, 50]
+
+print(text[-5:3]) # 'Pyt'
+print(text[-3:3]) # ''
+print(numbers[-5:3]) # [10, 20, 30]
+print(numbers[-3:3]) # []
+```
+
+Slicing always moves from **left to right** when the step is positive. If the **start index comes after the stop index**, no elements can be selected. Python does **not throw an error**, it simply returns an empty result.
+
+This behavior is intentional and makes slicing **safe to use**.
+
+```py
+# No error, just an empty list
+result = numbers[3:1]
+print(result) # []
+```
+
+This is different from **indexing** (`numbers[10]`), which *does raise an error when the index does not exist*.
+
+So far, we’ve used square brackets to access elements. Another common pattern is **reassignment**, where a variable is assigned a **new sequence** created by combining existing ones. This is typically done using the `+` operator.
+
+```py
+items = [1, 2, 3]
+items = items + [4, 5]
+print(items)
+# Output: [1, 2, 3, 4, 5]
+```
+
+Here’s what happens, `items + [4, 5]` creates a new list then `items = ...` rebinds the name `items` to that new list and out original list object is **not modified**
+
+This is **reassignment**, not in-place modification.
+
+Strings behave similarly, but for a different reason, **strings are immutable**.
+
+```py
+text = "Hello"
+text = text + " World"
+print(text)
+# Output: Hello World
+```
+
+Just like lists `"Hello" + " World"` creates a **new string** `text` is reassigned to that new object,
+
+However, unlike lists, **this is the only way** strings can change, they cannot be modified in place.
+
+Tuples are also **immutable**, but they still support concatenation.
+
+```py
+tup = (1, 2, 3)
+tup = tup + (4, 5)
+print(tup)
+# Output: (1, 2, 3, 4, 5)
+```
+
+Again A **new tuple** is created then variable is rebound using `=` and **no in-place** modification occurs.
+
+Not all collection types support `+`. **Sets** and **dictionaries** do not use concatenation with `+`.
+
+```py
+my_set = {1, 2, 3}
+my_set = my_set + {4} # TypeError
+
+my_dict = {"a": 1}
+my_dict = my_dict + {"b": 2} # TypeError
+```
+
+These types use **different mechanisms** for updating, which are covered later.
+
 ## Non-indexed and Non-subscriptable Types
 
 However, if you try to use the same square bracket notation (`[]`) on **non-indexed** or **non-subscriptable** types, you’ll encounter errors.

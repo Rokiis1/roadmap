@@ -84,9 +84,7 @@ A common use of tuples is storing **fixed records**, such as coordinates, config
 
 *Use tuples only if you are sure that the data will not change during the execution of the program.*
 
-And the last **sequence** type we'll discuss is `range`, which we briefly touched on in **Control Flow Level 2**.
-
-The `range` data type is **ordered** and **immutable**, and it's most often used for looping.
+And the last **sequence** type we'll discuss is `range`. The `range` data type is **ordered** and **immutable**, and it's most often used for looping.
 
 The syntax for `range` is.
 
@@ -155,7 +153,7 @@ example_dict = {
 
 And finally, our last collection type is **sets**. Sets are **non-indexed** collections that store **unique elements**. If duplicate values are provided, only one instance of each element is kept.
 
-Typical use cases include **filtering duplicates**, **tracking** **unique values**, or **omparing groups of data**.
+Typical use cases include **filtering duplicates**, **tracking** **unique values**, or **comparing groups of data**.
 
 Python provides both **mutable sets** (created using `set`) and **immutable sets** (created using `frozenset`).
 
