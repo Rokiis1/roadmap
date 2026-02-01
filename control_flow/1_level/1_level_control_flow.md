@@ -219,8 +219,8 @@ A **list** may also contain **dictionaries** when each element represents a **pe
 
 ```py
 users = [
-    {"name": "Example", "age": 25},
-    {"name": "Example", "age": 30}
+    {"name": "Example1", "age": 25},
+    {"name": "Example2", "age": 30}
 ]
 
 for user in users:
@@ -291,7 +291,48 @@ for name, grade in students.items():
 
 This allows the loop to work with complete pieces of information, while still applying the same logic to every entry in the dictionary.
 
-So far, we have used `for` loops to iterate over existing data, such as strings, lists, tuples, and dictionaries.  Sometimes, however, there is no collection of values yet, and we simply want to repeat an action a specific number of times or work with a sequence of numbers.
+In programs, a decision does not only choose **one statement** to execute. Instead, it determines **whether a group of items should be processed at all**. In these cases, a **`for` loop** is commonly placed inside an `if`, `elif`, or `else` block.
+
+Conceptually, the conditional decides **which situation applies**, and the loop performs **repeated work** that is relevant only to that situation.
+
+```py
+if condition:
+    for item in collection:
+        # repeated work for this condition
+```
+
+A common example is processing records differently depending on the current `mode` of the program.
+
+```py
+orders = [
+    {"id": "ORD-1001", "status": "pending"},
+    {"id": "ORD-1002", "status": "shipped"},
+    {"id": "ORD-1003", "status": "pending"}
+]
+
+mode = "pending"
+```
+
+If the program is running in **pending `mode`**, only pending orders should be processed.
+
+```py
+if mode == "pending":
+    for order in orders:
+        if order["status"] == "pending":
+            print("Processing pending order:", order["id"])
+elif mode == "shipped":
+    for order in orders:
+        if order["status"] == "shipped":
+            print("Processing shipped order:", order["id"])
+else:
+    print("Unknown mode")
+```
+
+Here, the `if` / `elif` / `else` block selects **which rule applies**, while the `for` loop applies that rule repeatedly to the relevant data. The loop does not run unless the surrounding condition is satisfied.
+
+This pattern appears frequently in programs that work with **lists of records**, where the same data must be handled differently depending on **configuration**, **state**, or **user choice**.
+
+So far, we have used `for` loops to iterate over existing data, such as **strings**, **lists**, **tuples**, and **dictionaries**.  Sometimes, however, there is no collection of values yet, and we simply want to repeat an action a specific number of times or work with a sequence of numbers.
 
 For these situations, Python provides the `range()` function.
 
@@ -333,6 +374,19 @@ for i in range(5):
 
 print(total)
 ```
+
+In some situations, the numeric index itself is meaningful. This commonly happens when working with **ordered data**, such as a list of steps, stops, or stages, where the position of each item matters.
+
+```py
+stops = ["Station A", "Station B", "Station C", "Station D"]
+
+for i in range(len(stops)):
+    print(f"Stop {i + 1}: {stops[i]}")
+```
+
+In this example, `range(len(stops))` generates a sequence of indexes that match the positions of the elements in the list. The loop uses the index to access each stop while also keeping track of its order.
+
+This pattern is useful when you need both the position and the value of each element, such as numbering steps, tracking progress, or displaying ordered output.
 
 In all cases, `range()` works naturally with a `for` loop by providing a predictable sequence of numbers, allowing repeated actions or numeric iteration without manually creating a collection.
 
