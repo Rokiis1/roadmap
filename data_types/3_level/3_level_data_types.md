@@ -596,7 +596,7 @@ print(person)
 
 Next, let’s look at how we can remove items from a dictionary.
 
-Unlike the methods we’ve seen so far, `del` is **not a method**, but a built-in Python statement. It’s used to remove an item from the dictionary based on the specified key.
+Unlike the methods we’ve seen so far, `del` is **not a method**, but a **built-in Python statement**. It’s used to remove an item from the dictionary based on the specified `key`.
 
 ```py
 person = {"name": "Example", "age": 25, "city": "Vilnius"}
