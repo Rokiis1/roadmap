@@ -346,83 +346,101 @@ Now that we understand the difference between **mutable** and **immutable**, let
 
 In Python, a **list** is a **mutable**, or changeable, **ordered sequence** of elements. This means you can add, remove, or modify elements directly, without creating a new object.
 
-There are several ways to add elements to a list.
+Lists often store **structured records**, not just simple values. These records are commonly represented as **dictionaries**, **lists**, or other collections inside a list.
 
-If we wanna add a single element to the **end** of the list we will use `append(element)`. Inside of parentheses, you place the `element` you want to add to the list.
-
-```py
-my_list = [1, 2, 3]
-my_list.append(4)
-print(my_list)  
-# Output: [1, 2, 3, 4]
-```
-
-*Use `append()` when you want to grow your list one item at a time. For example, collecting input in a loop, adding new log entries, or building a dataset dynamically.*
-
-The `insert(index, element)` method is used when you want to add an element at a **specific index** in the list. Inside of parentheses you place `index` the position where the new element will be inserted and `element` the value you want to insert.
+If we wanna add a single element to the **end** of the list we will use `append(element)`.
 
 ```py
-my_list = [1, 3, 4]
-my_list.insert(1, 2)
-print(my_list)
-# Output: [1, 2, 3, 4]
+users = [
+    {"name": "Example1", "active": True},
+    {"name": "Example2", "active": False}
+]
+
+users.append({"name": "Example3", "active": True})
+print(users)
 ```
 
-*Use `insert()` when the **order of elements matters** and you need to place something at an **exact position**. For example, inserting a new step in a to-do list, or adding a missing item in a sequence at the correct place.*
+*Here, the list stores **user records**, and each new record is appended as a dictionary.*
 
-The `extend(iterable)` method is used to add **multiple elements** from another **iterable** (such as a list, tuple, or set) to the **end** of the current list.
+The `insert(index, element)` method is used when you want to add an element at a **specific position**.
 
 ```py
-my_list = [1, 2, 3]
-my_list.extend([4, 5])
-print(my_list)
-# Output: [1, 2, 3, 4, 5]
+queue = [
+    {"task": "load data"},
+    {"task": "process data"}
+]
+
+queue.insert(1, {"task": "validate data"})
+print(queue)
 ```
 
-*Use `extend()` when you need to merge lists or add multiple items at once. For example, combining two lists of data, appending results from a database query, or joining items collected in a loop.*
+*This is common when order matters, such as task pipelines or ordered steps.*
 
-The `extend()` method **requires an iterable**. If you try to pass a single element that is **not iterable** `my_list.extend(4)`, Python will raise an **error**.
+The `extend(iterable)` method is used to add multiple structured items at once.
 
-![extend_error](../assets/images/extend_error.png)
+```py
+batch_1 = [
+    {"id": 1, "score": 80},
+    {"id": 2, "score": 90}
+]
+
+batch_2 = [
+    {"id": 3, "score": 85},
+    {"id": 4, "score": 88}
+]
+
+batch_1.extend(batch_2)
+print(batch_1)
+```
+
+*This pattern appears when merging datasets collected at different times.*
 
 Next, let's explore several ways to remove elements from a list.
 
-The `remove()` method deletes the **first occurrence** of the specified value from the list. If there are **duplicate values**, only the **first one** will be removed.
+The `remove()` method deletes the **first matching element**.
 
 ```py
-numbers = [1, 2, 3, 2, 4]
-numbers.remove(2)
-print("After remove:", numbers)
-# Output will be: [1, 3, 2, 4]
+records = [
+    {"id": 1, "valid": True},
+    {"id": 2, "valid": False},
+    {"id": 3, "valid": True}
+]
+
+records.remove({"id": 2, "valid": False})
+print(records)
 ```
 
-*Use `remove()` when you know the value you want to delete but don’t care about its position in the list. For example, cleaning up invalid data entries like `None` or `"N/A"` values.*
+*This works when the full object is known and matches exactly.*
 
-Another useful way to remove elements from a list is the `pop()` method. Unlike `remove()`, which searches for a value, `pop()` works with **positions** and also **returns the removed element**.
-
-If you call `pop()` with no arguments, it will remove and return the **last item** in the list.
+More commonly, removal happens by position, using `pop()`.
 
 ```py
-numbers = [1, 2, 3, 4]
-last_item = numbers.pop()
-print("Popped item:", last_item)
-print("After pop:", numbers)
-# Popped item: 4
-# After pop: [1, 2, 3]
+tasks = [
+    {"name": "task_1"},
+    {"name": "task_2"},
+    {"name": "task_3"}
+]
+
+current_task = tasks.pop(0)
+print(current_task)
+print(tasks)
 ```
 
-You can also provide an index inside the parentheses `pop(index)`. This will remove and return the item at that specific position.
+*This is typical when processing records one by one.*
+
+If you ever want to remove **all records** from a dataset but keep the container
 
 ```py
-numbers = [1, 2, 3]
-specified_item = numbers.pop(1)
-print("Popped item at index 1:", specified_item)
-print("After popping at index 1:", numbers)
-# Popped item at index 1: 2
-# After pop: [1, 3]
+logs = [
+    {"event": "login"},
+    {"event": "logout"}
+]
+
+logs.clear()
+print(logs)
 ```
 
-*`pop()` is useful when you need the element you’re removing (for example, when processing items one by one).*
+*The list remains, but the data is reset.*
 
 Finally, if you ever want to remove **all elements** from a list in one go, you can use the `clear()` method.
 
@@ -441,7 +459,7 @@ Another common task with lists is **ordering elements**. For this, Python provid
 
 - `key (optional)` function that defines the sorting criterion. If provided, it is applied to each element before comparison. By default, it is `None`
 
-- `reverse (optional)` is a boolean value. If True, the list will be sorted in descending order. If False (default), the list will be sorted in ascending order.
+- `reverse (optional)` is a boolean value. If `True`, the list will be sorted in descending order. If `False` (default), the list will be sorted in ascending order.
 
 By default, `sort()` arranges elements in **ascending order** (from smallest to largest).
 
