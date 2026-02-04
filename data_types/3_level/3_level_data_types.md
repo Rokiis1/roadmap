@@ -344,60 +344,61 @@ Now that we understand the difference between **mutable** and **immutable**, let
 
 ## List data types
 
-In Python, a **list** is a **mutable**, or changeable, **ordered sequence** of elements. This means you can add, remove, or modify elements directly, without creating a new object.
+In Python, a **list** is a **mutable**, or changeable, **ordered sequence** of elements. This means you can **add**, **remove**, or **modify** elements directly, without creating a new object.
 
-Lists often store **structured records**, not just simple values. These records are commonly represented as **dictionaries**, **lists**, or other collections inside a list.
+In programs, lists rarely store only simple values like numbers or strings. More often, they store **structured records**, such as **dictionaries**, **lists**, or other collections nested inside them.
 
-If we wanna add a single element to the **end** of the list we will use `append(element)`.
-
-```py
-users = [
-    {"name": "Example1", "active": True},
-    {"name": "Example2", "active": False}
-]
-
-users.append({"name": "Example3", "active": True})
-print(users)
-```
-
-*Here, the list stores **user records**, and each new record is appended as a dictionary.*
-
-The `insert(index, element)` method is used when you want to add an element at a **specific position**.
+If we wanna add a single element to the **end** of the list we will use `append(element)`. This is most common when **data arrives one record at a time**, such as from a **form submission**, an **API response**, or a **processing step**.
 
 ```py
-queue = [
-    {"task": "load data"},
-    {"task": "process data"}
-]
+valid_users = []
 
-queue.insert(1, {"task": "validate data"})
-print(queue)
+user = {"name": "example1", "email": "example@example.com", "active": True}
+
+if user["email"] != "":
+    valid_users.append(user)
+
+print(valid_users)
 ```
 
-*This is common when order matters, such as task pipelines or ordered steps.*
+Here, the list stores **user records**, and each new record is appended as a dictionary. Using `append()` adds one complete record at a time, which is common when new data arrives incrementally.
 
-The `extend(iterable)` method is used to add multiple structured items at once.
+If you need to insert an element at a **specific position**, use `insert(index, element)`.
 
 ```py
-batch_1 = [
-    {"id": 1, "score": 80},
-    {"id": 2, "score": 90}
+pipeline = [
+    {"step": "load"},
+    {"step": "process"}
 ]
 
-batch_2 = [
-    {"id": 3, "score": 85},
-    {"id": 4, "score": 88}
-]
-
-batch_1.extend(batch_2)
-print(batch_1)
+pipeline.insert(1, {"step": "validate"})
+print(pipeline)
 ```
 
-*This pattern appears when merging datasets collected at different times.*
+This pattern is typical when **order matters**, such as **task pipelines**, **processing queues**, or **step-by-step workflows**.
+
+To add **multiple records at once**, use `extend(iterable)`.
+
+```py
+monday_logs = [
+    {"event": "login"},
+    {"event": "upload"}
+]
+
+tuesday_logs = [
+    {"event": "download"},
+    {"event": "logout"}
+]
+
+monday_logs.extend(tuesday_logs)
+print(monday_logs)
+```
+
+This is commonly used when **merging datasets**, such as combining results from different sources or time periods.
 
 Next, let's explore several ways to remove elements from a list.
 
-The `remove()` method deletes the **first matching element**.
+The `remove()` method deletes the **first matching element** by value.
 
 ```py
 records = [
@@ -410,270 +411,533 @@ records.remove({"id": 2, "valid": False})
 print(records)
 ```
 
-*This works when the full object is known and matches exactly.*
+This approach works only when the **entire object is known** and matches exactly.
+In practice, this is less common for structured data.
 
 More commonly, removal happens by position, using `pop()`.
 
 ```py
-tasks = [
-    {"name": "task_1"},
-    {"name": "task_2"},
-    {"name": "task_3"}
+task_queue = [
+    {"task": "download file"},
+    {"task": "parse data"},
+    {"task": "save results"}
 ]
 
-current_task = tasks.pop(0)
-print(current_task)
-print(tasks)
+while task_queue:
+    task = task_queue.pop(0)
+    print("Processing:", task["task"])
 ```
 
-*This is typical when processing records one by one.*
+This pattern is typical when processing records **one by one**, such as consuming jobs from a queue.
 
-If you ever want to remove **all records** from a dataset but keep the container
+If no index is provided, `pop()` removes the **last element**.
 
 ```py
 logs = [
     {"event": "login"},
+    {"event": "update"},
     {"event": "logout"}
 ]
 
-logs.clear()
+last_event = logs.pop()
+print("Last event:", last_event)
 print(logs)
 ```
 
-*The list remains, but the data is reset.*
+This pattern is common when the most **recent entry should be handled first** or list behaves like a **stack**.
 
-Finally, if you ever want to remove **all elements** from a list in one go, you can use the `clear()` method.
-
-This leaves you with an **empty list**, but keeps the original list object itself intact.
+If you want to remove **all records** but keep the list object itself, use `clear()`. Is commonly used when a **list** is **reused across stages** of a program rather than recreated.
 
 ```py
-numbers = [1, 2, 3, 4, 5]
-numbers.clear()
-print("After clear:", numbers)
-# After clear: []
+event_log = []
+
+# Stage 1
+event_log.append({"event": "app_started"})
+event_log.append({"event": "user_logged_in"})
+print("Stage 1 logs:", event_log)
+
+# After processing or sending logs
+event_log.clear()
+
+# Stage 2
+event_log.append({"event": "user_updated_profile"})
+event_log.append({"event": "user_logged_out"})
+print("Stage 2 logs:", event_log)
 ```
 
-*Use `clear()` when you don’t want to delete the list entirely, but just need to reset it to an empty state.*
+This pattern appears when **processing data in chunks** or **sending batches to a database** or **API**
 
-Another common task with lists is **ordering elements**. For this, Python provides the `sort(key, reverse)` method, which can be customized with two optional parameters.
+Another common task with lists is **ordering elements**. Python provides the `sort(key, reverse)` method, which can be customized with two optional parameters.
 
-- `key (optional)` function that defines the sorting criterion. If provided, it is applied to each element before comparison. By default, it is `None`
-
-- `reverse (optional)` is a boolean value. If `True`, the list will be sorted in descending order. If `False` (default), the list will be sorted in ascending order.
-
-By default, `sort()` arranges elements in **ascending order** (from smallest to largest).
+By default, `sort()` arranges elements in **ascending order** (from smallest to largest). In programs, this usually means **lowest value first**, **earliest**, **simplest**, or **least important**.
 
 ```py
-numbers = [5, 2, 9, 1, 7]
-numbers.sort()
-print("Ascending:", numbers)
-# Ascending: [1, 2, 5, 7, 9]
+scores = [85, 40, 92, 70, 60]
+scores.sort()
+
+print(scores)
 ```
 
-If you want the opposite sorting in descending order, you can pass the `reverse=True` parameter.
+*This is useful when you want to see the lowest values first, such as identifying underperforming results or minimum thresholds.*
+
+To sort in **descending order**, pass `reverse=True`. Descending order is commonly used when you want to see **highest priority**, **most recent**, or **best results first**.
 
 ```py
-numbers.sort(reverse=True)
-print("Descending:", numbers)
-# Descending: [9, 7, 5, 2, 1]
+results = [
+    {"user": "Example1", "score": 78},
+    {"user": "Example2", "score": 92},
+    {"user": "Example3", "score": 85}
+]
+
+def score_value(record):
+    return record["score"]
+
+# Show highest scores first
+results.sort(key=score_value, reverse=True)
+
+for result in results:
+    print(result["user"], result["score"])
 ```
 
-Another feature of `sort()` is the `key` parameter. Instead of sorting elements directly, you can tell Python **how** to sort them by providing a function as the key.
+The `key` parameter allows sorting based on a **derived value**, rather than the elements themselves.
 
-For example, if we want to sort a list of words by their **length** instead of alphabetical order.
+For example, words by their **length**.
 
 ```py
-words = ["banana", "kiwi", "apple", "cherry"]
-words.sort(key=len)
-print("Sorted by length:", words)
-# Sorted by length: ['kiwi', 'apple', 'banana', 'cherry']
+tasks = [
+    {"task": "sync"},
+    {"task": "validate input"},
+    {"task": "generate monthly financial report"}
+]
+
+def task_length(task):
+    return len(task["task"])
+
+tasks.sort(key=task_length)
+
+for task in tasks:
+    print(task["task"])
 ```
 
-Here we just touched on one example of how the `key` parameter can be used in sorting. Later, when we explore the **`str` data type** in more detail, we’ll also look at different **string methods**.
+Here, `len` is a function passed as **an argument**, which is possible because functions are **first-class objects** in Python.
+
+This idea appears frequently when working with **collections of structured data**. So far, we’ve seen lists storing values and records, and how functions can operate on those values to control behavior such as **sorting** or **filtering**.
+
+However, data is rarely identified only by **position**. Instead, data usually has **names**, **labels**, or **keys** that describe what each value represents. To model this kind of **labeled data**, Python provides another collection type, **dictionary**.
 
 ## Dictionary data type
 
-Next, let’s explore another important data type in Python `dict`, also known as a **mapping type**. A dictionary is a **mutable mapping type** that stores data as **key–value pairs** and is accessed by **keys rather than indexes**.
+Next, let’s explore another important data type in Python `dict`, also known as a **mapping type**. A dictionary is a **mutable mapping type** that stores data as **key-value pairs** and is accessed by **keys rather than indexes**.
 
-Unlike lists or tuples that store elements in a sequence, a dictionary stores data in **key–value pairs**. Each key in a dictionary is **unique** and maps to a value.
+Dictionaries are **rarely flat**. They often contain **lists**, **other dictionaries**, and **mixed data types** to represent structured information.
 
-Let’s explore the methods we can use to work with them. Since dictionaries are **mutable**, we can **add, update, and remove key–value pairs**.
+Because dictionaries are **mutable**, we can **add**, **update**, and **remove** `key:value` pairs as the program runs.
 
 To access values in a dictionary, one of the most common ways is to use the `get("key")` method.  
 
-The `get()` method returns the value associated with the given key. If the key does not exist, it returns `None` (or a default value you provide), instead of raising an error like we saw with the `[]` notation.
+The `get()` method is especially useful when working with **nested dictionaries**, where some fields may or may not exist.
+
+Consider an application configuration object.
 
 ```py
-person = {"name": "Example", "age": 25}
+config = {
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "credentials": {
+            "user": "admin",
+            "password": "secret"
+        }
+    },
+    "features": {
+        "logging": True,
+        "debug": False
+    }
+}
+```
 
-# Access existing key
-print(person.get("name"))
-# Output: Example
+Accessing **nested values**
 
-# Access non-existing key
-print(person.get("city"))
+```py
+db_config = config.get("database")
+print(db_config)
+```
+
+Chaining `get()` allows **safe navigation** through nested data
+
+```py
+db_port = config.get("database", {}).get("port")
+print(db_port)
+# Output: 5432
+```
+
+`get("database", {})` prevents errors if `"database"` is missing
+
+In applications, **optional configuration** fields are common.
+
+```py
+timeout = config.get("database", {}).get("timeout")
+print(timeout)
 # Output: None
-
-# Access non-existing key with default value
-print(person.get("city", "Unknown"))
-# Output: Unknown
 ```
 
-If we want to access all the **keys** in a dictionary, we can use the `keys()` method.
+Providing a **default value**
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-print(person.keys())
-# Output: dict_keys(['name', 'age', 'city'])
+timeout = config.get("database", {}).get("timeout", 30)
+print(timeout)
+# Output: 30
 ```
 
-The last method to access dictionary content is `items()`.
+This pattern is common when **loading config files**, **reading environment settings**.
 
-The `items()` method returns a **object** that displays a list of the dictionary’s **key–value pairs** as tuples.
-
-This is especially useful when you want to loop through both keys and values at the same time.
+Another very common structure is a dictionary that contains **lists of records**.
 
 ```py
-# Get all key-value pairs
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-print(person.items())
-# Output: dict_items([('name', 'Example'), ('age', 25), ('city', 'Vilnius')])
-
-# Loop through key-value pairs
-for key, value in person.items():
-    print(f"{key}: {value}")
-
-# Output
-# name: Example
-# age: 25
-# city: Vilnius
+users = {
+    "admins": [
+        {"name": "Example1", "active": True},
+        {"name": "Example2", "active": False}
+    ],
+    "editors": [
+        {"name": "Example3", "active": True}
+    ]
+}
 ```
+
+Accessing **nested list** data
+
+```py
+first_admin = users.get("admins", [])[0]
+print(first_admin)
+```
+
+Accessing a **specific value** inside a nested structure
+
+```py
+admin_name = users.get("admins", [])[0].get("name")
+print(admin_name)
+```
+
+Using `get()` to avoid runtime errors if we try to **access unsafe** way.
+
+```py
+print(users["moderators"][0]["name"])
+# KeyError
+```
+
+With **safe access**.
+
+```py
+moderators = users.get("moderators", [])
+if moderators:
+    print(moderators[0].get("name"))
+else:
+    print("No moderators found")
+```
+
+This approach in programs that read **API** data or handle **user generated content**.
 
 Next, let’s see how we can **change values** or **add new key–value pairs** in a dictionary. For this, we use the `update({...})` method.
 
-The `update()` method allows you to update the value of an existing key, or add a new key–value pair if the key doesn’t already exist.
+The `update()` method allows you to **modify** existing values or **add** new `key:value` pairs inside a dictionary. This becomes especially useful when working with nested **configuration data**, **user profiles**, or **application state**.
 
-If we want to update a single **key–value pair** in a dictionary, we can use the `update()`.
-
-```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-person.update({"age": 31})
-print(person)
-# Output: {'name': 'Example', 'age': 31, "city": "Vilnius"}
-```
-
-The `update()` method isn’t just for modifying existing values - it can also add **new key–value pairs** to a dictionary.  
+Consider an application configuration dictionary.
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-person.update({"age": 30, "city": "Alytus"})
-print(person)
-# Output: {'name': 'Example', 'age': 30, 'city': 'Alytus'}
+config = {
+    "database": {
+        "host": "localhost",
+        "port": 5432
+    },
+    "features": {
+        "logging": True
+    }
+}
 ```
 
-On top of that, it allows you to update **multiple pairs at once**, making it a flexible way to manage dictionary data.
+If the database port changes, we can update it using `update()`.
 
 ```py
-person = {"name": "Example", "age": 25}
-# Add a single new key-value pair
-person.update({"city": "Vilnius"})
-print(person)
-# Output: {'name': 'Example', 'age': 25, 'city': 'Vilnius'}
-
-# Add multiple new key-value pairs
-person.update({"country": "Lithuania", "profession": "Engineer"})
-print(person)
-# Output: {'name': 'Example', 'age': 25, 'city': 'Vilnius', 'country': 'Lithuania', 'profession': 'Engineer'}
+config["database"].update({"port": 3306})
+print(config)
 ```
 
-The last feature of the `update()` method is that it can merge another dictionary into the current one. When keys overlap, the values from the second dictionary will replace the ones in the first.
+Here `"database"` already exists then `update()` modifies only the specified `key` and all other configuration values remain unchanged. This pattern is common when **environment settings** or **connection details** change.
 
 ```py
-person = {"name": "Example", "age": 25}
-extra_info = {"city": "Vilnius", "age": 30}
-
-person.update(extra_info)
-print(person)
-# Output: {'name': 'Example', 'age': 30, 'city': 'Vilnius'}
+config["database"].update({"timeout": 30})
+print(config)
 ```
 
-Another method you can use with dictionaries is `setdefault(key, value)`. It adds a new **key–value pair** to a dictionary, but **only if the key does not already exist**. If the key is already present, it simply returns the existing value without changing anything.
+This is typical when **introducing** optional parameters or **extending** existing configuration files.
 
-This makes it a bit different from `update()`, which always overwrites the value if the key exists.
+Often, multiple related values need to be updated together.
 
 ```py
-person = {"name": "Example", "age": 25}
-
-person.setdefault("city", "Vilnius")
-print(person)
-# Output: {'name': 'Example', 'age': 25, 'city': 'Vilnius'}
+config["database"].update({
+    "host": "db.internal",
+    "port": 5432
+})
+print(config)
 ```
 
-Next, let’s look at how we can remove items from a dictionary.
+Updating **multiple** `keys` at once keeps related changes grouped, which is useful in **deployment scripts** or **runtime configuration** updates.
 
-Unlike the methods we’ve seen so far, `del` is **not a method**, but a **built-in Python statement**. It’s used to remove an item from the dictionary based on the specified `key`.
+`update()` is also frequently used when working with **lists of dictionaries**, such as user records.
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-# Remove a specific key-value pair
-del person["city"]
-print(person)
-# Output: {'name': 'Example', 'age': 25}
+users = [
+    {"id": 1, "name": "Example1", "active": True},
+    {"id": 2, "name": "Example2", "active": False}
+]
 ```
 
-Another way to remove an item from a dictionary is by using the `pop(key)` method. Here, you specify the key of the item you want to remove. The method will **remove the key–value pair** and also return the value that was removed.
+Suppose user `id=2` becomes active.
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-# Remove a key-value pair and return its value
-removed_value = person.pop("city")
-print("Removed:", removed_value)
-print(person)
-# Output:
-# Removed: Vilnius
-# {'name': 'Example', 'age': 25}
+users[1].update({"active": True})
+print(users)
 ```
 
-The `pop()` method is safer than del because you can also provide a default value to avoid errors if the key doesn’t exist.
+This pattern appears in **management systems** or **data processing pipelines**
+
+Sometimes additional data arrives later and must be merged into an existing record.
 
 ```py
-print(person.pop("country", "Not Found"))
-# Output: Not Found
+user_profile = {
+    "id": 3,
+    "name": "Charlie"
+}
+
+extra_data = {
+    "email": "charlie@example.com",
+    "role": "editor"
+}
+
+user_profile.update(extra_data)
+print(user_profile)
 ```
 
-There’s also the `popitem()` method, which removes and returns the **last inserted key–value pair** from the dictionary.
+Here new keys are **added** and then existing keys (if any) would be **overwritten** and the **original dictionary** object remains the same.
+
+This is common when **combining API responses** or **augmenting user data**.
+
+When merging dictionaries, overlapping `keys` are **replaced**, not merged.
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
+settings = {
+    "theme": "light",
+    "language": "en"
+}
 
-# Remove the last inserted key-value pair
-last_item = person.popitem()
-print("Removed:", last_item)
-print(person)
-# Output:
-# Removed: ('city', 'Vilnius')
-# {'name': 'Example', 'age': 25}
+override = {
+    "theme": "dark"
+}
+
+settings.update(override)
+print(settings)
 ```
 
-If the dictionary is empty and you call `popitem()`, it will raise a `KeyError`.
+This behavior is intentional and widely used for **applying** user preferences, **overriding** defaults.
 
-![popitem_error](../assets/images/popitem_error.png)
+Another useful dictionary method is `setdefault(key, value)`. It is designed for situations where you want to **ensure a key exists**, without **overwriting** existing data.
 
-The last method for removing items from a dictionary is `clear()`. This method **removes all key–value pairs**, leaving the dictionary empty.
+This is common when building **nested structures**, such as **logs**, **grouped records**, **counters**, or **categorized data**.
+
+Imagine you are **processing events** and **grouping** them by user.
 
 ```py
-person = {"name": "Example", "age": 25, "city": "Vilnius"}
-
-# Clear the dictionary
-person.clear()
-print(person)
-# Output: {}
+events = [
+    {"user": "Example1", "action": "login"},
+    {"user": "Example2", "action": "login"},
+    {"user": "Example1", "action": "upload"},
+    {"user": "Example2", "action": "logout"},
+]
 ```
+
+You want a structure like this
+
+```py
+{
+    "Example1": ["login", "upload"],
+    "Example2": ["login", "logout"]
+}
+```
+
+Building **grouped** data with `setdefault()`
+
+```py
+activity_log = {}
+
+for event in events:
+    user = event["user"]
+    action = event["action"]
+
+    activity_log.setdefault(user, []).append(action)
+
+print(activity_log)
+```
+
+What happens here is `user` does not exist, `setdefault()` **creates** it with an empty list `[]` If `user` **already exists**, the existing list is reused, no existing data is **overwritten**
+
+If you tried to use `update()` instead
+
+```py
+activity_log.update({"alice": []})
+```
+
+You would **overwrite existing data**, losing previously collected actions, `setdefault()` avoids that risk entirely.
+
+Consider an application configuration that grows over time.
+
+```py
+config = {
+    "features": {
+        "auth": True
+    }
+}
+```
+
+Later in the program, a **logging** section may or may not already exist.
+
+```py
+logging_config = config.setdefault("logging", {})
+logging_config.setdefault("level", "INFO")
+logging_config.setdefault("format", "json")
+
+print(config)
+```
+
+And the result would be like this
+
+```py
+{
+    "features": {"auth": True},
+    "logging": {"level": "INFO", "format": "json"}
+}
+```
+
+Here `setdefault()` safely creates missing sections and existing configuration is preserved so that nested structures **grow incrementally**.
+
+Tracking scores per category
+
+```py
+results = [
+    {"category": "math", "score": 80},
+    {"category": "science", "score": 90},
+    {"category": "math", "score": 85}
+]
+
+scores_by_category = {}
+
+for result in results:
+    scores_by_category.setdefault(result["category"], []).append(result["score"])
+
+print(scores_by_category)
+```
+
+Output would be
+
+```py
+{
+    "math": [80, 85],
+    "science": [90]
+}
+```
+
+This pattern appears in **analytics**, **reporting systems**, **log aggregation** or **metrics collection**.
+
+Next, let’s look at how we can **remove items** from a dictionary.
+
+In practice, **dictionaries** often store structured data, such as **user profiles**, **configuration sections**, **session data**, or **cached records**, not just flat `key:value` pairs.
+
+The `del` keyword is **not a method**, but a **Python statement**. It removes a `key:value` pair by `key`.
+
+This is commonly used when a piece of data becomes **invalid** or **no longer needed**.
+
+```py
+user_profile = {
+    "id": 101,
+    "name": "Example1",
+    "email": "Example1@example.com",
+    "session": {
+        "token": "abc123",
+        "expires": "2026-01-01"
+    }
+}
+
+# Remove session data after logout
+del user_profile["session"]
+
+print(user_profile)
+```
+
+Here the user record stays only the **session related data** is **removed**, this is common for **logout**, **cleanup**, or **security sensitive fields**. If the `key` does not exist, `del` raises a `KeyError`.
+
+The `pop()` method **removes** a `key` **and returns its value**, which is useful when the removed data still needs to be processed.
+
+```py
+cache = {
+    "page:/home": "<html>...</html>",
+    "page:/about": "<html>...</html>"
+}
+
+expired_page = cache.pop("page:/home")
+
+print("Expired cache entry:", expired_page)
+print("Remaining cache:", cache)
+```
+
+You remove the entry but still have **access** to the removed data and common in **cache**, **task queues**, or **temporary storage**.
+
+In applications, data may or may not **exist**. Using `pop()` with a default avoids **runtime errors**.
+
+```py
+settings = {
+    "theme": "dark",
+    "language": "en"
+}
+
+timezone = settings.pop("timezone", "UTC")
+print("Timezone:", timezone)
+print(settings)
+```
+
+The program no need for extra `if key in dict` checks, ideal for **optional configuration values**
+
+`popitem()` removes and returns the **most recently added** `key:value` pair. This is commonly used when **dictionaries act as stacks** or **temporary stores**.
+
+```py
+request_context = {
+    "request_id": "req-001",
+    "user": "alice",
+    "debug": True
+}
+
+last_entry = request_context.popitem()
+print("Removed:", last_entry)
+print(request_context)
+```
+
+**Undo** the last change then roll back **temporary values** and process items in **reverse insertion order**. Calling `popitem()` on an **empty dictionary** raises a `KeyError`.
+
+The `clear()` method **removes all** `key:value` pairs, but keeps the dictionary object itself. This is useful when **reusing containers** across multiple stages of a program.
+
+```py
+session_data = {
+    "user_id": 42,
+    "cart": ["item1", "item2"],
+    "auth_token": "xyz789"
+}
+
+# Reset session after logout
+session_data.clear()
+
+print(session_data)
+```
+
+The container still **exists** and **references** to the dictionary remain valid is common in **session resets**, or **state reinitialization**
 
 ## Set data type
 
