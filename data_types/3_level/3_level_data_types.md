@@ -911,7 +911,7 @@ The program no need for extra `if key in dict` checks, ideal for **optional conf
 ```py
 request_context = {
     "request_id": "req-001",
-    "user": "alice",
+    "user": "Example1",
     "debug": True
 }
 
@@ -939,52 +939,127 @@ print(session_data)
 
 The container still **exists** and **references** to the dictionary remain valid is common in **session resets**, or **state reinitialization**
 
-## Set data type
-
 The next data type we’ll explore is the **set**.
+
+## Set data type
 
 A set is a **non-indexed collection of unique elements**. Unlike lists or tuples, sets **do not allow duplicate values**, meaning each element must be unique. Sets are also **mutable**, so you can **add or remove items** after a set has been created.
 
-Since sets are **non-indexed**, you cannot access elements by `index` like you do in lists. To work with elements in a `set`, you typically use **loops**, which we already explored in **Control Flow 1 Level**.
+Since sets are **non-indexed**, you cannot access elements by `index` like you do in lists. To work with elements in a `set`, you typically use **loops**, which we already explored in **Control Flow 1 and 3 Level**.
+
+Sets are commonly used to **track unique values**, when data is nested inside other collections, such as **lists of records** or **dictionaries of grouped data**.
+
+Consider a dataset of **user actions**, where the same user may appear multiple times.
 
 ```py
-my_set = {1, 2, 3, 4, 5}
-
-for item in my_set:
-    print(item)
+events = [
+    {"user": "example1", "action": "login"},
+    {"user": "example2", "action": "login"},
+    {"user": "example1", "action": "upload"},
+    {"user": "example3", "action": "login"},
+    {"user": "example2", "action": "logout"}
+]
 ```
 
-*Later, we’ll explore other ways how to access with set elements in **Control Flow 3 Level**.*
-
-Let’s look at another method we can use to add elements to a set and see how it works in practice.
-
-The first method we can use to add elements to a set is `add(obj)`.
-
-This method adds a **single element** to the set. If the element already exists, it will **not create a duplicate**, since sets only store unique values.
+If we want to know **which users were active**, we don’t care how many times they appeared, only that they appeared at least once.
 
 ```py
-my_set = {1, 2, 3}
-my_set.add(4)
-print(my_set)
-# Output: {1, 2, 3, 4}
+active_users = set()
+
+for event in events:
+    active_users.add(event["user"])
+
+print(active_users)
 ```
+
+Here, the `set` **automatically removes duplicates**, giving us a collection of **unique users**. This pattern is common when **processing logs**, **events**, or **audit data**.
+
+Because sets guarantee uniqueness, there is **no need to manually check** if a user was already added.
+
+Let’s look at another example where a set is used **inside a dictionary**.
+
+Imagine a system that tracks **permissions per role**, where permissions must never be duplicated.
+
+```py
+permissions = {
+    "admin": {"read", "write", "delete"},
+    "editor": {"read", "write"},
+    "viewer": {"read"}
+}
+```
+
+Each value here is a **set**, not a **list**, because permissions must be **unique**.
+
+If we later want to grant a new permission, we can safely add it without worrying about duplicates.
+
+```py
+permissions["editor"].add("publish")
+permissions["editor"].add("write") # duplicate, ignored
+
+print(permissions["editor"])
+```
+
+This is common in **access control systems**, and **role-based authorization**, where uniqueness is a requirement.
+
+Sets are also frequently nested inside **lists of records**.
+
+Consider a dataset where each user has a list of actions, and we want to **extract unique actions per user**.
+
+```py
+users = [
+    {"name": "example1", "actions": ["login", "upload", "login"]},
+    {"name": "example2", "actions": ["login", "logout", "login"]}
+]
+```
+
+We can convert the action lists into sets to remove duplicates.
+
+```py
+for user in users:
+    user["actions"] = set(user["actions"])
+
+print(users)
+```
+
+Here, each user record is still a dictionary, but the `actions` field becomes a **set**, ensuring uniqueness while keeping the overall structure intact.
+
+This pattern appears in **analytics**, **activity tracking**, and **event aggregation** systems.
+
+Now let’s look at `add(obj)`.
+
+The `add()` method is used when **new data arrives incrementally**, such as **new sessions**, **processed IDs**, or **completed tasks**.
+
+```py
+processed_ids = set()
+
+incoming_batches = [
+    [101, 102, 103],
+    [102, 104],
+    [105, 101]
+]
+
+for batch in incoming_batches:
+    for record_id in batch:
+        processed_ids.add(record_id)
+
+print(processed_ids)
+```
+
+Even though the same **IDs** appear multiple times across batches, the set keeps **only unique values**.
 
 Another way to add elements is by using the `update(iterable)` method.
 
-Unlike `add()`, which only inserts a single element, `update()` can take an **iterable** (such as a list, tuple, or another set) and add all its elements into the set.  
+Unlike `add()`, which inserts **one element at a time**, `update()` can take an **iterable** (such as a list, tuple, or another set) and add **all its elements into** into the set at once.
+
+This is useful when new data arrives in **groups**, not individually.
 
 ```py
-my_set = {1, 2, 3}
+processed_ids = {101, 102}
 
-# Add single element
-my_set.update([4])
-print(my_set)
-# Output: {1, 2, 3, 4}
+new_batch = [102, 103, 104]
 
-# Add multiple elements at once
-my_set.update([4, 5, 6])
-print(my_set)
-# Output: {1, 2, 3, 4, 5, 6}
+processed_ids.update(new_batch)
+print(processed_ids)
 ```
 
 *Notice that we pass the elements inside **square brackets `[]`**, not curly braces `{}`, because we’re giving an iterable like a list.*
