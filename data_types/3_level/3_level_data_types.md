@@ -7,7 +7,6 @@
 - [Dictionary data type](#dictionary-data-type)
 - [Set data type](#set-data-type)
 - [Strings data type](#strings-data-type)
-- [Other data types](#other-data-types)
 - [Copy](#copy)
 
 In previous levels (**Data Types 1 and 2**), we covered the basics of data types and how to write them. In this level, we go deeper to explore how we can manipulate data types and understand how they really work.
@@ -1624,6 +1623,8 @@ We didn’t go deep into methods for two specific data types.
 The reason is unlike strings, which are also immutable but still provide rich helper methods, `tuples` and `frozensets` don’t have methods that let you **add**, **remove**, or **update** elements.  
 
 Since their main strength lies in **immutability**, they are most useful in contexts where you don’t want data to change.
+
+## Copy
 
 ```py
 # Shallow copy of a list
