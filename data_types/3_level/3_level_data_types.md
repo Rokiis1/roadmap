@@ -527,7 +527,7 @@ However, data is rarely identified only by **position**. Instead, data usually h
 
 ## Dictionary data type
 
-Next, let’s explore another important data type in Python `dict`, also known as a **mapping type**. A dictionary is a **mutable mapping type** that stores data as **key-value pairs** and is accessed by **keys rather than indexes**.
+Next, let’s explore another important data type in Python `dict`, also known as a **mapping type**. A dictionary is a **mutable mapping type** that stores data as **`key:value` pairs** and is accessed by **keys rather than indexes**.
 
 Dictionaries are **rarely flat**. They often contain **lists**, **other dictionaries**, and **mixed data types** to represent structured information.
 
@@ -784,7 +784,7 @@ What happens here is `user` does not exist, `setdefault()` **creates** it with a
 If you tried to use `update()` instead
 
 ```py
-activity_log.update({"alice": []})
+activity_log.update({"Example1": []})
 ```
 
 You would **overwrite existing data**, losing previously collected actions, `setdefault()` avoids that risk entirely.
@@ -1049,7 +1049,7 @@ Even though the same **IDs** appear multiple times across batches, the set keeps
 
 Another way to add elements is by using the `update(iterable)` method.
 
-Unlike `add()`, which inserts **one element at a time**, `update()` can take an **iterable** (such as a list, tuple, or another set) and add **all its elements into** into the set at once.
+Unlike `add()`, which inserts **one element at a time**, `update()` can take an **iterable** (such as a **list**, **tuple**, or another **set**) and add **all its elements into** into the **set** at once.
 
 This is useful when new data arrives in **groups**, not individually.
 
@@ -1062,267 +1062,536 @@ processed_ids.update(new_batch)
 print(processed_ids)
 ```
 
-*Notice that we pass the elements inside **square brackets `[]`**, not curly braces `{}`, because we’re giving an iterable like a list.*
+Here, `102` already exists and is ignored, while `103` and `104` are added. This pattern is very common when processing **batch data**, **API responses**, or **file imports**.
 
-But if we want to **merge another set**, then we use curly braces `{}` because we are passing a set literal as the iterable.
+**Sets** are often updated from **nested structures**, not **simple lists**.
 
-```py
-# Adding elements from another set
-my_set.update({7, 8})
-print(my_set)
-# Output: {1, 2, 3, 4, 5, 6, 7, 8}
-```
-
-Now let’s move on to the methods for removing elements from a set.  
-
-The first one is `remove(element)`, which is used to delete a specified item from the set.
+Consider a **stream of events** grouped by source.
 
 ```py
-my_set = {1, 2, 3, 4}
+event_batches = {
+    "sensor_1": [201, 202, 203],
+    "sensor_2": [202, 204],
+    "sensor_3": [205, 201]
+}
 
-my_set.remove(3)
-print(my_set)
-# Output: {1, 2, 4}
+all_event_ids = set()
+
+for batch in event_batches.values():
+    all_event_ids.update(batch)
+
+print(all_event_ids)
 ```
 
-If the element is not found, it will raise a `KeyError`.
+Here, each value in the dictionary is a **list** so `update()` absorbs all values and **duplicates** are removed automatically
 
-![remove_error_set](../assets/images/remove_error_set.png)
-
-The `discard(element)` method works almost the same way as `remove(element)`.
+**Sets** are often stored **inside dictionaries** to track unique values per category.
 
 ```py
-my_set = {1, 2, 3}
-
-my_set.discard(2)
-print(my_set)
-# Output: {1, 3}
+active_sessions = {
+    "us-east": {"sess_1", "sess_2"},
+    "eu-west": {"sess_3"}
+}
 ```
 
-The only difference is that `discard()` **does not raise an error** if the element is not present in the set.
+New sessions arrive for a specific region.
 
 ```py
-my_set.discard(10)
-print(my_set)
-# Output: {1, 3}
+new_sessions = ["sess_2", "sess_4", "sess_5"]
+
+active_sessions["us-east"].update(new_sessions)
+
+print(active_sessions["us-east"])
 ```
 
-*This makes it a safer option when you are not sure whether the element exists or not.*
+The region already exists so `update()` merges multiple sessions at once and the **duplicates** are ignored safely. This is typical for **regional tracking**, **sharded systems**.
 
-The `pop()` method removes and returns an **arbitrary element** from the set.
-
-Since sets are **non-indexed**, elements are not accessed by position.
+When combining results from different stages, `update()` is clearer than looping.
 
 ```py
-my_set = {1, 2, 3}
+validated_ids = {1, 2, 3}
+processed_ids = {3, 4, 5}
 
-removed = my_set.pop()
-print("Removed:", removed)
-print("After pop:", my_set)
-# Output example:
-# Removed: 1
-# After pop: {2, 3}
+validated_ids.update(processed_ids)
+
+print(validated_ids)
 ```
 
-If the set is empty, calling `pop()` will raise a `KeyError`.
+This produces a **union**, while keeping the original set object intact.
+
+**Sets** are often **inhabited** from **lists of dictionaries**, not raw values.
+
+```py
+records = [
+    {"id": 301, "status": "ok"},
+    {"id": 302, "status": "ok"},
+    {"id": 301, "status": "retry"}
+]
+
+unique_ids = set()
+
+unique_ids.update(record["id"] for record in records)
+
+print(unique_ids)
+```
+
+Data is nested inside dictionaries and **set** extracts only the **unique identifiers**, no extra condition checks are required.
+
+This appears frequently in **data cleanup**, and **report generation**.
+
+Now let’s move on to the methods for **removing elements** from a **set**.
+
+**Sets** are often used to **track state**, such as **active users**, **processed IDs**, **cached items**, or **permissions**. Removing elements usually means that something is no longer **valid**, **finished**, or **expired**.
+
+The `remove(element)` method deletes a specific item from the set. If the element does **not exist**, Python raises a `KeyError`.
+
+Consider a system that tracks **currently active user sessions**.
+
+```py
+active_sessions = {"sess_101", "sess_102", "sess_103"}
+
+# A user logs out
+active_sessions.remove("sess_102")
+
+print(active_sessions)
+```
+
+Here, the session is known to exist, so `remove()` is appropriate.
+
+If you attempt to remove a session that is not tracked, Python raises an error.
+
+```py
+active_sessions.remove("sess_999")
+# KeyError
+```
+
+Sets are often nested inside dictionaries to group unique values.
+
+```py
+user_permissions = {
+    "admin": {"read", "write", "delete"},
+    "editor": {"read", "write"},
+    "viewer": {"read"}
+}
+```
+
+If an **editor** loses write access.
+
+```py
+user_permissions["editor"].remove("write")
+print(user_permissions["editor"])
+```
+
+The permission is expected to exist by removing a **missing permission** would indicate **corrupted data** is common in **authorization**.
+
+The `discard(element)` method removes an element **if it exists**, but **does nothing if it does not**.
+
+This makes good when data may **expired**
+
+Consider a background worker tracking **pending job IDs**.
+
+```py
+pending_jobs = {"job_1", "job_2", "job_3"}
+
+# A job completes
+pending_jobs.discard("job_2")
+print(pending_jobs)
+```
+
+No error is raised.
+
+The `pop()` method removes and returns an **arbitrary element** from the **set**.
+
+Because sets are **non-indexed**, you don’t control **which** element is removed. This makes `pop()` useful when the specific element **does not matter**, only that one **element is consumed**.
+
+A common use case is **processing items until none remain**.
+
+```py
+pending_jobs = {"job_101", "job_102", "job_103"}
+
+current_job = pending_jobs.pop()
+print("Processing:", current_job)
+print("Remaining jobs:", pending_jobs)
+```
+
+Here is one job is removed and job **ID** is returned using in **task schedulers**
+
+Sets are often nested **inside dictionaries**.
+
+```py
+server_connections = {
+    "server_a": {"conn_1", "conn_2"},
+    "server_b": {"conn_3"}
+}
+```
+
+When cleaning up **one connection at a time**.
+
+```py
+closed_conn = server_connections["server_a"].pop()
+print("Closed connection:", closed_conn)
+print(server_connections)
+```
+
+If the **set** is empty, calling `pop()` raises a `KeyError`.
 
 ```py
 empty_set = set()
 empty_set.pop()
-print(empty_set)
+# KeyError
 ```
 
-Another delete method is `clear()`. Removes all the items in a set object, leaving an empty set.
+It's good to check before popping.
 
 ```py
-my_set = {1, 2, 3, 4}
+if pending_jobs:
+    job = pending_jobs.pop()
+```
 
-my_set.clear()
-print(my_set)
+he `clear()` method removes **all elements**, but keeps the set object itself.
+
+```py
+active_users = {"user_1", "user_2", "user_3"}
+
+# System shutdown or reset
+active_users.clear()
+
+print(active_users)
 # Output: set()
 ```
 
-The `intersection(other_set)` method returns a **new set** containing only the elements that are **common** to both sets. It does **not modify** the original set.
+This is useful when **reusing containers**, **clearing caches between phases**.
+
+The `intersection()` method returns a **new set** containing only elements present in **both sets**.
+
+Consider checking **shared permissions**.
 
 ```py
-set_a = {1, 2, 3, 4, 5}
-set_b = {2, 4, 6}
+user_permissions = {"read", "write", "delete"}
+required_permissions = {"read", "execute"}
 
-common = set_a.intersection(set_b)
-print(common)  # {2, 4}
+allowed = user_permissions.intersection(required_permissions)
+print(allowed)
 ```
 
-Finally, if you want to **get all items from a set that do not exist in another set**, you can use the `difference()` method or the subtraction operator (`-=`).
+This appears in **compatibility checks** and the **original sets** remain unchanged.
+
+The `difference()` method returns elements that exist in one **set** but not the other.
 
 ```py
-set_a = {1, 2, 3, 4}
-set_b = {3, 4, 5, 6}
+expected_files = {"a.txt", "b.txt", "c.txt"}
+uploaded_files = {"a.txt", "c.txt"}
 
-diff = set_a.difference(set_b)
-print(diff)   # Output: {1, 2}
-print(set_a)  # Output: {1, 2, 3, 4} (unchanged)
+missing_files = expected_files.difference(uploaded_files)
+print(missing_files)
 ```
+
+Is common when **upload validation**. The **original set** remains unchanged.
+
+However, **sets** don’t **preserve order**, and they don’t store text in a meaningful structure.
+
+To work with **textual data**, **messages** and **content**, we now move to the most common data type in Python programs.
 
 ## Strings data type
 
-A **string** is an **immutable sequence of Unicode characters** and is **ordered**, so you can access characters using **indexing**.
+A **string** is an **immutable sequence of Unicode characters**.
 
-In this section, we’ll explore what we can do with strings and the methods available.
+Because strings are **ordered**, you can access individual characters using **indexing**, but because they are **immutable**, you cannot modify them in place.
 
-Strings have several methods to **convert letter case**. The most common ones are `upper()` and `lower()`.
+Strings are used everywhere **user input**, **messages**, **file names**, **configuration values**, **API responses**
 
-- `upper()` – converts all letters in the string to **uppercase**
+Normalizing text with `upper()` and `lower()`
 
-- `lower()` – converts all letters in the string to **lowercase**
+One of the most common uses of strings is normalization (converting text into a **consistent** form **before comparing** or **storing it**).
+
+- **Case-insensitive comparisons**
+
+User input is unpredictable.
 
 ```py
-text = "Hello World"
-
-print(text.upper())
-# Output: HELLO WORLD
-
-print(text.lower())
-# Output: hello world
+user_input = "Admin"
 ```
 
-You can also capitalize the **first letter of a string** using the `capitalize()` method. All other characters in the string are converted to **lowercase**.
+Instead of checking every possible case,
 
 ```py
-text = "hello world"
-
-capitalized_text = text.capitalize()
-print(capitalized_text)
-# Output: Hello world
+if user_input == "admin" or user_input == "Admin":
+    pass
 ```
 
-If you want to capitalize the **first letter of each word** in a string, you can use the `title()` method. This is especially useful for **titles or headings**.
+You normalize first.
 
 ```py
-text = "hello world from python"
-
-title_text = text.title()
-print(title_text)
-# Output: Hello World From Python
+if user_input.lower() == "admin":
+    print("Admin access granted")
 ```
 
-Sometimes strings contain **extra whitespace** at the beginning or end. Python provides methods to **clean up strings**.
+Appears in **role checks** or **form validation**
 
-- `strip()` – removes whitespace from **both ends** of the string
-
-- `lstrip()` – removes whitespace from the **left side** (beginning)  
-
-- `rstrip()` – removes whitespace from the **right side** (end)
+magine processing usernames from different sources.
 
 ```py
-text = "   Hello World   "
-
-# Remove whitespace from both ends
-print(text.strip())
-# Output: Hello World
-
-# Remove whitespace from the left side
-print(text.lstrip())
-# Output: Hello World   
-
-# Remove whitespace from the right side
-print(text.rstrip())
-# Output:    Hello World
+raw_usernames = ["Example", "example", "EXAMPLE", "ExamplE"]
 ```
 
-Strings can be **split into smaller parts** using the `split()` methods. The most commonly used ones are.
-
-- `split()` – splits the string by **whitespace** by default.
-
-- `split(separator)` – splits the string by a **specific separator**, such as a comma `,`.
-
-- `splitlines()` – splits the string at **line breaks**, returning a list of lines.
+To ensure consistency
 
 ```py
-text = "apple,banana,cherry"
+normalized = []
 
-# Split by default (whitespace)
-print("Hello World".split())
-# Output: ['Hello', 'World']
+for name in raw_usernames:
+    normalized.append(name.lower())
 
-# Split by comma
-print(text.split(","))
-# Output: ['apple', 'banana', 'cherry']
-
-# Split by line breaks
-multiline_text = "Line 1\nLine 2\nLine 3"
-print(multiline_text.splitlines())
-# Output: ['Line 1', 'Line 2', 'Line 3']
+print(normalized)
+# ["example", "example", "example", "example"]
 ```
 
-The `join(str)` method is used to **combine elements of an iterable** (like a list, tuple, or another string) into a single string, with a **specified separator**.
+This is commonly done before **storing data in databases**
+
+While logic often uses lowercase, **display output** may require uppercase.
 
 ```py
-words = ["Python", "is", "fun"]
-
-# Join words with a space
-sentence = " ".join(words)
-print(sentence)
-# Output: Python is fun
-
-# Join words with a comma
-csv = ",".join(words)
-print(csv)
-# Output: Python,is,fun
+status = "error"
+print(status.upper())
+# ERROR
 ```
 
-Python provides several methods to **search for substrings** in a string.
+This is common in **logs**, **alerts**.
 
-- `find(sub, start=0, end=len(string))` – Returns the **index of the first occurrence** of the substring. Returns `-1` if not found.
-
-- `index(sub, start=0, end=len(string))` – Similar to `find()`, but **raises a `ValueError`** if the substring is not found.
-
-- `count(sub, start=0, end=len(string))` – Returns the **number of occurrences** of the substring.
+Calling `upper()` or `lower()` **does not change the original string**.
 
 ```py
-text = "Python is fun. Python is powerful."
+text = "Hello"
+text.upper()
 
-# Find first occurrence
-print(text.find("Python"))
-# Output: 0
+print(text)
+# Hello
+```
 
-# Find first occurrence starting from index 10
-print(text.find("Python", 10))
-# Output: 16
+You must assign the result
 
-# Count occurrences of "Python"
-print(text.count("Python"))
-# Output: 2
+```py
+text = text.upper()
+print(text)
+# HELLO
+```
 
-# Index of first occurrence
-print(text.index("fun"))
-# Output: 10
+This behavior is intentional and protects strings from accidental mutation.
+
+**Strings** often live inside **lists** and **dictionaries**.
+
+```py
+users = [
+    {"name": "Example1", "role": "Admin"},
+    {"name": "example2", "role": "editor"},
+    {"name": "EXAMPLE3", "role": "VIEWER"}
+]
+```
+
+Normalize roles before using them.
+
+```py
+for user in users:
+    role = user["role"].lower()
+    if role == "admin":
+        print("Admin user:", user["name"])
+```
+
+Because strings are ordered, you can access characters by index.
+
+```py
+filename = "report_2026.pdf"
+
+extension = filename[-3:]
+print(extension)
+# pdf
+```
+
+Common for **file validation**, **extension checks**
+
+Another example
+
+```py
+country_code = "+370-612-34567"
+print(country_code[:4])
+# +370
+```
+
+Strings are often **containers of multiple values**, not just plain text. Data frequently arrives as **one string** that must be **split** into parts before it can be processed.
+
+By default, `split()` separates a string using **whitespace** (spaces, tabs, newlines).
+
+This is extremely common when handling **user input**, **command-line arguments**
+
+```py
+command = "deploy production --force"
+
+parts = command.split()
+print(parts)
+# ['deploy', 'production', '--force']
+```
+
+Each part can now be processed independently
+
+```py
+action = parts[0]
+environment = parts[1]
+
+print(action, environment)
+# deploy production
+```
+
+This pattern is common in **CLI tools**
+
+Often, values are separated by a **specific character**, such as a **comma**, **colon**, or **pipe** (`|`).
+
+Reading **CSV-like input**.
+
+```py
+row = "101,example,admin,active"
+
+fields = row.split(",")
+print(fields)
+# ['101', 'example', 'admin', 'active']
+```
+
+This allows you to map values into a structured record
+
+```py
+user = {
+    "id": int(fields[0]),
+    "name": fields[1],
+    "role": fields[2],
+    "status": fields[3]
+}
+
+print(user)
+```
+
+This appears in **CSV parsing**, **exported reports**
+
+Common case is parsing `key=value` strings.
+
+```py
+setting = "timeout=30"
+
+key, value = setting.split("=")
+print(key, value)
+# timeout 30
+```
+
+Frequently in **environment variables** or **URL query strings**
+
+When working with multi-line text, `splitlines()` is safer than `split("\n")`, because it handles different line endings correctly.
+
+```py
+log_data = """INFO Server started
+WARNING Low memory
+ERROR Disk full"""
+```
+
+Appears in **reading text files**
+
+```py
+lines = log_data.splitlines()
+
+for line in lines:
+    print("Log entry:", line)
 ```
 
 Sometimes you want to **check if a string starts or ends** with a specific substring. Python provides two useful methods:
 
-- `startswith(sub, start=0, end=len(string))` – Returns `True` if the string **starts with** the given substring.
+In programs, strings are often validated based on how they **start** or **end**, rather than by exact equality.  
+Python provides `startswith()` and `endswith()` for this purpose.
 
-- `endswith(sub, start=0, end=len(string))` – Returns `True` if the string **ends with** the given substring.
+These checks are commonly used for **file validation**, **URL handling**, **log parsing**, and **input filtering**.
+
+Consider validating uploaded filenames.
 
 ```py
-text = "Python is fun"
+filename = "report_2026.pdf"
 
-# Check start
-print(text.startswith("Python"))
-# Output: True
-
-# Check start from a specific index
-print(text.startswith("is", 7))
-# Output: True
-
-# Check end
-print(text.endswith("fun"))
-# Output: True
-
-# Check end with substring not matching
-print(text.endswith("Python"))
-# Output: False
+if filename.endswith(".pdf"):
+    print("Valid PDF file")
+else:
+    print("Invalid file type")
 ```
+
+Common in **file upload**, where only certain file types are allowed.
+
+Another example is filtering log entries by severity.
+
+```py
+log_line = "ERROR Disk full"
+
+if log_line.startswith("ERROR"):
+    print("Critical issue detected")
+```
+
+This appears frequently in **monitoring systems** and **log processors**.
+
+You can also start checking from a specific position in the string.
+
+```py
+path = "/api/v1/users"
+
+if path.startswith("v1", 5):
+    print("Version 1 API request")
+```
+
+This is useful when working with **URLs**.
+
+Ending checks are often used for **extensions**, **suffix-based routing**, or **format validation**.
+
+```py
+email = "user@example.com"
+
+if email.endswith("@example.com"):
+    print("Internal company email")
+```
+
+Strings are immutable, so modifying text always creates a **new string**. This is intentional and prevents accidental data corruption.
+
+Replacing text is commonly used when **cleaning data**, **normalizing input**, or **masking sensitive values**.
+
+```py
+message = "User password is secret123"
+
+safe_message = message.replace("secret123", "***")
+print(safe_message)
+```
+
+Typical hide **sensitive information** must not be stored.
+
+```py
+text = "ERROR: Disk error detected"
+
+fixed = text.replace("error", "issue", 1)
+print(fixed)
+```
+
+Programs often need to locate or count specific text inside strings.
+
+```py
+log = "User login failed. User login failed again."
+```
+
+You can also limit how many replacements occur.
+
+Finding the first occurrence
+
+```py
+log = "User login failed. User login failed again."
+```
+
+Counting how many times something appears
+
+```py
+attempts = log.count("failed")
+print(attempts)
+```
+
+Common in **analytics**. Use `find()` when absence is acceptable, and `index()` only when the value must exist.
 
 If you want to **replace part of a string** with another value, you can use the `replace(old, new[, count])` method.
 
@@ -1346,28 +1615,15 @@ print(new_text_once)
 # Output: Java is fun. Python is powerful.
 ```
 
-## Other data types
+## Tuple data types
 
 We didn’t go deep into methods for two specific data types.
 
 - **`tuple`** (ordered, immutable)  
-- **`frozenset`** (immutable, non-indexed set)  
 
 The reason is unlike strings, which are also immutable but still provide rich helper methods, `tuples` and `frozensets` don’t have methods that let you **add**, **remove**, or **update** elements.  
 
 Since their main strength lies in **immutability**, they are most useful in contexts where you don’t want data to change.
-
-Because of this, we’ll explore them more **practically** later in **Control Flow Level 3**, where we’ll see how they integrate into **loops** and **conditional statements** rather than focusing on methods.
-
-## Copy
-
-At this point, you might be wondering If lists, dictionaries, and sets are mutable, can I easily make a copy of them?
-
-You can, But here’s the **gotcha**, there’s an important distinction between **shallow copy** and **deep copy**.
-
-Should be question adn there is main thing that there is alot of Gotchas adn we go depper adn we udenrstand waht the differeces shallow copy vs deep copy
-
-You can create a **shallow copy** of an existing **mutable** collection (like a `list`, `dict`, or `set`) using the corresponding **built-in class constructors** `list()`, `dict()`, `set()`. We already touched these constructors in **Data Types Level 2**
 
 ```py
 # Shallow copy of a list
