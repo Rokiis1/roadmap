@@ -7,6 +7,7 @@
 - [Dictionary data type](#dictionary-data-type)
 - [Set data type](#set-data-type)
 - [Strings data type](#strings-data-type)
+- [Tuple data types](#tuple-data-types)
 - [Copy](#copy)
 
 In previous levels (**Data Types 1 and 2**), we covered the basics of data types and how to write them. In this level, we go deeper to explore how we can manipulate data types and understand how they really work.
@@ -1648,6 +1649,22 @@ print(separator)
 ```
 
 If the expected subject is missing, the program fails **immediately**, which helps **catch corrupted logs** or **unexpected formats early**.
+
+In programs, strings are not only inspected for structure, but also **validated** to ensure they contain the **expected type of data**, checking whether a string represents a **number** before converting it.
+
+`isdigit()` returns `True` only if **all characters in the string are digits** and the string is **not empty**. Validating user input before converting it to an integer.
+
+```py
+user_input = "42"
+
+if user_input.isdigit():
+    value = int(user_input)
+    print("Valid number:", value)
+else:
+    print("Invalid input")
+```
+
+Common in **forms**, **CLI tools**, and **API validation**, where input always arrives as a **string**.
 
 ## Tuple data types
 
