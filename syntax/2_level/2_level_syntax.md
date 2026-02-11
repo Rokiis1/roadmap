@@ -59,4 +59,4 @@ user2 = User()
 Each call to `User()` creates a new object.
 Even though both objects come from the same class, they are separate instances.
 
-The behavior of objects and class design is covered later in **OOP Level 1**.
+The behavior of objects and class design is covered later in **Object Programming Level 1**.

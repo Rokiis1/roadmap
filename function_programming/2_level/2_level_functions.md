@@ -312,7 +312,7 @@ result = simple_sum(*numbers_tuple) # Unpacks the tuple: 10, 20, 30
 
 `*args` is good to use when the function should work no matter how many values you pass - just like the built-in functions `sum()`, `max()`, or `min()`.
 
-Another place is when you want to **forward arguments** to another function (we’ll cover this later in **Functions and Modules Level 3**).
+Another place is when you want to **forward arguments** to another function (we’ll cover this later in **Functions Level 3**).
 
 It’s also useful when working with **unknown data**, like values coming from files or user input, where you don’t know in advance how many arguments will appear.
 
