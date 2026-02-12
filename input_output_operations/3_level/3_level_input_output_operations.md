@@ -133,7 +133,15 @@ file = open("C:\\Users\\Name\\Documents\\data.txt", "r")
 
 Notice that double backslashes (`\\`) are used. This is necessary because a single backslash (`\`) is treated as an escape character in Python strings.
 
-For example, `\n` represents a **newline** and `\t` represents a **tab**. If a Windows path is written using single backslashes, Python may interpret parts of the path as escape sequences.
+For example, `\n` represents a **newline**, `\t` represents a **tab**, `\U` begins a **Unicode escape sequence**. If a Windows path is written using single backslashes, Python may interpret parts of the path as escape sequences.
+
+```py
+file = open("C:\Users\ciama\Downloads\example.txt", "r")
+```
+
+This produces an error such as `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape`
+
+This happens because `\U` is interpreted as the beginning of a **Unicode escape sequence**. Python expects something like `\U0001F600` But instead encounters `\Users`, which is invalid.
 
 To avoid this issue, a **raw string** can be used by adding the prefix `r` before the string.
 
@@ -141,7 +149,9 @@ To avoid this issue, a **raw string** can be used by adding the prefix `r` befor
 file = open(r"C:\Users\Name\Documents\data.txt", "r")
 ```
 
-A raw string tells Python to treat backslashes as literal characters.
+Output would be this `<_io.TextIOWrapper name='C:\\Users\\ciama\\Downloads\\example.txt' mode='r' encoding='cp1252'>`
+
+The prefix `r` tells Python to treat backslashes as literal characters rather than **escape sequences**.
 
 On **macOS** or **Linux** systems, an absolute path may look like
 
@@ -151,7 +161,7 @@ file = open("/home/user/data.txt", "r")
 
 Absolute paths provide the exact location of a file regardless of the current working directory.
 
-Using relative paths is generally preferred within projects because they make programs more portable. Absolute paths, while precise, may not work on different systems or user accounts.
+Using **relative paths** is generally preferred within projects because they make programs more portable. Absolute paths, while precise, may not work on different systems or user accounts.
 
 In the next section, we will examine the different file `modes` that **control how a file is opened and used**.
 
@@ -478,6 +488,68 @@ print(data)
 ```
 
 The `json.load()` function reads the text from the file and converts it into Python objects such as dictionaries or lists.
+
+To write Python data to a **JSON** file, the `json.dump()` function is used.
+
+```py
+import json
+
+data = {
+    "name": "Example",
+    "age": 25,
+    "active": True
+}
+
+with open("data.json", "w") as file:
+    json.dump(data, file)
+```
+
+The `json.dump()` function converts the Python object into JSON format and writes it to the file.
+
+After running this code, `"data.json"` will contain.
+
+```py
+{"name": "Example", "age": 25, "active": true}
+```
+
+Python dictionaries become JSON objects
+
+To make the **JSON** file more readable, the `indent` parameter can be used.
+
+```py
+with open("data.json", "w") as file:
+    json.dump(data, file, indent=4)
+```
+
+This formats the file with **indentation**.
+
+**JSON** files are often stored inside dedicated folders such as `"data"` or `"config"`.
+
+For example, if the file is located inside a folder named `"data"`.
+
+```py
+import json
+
+with open("data/data.json", "r") as file:
+    data = json.load(file)
+
+print(data)
+```
+
+Here, `"data/data.json"` is a relative path pointing to the file inside the data folder.
+
+If the file is stored in a different location, an **absolute path** can be used.
+
+```py
+import json
+
+with open(r"C:\Users\Name\Project\data\data.json", "r") as file:
+    data = json.load(file)
+
+print(data)
+```
+
+Using raw strings (`r""`) is recommended on Windows to avoid **escape sequence issues**.
 
 For CSV files, the `csv` module is typically used.
 
