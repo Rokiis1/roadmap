@@ -97,21 +97,6 @@ example = "He said, \"Hello, World!\"\nWelcome to Python programming.\tEnjoy you
 print(example)
 ```
 
-## Raw Strings
-
-When you add the prefix `r` to a string, it tells Python to treat the backslashes as literal characters and not as the beginnings of escape sequences. This is known as a "raw string."
-
-```py
-example_raw = r"He said, \"Hello, World!\"\nWelcome to Python programming.\tEnjoy your learning!"
-print(example_raw)
-```
-
-Most of the time, we use the `r` prefix when working with regular expressions (which we'll cover in Regular **Expressions Level 1**) or when handling file paths, especially on Windows.
-
-```py
-r"C:\Users\Name\Documents"
-```
-
 ## String Formatting
 
 With strings, we also have the ability to format them in various ways. In **Input/Output Level 2**, we'll explore more advanced formatting techniques. For now, let's start with **f-strings** and the `%` (modulo) operator.
