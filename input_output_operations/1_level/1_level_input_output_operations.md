@@ -2,7 +2,6 @@
 
 - [Input and Print](#input-and-print)
 - [Escape Characters](#escape-characters)
-- [Raw Strings](#raw-strings)
 - [String Formatting](#string-formatting)
 
 ## Input and Print
