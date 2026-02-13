@@ -50,7 +50,7 @@ Standard practice uses four spaces per indentation level. Logical sections of co
 
 Although formatting rules do not change program logic, they influence how easily logic can be understood.
 
-These formatting conventions are not **arbitrary**. Python provides an official style guide known as **PEP 8**, which defines recommended practices for writing code.
+These formatting conventions are not **arbitrary**. Python provides an official style guide known as **PEP 8** and **PEP 328**, which defines recommended practices for writing code.
 
 **PEP 8** establishes conventions for **indentation**, **spacing**, **naming**, **line length**, and overall structure. While Python itself does not enforce these rules, the broader Python community follows them.
 
