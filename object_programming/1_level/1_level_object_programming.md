@@ -4,7 +4,7 @@
 - [What is object?](#what-is-object)
 - [Attribute](#attribute)
 - [Constructor](#constructor)
-- [Method](#method)But
+- [Method](#method)
 - [Working with Attributes in a Class](#working-with-attributes-in-a-class)
 
 As we mentioned earlier, in Python everything is an object. More precisely, Python supports **object-oriented programming (OOP)**, a paradigm where we organize code around objects. Each object has **data (attributes)** and **capabilities (methods)**.
