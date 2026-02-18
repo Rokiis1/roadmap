@@ -1,33 +1,10 @@
 # Content of Python syntax 1 level
 
-- [Indentation & blocks](#indentation--blocks)
 - [Comments](#comments)
 - [Variables (as names)](#variables-as-names)
 - [Literals & basic types](#literals--basic-types)
 - [What is an object?](#what-is-an-object)
 - [Built-in functions](#built-in-functions)
-
-## Indentation & blocks
-
-Python uses indentation (typically 4 spaces) to form code blocks for structures such as `if` **statements**, **loops**, and **functions** each block following a colon (`:`) without needing brackets `{}` or semicolons `;`.
-
-```py
-if True:
-    print ("True")
-else:
-    print ("False")
-```
-
-```py
-def greet(name):
-    print("Hello, " + name)
-
-greet("World")
-```
-
-*Many modern code editors convert a `tab` press into 4 spaces automatically to keep your code consistent.*
-
-Let's dive in and explore how we write comments and what structure exists.
 
 ## Comments
 
@@ -79,7 +56,7 @@ item_count = 5
 floating_number = 19.99
 
 # Reassigning a variable to a value of a different type
-user_name = 100  # Now user_name is an integer
+user_name = 100 # Now user_name is an integer
 
 # Using uppercase for configuration constants
 DEBUG = True

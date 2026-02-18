@@ -2,7 +2,6 @@
 
 - [Abstraction](#abstraction)
 - [Polymorphism](#polymorphism)
-- [Reflection / Introspection](#reflection--introspection)
 
 In the **previous level**, we explored **encapsulation**, where we learned how to access and protect hidden attributes, discussed different **types of methods**, and saw how **inheritance** allows classes to reuse and extend functionality.
 
@@ -239,7 +238,6 @@ class Student:
     def greet(self):
         return f"Hello, I'm student {self.name}"
 
-
 class Teacher:
     def __init__(self, name):
         self.name = name
@@ -247,13 +245,11 @@ class Teacher:
     def greet(self):
         return f"Hello, I'm teacher {self.name}"
 
-
 # Function that uses "duck typing"
 def welcome_person(person):
     # No idea what type it is
     # It only assumes `.greet()` exists
     print(person.greet())
-
 
 student = Student("Jonas")
 teacher = Teacher("Rasa")
@@ -318,7 +314,6 @@ class Person:
     def __repr__(self):
         return f"Person(name='{self.name}', age={self.age})"
 
-
 p = Person("Jonas", 20)
 # Person(name='Jonas', age=20)
 ```
@@ -328,100 +323,3 @@ That type of polymorphism **operator overloading (dunder methods)** used in **ve
 So while **subtype polymorphism** and **duck typing** are used frequently in everyday **OOP design**, **operator overloading (dunder methods)** is more situational. Use when you need your objects to behave in a more meaningful way.
 
 Overall, polymorphism lets different objects respond to **the same method or interface in their own unique way**.
-
-## Reflection / Introspection
-
-Sometimes we need to **inspect objects**, check their **type**, see what **attributes** or **methods** they have, or **handle errors dynamically based on the object structure**. That’s where **reflection** and **introspection** come in.
-
-Let’s start with what we’ve already touched on, **introspection**. Introspection allows us to **examine objects at runtime** to learn about their **type**, **attributes**, or **methods**. It is generally **read-only**, meaning we can inspect the object without modifying it.
-
-We’ve already seen examples of introspection with functions like `type(obj)` and `dir(obj)`.
-
-Here are some common cases where we can use `type(obj)`.
-
-```py
-class Student:
-    def __init__(self, name, grade):
-        self.name = name
-        self.grade = grade
-
-class Teacher:
-    def __init__(self, name, subject):
-        self.name = name
-        self.subject = subject
-
-def handle_person(person):
-    if type(person) == Student:
-        print(f"Student: {person.name}, Grade: {person.grade}")
-    elif type(person) == Teacher:
-        print(f"Teacher: {person.name}, Subject: {person.subject}")
-    else:
-        print("Unknown person type")
-
-s1 = Student("Jonas", 9)
-t1 = Teacher("Rasa", "Math")
-
-handle_person(s1) # Student: Jonas, Grade: 9
-handle_person(t1) # Teacher: Rasa, Subject: Math
-```
-
-In this example, `type(obj)` allows us to perform **type-specific handling**. Depending on whether the object is a `Student` or a `Teacher`. This is useful when you need to **branch logic** based on the **object class**.
-
-Next things it's useful to understand how we can **check relationships between objects and classes** in Python. This brings us to **built-in function**, which help ensure that objects are of the expected type or that classes follow the correct inheritance structure.
-
-- `isinstance(obj, Class)` checks if an object is an instance of a **class** or its **subclass**.
-
-- `issubclass(SubClass, BaseClass)` checks if a class inherits from another class.
-
-So Here is example.
-
-```py
-from abc import ABC, abstractmethod
-
-class PersonBase(ABC):
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    @abstractmethod
-    def get_details(self):
-        pass
-
-class Student(PersonBase):
-    def __init__(self, name, age, grade):
-        super().__init__(name, age)
-        self.grade = grade
-
-    def get_details(self):
-        return f"{self.name}, {self.age} years old, Grade {self.grade}"
-
-class Teacher(PersonBase):
-    def __init__(self, name, age, subject):
-        super().__init__(name, age)
-        self.subject = subject
-
-    def get_details(self):
-        return f"{self.name}, {self.age} years old, Teaches {self.subject}"
-
-def greet_person(person):
-    if isinstance(person, Student):
-        print(f"Hello Student {person.name}, keep studying")
-    elif isinstance(person, Teacher):
-        print(f"Hello Teacher {person.name}, enjoy teaching")
-    else:
-        print("Hello person!")
-
-s1 = Student("Jonas", 15, 9)
-t1 = Teacher("Rasa", 34, "Math")
-
-greet_person(s1) # Hello Student Jonas, keep studying
-greet_person(t1) # Hello Teacher Rasa, enjoy teaching
-
-print(issubclass(Student, PersonBase)) # True
-print(issubclass(Teacher, PersonBase)) # True
-print(issubclass(Student, Teacher)) # False
-```
-
-In this example, `isinstance` allows us to handle different objects differently based on their type, while `issubclass` lets us check the inheritance relationships between classes. These checks are particularly useful, where multiple object types share the same interface but behave differently.
-
-We also have **reflection**, which goes a step beyond introspection. With reflection, you can not only inspect an **object type**, **attributes**, or **methods** but also **modify its behavior** or **attributes** at runtime. This is more advanced and will be covered later in **Level 4 Object Programming**.

@@ -67,9 +67,12 @@ When a file is opened, the operating system allocates resources to manage the co
 To understand the consequences of not closing files, consider the following example
 
 ```py
+files = []
+
 for i in range(100000):
     file = open("data.txt", "w")
     file.write("Testing file handling")
+    files.append(file)
 ```
 
 In this program, a file is opened repeatedly inside a loop, but it is never closed. Each time the file is opened, the operating system allocates resources to manage it. Because the files remain open, those resources are never released.
@@ -125,7 +128,7 @@ Relative paths are commonly used when working within a project structure.
 
 An **absolute path** specifies the complete path to a file starting from the root of the file system.
 
-On **Windows**, an absolute path may look like this
+On **Windows**, an absolute path may look like this.
 
 ```py
 file = open("C:\\Users\\Name\\Documents\\data.txt", "r")
@@ -133,15 +136,15 @@ file = open("C:\\Users\\Name\\Documents\\data.txt", "r")
 
 Notice that double backslashes (`\\`) are used. This is necessary because a single backslash (`\`) is treated as an escape character in Python strings.
 
-For example, `\n` represents a **newline**, `\t` represents a **tab**, `\U` begins a **Unicode escape sequence**. If a Windows path is written using single backslashes, Python may interpret parts of the path as escape sequences.
+For example, `\n` represents a **newline**, `\t` represents a **tab**. If a Windows path is written using single backslashes, Python may interpret parts of the path as escape sequences.
 
 ```py
-file = open("C:\Users\ciama\Downloads\example.txt", "r")
+file = open("C:\Users\path\Downloads\example.txt", "r")
 ```
 
 This produces an error such as `SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape`
 
-This happens because `\U` is interpreted as the beginning of a **Unicode escape sequence**. Python expects something like `\U0001F600` But instead encounters `\Users`, which is invalid.
+Python expects something like `\U0001F600` But instead encounters `\Users`, which is invalid.
 
 To avoid this issue, a **raw string** can be used by adding the prefix `r` before the string.
 
@@ -149,7 +152,7 @@ To avoid this issue, a **raw string** can be used by adding the prefix `r` befor
 file = open(r"C:\Users\Name\Documents\data.txt", "r")
 ```
 
-Output would be this `<_io.TextIOWrapper name='C:\\Users\\ciama\\Downloads\\example.txt' mode='r' encoding='cp1252'>`
+Output would be this `<_io.TextIOWrapper name='C:\\Users\\path\\Downloads\\example.txt' mode='r' encoding='cp1252'>`
 
 The prefix `r` tells Python to treat backslashes as literal characters rather than **escape sequences**.
 
@@ -582,7 +585,16 @@ print(type(text))
 print(type(binary_text))
 ```
 
-The output will show that `"Hello"` is a **string** (`str`), while `b"Hello"` is a **bytes object** (`bytes`). The letter `b` before the quotes indicates that the value is stored as raw bytes rather than as text.
+The output will show that `"Hello"` is a **string** (`str`), while `b"Hello"` is a **bytes object** (`bytes`), letter `b` before the quotes indicates that the value is stored as bytes rather than as text.
+
+To see what it **actually contains**, we can inspect its raw byte values.
+
+```py
+print(list(binary_text))
+# [72, 101, 108, 108, 111]
+```
+
+Each number represents a **single byte** stored in memory.
 
 When working with **binary files**, Python **reads** and **writes** data as **bytes** instead of **strings**.
 
@@ -611,9 +623,9 @@ with open("copy.png", "wb") as file:
     file.write(data)
 ```
 
-Binary mode ensures that the file is handled exactly as stored, without applying character encoding or newline transformations. This is essential when working with **non-text data** to prevent corruption.
+Binary mode ensures that the file is handled exactly as **stored**, when working with **non-text data** to prevent corruption.
 
-When working with **text files**, Python does apply character **encoding automatically**. This raises an question, *how are characters converted into bytes when writing to a file*, and *how are bytes converted back into characters when reading?*
+When working with **text files**, Python does apply character **encoding automatically**, so raises an question, *how are characters converted into bytes when writing to a file*, and *how are bytes converted back into characters when reading?*
 
 To understand this process, we need to examine the concepts of **encoding and decoding**, which define **how text is transformed between human-readable characters and binary data**.
 
@@ -652,7 +664,7 @@ print(decoded_text)
 print(type(decoded_text))
 ```
 
-The output will show
+The output will show.
 
 ```py
 Hello
@@ -675,9 +687,9 @@ with open("data.txt", "r", encoding="utf-8") as file:
     content = file.read()
 ```
 
-Specifying the encoding makes the program more predictable, when working with files created on different systems.
+Specifying the encoding makes the program predictable, when working with files.
 
-A `UnicodeDecodeError` occurs when Python tries to decode bytes using an encoding that does not match the file’s actual encoding.
+A `UnicodeDecodeError` occurs when Python tries to decode bytes using an encoding that does not match the files actual encoding.
 
 For example, suppose a file was saved using a different **encoding**, but Python attempts to **decode** it using **UTF-8**.
 
@@ -699,7 +711,7 @@ with open("data.txt", "r", encoding="utf-8", errors="ignore") as file:
 
 Common options include `"ignore"` which is **skips** problematic characters and `"replace"` which invalid characters with a **placeholder**
 
-Here is example
+Here is example.
 
 ```py
 with open("data.txt", "r", encoding="utf-8", errors="replace") as file:

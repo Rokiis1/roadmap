@@ -542,9 +542,13 @@ In the next section, we will look at **decorators**, which are built on top of c
 
 So far, we have seen that functions can be **passed around**, **returned**, and can **remember values** using closures.  
 
-Decorators build on these ideas to solve a very practical problem, **adding the same behavior to many functions without duplicating code**.
+A decorator uses the same ideas to solve a problem.
 
-Consider a situation where we want to track when functions are executed.
+The problem is not that we **cannot write extra code inside functions** but rather when many functions need the **same extra behavio**r, we start repeating the same code again and again.
+
+When repeated code changes, we must update it in many places so decorators allow us to **write that shared behavior once** and **apply it to many functions**.
+
+Imagine we have two functions that do different tasks.
 
 ```py
 def load_data():
@@ -554,7 +558,9 @@ def save_data():
     print("Saving data")
 ```
 
-If we want to log when each function runs, we could do this manually.
+Now suppose we want the same extra behavior for both functions, such as printing a message before and after each execution.
+
+One direct approach is to add it manually inside every function.
 
 ```py
 def load_data():
@@ -568,30 +574,51 @@ def save_data():
     print("End")
 ```
 
-This works, but the logging logic is duplicated. If the logging behavior changes, every function must be updated.
+This works, but the extra behavior is duplicated, if the start/end messages change, every function must be edited.
 
-A decorator solves this by **wrapping behavior once** and reusing it.
+A decorator solves this by moving the repeated behavior into a single reusable place.
+
+![decorator](../assets/images/decorator.png)
+
+We start by writing a function that receives another function as a parameter.
 
 ```py
-def log_execution(func):
-    def wrapper():
+def log_execution(original_function):
+    pass
+```
+
+The parameter name `original_function` is used to shows that this is the function we want to wrap.
+
+Inside the decorator, we define a new function, this new function is the one that will run instead of the original one.
+
+```py
+def log_execution(original_function):
+    def wrapped_function():
         print("Start")
-        func()
+        original_function()
         print("End")
-    return wrapper
+    return wrapped_function
 ```
 
-The decorator returns a new function that adds behavior before and after the original one.
+Here is what happens `wrapped_function` adds extra behavior and it prints before and after calling `original_function` so then decorator returns `wrapped_function`.
+
+This means the result of `log_execution(original_function)` is a new function.
 
 ```py
 load_data = log_execution(load_data)
 save_data = log_execution(save_data)
+```
 
+Now calling `load_data()` actually calls the wrapper.
+
+```py
 load_data()
 save_data()
 ```
 
-Now both functions have logging without modifying their original logic.
+Both functions now include the start/end behavior without changing their internal logic.
+
+Python provides a shorter syntax for the same operation.
 
 The `@` symbol is called **decorator syntax**. It is just a shorter and more readable way to apply a decorator to a function.
 
@@ -616,27 +643,110 @@ load_data = log_execution(load_data)
 
 The decorator is applied at **function definition time**, before the function is ever called. The original function is replaced by the wrapped version returned by the decorator.
 
-Another very common practical use case is **input validation**.
+To make the decorator work with any function, the wrapper must accept any arguments and forward them.
+
+This allows the decorator to wrap functions that take parameters and also return values.
+
+Consider the following complete example.
 
 ```py
-def require_positive(func):
-    def wrapper(value):
-        if value <= 0:
-            print("Invalid value")
-            return
-        return func(value)
-    return wrapper
+def log_execution(original_function):
+    def wrapped_function(*args, **kwargs):
+        print("Start")
+        result = original_function(*args, **kwargs)
+        print("End")
+        return result
+    return wrapped_function
 
-@require_positive
-def process_amount(amount):
-    print("Processing amount:", amount)
+@log_execution
+def process(value):
+    print("Processing:", value)
+    return value * 2
 
-process_amount(10)
-process_amount(-5)
+
+@log_execution
+def combine(a, b):
+    print("Combining values")
+    return a + b
+
+
+result1 = process(10)
+print("Result:", result1)
+
+result2 = combine(3, 5)
+print("Result:", result2)
 ```
 
-Here, the decorator enforces a rule without placing validation logic inside the function itself.
+In this example, the decorator is written once and applied to multiple functions `process` function takes a single argument and returns a value in other hand `combine` function takes two arguments and returns a value.
+
+The decorator does not need to know anything about the functions parameters it simply forwards all received arguments using `*args` and `**kwargs`.
+
+Another common case is retrying a function when an error happens.
+
+```py
+def retry(original_function):
+    def wrapped_function(*args, **kwargs):
+        for attempt in range(3):
+            try:
+                return original_function(*args, **kwargs)
+            except Exception:
+                print("Retrying...")
+        print("Failed after retries")
+    return wrapped_function
+```
+
+Applying it.
+
+```py
+@retry
+def unstable_call():
+    print("Calling server")
+    raise Exception("Network error")
+
+unstable_call()
+```
+
+Here the retry rule is not written inside `unstable_call` it is added externally by the decorator and applied consistently.
+
+However, in this example, the retry behavior is fixed.
+
+The decorator always retries the function the same number of times if we want different functions to retry a different number of times, this decorator is no longer sufficient.
+
+For that, the decorator itself must receive configuration this is why decorators are sometimes written with parentheses.
+
+When a decorator uses parentheses, it means the decorator is called first to receive its configuration, and only then is the function wrapped.
+
+Consider the same retry logic, but configurable.
+
+```py
+def retry(max_attempts):
+    def decorator(original_function):
+        def wrapped_function(*args, **kwargs):
+            for attempt in range(max_attempts):
+                try:
+                    return original_function(*args, **kwargs)
+                except Exception:
+                    print("Retrying...")
+            print("Failed after retries")
+        return wrapped_function
+    return decorator
+```
+
+Now the number of retry attempts is not fixed inside the decorator.
+
+Applying the decorator with configuration.
+
+```py
+@retry(3)
+def unstable_call():
+    print("Calling server")
+    raise Exception("Network error")
+
+unstable_call()
+```
+
+Here, the retry rule is still not written inside `unstable_call` it is still applied externally by the decorator.
 
 At this level, decorators are introduced as a **function programming concept**, functions wrapping other functions to extend behavior.
 
-In later levels, especially in **Object-Oriented Programming Level 2**, decorators will appear again in more advanced and structured forms. There, we will see decorators used for things like **access control**, **method behavior modification**, **class-level decorators**, and **framework-style patterns**.
+Later, decorators will appear again in more structured forms. There, we will see decorators used for things like **access control**, **method behavior modification**, **class-level decorators**, and **framework-style patterns**.

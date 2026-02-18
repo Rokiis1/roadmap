@@ -136,7 +136,6 @@ class Person:
         print("Deleting name...")
         del self.__name
 
-
 # Example usage
 person = Person("Petras")
 print(person.name) # Access via getter Petras
@@ -169,7 +168,7 @@ student = Person("Petras")
 student.greet()  # Output: Hello, my name is Petras.
 ```
 
-**Instance methods** are used when the action of the method depends on the **specific object**. In other words, each object can have its own data, and instance methods let the object “do things” using its own information.
+**Instance methods** are used when the action of the method depends on the **specific object**. In other words, each object can have its own data, and instance methods let the object *“do things”* using its own information.
 
 Other than instance methods, we also have **class methods**, which operate on the class itself rather than individual objects. This means they can access or modify **class-level variables** that are shared across all instances.
 
@@ -177,7 +176,7 @@ To define a class method, we use the decorator `@classmethod` and include `cls` 
 
 `cls` is like `self`, but for the class, not the object.
 
-Here is  example how it's look
+Here is example how it's look.
 
 ```py
 class Person:
@@ -220,11 +219,11 @@ But what you can’t do inside a class method is access or modify instance varia
 
 Here’s an example of how you shouldn’t do it.
 
-In this case, it looks like we’re using `self`, but it’s **just a regular parameter name**, not an instance of the class.
+In this case, it looks like we’re using `self`, but its **just a regular parameter name**, not an instance of the class.
 
 ```py
     @classmethod
-    def change_species(cls, self): # The parameter is named 'self' but it's just a name of parameter
+    def change_species(cls, self): # The parameter is named 'self'
         cls.species = "New Species"
         print(self.name)  # Works
 ```
