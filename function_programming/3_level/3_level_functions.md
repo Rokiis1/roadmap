@@ -544,7 +544,7 @@ So far, we have seen that functions can be **passed around**, **returned**, and 
 
 A decorator uses the same ideas to solve a problem.
 
-The problem is not that we **cannot write extra code inside functions** but rather when many functions need the **same extra behavio**r, we start repeating the same code again and again.
+The problem is not that we **cannot write extra code inside functions** but rather when many functions need the **same extra behavior**, we start repeating the same code again and again.
 
 When repeated code changes, we must update it in many places so decorators allow us to **write that shared behavior once** and **apply it to many functions**.
 
