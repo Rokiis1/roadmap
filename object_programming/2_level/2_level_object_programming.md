@@ -144,7 +144,7 @@ print(person.name) # Output: Jonas
 del person.name # Deletes the attribute
 ```
 
-We also have **special (dunder) methods** that allow you to intercept and control how attributes are accessed, assigned, or deleted. We’ll explore these in detail later in **Level 3 Object Programming**.
+We also have **special (dunder) methods** that allow you to intercept and control how attributes are accessed, assigned, or deleted.
 
 Overall, encapsulation means **protecting the internal state of an object** and **exposing only what is necessary**. This ensures that object data cannot be directly modified from outside, making the code safer.
 
