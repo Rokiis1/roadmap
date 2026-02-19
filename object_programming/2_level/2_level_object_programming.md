@@ -118,7 +118,7 @@ Here’s how we can rewrite our previous example in a modern way.
 ```py
 class Person:
     def __init__(self, name):
-        self.__name = name  # Private attribute
+        self.__name = name # Private attribute
 
     # Getter
     @property
@@ -165,7 +165,7 @@ class Person:
 
 # Creating an object
 student = Person("Petras")
-student.greet()  # Output: Hello, my name is Petras.
+student.greet() # Output: Hello, my name is Petras.
 ```
 
 **Instance methods** are used when the action of the method depends on the **specific object**. In other words, each object can have its own data, and instance methods let the object *“do things”* using its own information.
