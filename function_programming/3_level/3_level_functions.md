@@ -145,13 +145,13 @@ The next step is that a function can also **create and return another function**
 
 ## Functions returning functions
 
-A function is not limited to returning simple values like **numbers** or **strings**. Because functions are objects, a function can also **return another function**.
+A function is not limited to returning simple values like **numbers** or **strings**, because functions are objects, a function can also **return another function**. This is useful when the exact behavior of a function should be decided later, rather than being fixed in advance.
 
-This allows **create behavior dynamically** instead of deciding everything in advance.
+Returning a function allows code to **create behavior dynamically**, based on values that are known at one moment but used at another.
 
-When this happens, the returned function may **remember values** from the context in which it was created. This combination is called a **closure**.
+When a function returns another function, the returned function can keep access to values that existed when it was created. This behavior is called a **closure**.
 
-A closure is not a special syntax. It is a natural result of **defining a function inside another function**, **returning that inner function**, **and using variables from the outer function**.
+A closure is not a special syntax or feature that needs to be enabled. It happens naturally when a function is defined inside another function, returned from that function, and uses variables from the outer function.
 
 Consider a function that creates a rule based on a condition.
 
@@ -162,7 +162,7 @@ def create_validator(min_length):
     return validate
 ```
 
-Here, the inner function `validate` uses `min_length`, even though `min_length` is not defined inside `validate` itself.
+Here, the inner function `validate` uses `min_length`, even though `min_length` is not defined inside `validate` itself. The value comes from the surrounding function where validate was created.
 
 When we call the outer function, we get a new function back.
 
@@ -171,7 +171,7 @@ validate_short = create_validator(3)
 validate_long = create_validator(6)
 ```
 
-Each returned function remembers the value that was used when it was created.
+Each call to `create_validator` produces a new function. Each returned function keeps the value of `min_length` that was used at the time it was created.
 
 ```py
 print(validate_short("abc")) # True
@@ -183,7 +183,7 @@ print(validate_long("abc")) # False
 
 Even though `create_min_length_validator` has already finished running, the returned functions still have access to `min_length`. This remembered value is what makes the function a **closure**.
 
-Closures are useful when behavior depends on **configuration** or **setup values** that should not be global and should not be passed every time the function is called.
+The purpose of a closure here is to separate **configuration** from **use**. The rule is configured once when the function is created, and then applied later without needing to pass the configuration value again.
 
 Another example is creating processors with predefined behavior.
 
@@ -194,7 +194,7 @@ def create_multiplier(factor):
     return multiply
 ```
 
-Here, `factor` is captured by the returned function.
+Here, `factor` is captured by the returned function in the same way.
 
 ```py
 double = create_multiplier(2)
@@ -204,11 +204,11 @@ print(double(5)) # 10
 print(triple(5)) # 15
 ```
 
-Both `double` and `triple` were created from the same outer function, but each one remembers its own `factor`.
+Both `double` and `triple` were created from the same outer function, but each one remembers its own `factor`. The behavior of each function depends on the value that was present when it was created.
 
-This shows the key idea that **functions can carry behavior together with remembered data**.
+This shows the key idea that **functions can carry behavior together with remembered data**, data does not need to be global, and it does not need to be passed every time the function is called.
 
-Closures allow programs to keep state **without global variables**, making code safer, more modular, and easier to reason about.
+Closures allow programs to keep state in a controlled and localized way, making code easier to reason about and reducing unintended side effects.
 
 In the next section, we will look at **lambda functions**, which provide a compact way to create small functions, often used together with **higher-order functions**.
 
@@ -470,7 +470,7 @@ In the next section, we will look at **recursion**, where a function solves a pr
 
 ## Recursion
 
-So far, functions have called **other functions**. Recursion is a special case where a function **calls itself**.
+So far, functions have called **other functions**. Recursion is a special case where a function **calls itself**. The reason to use recursion is not the self-call itself, but that some problems repeat in the same way at every level.
 
 Recursion is useful when a problem has a **self-similar structure**, meaning the problem contains smaller parts that follow the same.
 
@@ -494,7 +494,9 @@ structure = {
 }
 ```
 
-To process every element in this structure, recursion is a natural solution.
+This structure can be nested to any depth. There is no fixed number of levels, and each item follows the same shape. This is the kind of problem recursion is designed to solve.
+
+To process every element in this structure, recursion allows the same logic to be applied at each level without knowing how deep the structure goes.
 
 ```py
 def print_names(node):
@@ -505,9 +507,7 @@ def print_names(node):
 print_names(structure)
 ```
 
-When the function runs, it prints the name of the current element and then calls itself for each nested element.
-
-The recursion naturally ends when an element contains no further items.
+When the function runs, it prints the name of the current element and then calls itself for each nested element. The recursion ends naturally when an element contains no further items, because there are no more recursive calls to make.
 
 Recursion can also be used to **count elements** inside a nested structure.
 
@@ -521,6 +521,8 @@ def count_items(node):
 print(count_items(structure)) # 4
 ```
 
+This function works for the same reason. Each call counts one element and relies on recursion to count everything inside it. The depth of the structure does not matter.
+
 Another practical use case is processing a **sequence of steps** where each step depends on the next.
 
 ```py
@@ -533,6 +535,8 @@ def follow_steps(steps, index):
 steps = ["start", "load", "process", "finish"]
 follow_steps(steps, 0)
 ```
+
+In this case, each recursive call moves the problem closer to a stopping point. When there are no steps left, the function returns and the recursion ends.
 
 **Recursion** works well in these cases because the logic follows **structure of the data** or **sequence itself**. It is best used when it simplifies the code and matches the shape of the problem.
 
