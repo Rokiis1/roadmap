@@ -3,7 +3,6 @@
 - [Why Python needs package management](#why-python-needs-package-management)
 - [Installing external packages](#installing-external-packages)
 - [Capturing dependencies with requirements.txt](#capturing-dependencies-with-requirementstxt)
-- [The role of pyproject.toml](#the-role-of-pyprojecttoml)
 - [Using Poetry to manage the project](#using-poetry-to-manage-the-project)
 
 In earlier stages of learning Python, programs are usually small and self contained. A file is written, executed, and finishes its work. The program relies only on Python itself and whatever functionality is already available.
