@@ -1,5 +1,9 @@
 # Python Documentation and Code Style Level 2
 
+- [Why automation becomes necessary](#why-automation-becomes-necessary)
+- [Formatting code automatically](#formatting-code-automatically)
+- [Detecting style and logic issues with linting](#detecting-style-and-logic-issues-with-linting)
+
 ## Why automation becomes necessary
 
 In **Documentation and Code Style Level 1**, attention was placed on learning how formatting, naming, comments, and docstrings improve readability when applied manually. This approach is essential for understanding what clean code looks like and why it matters.
@@ -16,24 +20,85 @@ This level introduces automated formatting and linting as part of normal Python 
 
 Formatting tools exist to control how code is structured visually. They manage indentation, spacing, line breaks, and layout without changing how the program behaves.
 
-When formatting is handled manually, developers must constantly make small decisions about where to place spaces or how to wrap lines. These decisions distract from the actual problem the code is meant to solve.
+In modern Python projects, formatting is commonly handled by Black. Black applies a single, consistent formatting style so developers do not make individual layout decisions.
 
-An automated formatter removes this burden.
+Black is largely based on the **PEP 8 style guide**. In places where **PEP 8** allows multiple valid formatting choices.
+
+To use Black, it must first be installed.
+
+When using `pip`, Black is installed into the active environment.
+
+```bash
+pip install black
+```
+
+When a project is managed with Poetry, Black is added as a development dependency.
+
+```bash
+poetry add --group dev black
+```
 
 Consider the following function.
 
 ```py
-def calculate(a,b): return a+b
+def calculate(total, increment): return total + increment
 ```
 
-The function works, but its structure is compressed and difficult to scan. When a formatter is applied, the same code becomes:
+The function works, but its structure is compressed and difficult to scan. When a formatter is applied, the same code becomes.
 
 ```py
-def calculate(a, b):
-    return a + b
+def calculate(total, increment):
+    return total + increment
 ```
 
-Nothing about the logic has changed. What changed is visibility. The structure of the function is now clear at a glance.
+When using Poetry, the same Black commands are executed through `poetry run` so they run inside the project managed environment. When Black is installed globally or inside an activated virtual environment with `pip`, the same commands are run directly using `black`.
+
+After installation, Black is applied by running it on files or directories.
+
+```bash
+black .
+```
+
+This command formats all Python files in the current project directory.
+
+```bash
+black src/
+```
+
+This command formats all Python files inside the `src` directory.
+
+```bash
+black path/to/file.py
+```
+
+This command formats a single Python file.
+
+Sometimes formatting should be checked without modifying files.
+
+```bash
+black --check .
+```
+
+This command reports whether files need formatting but does not rewrite them.
+
+```bash
+black --diff .
+```
+
+This command shows what changes Black would make without applying them.
+
+Black does not report logical or stylistic errors. It only validates formatting and rewrites code to match its rules.
+
+When a project uses `requirements.txt`, formatting rules cannot be described inside that file. Any customization requires separate **configuration files** or **command-line options**.
+
+When using Poetry, formatting rules are described directly in `pyproject.toml`. This allows formatting configuration to live alongside the project definition and remain consistent across environments.
+
+Black is intentionally opinionated and supports very few configuration options. In most projects, the only setting that is adjusted is line length, while all other behavior relies on Blacks defaults.
+
+```toml
+[tool.black]
+line-length = 88
+```
 
 In modern Python projects, formatting is not a matter of personal preference. It is handled automatically so that all code follows the same visual rules across the entire project.
 
@@ -43,76 +108,92 @@ Formatting controls appearance, but it does not identify questionable code patte
 
 Linting tools analyze source code without executing it. They look for patterns that commonly indicate mistakes, incomplete logic, or unnecessary complexity. These issues may not cause immediate errors, but they often lead to problems later.
 
+In modern Python projects, linting is commonly handled by **Ruff**. Ruff checks code against a set of well-known Python style and correctness rules and reports potential problems.
+
 Consider the following example.
 
 ```py
 def process_items(items):
+    result = []
+
     for item in items:
         pass
+
+    return result
 ```
 
-The code executes without error, but the loop body does nothing. This may be intentional, or it may indicate unfinished logic. A linter highlights this situation so it does not go unnoticed.
+This code runs without error, but several issues are present. The variable `result` is created but never modified, and the loop body does nothing. This often indicates unfinished or forgotten logic.
 
-Linting acts as an early warning system. It does not decide correctness, but it draws attention to code that deserves a closer look.
+When Ruff checks this file, it reports these patterns so they do not go unnoticed. Ruff does not decide what the correct behavior should be, but it highlights code that deserves closer inspection.
 
-## Installing style tools with pip
+To use Ruff, it must first be installed.
 
-To use automated formatting and linting, the tools must be installed into the Python environment used by the project.
-
-When working with virtual environments, the environment should be activated before installation. Once active, the tools can be installed using the package installer.
+When using `pip`, Ruff is installed into the active environment.
 
 ```bash
-pip install black ruff
+pip install ruff
 ```
 
-After installation, the tools become available as commands within that environment. Running them outside the correct environment may result in missing commands or incorrect versions being used.
-
-Because package installation always targets the active environment, understanding which environment is in use remains essential.
-
-## Installing style tools with Poetry
-
-When a project is managed with Poetry, formatting and linting tools are added as development dependencies. They are part of the project workflow but not required to run the final program.
-
-Adding these tools updates the project configuration automatically.
+When a project is managed with Poetry, Ruff is added as a development dependency.
 
 ```bash
-poetry add --group dev black ruff
+poetry add --group dev ruff
 ```
 
-Once dependencies are installed, commands are executed through Poetry so that they run inside the project’s managed environment.
+After installation, Ruff is run on files or directories.
 
 ```bash
-poetry run black .
-poetry run ruff check .
+ruff check .
 ```
 
-This ensures that everyone working on the project uses the same tool versions and rules.
+This command analyzes the project and reports potential issues without modifying any files.
 
-## Project configuration with pyproject.toml
+Ruff can also automatically fix some safe issues, such as **unused imports**, **unused variables**, and **import ordering problems**, where the fix does not change program behavior.
 
-Modern Python projects store tool configuration in a single file named `pyproject.toml`. This file becomes part of the project source code and is shared through version control.
+Consider the following example.
 
-A minimal configuration for formatting and linting may look like this.
+```py
+import math
+
+def calculate(values):
+    total = 0
+
+    for value in values:
+        total += value
+
+    return total
+```
+
+The code works correctly, but the `math` import is never used. This is a common situation during development.
+
+When Ruff is run with automatic fixing enabled.
+
+```bash
+ruff check . --fix
+```
+
+the unused `import` is removed automatically.
+
+When using Poetry, the same Ruff commands are executed through `poetry run` so they run inside the project managed environment. When Ruff is installed globally or inside an activated virtual environment with `pip`, the same commands are run directly using `ruff`.
+
+Ruff configuration is defined in pyproject.toml, just like formatting configuration.
+
+Ruff organizes its checks into rule groups. In most projects, a small set of rule groups is enabled.
+
+- `E` covers style issues based on PEP 8.
+- `F` covers likely bugs such as unused imports and undefined names.
+- `I` covers import ordering and grouping.
+
+These rule groups catch the most common problems.
+
+For this reason, a minimal Ruff configuration usually looks like this.
 
 ```toml
-[tool.black]
-line-length = 88
-
 [tool.ruff]
 line-length = 88
 select = ["E", "F", "I"]
 ```
 
-This configuration defines how code is formatted and which linting rules are applied. Because the configuration lives inside the project, it travels with the code and applies consistently across machines and environments.
+Although Ruff supports many additional rule groups, most projects intentionally start with these defaults and expand only when needed.
 
-Rather than relying on personal editor settings or individual habits, the project itself defines how code should look and what should be checked.
-
-## Using formatting and linting in daily development
-
-Once installed and configured, formatting and linting become part of normal development rather than special cleanup steps.
-
-A typical development cycle involves writing code, formatting it automatically, and checking it with a linter before it is committed or shared. Formatting tools rewrite code to match the project standard. Linting tools report potential issues that should be reviewed and addressed.
-
-Over time, this workflow keeps the codebase consistent and reduces the need for manual corrections. Instead of reviewing formatting decisions, developers can focus on correctness, structure, and intent.
-
-At this level, the goal is not to memorize tool behavior or configuration options. The goal is to understand why automation exists and how it supports readable, maintainable Python code in real projects.
+Linting acts as an early warning system. It does not decide correctness, but it draws attention to code that deserves a closer look.

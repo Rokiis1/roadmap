@@ -115,7 +115,7 @@ Because Poetry is not a project dependency, it must be installed on the system b
 
 A common way to install Poetry is using `pipx`, which installs Python command-line tools in isolated environments while exposing their commands globally.
 
-Installing `pipx` looks the same on macOS, Linux, and Windows.
+Installing `pipx` looks the same on **macOS**, **Linux** and **Windows**.
 
 ```bash
 python -m pip install --user pipx
@@ -213,3 +213,41 @@ Commands can be executed inside the project environment using Poetry.
 ```bash
 poetry run python main.py
 ```
+
+By default, Poetry creates a virtual environment using the Python interpreter that was active when the project was created. In some cases, a project must use a specific Python version.
+
+To change which Python interpreter Poetry uses for the project, a different interpreter can be selected explicitly.
+
+```bash
+poetry env use python3.14
+```
+
+This command tells Poetry to create (or switch to) a virtual environment that uses the specified Python version. If an environment already exists for that version, Poetry reuses it. Otherwise, a new one is created.
+
+The Python interpreter can also be selected by providing an absolute path instead of a version name.
+
+```bash
+poetry env use /usr/bin/python3.14
+```
+
+Using an explicit path is useful when multiple Python installations exist or when the desired interpreter is not available on the system **PATH**.
+
+On **Windows**, this typically points to the Python executable location.
+
+```bash
+poetry env use C:\Python311\python.exe
+```
+
+The currently associated environment can be inspected.
+
+```bash
+poetry env info
+```
+
+If an environment is no longer needed, it can be removed.
+
+```bash
+poetry env remove python3.14
+```
+
+Removing an environment deletes only the virtual environment itself. Project files such as `pyproject.toml` and `poetry.lock` are not affected. The environment can always be recreated later using `poetry install`.
