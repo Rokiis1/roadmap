@@ -1,4 +1,4 @@
-# Content of Python command line 2 level
+# Content of Python command line level 2
 
 - [How the command line controls](#how-the-command-line-controls)
 - [Command line options and flags](#command-line-options-and-flags)
