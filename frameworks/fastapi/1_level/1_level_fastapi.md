@@ -243,10 +243,15 @@ app = FastAPI()
 
 @app.get("/items/{item_id}")
 def get_item(item_id):
+    item_id = int(item_id)
     return {"item_id": item_id}
 ```
 
 When a request is sent to `/items/42`, FastAPI captures the value `42` from the path and passes it to the `item_id` parameter of the function.
+
+Values extracted from the URL are always strings. Even though `42` looks like a number, it is received as text. If the value represents a number, it must be converted explicitly inside the function.
+
+If the value cannot be converted, Python raises an error. At this level, it is enough to understand that conversion is a responsibility of the route logic.
 
 Path parameters are always required. If the value is missing, the path does not match and the request is not routed to the function.
 
@@ -255,10 +260,12 @@ Multiple path parameters can be used in the same route.
 ```py
 @app.get("/users/{user_id}/posts/{post_id}")
 def get_post(user_id, post_id):
+    user_id = int(user_id)
+    post_id = int(post_id)
     return {"user_id": user_id, "post_id": post_id}
 ```
 
-Each parameter in the function signature corresponds to a named segment in the path. The names must match.
+Each parameter in the function signature corresponds to a named segment in the path. All values coming from the path start as strings and must be converted when numeric behavior is required.
 
 Path parameters allow routes to represent dynamic resources while keeping the URL structure clear and predictable.
 
@@ -279,10 +286,16 @@ app = FastAPI()
 
 @app.get("/items")
 def list_items(limit=None, offset=None):
+    if limit is not None:
+        limit = int(limit)
+    if offset is not None:
+        offset = int(offset)
     return {"limit": limit, "offset": offset}
 ```
 
 When a request is sent to `/items?limit=10&offset=20`, FastAPI extracts the values from the query string and passes them to the function arguments.
+
+Query parameters values are also received as strings. Even when they look like numbers, they must be converted before numeric operations are performed.
 
 Query parameters are optional by default. If a value is not provided, the corresponding argument receives `None`.
 
@@ -291,14 +304,16 @@ A route can use both path parameters and query parameters at the same time.
 ```py
 @app.get("/items/{category}")
 def list_category_items(category, limit=None):
+    if limit is not None:
+        limit = int(limit)
     return {"category": category, "limit": limit}
 ```
 
-In this example, `category` comes from the path, while `limit` comes from the query string.
+In this example, `category` comes from the path and remains text, while `limit` comes from the query string and is converted to a number.
 
 Query parameters do not affect which route is selected. Routing is determined only by the path and the HTTP method. Query parameters only influence how the selected route behaves.
 
-Query parameters are commonly used for **filtering**, **pagination**, and **configuration of responses**.
+At this level, numeric conversion is handled manually. In later sections, FastAPI features will be introduced that automate this process.
 
 In the next section, we will start sending structured data in the request body.
 
@@ -356,6 +371,33 @@ This validation happens before any application logic runs. There is no need to m
 
 At this level, it is enough to understand that defining a request body using a Pydantic model also enables automatic validation.
 
+If the parameter were defined without a Pydantic model, FastAPI would not treat it as request body data.
+
+```py
+@app.post("/items")
+def create_item(item):
+    return item
+```
+
+In this case, FastAPI treats `item` as a query parameter. If no **query parameter** named `item` is provided, FastAPI reports it as missing and returns an error indicating that a required **query value** was not found.
+
+```json
+{
+  "detail": [
+    {
+      "type": "missing",
+      "loc": ["query", "item"],
+      "msg": "Field required",
+      "input": null
+    }
+  ]
+}
+```
+
+This difference exists because FastAPI decides where input data comes from based on the function signature. A Pydantic model signals structured request body data. A plain parameter signals a path or query value.
+
+At this level, it is enough to remember that **request bodies are defined using Pydantic models**.
+
 In the next section, we will look at how errors can be raised intentionally and returned to the client.
 
 ## Errors with HTTPException
@@ -373,12 +415,20 @@ app = FastAPI()
 
 @app.get("/items/{item_id}")
 def get_item(item_id):
-    if item_id != "1":
+    try:
+        item_id = int(item_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid item id")
+
+    if item_id != 1:
         raise HTTPException(status_code=404, detail="Item not found")
+
     return {"item_id": item_id}
 ```
 
-When the condition is met, the exception is raised. The route function does not continue executing. FastAPI catches the exception and generates an HTTP response using the provided status code and message.
+Values coming from the URL are received as strings. When numeric behavior is required, the value must be converted explicitly. If conversion fails, the request represents invalid input and an error response is returned.
+
+When an `HTTPException` is raised, the route function stops executing immediately. FastAPI catches the exception and generates an HTTP response using the provided status code and message.
 
 The `status_code` describes the type of error. The `detail` value becomes part of the response body and is returned to the client.
 
@@ -386,7 +436,7 @@ The `status_code` describes the type of error. The `detail` value becomes part o
 
 When no exception is raised, the function behaves normally and returns a successful response.
 
-Using `HTTPException` makes error handling explicit and consistent. Clients receive structured error responses, and application logic remains clear.
+Using `HTTPException` makes error handling explicit and keeps validation.
 
 In the next section, we will look at the automatically generated API documentation and see how these routes and errors are represented.
 
