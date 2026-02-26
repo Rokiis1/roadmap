@@ -5,6 +5,7 @@
 - [Path operations (routes)](#path-operations-routes)
 - [Path parameters](#path-parameters)
 - [Query parameters](#query-parameters)
+- [Route matching order and request handling](#route-matching-order-and-request-handling)
 - [Request body with Pydantic and basic validiation](#request-body-with-pydantic-and-basic-validiation)
 - [Errors with HTTPException](#errors-with-httpexception)
 - [Automatic API docs (Swagger UI)](#automatic-api-docs-swagger-ui)
@@ -17,11 +18,11 @@ We begin by setting up FastAPI and running the server.
 
 ## Setup (FastAPI and Uvicorn)
 
-Before writing any FastAPI code, we need a working environment where the required tools are installed. FastAPI is a Python package, and it needs a server process to run and respond to requests.
-
 FastAPI itself does not listen for network traffic. It only describes how requests should be handled. A separate component is responsible for receiving HTTP requests and keeping the application running. For development, this role is handled by Uvicorn.
 
-FastAPI and Uvicorn are installed using pip, just like other Python packages.
+Uvicorn is an application server. Its job is to run a Python application continuously, listen for incoming HTTP requests, and forward those requests to the FastAPI application. It is responsible for starting the process, keeping it alive, and managing network connections. FastAPI defines how requests are handled, while Uvicorn is responsible for running that logic as a network service.
+
+FastAPI and Uvicorn are installed using `pip`, just like other Python packages.
 
 ```bash
 pip install fastapi uvicorn
@@ -315,6 +316,50 @@ Query parameters do not affect which route is selected. Routing is determined on
 
 At this level, numeric conversion is handled manually. In later sections, FastAPI features will be introduced that automate this process.
 
+Before looking at those features, it is important to understand how FastAPI decides **which route handles a request** and at what point different parts of the request are processed.
+
+## Route matching order and request handling
+
+When a request arrives, FastAPI does not look at query parameters first. Route selection happens in a fixed order.
+
+First, FastAPI matches the HTTP method and the path. Only routes with the same method and a matching path are considered.
+
+```py
+@app.get("/items")
+def list_items():
+    pass
+
+@app.post("/items")
+def create_item():
+    pass
+```
+
+A **GET** request and a **POST** request to the same path are handled by different routes. The HTTP method is part of route selection.
+
+Next, FastAPI matches **path parameters**. Static paths are checked first, then dynamic paths.
+
+```py
+@app.get("/items/{item_id}")
+def get_item(item_id):
+    pass
+```
+
+Path parameters are only used after the path itself matches.
+
+Only after a route is selected does FastAPI process **query parameters**.
+
+```py
+@app.get("/items")
+def list_items(limit=None):
+    pass
+```
+
+Query parameters do not affect which route is chosen. They only influence how the selected route behaves. A request to `/items`, `/items?limit=10`, or `/items?limit=10&offset=5` all match the same route.
+
+If required path parameters are missing or invalid, the route is not matched or is rejected before execution. If query parameters are invalid, FastAPI returns an error before the route logic runs.
+
+At this level, the important idea is that **routing is decided by method and path**. Query parameters are processed only after the correct route has already been chosen.
+
 In the next section, we will start sending structured data in the request body.
 
 ## Request body with Pydantic and basic validiation
@@ -323,7 +368,7 @@ So far, the data we passed into routes came from the URL path or from query para
 
 In FastAPI, request bodies are described using Pydantic models. A Pydantic model defines the shape of the expected data and how it should be parsed.
 
-A request body is commonly used with **POST** and **PUT** operations.
+A request body is commonly used with **POST** and **PUT/PATCH** operations.
 
 Create a simple Pydantic model.
 
@@ -402,11 +447,11 @@ In the next section, we will look at how errors can be raised intentionally and 
 
 ## Errors with HTTPException
 
-So far, we relied on FastAPI to handle errors automatically, such as invalid request bodies or missing data. In some situations, an application needs to return an error response intentionally based on its own logic.
+So far, we relied on FastAPI to handle errors automatically, such as invalid request bodies or missing data. In some situations, an application needs to control the HTTP status code intentionally, either to signal failure or to describe a successful outcome more precisely.
 
-FastAPI provides `HTTPException` for this purpose. Raising this exception stops normal execution and sends an error response to the client.
+FastAPI provides **three distinct ways** to control status codes at this level. Each serves a different purpose.
 
-Import `HTTPException` and use it inside a route.
+The first way is raising `HTTPException`. This is used when a request cannot be fulfilled and execution should stop immediately.
 
 ```py
 from fastapi import FastAPI, HTTPException
@@ -426,19 +471,48 @@ def get_item(item_id):
     return {"item_id": item_id}
 ```
 
-Values coming from the URL are received as strings. When numeric behavior is required, the value must be converted explicitly. If conversion fails, the request represents invalid input and an error response is returned.
+When an `HTTPException` is raised, the route function stops executing. FastAPI catches the exception and generates an error response using the provided status code and message.
 
-When an `HTTPException` is raised, the route function stops executing immediately. FastAPI catches the exception and generates an HTTP response using the provided status code and message.
+This approach is used for expected error conditions, such as invalid input or missing resources. These errors are part of normal request handling and are decided explicitly by the route logic.
 
-The `status_code` describes the type of error. The `detail` value becomes part of the response body and is returned to the client.
+The second way is declaring a fixed success status code on the route itself.
 
-`HTTPException` is used to represent expected error conditions, such as missing resources or invalid operations. It is not used for programming errors or unexpected failures.
+```py
+from fastapi import FastAPI
 
-When no exception is raised, the function behaves normally and returns a successful response.
+app = FastAPI()
 
-Using `HTTPException` makes error handling explicit and keeps validation.
+@app.post("/items", status_code=201)
+def create_item(item):
+    return {"message": "Item created"}
+```
 
-In the next section, we will look at the automatically generated API documentation and see how these routes and errors are represented.
+In this case, the route always returns the same status code when it succeeds. The returned value defines the response body, while the declared status code describes the outcome.
+
+This approach is useful when the success case is consistent and does not depend on conditional logic.
+
+The third way is setting the status code dynamically using the response object.
+
+```py
+from fastapi import Response
+
+@app.get("/items/{item_id}/check")
+def check_item(item_id, response: Response):
+    if item_id != 1:
+        response.status_code = 404
+        return {"message": "Item not found"}
+    return {"message": "Item exists"}
+```
+
+Here, no exception is raised. The route completes normally and returns a response body, but the status code is adjusted explicitly based on logic inside the function.
+
+This approach is useful when execution should continue and a response body should still be returned, even though the outcome is not successful.
+
+At this level, all status code decisions are made inside the route. Validation, conversion, success, and failure paths are written explicitly so the request flow remains fully visible.
+
+In later levels, some of this work is handled by the framework automatically, but the responsibility of deciding which outcome applies always begins in the route.
+
+In the next section, we will look at the automatically generated API documentation and see how these routes and status codes are represented.
 
 ## Automatic API docs (Swagger UI)
 
