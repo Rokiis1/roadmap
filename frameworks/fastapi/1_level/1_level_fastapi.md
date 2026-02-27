@@ -267,11 +267,25 @@ An asynchronous route can pause execution at `await` points and allow the server
 A synchronous route that reads a file blocks execution.
 
 ```py
-@app.get("/read-file-sync")
-def read_file_sync():
-    with open("data.txt", "r") as f:
-        content = f.read()
-    return {"content": content}
+import json
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/sync-json")
+def sync_json():
+    # Read JSON (blocking)
+    with open("data.json", "r") as f:
+        data = json.load(f)
+
+    # Update JSON
+    data["counter"] += 1
+
+    # Write JSON (blocking)
+    with open("data.json", "w") as f:
+        json.dump(data, f)
+
+    return data
 ```
 
 While this function is reading the file, the server thread handling this request is blocked.
@@ -279,13 +293,27 @@ While this function is reading the file, the server thread handling this request
 An asynchronous route allows cooperative waiting.
 
 ```py
+import json
 import aiofiles
+from fastapi import FastAPI
 
-@app.get("/read-file-async")
-async def read_file_async():
-    async with aiofiles.open("data.txt", "r") as f:
+app = FastAPI()
+
+@app.get("/async-json")
+async def async_json():
+    # Read JSON (non-blocking)
+    async with aiofiles.open("data.json", "r") as f:
         content = await f.read()
-    return {"content": content}
+        data = json.loads(content)
+
+    # Update JSON
+    data["counter"] += 1
+
+    # Write JSON (non-blocking)
+    async with aiofiles.open("data.json", "w") as f:
+        await f.write(json.dumps(data))
+
+    return data
 ```
 
 Here, the route reaches an `await` point while reading the file. During that wait, FastAPI can continue handling other incoming requests.
