@@ -2,6 +2,7 @@
 
 - [Setup (FastAPI and Uvicorn)](#setup-fastapi-and-uvicorn)
 - [Your first FastAPI app](#your-first-fastapi-app)
+- [Sync vs async route functions](#sync-vs-async-route-functions)
 - [Path operations (routes)](#path-operations-routes)
 - [Path parameters](#path-parameters)
 - [Query parameters](#query-parameters)
@@ -225,7 +226,71 @@ def create_user():
 
 The order of route definitions in the file does not affect how requests are handled. FastAPI builds its routing table when the application starts and uses it to dispatch requests.
 
-At this stage, route functions return simple data structures. In the next section, we will start passing values through the URL itself.
+At this stage, route functions return simple data structures and are triggered by a path and HTTP method. Before expanding routing with parameters and dynamic values, it is important to understand how route functions themselves are executed.
+
+FastAPI allows path operations to be defined using either synchronous or asynchronous functions. This choice affects how the server handles concurrent requests but does not change how routes are defined or how responses are returned.
+
+In the next section, we look at how sync and async route functions behave in FastAPI and when each form is used.
+
+## Sync vs async route functions
+
+In previous sections, routes were defined using regular Python functions. FastAPI also allows route functions to be defined as asynchronous functions.
+
+Both styles are valid path operations. The difference is how the server executes them, not how they are declared or how responses are returned.
+
+A synchronous route function looks like this.
+
+```py
+@app.get("/sync-example")
+def sync_example():
+    return {"mode": "sync"}
+```
+
+An asynchronous route function looks like this.
+
+```py
+@app.get("/async-example")
+async def async_example():
+    return {"mode": "async"}
+```
+
+From the client perspective, these routes behave the same. They are called the same way and return responses in the same format. The distinction matters inside the server, especially when waiting is involved.
+
+In Python **Async Programming Level 1**, we learned that async code is useful when a program spends time waiting for slow operations such as **files**, **network calls**, or **databases**.
+
+The same rule applies to FastAPI routes.
+
+A synchronous route blocks the worker handling that request until the function finishes. While it runs, that worker cannot handle other requests.
+
+An asynchronous route can pause execution at `await` points and allow the server to process other requests during that time.
+
+A synchronous route that reads a file blocks execution.
+
+```py
+@app.get("/read-file-sync")
+def read_file_sync():
+    with open("data.txt", "r") as f:
+        content = f.read()
+    return {"content": content}
+```
+
+While this function is reading the file, the server thread handling this request is blocked.
+
+An asynchronous route allows cooperative waiting.
+
+```py
+import aiofiles
+
+@app.get("/read-file-async")
+async def read_file_async():
+    async with aiofiles.open("data.txt", "r") as f:
+        content = await f.read()
+    return {"content": content}
+```
+
+Here, the route reaches an `await` point while reading the file. During that wait, FastAPI can continue handling other incoming requests.
+
+This behavior directly matches the **cooperative waiting model** introduced earlier. FastAPI does not invent a new async system. It runs inside an async runtime provided by the server and uses the same coroutine semantics.
 
 In the next section, we will work with path parameters and see how dynamic parts of the path are handled.
 
