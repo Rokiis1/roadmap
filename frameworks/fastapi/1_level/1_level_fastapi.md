@@ -236,25 +236,7 @@ In the next section, we look at how sync and async route functions behave in Fas
 
 In previous sections, routes were defined using regular Python functions. FastAPI also allows route functions to be defined as asynchronous functions.
 
-Both styles are valid path operations. The difference is how the server executes them, not how they are declared or how responses are returned.
-
-A synchronous route function looks like this.
-
-```py
-@app.get("/sync-example")
-def sync_example():
-    return {"mode": "sync"}
-```
-
-An asynchronous route function looks like this.
-
-```py
-@app.get("/async-example")
-async def async_example():
-    return {"mode": "async"}
-```
-
-From the client perspective, these routes behave the same. They are called the same way and return responses in the same format. The distinction matters inside the server, especially when waiting is involved.
+Both styles are valid path operations. The difference is **how the server executes them**, **not how they are declared** or **how responses are returned**.
 
 In Python **Async Programming Level 1**, we learned that async code is useful when a program spends time waiting for slow operations such as **files**, **network calls**, or **databases**.
 

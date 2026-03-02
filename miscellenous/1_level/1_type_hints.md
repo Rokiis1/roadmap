@@ -612,7 +612,7 @@ The difference appears during static type checking. Type checkers treat `UserId`
 
 ```py
 def get_user(user_id: UserId) -> str:
-    return "Alice"
+    return "Example"
 ```
 
 This function explicitly requires a `UserId`. Passing a plain integer is considered a type error by static analysis tools.
