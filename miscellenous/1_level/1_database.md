@@ -426,7 +426,7 @@ Everything before `yield` runs when the application starts after `yield` runs wh
 
 In this example database tables are created before the application begins handling requests and no shutdown logic is required, so the code after `yield` is empty.
 
-The app: FastAPI parameter is required because FastAPI passes the application instance into the lifespan function. Even if it is not used directly, it must be present in the function signature so FastAPI can call it correctly.
+The `app: FastAPI` parameter is required because FastAPI passes the application instance into the lifespan function. Even if it is not used directly, it must be present in the function signature so FastAPI can call it correctly.
 
 This lifespan structure is used for both synchronous and asynchronous database engines.
 
