@@ -400,23 +400,48 @@ Table creation is usually performed once, when the application starts or during 
 When working inside a FastAPI application, table creation is typically performed during application startup instead of inside a standalone script.
 
 ```py
-@app.on_event("startup")
-def on_startup():
-    Base.metadata.create_all(bind=engine)
-```
+from contextlib import asynccontextmanager
 
-The `@app.on_event("startup")` decorator tells FastAPI to execute the function once when the application starts. This ensures that database tables are created before handling any incoming requests.
-
-If the application uses an async engine, the startup handler must be asynchronous.
-
-```py
-from sqlalchemy.ext.asyncio import AsyncEngine
-
-@app.on_event("startup")
-async def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # startup logic
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+
+    yield
+
+    # shutdown logic (optional)
+    # for example: close connections, cleanup resources
+
+app = FastAPI(lifespan=lifespan)
 ```
+
+The `@asynccontextmanager` decorator is provided by Pythons `contextlib` module. It allows defining an asynchronous context manager using a function instead of creating a class.
+
+FastAPI expects the lifespan handler to be an asynchronous context manager. That is why the function must be defined using `async def` and decorated with `@asynccontextmanager`.
+
+The `yield` statement separates application startup logic from shutdown logic.
+
+Everything before `yield` runs when the application starts after `yield` runs when the application shuts down.
+
+In this example database tables are created before the application begins handling requests and no shutdown logic is required, so the code after `yield` is empty.
+
+The app: FastAPI parameter is required because FastAPI passes the application instance into the lifespan function. Even if it is not used directly, it must be present in the function signature so FastAPI can call it correctly.
+
+This lifespan structure is used for both synchronous and asynchronous database engines.
+
+If the engine is synchronous, the startup section would look like this:
+
+```py
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Base.metadata.create_all(bind=engine)
+    yield
+```
+
+If the engine is asynchronous, it must use an `async` connection and `await`, as shown earlier.
+
+Even when using a synchronous engine, the lifespan function itself must still be asynchronous because FastAPI requires an async context manager.
 
 After this step completes, the database file contains the tables defined by the ORM models. The application can now store and retrieve data using these tables through database sessions.
 
