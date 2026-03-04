@@ -618,3 +618,125 @@ This interface presents the same information in a different layout. Both interfa
 The documentation updates automatically as the application changes. Adding or removing routes immediately affects what appears in the documentation.
 
 At this level, it is enough to understand that the API documentation is always available while the server is running and reflects the current state of the application.
+
+## Dependency injection and response models
+
+In the previous sections, route functions received values from the **path**, **query string** or **request body**. FastAPI also allows additional objects to be provided to routes automatically. This mechanism is called dependency injection.
+
+A dependency is simply a function whose result is provided to another function. Instead of creating objects manually inside every route, FastAPI can call a dependency function and pass its result as an argument.
+
+A simple example is a dependency that returns a database session.
+
+```py
+from fastapi import Depends
+
+def get_db():
+    return "database connection"
+
+@app.get("/items")
+def list_items(db = Depends(get_db)):
+    return {"db": db}
+```
+
+When this route is called, FastAPI executes `get_db()` and passes its return value to the `db` parameter. The route itself does not need to know how the object was created. It only receives the result.
+
+This approach keeps route functions focused on request handling while setup logic remains separate. Dependencies are commonly used for database sessions, authentication checks, and shared services.
+
+Routes also control how responses are structured. So far, route functions returned dictionaries directly. FastAPI allows the expected response structure to be defined using a Pydantic model.
+
+```py
+from pydantic import BaseModel
+
+class ItemResponse(BaseModel):
+    name: str
+    price: float
+
+@app.get("/items/{item_id}", response_model=ItemResponse)
+def get_item(item_id: int):
+    return {"name": "Book", "price": 10.5}
+```
+
+The `response_model` parameter tells FastAPI that the returned data should match the structure of `ItemResponse`. Before sending the response, FastAPI converts the returned value into that model and validates the data.
+
+This ensures that responses follow a structure even if the internal representation changes.
+
+In many applications, route functions return objects instead of dictionaries. For example, a database query may return an ORM model instance. To demonstrate this idea without introducing a real database yet, consider a simple class that behaves like a database model.
+
+```py
+class SomeORMItem:
+    def __init__(self, name: str, price: float):
+        self.name = name
+        self.price = price
+```
+
+This object stores values as attributes instead of using a dictionary.
+
+Now define a response model.
+
+```py
+from pydantic import BaseModel
+
+class ItemResponse(BaseModel):
+    name: str
+    price: float
+```
+
+If a route returns a dictionary, the response model works without any additional configuration.
+
+```py
+@app.get("/items/{item_id}", response_model=ItemResponse)
+def get_item(item_id: int):
+    return {"name": "Book", "price": 10.5}
+```
+
+The dictionary already matches the structure expected by the model.
+
+However, if the route returns an object instead of a dictionary, Pydantic needs to know how to read the values. The following example shows the same situation outside of FastAPI.
+
+The following example shows the same situation outside of FastAPI.
+
+```py
+item = SomeORMItem(name="Book", price=10.5)
+
+ItemResponse.model_validate(item)
+```
+
+Running this produces a validation error `pydantic_core._pydantic_core.ValidationError: 1 validation error for ItemResponse Input should be a valid dictionary or instance of ItemResponse`
+
+In this case the value passed to the model is not a dictionary. The data exists on the object's attributes. By default, Pydantic expects dictionary like input, so it must be configured to read values from attributes.
+
+This is done using `model_config`.
+
+```py
+from pydantic import BaseModel, ConfigDict
+
+class ItemResponse(BaseModel):
+    name: str
+    price: float
+
+    model_config = ConfigDict(from_attributes=True)
+```
+
+With this configuration, Pydantic can read values from attributes on objects instead of expecting a dictionary.
+
+The same validation now succeeds.
+
+```py
+item = SomeORMItem(name="Book", price=10.5)
+
+validated = ItemResponse.model_validate(item)
+print(validated)
+```
+
+For example, if a database model has attributes `name` and `price`, FastAPI can return that object directly and the response model will extract the values correctly.
+
+```py
+@app.get("/items/{item_id}", response_model=ItemResponse)
+def get_item(item_id: int):
+    item = SomeORMItem(name="Book", price=10.5)
+    return item
+```
+
+FastAPI passes the returned object to the response model, Pydantic reads the attributes, and the final JSON response is generated from the validated data.
+
+At this level, it is enough to understand that dependencies provide objects to routes, response models define the shape of returned data, and `from_attributes=True` allows those models to read values from objects instead of dictionaries.

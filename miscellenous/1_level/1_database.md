@@ -19,47 +19,71 @@ At this point, you already understand how databases work and how SQL queries are
 
 In this level, we introduce a practical approach for working with databases by using an **Object Relational Mapper (ORM)**. Instead of writing SQL directly inside route functions, database tables are represented as Python objects and database operations are expressed through Python code.
 
+![ORM](./assets/images/ORM.png)
+
 This approach allows database logic to stay organized, reduces repetition, and keeps request handling separate from data access. Before working with database models and queries, it is important to understand **why an ORM is used** and what problems it solves in real FastAPI applications.
 
 ## Why use an ORM
 
-FastAPI applications often need to work with persistent data. At this point, we already understand how databases work and how to write SQL queries. The remaining question is how this database logic should be **connected** to a FastAPI application in a way that is **clean**, **maintainable**, and **safe**.
+FastAPI applications often need to work with persistent data. At this point, we already understand how databases work and how to write SQL queries. The remaining question is how this database logic should be **connected** to a FastAPI application in a way that is **maintainable**.
 
-In small examples, it is possible to write raw SQL directly inside route functions. While this approach works, it quickly leads to duplicated queries, tightly coupled code, and database logic mixed with request handling. As an application grows, this makes changes harder and increases the risk of errors.
+In small examples, it is possible to write raw SQL directly inside route functions. While this works at first, it quickly leads to repeated queries, **database code mixed** with **request handling**, and logic that becomes harder to change later.
 
-To avoid these problems, FastAPI applications typically rely on an **Object Relational Mapper (ORM)**. An ORM acts as a layer between the application code and the database, allowing database rows to be represented as Python objects and database operations to be expressed using Python instead of raw SQL.
+```sql
+SELECT id, title, author, price FROM books
+```
 
-In this we focus on understanding **why an ORM is used**, how it fits into a FastAPI application, and how it helps structure database access from the very beginning.
+To reduce these problems, FastAPI applications usually use an **Object Relational Mapper**, commonly called an **ORM**.
+
+![ORM_how_works](../1_level/assets/images/ORM_how_works.png)
+
+**ORM** stands for **Object Relational Mapper**. It is a tool that connects Python classes to database tables. A class represents a **table**, and an **instance** of that class represents a **row** in the table. Instead of writing SQL statements manually, you work with Python objects, and the ORM generates the SQL for you behind the scenes.
+
+For example, without an ORM, retrieving books might look conceptually like this in SQL.
+
+```sql
+SELECT id, title, author, price
+FROM books
+WHERE price > 20;
+```
+
+With an ORM, the same idea is expressed in Python using model classes.
+
+```py
+select(Book).where(Book.price > 20)
+```
+
+You can think of an ORM as a translator between your application and the database. Your application works with Python objects, while the database understands SQL. The ORM translates Python operations into SQL queries and converts the results back into Python objects.
+
+In this section, we focus on understanding why an ORM is used, how it fits into a FastAPI application, and how it helps structure database access from the beginning.
 
 ## Introduction to SQLAlchemy
 
 Once the role of an ORM is clear, the next step is to look at the specific tool that will be used throughout this level. Different ORMs exist in the Python ecosystem, each with its own design goals and trade-offs.
 
-For FastAPI applications, one of the most commonly used and well-established choices is [SQLAlchemy](https://www.sqlalchemy.org/). It provides a clear mapping between database tables and Python objects while remaining flexible enough to work with different databases and application structures.
+For FastAPI applications, one of the most commonly used is [SQLAlchemy](https://www.sqlalchemy.org/). It provides a clear **mapping** between **database tables** and **Python objects** while remaining flexible enough to work with different databases.
 
-Before defining **models** or writing **queries**, it is important to understand what **SQLAlchemy** is, what responsibilities it handles, and how it fits into the overall architecture of a FastAPI application.
+Before defining **models** or writing **queries**, it is important to understand what **SQLAlchemy** is, what **responsibilities** it handles.
 
-**SQLAlchemy** itself does not depend on a specific database. It can work with many different database systems, from simple file-based databases to full production-grade servers.
+**SQLAlchemy** itself does not depend on a specific database. It can work with many different database systems, from simple **file-based databases** to **production servers**.
 
-For this we focus is not on **managing infrastructure** or **external services**, but on learning how database integration works inside a **FastAPI** application. To keep that focus clear and remove unnecessary complexity, a lightweight database is used during development.
+For this we focus is not on **managing infrastructure** or **external services**, but on learning how database integration works inside a **FastAPI** application. To keep that focus by remove unnecessary complexity.
 
 This leads to the choice of **SQLite**, which allows the application to run locally with minimal setup while still supporting the same ORM patterns that apply to larger databases.
 
-SQLite is well suited for learning and early-stage development because it requires no separate server process and stores all data in a single file. This makes it easy to start working with a database without additional configuration or deployment steps.
+SQLite is well suited for learning and early-stage development because it requires **no separate server process** and **stores all data in a single file**.
 
-Using SQLite allows us to focus on how SQLAlchemy models, sessions, and queries behave inside a FastAPI application, without being distracted by database-specific setup. The same concepts introduced here will still apply when switching to more advanced databases later.
+Using SQLite allows us to focus on how SQLAlchemy **models**, **sessions**, and **queries** behave inside a FastAPI application, without being distracted by database specific setup. The same concepts introduced here will still apply when switching to more advanced databases later.
 
 With this in mind, we can take a closer look at SQLite and how it is used as the development database in this level.
 
 ## Choosing SQLite for development
 
-[SQLite](https://www.sqlite.org/) is a lightweight, file-based database that is commonly used during development and learning. Unlike server-based databases, SQLite does not require a separate database service to be installed or running. The entire database is stored in a single file on disk.
+[SQLite](https://www.sqlite.org/) is a **lightweight**, **file-based database** that is commonly used during **development** and **learning**. Unlike **server-based databases**, SQLite does not require a separate database service to be installed or running. The entire database is stored in a single file on disk.
 
-This simplicity makes SQLite an ideal choice for introducing database integration in a FastAPI application. The application can be started immediately, without configuring users, passwords, ports, or network connections. As a result, the focus stays on how the application interacts with the database rather than on infrastructure setup.
+This simplicity makes SQLite an ideal choice for introducing database integration in a FastAPI application. The application can be started immediately, without configuring **users**, **passwords**, **ports** or **network connections**.
 
-Despite its simplicity, SQLite supports standard SQL features and works well with SQLAlchemy. **Models**, **sessions** and **queries** defined using SQLAlchemy behave the same way as they would with larger databases. This allows development patterns learned here to transfer directly to production environments later.
-
-SQLite is used strictly as a development database. The goal is not to explore SQLite-specific features, but to provide a stable and minimal environment for learning how ORM-based database access works inside a FastAPI application.
+SQLite is used strictly as a **development database**. The goal is not to explore SQLite specific features, but to provide a stable and minimal environment for learning how ORM-based database access works inside a FastAPI application.
 
 ## Installing database dependencies
 
@@ -95,11 +119,7 @@ If the project uses **Poetry**.
 poetry add aiosqlite
 ```
 
-The `aiosqlite` package acts as the asynchronous driver that allows SQLAlchemy to communicate with SQLite when using `AsyncEngine` and `AsyncSession`.
-
-Once the installation is complete, the required dependencies become available to the application and can be imported into Python modules.
-
-At this point, all required dependencies for database integration are in place. The application can now begin defining how it connects to the database and how database access.
+The `aiosqlite` package acts as the asynchronous driver that allows SQLAlchemy to communicate with SQLite.
 
 Once the required dependencies are installed, the application needs a way to establish a connection to the database. This connection logic should be defined in a single, consistent place so it can be reused throughout the application.
 
@@ -126,7 +146,17 @@ engine = create_engine(
 
 The `sqlite:///./app.db` URL tells SQLAlchemy to use SQLite and store the database in a file named `app.db` in the current project directory.
 
-The `connect_args` parameter is specific to SQLite. SQLite restricts database access to a single thread by default. Since FastAPI can handle requests across multiple threads, this option is required to allow safe access during development.
+The `connect_args` parameter is specific to SQLite. To understand why it is needed, it helps to understand what a thread is in simple terms.
+
+When a FastAPI application is running, it can handle multiple requests at the same time. You can imagine this like a small office with several workers. Each worker handles a different task independently. In programming, these workers are called threads.
+
+By default, SQLite is strict about how its connections are used. If one worker creates a **database connection**, SQLite expects that **same worker** to use it. If **another worker** tries to use that **connection**, SQLite raises an error.
+
+In a FastAPI application, one request might create the **database connection** and **another request** running in a different thread, might try to use it. Without adjusting the configuration, this would cause a runtime error.
+
+Setting `check_same_thread` to `False` tells SQLite that the connection is allowed to be used by different workers inside the same application. This makes it suitable for development when using SQLite together with FastAPI and SQLAlchemy.
+
+This configuration is required only when using SQLite with a synchronous engine.
 
 When working with asynchronous database access, an **async engine** must be created instead. In that case, the database URL changes to include the `aiosqlite` driver, and the async engine factory is used.
 
@@ -136,8 +166,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 DATABASE_URL = "sqlite+aiosqlite:///./app.db"
 
 engine = create_async_engine(
-    DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    DATABASE_URL
 )
 ```
 
@@ -192,15 +221,13 @@ This confirms that the engine can successfully communicate with the database.
 SQLite connected. Version: 3.49.1
 ```
 
-The if `__name__ == "__main__"` guard allows this file to be run directly for testing purposes. This test is optional, but it is useful during setup to verify that the database engine is working before continuing.
-
 Once the engine is confirmed to work, it can be reused by the rest of the application. The next step is to describe the structure of the data itself by defining ORM models.
 
 ## Defining ORM models
 
-ORM models define how database tables are represented in Python code. Each model is a Python class that maps directly to a database table, and each attribute on the class represents a column in that table.
+**ORM models** define how **database tables** are represented in **Python code**. Each model is a **Python class** that maps directly to a **database table** and each **attribute** on the class represents a **column** in that table.
 
-In SQLAlchemy, ORM models are created by extending a shared base class. This base class provides the functionality needed for SQLAlchemy to track models and translate them into database structures.
+In SQLAlchemy, ORM models are created by **extending** a shared **base class**. This base class provides the functionality needed for SQLAlchemy to **track models** and **translate** them into database structures.
 
 There are **two common ways** to define this base class, depending on the SQLAlchemy version and style being used.
 
@@ -223,9 +250,9 @@ class Base(DeclarativeBase):
     pass
 ```
 
-This modern approach integrates better with modern Python features, including **type hints** and **static analysis**. For new projects, this style is preferred.
+This modern approach integrates better with features like **type hints** and **static analysis**.
 
-Regardless of which approach is used, all ORM models in the application inherit from the same base class.
+Regardless of which approach is used, all ORM models in the application inherit from the same **base class**.
 
 A model definition using modern SQLAlchemy declarative mapping looks like this.
 
@@ -279,9 +306,9 @@ In this example, the `Book` class represents a database table named `books`. The
 
 Each class attribute maps to a column in the table, but instead of using the older `Column(...)` style, this model uses **typed ORM mappings**, which are recommended in **SQLAlchemy 2.x**.
 
-The `Mapped[...]` type indicates that the attribute is managed by SQLAlchemy ORM and participates in the database mapping. The `mapped_column()` function defines the database column itself, including its type and constraints.
+`Mapped[...]` tells SQLAlchemy that this attribute is connected to a database column and is part of the ORM mapping, while `mapped_column()` defines the actual database column, including its data type and constraints (such as `primary key`, `index`, `nullable`).
 
-This style of defining models is known as **Declarative Mapping**. With declarative mapping, the table structure and the Python class are defined together in a single place. This is the most common and recommended approach in modern SQLAlchemy applications.
+This style of defining models is known as **Declarative Mapping**.
 
 SQLAlchemy also supports **Imperative Mapping**, which separates table definitions from class definitions. This approach bypasses the declarative system and manually maps classes to tables.
 
@@ -295,11 +322,11 @@ books_table = Table(
 )
 ```
 
-Imperative mapping is considered more **barebones** and does not support modern features such as **PEP 484** type annotations. Because of this, it is far less common in modern applications and is not used in this level.
+Imperative mapping is considered more **barebones** and does not support modern features such as **PEP 484** type annotations. Because of this, it is far less common used.
 
-The model itself does not create the table in the database. It only describes the structure. SQLAlchemy uses this definition later to generate database tables and to build queries.
+The model itself does not create the table in the database. It only describes the structure. SQLAlchemy uses this definition later to **generate database tables** and to **build queries**.
 
-At this level, models are kept simple. No relationships, constraints, or validations are added yet. The goal is to understand how Python classes are mapped to database tables and how this mapping forms the foundation for all ORM-based database operations.
+At this level, models are kept simple. No **relationships**, **constraints** or **validations** are added yet. The goal is to understand how **Python classes** are mapped to **database tables** and how this **mapping forms** foundation for all ORM based database operations.
 
 Once models are defined, they can be used to create tables and interact with stored data through database sessions.
 
@@ -307,7 +334,7 @@ Once models are defined, they can be used to create tables and interact with sto
 
 Once ORM models are defined, the next step is to create the corresponding tables in the database. SQLAlchemy uses the model definitions to generate the database schema.
 
-This process is handled through the metadata associated with the base class. The metadata contains information about all registered models and their table definitions.
+This process is handled through the `metadata` associated with the **base class**. The metadata contains information about all registered models and their table definitions.
 
 To create tables, SQLAlchemy provides a method that instructs the engine to generate any missing tables based on the defined models.
 
@@ -395,7 +422,7 @@ The call to `conn.run_sync(Base.metadata.create_all)` is required because `creat
 
 This verification step is not required for normal application operation, but it is useful during development to confirm that the database file was created, the connection works, and ORM models were translated into actual database tables.
 
-Table creation is usually performed once, when the application starts or during an initial setup step. It should not be triggered inside individual route handlers.
+Table creation is usually performed once, when the **application starts** or during an **initial setup step**. It should not be triggered inside individual route handlers.
 
 When working inside a FastAPI application, table creation is typically performed during application startup instead of inside a standalone script.
 
@@ -411,26 +438,44 @@ async def lifespan(app: FastAPI):
     yield
 
     # shutdown logic (optional)
-    # for example: close connections, cleanup resources
+    await engine.dispose()
 
 app = FastAPI(lifespan=lifespan)
 ```
 
-The `@asynccontextmanager` decorator is provided by Pythons `contextlib` module. It allows defining an asynchronous context manager using a function instead of creating a class.
+The `@asynccontextmanager` decorator is provided by Pythons `contextlib` module. It allows defining an asynchronous context manager using a **function** instead of creating a **class**.
 
 FastAPI expects the lifespan handler to be an asynchronous context manager. That is why the function must be defined using `async def` and decorated with `@asynccontextmanager`.
 
-The `yield` statement separates application startup logic from shutdown logic.
+The `yield` keyword separates application startup logic from shutdown logic.
 
 Everything before `yield` runs when the application starts after `yield` runs when the application shuts down.
 
-In this example database tables are created before the application begins handling requests and no shutdown logic is required, so the code after `yield` is empty.
+In this example database tables are created before the application begins handling requests. When the application shuts down, `await engine.dispose()` is executed to close all active database connections and clean up the connection pool.
 
 The `app: FastAPI` parameter is required because FastAPI passes the application instance into the lifespan function. Even if it is not used directly, it must be present in the function signature so FastAPI can call it correctly.
 
+If the `yield` statement is removed, the lifespan function stops being an async context manager. FastAPI expects the lifespan handler to behave like an async iterator that yields control exactly once. Without `yield`, the function becomes a normal coroutine function.
+
+When FastAPI tries to use it as a lifespan context manager, it attempts to iterate over it, but a coroutine is not an async iterator. That is why the error appears.
+
+```bash
+TypeError: 'coroutine' object is not an async iterator
+```
+
+The warning
+
+```bash
+RuntimeWarning: coroutine 'lifespan' was never awaited
+```
+
+Appears because FastAPI did not successfully enter the lifespan context, so the coroutine object gets created but never properly awaited or consumed. Since the startup process fails early, Python reports that the coroutine was left unfinished.
+
+This is why `yield` is required. It creates the single handoff point where startup logic finishes and the application begins serving requests. It also provides the point where shutdown logic can run after the application stops.
+
 This lifespan structure is used for both synchronous and asynchronous database engines.
 
-If the engine is synchronous, the startup section would look like this:
+If the engine is synchronous, the startup section would look like this.
 
 ```py
 @asynccontextmanager
@@ -441,11 +486,62 @@ async def lifespan(app: FastAPI):
 
 If the engine is asynchronous, it must use an `async` connection and `await`, as shown earlier.
 
-Even when using a synchronous engine, the lifespan function itself must still be asynchronous because FastAPI requires an async context manager.
+Even when using a synchronous engine, the lifespan function itself must still be asynchronous because FastAPI requires an **async context manager**.
 
-After this step completes, the database file contains the tables defined by the ORM models. The application can now store and retrieve data using these tables through database sessions.
+After this step completes, the database file contains the tables defined by the ORM models. The application now has a database structure where data can be stored and retrieved.
 
-With tables in place, the next step is to create and manage database sessions that allow queries and transactions to be executed.
+Before working with sessions and queries, it is helpful to understand how SQLAlchemy actually manages database operations behind the scenes and how Python objects are translated into SQL statements.
+
+## How SQLAlchemy manages database operations
+
+When working with SQLAlchemy, database operations are not executed immediately. Instead, the session acts as a workspace that tracks changes made to ORM objects and prepares the corresponding SQL statements.
+
+For example, when a new object is added.
+
+```py
+db.add(book)
+```
+
+SQLAlchemy does not immediately insert a row into the database. The object is first registered inside the session. At this stage, the session simply records that a new record should be created.
+
+The actual SQL statement is generated and executed when the session commits the transaction.
+
+```py
+db.commit()
+```
+
+During the commit step, SQLAlchemy translates the tracked changes into SQL statements and sends them to the database. This process ensures that multiple changes can be grouped together and executed safely.
+
+Queries work in a similar way. When a query is written using ORM models, SQLAlchemy converts the Python expression into SQL.
+
+In a synchronous session, a query might look like this.
+
+```py
+db.query(Book).all()
+```
+
+In an asynchronous session, queries are executed using `execute()` together with a SQLAlchemy `select()` statement.
+
+```py
+result = await db.execute(select(Book))
+books = result.scalars().all()
+```
+
+In both cases, SQLAlchemy translates the ORM query into a SQL statement.
+
+```sql
+SELECT * FROM books;
+```
+
+Instead of writing SQL manually, developers interact with Python **classes** and **attributes**. SQLAlchemy handles the translation between Python objects and database tables.
+
+Another important responsibility of SQLAlchemy is **managing transactions**. When a session interacts with the database, a transaction is automatically started. Changes made within the session are not permanently stored until the transaction is committed.
+
+If an error occurs before the commit, the transaction can be rolled back and the changes are discarded. This helps protect the database from incomplete or inconsistent updates.
+
+By tracking object changes is that **generating SQL statements** and **managing transactions** SQLAlchemy allows developers to work with database data using Python objects while maintaining reliable interaction with the underlying database system.
+
+With this understanding of how SQLAlchemy manages operations internally, the next step is to create and use database sessions that allow these operations to be executed within an application.
 
 ## Creating a database session
 
@@ -467,7 +563,7 @@ SessionLocal = sessionmaker(
 
 The `autoflush=False` setting disables automatic flushing of changes before certain query operations. Normally, SQLAlchemy may automatically send pending changes to the database before executing a query. Disabling autoflush gives more explicit control over when changes are written.
 
-The `autocommit=False` setting ensures that changes are not committed automatically. This means you must explicitly call `db.commit()` to persist changes. This makes transaction boundaries clear and predictable.
+The `autocommit=False` setting ensures that changes are not committed automatically. This means you must explicitly call `db.commit()` to persist changes.
 
 The `SessionLocal` object does **not** represent a session itself. Instead, it is a callable that produces new session instances. Each call to `SessionLocal()` creates a **new independent database session**.
 
@@ -515,9 +611,7 @@ def main():
 
 When `SessionLocal()` is called, a new session instance is created. This session maintains its own **transaction state** and acts as a workspace for database operations.
 
-The `db.add(book)` call does not immediately write data to the database. Instead, it places the object into the session’s pending state.
-
-The `db.commit()` call finalizes the transaction and persists all pending changes to the database. Until this point, no data is permanently stored.
+`db.add(book)` call does not immediately write data to the database. Instead, it places the object into the sessions pending state and then `db.commit()` call finalizes the transaction and persists all pending changes to the database. Until this point, no data is permanently stored.
 
 After committing, `db.refresh(book)` reloads the object from the database. This is important because values generated by the database such as the primary key are not available until after the commit.
 
@@ -588,13 +682,11 @@ if __name__ == "__main__":
 
 In the asynchronous version, `async` with `AsyncSessionLocal()` ensures that the session is properly opened and automatically closed once the block finishes execution. This prevents connection leaks and guarantees that resources are released correctly.
 
-The `async` with `db.begin()` block manages the transaction context. When the block completes successfully, the transaction is committed automatically. If an exception occurs inside the block, the transaction is rolled back.
+`async` with `db.begin()` block manages the transaction context. When the block completes successfully, the transaction is committed automatically. If an exception occurs inside the block, the transaction is rolled back so `await` keyword is required when executing database operations because the `async` engine performs **non-blocking I/O**. Without `await`, the coroutine would not execute.
 
-The `await` keyword is required when executing database operations because the `async` engine performs **non-blocking I/O**. Without `await`, the coroutine would not execute.
+The `select()` function is used instead of `db.query()` because asynchronous SQLAlchemy follows the newer **2.x style** query pattern. The `result.scalars().all()` call extracts ORM objects from the returned result set and then script is executed normally using Python.
 
-The `select()` function is used instead of `db.query()` because asynchronous SQLAlchemy follows the newer **2.x style** query pattern. The `result.scalars().all()` call extracts ORM objects from the returned result set.
-
-The script is executed normally using Python. The `asyncio.run(main())` call creates an event loop and runs the asynchronous function. Without this call, the async function would not execute because asynchronous functions must run inside an event loop.
+`asyncio.run(main())` call creates an event loop and runs the asynchronous function. Without this call, the async function would not execute because asynchronous functions must run inside an event loop.
 
 Just like the synchronous session, the async session maintains its own transaction state and must be properly managed.
 
@@ -687,6 +779,8 @@ async def list_books(db: AsyncSession = Depends(get_db)):
 
 In this route, FastAPI automatically calls the `async get_db` function, provides the session to the route as the `db` parameter, and closes the session once the response is returned.
 
+The `AsyncSession` type annotation indicates that the `db` parameter represents an asynchronous SQLAlchemy session. This is a type hint that helps developers and development tools understand what kind of object the route expects. It does not change how the code runs, but it improves readability, editor support and static analysis.
+
 The route retrieves all records from the `books` table using the async session. Because database execution is asynchronous, the query must be awaited, and `select()` is used instead of `db.query()`.
 
 This approach keeps database session management out of route logic and ensures consistent behavior across the application. Route functions remain focused on handling requests, while session creation and cleanup are handled centrally.
@@ -772,7 +866,7 @@ When working with FastAPI, incoming request data should first be validated using
 After validation, the schema data is used to create or update **SQLAlchemy ORM models**, which represent database tables and are responsible for persistence.
 
 ```py
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class BookCreate(BaseModel):
     title: str
@@ -783,8 +877,12 @@ class BookCreate(BaseModel):
     price: float
     in_stock: bool = True
 
+    model_config = ConfigDict(from_attributes=True)
+
 class BookUpdatePrice(BaseModel):
     price: float
+
+    model_config = ConfigDict(from_attributes=True)
 ```
 
 To insert a new record, the validated Pydantic model is used to create the ORM object.
@@ -807,7 +905,7 @@ This function can be used inside a FastAPI route.
 ```py
 from fastapi import Depends
 
-@app.post("/books")
+@app.post("/books", response_model=BookRead)
 def create_book_route(payload: BookCreate, db: Session = Depends(get_db)):
     return create_book(db, payload)
 ```
@@ -856,7 +954,7 @@ async def create_book(db: AsyncSession, data: BookCreate):
 Async route example.
 
 ```py
-@app.post("/books")
+@app.post("/books", response_model=BookRead)
 async def create_book_route(payload: BookCreate, db: AsyncSession = Depends(get_db)):
     return await create_book(db, payload)
 ```
