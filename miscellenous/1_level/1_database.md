@@ -793,18 +793,38 @@ With database sessions available inside FastAPI routes, the application can begi
 
 SQLAlchemy provides a query interface that allows data to be selected using the ORM models defined earlier. Queries are always executed through an active database session.
 
+When returning database records from an API, it is common to define a **response schema** that describes the structure of the data sent to the client. In this example, the `BookRead` schema represents the fields returned when reading books from the database.
+
+```py
+from pydantic import BaseModel, ConfigDict
+
+class BookRead(BaseModel):
+    id: int
+    title: str
+    author: str
+    year: int
+    genre: str
+    pages: int
+    price: float
+    in_stock: bool
+
+    model_config = ConfigDict(from_attributes=True)
+```
+
 This function can then be used inside a FastAPI route.
 
 ```py
 from fastapi import Depends
 
-@app.get("/books")
+@app.get("/books", response_model=list[BookRead])
 def list_books(db: Session = Depends(get_db)):
     books = db.query(Book).all()
     return books
 ```
 
-When the route is called, SQLAlchemy converts the ORM query into SQL, executes it against the SQLite database, and returns a list of `Book` objects.
+When the route is called, SQLAlchemy converts the ORM query into SQL, executes it against the SQLite database, and returns a list of `Book` objects. Because the route defines `response_model=list[BookRead]`, FastAPI automatically converts those ORM objects into the `BookRead` schema before sending the response to the client.
+
+The `list[...]` notation is used because this route returns multiple records. If a route returns a single book, the response model would simply be `BookRead` without the list wrapper.
 
 Individual records can be retrieved by applying filters.
 
@@ -817,6 +837,34 @@ Here, the session is passed directly as a function argument. The function itself
 
 The `.first()` method returns the first matching record or `None` if no record exists. This allows the application to handle missing data explicitly.
 
+Sometimes the application needs to search for records based on partial text. SQL provides pattern matching using `LIKE`, and SQLAlchemy exposes the same idea through ORM expressions.
+
+A common requirement is case-insensitive searching. SQLite string comparisons are case-sensitive in many situations, so a typical pattern is to convert both the column value and the search string to lowercase.
+
+```py
+from sqlalchemy import func
+
+def search_books_by_title(db: Session, query: str):
+    pattern = f"%{query.lower()}%"
+
+    return (
+        db.query(Book)
+        .filter(func.lower(Book.title).like(pattern))
+        .all()
+    )
+```
+
+In this example, `func.lower(Book.title)` generates a `LOWER(title)` SQL expression so `like(pattern)` call generates a SQL `LIKE` comparison and `%` symbols act as wildcards, meaning the query can match the search term anywhere inside the title.
+
+SQLAlchemy translates this into SQL similar to.
+
+```sql
+SELECT * FROM books
+WHERE LOWER(title) LIKE '%clean%';
+```
+
+This pattern is common in real applications because it provides a simple way to implement search without needing full-text search features.
+
 When working with asynchronous database access, queries must be executed using an async session and awaited.
 
 ```py
@@ -826,7 +874,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 @app.get("/books")
 async def list_books(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(Books))
+    result = await db.execute(select(Book))
     books = result.scalars().all()
     return books
 ```
@@ -844,6 +892,22 @@ async def get_book_by_id(db: AsyncSession, book_id: int):
 ```
 
 Here, the query is executed using `await db.execute(...)`, and `scalars().first()` extracts the first matching ORM object or returns `None` if no record exists.
+
+Case-insensitive search in the async version uses the same `func.lower(...).like(...)` pattern, but the query is executed using `await db.execute(...)`.
+
+```py
+from sqlalchemy import func
+
+async def search_books_by_title(db: AsyncSession, query: str):
+    pattern = f"%{query.lower()}%"
+
+    result = await db.execute(
+        select(Book).where(
+            func.lower(Book.title).like(pattern)
+        )
+    )
+    return result.scalars().all()
+```
 
 As in the synchronous version, the session is passed directly to the helper function. Only route functions use `Depends`. Internal functions remain independent of FastAPI and focus only on database logic.
 
@@ -881,6 +945,18 @@ class BookCreate(BaseModel):
 
 class BookUpdatePrice(BaseModel):
     price: float
+
+    model_config = ConfigDict(from_attributes=True)
+
+class BookRead(BaseModel):
+    id: int
+    title: str
+    author: str
+    year: int
+    genre: str
+    pages: int
+    price: float
+    in_stock: bool
 
     model_config = ConfigDict(from_attributes=True)
 ```
