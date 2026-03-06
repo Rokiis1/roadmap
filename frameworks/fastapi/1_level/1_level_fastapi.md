@@ -10,6 +10,7 @@
 - [Request body with Pydantic and basic validiation](#request-body-with-pydantic-and-basic-validiation)
 - [Errors with HTTPException](#errors-with-httpexception)
 - [Automatic API docs (Swagger UI)](#automatic-api-docs-swagger-ui)
+- [Dependency injection and response models](#dependency-injection-and-response-models)
 
 FastAPI is a Python framework designed for this kind of work. It allows us to define how a program reacts to incoming HTTP requests and how data flows in and out of the application.
 

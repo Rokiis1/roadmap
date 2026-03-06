@@ -11,7 +11,6 @@
 - [Using database sessions inside FastAPI routes](#using-database-sessions-inside-fastapi-routes)
 - [Reading data using ORM queries](#reading-data-using-orm-queries)
 - [Writing data using ORM queries](#writing-data-using-orm-queries)
-- [Basic database error handling](#basic-database-error-handling)
 
 FastAPI applications often grow beyond simple request handling. Once data needs to be stored and retrieved, the application must interact with a database in a way that keeps the code readable and maintainable.
 
@@ -793,12 +792,12 @@ With database sessions available inside FastAPI routes, the application can begi
 
 SQLAlchemy provides a query interface that allows data to be selected using the ORM models defined earlier. Queries are always executed through an active database session.
 
-When returning database records from an API, it is common to define a **response schema** that describes the structure of the data sent to the client. In this example, the `BookRead` schema represents the fields returned when reading books from the database.
+When returning database records from an API, it is common to define a **response schema** that describes the structure of the data sent to the client. In this example, the `BookOut` schema represents the fields returned when reading books from the database.
 
 ```py
 from pydantic import BaseModel, ConfigDict
 
-class BookRead(BaseModel):
+class BookOut(BaseModel):
     id: int
     title: str
     author: str
@@ -816,15 +815,15 @@ This function can then be used inside a FastAPI route.
 ```py
 from fastapi import Depends
 
-@app.get("/books", response_model=list[BookRead])
+@app.get("/books", response_model=list[BookOut])
 def list_books(db: Session = Depends(get_db)):
     books = db.query(Book).all()
     return books
 ```
 
-When the route is called, SQLAlchemy converts the ORM query into SQL, executes it against the SQLite database, and returns a list of `Book` objects. Because the route defines `response_model=list[BookRead]`, FastAPI automatically converts those ORM objects into the `BookRead` schema before sending the response to the client.
+When the route is called, SQLAlchemy converts the ORM query into SQL, executes it against the SQLite database, and returns a list of `Book` objects. Because the route defines `response_model=list[BookOut]`, FastAPI automatically converts those ORM objects into the `BookOut` schema before sending the response to the client.
 
-The `list[...]` notation is used because this route returns multiple records. If a route returns a single book, the response model would simply be `BookRead` without the list wrapper.
+The `list[...]` notation is used because this route returns multiple records. If a route returns a single book, the response model would simply be `BookOut` without the list wrapper.
 
 Individual records can be retrieved by applying filters.
 
@@ -893,6 +892,16 @@ async def get_book_by_id(db: AsyncSession, book_id: int):
 
 Here, the query is executed using `await db.execute(...)`, and `scalars().first()` extracts the first matching ORM object or returns `None` if no record exists.
 
+As in the synchronous version, the session is passed directly to the helper function. Only route functions use `Depends`. Internal functions remain independent of FastAPI and focus only on database logic.
+
+The `Depends(get_db)` call is used only inside FastAPI route functions because it is part of FastAPIs dependency injection system. Its purpose is to tell FastAPI how to create and provide a database session automatically for each incoming request.
+
+When a route function declares a parameter such as `db: Session = Depends(get_db)`, FastAPI calls the `get_db` function before executing the route. The yielded session is injected into the route function, and once the request is finished, FastAPI continues execution after the `yield` statement and closes the session. This ensures that each request receives its own session.
+
+Helper functions, such as `get_book_by_id`, do not use `Depends` because they are not controlled by FastAPIs request handling system. They are plain Python functions. Instead of creating their own sessions, they receive the session as an argument. This keeps business logic separate from the web framework and makes those functions reusable in other contexts, such as **background tasks**, **scripts**, or **unit tests**.
+
+In short, `Depends` is used only at the boundary where FastAPI handles a request. Inside the applications internal logic, the session is passed explicitly as a normal function parameter.
+
 Case-insensitive search in the async version uses the same `func.lower(...).like(...)` pattern, but the query is executed using `await db.execute(...)`.
 
 ```py
@@ -908,16 +917,6 @@ async def search_books_by_title(db: AsyncSession, query: str):
     )
     return result.scalars().all()
 ```
-
-As in the synchronous version, the session is passed directly to the helper function. Only route functions use `Depends`. Internal functions remain independent of FastAPI and focus only on database logic.
-
-The `Depends(get_db)` call is used only inside FastAPI route functions because it is part of FastAPIs dependency injection system. Its purpose is to tell FastAPI how to create and provide a database session automatically for each incoming request.
-
-When a route function declares a parameter such as `db: Session = Depends(get_db)`, FastAPI calls the `get_db` function before executing the route. The yielded session is injected into the route function, and once the request is finished, FastAPI continues execution after the `yield` statement and closes the session. This ensures that each request receives its own session and that the session lifecycle is managed safely.
-
-Helper functions, such as `get_book_by_id`, do not use `Depends` because they are not controlled by FastAPIs request handling system. They are plain Python functions. Instead of creating their own sessions, they receive the session as an argument. This keeps business logic separate from the web framework and makes those functions reusable in other contexts, such as **background tasks**, **scripts**, or **unit tests**.
-
-In short, `Depends` is used only at the boundary where FastAPI handles a request. Inside the applications internal logic, the session is passed explicitly as a normal function parameter.
 
 At this level, queries are kept simple and readable. More advanced query patterns, joins, and optimizations are introduced in later levels. The goal here is to understand how ORM queries map naturally to Python code and integrate cleanly into FastAPI routes.
 
@@ -941,14 +940,10 @@ class BookCreate(BaseModel):
     price: float
     in_stock: bool = True
 
-    model_config = ConfigDict(from_attributes=True)
-
 class BookUpdatePrice(BaseModel):
     price: float
 
-    model_config = ConfigDict(from_attributes=True)
-
-class BookRead(BaseModel):
+class BookOut(BaseModel):
     id: int
     title: str
     author: str
@@ -981,7 +976,7 @@ This function can be used inside a FastAPI route.
 ```py
 from fastapi import Depends
 
-@app.post("/books", response_model=BookRead)
+@app.post("/books", response_model=BookOut)
 def create_book_route(payload: BookCreate, db: Session = Depends(get_db)):
     return create_book(db, payload)
 ```
@@ -1030,7 +1025,7 @@ async def create_book(db: AsyncSession, data: BookCreate):
 Async route example.
 
 ```py
-@app.post("/books", response_model=BookRead)
+@app.post("/books", response_model=BookOut)
 async def create_book_route(payload: BookCreate, db: AsyncSession = Depends(get_db)):
     return await create_book(db, payload)
 ```
@@ -1071,46 +1066,3 @@ async def delete_book(db: AsyncSession, book_id: int):
 At this level, each write operation explicitly commits its changes.Transaction management are introduced later. The goal here is to understand how ORM objects are created, modified, and persisted using a database session inside a FastAPI application.
 
 While the previous examples assume that all database operations succeed, applications must also account for failures.
-
-Before moving on to more advanced transaction management, it is important to understand how basic database errors are handled in a FastAPI application and how failures can be reported in a controlled and predictable way.
-
-## Basic database error handling
-
-In applications, database operations can fail for many reasons. Records **may not exist**, input data **may be invalid**, or **constraints** defined at the database level may be violated. Handling these situations explicitly helps keep application behavior predictable and prevents unhandled exceptions from crashing the request.
-
-A common case is attempting to read or modify a record that does not exist.
-
-```py
-from fastapi import HTTPException
-from sqlalchemy.orm import Session
-
-def get_book(db: Session, book_id: int):
-    book = db.query(Book).filter(Book.id == book_id).first()
-    if book is None:
-        raise HTTPException(status_code=404, detail="Book not found")
-    return book
-```
-
-If the requested record is not found, an `HTTPException` is raised. FastAPI automatically converts this into an HTTP response with the given status code and message. In this example, a `404` response is returned to indicate that the book does not exist.
-
-When working with asynchronous database access, the same pattern is used.
-
-```py
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
-
-async def get_book(db: AsyncSession, book_id: int):
-    result = await db.execute(
-        select(Book).where(Book.id == book_id)
-    )
-    book = result.scalars().first()
-    if book is None:
-        raise HTTPException(status_code=404, detail="Book not found")
-    return book
-```
-
-In the async version, the query must be awaited, but error handling works the same way. If no record is found, the route returns a controlled `404` response instead of failing silently.
-
-Another common failure occurs when committing invalid data that violates **database constraints**. In such cases, SQLAlchemy may raise an exception during commit. At this level, it is sufficient to understand that commit can fail and that such errors should be caught and handled, which will be expanded in later sections.
-
-Basic error handling ensures that the API returns meaningful responses instead of internal server errors, improving clarity for clients using the application.
