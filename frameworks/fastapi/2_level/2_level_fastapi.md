@@ -2,7 +2,6 @@
 
 - [Validation with Path, Query, and Pydantic](#validation-with-path-query-and-pydantic)
 - [Request body models](#request-body-models)
-- [Router](#router)
 
 In **Python FastAPI Level 1**, we handled incoming data manually. Values coming from the URL were received as strings, and we explicitly converted them, validated them, and raised errors when something went wrong. This made the request flow clear, but it also introduced repetitive code.
 
@@ -124,166 +123,176 @@ In the next section, we will apply the same idea to structured data sent in the 
 
 ## Request body models
 
-In **Python FastAPI Level 1**, request bodies were introduced as structured input. In this level, we expand the idea and focus on how request body models control shape, defaults, and strictness.
+After defining database models and relationships in **Database Level 2**, the next step is connecting those models to the API layer. In FastAPI, this connection is handled through **Pydantic schemas**.
 
-A request body model defines which fields are expected in the incoming data.
+Schemas serve two purposes in the route layer.
+
+`Request` schemas define what data the client is allowed to send and `Response` schemas define what data the API returns to the client.
+
+The following schemas represent `authors`, `categories`, and `books`.
 
 ```py
-from fastapi import FastAPI
-from pydantic import BaseModel
+from typing import List, Optional
+from pydantic import BaseModel, ConfigDict, Field
 
-app = FastAPI()
+class AuthorCreate(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+
+
+class AuthorOut(BaseModel):
+    id: int
+    name: str
+
+    model_config = ConfigDict(from_attributes=True)
+
+
+class CategoryCreate(BaseModel):
+    name: str = Field(..., min_length=1, max_length=50)
+
+
+class CategoryOut(BaseModel):
+    id: int
+    name: str
+
+    model_config = ConfigDict(from_attributes=True)
+
 
 class BookCreate(BaseModel):
+    title: str = Field(..., min_length=1, max_length=200)
+    year: int = Field(..., ge=0, le=2100)
+    genre: str = Field(..., min_length=1, max_length=50)
+    pages: int = Field(..., gt=0)
+    price: float = Field(..., gt=0)
+    in_stock: bool = True
+
+    author_id: int = Field(..., gt=0)
+    category_ids: List[int] = Field(default_factory=list)
+
+
+class BookUpdate(BaseModel):
+    title: Optional[str] = Field(None, min_length=1, max_length=200)
+    year: Optional[int] = Field(None, ge=0, le=2100)
+    genre: Optional[str] = Field(None, min_length=1, max_length=50)
+    pages: Optional[int] = Field(None, gt=0)
+    price: Optional[float] = Field(None, gt=0)
+    in_stock: Optional[bool] = None
+    author_id: Optional[int] = Field(None, gt=0)
+    category_ids: Optional[List[int]] = None
+
+
+class BookOut(BaseModel):
+    id: int
     title: str
-    author: str
     year: int
     genre: str
     pages: int
     price: float
-    in_stock: bool = True
+    in_stock: bool
+    author: AuthorOut
+    categories: List[CategoryOut]
+
+    model_config = ConfigDict(from_attributes=True)
 ```
 
-When this model is used in a route, FastAPI reads the request body and constructs an `Book` object before the function executes.
+This structure separates input models from output models.
+
+`AuthorCreate`, `CategoryCreate`, and `BookCreate` describe data that can enter the application. These models validate incoming request bodies.
+
+`AuthorOut`, `CategoryOut`, and `BookOut` describe data that leaves the application. These models define the shape of API responses.
+
+This separation is useful because clients usually send references when creating or updating records, but APIs often return expanded related data in responses.
+
+A create route might look like this.
 
 ```py
 @app.post("/books", status_code=201, response_model=BookOut)
 def create_book_route(book: BookCreate):
-    return book
+    pass
 ```
 
-If a client sends a request with this JSON body
+The request body must match the `BookCreate` schema.
+
+A client request body could look like this.
 
 ```json
 {
   "title": "Clean Code",
-  "price": 39.99
-}
-```
-
-FastAPI parses the JSON and creates a `BookCreate` instance. The route function receives a Python object instead of raw JSON.
-
-If the incoming data does not match the model structure, the request is rejected automatically and the function is not called.
-
-A field without a default value is required. A field with a default value is optional.
-
-```py
-class Item(BaseModel):
-    title: str
-    author: str
-    year: int
-    genre: str
-    pages: int
-    price: float
-    description: str = ""
-    in_stock: bool = True
-```
-
-If the client sends
-
-```json
-{
-  "title": "Clean Code",
-  "price": 39.99
-}
-```
-
-`description` field is missing, so the default value is used.
-
-Models can also represent nested structures by using other models as fields.
-
-```py
-class Author(BaseModel):
-    name: str
-    email: str
-
-class Book(BaseModel):
-    title: str
-    author: Author
-    year: int
-    genre: str
-    pages: int
-    price: float
-    description: str = ""
-    in_stock: bool = True
-```
-
-This allows structured request bodies such as
-
-```json
-{
-  "title": "Clean Code",
+  "year": 2008,
+  "genre": "Programming",
+  "pages": 464,
   "price": 39.99,
+  "in_stock": true,
+  "author_id": 1,
+  "category_ids": [1, 2]
+}
+```
+
+FastAPI reads the JSON body, validates it against `BookCreate`, and constructs a Python object before the route logic runs.
+
+The route can then use `author_id` and `category_ids` to load related records from the database and create the Book record.
+
+Even though the request body is flat, the response can be nested because the route declares `response_model=BookOut`.
+
+```py
+@app.get("/books", response_model=list[BookOut])
+def list_books(db: Session = Depends(get_db)):
+    books =
+    return books
+```
+
+If the route returns SQLAlchemy ORM objects, FastAPI uses the response model to convert them into the correct JSON structure.
+
+A response could look like this.
+
+```json
+{
+  "id": 10,
+  "title": "Clean Code",
+  "year": 2008,
+  "genre": "Programming",
+  "pages": 464,
+  "price": 39.99,
+  "in_stock": true,
   "author": {
-    "name": "Robert Martin",
-    "email": "unclebob@example.com"
-  }
+    "id": 1,
+    "name": "Robert C. Martin"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "Software Engineering"
+    },
+    {
+      "id": 2,
+      "name": "Backend"
+    }
+  ]
 }
 ```
 
-When this request is sent, FastAPI parses the JSON body and constructs nested Python objects. The outer object becomes a `Book` instance, and the nested object becomes an `Author` instance. Validation is applied to both models before the route logic runs.
+Because `from_attributes=True` is enabled, Pydantic reads values directly from ORM attributes instead of expecting dictionaries.
 
-Nested models are especially useful when representing related data. In applications, this often mirrors relationships in a database. For example, a book may belong to an author stored in a separate table.
+This output shape is defined by `BookOut`. The author field uses `AuthorOut` and the `categories` field uses a list of `CategoryOut`. This is how nested response schemas represent relationships between objects.
 
-In **Database Level 2**, we will see how Pydantic models interact with SQLAlchemy models and how nested Pydantic structures can correspond to relationships between database tables.
+Updates often allow partial data, so a separate schema is used.
 
-Sometimes you want the API to reject unknown fields instead of ignoring them. This can be configured so the model only accepts fields that are declared.
+```py
+@app.patch("/books/{book_id}", response_model=BookOut)
+def update_book_route(book_id: int, payload: BookUpdate, db: Session = Depends(get_db)):
+    pass
+```
 
-For example, this request would normally still succeed even though `pages` is not defined in the model.
+In `BookUpdate`, every field is optional. This allows the client to send only the fields that should change.
+
+The request body may include only the fields that should change.
 
 ```json
 {
-  "title": "Clean Code",
-  "price": 39.99,
-  "pages": 464
+  "price": 29.99,
+  "in_stock": false
 }
 ```
 
-If the application should reject unexpected fields, the model can be configured to forbid them.
+At the route layer, request schemas control what data can enter the application, and response schemas control the shape of data returned to the client.
 
-```py
-from pydantic import BaseModel, ConfigDict
-
-class Book(BaseModel):
-    title: str
-    price: float
-
-    model_config = ConfigDict(extra="forbid")
-```
-
-With this configuration, sending any extra fields causes the request to be rejected before route logic runs.
-
-Request body models define what data is allowed to enter the application. Once the data has passed validation and the route logic runs, the next responsibility of the application is deciding **how the result is returned** to the client.
-
-That responsibility still belongs to the route. As the number of routes grows, the next concern becomes how those routes are organized within the application.
-
-## Router
-
-As an application grows, placing all routes directly on the application object becomes hard to manage. Routes that belong together conceptually still end up mixed in the same file.
-
-FastAPI provides routers to group related routes without changing how requests are handled.
-
-A router behaves like a smaller application. Routes are attached to the router instead of the main application. The router is then included into the application.
-
-```py
-from fastapi import FastAPI, APIRouter
-
-app = FastAPI()
-router = APIRouter()
-
-@router.get("/items")
-def get_items():
-    return ["item1", "item2"]
-
-@router.post("/items")
-def create_item():
-    return {"status": "created"}
-
-app.include_router(router)
-```
-
-In this setup, the routes are defined on the router, not on the application object. When the router is included, its routes become part of the application.
-
-Routers do not change request handling behavior. Validation, execution, and response generation work exactly the same way as with routes defined directly on the application.
-
-The purpose of a router is organization. It allows related routes to be grouped together and moved into separate files without affecting how the application behaves.
+Because the database relationships were defined earlier in **Database Level 2**, the API can expose those relationships through nested response schemas without manually constructing the response structure.
