@@ -373,7 +373,7 @@ Filtering across related tables is useful when building API endpoints that suppo
 
 However, returning related data is important to know about **how those related objects are loaded from the database**. When a query retrieves a record such as a `Book`, the related `Author` object is not always loaded immediately. SQLAlchemy can load related data either **on demand** or **as part of the original query**.
 
-These two approaches are known as lazy loading and eager loading. Understanding how they work is important because the loading strategy affects both the number of database queries executed and the overall performance of the application.
+These two approaches are known as lazy loading and eager loading. Understanding how they work is important because the loading strategy affects both the number of database queries executed.
 
 ## Lazy loading vs eager loading
 

@@ -206,8 +206,30 @@ A create route might look like this.
 
 ```py
 @app.post("/books", status_code=201, response_model=BookOut)
-def create_book_route(book: BookCreate):
-    pass
+async def create_book_route(
+    payload: BookCreate,
+    db: AsyncSession = Depends(get_db),
+):
+    author = await db.get(Author, payload.author_id)
+    if author is None:
+        raise HTTPException(status_code=404, detail="Author not found")
+
+    categories = []
+    if payload.category_ids:
+        stmt = select(Category).where(Category.id.in_(payload.category_ids))
+        result = await db.execute(stmt)
+        categories = result.scalars().all()
+
+    book_data = payload.model_dump(exclude={"category_ids"})
+    new_book = Book(**book_data)
+
+    new_book.categories = categories
+
+    db.add(new_book)
+    await db.commit()
+    await db.refresh(new_book)
+
+    return new_book
 ```
 
 The request body must match the `BookCreate` schema.
@@ -235,8 +257,15 @@ Even though the request body is flat, the response can be nested because the rou
 
 ```py
 @app.get("/books", response_model=list[BookOut])
-def list_books(db: Session = Depends(get_db)):
-    books =
+async def list_books_route(
+    db: AsyncSession = Depends(get_db),
+):
+    statement = (
+        select(Book)
+        .options(selectinload(Book.author), selectinload(Book.categories))
+    )
+    result = await db.execute(statement)
+    books = result.scalars().unique().all()
     return books
 ```
 
@@ -278,8 +307,42 @@ Updates often allow partial data, so a separate schema is used.
 
 ```py
 @app.patch("/books/{book_id}", response_model=BookOut)
-def update_book_route(book_id: int, payload: BookUpdate, db: Session = Depends(get_db)):
-    pass
+async def update_book_route(
+    book_id: int,
+    payload: BookUpdate,
+    db: AsyncSession = Depends(get_db),
+):
+    statement = (
+        select(Book)
+        .options(selectinload(Book.author), selectinload(Book.categories))
+        .where(Book.id == book_id)
+    )
+    result = await db.execute(statement)
+    book = result.scalar_one_or_none()
+
+    if book is None:
+        raise HTTPException(status_code=404, detail="Book not found")
+
+    update_data = payload.model_dump(exclude_unset=True)
+
+    if "author_id" in update_data:
+        author = await db.get(Author, update_data["author_id"])
+        if author is None:
+            raise HTTPException(status_code=404, detail="Author not found")
+
+    if "category_ids" in update_data:
+        statement = select(Category).where(Category.id.in_(update_data["category_ids"]))
+        result = await db.execute(statement)
+        book.categories = result.scalars().all()
+        del update_data["category_ids"]
+
+    for field, value in update_data.items():
+        setattr(book, field, value)
+
+    await db.commit()
+    await db.refresh(book)
+
+    return book
 ```
 
 In `BookUpdate`, every field is optional. This allows the client to send only the fields that should change.
