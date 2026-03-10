@@ -127,9 +127,9 @@ After defining database models and relationships in **Database Level 2**, the ne
 
 Schemas serve two purposes in the route layer.
 
-`Request` schemas define what data the client is allowed to send and `Response` schemas define what data the API returns to the client.
+Request schemas define what data the client is allowed to send, and response schemas define what data the API returns to the client.
 
-The following schemas represent `authors`, `categories`, and `books`.
+The following schemas represent authors, categories, and books.
 
 ```py
 from typing import List, Optional
@@ -255,6 +255,10 @@ The route can then use `author_id` and `category_ids` to load related records fr
 
 Even though the request body is flat, the response can be nested because the route declares `response_model=BookOut`.
 
+A list route can be implemented in different ways depending on what the query needs.
+
+One common approach is to load related objects using `selectinload()`.
+
 ```py
 @app.get("/books", response_model=list[BookOut])
 async def list_books_route(
@@ -268,6 +272,53 @@ async def list_books_route(
     books = result.scalars().unique().all()
     return books
 ```
+
+This approach returns `Book` ORM objects and loads the related `author` and `categories` objects in additional coordinated queries. It is often a good choice when returning many rows, especially when one of the relationships is a collection such as `categories`.
+
+Another approach is to use `joinedload()`.
+
+```py
+@app.get("/books-with-joined-author", response_model=list[BookOut])
+async def list_books_with_joined_author_route(
+    db: AsyncSession = Depends(get_db),
+):
+    statement = (
+        select(Book)
+        .options(joinedload(Book.author), selectinload(Book.categories))
+    )
+    result = await db.execute(statement)
+    books = result.scalars().unique().all()
+    return books
+```
+
+Here, the related `author` object is loaded using a SQL JOIN as part of the main query, while `categories` are still loaded with `selectinload()`. This can be useful when loading a single related object together with each main row.
+
+A different case appears when the query must filter across a related table. In that situation, `join()` is used because it changes which rows are selected.
+
+```py
+@app.get("/authors/{author_name}/books", response_model=list[BookOut])
+async def list_books_by_author_name_route(
+    author_name: str,
+    db: AsyncSession = Depends(get_db),
+):
+    statement = (
+        select(Book)
+        .join(Book.author)
+        .where(Author.name == author_name)
+        .options(joinedload(Book.author), selectinload(Book.categories))
+    )
+    result = await db.execute(statement)
+    books = result.scalars().unique().all()
+    return books
+```
+
+In this example, `join(Book.author)` is needed because the filter depends on the Author table. The loading options are still used so the returned ORM objects already contain the related data required by BookOut.
+
+These query styles solve different problems.
+
+`join()` is used when the related table affects **filtering**, **sorting**, or **row selection**.
+
+`joinedload()` and `selectinload()` are used when related objects should already be loaded on the returned ORM objects.
 
 If the route returns SQLAlchemy ORM objects, FastAPI uses the response model to convert them into the correct JSON structure.
 
@@ -359,3 +410,5 @@ The request body may include only the fields that should change.
 At the route layer, request schemas control what data can enter the application, and response schemas control the shape of data returned to the client.
 
 Because the database relationships were defined earlier in **Database Level 2**, the API can expose those relationships through nested response schemas without manually constructing the response structure.
+
+Different routes may also use different query strategies. Some routes only need eager loading through `selectinload()` or `joinedload()`, while others also need `join()` because filtering depends on related tables. The choice depends on whether the relationship affects row selection or only how related objects are loaded for the response.

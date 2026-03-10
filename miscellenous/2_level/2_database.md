@@ -45,8 +45,6 @@ A example response might look like this.
 
 To support this kind of response, the database models must define relationships between tables. The ORM then uses those relationships to retrieve related records and assemble the data structure required by the API.
 
-In SQLAlchemy, relationships are defined directly in ORM models. Once defined, these relationships allow queries to load related objects, perform joins between tables and return structured data that maps naturally to API response schemas.
-
 The following sections introduce **one-to-many relationship**, how are defined in SQLAlchemy models and how related data can be queried and returned through FastAPI endpoints.
 
 ## One-to-many relationships with ORM
@@ -110,27 +108,40 @@ Accessing `book.author` returns the author associated with that book and `author
 To verify that the relationship works correctly, related objects can be accessed after retrieving records from the database.
 
 ```py
-statement = select(Book)
-result = db.execute(statement)
+def test_book_to_author(db: Session):
 
-book = result.scalars().first()
+    statement = select(Book)
+    result = db.execute(statement)
 
-print(book.title)
-print(book.author.name)
+    book = result.scalars().first()
+
+    print(book.title)
+    print(book.author.name)
+
 ```
 
 In this example, the book record is retrieved first. Because the relationship is defined in the ORM model, SQLAlchemy allows direct access to the related `Author` object through the `book.author` attribute.
 
+The `db: Session` part of the function signature is a **type hint**. It tells Python and development tools that the `db` parameter is expected to be a SQLAlchemy `Session` object.
+
+This type annotation does **not create the session** and does not establish a database connection. It is only used for **type checking**, **documentation** and **editor support** such as autocomplete.
+
+The actual session instance must be created elsewhere and passed into the function. For example, it may come from `SessionLocal()` in scripts or from a FastAPI dependency such as `get_db`.
+
+Because of this design, the function does not need to know how the session was created. It simply receives a `Session` object and uses it to execute queries.
+
 The relationship can also be navigated in the opposite direction.
 
 ```py
-statement = select(Author)
-result = db.execute(statement)
+def test_author_to_books(db: Session):
 
-author = result.scalars().first()
+    statement = select(Author)
+    result = db.execute(statement)
 
-for book in author.books:
-    print(book.title)
+    author = result.scalars().first()
+
+    for book in author.books:
+        print(book.title)
 ```
 
 Here, the `author.books` attribute returns a collection of `Book` objects associated with that author.
@@ -212,15 +223,17 @@ Accessing `book.categories` returns a list of categories associated with that bo
 To verify that the relationship was created correctly, the data can be retrieved and inspected from the database.
 
 ```py
-statement = select(Book)
-result = db.execute(statement)
+def test_book_to_categories(db: Session):
 
-book = result.scalars().first()
+    statement = select(Book)
+    result = db.execute(statement)
 
-print(book.title)
+    book = result.scalars().first()
 
-for category in book.categories:
-    print(category.name)
+    print(book.title)
+
+    for category in book.categories:
+        print(category.name)
 ```
 
 In this example, the book is loaded first. Because the relationship is defined in the ORM model, SQLAlchemy allows direct access to the related categories through the `book.categories` attribute.
@@ -228,15 +241,17 @@ In this example, the book is loaded first. Because the relationship is defined i
 The relationship can also be accessed from the opposite direction.
 
 ```py
-statement = select(Category)
-result = db.execute(statement)
+def test_category_to_books(db: Session):
 
-category = result.scalars().first()
+    statement = select(Category)
+    result = db.execute(statement)
 
-print(category.name)
+    category = result.scalars().first()
 
-for book in category.books:
-    print(book.title)
+    print(category.name)
+
+    for book in category.books:
+        print(book.title)
 ```
 
 Here, the `category.books` attribute returns all books associated with that category.
@@ -248,6 +263,17 @@ These inspection steps demonstrate how SQLAlchemy manages **many-to-many relatio
 ## Querying related data with joins
 
 Once relationships are defined between ORM models, it becomes possible to retrieve related data from multiple tables using **joins**. A join allows the database to combine rows from two or more tables based on their relationship.
+
+In SQL, several types of joins exist, each controlling how rows from different tables are combined.
+
+Common join types include:
+
+- **INNER JOIN** returns rows that have matching values in both tables
+- **LEFT JOIN** returns all rows from the left table and matching rows from the right table
+- **RIGHT JOIN** returns all rows from the right table and matching rows from the left table
+- **FULL JOIN** returns rows when there is a match in either table
+
+In most application queries, **INNER JOIN** and **LEFT JOIN** are used most frequently.
 
 In SQLAlchemy, joins can be expressed using ORM models instead of writing raw SQL. The ORM understands how tables are connected through foreign keys and relationships, which allows queries to reference related models directly.
 
@@ -277,7 +303,7 @@ FROM books
 JOIN authors ON books.author_id = authors.id;
 ```
 
-The result returned by SQLAlchemy is a list of tuples where each element contains both objects.
+The result returned by SQLAlchemy is a **list of tuples** where each element contains both objects.
 
 For example
 
@@ -371,48 +397,46 @@ async def list_books_by_author(db: AsyncSession, author_name: str):
 
 Filtering across related tables is useful when building API endpoints that support search or filtering criteria based on connected data. For example, a client might request all books written by a specific author or all books belonging to a particular category.
 
-However, returning related data is important to know about **how those related objects are loaded from the database**. When a query retrieves a record such as a `Book`, the related `Author` object is not always loaded immediately. SQLAlchemy can load related data either **on demand** or **as part of the original query**.
+While filtering focuses on **which records should be returned**, another important aspect of working with related data is **how those related objects are loaded from the database**.
 
-These two approaches are known as lazy loading and eager loading. Understanding how they work is important because the loading strategy affects both the number of database queries executed.
+It is important to distinguish between two common operations when working with relationships.
 
-## Lazy loading vs eager loading
+The `join()` method is used when a query needs to **combine or filter data across related tables**. In this case, the join changes how the database constructs the result set.
 
-When working with related objects, SQLAlchemy must decide **when the related data should be loaded from the database**. There are two primary strategies used by the ORM **lazy loading** and **eager loading**.
+However, sometimes the goal is not to filter across tables but simply to **load related objects together with the main entity**. For example, an API may return a `Book` together with its `Author` without changing which books are selected.
 
-These strategies determine whether related data is retrieved **only when it is accessed** or **as part of the original query**.
+In these situations, SQLAlchemy provides **loading strategies** that control how relationships are retrieved while still returning the main ORM objects.
 
-Lazy loading means that related objects are **not loaded immediately** when the main object is retrieved. Instead, the related data is loaded **only when it is accessed in Python code**.
+## Controlling how related data is loaded
 
-For example, suppose a book is retrieved from the database.
+When working with relationships, SQLAlchemy must decide **how related objects should be loaded from the database**.
 
-```py
-statement = select(Book)
-result = db.execute(statement)
-book = result.scalars().first()
-```
+For example, when retrieving a `Book`, the related `Author` object may or may not be loaded at the same time. The ORM provides several **loading strategies** that control when and how related data is retrieved.
 
-At this point, only the `Book` record has been loaded. The related `Author` object has not been retrieved yet.
-
-If the code later accesses the relationship
+These strategies are configured during query execution using the `.options()` method.
 
 ```py
-book.author
+statement = (
+    select(Book)
+    .options(...)
+)
 ```
 
-SQLAlchemy automatically executes another database query to retrieve the author associated with that book.
+These tools allow developers to control how relationships are retrieved depending on the needs of the application.
 
-Database activity looks like this.
+In many APIs, related objects must be returned together with the main entity. In such cases, the application often instructs SQLAlchemy to load the related objects during the initial query.
 
-```sql
-SELECT * FROM books;
-SELECT * FROM authors WHERE id = ?;
-```
+The most common loading strategies include `joinedload()` loads related objects using a SQL JOIN, `selectinload()` loads related objects using a separate SELECT query and lazy loading loads related objects automatically when accessed
 
-Lazy loading is the default behavior for most SQLAlchemy relationships. It allows related data to be loaded only when needed, which can reduce unnecessary data retrieval.
+Among these strategies, `joinedload()` is often the first one encountered when working with related data. It allows related objects to be retrieved together with the main entity as part of the same query.
 
-Eager loading means that related objects are **loaded at the same time as the main object**, using a single query or a small number of coordinated queries.
+## Using joinedload to load related data
 
-Instead of waiting until `book.author` is accessed, the application instructs SQLAlchemy to load the related data during the initial query.
+One of the most common loading strategies in SQLAlchemy is `joinedload()`.
+
+The `joinedload` option instructs SQLAlchemy to retrieve related objects using a SQL JOIN as part of the original query.
+
+For example, if a `Book` has an associated `Author`, the query can request both objects at the same time.
 
 ```py
 from sqlalchemy.orm import joinedload
@@ -426,58 +450,15 @@ result = db.execute(statement)
 books = result.scalars().all()
 ```
 
-In this case, SQLAlchemy retrieves both the book and its author during the same database operation.
+In this case, SQLAlchemy retrieves both books and their authors in a single database query.
 
-SQL may look like
+Conceptually, `joinedload()` also uses a SQL JOIN behind the scenes. However, its purpose is different from the `join()` method.
 
-```sql
-SELECT books.*, authors.*
-FROM books
-LEFT JOIN authors ON books.author_id = authors.id;
-```
+The `join()` method changes the structure of the query and is typically used for filtering or combining data across tables.
 
-Because the related objects are already loaded, accessing them later does **not trigger additional database queries**.
+In contrast, `joinedload()` is a loading strategy. It instructs SQLAlchemy to retrieve related objects together with the main entity, while still returning the primary ORM objects from the query.
 
-```sql
-book.author
-```
-
-Lazy loading is useful when related data is rarely needed, because it avoids loading unnecessary information.
-
-Eager loading is useful when related data will definitely be used, because it prevents additional database queries when accessing relationships.
-
-When building APIs that return nested response schemas, eager loading is often preferred because the related data is required to construct the response.
-
-In the next section, we will examine a common eager loading technique in SQLAlchemy called `joinedload`, which allows related objects to be loaded efficiently when executing queries.
-
-## Using joinedload to load related data
-
-When an API returns nested objects, related data often needs to be available immediately. If relationships use lazy loading, accessing each related object may trigger additional database queries. This can lead to unnecessary database calls and slower responses.
-
-SQLAlchemy provides **loading strategies** that allow related objects to be retrieved together with the main query. One common technique is `joinedload`.
-
-The `joinedload` option instructs SQLAlchemy to load related objects using a **JOIN** as part of the original query, so the related data is already available when the ORM objects are accessed.
-
-Consider the example where a **Book** has an associated **Author**.
-
-```py
-from sqlalchemy.orm import joinedload
-from sqlalchemy import select
-
-def list_books(db: Session):
-    statement = (
-        select(Book)
-        .options(joinedload(Book.author))
-    )
-
-    result = db.execute(statement)
-    books = result.scalars().all()
-    return books
-```
-
-In this query, `joinedload(Book.author)` tells SQLAlchemy to load the related Author objects when retrieving books. This ensures that accessing `book.author` later does not trigger additional database queries.
-
-SQLAlchemy generates SQL similar to
+SQL generated by the ORM may look like this.
 
 ```sql
 SELECT books.*, authors.*
@@ -485,27 +466,103 @@ FROM books
 LEFT JOIN authors ON books.author_id = authors.id;
 ```
 
-Because the author data is loaded together with the books, the application can access the relationship directly.
+Because the author information is already loaded, accessing the relationship later does not trigger additional database queries.
 
 ```py
 for book in books:
-    print(book.title, book.author.name)
+    print(book.author.name)
 ```
 
-The same approach works with asynchronous sessions.
+This approach is useful when building API responses that include nested data.
+
+However, using a JOIN is not always the most efficient approach. When a query returns many records or when relationships involve collections, joining tables can produce very large result sets with repeated data.
+
+In these situations, SQLAlchemy provides another loading strategy that retrieves related objects using a separate query.
+
+## Using selectinload to load related data
+
+Another common loading strategy is `selectinload()`.
+
+Instead of using a JOIN, `selectinload` retrieves the related objects using a second query that loads all required related records at once.
 
 ```py
-async def list_books(db: AsyncSession):
-    statement = (
-        select(Book)
-        .options(joinedload(Book.author))
-    )
+from sqlalchemy.orm import selectinload
 
-    result = await db.execute(statement)
-    books = result.scalars().all()
-    return books
+statement = (
+    select(Book)
+    .options(selectinload(Book.author))
+)
+
+result = db.execute(statement)
+books = result.scalars().all()
 ```
 
-Using `joinedload` is particularly useful when building API responses that include nested objects, such as returning a book together with its author information.
+In this case, SQLAlchemy performs two coordinated queries.
 
-By loading related data in the same query, `joinedload` helps avoid unnecessary database queries and improves the efficiency of the application.
+```sql
+SELECT * FROM books;
+
+SELECT * FROM authors
+WHERE id IN (...);
+```
+
+The first query retrieves the books. The second query retrieves all authors associated with those books using an `IN` clause.
+
+This strategy avoids very large joined result sets and can be more efficient when loading collections of related objects.
+
+The loading techniques discussed so far are practical tools for controlling how relationships are retrieved. At a higher level, these techniques correspond to two broader concepts that describe when related data is loaded.
+
+These concepts are known as **lazy loading** and **eager loading**, and they help explain the behavior behind the strategies used in SQLAlchemy queries.
+
+## Lazy loading vs eager loading
+
+The loading strategies described above correspond to two general concepts **lazy loading** and **eager loading**.
+
+Lazy loading means that related objects are **not retrieved immediately** when the main object is loaded. Instead, SQLAlchemy loads them automatically when the relationship attribute is accessed.
+
+```py
+statement = select(Book)
+result = db.execute(statement)
+
+book = result.scalars().first()
+
+print(book.author.name)
+```
+
+When `book.author` is accessed, SQLAlchemy sends an additional query to the database.
+
+the database query looks like this.
+
+```sql
+SELECT * FROM books;
+SELECT * FROM authors WHERE id = ?;
+```
+
+This behavior is called lazy loading because the related object is retrieved only when it is needed.
+
+Eager loading means that related objects are retrieved together with the main object during the original query.
+
+Using `joinedload()` or `selectinload()` are examples of eager loading. The related objects are already available, so accessing them later does not trigger additional queries.
+
+In practice, eager loading is often preferred when APIs return nested response structures, because the related data is required to construct the response.
+
+In many real queries, loading strategies are used together with joins. The `join()` method is typically used when the query needs to **filter or combine data across tables**, while loading strategies such as `joinedload()` or `selectinload()` control **how related objects are retrieved and attached to ORM models**.
+
+For example, a query might join tables to apply filtering conditions and at the same time instruct SQLAlchemy to eagerly load related objects.
+
+```py
+statement = (
+    select(Book)
+    .join(Author)
+    .options(joinedload(Book.author))
+    .where(Author.name == "Robert C. Martin")
+)
+```
+
+In this query, the `join()` method connects the `books` and `authors` tables so that the query can apply a filtering condition based on the authors name.
+
+At the same time, `joinedload(Book.author)` instructs SQLAlchemy to load the related `Author` objects together with each `Book`. This ensures that when the application later accesses `book.author`, the author information is already available and no additional database query is required.
+
+These operations serve different purposes. The `join()` method is used to combine tables or apply filtering conditions across relationships. Loading strategies such as `joinedload()` and `selectinload()` control how related objects are retrieved and attached to ORM models.
+
+In practice, queries often combine these techniques. A join can be used to filter results across tables, while a loading strategy ensures that related objects are retrieved efficiently for use in the application or API response.

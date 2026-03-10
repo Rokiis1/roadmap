@@ -11,6 +11,7 @@
 - [Using database sessions inside FastAPI routes](#using-database-sessions-inside-fastapi-routes)
 - [Reading data using ORM queries](#reading-data-using-orm-queries)
 - [Writing data using ORM queries](#writing-data-using-orm-queries)
+- [Common ORM query patterns](#common-orm-query-patterns)
 
 FastAPI applications often grow beyond simple request handling. Once data needs to be stored and retrieved, the application must interact with a database in a way that keeps the code readable and maintainable.
 
@@ -230,7 +231,7 @@ In SQLAlchemy, ORM models are created by **extending** a shared **base class**. 
 
 There are **two common ways** to define this base class, depending on the SQLAlchemy version and style being used.
 
-The **legacy approach**, used in **SQLAlchemy 1.x** and still supported for compatibility, creates the base class using a factory function.
+The **earlier and widely used approach**, introduced in **SQLAlchemy 1.x** and still supported for compatibility, creates the base class using a factory function.
 
 ```py
 from sqlalchemy.orm import declarative_base
@@ -321,7 +322,9 @@ books_table = Table(
 )
 ```
 
-Imperative mapping is considered more **barebones** and does not support modern features such as **PEP 484** type annotations. Because of this, it is far less common used.
+Imperative mapping is considered more **barebones** and does not support features such as **PEP 484** type annotations. Because of this, it is far less commonly used in applications.
+
+However, the `Table(...)` construct itself is **still widely used together with declarative models**, particularly when defining association tables for **many-to-many relationships**. In these cases, the table acts as a link table between two models rather than being mapped to its own ORM class.
 
 The model itself does not create the table in the database. It only describes the structure. SQLAlchemy uses this definition later to **generate database tables** and to **build queries**.
 
@@ -1066,3 +1069,218 @@ async def delete_book(db: AsyncSession, book_id: int):
 At this level, each write operation explicitly commits its changes.Transaction management are introduced later. The goal here is to understand how ORM objects are created, modified, and persisted using a database session inside a FastAPI application.
 
 While the previous examples assume that all database operations succeed, applications must also account for failures.
+
+Before moving on to other topics, it is useful to review some of the most common ORM query patterns that are frequently used when working with SQLAlchemy.
+
+## Common ORM query patterns
+
+When retrieving data using ORM queries, applications rarely request all records from a table without any conditions. In most real scenarios, queries apply filtering rules, sorting, limits, or pagination. SQLAlchemy provides several common operators and helper methods that make these operations easy to express using Python code.
+
+Conditions are typically applied using the `where()` method.
+
+```py
+statement = (
+    select(Book)
+    .where(Book.year > 2000)
+)
+
+result = db.execute(statement)
+books = result.scalars().all()
+```
+
+Multiple conditions can also be applied within the same query.
+
+```py
+statement = (
+    select(Book)
+    .where(Book.year > 2000, Book.in_stock == True)
+)
+```
+
+Sometimes a query needs to match values against a list of possible values. In these situations the `in_()` operator can be used.
+
+```py
+statement = (
+    select(Book)
+    .where(Book.genre.in_(["Programming", "Software Engineering"]))
+)
+```
+
+Results can also be sorted using the `order_by()` method.
+
+```py
+statement = (
+    select(Book)
+    .order_by(Book.year.desc())
+)
+```
+
+In many API endpoints, only a limited number of records should be returned. The `limit()` method restricts the number of results returned by the database.
+
+```py
+statement = (
+    select(Book)
+    .limit(10)
+)
+```
+
+Pagination is commonly implemented by combining `limit()` with `offset()`.
+
+```py
+statement = (
+    select(Book)
+    .offset(20)
+    .limit(10)
+)
+```
+
+When joins are involved, queries may sometimes produce duplicate rows. The `distinct()` method can be used to remove duplicate records.
+
+```py
+statement = (
+    select(Book)
+    .distinct()
+)
+```
+
+After a query is executed, SQLAlchemy returns a Result object. This object represents the rows returned by the database and provides helper methods that allow the application to extract the data.
+
+When a query selects ORM models, the `scalars()` method is commonly used to extract the model objects from the result rows.
+
+```py
+result = db.execute(statement)
+books = result.scalars().all()
+```
+
+The `all()` method returns all matching records as a list.
+
+```py
+books = result.scalars().all()
+```
+
+The `first()` method returns the first matching record or None if no record exists.
+
+```py
+book = result.scalars().first()
+```
+
+The `one()` method expects exactly one result. If the query returns zero or multiple records, SQLAlchemy raises an error.
+
+```py
+book = result.scalars().one()
+```
+
+The `one_or_none()` method returns the record if exactly one exists, otherwise it returns None. If multiple records are found, an error is raised.
+
+```py
+book = result.scalars().one_or_none()
+```
+
+When a query selects multiple models or columns, the result rows contain tuples instead of single objects.
+
+```py
+statement = select(Book, Author).join(Author)
+
+result = db.execute(statement)
+rows = result.all()
+
+for book, author in rows:
+    print(book.title, author.name)
+```
+
+In this situation, `scalars()` should not be used because each row contains more than one value.
+
+These operations form the foundation of most database queries used in FastAPI applications.
+
+While reading queries retrieve information from the database, applications must also create, modify, and remove records. In ORM based applications, these operations are performed by interacting with Python objects that represent database rows.
+
+To insert a new record, an instance of the ORM model is created and added to the database session.
+
+```py
+book = Book(
+    title="Clean Code",
+    author="Robert C. Martin",
+    year=2008,
+    genre="Programming",
+    pages=464,
+    price=39.99,
+    in_stock=True
+)
+
+db.add(book)
+db.commit()
+db.refresh(book)
+```
+
+`add()` method places the object into the session. then `add()` method places the object into the session and `refresh()` method reloads the object so values generated by the database, such as the primary key, are available.
+
+Multiple records can also be added at once using `add_all()`.
+
+```py
+books = [
+    Book(title="Clean Code", author="Robert C. Martin"),
+    Book(title="The Pragmatic Programmer", author="Andrew Hunt")
+]
+
+db.add_all(books)
+db.commit()
+```
+
+Existing records can be modified after retrieving them from the database.
+
+```py
+statement = select(Book).where(Book.title == "Clean Code")
+
+result = db.execute(statement)
+book = result.scalars().first()
+
+book.price = 29.99
+db.commit()
+```
+
+Once the attribute is changed, calling `commit()` persists the modification to the database.
+
+Records can also be removed using the `delete()` method.
+
+```py
+statement = select(Book).where(Book.title == "Clean Code")
+
+result = db.execute(statement)
+book = result.scalars().first()
+
+db.delete(book)
+db.commit()
+```
+
+The `delete()` method marks the object for removal and the `commit()` call permanently deletes the row from the database.
+
+When using asynchronous sessions, database operations must be awaited.
+
+```py
+book = Book(title="Clean Code")
+
+db.add(book)
+await db.commit()
+await db.refresh(book)
+```
+
+Updating records with an async session follows the same structure.
+
+```py
+statement = select(Book).where(Book.id == 1)
+
+result = await db.execute(statement)
+book = result.scalars().first()
+
+book.price = 29.99
+await db.commit()
+```
+
+Deleting records asynchronously works the same way.
+
+```py
+await db.delete(book)
+await db.commit()
+```
+
+These operations represent the most common write interactions used in FastAPI applications. They allow the application to create new records, update existing data, and remove records while still working with Python objects instead of writing raw SQL statements.
