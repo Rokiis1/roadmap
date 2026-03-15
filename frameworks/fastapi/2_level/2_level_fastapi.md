@@ -206,7 +206,7 @@ A create route might look like this.
 
 ```py
 @app.post("/books", status_code=201, response_model=BookOut)
-async def create_book_route(
+async def create_book(
     payload: BookCreate,
     db: AsyncSession = Depends(get_db),
 ):
@@ -261,7 +261,7 @@ One common approach is to load related objects using `selectinload()`.
 
 ```py
 @app.get("/books", response_model=list[BookOut])
-async def list_books_route(
+async def list_books(
     db: AsyncSession = Depends(get_db),
 ):
     statement = (
@@ -279,7 +279,7 @@ Another approach is to use `joinedload()`.
 
 ```py
 @app.get("/books-with-joined-author", response_model=list[BookOut])
-async def list_books_with_joined_author_route(
+async def list_books_with_joined_author(
     db: AsyncSession = Depends(get_db),
 ):
     statement = (
@@ -297,7 +297,7 @@ A different case appears when the query must filter across a related table. In t
 
 ```py
 @app.get("/authors/{author_name}/books", response_model=list[BookOut])
-async def list_books_by_author_name_route(
+async def list_books_by_author_name(
     author_name: str,
     db: AsyncSession = Depends(get_db),
 ):
@@ -358,7 +358,7 @@ Updates often allow partial data, so a separate schema is used.
 
 ```py
 @app.patch("/books/{book_id}", response_model=BookOut)
-async def update_book_route(
+async def update_book(
     book_id: int,
     payload: BookUpdate,
     db: AsyncSession = Depends(get_db),

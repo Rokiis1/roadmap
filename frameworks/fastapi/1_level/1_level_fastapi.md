@@ -172,7 +172,6 @@ def debug_items(request: Request, response: Response):
     print("Request method:", request.method)
     print("Request path:", request.url.path)
     print("Query string:", request.url.query)
-    print("Client:", request.client)
     print("Response status code:", response.status_code)
     return ["item1", "item2"]
 ```
@@ -319,7 +318,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/items/{item_id}")
-def get_item(item_id):
+def get_item(item_id) -> dict[str, int]:
     item_id = int(item_id)
     return {"item_id": item_id}
 ```
@@ -336,7 +335,7 @@ Multiple path parameters can be used in the same route.
 
 ```py
 @app.get("/users/{user_id}/posts/{post_id}")
-def get_post(user_id, post_id):
+def get_post(user_id, post_id) -> dict[str, int]:
     user_id = int(user_id)
     post_id = int(post_id)
     return {"user_id": user_id, "post_id": post_id}
@@ -362,7 +361,7 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.get("/items")
-def list_items(limit=None, offset=None):
+def list_items(limit=None, offset=None) -> dict[str, Optional[int]]:
     if limit is not None:
         limit = int(limit)
     if offset is not None:
@@ -380,7 +379,7 @@ A route can use both path parameters and query parameters at the same time.
 
 ```py
 @app.get("/items/{category}")
-def list_category_items(category, limit=None):
+def list_category_items(category, limit=None) -> dict[str, str | int | None]:
     if limit is not None:
         limit = int(limit)
     return {"category": category, "limit": limit}
@@ -465,7 +464,7 @@ Now use this model in a route.
 
 ```py
 @app.post("/items")
-def create_item(item: Item):
+def create_item(item: Item) -> Item:
     return item
 ```
 
@@ -496,7 +495,7 @@ If the parameter were defined without a Pydantic model, FastAPI would not treat 
 
 ```py
 @app.post("/items")
-def create_item(item):
+def create_item(-> Item) -> Item:
     return item
 ```
 
@@ -631,11 +630,11 @@ A simple example is a dependency that returns a database session.
 ```py
 from fastapi import Depends
 
-def get_db():
+def get_db() -> str:
     return "database connection"
 
 @app.get("/items")
-def list_items(db = Depends(get_db)):
+def list_items(db = Depends(get_db)) -> dict[str, str]:
     return {"db": db}
 ```
 
@@ -653,7 +652,7 @@ class ItemResponse(BaseModel):
     price: float
 
 @app.get("/items/{item_id}", response_model=ItemResponse)
-def get_item(item_id: int):
+def get_item(item_id: int) -> ItemResponse:
     return {"name": "Book", "price": 10.5}
 ```
 
@@ -686,7 +685,7 @@ If a route returns a dictionary, the response model works without any additional
 
 ```py
 @app.get("/items/{item_id}", response_model=ItemResponse)
-def get_item(item_id: int):
+def get_item(item_id: int) -> ItemResponse:
     return {"name": "Book", "price": 10.5}
 ```
 
@@ -733,7 +732,7 @@ For example, if a database model has attributes `name` and `price`, FastAPI can 
 
 ```py
 @app.get("/items/{item_id}", response_model=ItemResponse)
-def get_item(item_id: int):
+def get_item(item_id: int) -> ItemResponse:
     item = SomeORMItem(name="Book", price=10.5)
     return item
 ```

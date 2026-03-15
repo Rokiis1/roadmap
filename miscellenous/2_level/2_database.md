@@ -8,7 +8,7 @@
 - [Lazy loading vs eager loading](#lazy-loading-vs-eager-loading)
 - [Using joinedload to load related data](#using-joinedload-to-load-related-data)
 
-In the previous **Python FastAPI Database Level 2**, database interaction focused on working with **single tables**. ORM models were defined to represent database tables, sessions were used to execute queries, and CRUD operations allowed creating, reading, updating and deleting records.
+In the previous **Python FastAPI Database Level 1**, database interaction focused on working with **single tables**. ORM models were defined to represent database tables, sessions were used to execute queries, and CRUD operations allowed creating, reading, updating and deleting records.
 
 These operations worked with individual entities such as `Book` objects, where each query interacted with a single table.
 
@@ -317,7 +317,7 @@ When using the modern **SQLAlchemy 2.x style**, joins are written using the `sel
 ```py
 from sqlalchemy import select
 
-def list_books_with_authors(db: Session):
+def list_books_with_authors(db: Session) -> list[tuple[Book, Author]]:
     statement = (
         select(Book, Author)
         .join(Author, Book.author_id == Author.id)
@@ -332,7 +332,7 @@ When working with an asynchronous session, the query must be awaited.
 ```py
 from sqlalchemy.ext.asyncio import AsyncSession
 
-async def list_books_with_authors(db: AsyncSession):
+async def list_books_with_authors(db: AsyncSession) -> list[tuple[Book, Author]]:
     statement = (
         select(Book, Author)
         .join(Author, Book.author_id == Author.id)
@@ -357,7 +357,7 @@ Using the **SQLAlchemy 2.x style**, filtering across related tables can be writt
 ```py
 from sqlalchemy import select
 
-def list_books_by_author(db: Session, author_name: str):
+def list_books_by_author(db: Session, author_name: str) -> list[Book]:
     statement = (
         select(Book)
         .join(Author)
@@ -384,7 +384,7 @@ The `scalars()` method extracts the `Book` objects from the result set, since th
 When using asynchronous sessions, the structure of the query remains the same, but execution must be awaited.
 
 ```py
-async def list_books_by_author(db: AsyncSession, author_name: str):
+async def list_books_by_author(db: AsyncSession, author_name: str) -> list[Book]:
     statement = (
         select(Book)
         .join(Author)

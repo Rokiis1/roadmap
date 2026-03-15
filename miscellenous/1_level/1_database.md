@@ -430,9 +430,10 @@ When working inside a FastAPI application, table creation is typically performed
 
 ```py
 from contextlib import asynccontextmanager
+from collections.abc import AsyncIterator
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     # startup logic
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -481,7 +482,7 @@ If the engine is synchronous, the startup section would look like this.
 
 ```py
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     Base.metadata.create_all(bind=engine)
     yield
 ```
@@ -539,7 +540,15 @@ Instead of writing SQL manually, developers interact with Python **classes** and
 
 Another important responsibility of SQLAlchemy is **managing transactions**. When a session interacts with the database, a transaction is automatically started. Changes made within the session are not permanently stored until the transaction is committed.
 
-If an error occurs before the commit, the transaction can be rolled back and the changes are discarded. This helps protect the database from incomplete or inconsistent updates.
+If an error occurs before the commit, the transaction can be rolled back and the changes are discarded.
+
+```py
+db.rollback()
+```
+
+Calling `rollback()` cancels the current transaction and discards any pending changes that were not committed.
+
+This helps protect the database from incomplete or inconsistent updates.
 
 By tracking object changes is that **generating SQL statements** and **managing transactions** SQLAlchemy allows developers to work with database data using Python objects while maintaining reliable interaction with the underlying database system.
 
@@ -556,16 +565,8 @@ First, a session factory is created.
 ```py
 from sqlalchemy.orm import sessionmaker
 
-SessionLocal = sessionmaker(
-    bind=engine,
-    autoflush=False,
-    autocommit=False,
-)
+SessionLocal = sessionmaker(bind=engine)
 ```
-
-The `autoflush=False` setting disables automatic flushing of changes before certain query operations. Normally, SQLAlchemy may automatically send pending changes to the database before executing a query. Disabling autoflush gives more explicit control over when changes are written.
-
-The `autocommit=False` setting ensures that changes are not committed automatically. This means you must explicitly call `db.commit()` to persist changes.
 
 The `SessionLocal` object does **not** represent a session itself. Instead, it is a callable that produces new session instances. Each call to `SessionLocal()` creates a **new independent database session**.
 
@@ -588,44 +589,186 @@ def main():
             genre="Programming",
             pages=464,
             price=39.99,
-            available=True,
+            in_stock=True
         )
 
         # 4) stage object for insertion
         db.add(book)
 
-        # 5) persist changes
+        print("Querying books...")
+
+        # 5) query triggers autoflush
+        books = db.query(Book).all()
+
+        print("Books in DB:", [(book.id, book.title) for book in books])
+
+        # 6) persist transaction
         db.commit()
 
-        # 6) refresh object from DB
+        # 7) reload object from database
         db.refresh(book)
 
         print("Inserted book with id:", book.id)
 
-        # 7) read data using the same session
-        books = db.query(Book).all()
-        print("Books in DB:", [(book.id, book.title) for book in books])
+    except Exception as e:
+        # rollback transaction if something fails
+        db.rollback()
+        print("Error:", e)
 
     finally:
-        # 8) close session
+        # 6) close session
         db.close()
 ```
 
 When `SessionLocal()` is called, a new session instance is created. This session maintains its own **transaction state** and acts as a workspace for database operations.
 
-`db.add(book)` call does not immediately write data to the database. Instead, it places the object into the sessions pending state and then `db.commit()` call finalizes the transaction and persists all pending changes to the database. Until this point, no data is permanently stored.
+`db.add(book)` call does not immediately write data to the database. Instead, the object is placed into the session’s pending state.
+
+When the query `db.query(Book).all()` is executed, SQLAlchemy automatically flushes pending changes before running the `SELECT`. This behavior is known as `autoflush`. During this step the `INSERT` statement for the `book` object is sent to the database even though `commit()` has not yet been called.
+
+The transaction remains open at this stage. The inserted row is still part of the current transaction and can be rolled back if an error occurs later.
+
+The `db.commit()` call finalizes the transaction and makes the changes permanent in the database.
 
 After committing, `db.refresh(book)` reloads the object from the database. This is important because values generated by the database such as the primary key are not available until after the commit.
 
-The same session can then be used to execute queries. In this example, `db.query(Book).all()` retrieves all rows from the books table and returns them as ORM objects.
+If an exception occurs at any point during the transaction, `db.rollback()` is executed. Rollback cancels the current transaction and removes any changes that were flushed but not yet committed.
 
-Finally, the session is closed using `db.close()`. Closing the session releases database resources and ensures the connection is returned to the pool.
+Finally, the session is closed using `db.close()`. In this example, the session is created manually, so it must also be closed manually. Closing the session releases database resources and returns the connection to the pool.
 
 Each session should be created when needed, used for a specific unit of work, closed as soon as that work is complete.
 
 Leaving sessions open can lead to connection leaks and unpredictable behavior.
 
-When working with asynchronous database access, an `async` session must be used instead.
+This behavior becomes more important when the pending object is incomplete.
+
+```py
+def main():
+    Base.metadata.create_all(bind=engine)
+
+    db = SessionLocal()
+
+    try:
+        book = Book()
+        db.add(book)
+
+        print("Querying books...")
+
+        books = db.query(Book).all()
+
+        print("Books in DB:", [(book.id, book.title) for book in books])
+
+        db.commit()
+
+        db.refresh(book)
+
+    except Exception as e:
+        db.rollback()
+        print("Error:", e)
+
+    finally:
+        db.close()
+
+main()
+```
+
+In this version, the same query still triggers autoflush before the `SELECT` runs. The difference is that the `Book` object is now missing required values such as `title`, `author`, `year`, `genre`, `pages`, and `price`.
+
+SQLAlchemy therefore tries to insert an incomplete row during autoflush. Since those columns are declared with `nullable=False`, the database rejects the insert and raises an integrity error.
+
+The error looks like this.
+
+```bash
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush)
+(sqlite3.IntegrityError) NOT NULL constraint failed: books.title
+```
+
+This is the exact point where `flush()` becomes relevant.
+
+If autoflush is disabled, the query will no longer trigger that automatic write.
+
+```py
+SessionLocal = sessionmaker(bind=engine, autoflush=False)
+```
+
+With this configuration, the session keeps pending objects in memory until the application explicitly decides to flush them.
+
+That means the same example becomes more explicit.
+
+```py
+def main():
+    Base.metadata.create_all(bind=engine)
+
+    db = SessionLocal()
+
+    try:
+        book = Book(
+            title="Clean Code",
+            author="Robert C. Martin",
+            year=2008,
+            genre="Programming",
+            pages=464,
+            price=39.99,
+            in_stock=True
+        )
+
+        db.add(book)
+
+        db.flush()
+
+        print("Inserted book with id:", book.id)
+
+        books = db.query(Book).all()
+
+        print("Books in DB:", [(book.id, book.title) for book in books])
+
+        db.commit()
+
+        db.refresh(book)
+
+    except Exception as e:
+        db.rollback()
+        print("Error:", e)
+
+    finally:
+        db.close()
+
+main()
+```
+
+In the version, `autoflush=False` disables that automatic behavior, so `db.flush()` must be called manually when the pending changes should be sent to the database.
+
+`flush()` sends the SQL statements to the database without finalizing the transaction. The row is inserted inside the current transaction, so values such as the primary key become available immediately. If something fails afterwards, `db.rollback()` can still undo the transaction.
+
+In the same way, sessions are commonly configured with `autocommit=False`.
+
+```py
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    autocommit=False,
+)
+```
+
+`autocommit=False` ensures that database changes are not permanently written until `commit()` is called explicitly.
+
+Without this behavior, every SQL statement could potentially be committed automatically. That would make it difficult to control transactions because each operation would be finalized immediately after execution.
+
+With `autocommit=False`, all database operations remain part of the current transaction until the application explicitly decides to finalize them.
+
+This allows multiple operations to be grouped together as a single unit of work.
+
+For example, several inserts, updates, or deletes can be executed within the same transaction. If everything succeeds, `db.commit()` makes all of those changes permanent at once.
+
+If something fails during the process, `db.rollback()` can cancel the entire transaction and revert the database back to its previous state.
+
+This behavior is important because it guarantees transaction consistency. Without an explicit transaction boundary, a failure in the middle of a sequence of operations could leave the database partially updated.
+
+By keeping `autocommit=False`, the application retains full control over when changes become permanent and when they should be discarded.
+
+The same ideas applies to asynchronous sessions.
+
+An `async` session also autoflushes before queries unless that behavior is disabled. If `autoflush=False` is used, then `await db.flush()` is needed when pending changes should be written before a query or before a commit.
 
 The async session factory is created using `async_sessionmaker`.
 
@@ -635,7 +778,7 @@ from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
 AsyncSessionLocal = async_sessionmaker(
     bind=engine,
     autoflush=False,
-    expire_on_commit=False,
+    autocommit=False,
 )
 ```
 
@@ -665,30 +808,146 @@ async def main():
 
             # 4) stage object for insertion
             db.add(book)
+        
+        # transaction committed automatically here
 
-        # 5) transaction committed automatically after db.begin() block
+        await db.refresh(book)
+
         print("Inserted book with id:", book.id)
 
-        # 6) execute query
+        # 5) execute query
         result = await db.execute(select(Book))
 
-        # 7) extract ORM objects
+        # 6) extract ORM objects
         books = result.scalars().all()
 
-        print("Books in DB:", [(b.id, b.title) for b in books])
+        print("Books in DB:", [(book.id, book.title) for book in books])
+
+        except Exception as e:
+            await db.rollback()
+            print("Error:", e)
 
 if __name__ == "__main__":
     # 8) run async function
     asyncio.run(main())
 ```
 
-In the asynchronous version, `async` with `AsyncSessionLocal()` ensures that the session is properly opened and automatically closed once the block finishes execution. This prevents connection leaks and guarantees that resources are released correctly.
+In the asynchronous version, `async AsyncSessionLocal()` ensures that the session is properly opened and automatically closed once the block finishes execution. This prevents connection leaks and guarantees that resources are released correctly.
 
-`async` with `db.begin()` block manages the transaction context. When the block completes successfully, the transaction is committed automatically. If an exception occurs inside the block, the transaction is rolled back so `await` keyword is required when executing database operations because the `async` engine performs **non-blocking I/O**. Without `await`, the coroutine would not execute.
+`async with db.begin()` manages the transaction context. When the block is entered, a transaction is started automatically. If the block completes successfully, the transaction is committed automatically. If an exception occurs inside the block, the transaction is rolled back automatically. Because the transaction lifecycle is handled by the context manager, calling `commit()` manually is not required when this pattern is used.
+
+The `await` keyword is required when executing database operations because the async engine performs **non-blocking I/O**. Without `await`, the coroutine would not execute.
 
 The `select()` function is used instead of `db.query()` because asynchronous SQLAlchemy follows the newer **2.x style** query pattern. The `result.scalars().all()` call extracts ORM objects from the returned result set and then script is executed normally using Python.
 
 `asyncio.run(main())` call creates an event loop and runs the asynchronous function. Without this call, the async function would not execute because asynchronous functions must run inside an event loop.
+
+There are also situations where the application still needs to work with the same ORM object after the transaction has already been committed. In that case, another session option becomes relevant.
+
+```py
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    autocommit=False,
+    expire_on_commit=False,
+)
+```
+
+By default, SQLAlchemy expires ORM objects after a transaction is committed. This means that once `commit()` has finished, the values stored in that ORM object are marked as expired. If one of its attributes is accessed afterwards, SQLAlchemy may issue another query to reload the value from the database.
+
+This behavior is useful when the application wants to ensure that object data is always refreshed after a commit. However, it is not always necessary.
+
+For example, if the same object is still used after `commit()`, automatic expiration may cause an additional query.
+
+```py
+db.add(book)
+db.commit()
+
+print(book.title)
+```
+
+In this case, `book.title` may be reloaded from the database because the object was expired after the commit.
+
+When `expire_on_commit=False` is used, the ORM object keeps its already loaded values in memory after the commit.
+
+```py
+db.add(book)
+db.commit()
+
+print(book.title)
+```
+
+Here the code looks the same, but the behavior is different. The attribute can be accessed without SQLAlchemy automatically expiring and reloading the object after the transaction.
+
+This option is mainly useful when the same ORM object is accessed after `commit()` has already happened.
+
+If the object is not used anymore after the transaction finishes, then `expire_on_commit=False` is usually unnecessary.
+
+```py
+db.add(book)
+db.commit()
+```
+
+In this case, the transaction is completed and the object is not used again, so expiration does not create any practical problem.
+
+It is also often unnecessary when the code performs a new query after the transaction instead of continuing to use the previous ORM object.
+
+```py
+db.add(book)
+db.commit()
+
+book = db.query(Book).filter(Book.id == 1).first()
+```
+
+Here the application explicitly loads fresh data again, so automatic expiration is not an issue.
+
+The same idea applies to asynchronous sessions. When the transaction is managed with `async with db.begin()`, the transaction is committed automatically when the block finishes successfully.
+
+```py
+async with AsyncSessionLocal() as db:
+    async with db.begin():
+        book = Book(
+            title="Clean Code",
+            author="Robert C. Martin",
+            year=2008,
+            genre="Programming",
+            pages=464,
+            price=39.99,
+            in_stock=True,
+        )
+        db.add(book)
+```
+
+If the code does not continue using `book` after the block ends, then `expire_on_commit=False` is usually not needed.
+
+But if the same object is accessed after the transaction has already finished, then the setting can be useful.
+
+```py
+async with AsyncSessionLocal() as db:
+    async with db.begin():
+        book = Book(
+            title="Clean Code",
+            author="Robert C. Martin",
+            year=2008,
+            genre="Programming",
+            pages=464,
+            price=39.99,
+            in_stock=True,
+        )
+        db.add(book)
+
+    print(book.title)
+```
+
+With the default behavior, accessing `book.title` after the transaction may require SQLAlchemy to reload the expired value. With `expire_on_commit=False`, the already loaded value remains available in memory.
+
+So `expire_on_commit=False` is not something that must always be enabled. It is mainly useful in situations where the same ORM object is still needed after the transaction has already been committed. If the object is no longer used, or if the application performs a new query instead, then the default expiration behavior is usually enough.
+
+Enabling `expire_on_commit=False` is generally safe because it does not change how the transaction itself works. The commit still finalizes the transaction in the same way. The only difference is that ORM objects are not automatically expired after the commit.
+
+Because of that, some applications enable this option by default to avoid unexpected reloads or additional queries when the same object is accessed after a transaction. This can make application behavior easier to undestand, especially when ORM objects are returned or used immediately after committing changes.
+
+At the same time, if the application always loads fresh data with new queries or does not reuse ORM objects after the transaction finishes, keeping the default expiration behavior will usually work without any problems.
 
 Just like the synchronous session, the async session maintains its own transaction state and must be properly managed.
 
@@ -708,14 +967,16 @@ A common pattern is to define a dependency function that creates a session, yiel
 
 ```py
 from sqlalchemy.orm import sessionmaker
+from typing import Generator
 
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False,
+    expire_on_commit=False
 )
 
-def get_db():
+def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
         yield db
@@ -749,14 +1010,16 @@ When working with asynchronous database access, the same pattern is used, but th
 
 ```py
 from sqlalchemy.ext.asyncio import async_sessionmaker, AsyncSession
+from typing import AsyncGenerator
 
 AsyncSessionLocal = async_sessionmaker(
     bind=engine,
     autoflush=False,
+    autocommit=False,
     expire_on_commit=False,
 )
 
-async def get_db():
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
     async with AsyncSessionLocal() as db:
         yield db
 ```
@@ -773,7 +1036,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 app = FastAPI()
 
 @app.get("/books")
-async def list_books(db: AsyncSession = Depends(get_db)):
+async def list_books(db: AsyncSession = Depends(get_db)) -> List[Book]:
     result = await db.execute(select(Book))
     books = result.scalars().all()
     return books
@@ -831,7 +1094,7 @@ The `list[...]` notation is used because this route returns multiple records. If
 Individual records can be retrieved by applying filters.
 
 ```py
-def get_user_by_id(db: Session, book_id: int):
+def get_user_by_id(db: Session, book_id: int) -> Book | None:
     return db.query(Book).filter(Book.id == book_id).first()
 ```
 
@@ -846,7 +1109,7 @@ A common requirement is case-insensitive searching. SQLite string comparisons ar
 ```py
 from sqlalchemy import func
 
-def search_books_by_title(db: Session, query: str):
+def search_books_by_title(db: Session, query: str) -> list[Book]:
     pattern = f"%{query.lower()}%"
 
     return (
@@ -886,7 +1149,7 @@ In the asynchronous version, await is required when executing the query because 
 Filtering by ID in the async version looks like this.
 
 ```py
-async def get_book_by_id(db: AsyncSession, book_id: int):
+async def get_book_by_id(db: AsyncSession, book_id: int) -> Book | None:
     result = await db.execute(
         select(User).where(Book.id == user_id)
     )
@@ -910,7 +1173,7 @@ Case-insensitive search in the async version uses the same `func.lower(...).like
 ```py
 from sqlalchemy import func
 
-async def search_books_by_title(db: AsyncSession, query: str):
+async def search_books_by_title(db: AsyncSession, query: str) -> Book | None:
     pattern = f"%{query.lower()}%"
 
     result = await db.execute(
@@ -964,10 +1227,11 @@ To insert a new record, the validated Pydantic model is used to create the ORM o
 ```py
 from sqlalchemy.orm import Session
 
-def create_book(db: Session, data: BookCreate):
-    book = Book(**data.model_dump())
-    db.add(book)
-    db.commit()
+def create_book(db: Session, data: BookCreate) -> Book:
+    with db.begin():
+        book = Book(**data.model_dump())
+        db.add(book)
+
     db.refresh(book)
     return book
 ```
@@ -980,20 +1244,21 @@ This function can be used inside a FastAPI route.
 from fastapi import Depends
 
 @app.post("/books", response_model=BookOut)
-def create_book_route(payload: BookCreate, db: Session = Depends(get_db)):
+def create_book_route(payload: BookCreate, db: Session = Depends(get_db)) -> Book:
     return create_book(db, payload)
 ```
 
 Updating existing records follows a similar pattern.
 
 ```py
-def update_book_price(db: Session, book_id: int, data: BookUpdatePrice):
-    book = db.query(Book).filter(Book.id == book_id).first()
-    if book is None:
-        return None
+def update_book_price(db: Session, book_id: int, data: BookUpdatePrice) -> Book:
+    with db.begin():
+        book = db.query(Book).filter(Book.id == book_id).first()
+        if book is None:
+            return None
 
-    book.price = data.price
-    db.commit()
+        book.price = data.price
+
     db.refresh(book)
     return book
 ```
@@ -1001,13 +1266,14 @@ def update_book_price(db: Session, book_id: int, data: BookUpdatePrice):
 Deleting records is also handled through the session.
 
 ```py
-def delete_book(db: Session, book_id: int):
-    book = db.query(Book).filter(Book.id == book_id).first()
-    if book is None:
-        return None
+def delete_book(db: Session, book_id: int) -> bool:
+    with db.begin():
+        book = db.query(Book).filter(Book.id == book_id).first()
+        if book is None:
+            return False
 
-    db.delete(book)
-    db.commit()
+        db.delete(book)
+
     return True
 ```
 
@@ -1017,10 +1283,11 @@ When using asynchronous database access, write operations must use an async sess
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 
-async def create_book(db: AsyncSession, data: BookCreate):
-    book = Book(**data.model_dump())
-    db.add(book)
-    await db.commit()
+async def create_book(db: AsyncSession, data: BookCreate) -> Book:
+    async with db.begin():
+        book = Book(**data.model_dump())
+        db.add(book)
+
     await db.refresh(book)
     return book
 ```
@@ -1029,23 +1296,24 @@ Async route example.
 
 ```py
 @app.post("/books", response_model=BookOut)
-async def create_book_route(payload: BookCreate, db: AsyncSession = Depends(get_db)):
+async def create_book_route(payload: BookCreate, db: AsyncSession = Depends(get_db)) -> Book:
     return await create_book(db, payload)
 ```
 
 Async update example.
 
 ```py
-async def update_book_price(db: AsyncSession, book_id: int, data: BookUpdatePrice):
-    result = await db.execute(
-        select(Book).where(Book.id == book_id)
-    )
-    book = result.scalars().first()
-    if book is None:
-        return None
+async def update_book_price(db: AsyncSession, book_id: int, data: BookUpdatePrice) -> Book | None:
+    async with db.begin():
+        result = await db.execute(
+            select(Book).where(Book.id == book_id)
+        )
+        book = result.scalars().first()
+        if book is None:
+            return None
 
-    book.price = data.price
-    await db.commit()
+        book.price = data.price
+
     await db.refresh(book)
     return book
 ```
@@ -1053,17 +1321,19 @@ async def update_book_price(db: AsyncSession, book_id: int, data: BookUpdatePric
 Async delete example.
 
 ```py
-async def delete_book(db: AsyncSession, book_id: int):
-    result = await db.execute(
-        select(Book).where(Book.id == book_id)
-    )
-    book = result.scalars().first()
-    if book is None:
-        return None
+async def delete_book(db: AsyncSession, book_id: int) -> Book | None:
+    async with db.begin():
+        result = await db.execute(
+            select(Book).where(Book.id == book_id)
+        )
+        book = result.scalars().first()
+        if book is None:
+            return None
 
-    await db.delete(book)
-    await db.commit()
-    return True
+        book.price = data.price
+
+    await db.refresh(book)
+    return book
 ```
 
 At this level, each write operation explicitly commits its changes.Transaction management are introduced later. The goal here is to understand how ORM objects are created, modified, and persisted using a database session inside a FastAPI application.
