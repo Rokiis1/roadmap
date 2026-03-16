@@ -28,6 +28,8 @@ Common layers used in many applications include
 
 Applications also include folders that support the entire system.
 
+These folders are not separate layers, but they contain shared or infrastructure components used across multiple layers of the application.
+
 Folders such as **database** or **db** may contain components responsible for connecting the application to the storage system.
 
 The **core** folder may contain **configuration**, **security utilities** or **other shared components** used across the application.
