@@ -14,6 +14,8 @@ Instead of placing all logic in one place, the application is divided into layer
 
 The layered architecture pattern organizes the internal structure of an application into several layers. Each layer represents a different type of responsibility inside the system.
 
+![layered_pattern](./assets/images/layered_pattern.png)
+
 Common layers used in many applications include
 
 - **Presentation layer** responsible for communication with external clients. It receives requests from users or other systems and returns responses, commonly appear in folders such as **api**, **routes**, or **controllers**.
