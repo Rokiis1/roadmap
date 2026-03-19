@@ -11,9 +11,7 @@
 - [Autogenerating migrations from ORM models](#autogenerating-migrations-from-orm-models)
 - [Applying migrations to the database](#applying-migrations-to-the-database)
 - [Downgrading migrations](#downgrading-migrations)
-- [Understanding Alembic revision files](#understanding-alembic-revision-files)
 - [Updating database schemas safely](#updating-database-schemas-safely)
-- [Working with migrations in FastAPI projects](#working-with-migrations-in-fastapi-projects)
 
 In the previous level, we explored how SQLAlchemy ORM models represent database tables and how relationships, queries, and loading strategies allow applications to retrieve and organize data. These models define the structure of the database schema used by the application.
 
@@ -57,7 +55,7 @@ class Book(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String)
     price: Mapped[float] = mapped_column(Float)
-    published_year: Mapped[int] = mapped_column(Integer)
+    isbn: Mapped[int] = mapped_column(Integer)
 ```
 
 Updating the model alone does not update the existing database table. The database schema still reflects the old structure, which can lead to inconsistencies between the application code and the database.
@@ -65,7 +63,7 @@ Updating the model alone does not update the existing database table. The databa
 Without a migration system, developers would need to manually modify the database schema using SQL statements such as
 
 ```sql
-ALTER TABLE books ADD COLUMN published_year INTEGER;
+ALTER TABLE books ADD COLUMN isbn INTEGER;
 ```
 
 Managing schema changes manually becomes difficult and risky. Multiple environments such as **development**, **testing** and **production** must all maintain the same schema, and changes must be applied in the correct order.
@@ -88,7 +86,7 @@ In the following sections, we will introduce Alembic and configure it to manage 
 
 Once it is clear why database migrations are needed, the next step is to look at the tool that manages them.
 
-In Python projects that use SQLAlchemy, the standard migration tool is *Alembic*.
+In Python projects that use SQLAlchemy, the standard migration tool is **Alembic**.
 
 Alembic works alongside SQLAlchemy and helps track changes to the database schema over time. Instead of modifying database tables manually every time the models change, developers create migration revisions that describe how the schema should move from one version to another.
 
@@ -96,7 +94,7 @@ A migration revision is simply a Python file that contains instructions for upda
 
 This is important because schema changes are rarely one-time events. During development, the database structure may evolve many times. A project might start with a `books` table, then later add an `authors` table, then later add a new column such as `published_year`. Alembic helps manage these changes in the correct order.
 
-Alembic does not replace SQLAlchemy. SQLAlchemy still defines the ORM models and database structure in Python code. Alembic uses those models as a reference and generates migration steps that can be applied to the actual database.
+SQLAlchemy still defines the ORM models and database structure in Python code. Alembic uses those models as a reference and generates migration steps that can be applied to the actual database.
 
 This creates a clear separation of responsibilities. SQLAlchemy defines what the schema should look like in code and Alembic manages how the real database is updated over time to match that schema.
 
@@ -170,7 +168,6 @@ alembic.ini
 Each part of this structure has a specific responsibility.
 
 - `alembic.ini` file contains the main Alembic configuration. This is where the database URL can be defined if the project uses a direct configuration approach.
-
 - `alembic/` directory contains the migration environment itself.
   - `versions/` stores individual migration revision files. Each time a new migration is created, Alembic places a new Python file inside this folder.
   - `env.py` defines how Alembic connects to the database and how it discovers the SQLAlchemy metadata used for autogeneration.
@@ -196,17 +193,32 @@ For simple learning projects, this direct approach is enough. However, many Fast
 
 That setup is usually handled inside `env.py`.
 
-For example, if the FastAPI project stores the URL in a module such as `app.db.database`, the Alembic environment can import it.
+For example, if the FastAPI project stores the URL in a module such as `database`, the Alembic environment can import it.
 
 ```py
-from app.db.database import DATABASE_URL
-
-config.set_main_option("sqlalchemy.url", DATABASE_URL)
+from database import DATABASE_URL
 ```
 
-This allows Alembic to use the same database URL as the application itself.
+Even if the application uses an asynchronous database URL such as
 
-That consistency is important because migrations should run against the same database configuration used by SQLAlchemy in the FastAPI project.
+```py
+sqlite+aiosqlite:///./app.db
+```
+
+Alembic migrations are typically executed using a synchronous connection.
+
+Because of that, the async driver part is removed before configuring Alembic.
+
+```py
+sync_database_url = DATABASE_URL.replace("+aiosqlite", "")
+config.set_main_option("sqlalchemy.url", sync_database_url)
+```
+
+This allows Alembic to use the same database file as the application, while still using a synchronous connection that works reliably for migrations.
+
+Migrations are executed as standalone commands and are not part of the async request handling used by FastAPI. Because of that, they do not need to use the async driver.
+
+That consistency is important because migrations should run against the same database used by the application, even if the connection style differs.
 
 Once the database connection is configured, Alembic still needs one more important piece. It must know which SQLAlchemy metadata describes the schema.
 
@@ -236,3 +248,443 @@ from app.db.models import Base
 
 target_metadata = Base.metadata
 ```
+
+The `target_metadata` variable is the link between Alembic and the SQLAlchemy models.
+
+When Alembic performs autogeneration, it compares `target_metadata` against the actual database schema. It then determines which tables, columns, and constraints have changed.
+
+This means the project models must be imported correctly before migration generation runs. If a model is missing from the imports, Alembic will not see it in the metadata and may fail to detect the schema structure properly.
+
+For example, if the project has separate model files such as `book.py`, `author.py` and `category.py`, they usually need to be imported somewhere in the models package so that they are registered before `Base.metadata` is inspected.
+
+A common pattern is to make sure `models.__init__.py` imports all model classes.
+
+```py
+from models import Book, Author, Category
+```
+
+Once Alembic is connected to the correct metadata, it is ready to create migration revisions based on the models.
+
+The first migration usually captures the initial schema of the project.
+
+## Creating the first migration
+
+The first migration records the initial database structure defined by the ORM models.
+
+If the project already contains models such as `Book`, `Author` or `Category`, Alembic can generate the initial revision automatically.
+
+If the project uses `pip`
+
+```bash
+alembic revision --autogenerate -m "create initial tables"
+```
+
+If the project uses **Poetry**
+
+```bash
+poetry run alembic revision --autogenerate -m "create initial tables"
+```
+
+This command tells Alembic to inspect the SQLAlchemy metadata, compare it to the current database schema, and generate a new revision file.
+
+The `-m` value is the human-readable message attached to the migration. It helps describe what the revision is intended to do.
+
+If the database is empty and the models define several tables, Alembic generates operations to create those tables.
+
+The resulting revision file is placed inside the `alembic/versions` directory.
+
+A typical revision file looks like this.
+
+```py
+from typing import Sequence, Union
+
+from alembic import op
+import sqlalchemy as sa
+
+
+# revision identifiers, used by Alembic.
+revision: str = 'b71f64b3eed0'
+down_revision: Union[str, Sequence[str], None] = None
+branch_labels: Union[str, Sequence[str], None] = None
+depends_on: Union[str, Sequence[str], None] = None
+
+
+def upgrade() -> None:
+    """Upgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    pass
+    # ### end Alembic commands ###
+
+
+def downgrade() -> None:
+    """Downgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    pass
+    # ### end Alembic commands ###
+```
+
+The `revision` value uniquely identifies this migration.
+
+The `down_revision` value points to the revision that comes immediately before it.
+
+Together, these identifiers form a chain of migration history. Alembic uses that chain to determine the correct order in which migrations must be applied.
+
+The `upgrade()` function describes how to move the schema forward.
+
+The `downgrade()` function describes how to undo that change.
+
+Even when Alembic generates the revision automatically, the file should still be reviewed. Autogeneration helps a lot, but developers are still responsible for checking that the migration actually matches the intended schema change.
+
+Once the first migration is created, later changes to the ORM models can also be turned into migration files.
+
+## Autogenerating migrations from ORM models
+
+One of Alembic’s most useful features is autogeneration.
+
+When the ORM models change, Alembic can compare the updated metadata to the current database schema and generate the migration operations needed to bring the database up to date.
+
+For example, suppose the original Book model contains these fields.
+
+```py
+class Book(TimestampMixin, Base):
+    __tablename__ = "books"
+    __table_args__ = (
+        CheckConstraint("pages > 0", name="check_book_pages_positive"),
+        CheckConstraint("price >= 0", name="check_book_price_non_negative"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    title: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    year: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
+    pages: Mapped[int] = mapped_column(Integer, nullable=False)
+    price: Mapped[float] = mapped_column(Float, nullable=False)
+    in_stock: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+
+    author_id: Mapped[int] = mapped_column(
+        ForeignKey("authors.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+
+    author: Mapped["Author"] = relationship(
+        back_populates="books",
+    )
+
+    categories: Mapped[list["Category"]] = relationship(
+        secondary=book_category,
+        back_populates="books",
+    )
+```
+
+Later, the application may need to store the publication year.
+
+```py
+class Book(TimestampMixin, Base):
+    __tablename__ = "books"
+    __table_args__ = (
+        CheckConstraint("pages > 0", name="check_book_pages_positive"),
+        CheckConstraint("price >= 0", name="check_book_price_non_negative"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    title: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    year: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
+    pages: Mapped[int] = mapped_column(Integer, nullable=False)
+    price: Mapped[float] = mapped_column(Float, nullable=False)
+    isbn: Mapped[int] = mapped_column(Integer, nullable=False)
+    in_stock: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+
+    author_id: Mapped[int] = mapped_column(
+        ForeignKey("authors.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+
+    author: Mapped["Author"] = relationship(
+        back_populates="books",
+    )
+
+    categories: Mapped[list["Category"]] = relationship(
+        secondary=book_category,
+        back_populates="books",
+    )
+```
+
+After the model is updated, a new migration can be generated.
+
+If the project uses `pip`
+
+```bash
+alembic revision --autogenerate -m "add isbn to books"
+```
+
+If the project uses `Poetry`
+
+```bash
+poetry run alembic revision --autogenerate -m "add isbn to books"
+```
+
+However, when creating a second or later migration, Alembic may raise an error like this.
+
+```bash
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+ERROR [alembic.util.messaging] Target database is not up to date.
+FAILED: Target database is not up to date.
+```
+
+This happens when a previous migration file has already been created, but the database itself has not yet been upgraded to that latest revision.
+
+In other words, the migration history in the `versions` directory has moved forward, but the actual database schema is still behind.
+
+Alembic does not allow generating a new migration on top of an outdated database state. Before creating another revision, the existing migrations must first be applied to the database.
+
+That is done with the upgrade command.
+
+## Applying migrations to the database
+
+Creating a migration file does not change the database by itself.
+
+The migration must be applied using the Alembic upgrade command.
+
+If the project uses `pip`
+
+```bash
+alembic upgrade head
+```
+
+If the project uses **Poetry**
+
+```bash
+poetry run alembic upgrade head
+```
+
+The word `head` means the latest available revision in the migration history.
+
+When this command runs, Alembic connects to the database, checks which revisions have already been applied, and executes any missing `upgrade()` functions in order.
+
+A successful execution produces output similar to this.
+
+```bash
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.schemas
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.tables
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.types
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.constraints
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.defaults
+INFO  [alembic.runtime.plugins] setting up autogenerate plugin alembic.autogenerate.comments
+INFO  [alembic.autogenerate.compare.tables] Detected added column 'books.isbn'
+Generating
+done
+```
+
+This output confirms that Alembic has applied the migration and updated the database schema to the latest revision.
+
+For example, if the project has an initial migration and then a second migration that adds a new column, Alembic applies both in sequence if the database is still behind.
+
+Alembic also creates its own internal table named `alembic_version`. This table stores the current revision identifier applied to the database.
+
+That is how Alembic knows which migrations have already run and which ones still need to be executed.
+
+Applying migrations in this way keeps the database schema synchronized with the evolution of the application code.
+
+In development, this often happens whenever the models change and a new revision is created.
+
+In real projects, the same process is also used in test and production environments so that all databases follow the same schema history.
+
+Sometimes, however, a schema change must be reversed.
+
+That is where downgrading becomes relevant.
+
+## Downgrading migrations
+
+Alembic revisions support both forward and backward movement through schema history.
+
+The `upgrade()` function moves the schema to a newer version and the `downgrade()` function reverts it to the previous one.
+
+To move back one revision, Alembic provides the downgrade command.
+
+If the project uses `pip`
+
+```bash
+alembic downgrade -1
+```
+
+If the project uses `Poetry`
+
+```bash
+poetry run alembic downgrade -1
+```
+
+This tells Alembic to undo the most recent migration.
+
+A successful execution produces output similar to this.
+
+```bash
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade b71f64b3eed0 -> , create initial tables
+```
+
+This output shows that the latest revision was removed and the database schema was moved one step backward.
+
+A specific target revision can also be used.
+
+If the project uses `pip`
+
+```bash
+alembic downgrade b71f64b3eed0
+```
+
+If the project uses `Poetry`
+
+```bash
+poetry run alembic downgrade b71f64b3eed0
+```
+
+In that case, Alembic downgrades the database until it reaches the specified revision.
+
+A successful execution produces output similar to this.
+
+```bash
+INFO  [alembic.runtime.migration] Context impl SQLiteImpl.
+INFO  [alembic.runtime.migration] Will assume non-transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade a06a32c0230e -> b71f64b3eed0, add published year to books
+```
+
+This means the database was moved from a newer revision back to the specified one.
+
+Downgrading is especially useful during development and testing, where schema changes may need to be adjusted repeatedly.
+
+For example, if a migration adds the wrong column or uses an incorrect constraint, downgrading allows the database to return to the earlier state before a corrected migration is created.
+
+The ability to upgrade and downgrade safely is one of the main reasons migration systems are preferred over manual schema editing.
+
+As schema changes become more frequent, it becomes important not only to create migrations, but to create them carefully.
+
+## Updating database schemas safely
+
+Changing a database schema affects stored data, application logic, and sometimes even deployment order.
+
+Because of that, migrations should be written and applied carefully.
+
+A small change in an ORM model may produce a migration that looks simple, but the effect on the real database can still be significant.
+
+For example, suppose the `Book` model is updated to add a new field.
+
+```py
+class Book(TimestampMixin, Base):
+    __tablename__ = "books"
+    __table_args__ = (
+        CheckConstraint("pages > 0", name="check_book_pages_positive"),
+        CheckConstraint("price >= 0", name="check_book_price_non_negative"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    title: Mapped[str] = mapped_column(String(255), nullable=False, index=True)
+    year: Mapped[int] = mapped_column(Integer, nullable=False, index=True)
+    pages: Mapped[int] = mapped_column(Integer, nullable=False)
+    price: Mapped[float] = mapped_column(Float, nullable=False)
+    published_year: Mapped[int] = mapped_column(Integer, nullable=False)
+    in_stock: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+
+    author_id: Mapped[int] = mapped_column(
+        ForeignKey("authors.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+
+    author: Mapped["Author"] = relationship(
+        back_populates="books",
+    )
+
+    categories: Mapped[list["Category"]] = relationship(
+        secondary=book_category,
+        back_populates="books",
+    )
+```
+
+After autogeneration, Alembic may produce a migration like this.
+
+```py
+def upgrade() -> None:
+    """Upgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.add_column('books', sa.Column('isbn', sa.INTEGER(), nullable=False))
+    # ### end Alembic commands ###
+
+
+def downgrade() -> None:
+    """Downgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.drop_column('books', 'isbn')
+    # ### end Alembic commands ###
+```
+
+At first glance, this migration looks straightforward. However, if the `books` table already contains rows, adding a new column with `nullable=False` may fail because existing records do not yet have a value for `isbn`.
+
+This is exactly why autogenerated migrations should always be reviewed before being applied. The migration may be structurally correct, but the developer still needs to think about how it behaves against existing data.
+
+In practice, when adding a new column to a table that already contains data, the change is usually performed in steps.
+
+Instead of adding the column as non-nullable immediately, the column is first introduced in a way that does not break existing rows.
+
+For example, the migration can be adjusted like this.
+
+```py
+def upgrade() -> None:
+    """Upgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.alter_column('books', 'isbn',
+               existing_type=sa.INTEGER(),
+               nullable=True)
+    # ### end Alembic commands ###
+```
+
+This allows the database to accept the new column without requiring values for existing records.
+
+After the column is added, the existing rows can be updated with appropriate values. This step depends on the application logic and may involve setting default values or computing them based on other fields.
+
+Once all rows contain valid data, the column can be changed to enforce the constraint.
+
+Another example is removing an existing field from the model. Suppose the `genre` field is removed from `Book`. Alembic may generate a migration like this.
+
+```py
+def upgrade() -> None:
+    """Upgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.drop_index(op.f('ix_books_genre'), table_name='books')
+    op.drop_column('books', 'genre')
+    # ### end Alembic commands ###
+
+
+def downgrade() -> None:
+    """Downgrade schema."""
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.add_column('books', sa.Column('genre', sa.VARCHAR(length=100), nullable=False))
+    op.create_index(op.f('ix_books_genre'), 'books', ['genre'], unique=False)
+    # ### end Alembic commands ###
+```
+
+This migration is also valid from Alembic’s point of view, but it carries more risk. Dropping a column removes part of the schema, and the data stored in that column may be lost.
+
+That is why destructive changes such as dropping columns or tables should be reviewed even more carefully. In development, such changes are often acceptable while the schema is still evolving. In real projects, especially once important data already exists, these operations should be treated with caution.
+
+It is also important to distinguish between the ORM model code and the migration code.
+
+In the ORM model, **SQLAlchemy 2.x** uses `Mapped[...]` together with `mapped_column(...)`.
+
+```py
+published_year: Mapped[int] = mapped_column(Integer, nullable=False)
+```
+
+In the Alembic revision file, the generated operations use `sa.Column(...)`.
+
+```py
+op.add_column('books', sa.Column('published_year', sa.Integer(), nullable=False))
+```
+
+This difference is expected. The model describes the table structure inside the application, while the migration file describes the database operation needed to change the schema.
+
+For that reason, migrations are not just a technical detail. They are part of how a project evolves safely over time.

@@ -426,7 +426,7 @@ These tools allow developers to control how relationships are retrieved dependin
 
 In many APIs, related objects must be returned together with the main entity. In such cases, the application often instructs SQLAlchemy to load the related objects during the initial query.
 
-The most common loading strategies include `joinedload()` loads related objects using a SQL JOIN, `selectinload()` loads related objects using a separate SELECT query and lazy loading loads related objects automatically when accessed
+The most common loading strategies include `joinedload()` loads related objects using a SQL **JOIN**, `selectinload()` loads related objects using a separate **SELECT** query and lazy loading loads related objects automatically when accessed
 
 Among these strategies, `joinedload()` is often the first one encountered when working with related data. It allows related objects to be retrieved together with the main entity as part of the same query.
 
@@ -434,7 +434,7 @@ Among these strategies, `joinedload()` is often the first one encountered when w
 
 One of the most common loading strategies in SQLAlchemy is `joinedload()`.
 
-The `joinedload` option instructs SQLAlchemy to retrieve related objects using a SQL JOIN as part of the original query.
+The `joinedload` option instructs SQLAlchemy to retrieve related objects using a SQL **JOIN** as part of the original query.
 
 For example, if a `Book` has an associated `Author`, the query can request both objects at the same time.
 
@@ -452,7 +452,7 @@ books = result.scalars().all()
 
 In this case, SQLAlchemy retrieves both books and their authors in a single database query.
 
-Conceptually, `joinedload()` also uses a SQL JOIN behind the scenes. However, its purpose is different from the `join()` method.
+Conceptually, `joinedload()` also uses a SQL **JOIN** behind the scenes. However, its purpose is different from the `join()` method.
 
 The `join()` method changes the structure of the query and is typically used for filtering or combining data across tables.
 
