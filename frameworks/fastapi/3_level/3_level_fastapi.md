@@ -4,9 +4,7 @@
 - [Middleware](#middleware)
 - [Cors](#cors)
 
-In **Python FastAPI Level 1**, the focus was on the basic structure of a FastAPI application. Routes were defined directly on the application object, request data was validated, and responses were returned in a structured way.
-
-In **Python FastAPI Level 2**, the application was extended to work with database models, Pydantic schemas, and related data. At that stage, routes became more realistic because they had to coordinate request validation, database access, and nested response structures.
+In the previous levels, we built a FastAPI application by defining routes, validating request data, and then extending it to work with database models, Pydantic schemas, and related data so that routes could handle real application logic and return structured responses.
 
 As an application grows, another problem appears. Even if each individual route is correct, placing all routes directly in one file quickly becomes difficult to manage. The code becomes longer, different parts of the application become mixed together, and the overall structure becomes harder to follow.
 
