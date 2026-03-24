@@ -93,6 +93,20 @@ Sometimes, logic should not be repeated inside every route. There are cases wher
 
 Middleware is a function that sits between the incoming request and the route. It receives the request before the route runs, and it also receives the response after the route finishes.
 
+A simple way to imagine this is a security check at an airport. Every passenger must pass through the same checkpoint before reaching their gate. The security check does not care where the passenger is going. It performs the same checks for everyone. After the passenger passes through, they continue to their destination.
+
+The same idea is shown in the diagram.
+
+![Middleware diagram](./assets/images/middleware.png)
+
+The request starts from the client and enters the server. Before it reaches the FastAPI route, it first goes through middleware.
+
+Then the route processes the request and creates a response.
+
+After the route finishes, the response goes back through the middleware again before it is sent to the client.
+
+This means middleware wraps around the route. It runs before the route and continues running after the route finishes.
+
 A simple middleware looks like this.
 
 ```py
@@ -143,9 +157,9 @@ In the next section, we will see a practical use case of middleware when working
 
 ## Cors
 
-In **Web Development**, CORS was already explained as a browser security rule that controls whether a frontend running on one origin is allowed to send requests to a backend on another origin.
+In curriculum **Security**, CORS was already explained as a browser security rule that controls whether a frontend running on one origin is allowed to send requests to a backend on another origin.
 
-At this level, the focus is not on the theory again, but on how CORS is integrated into a FastAPI application.
+At this we focus is not on the theory again, but on how CORS is integrated into a FastAPI application.
 
 FastAPI handles CORS through middleware. This means the application is configured once, and the rules are applied automatically to incoming browser requests.
 

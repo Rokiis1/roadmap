@@ -90,6 +90,8 @@ In Python projects that use SQLAlchemy, the standard migration tool is **Alembic
 
 Alembic works alongside SQLAlchemy and helps track changes to the database schema over time. Instead of modifying database tables manually every time the models change, developers create migration revisions that describe how the schema should move from one version to another.
 
+![migration_alembic](./assets/images/migration_alembic.png)
+
 A migration revision is simply a Python file that contains instructions for updating the database structure. These instructions usually define two directions. One direction upgrades the schema to a newer version and the other direction downgrades it back to an earlier version.
 
 This is important because schema changes are rarely one-time events. During development, the database structure may evolve many times. A project might start with a `books` table, then later add an `authors` table, then later add a new column such as `published_year`. Alembic helps manage these changes in the correct order.
