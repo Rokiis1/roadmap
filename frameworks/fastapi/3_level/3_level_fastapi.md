@@ -3,6 +3,7 @@
 - [Router](#router)
 - [Middleware](#middleware)
 - [Cors](#cors)
+- [Configuration Management with BaseSettings](#configuration-management-with-basesettings)
 
 In the previous levels, we built a FastAPI application by defining routes, validating request data, and then extending it to work with database models, Pydantic schemas, and related data so that routes could handle real application logic and return structured responses.
 
@@ -211,3 +212,108 @@ Even though both are local, they are different origins, so the browser applies C
 CORS middleware is usually added near the start of the application setup, after creating the FastAPI app and before the application starts handling requests.
 
 At this level, it is enough to understand that CORS in FastAPI is enabled by adding `CORSMiddleware` and configuring which origins, methods, headers, and credentials are allowed.
+
+In applications, these configuration values should not be hardcoded. Instead, they are typically managed in a structured and flexible way.
+
+## Configuration Management with BaseSettings
+
+**BaseSettings** is a utility that allows an application to load configuration values from environment variables or `.env` files instead of hardcoding them in the code  is typically used at the **application entry point** to define all configuration in one place. It acts as a central source of truth that other parts of the application import and use.
+
+It works by defining a class where each attribute represents a configuration value. When the application starts, these values are automatically read from the environment.
+
+This allows the same codebase to run in different environments with different configurations without modification.
+
+To use this functionality, the required package must be installed.
+
+Using `pip`
+
+```bash
+pip install pydantic-settings
+```
+
+Using poetry
+
+```bash
+poetry add pydantic-settings
+```
+
+Once installed, a configuration class can be defined.
+
+```py
+import os
+from pydantic_settings import BaseSettings
+
+ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
+
+class Settings(BaseSettings):
+    CORS_ORIGINS: list[str]
+    CORS_ALLOW_CREDENTIALS: bool = True
+    CORS_ALLOW_METHODS: list[str] = ["*"]
+    CORS_ALLOW_HEADERS: list[str] = ["*"]
+
+    DATABASE_URL: str
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+```
+
+In this approach, configuration values are written in **UPPERCASE** because they represent **environment-based constants**.
+
+The `ENVIRONMENT` variable determines which configuration file is loaded. If it is not explicitly set, the application defaults to `development`.
+
+This variable is typically defined in a base `.env` file or as a system environment variable.
+
+```env
+ENVIRONMENT=development
+```
+
+Based on this value, the application loads a corresponding configuration file.
+
+```env
+# .env.development
+CORS_ORIGINS=["http://localhost:3000"]
+
+DATABASE_URL=sqlite+aiosqlite:///./app.db
+```
+
+Or
+
+```env
+# .env.production
+CORS_ORIGINS=["https://myapp.com"]
+DATABASE_URL=postgresql+asyncpg://user:password@db:5432/app
+```
+
+When `Settings()` is created, `BaseSettings` automatically looks for environment variables with the same names.
+
+If these variables exist, they override the default values defined in the class. If not, the default values are used.
+
+At runtime, this means that the application does not rely on hardcoded values, and configuration is loaded dynamically from the environment. This makes it possible for different environments to provide different values without requiring any changes to the code.
+
+These settings are then used wherever configuration is needed in the application.
+
+For example, in CORS configuration
+
+```py
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.CORS_ORIGINS,
+    allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
+    allow_methods=settings.CORS_ALLOW_METHODS,
+    allow_headers=settings.CORS_ALLOW_HEADERS,
+)
+```
+
+And in database setup
+
+```py
+from sqlalchemy.ext.asyncio import create_async_engine
+
+engine = create_async_engine(settings.DATABASE_URL)
+```
+
+Here, the configuration is treated as constants and accessed directly from the settings object.

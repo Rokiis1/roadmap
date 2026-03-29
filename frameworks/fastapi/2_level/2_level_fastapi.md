@@ -1,6 +1,6 @@
 # Content of Python FastAPI Level 2
 
-- [Validation with Path, Query, and Pydantic](#validation-with-path-query-and-pydantic)
+- [Validation incoming data with Path, Query, Body and Pydantic](#validation-incoming-data-with-path-query-body-and-pydantic)
 - [Request body models](#request-body-models)
 
 In **Python FastAPI Level 1**, we handled incoming data manually. Values coming from the URL were received as strings, and we explicitly converted them, validated them, and raised errors when something went wrong. This made the request flow clear, but it also introduced repetitive code.
@@ -9,7 +9,7 @@ In this level, FastAPI takes over some of that repetitive work. Input is still c
 
 We start by looking at how FastAPI validates values coming from the URL.
 
-## Validation with Path, Query and Pydantic
+## Validation incoming data with Path, Query, Body and Pydantic
 
 In **Python FastAPI Level 1**, values coming from the URL were accepted as raw text and validated manually inside the route logic. In this level, validation is moved to the framework layer.
 
@@ -55,7 +55,26 @@ The `= None` default is required when declaring an optional parameter. Without a
 
 If a query parameter is omitted, the default value is used. If a value is provided but violates a rule, the request is rejected.
 
-Validation also applies to **structured data sent in the request body**. Instead of `Path` or `Query`, request bodies are validated using **Pydantic models**.
+Validation also applies to values sent in the **request body**.
+
+FastAPI provides the `Body` function to describe and validate data that comes from the request body, in the same way `Path` and `Query` are used for URL parameters.
+
+```py
+from fastapi import Body
+
+@app.post("/books")
+def create_book(
+    title: Annotated[str, Body(min_length=1)],
+    price: Annotated[float, Body(gt=0)],
+):
+    return {"title": title, "price": price}
+```
+
+In this example, `title` and `price` are expected to come from the request body. FastAPI validates them before the route function runs.
+
+In practice, request bodies are usually represented using **Pydantic models**. Instead of defining each field separately, a model describes the full structure of the incoming data.
+
+Instead of `Path` or `Query`, request bodies are validated using **Pydantic models**.
 
 ```py
 from pydantic import BaseModel, Field
@@ -92,6 +111,32 @@ class AuthorCreate(BaseModel):
 
 In this example, `email` must be a valid email address. If the client sends an invalid email, the request is rejected automatically.
 
+Pydantic can also validate date and time values. Instead of treating them as plain strings, the schema can declare them using Python date and time types.
+
+```py
+from datetime import date, datetime
+from pydantic import BaseModel
+
+class BookEventCreate(BaseModel):
+    published_on: date
+    created_at: datetime
+```
+
+In this example, `published_on` expects a date value and `created_at` expects a full date and time value. The client still sends text in JSON, but Pydantic parses that text into proper Python objects before the route function runs.
+
+A request body for this schema could look like this.
+
+```py
+{
+  "published_on": "2024-05-10",
+  "created_at": "2024-05-10T14:30:00"
+}
+```
+
+If the value is in a valid format, Pydantic converts it automatically. If the value does not match the expected date or datetime format, validation fails and FastAPI returns an error response.
+
+This is useful because route logic can work with actual `date` and `datetime` objects instead of manually parsing strings.
+
 String fields can also be validated using patterns. A pattern is a **regular expression** that defines what the value must look like.
 
 ```py
@@ -102,7 +147,53 @@ class BookCreate(BaseModel):
     isbn: str = Field(..., pattern=r"^\d{13}$")
 ```
 
-In this example, isbn must contain exactly `13` digits. If the client sends a value that does not match the pattern, validation fails and FastAPI returns an error response.
+In this example, `isbn` must contain exactly `13` digits. If the client sends a value that does not match the pattern, validation fails and FastAPI returns an error response.
+
+In earlier versions of Pydantic, this validation was defined using `regex` instead of `pattern`.
+
+```py
+isbn: str = Field(..., regex=r"^\d{13}$")
+```
+
+Both approaches describe the same rule. In modern Pydantic versions, `pattern` is the preferred name, while `regex` may still appear in existing codebases.
+
+Sometimes validation rules cannot be expressed using built-in constraints. In those cases, custom validation logic can be defined inside the Pydantic model.
+
+```py
+from pydantic import BaseModel, Field, field_validator
+
+class BookCreate(BaseModel):
+    title: str = Field(..., min_length=1, max_length=200)
+    price: float = Field(..., gt=0)
+
+    @field_validator("title")
+    @classmethod
+    def validate_title(cls, value: str) -> str:
+        if "test" in value.lower():
+            raise ValueError("Title cannot contain the word 'test'")
+        return value
+```
+
+In this example, the validator runs after the standard validation rules. If the title contains an invalid value, the request is rejected before the route logic runs.
+
+By default, `@field_validator` runs after Pydantic has already validated and converted the value.
+
+Sometimes validation needs to happen **before** that process. For example, when working with raw input that must be transformed or cleaned before type validation.
+
+In those cases, the validator can be configured with `mode="before"`.
+
+```py
+@field_validator("title", mode="before")
+@classmethod
+def normalize_title(cls, value):
+    return value.strip()
+```
+
+Here, the validator runs before standard validation. This allows modifying the incoming value before Pydantic applies type checks and constraints.
+
+Custom validation is useful when rules depend on business logic or cannot be expressed using simple constraints.
+
+In earlier versions of Pydantic, this was defined using `@validator`. In modern versions, `@field_validator` is used instead.
 
 Path, query, and body validation can also be combined.
 
@@ -179,6 +270,10 @@ class BookUpdate(BaseModel):
     author_id: Optional[int] = Field(None, gt=0)
     category_ids: Optional[List[int]] = None
 
+class BookEventCreate(BaseModel):
+    published_on: date
+    created_at: datetime
+
 
 class BookOut(BaseModel):
     id: int
@@ -196,11 +291,95 @@ class BookOut(BaseModel):
 
 This structure separates input models from output models.
 
+In this example, both `AuthorCreate` and `AuthorOut` define the same name field. When fields are duplicated like this, they can be moved into a separate schema and reused through inheritance instead of being repeated.
+
+```py
+class AuthorBase(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+
+
+class AuthorCreate(AuthorBase):
+    pass
+
+
+class AuthorOut(AuthorBase):
+    id: int
+
+    model_config = ConfigDict(from_attributes=True)
+```
+
 `AuthorCreate`, `CategoryCreate`, and `BookCreate` describe data that can enter the application. These models validate incoming request bodies.
 
 `AuthorOut`, `CategoryOut`, and `BookOut` describe data that leaves the application. These models define the shape of API responses.
 
 This separation is useful because clients usually send references when creating or updating records, but APIs often return expanded related data in responses.
+
+At this point, schemas are not only describing structure, but also controlling how data is handled. This is where `ConfigDict` becomes important.
+
+`ConfigDict` is used to configure how a schema behaves during validation and serialization. Instead of defining fields, it defines rules that apply to the entire model.
+
+For example, `from_attributes=True` allows the schema to read data directly from ORM objects instead of expecting dictionaries. This is why SQLAlchemy models can be returned directly from routes and still be converted into response schemas.
+
+Other configuration options can make input handling stricter or more consistent. Enabling `str_strip_whitespace=Tru`e ensures that values like `" Example "` are cleaned before validation. Using `extra="forbid"` prevents clients from sending unexpected data by raising a validation error.
+
+This behavior can be adjusted depending on how strict the application should be. With `extra="ignore"`, unknown fields are silently removed from the input. With `extra="allow"`, they are accepted and kept without validation, making the schema more flexible but less strict.
+
+Configuration can also affect behavior after the model is created. With validate_assignment=True, validation is not limited to initialization but also runs when values are changed later. Options like `populate_by_name=True` allow input to use field names even when aliases are defined, which helps when external data does not exactly match internal naming. String values can also be normalized automatically, for example by converting them to lowercase or uppercase to keep formatting consistent.
+
+In this way, field definitions describe what data should look like, while `ConfigDict` defines how that data is processed across the entire schema.
+
+In addition to structure and validation, schemas also control how data is converted into a format that can be returned in an HTTP response. Some Python types such as `datetime` and `date` are not directly JSON serializable. When these values are returned without conversion, they may cause serialization errors or unexpected output.
+
+For example, if a schema containing a `datetime` value is returned directly using a custom response without proper conversion, the application may fail with an error similar to `TypeError: Object of type datetime is not JSON serializable`.
+
+This happens because the standard JSON encoder does not know how to convert Python specific objects like `datetime` into a format that can be sent over HTTP.
+
+To handle this, Pydantic provides the `model_dump(mode="json")` method. This method converts Python specific types into JSON safe representations. For example, a `datetime` value is converted into an ISO formatted string and a `date` value is also converted into a string that can be safely included in a JSON response.
+
+```py
+payload = BookEventCreate(
+    published_on=date.today(),
+    created_at=datetime.utcnow()
+)
+
+data = payload.model_dump(mode="json")
+```
+
+In this example, the schema instance is converted into a dictionary that is fully compatible with JSON. This step becomes important when working with custom responses or when data needs to be explicitly serialized before being returned.
+
+FastAPI automatically handles most serialization when returning ORM objects or Pydantic models. However, there are situations where the application needs full control over the response. In these cases, a custom response object such as `JSONResponse` can be used.
+
+If `JSONResponse` is used without converting the data first, the same serialization problem appears because the response expects already JSON compatible data.
+
+```py
+from fastapi.responses import JSONResponse
+
+@app.post("/events")
+async def create_event(payload: BookEventCreate):
+    return JSONResponse(
+        status_code=201,
+        content=payload  # will fail
+    )
+```
+
+In this case, FastAPI does not automatically serialize the schema, and the application will raise a serialization error because `payload` still contains Python specific types.
+
+To fix this, the data must be converted before returning it.
+
+```py
+from fastapi.responses import JSONResponse
+
+@app.post("/events")
+async def create_event(payload: BookEventCreate):
+    data = payload.model_dump(mode="json")
+
+    return JSONResponse(
+        status_code=201,
+        content=data
+    )
+```
+
+Here, the schema data is first converted into a JSON safe format and then returned using `JSONResponse`. This approach allows the application to control the status code and the exact structure of the response.
 
 A create route might look like this.
 

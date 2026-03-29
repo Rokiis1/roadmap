@@ -71,7 +71,8 @@ class Author(Base):
     name: Mapped[str]
 
     books: Mapped[list["Book"]] = relationship(
-        back_populates="author"
+        back_populates="author",
+        cascade="all, delete-orphan"
     )
 
 
@@ -82,7 +83,8 @@ class Book(Base):
     title: Mapped[str]
 
     author_id: Mapped[int] = mapped_column(
-        ForeignKey("authors.id")
+        ForeignKey("authors.id", ondelete="CASCADE"),
+        nullable=False
     )
 
     author: Mapped["Author"] = relationship(
@@ -95,6 +97,62 @@ The `back_populates` parameter connects the relationship on both sides. This tel
 Because of this configuration accessing `book.author` returns the author of the book and `author.books` returns a collection of books written by that author.
 
 The `relationship()` definitions allow SQLAlchemy to represent that connection in Python objects.
+
+The `ForeignKey` also defines how records are connected at the database level. It can control what happens when a related record is deleted.
+
+For example, `ondelete="CASCADE"` means that if an author is removed, all books that reference that author are also removed automatically by the database.
+
+Other behaviors are also possible. The database can prevent deletion when related records exist or set the reference to `NULL`. These options depend on how strict the relationship should be.
+
+The `nullable=False` setting means that every book must have an author. If it were allowed to be `NULL`, a book could exist without being linked to any author.
+
+There is also an important difference between how the database and the ORM handle deletion.
+
+The `ondelete` behavior is handled by the database itself. It works even outside the application.
+
+The `cascade` option in `relationship()` is handled by SQLAlchemy. It applies when objects are deleted through the ORM. In this case, `cascade="all, delete-orphan"` ensures that when an author is removed in the application, all related books are also removed.
+
+When models are kept in a single file, this setup usually works without any extra import concerns. In larger applications, however, models are often split into separate files such as author.py and book.py. At that point, each model may need to reference the other.
+
+A direct import in both files can create a circular import.
+
+When models are kept in a single file, this setup usually works without any extra import concerns. In larger applications, however, models are often split into separate files such as author.py and book.py. At that point, each model may need to reference the other.
+
+A direct import in both files can create a circular import.
+
+```py
+# author.py
+from .book import Book
+
+# book.py
+from .author import Author
+```
+
+In this situation, Python begins loading one module, then moves to the second one, and then tries to return to the first before it has finished initializing. Because the class is not fully created yet, Python raises an error `ImportError: cannot import name 'Author' from partially initialized module 'models.author'`
+
+This is why `TYPE_CHECKING` is useful.
+
+```py
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .author import Author
+```
+
+Code inside `if TYPE_CHECKING:` is used only by type checkers and development tools. It is not executed during normal runtime. This allows the model to keep proper type hints without causing circular import errors when the application starts.
+
+For the same reason, relationship type annotations are written as strings such as `"Book"` and `"Author"`.
+
+```py
+books: Mapped[list["Book"]]
+author: Mapped["Author"]
+```
+
+These are forward references. They allow the class names to be resolved later instead of immediately when the file is imported.
+
+Together, `TYPE_CHECKING` and string annotations make it possible to define relationships across separate model files while keeping imports safe.
+
+In practice, both are often used together so that behavior is consistent both in the database and in the application.
 
 Once defined, related data can be accessed naturally through model attributes.
 
@@ -175,12 +233,18 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 book_category = Table(
     "book_category",
     Base.metadata,
-    Column("book_id", ForeignKey("books.id"), primary_key=True),
-    Column("category_id", ForeignKey("categories.id"), primary_key=True),
+    Column("book_id", ForeignKey("books.id", ondelete="CASCADE"), primary_key=True),
+    Column("category_id", ForeignKey("categories.id", ondelete="CASCADE"), primary_key=True),
 )
 ```
 
-This table does not have its own model class. It simply connects the `books` and `categories` tables.
+This table does not have its own model class because it only stores the connection between two tables and does not represent a standalone entity in the application.
+
+The foreign keys in the association table can also define what happens when related records are deleted. Using `ondelete="CASCADE"` ensures that if a book or category is removed, the corresponding rows in the association table are also removed automatically.
+
+This helps prevent orphaned records and keeps the relationship table consistent.
+
+Because both foreign keys are defined as primary keys, each book–category pair can appear only once. This prevents duplicate relationships from being stored.
 
 Next, the ORM models define relationships that use this association table.
 

@@ -548,6 +548,25 @@ def get_item(item_id):
 
 When an `HTTPException` is raised, the route function stops executing. FastAPI catches the exception and generates an error response using the provided status code and message.
 
+In these examples, status codes are written as numbers such as `400` or `404`. This works, but it relies on remembering what each number represents.
+
+FastAPI also provides named constants for status codes through `status`. These constants describe the meaning of the code directly in the name.
+
+```py
+from fastapi import status
+```
+
+The same example can be written like this.
+
+```py
+raise HTTPException(
+    status_code=status.HTTP_404_NOT_FOUND,
+    detail="Item not found"
+)
+```
+
+Using named constants does not change behavior, but it makes the code easier to read and understand.
+
 This approach is used for expected error conditions, such as invalid input or missing resources. These errors are part of normal request handling and are decided explicitly by the route logic.
 
 The second way is declaring a fixed success status code on the route itself.
@@ -558,6 +577,16 @@ from fastapi import FastAPI
 app = FastAPI()
 
 @app.post("/items", status_code=201)
+def create_item(item):
+    return {"message": "Item created"}
+```
+
+Here, the success code is again written as a number. The same route can also use the named constant.
+
+```py
+from fastapi import status
+
+@app.post("/items", status_code=status.HTTP_201_CREATED)
 def create_item(item):
     return {"message": "Item created"}
 ```
@@ -577,6 +606,14 @@ def check_item(item_id, response: Response):
         response.status_code = 404
         return {"message": "Item not found"}
     return {"message": "Item exists"}
+```
+
+This can also be written using the named constant.
+
+```py
+from fastapi import status
+
+response.status_code = status.HTTP_404_NOT_FOUND
 ```
 
 Here, no exception is raised. The route completes normally and returns a response body, but the status code is adjusted explicitly based on logic inside the function.
