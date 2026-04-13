@@ -1,16 +1,15 @@
-# Content of Table of the Types of Testing
+# Content of Table of the Types of Testing Overview
 
 - [Dynamic Testing](#dynamic-testing)
 - [Static Testing](#static-testing)
 
-In previous sections, we learned what testing is and at which levels it is performed. Now we move to another important classification: how testing is performed.
+In previous sections, we explored what testing is and where it is performed within the system. Now we look at another important classification based on **whether the software is executed during testing**.
 
-From this perspective, testing can be divided into two main types:
+From this perspective, testing can be divided into two main types **dynamic testing** and **static testing**.
 
-- Dynamic testing
-- Static testing
+Dynamic testing involves executing the system and observing its behavior, while static testing focuses on evaluating artifacts without running the software.
 
-These two types complement each other and are both essential for software quality.
+These two approaches complement each other and are both essential for ensuring software quality.
 
 ## Dynamic Testing
 
