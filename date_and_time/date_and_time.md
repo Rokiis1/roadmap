@@ -333,7 +333,9 @@ In some cases, it is important to work with the current time in a standardized f
 Python provides a way to get the current UTC datetime.
 
 ```py
-utc_now = datetime.utcnow()
+from datetime import datetime, timezone
+
+utc_now = datetime.now(timezone.utc)
 print(utc_now)
 ```
 
@@ -740,7 +742,9 @@ print(dt)
 If working with UTC, a specific method can be used.
 
 ```py
-dt = datetime.utcfromtimestamp(ts)
+from datetime import datetime, timezone
+
+dt = datetime.fromtimestamp(ts, timezone.utc)
 print(dt)
 ```
 
@@ -795,7 +799,7 @@ from datetime import datetime
 dt = datetime.strptime("2026-03-24T14:30:00", "%Y-%m-%dT%H:%M:%S")
 ```
 
-or
+Or
 
 ```py
 dt = datetime.fromtimestamp(1711281000)
