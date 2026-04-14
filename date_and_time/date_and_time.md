@@ -15,13 +15,13 @@
 - [Naive and aware datetime objects](#naive-and-aware-datetime-objects)
 - [Timestamps](#timestamps)
 
-In programming, working with date and time is very common. Applications often need to know when something happened, how long something lasted, or when something should happen in the future.
+In programming, working with date and time is very common. Applications often need to know when something happened, how long something lasted or when something should happen in the future.
 
-For example, an application may store when a user created an account, show the current time, calculate a deadline, compare two dates, or schedule an event. Even simple systems often need to work with calendars, clocks, durations, and timestamps.
+For example, an application may store when a user created an account, show the current time, calculate a deadline, compare two dates or schedule an event. Even simple systems often need to work with calendars, clocks, durations and timestamps.
 
-Because of this, date and time are fundamental concepts in software development. They appear in databases, APIs, logging systems, authentication, reporting, booking systems, and many other parts of an application.
+Because of this, date and time are fundamental concepts in software development. They appear in databases, APIs, logging systems, authentication, reporting, booking systems and many other parts of an application.
 
-Before working with formatting, calculations, timezones, or programming tools, it is important to first understand what date and time actually represent.
+Before working with formatting, calculations, timezones or programming tools, it is important to first understand what date and time actually represent.
 
 We begin with the basic meaning of these concepts.
 
@@ -35,9 +35,9 @@ A **time** represents a moment within a single day. It is usually described usin
 
 When combined, date and time describe an exact moment. For example, `2026-03-24 14:30:00` represents a precise point in time.
 
-These concepts are based on standard systems used worldwide. Dates follow calendar systems, most commonly the **Gregorian calendar**, and time is typically measured using a 24-hour clock.
+These concepts are based on standard systems used worldwide. Dates follow calendar systems, most commonly the **Gregorian calendar** and time is typically measured using a 24-hour clock.
 
-In programming, date and time values are not just text. They represent structured data that can be stored, compared, and manipulated. For example, a program can determine whether one date comes before another, calculate the difference between two times, or add a number of days to a given date.
+In programming, date and time values are not just text. They represent structured data that can be stored, compared and manipulated. For example, a program can determine whether one date comes before another, calculate the difference between two times or add a number of days to a given date.
 
 It is also important to understand that date and time may depend on location. The same moment can be represented differently in different regions due to timezones. For example, when it is `14:00` in one country, it may be `12:00` or `16:00` in another.
 
@@ -51,15 +51,15 @@ In the next section, we look at why date and time handling matters in programmin
 
 Date and time handling is important because many parts of an application depend on knowing *when* something happens or *how long* something takes.
 
-In systems, time is often directly connected to application logic. For example, an application may need to determine whether a user session is still valid, whether a deadline has passed, or when a scheduled task should run. These decisions depend on accurate handling of date and time values.
+In systems, time is often directly connected to application logic. For example, an application may need to determine whether a user session is still valid, whether a deadline has passed or when a scheduled task should run. These decisions depend on accurate handling of date and time values.
 
-Date and time are also essential for storing and organizing data. Many records include timestamps that indicate when they were created or updated. This allows applications to sort data, filter results, generate reports, and track changes over time.
+Date and time are also essential for storing and organizing data. Many records include timestamps that indicate when they were created or updated. This allows applications to sort data, filter results, generate reports and track changes over time.
 
-Another important use case is measuring duration. Applications often need to calculate the difference between two moments, such as how long a request took to process, how many days remain until an event, or how much time has passed since a specific action.
+Another important use case is measuring duration. Applications often need to calculate the difference between two moments, such as how long a request took to process, how many days remain until an event or how much time has passed since a specific action.
 
 Handling date and time correctly is also important when working across different regions. Users in different parts of the world may see different local times for the same event. Without proper handling of timezones, an application may display incorrect information or behave unexpectedly.
 
-In addition, incorrect date and time logic can lead to subtle bugs that are difficult to detect. For example, errors may occur when comparing values in different formats, when handling daylight saving time changes, or when working with incomplete or inconsistent data.
+In addition, incorrect date and time logic can lead to bugs that are difficult to detect. For example, errors may occur when comparing values in different formats, when handling daylight saving time changes or when working with incomplete or inconsistent data.
 
 Because of these reasons, date and time handling is not just a technical detail. It is a core part of building reliable applications that behave correctly in real-world scenarios.
 
@@ -71,7 +71,7 @@ In the next section, we look at date and time formats.
 
 Date and time values can be represented in many different ways. These representations are called **formats**.
 
-A format defines how a date or time is written as text. Even though the underlying value represents the same moment, the way it is displayed can vary depending on region, system, or use case.
+A format defines how a date or time is written as text. Even though the underlying value represents the same moment, the way it is displayed can vary depending on region, system or use case.
 
 For example, the same date can be written in different formats.
 
@@ -121,7 +121,7 @@ In the next section, we begin working with dates.
 
 After understanding how date values are represented, the next step is to work with them in code.
 
-In programming, a date is not just text such as `2026-03-24`. It is usually represented as a structured object that stores separate components such as year, month, and day. This allows programs to perform operations like comparison, validation, and calculations.
+In programming, a date is not just text such as `2026-03-24`. It is usually represented as a structured object that stores separate components such as year, month and day. This allows programs to perform operations like comparison, validation and calculations.
 
 In Python, dates are handled using the `date` class from the `datetime` module.
 
@@ -129,7 +129,7 @@ In Python, dates are handled using the `date` class from the `datetime` module.
 from datetime import date
 ```
 
-A specific date can be created by passing the year, month, and day.
+A specific date can be created by passing the year, month and day.
 
 ```py
 today = date(2026, 3, 24)
@@ -167,7 +167,7 @@ print(date1 < date2) # True
 print(date1 == date2) # False
 ```
 
-This allows programs to determine ordering, check deadlines, or filter data.
+This allows programs to determine ordering, check deadlines or filter data.
 
 Dates are immutable, which means their values cannot be changed after creation. If a different date is needed, a new object must be created.
 
@@ -179,7 +179,7 @@ In the next section, we focus on working with time values.
 
 In addition to dates, programs often need to work with **time values** that represent a moment within a single day.
 
-A time typically consists of hours, minutes, seconds, and optionally smaller units such as microseconds. Unlike a full datetime value, a time does not include information about the date.
+A time typically consists of hours, minutes, seconds and optionally smaller units such as microseconds. Unlike a full datetime value, a time does not include information about the date.
 
 In Python, time values are represented using the `time` class from the `datetime` module.
 
@@ -187,7 +187,7 @@ In Python, time values are represented using the `time` class from the `datetime
 from datetime import time
 ```
 
-A specific time can be created by providing hour, minute, and optional second values.
+A specific time can be created by providing hour, minute and optional second values.
 
 ```py
 meeting_time = time(14, 30)
@@ -235,7 +235,7 @@ In the next section, we combine date and time into a single value.
 
 Working with dates and times separately is useful, but many real-world scenarios require both together to represent an exact moment.
 
-A date alone represents a day, and a time alone represents a moment within a day. When combined, they form a **datetime**, which describes a precise point in time.
+A date alone represents a day and a time alone represents a moment within a day. When combined, they form a **datetime**, which describes a precise point in time.
 
 In Python, this is done using the `datetime` class from the `datetime` module.
 
@@ -285,7 +285,7 @@ dt2 = datetime(2026, 3, 24, 14, 30)
 print(dt1 < dt2) # True
 ```
 
-This allows programs to determine ordering between exact moments, which is important for scheduling, logging, and time-based logic.
+This allows programs to determine ordering between exact moments, which is important for scheduling, logging and time-based logic.
 
 Unlike separate date or time values, a datetime represents a complete point in time. Because of this, it is one of the most commonly used objects when working with time-related data.
 
@@ -293,7 +293,7 @@ In the next section, we look at how to get the current date and time from the sy
 
 ## Getting the current date and time
 
-In many applications, it is necessary to work with the **current date and time**. This is commonly used for logging events, creating timestamps, measuring durations, or recording when an action occurred.
+In many applications, it is necessary to work with the **current date and time**. This is commonly used for logging events, creating timestamps, measuring durations or recording when an action occurred.
 
 Python provides built-in methods to retrieve the current date and time from the system clock.
 
@@ -341,7 +341,7 @@ This returns the current time in UTC rather than local system time.
 
 It is important to understand that the values returned by these methods depend on the system clock. If the system time is incorrect, the returned date and time will also be incorrect.
 
-Getting the current date and time is often the starting point for many operations, such as formatting values, performing calculations, or storing timestamps.
+Getting the current date and time is often the starting point for many operations, such as formatting values, performing calculations or storing timestamps.
 
 In the next section, we look at how to format date and time values for display.
 
@@ -397,7 +397,7 @@ print(formatted)
 
 Output `March 24, 2026`
 
-Formatting is useful when displaying data to users, generating reports, or preparing values for output in APIs.
+Formatting is useful when displaying data to users, generating reports or preparing values for output in APIs.
 
 It is important to remember that formatting converts a date or datetime into a string. Once converted, it is no longer a date object and cannot be used directly for calculations or comparisons.
 
@@ -407,7 +407,7 @@ In the next section, we look at how to parse date and time values from strings.
 
 ## Parsing date and time from strings
 
-In many applications, date and time values are received as text. For example, user input, API responses, or data stored in files are often represented as strings.
+In many applications, date and time values are received as text. For example, user input, API responses or data stored in files are often represented as strings.
 
 Parsing is the process of converting these strings into structured date or datetime objects that can be used in code.
 
@@ -466,7 +466,7 @@ In Python, date and datetime arithmetic is handled using the `timedelta` class f
 from datetime import datetime, date, timedelta
 ```
 
-A `timedelta` represents a duration, such as a number of days, hours, or minutes.
+A `timedelta` represents a duration, such as a number of days, hours or minutes.
 
 A difference between two dates produces a timedelta.
 
@@ -521,7 +521,7 @@ These operations allow programs to calculate deadlines, measure durations and sh
 
 It is important to remember that date and datetime objects are immutable. Arithmetic operations always return new objects rather than modifying the original values.
 
-Date and time arithmetic is a core part of working with time-based data, especially in applications that involve scheduling, tracking, or time intervals.
+Date and time arithmetic is a core part of working with time-based data, especially in applications that involve scheduling, tracking or time intervals.
 
 In the next section, we look at how to compare date and time values.
 
@@ -529,7 +529,7 @@ In the next section, we look at how to compare date and time values.
 
 In many situations, programs need to compare date and time values to make decisions.
 
-For example, an application may need to check whether a deadline has passed, whether one event happened before another, or whether two timestamps are equal.
+For example, an application may need to check whether a deadline has passed, whether one event happened before another or whether two timestamps are equal.
 
 In Python, date, time and datetime objects can be compared using standard comparison operators.
 
@@ -586,7 +586,7 @@ dt = datetime(2026, 3, 24, 10, 0)
 print(d == dt.date())
 ```
 
-Comparisons are commonly used for filtering data, checking conditions, and controlling program flow based on time.
+Comparisons are commonly used for filtering data, checking conditions controlling program flow based on time.
 
 In the next section, we look at how timezones affect date and time values.
 
@@ -699,7 +699,7 @@ In the next section, we look at timestamps.
 
 A **timestamp** is a way of representing a specific moment in time as a single number.
 
-Instead of storing separate values such as year, month, day, hour, and minute, a timestamp represents time as the number of seconds that have passed since a fixed reference point.
+Instead of storing separate values such as year, month, day, hour and minute, a timestamp represents time as the number of seconds that have passed since a fixed reference point.
 
 This reference point is called the **Unix epoch**, which is
 
@@ -711,7 +711,7 @@ For example, a timestamp may look like this `1711281000`
 
 This number represents how many seconds have passed since the Unix epoch.
 
-Timestamps are widely used in programming because they are simple, compact, and easy to compare. Two timestamps can be compared directly as numbers to determine which moment comes first.
+Timestamps are widely used in programming because they are simple, compact and easy to compare. Two timestamps can be compared directly as numbers to determine which moment comes first.
 
 In Python, a timestamp can be obtained from a datetime object.
 
@@ -749,6 +749,25 @@ At this point, it is important to understand how date and time values behave whe
 Inside Python, datetime is a proper object. However, when data is sent or stored using formats such as JSON, only a limited set of types is supported. These include **text**, **numbers**, `true` or `false` values, `null` values, `arrays` and `objects`.
 
 Date and time are not included in this set.
+
+If a datetime object is used directly, it leads to an error.
+
+```py
+import json
+from datetime import datetime
+
+data = {
+    "created_at": datetime(2026, 3, 24, 14, 30)
+}
+
+json.dumps(data)
+```
+
+This produces an error because datetime is not supported.
+
+```py
+TypeError Object of type datetime is not JSON serializable
+```
 
 Because of this, datetime values cannot be used directly and must be converted into a supported format. In practice, they are usually converted into a string or a timestamp.
 
