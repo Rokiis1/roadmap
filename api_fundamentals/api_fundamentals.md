@@ -1,9 +1,7 @@
 # Content of API Fundamentals
 
-- [What are APIs](#what-are-apis)
+- [What are APIs and how they work](#what-are-apis-and-how-they-work)
 - [How APIs fit into system communication](#how-apis-fit-into-system-communication)
-- [How clients access APIs](#how-clients-access-apis)
-- [Request/Response](#requestresponse)
 - [API styles](#api-styles)
 
 Before working with frameworks or writing API routes, it is important to understand what APIs are and why they are used.
@@ -16,7 +14,7 @@ These concepts appear across many technologies and frameworks. Later, they will 
 
 To begin, it is first necessary to understand what an API actually is.
 
-## What are APIs
+## What are APIs and how they work
 
 An **API (Application Programming Interface)** allows different software systems to communicate with each other.
 
@@ -24,19 +22,31 @@ Instead of directly accessing internal logic or databases, a client sends a requ
 
 ![What are APIs](./assets/images/what_are_apis.png)
 
-In this interaction, the client does not need to know how the system is implemented internally. It only needs to know how to send a request and how to interpret the response.
+In this interaction, the client does not need to know how the system is implemented internally. It only needs to know how to communicate with the API.
 
-An API acts as a boundary between systems. It defines what is accessible and how that access happens.
+At a fundamental level, this communication follows a **request–response pattern**.
 
-At a fundamental level, APIs are built around a **request–response cycle**, where data flows between a client and a server in a predictable way.
+A client sends a request to the API, asking for data or triggering an action. The API processes that request and returns a response with the result, which may include data, confirmation of an action or information about an error.
+
+This is the most common way APIs work, especially in web applications.
+
+However, not all API communication follows exactly the same pattern. Some systems use persistent connections such as **WebSockets** for real-time updates, while others use event-driven approaches such as **webhooks**, where data is sent when a specific event occurs.
+
+At this stage, it is enough to understand that request–response is the most common API interaction model. Other communication patterns are explored later.
+
+To make this interaction possible, APIs expose defined access points.
+
+These access points represent specific operations that the client can use to interact with the system. Each access point corresponds to a particular action or type of data.
+
+Depending on the API design, these access points may be represented in different ways, such as multiple endpoints, a single entry point or other structured interfaces.
+
+From the clients perspective, interacting with an API means choosing the appropriate access point, sending a request and receiving a response.
+
+Even though the internal processing may involve multiple steps such as validation, business logic or communication with other systems, this complexity is hidden behind the API.
 
 You can think of an API as a contract.
 
-It defines what requests can be made, what data is expected and what responses will be returned.
-
-To make this interaction possible, APIs expose specific access points where requests can be sent. These access points are known as **endpoints**.
-
-However, APIs are not all designed in the same way.
+It defines how a client can interact with a system, what requests can be made and what responses can be expected.
 
 Different approaches organize how communication happens between systems. These approaches are known as API styles and are explored later.
 
@@ -49,6 +59,8 @@ Instead, they are composed of multiple parts that need to communicate with each 
 These interactions require a clear and controlled way for systems to exchange information.
 
 This is where APIs play a central role.
+
+![API system communication](./assets/images/api_system_communication.png)
 
 An API acts as an interface between systems. It provides a structured way for systems to interact without exposing their internal implementation.
 
@@ -67,48 +79,6 @@ A client, such as a web application or mobile app, interacts with the API, while
 Even though the internal implementation of each system may be complex, the API provides a simplified and consistent way for them to interact.
 
 To enable this interaction, APIs expose specific access points that clients use to communicate with the system.
-
-## How clients access APIs
-
-To interact with an API, a client must use one of its defined access points.
-
-In many APIs, these access points are called endpoints.
-
-An endpoint is a specific location in an API where a request is sent. It represents an entry point to a resource or functionality exposed by the system.
-
-An endpoint is typically identified by a unique address or identifier that allows the API to determine how the request should be handled.
-
-Depending on the API design, this may be represented as a URL, a single entry point or another form of structured access.
-
-For example, an API may provide separate endpoints for retrieving data, creating new data or performing specific operations.
-
-From the client’s perspective, these access points define where requests are sent and what kind of operations are available.
-
-Even though different API styles organize access points in different ways, the core idea remains the same. The client interacts with the API through clearly defined entry points.
-
-Once these access points are understood, the next step is to examine how communication happens through them. This follows a **request–response** pattern.
-
-## Request/Response
-
-Communication with an API follows a request–response interaction.
-
-A request is sent by the client to an API access point and contains the information needed for the system to perform an action.
-
-After receiving the request, the API processes it and produces a response.
-
-The response contains the result of that operation. This may include returned data, confirmation that an action was completed or information about an error if the request could not be processed.
-
-You can think of this interaction as a simple exchange.
-
-The client asks for something, and the server returns the result.
-
-Even though the internal processing may involve multiple steps such as validation, business logic or communication with other systems, this complexity is hidden behind the request–response interaction.
-
-From the client’s perspective, the process remains consistent. A request is sent, and a response is returned.
-
-Understanding this interaction is essential, because it defines how data flows between systems when using an API.
-
-In the next section, we look at how different API styles organize this interaction in different ways.
 
 ## API styles
 
