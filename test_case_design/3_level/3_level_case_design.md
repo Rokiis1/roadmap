@@ -98,22 +98,45 @@ In a simpler approach, testing focuses on the boundary points themselves. This v
 
 ![2BVA](./assets/images/2BVA.png)
 
+In this approach, only the exact boundary values are tested to confirm they are accepted.
+
+For example, consider a file upload system that allows files between 1MB and 10MB.
+
+The boundaries are defined by the minimum value of 1MB and the maximum value of 10MB. Testing focuses on these limits and the values immediately around them to ensure the system correctly handles valid inputs at the edges.
+
+| Test Case ID | Boundary Type             | Value | Valid/Invalid | PASS/FAIL |
+|--------------|---------------------------|-------|---------------|-----------|
+| TC001        | Lower Boundary            | 1MB   | Valid         |           |
+| TC002        | Upper Boundary            | 10MB  | Valid         |           |
+| TC003        | Just Above Lower Boundary | 2MB   | Valid         |           |
+| TC004        | Just Below Upper Boundary | 9MB   | Valid         |           |
+
+This confirms that the system accepts the boundary values, but it does not verify behavior outside these limits.
+
 In a more detailed approach, testing includes values just below, exactly at, and just above each boundary. This helps detect edge-related defects more precisely and is especially useful for identifying off-by-one errors.
 
 ![3BVA](./assets/images/3BVA.png)
 
-For example, consider a system that allows age values between 18 and 60.
+In this approach, testing is important when system behavior changes at boundary conditions and incorrect handling can affect business logic.
 
-The boundaries are defined by the minimum value of 18 and the maximum value of 60. Testing focuses on these limits and the values around them.
+For example, consider an internal banking application where transaction processing depends on the amount.
 
-| Test Case ID | Boundary Type             | Value | Valid/Invalid | PASS/FAIL |
-|--------------|---------------------------|-------|---------------|-----------|
-| TC001        | Lower Boundary            | 18    | Valid         |           |
-| TC002        | Upper Boundary            | 60    | Valid         |           |
-| TC003        | Just Below Lower Boundary | 17    | Invalid       |           |
-| TC004        | Just Above Lower Boundary | 19    | Valid         |           |
-| TC005        | Just Below Upper Boundary | 59    | Valid         |           |
-| TC006        | Just Above Upper Boundary | 61    | Invalid       |           |
+Transactions below 100 are rejected  
+Transactions from 100 to 10,000 are processed normally  
+Transactions above 10,000 require additional approval  
+
+The boundaries are defined by the minimum value of 100 and the maximum value of 10,000. Testing focuses on these limits and the values around them.
+
+| Test Case ID | Boundary Type             | Value  | Expected Behavior                | PASS/FAIL |
+|--------------|---------------------------|--------|----------------------------------|-----------|
+| TC001        | Lower Boundary            | 100    | Accepted and processed           |           |
+| TC002        | Upper Boundary            | 10000  | Accepted and processed           |           |
+| TC003        | Just Below Lower Boundary | 99     | Rejected                         |           |
+| TC004        | Just Above Lower Boundary | 101    | Accepted and processed           |           |
+| TC005        | Just Below Upper Boundary | 9999   | Accepted and processed           |           |
+| TC006        | Just Above Upper Boundary | 10001  | Accepted with approval required  |           |
+
+This verifies that the system correctly handles both valid and invalid inputs and applies the correct business rules at the boundaries where behavior changes.
 
 Boundary Value Analysis is often used together with Equivalence Partitioning. While Equivalence Partitioning reduces the number of test cases by grouping inputs, Boundary Value Analysis improves coverage by focusing on the most error-prone areas of those groups.
 
