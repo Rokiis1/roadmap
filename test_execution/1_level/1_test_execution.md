@@ -23,6 +23,8 @@ We begin by defining what test execution means.
 
 A test is usually designed earlier by defining inputs, actions and expected results. During execution, those steps are performed on the actual system and the observed result is compared with the expected one.
 
+![test_execution_flow](./assets/images/test_execution_flow.png)
+
 The purpose of test execution is to verify whether the software works correctly and to identify any differences between expected and actual behavior.
 
 For example, if a login form should allow a user to sign in with valid credentials, the tester executes the test by entering a username and password and then checking whether the system logs the user in successfully.
@@ -45,6 +47,8 @@ In this approach, the tester performs each step of the test case manually, obser
 
 Manual testing focuses on understanding the system from a user’s perspective. The tester simulates real user actions such as clicking buttons, entering data, navigating between pages, and verifying visible results.
 
+![manual_testing_flow](./assets/images/manual_testing_flow.png)
+
 For example, consider a login feature.
 
 A tester executes the test by opening the application, entering a username and password, clicking the login button, and observing whether the system allows access or shows an error message.
@@ -61,6 +65,8 @@ To handle repeated execution more efficiently, tests can also be performed using
 
 In this approach, test steps are written as code. The script interacts with the system automatically, performs actions such as sending requests or clicking elements, and verifies whether the actual result matches the expected result.
 
+![automation_testing_flow](./assets/images/automation_testing_flow.png)
+
 For example, instead of manually testing a login feature every time, an automated test can be created to perform the same steps.
 
 When the test runs, the system executes the steps automatically and checks whether the result matches the expected outcome.
@@ -76,6 +82,8 @@ Because both approaches have different characteristics, manual and automation te
 Manual testing and automation testing are two different approaches to executing tests. Both are used to verify system behavior, but they differ in how tests are performed.
 
 The main difference is in how the test steps are executed.
+
+![manual_vs_automation](./assets/images/manual_vs_automation.png)
 
 In manual testing, a tester performs each step by interacting with the system directly. The tester observes the system behavior and determines whether the result is correct.
 
