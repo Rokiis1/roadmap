@@ -4,6 +4,7 @@
 - [Boundary Value Analysis](#boundary-value-analysis)
 - [Decision Table Testing](#decision-table-testing)
 - [State Transition Testing](#state-transition-testing)
+- [Use Case Testing](#use-case-testing)
 
 In **Test Case Design Level 2**, testing relied on experience-based and heuristic approaches. Techniques such as Error Guessing, Exploratory Testing, and Checklist-Based Testing focused on identifying defects using intuition, prior knowledge, and general testing practices.
 
@@ -295,3 +296,5 @@ One important aspect is ensuring that valid transitions produce the correct resu
 Coverage in this type of testing can focus on visiting all states, executing all valid transitions, and checking how the system handles invalid transitions.
 
 State Transition Testing is especially useful for systems where behavior depends on sequences of actions or where the system changes over time. This includes workflows, interactive systems, and systems that react to external events.
+
+## Use Case Testing
