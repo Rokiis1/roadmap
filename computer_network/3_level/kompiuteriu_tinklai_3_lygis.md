@@ -23,17 +23,27 @@ Angliškai tinklo paslaugos vadinamos *network services*, o jų veikimą apibrė
 
 Protokolas yra taisyklių rinkinys, kuris nusako, kaip įrenginiai turi bendrauti tarpusavyje. Be protokolų skirtingi įrenginiai negalėtų suprasti vienas kito.
 
+![protocols diagram](./assets/images/protocols-diagram.png)
+
 Kiekviena tinklo paslauga naudoja tam tikrą protokolą.
 
 **HTTP** (*HyperText Transfer Protocol*) yra naudojamas naršyti interneto puslapius. Kai atidaromas puslapis naršyklėje (*browser*), duomenys siunčiami naudojant šį protokolą.
 
 **HTTPS** (*HyperText Transfer Protocol Secure*) yra saugi HTTP versija. Ji užšifruoja duomenis, todėl informacija tampa apsaugota nuo pašalinių stebėjimo.
 
+![http vs https](./assets/images/http-vs-https.png)
+
 **FTP** (*File Transfer Protocol*) naudojamas failų siuntimui ir atsisiuntimui tarp kompiuterių.
+
+![ftp diagram](./assets/images/ftp-diagram.png)
 
 **SMTP** (*Simple Mail Transfer Protocol*) naudojamas el. laiškų siuntimui.
 
+![smtp diagram](./assets/images/smtp-diagram.png)
+
 **POP3** (*Post Office Protocol version 3*) ir **IMAP** (*Internet Message Access Protocol*) naudojami el. laiškų gavimui.
+
+![pop3 vs imap](./assets/images/pop3-imap-diagram.png)
 
 POP3 dažniausiai atsisiunčia laiškus į įrenginį, o IMAP leidžia juos peržiūrėti serveryje ir sinchronizuoti tarp kelių įrenginių.
 
@@ -66,9 +76,13 @@ Kai vartotojas įveda domeną naršyklėje (*browser*), vyksta procesas, kurio m
 
 DNS veikia kaip „interneto telefonų knyga“. Ji suranda, koks IP adresas atitinka įvestą domeną, ir leidžia naršyklei susisiekti su serveriu (*server*).
 
+![dns process](./assets/images/dns-process.png)
+
 **URL adresas** (*URL*) yra pilnas kelias iki konkretaus resurso internete. Jis apima ne tik domeną, bet ir papildomą informaciją.
 
 Pavyzdžiui, URL adresas gali atrodyti taip `https://www.example.com/index.html`
+
+![url structure](./assets/images/url-structure.png)
 
 Šį adresą sudaro kelios dalys
 
@@ -95,13 +109,19 @@ Angliškai įrenginių sujungimas dažnai vadinamas *device connectivity*.
 
 Vienas dažniausių būdų yra *Wi-Fi*, kuris leidžia įrenginiams prisijungti prie to paties tinklo ir bendrauti per maršrutizatorių (*router*).
 
+![wifi connection](./assets/images/wifi-connection.png)
+
 Tačiau įrenginiai gali būti sujungiami ir tiesiogiai, be interneto.
 
 **Bluetooth** yra technologija, leidžianti sujungti įrenginius trumpu atstumu. Ji dažnai naudojama prijungti ausines, klaviatūras, peles ar kitus priedus.
 
+![bluetooth connection](./assets/images/bluetooth-connection.png)
+
 Bluetooth veikia nedideliu atstumu ir sunaudoja mažai energijos, todėl yra labai tinkamas nešiojamiems įrenginiams.
 
 Kitas svarbus aspektas yra išmanieji įrenginiai, dar vadinami *IoT Internet of Things*. Tai įvairūs įrenginiai, kurie gali būti prijungti prie tinklo ir valdomi nuotoliniu būdu.
+
+![iot devices](./assets/images/iot-devices.png)
 
 Pavyzdžiui, išmanūs televizoriai, lemputės ar apsaugos sistemos gali būti valdomos per telefoną ar kompiuterį.
 
@@ -123,6 +143,8 @@ Net ir tinkamai sukonfigūruoti tinklai kartais susiduria su problemomis. Gali d
 
 Angliškai tai vadinama *network diagnostics*.
 
+![network diagnostics](./assets/images/network-diagnostics.png)
+
 Tinklo diagnostika apima įvairius būdus ir įrankius, kurie padeda nustatyti problemos priežastį ir ją išspręsti.
 
 Pirmiausia svarbu patikrinti pagrindinius dalykus. Ar įrenginys prijungtas prie tinklo, ar veikia *Wi-Fi*, ar tinkamai prijungti kabeliai. Dažnai problema būna labai paprasta.
@@ -131,13 +153,144 @@ Vienas dažniausiai naudojamų įrankių yra `ping`. Ši komanda leidžia patikr
 
 Pavyzdžiui, naudojant komandą `ping 8.8.8.8` galima patikrinti, ar yra ryšys su išoriniu tinklu.
 
+Šią komandą galima paleisti atsidarius `CMD` arba `PowerShell` ir įvedus
+
+```powershell
+ping 8.8.8.8
+```
+
+Komandos rezultatas
+
+```powershell
+Pinging google.com [142.251.38.110] with 32 bytes of data:
+Reply from 142.251.38.110: bytes=32 time=75ms TTL=107
+Reply from 142.251.38.110: bytes=32 time=80ms TTL=107
+Reply from 142.251.38.110: bytes=32 time=85ms TTL=107
+Reply from 142.251.38.110: bytes=32 time=101ms TTL=107
+
+Ping statistics for 142.251.38.110:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 75ms, Maximum = 101ms, Average = 85ms
+```
+
+Gauti rezultatai parodo, kaip vyksta ryšys su kitu įrenginiu. Kiekviena eilutė **Reply from reiškia**, kad paketas pasiekė tikslą ir buvo gautas atsakymas.
+
+`bytes=32` nurodo siunčiamo paketo dydį, `time=108ms` parodo, per kiek laiko paketas nukeliavo iki serverio ir atgal, o `TTL=107` rodo, kiek dar paketui leidžiama keliauti tinkle prieš jam būnant sustabdytam.
+
+Apačioje pateikiama papildoma informacija apie ryšį. **Sent** rodo, kiek paketų buvo išsiųsta, **Received** kiek jų buvo gauta, o **Lost** parodo, kiek paketų buvo prarasta. Jei praradimas yra `0%`, ryšys veikia stabiliai.
+
+Paketai (*packet*) yra mažos duomenų dalys, kuriomis informacija siunčiama tinkle. Kiekvienas paketas turi siuntėjo ir gavėjo IP adresą, todėl gali būti nukreiptas į teisingą įrenginį.
+
+**Minimum**, **Maximum** ir **Average** nurodo mažiausią, didžiausią ir vidutinį atsako laiką.
+
+Jeigu rodomas atsakymas (`Reply from...`), tai reiškia, kad ryšys veikia.
+
+Jeigu nerodomas atsakymas ir vietoje to pateikiamas **Request timed out**, tai reiškia, kad atsakymas nebuvo gautas ir gali būti ryšio problema.
+
+Taip pat galima patikrinti domeną
+
+```powershell
+ping google.com
+```
+
+Jeigu ši komanda neveikia, gali būti DNS problema. Jeigu `ping 8.8.8.8` veikia, bet `ping google.com` neveikia, tai reiškia, kad yra DNS problema.
+
 Jeigu atsakymas gaunamas, tai reiškia, kad ryšys veikia. Jei ne, gali būti ryšio problema.
 
 Kitas naudingas įrankis yra `ipconfig` arba `ifconfig`. Jis leidžia pamatyti įrenginio IP adresą ir kitą tinklo informaciją.
 
-Tai padeda nustatyti, ar įrenginys turi teisingą IP adresą ir ar yra prijungtas prie tinklo.
+Šią informaciją galima peržiūrėti `CMD` aplinkoje įvedus
 
-Taip pat galima naudoti svetaines, kurios parodo išorinį IP adresą. Pavyzdžiui, galima apsilankyti svetainėje :contentReference[oaicite:0]{index=0} ir patikrinti savo viešą IP adresą.
+```cmd
+ipconfig
+```
+
+arba `PowerShell` aplinkoje įvedus
+
+```powershell
+Get-NetIPAddress
+```
+
+Rezultatas
+
+```powershell
+IPAddress         : fe80::1f08:95cb:1dc4:96e4%38
+InterfaceIndex    : 38
+InterfaceAlias    : vEthernet (Default Switch)
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 64
+PrefixOrigin      : WellKnown
+SuffixOrigin      : Link
+AddressState      : Preferred
+ValidLifetime     :
+PreferredLifetime :
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+```
+
+Gauti rezultatai parodo įrenginio tinklo informaciją. Laukas **IPAddress** nurodo įrenginio adresą tinkle, šiuo atveju tai yra `IPv6` adresas. Šis adresas naudojamas tam, kad kiti įrenginiai galėtų rasti tavo kompiuterį tinkle.
+
+**InterfaceAlias** parodo, per kurią tinklo sąsają vyksta ryšys, pavyzdžiui, per **Wi-Fi**, **Ethernet** ar **virtualų tinklą**. Tai leidžia suprasti, kuri jungtis šiuo metu naudojama.
+
+**AddressFamily** nurodo, ar naudojamas `IPv4` ar `IPv6`. `IPv4` yra senesnis ir dažniausiai trumpesnis, o `IPv6` yra naujesnis ir ilgesnis adresų tipas.
+
+Laukas **Type** parodo adreso tipą. `Unicast` reiškia, kad adresas priklauso vienam konkrečiam įrenginiui.
+
+**PrefixLength=64** nurodo, kuri adreso dalis priklauso tinklui, o kuri konkrečiam įrenginiui. Tai padeda tinklui teisingai nukreipti duomenis.
+
+**AddressState** parodo, ar adresas yra aktyvus ir gali būti naudojamas. `Preferred` reiškia, kad adresas yra galiojantis ir naudojamas ryšiui.
+
+`192.168.x.x` yra privatus IP adresas, naudojamas vietiniame tinkle ir nėra matomas internete.
+
+Ši informacija leidžia nustatyti, ar įrenginys turi galiojantį IP adresą ir ar yra tinkamai prijungtas prie tinklo.
+
+Norint pamatyti, kaip duomenys keliauja iki serverio, galima naudoti komandą.
+
+```powershell
+tracert google.com
+```
+
+Komandos išvestis
+
+```powershell
+Tracing route to google.com [142.251.38.110]
+over a maximum of 30 hops:
+
+  1     4 ms     3 ms     4 ms  192.168.20.75
+  2     *        *        *     Request timed out.
+  3    67 ms    48 ms    62 ms  10.115.184.1
+  4    40 ms    46 ms    54 ms  tel444-fgw-1.ae1-213.tele2.net [213.100.43.38]
+  5     *       39 ms    27 ms  212.151.29.20
+  6   153 ms   101 ms   101 ms  212.151.29.21
+  7     *       51 ms     *     vlna00-fgw-1.ae1-193.tele2.net [213.100.43.6]
+  8    69 ms    51 ms    37 ms  c213-100-43-5.cust.tele2.se [213.100.43.5]
+  9    69 ms    65 ms    44 ms  vlna00-bcore-1.bundle-ether5.tele2.net [130.244.130.62]
+ 10    79 ms    65 ms    47 ms  ada345-bcore-1.bundle-ether2.tele2.net [130.244.130.2]
+ 11    52 ms    48 ms    43 ms  ada345-agg-1.bundle-ether1.tele2.net [91.129.14.84]
+ 12    52 ms    57 ms    39 ms  hgd-cagg-1.bundle-ether11.tele2.net [91.129.14.224]
+ 13    82 ms    44 ms    55 ms  avk-core-2.bundle-ether3.tele2.net [91.129.12.24]
+ 14    69 ms    40 ms    40 ms  inx-peer-1.ae1-unit0.tele2.net [91.129.14.128]
+ 15    62 ms   102 ms    63 ms  72.14.214.82
+ 16    93 ms    61 ms    58 ms  216.239.42.15
+ 17    62 ms    77 ms    65 ms  142.251.65.83
+ 18    75 ms    68 ms    68 ms  lcarna-ac-in-f14.1e100.net [142.251.38.110]
+
+Trace complete.
+```
+
+Gauti rezultatai parodo, kaip duomenys keliauja iki serverio. Kiekviena eilutė su numeriu rodo vieną tarpinių įrenginių etapą, per kurį keliauja duomenys. Tarpiniai įrenginiai yra **maršrutizatoriai**, kurie perduoda duomenis iš vieno tinklo į kitą, kol jie pasiekia galutinį serverį.
+
+Kiekvienoje eilutėje pateikiami keli laikai, pavyzdžiui `4 ms`, `3 ms`, `4 ms`. Tai rodo, per kiek laiko signalas pasiekia tą įrenginį. Kuo šis laikas mažesnis, tuo ryšys greitesnis.
+
+Pirmas įrašas dažniausiai yra tavo vietinis maršrutizatorius, pavyzdžiui `192.168.20.75`. Toliau rodomi interneto tiekėjo ir kitų tinklų įrenginiai, kol pasiekiamas galutinis serveris.
+
+Jeigu vietoje laiko rodomas `*` ir pranešimas **Request timed out**, tai reiškia, kad tas įrenginys neatsakė. Tai nebūtinai yra klaida, nes kai kurie maršrutizatoriai neatsako į tokius užklausimus.
+
+Paskutinė eilutė rodo galutinį serverį, šiuo atveju `google.com`, o užrašas **Trace complete** reiškia, kad kelias iki serverio buvo sėkmingai nustatytas.
+
+Taip pat galima naudoti svetaines, kurios parodo išorinį IP adresą. Pavyzdžiui, galima apsilankyti svetainėje `https://whatismyipaddress.com` ir patikrinti savo viešą IP adresą.
 
 Tinklo problemos gali būti įvairios
 
@@ -150,11 +303,13 @@ Diagnostikos tikslas yra žingsnis po žingsnio patikrinti visus šiuos aspektus
 
 Svarbu veikti nuosekliai. Pirmiausia tikrinamas įrenginys, tada tinklas, o galiausiai išorinis ryšys.
 
+Diagnozuojant tinklą svarbu veikti nuosekliai. Pirmiausia tikrinamas ryšys su `ping 8.8.8.8`. Jei jis neveikia, problema gali būti interneto ryšyje. Jei veikia, bet neveikia `ping google.com`, problema gali būti DNS. Jei IP adresas nerodomas arba neteisingas, problema gali būti tinklo nustatymuose.
+
 Trumpai galima įsiminti taip
 
 - tikrink fizinį ryšį  
 - naudok `ping` ryšiui patikrinti  
 - naudok `ipconfig` IP informacijai  
-- tikrink išorinį IP per specialias svetaines  
+- tikrink tinklo kelią su `tracert`  
 
 Tinklo diagnostika leidžia greitai nustatyti ir išspręsti problemas, todėl yra svarbi kiekvieno tinklo naudotojo ir administratoriaus dalis.
