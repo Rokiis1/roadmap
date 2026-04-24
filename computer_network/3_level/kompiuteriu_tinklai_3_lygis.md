@@ -198,13 +198,82 @@ Jeigu ši komanda neveikia, gali būti DNS problema. Jeigu `ping 8.8.8.8` veikia
 
 Jeigu atsakymas gaunamas, tai reiškia, kad ryšys veikia. Jei ne, gali būti ryšio problema.
 
-Kitas naudingas įrankis yra `ipconfig` arba `ifconfig`. Jis leidžia pamatyti įrenginio IP adresą ir kitą tinklo informaciją.
+Kitas naudingas įrankis yra `ipconfig`. Jis leidžia pamatyti įrenginio IP adresą ir kitą tinklo informaciją.
 
 Šią informaciją galima peržiūrėti `CMD` aplinkoje įvedus
 
 ```cmd
 ipconfig
 ```
+
+Rezultatas
+
+```cmd
+Windows IP Configuration
+
+
+Unknown adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Ethernet 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter vEthernet (Default Switch):
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::91b3:ea51:aa73:f893%38
+   IPv4 Address. . . . . . . . . . . : 172.31.192.1
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+
+Unknown adapter OpenVPN Connect DCO Adapter:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::eac8:bf:f171:1f9b%17
+   IPv4 Address. . . . . . . . . . . : 192.168.20.109
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.20.75
+```
+
+Rezultatas gali atrodyti skirtingai, tačiau informacija visada pateikiama pagal tinklo adapterius.
+
+Kiekvienas blokas, pavyzdžiui **Ethernet adapter**, **Wireless LAN adapter Wi-Fi** ar **vEthernet**, nurodo skirtingą tinklo jungtį. Jei prie jos parašyta **Media disconnected**, tai reiškia, kad ta jungtis šiuo metu nenaudojama.
+
+Svarbiausia informacija pateikiama prie aktyvaus adapterio, pavyzdžiui Wi-Fi. Aktyvus adapteris yra tas, kuris turi IP adresą ir nėra pažymėtas kaip **Media disconnected**.
+
+Laukas **IPv4 Address** nurodo įrenginio adresą vietiniame tinkle, šiuo atveju `192.168.20.109`. Šis adresas leidžia kitiems įrenginiams tame pačiame tinkle rasti tavo kompiuterį.
+
+**Subnet Mask** nurodo tinklo dydį ir padeda nustatyti, kurie įrenginiai priklauso tam pačiam tinklui.
+
+**Default Gateway** nurodo maršrutizatorių, per kurį vyksta ryšys su internetu, šiuo atveju `192.168.20.75`.
+
+Taip pat gali būti rodomas IPv6 adresas, kuris yra ilgesnis ir naudojamas naujesniuose tinkluose.
+
+Ši informacija leidžia nustatyti, ar įrenginys turi teisingą IP adresą, ar yra prisijungęs prie tinklo ir ar gali pasiekti internetą.
 
 arba `PowerShell` aplinkoje įvedus
 
@@ -245,6 +314,10 @@ Laukas **Type** parodo adreso tipą. `Unicast` reiškia, kad adresas priklauso v
 `192.168.x.x` yra privatus IP adresas, naudojamas vietiniame tinkle ir nėra matomas internete.
 
 Ši informacija leidžia nustatyti, ar įrenginys turi galiojantį IP adresą ir ar yra tinkamai prijungtas prie tinklo.
+
+Rezultatai gali skirtis, nes skirtingi įrankiai pateikia informaciją skirtingu formatu. `ipconfig` dažniausiai rodo paprastesnę informaciją apie aktyvų tinklo adapterį, o `PowerShell` komanda `Get-NetIPAddress` pateikia detalesnę informaciją, įskaitant visus adresus ir papildomus laukus.
+
+Taip pat gali būti rodomi keli tinklo adapteriai, todėl vienoje vietoje gali būti matomas `IPv4` adresas, o kitoje `IPv6`. Tai yra normalu, nes įrenginys gali turėti kelis adresus skirtingiems tinklams ar jungtims.
 
 Norint pamatyti, kaip duomenys keliauja iki serverio, galima naudoti komandą.
 
