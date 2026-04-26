@@ -7,6 +7,7 @@
 - [Creating the database engine](#creating-the-database-engine)
 - [Defining ORM models](#defining-orm-models)
 - [Creating database tables from models](#creating-database-tables-from-models)
+- [Inspecting the database during development](#inspecting-the-database-during-development)
 - [Creating a database session](#creating-a-database-session)
 - [Using database sessions inside FastAPI routes](#using-database-sessions-inside-fastapi-routes)
 - [Reading data using ORM queries](#reading-data-using-orm-queries)
@@ -562,6 +563,8 @@ Even when using a synchronous engine, the lifespan function itself must still be
 After this step completes, the database file contains the tables defined by the ORM models. The application now has a database structure where data can be stored and retrieved.
 
 Before working with sessions and queries, it is helpful to understand how SQLAlchemy actually manages database operations behind the scenes and how Python objects are translated into SQL statements.
+
+## Inspecting the database during development
 
 ## How SQLAlchemy manages database operations
 
