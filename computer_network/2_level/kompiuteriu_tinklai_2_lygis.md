@@ -2,7 +2,7 @@
 
 - [Tinklo įranga](#tinklo-įranga)
 - [Interneto prieiga](#interneto-prieiga)
-- [TCP/IP protokolas](#tcpip-protokolas)
+- [Tinklo protokolai](#tinklo-protokolai)
 - [IP adresai](#ip-adresai)
 - [IP adresų tipai](#ip-adresų-tipai)
 - [MAC adresas](#mac-adresas)
@@ -98,15 +98,23 @@ Interneto prieiga yra būtina, kad tinklas galėtų pasiekti išorinius resursus
 
 Kai jau aišku, kaip įrenginiai prisijungia prie interneto, galima pereiti prie to, kaip duomenys yra perduodami tinkle ir kokios taisyklės tai apibrėžia.
 
-## TCP/IP protokolas
+## Tinklo protokolai
 
 Kad įrenginiai tinkle galėtų bendrauti tarpusavyje, neužtenka vien fizinio sujungimo. Reikalingos taisyklės, kurios nusako, kaip duomenys turi būti siunčiami, priimami ir suprantami. Šios taisyklės vadinamos protokolais (*protocols*).
 
-Vienas svarbiausių protokolų rinkinių yra **TCP IP** (*TCP/IP protocol suite*). Jis sudaro pagrindą visam interneto veikimui.
+Ankstesnėse temose jau buvo aptarta, kaip veikia tinklai, kaip perduodami duomenys ir kaip įrenginiai atpažįstami naudojant IP adresus. Tačiau visa tai veikia tik todėl, kad egzistuoja aiškios taisyklės, kurios apibrėžia šį procesą.
 
-![tcp/ip model](./assets/images/tcp-ip-model.png)
+Šioje temoje apžvelgiami pagrindiniai tinklo protokolai ir jų veikimo principai. Vėliau kiekvienas iš jų apžvelgsime detaliau atskirai.
 
-**Application layer (programų sluoksnis)** yra aukščiausias sluoksnis. Jis tiesiogiai bendrauja su vartotojo programomis. Čia veikia tokie protokolai kaip *HTTP/HTTPS*, *SMTP*, *DNS*, *FTP*, *SSH*. Šis sluoksnis leidžia naudotis interneto paslaugomis.
+Tinklo protokolai veikia skirtinguose lygiuose ir atlieka skirtingas funkcijas nuo duomenų perdavimo iki jų nukreipimo ar paslaugų teikimo vartotojui.
+
+Norint geriau suprasti šį procesą, naudojamas sluoksnių modelis (*layered model*), kuris suskirsto tinklo veikimą į kelis etapus.
+
+![network layers](./assets/images/network-layers.png)
+
+Šis modelis skirstomas į keturis pagrindinius sluoksnius (*layers*), kurie apibrėžia, kaip vyksta duomenų perdavimas.
+
+**Application layer (programų sluoksnis)** yra aukščiausias sluoksnis. Jis tiesiogiai bendrauja su vartotojo programomis. Čia veikia tokie protokolai kaip *HTTP/HTTPS*, *SMTP*, *DNS*, *FTP*, *SSH*, *DHCP*. Šis sluoksnis leidžia naudotis interneto paslaugomis.
 
 **Transport layer (transporto sluoksnis)** atsakingas už duomenų perdavimą tarp įrenginių. Jis užtikrina, kad duomenys būtų perduoti teisingai ir tinkama tvarka. Pagrindiniai protokolai yra **TCP** (*Transmission Control Protocol*) ir **UDP** (*User Datagram Protocol*).
 
@@ -114,33 +122,23 @@ Vienas svarbiausių protokolų rinkinių yra **TCP IP** (*TCP/IP protocol suite*
 
 **Network access layer (tinklo prieigos sluoksnis)** atsakingas už fizinį duomenų perdavimą. Jis apima technologijas kaip *Ethernet* ir *Wi-Fi*, kurios leidžia perduoti duomenis per tinklą.
 
-Pavadinimas TCP IP sudarytas iš dviejų pagrindinių dalių
-
-**TCP** (*Transmission Control Protocol*) užtikrina patikimą duomenų perdavimą. Jis garantuoja, kad visi paketai bus gauti ir teisinga tvarka.
-
-**IP** (*Internet Protocol*) nustato, kur duomenys turi būti siunčiami, naudodamas IP adresus.
-
 Duomenys tinkle nėra siunčiami kaip vienas didelis failas. Jie suskaidomi į mažesnes dalis, vadinamas paketais (*packets*).
 
 Kiekvienas paketas keliauja per tinklą atskirai. Skirtingi paketai gali keliauti skirtingais maršrutais, tačiau galutiniame taške jie vėl surenkami į vieną visumą.
 
 Šį procesą galima palyginti su siuntiniu siuntimu. Didelis krovinys padalinamas į mažesnes dėžes, kurios siunčiamos atskirai, o gavėjas jas surenka į vieną.
 
-**IP** rūpinasi, kad paketai pasiektų teisingą adresą, o **TCP** užtikrina, kad visi paketai būtų gauti ir sudėti teisinga tvarka.
-
-Jeigu kuris nors paketas dingsta, TCP gali paprašyti jį išsiųsti dar kartą. Tai užtikrina patikimą duomenų perdavimą.
-
-TCP IP veikia visuose interneto ryšiuose. Kai atidaromas puslapis, siunčiamas el. laiškas ar žiūrimas vaizdo įrašas, duomenys visada perduodami naudojant šį protokolų rinkinį.
+Skirtingi protokolai atlieka skirtingas funkcijas vieni rūpinasi duomenų perdavimu, kiti jų nukreipimu ar ryšio tikrinimu.
 
 Trumpai galima įsiminti taip
 
-- **TCP** užtikrina patikimą duomenų perdavimą  
-- **IP** nustato, kur duomenys turi būti siunčiami  
+- protokolai nustato, kaip vyksta duomenų perdavimas  
 - duomenys perduodami paketais (*packets*)  
+- skirtingi sluoksniai atlieka skirtingas funkcijas  
 
-TCP IP leidžia skirtingiems įrenginiams suprasti vienas kitą ir sėkmingai keistis informacija.
+Tinklo protokolai leidžia skirtingiems įrenginiams suprasti vienas kitą ir sėkmingai keistis informacija.
 
-Kai jau aišku, kaip duomenys keliauja tinkle, svarbu suprasti, kaip įrenginiai yra atpažįstami. Todėl toliau nagrinėjama IP adreso sąvoka.
+Kai jau aišku, kaip organizuojamas duomenų perdavimas, galima pereiti prie konkrečių protokolų ir jų veikimo principų.
 
 ## IP adresai
 
@@ -186,6 +184,10 @@ Pavyzdys
 IPv6 buvo sukurtas todėl, kad IPv4 adresų skaičius yra ribotas. Naujoji versija leidžia sukurti daug daugiau unikalių adresų.
 
 Kasdienybėje vis dar dažniausiai naudojamas IPv4, tačiau IPv6 palaipsniui tampa vis svarbesnis.
+
+Viešą IP adresą galima pasitikrinti naudojant specialias svetaines, pavyzdžiui `https://whatismyipaddress.com`. Tokios svetainės parodo, kokį išorinį IP adresą mato internetas.
+
+IP adresai gali būti priskiriami automatiškai arba rankiniu būdu.
 
 IP adresai gali būti priskiriami automatiškai arba rankiniu būdu. Dažniausiai tai atlieka maršrutizatorius (*router*), naudodamas specialų mechanizmą, vadinamą *DHCP Dynamic Host Configuration Protocol*.
 

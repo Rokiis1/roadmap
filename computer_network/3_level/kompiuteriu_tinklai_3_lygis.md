@@ -19,6 +19,8 @@ Pirmiausia svarbu suprasti tinklo paslaugas ir protokolus, nes būtent jie apibr
 
 Kompiuterių tinklai naudojami ne tik duomenų perdavimui, bet ir įvairioms paslaugoms teikti. Šios paslaugos leidžia vartotojams naršyti internete, siųsti laiškus, atsisiųsti failus ar bendrauti realiu laiku.
 
+Pavyzdžiui naršant svetaines (*WWW World Wide Web*) vartotojas pasiekia interneto puslapius kitas naudojant el. paštą galima siųsti ir gauti laiškus taip pat naudojant *FTP* galima siųsti ir atsisiųsti failus iš serverių.
+
 Angliškai tinklo paslaugos vadinamos *network services*, o jų veikimą apibrėžia protokolai (*protocols*).
 
 Protokolas yra taisyklių rinkinys, kuris nusako, kaip įrenginiai turi bendrauti tarpusavyje. Be protokolų skirtingi įrenginiai negalėtų suprasti vienas kito.
@@ -77,6 +79,16 @@ Kai vartotojas įveda domeną naršyklėje (*browser*), vyksta procesas, kurio m
 DNS veikia kaip „interneto telefonų knyga“. Ji suranda, koks IP adresas atitinka įvestą domeną, ir leidžia naršyklei susisiekti su serveriu (*server*).
 
 ![dns process](./assets/images/dns-process.png)
+
+Domenai taip pat turi savo struktūrą, kuri sudaryta iš kelių lygių.
+
+Aukščiausio lygio domenas (*Top-Level Domain, TLD*) yra paskutinė domeno dalis, pavyzdžiui `.com`, `.org`, `.net`, `.lt`.
+
+Antrojo lygio domenas yra pagrindinis domeno vardas, kurį pasirenka vartotojas, pavyzdžiui `google.com`, `example.lt`.
+
+Trečiojo lygio domenas (subdomenas) yra papildoma dalis prieš domeną, pavyzdžiui `www.google.com` arba `mail.example.lt`.
+
+Šie lygiai leidžia struktūruoti interneto adresus ir atskirti skirtingas svetainių dalis.
 
 **URL adresas** (*URL*) yra pilnas kelias iki konkretaus resurso internete. Jis apima ne tik domeną, bet ir papildomą informaciją.
 
@@ -230,8 +242,8 @@ Ethernet adapter Ethernet 2:
 Ethernet adapter vEthernet (Default Switch):
 
    Connection-specific DNS Suffix  . :
-   Link-local IPv6 Address . . . . . : fe80::91b3:ea51:aa73:f893%38
-   IPv4 Address. . . . . . . . . . . : 172.31.192.1
+   Link-local IPv6 Address . . . . . : fe80::xxxx:xxxx:xxxx:xxxx%38
+   IPv4 Address. . . . . . . . . . . : 10.0.0.10
    Subnet Mask . . . . . . . . . . . : 255.255.240.0
    Default Gateway . . . . . . . . . :
 
@@ -253,10 +265,10 @@ Wireless LAN adapter Local Area Connection* 2:
 Wireless LAN adapter Wi-Fi:
 
    Connection-specific DNS Suffix  . :
-   Link-local IPv6 Address . . . . . : fe80::eac8:bf:f171:1f9b%17
-   IPv4 Address. . . . . . . . . . . : 192.168.20.109
+   Link-local IPv6 Address . . . . . : fe80::xxxx:xxxx:xxxx:xxxx%17
+   IPv4 Address. . . . . . . . . . . : 192.168.1.10
    Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   Default Gateway . . . . . . . . . : 192.168.20.75
+   Default Gateway . . . . . . . . . : 192.168.1.1
 ```
 
 Rezultatas gali atrodyti skirtingai, tačiau informacija visada pateikiama pagal tinklo adapterius.
@@ -265,11 +277,11 @@ Kiekvienas blokas, pavyzdžiui **Ethernet adapter**, **Wireless LAN adapter Wi-F
 
 Svarbiausia informacija pateikiama prie aktyvaus adapterio, pavyzdžiui Wi-Fi. Aktyvus adapteris yra tas, kuris turi IP adresą ir nėra pažymėtas kaip **Media disconnected**.
 
-Laukas **IPv4 Address** nurodo įrenginio adresą vietiniame tinkle, šiuo atveju `192.168.20.109`. Šis adresas leidžia kitiems įrenginiams tame pačiame tinkle rasti tavo kompiuterį.
+Laukas **IPv4 Address** nurodo įrenginio adresą vietiniame tinkle, šiuo atveju `192.168.1.10`. Šis adresas leidžia kitiems įrenginiams tame pačiame tinkle rasti tavo kompiuterį.
 
 **Subnet Mask** nurodo tinklo dydį ir padeda nustatyti, kurie įrenginiai priklauso tam pačiam tinklui.
 
-**Default Gateway** nurodo maršrutizatorių, per kurį vyksta ryšys su internetu, šiuo atveju `192.168.20.75`.
+**Default Gateway** nurodo maršrutizatorių, per kurį vyksta ryšys su internetu, šiuo atveju `192.168.1.1`.
 
 Taip pat gali būti rodomas IPv6 adresas, kuris yra ilgesnis ir naudojamas naujesniuose tinkluose.
 
@@ -284,7 +296,7 @@ Get-NetIPAddress
 Rezultatas
 
 ```powershell
-IPAddress         : fe80::1f08:95cb:1dc4:96e4%38
+IPAddress         : fe80::xxxx:xxxx:xxxx:xxxx%38
 InterfaceIndex    : 38
 InterfaceAlias    : vEthernet (Default Switch)
 AddressFamily     : IPv6
@@ -331,24 +343,24 @@ Komandos išvestis
 Tracing route to google.com [142.251.38.110]
 over a maximum of 30 hops:
 
-  1     4 ms     3 ms     4 ms  192.168.20.75
+  1     4 ms     3 ms     4 ms  192.168.1.1
   2     *        *        *     Request timed out.
-  3    67 ms    48 ms    62 ms  10.115.184.1
-  4    40 ms    46 ms    54 ms  tel444-fgw-1.ae1-213.tele2.net [213.100.43.38]
-  5     *       39 ms    27 ms  212.151.29.20
-  6   153 ms   101 ms   101 ms  212.151.29.21
-  7     *       51 ms     *     vlna00-fgw-1.ae1-193.tele2.net [213.100.43.6]
-  8    69 ms    51 ms    37 ms  c213-100-43-5.cust.tele2.se [213.100.43.5]
-  9    69 ms    65 ms    44 ms  vlna00-bcore-1.bundle-ether5.tele2.net [130.244.130.62]
- 10    79 ms    65 ms    47 ms  ada345-bcore-1.bundle-ether2.tele2.net [130.244.130.2]
- 11    52 ms    48 ms    43 ms  ada345-agg-1.bundle-ether1.tele2.net [91.129.14.84]
- 12    52 ms    57 ms    39 ms  hgd-cagg-1.bundle-ether11.tele2.net [91.129.14.224]
- 13    82 ms    44 ms    55 ms  avk-core-2.bundle-ether3.tele2.net [91.129.12.24]
- 14    69 ms    40 ms    40 ms  inx-peer-1.ae1-unit0.tele2.net [91.129.14.128]
- 15    62 ms   102 ms    63 ms  72.14.214.82
- 16    93 ms    61 ms    58 ms  216.239.42.15
- 17    62 ms    77 ms    65 ms  142.251.65.83
- 18    75 ms    68 ms    68 ms  lcarna-ac-in-f14.1e100.net [142.251.38.110]
+  3    67 ms    48 ms    62 ms  10.0.0.1
+  4    40 ms    46 ms    54 ms  ISP router [203.0.113.10]
+  5     *       39 ms    27 ms  203.0.113.11
+  6   153 ms   101 ms   101 ms  203.0.113.12
+  7     *       51 ms     *     ISP router [203.0.113.13]
+  8    69 ms    51 ms    37 ms  ISP router [203.0.113.14]
+  9    69 ms    65 ms    44 ms  ISP backbone [203.0.113.15]
+ 10    79 ms    65 ms    47 ms  ISP backbone [203.0.113.16]
+ 11    52 ms    48 ms    43 ms  ISP network [203.0.113.17]
+ 12    52 ms    57 ms    39 ms  ISP network [203.0.113.18]
+ 13    82 ms    44 ms    55 ms  ISP network [203.0.113.19]
+ 14    69 ms    40 ms    40 ms  ISP peer [203.0.113.20]
+ 15    62 ms   102 ms    63 ms  198.51.100.10
+ 16    93 ms    61 ms    58 ms  198.51.100.11
+ 17    62 ms    77 ms    65 ms  198.51.100.12
+ 18    75 ms    68 ms    68 ms  google.com [142.251.38.110]
 
 Trace complete.
 ```
@@ -357,32 +369,387 @@ Gauti rezultatai parodo, kaip duomenys keliauja iki serverio. Kiekviena eilutė 
 
 Kiekvienoje eilutėje pateikiami keli laikai, pavyzdžiui `4 ms`, `3 ms`, `4 ms`. Tai rodo, per kiek laiko signalas pasiekia tą įrenginį. Kuo šis laikas mažesnis, tuo ryšys greitesnis.
 
-Pirmas įrašas dažniausiai yra tavo vietinis maršrutizatorius, pavyzdžiui `192.168.20.75`. Toliau rodomi interneto tiekėjo ir kitų tinklų įrenginiai, kol pasiekiamas galutinis serveris.
+Pirmas įrašas dažniausiai yra tavo vietinis maršrutizatorius, pavyzdžiui `192.168.1.1`. Toliau rodomi interneto tiekėjo ir kitų tinklų įrenginiai, kol pasiekiamas galutinis serveris.
 
 Jeigu vietoje laiko rodomas `*` ir pranešimas **Request timed out**, tai reiškia, kad tas įrenginys neatsakė. Tai nebūtinai yra klaida, nes kai kurie maršrutizatoriai neatsako į tokius užklausimus.
 
 Paskutinė eilutė rodo galutinį serverį, šiuo atveju `google.com`, o užrašas **Trace complete** reiškia, kad kelias iki serverio buvo sėkmingai nustatytas.
 
-Taip pat galima naudoti svetaines, kurios parodo išorinį IP adresą. Pavyzdžiui, galima apsilankyti svetainėje `https://whatismyipaddress.com` ir patikrinti savo viešą IP adresą.
+Taip pat egzistuoja papildomi tinklo diagnostikos įrankiai, kurie leidžia dar detaliau analizuoti tinklo veikimą.
 
-Tinklo problemos gali būti įvairios
+Vienas iš jų yra `ipconfig /all`. Ši komanda pateikia išsamią informaciją apie tinklo adapterius.
+
+```cmd
+ipconfig /all
+```
+
+Komandos rezultatas
+
+```py
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : kompiuteris-01
+   Primary Dns Suffix  . . . . . . . :
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+
+Unknown adapter Local Area Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : TAP-Windows Adapter V9 for OpenVPN Connect
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-01
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Realtek PCIe GbE Family Controller
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-02
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Ethernet adapter vEthernet (Default Switch):
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Hyper-V Virtual Ethernet Adapter
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-03
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::xxxx:xxxx:xxxx:xxxx%38(Preferred)
+   IPv4 Address. . . . . . . . . . . : 10.0.0.10(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+   DHCPv6 IAID . . . . . . . . . . . : 000000000
+   DHCPv6 Client DUID. . . . . . . . : XX-XX-XX-XX-XX-04
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Unknown adapter OpenVPN Connect DCO Adapter:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : OpenVPN Data Channel Offload
+   Physical Address. . . . . . . . . :
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-05
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter Local Area Connection* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Microsoft Wi-Fi Direct Virtual Adapter #2
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-06
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : MediaTek Wi-Fi 6 MT7921 Wireless LAN Card
+   Physical Address. . . . . . . . . : XX-XX-XX-XX-XX-07
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::xxxx:xxxx:xxxx:xxxx%17(Preferred)
+   IPv4 Address. . . . . . . . . . . : 192.168.1.10(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Monday, January 1, 2024 10:00:00 AM
+   Lease Expires . . . . . . . . . . : Monday, January 1, 2024 12:00:00 PM
+   Default Gateway . . . . . . . . . : 192.168.1.1
+   DHCP Server . . . . . . . . . . . : 192.168.1.1
+   DHCPv6 IAID . . . . . . . . . . . : 000000000
+   DHCPv6 Client DUID. . . . . . . . : XX-XX-XX-XX-XX-04
+   DNS Servers . . . . . . . . . . . : 192.168.1.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+```
+
+Gauti rezultatai parodo visą įrenginio tinklo konfigūraciją. Informacija pateikiama pagal tinklo adapterius, todėl kiekvienas blokas atitinka skirtingą tinklo jungtį.
+
+Viršuje pateikiama bendroji informacija apie sistemą. **Host Name** nurodo kompiuterio pavadinimą, šiuo atveju `kompiuteris-01`. **IP Routing Enabled** parodo, ar kompiuteris veikia kaip maršrutizatorius, o **WINS Proxy Enabled** susijęs su senesnėmis tinklo technologijomis.
+
+Toliau pateikiami skirtingi tinklo adapteriai. Dalis jų pažymėti kaip Media disconnected, tai reiškia, kad šiuo metu jie nenaudojami. Tai gali būti **Ethernet jungtis be prijungto kabelio**, **virtualūs adapteriai (OpenVPN, Hyper-V)**, **papildomi Wi-Fi adapteriai**
+
+Svarbiausia informacija pateikiama prie aktyvaus adapterio, **šiuo atveju Wireless LAN adapter Wi-Fi**.
+
+Laukas **IPv4 Address** nurodo įrenginio adresą vietiniame tinkle, šiuo atveju `192.168.1.10`. Tai yra privatus IP adresas, naudojamas komunikacijai lokaliame tinkle.
+
+**Subnet Mask** (`255.255.255.0`) nustato tinklo dydį ir padeda suprasti, kurie įrenginiai priklauso tam pačiam tinklui.
+
+**Default Gateway** (`192.168.1.1`) nurodo maršrutizatorių. Per šį įrenginį vyksta ryšys su internetu.
+
+**DHCP Server** taip pat yra `192.168.1.1`, tai reiškia, kad maršrutizatorius automatiškai priskiria IP adresus įrenginiams tinkle.
+
+**DNS Servers** (`192.168.1.1`) nurodo serverį, kuris verčia domenus (pvz., google.com) į IP adresus.
+
+**Physical Address** yra MAC adresas (`XX-XX-XX-XX-XX-07`), kuris unikaliai identifikuoja tinklo plokštę.
+
+Taip pat matomas **IPv6 Address**, kuris naudojamas naujesniuose tinkluose. Jis yra ilgesnis ir gali būti naudojamas kartu su IPv4.
+
+Laukai **Lease Obtained** ir **Lease Expires** parodo, kada IP adresas buvo gautas ir kada jis baigs galioti. Tai susiję su DHCP veikimu.
+
+Svarbu atkreipti dėmesį, kad sistemoje gali būti daug adapterių, tačiau tik vienas ar keli iš jų yra aktyvūs. Diagnostikos metu svarbiausia analizuoti tą adapterį, kuris turi IP adresą ir nėra pažymėtas kaip **Media disconnected**.
+
+Kita naudinga komanda yra `getmac`, kuri parodo įrenginio MAC adresus.
+
+```cmd
+getmac /v
+```
+
+Komandos rezultatas
+
+```cmd
+Physical Address    Transport Name
+=================== ==========================================================
+XX-XX-XX-XX-XX-02   Media disconnected
+XX-XX-XX-XX-XX-07   \Device\Tcpip_{00000000-0000-0000-0000-000000000000}
+XX-XX-XX-XX-XX-01   Media disconnected
+N/A                 Media disconnected
+```
+
+Gauti rezultatai parodo įrenginio tinklo adapterių MAC adresus ir jų būseną.
+
+Kiekviena eilutė atitinka atskirą tinklo adapterį. **Physical Address** yra MAC adresas, kuris unikaliai identifikuoja tinklo plokštę, o **Transport Name** parodo adapterio būseną.
+
+Eilutė `XX-XX-XX-XX-XX-02   Media disconnected` reiškia, kad tai yra laidinis (Ethernet) adapteris, tačiau jis šiuo metu neprijungtas prie tinklo, todėl nenaudojamas.
+
+Eilutė `XX-XX-XX-XX-XX-07   \Device\Tcpip_{...}` rodo aktyvų adapterį. Tai yra Wi-Fi adapteris, kuris šiuo metu naudojamas tinklo ryšiui. Įrašas `\Device\Tcpip...` reiškia, kad adapteris turi IP adresą ir yra aktyvus.
+
+Eilutė `XX-XX-XX-XX-XX-01   Media disconnected` nurodo kitą adapterį, greičiausiai virtualų (pvz., VPN), tačiau jis šiuo metu nenaudojamas.
+
+Eilutė `N/A   Media disconnected` reiškia, kad tai yra neaktyvus arba sisteminis adapteris, kuris neturi MAC adreso ir nėra naudojamas.
+
+Svarbu atkreipti dėmesį, kad aktyvus adapteris yra tas, kuris neturi žymos **Media disconnected** ir turi tinklo sąsają (`\Device\Tcpip...`). Šiuo atveju tai yra Wi-Fi adapteris su MAC adresu `XX-XX-XX-XX-XX-07`.
+
+Ši informacija leidžia nustatyti, kuris adapteris naudojamas tinklo ryšiui ir koks yra jo MAC adresas.
+
+Komanda `arp` leidžia pamatyti ryšį tarp IP adresų ir MAC adresų.
+
+```cmd
+arp -a
+```
+
+Komandos rezultatas
+
+```cmd
+Interface: 192.168.1.10 --- 0x11
+  Internet Address      Physical Address      Type
+  192.168.1.1           XX-XX-XX-XX-XX-10     dynamic
+  192.168.1.20          XX-XX-XX-XX-XX-20     dynamic
+  192.168.1.255         ff-ff-ff-ff-ff-ff     static
+  224.0.0.22            01-00-5e-00-00-16     static
+  224.0.0.251           01-00-5e-00-00-fb     static
+  224.0.0.252           01-00-5e-00-00-fc     static
+  239.255.255.250       01-00-5e-7f-ff-fa     static
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static
+
+Interface: 10.0.0.10 --- 0x26
+  Internet Address      Physical Address      Type
+  10.0.15.255           ff-ff-ff-ff-ff-ff     static
+  224.0.0.2             01-00-5e-00-00-02     static
+  224.0.0.22            01-00-5e-00-00-16     static
+  224.0.0.251           01-00-5e-00-00-fb     static
+  224.0.0.252           01-00-5e-00-00-fc     static
+  224.0.1.187           01-00-5e-00-01-bb     static
+  239.192.152.143       01-00-5e-40-98-8f     static
+  239.254.127.63        01-00-5e-7e-7f-3f     static
+  239.255.255.100       01-00-5e-7f-ff-64     static
+  239.255.255.250       01-00-5e-7f-ff-fa     static
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static
+```
+
+Gauti rezultatai parodo ARP lentelę, kurioje pateikiamas ryšys tarp IP adresų ir MAC adresų.
+
+Kiekvienas blokas prasideda nuo **Interface**, kuris nurodo tinklo adapterį. Pavyzdžiui, `192.168.1.10` yra tavo Wi-Fi adapterio IP adresas, o `10.0.0.10` priklauso virtualiam adapteriui (Hyper-V).
+
+Toliau pateikiama lentelė su trimis stulpeliais. **Internet Address** nurodo IP adresą, **Physical Address** parodo atitinkamą MAC adresą, o **Type** nurodo, ar įrašas yra dinaminis ar statinis.
+
+Eilutė `192.168.1.1   XX-XX-XX-XX-XX-10   dynamic` reiškia, kad tavo maršrutizatorius turi šį MAC adresą. Žyma **dynamic** rodo, kad šis įrašas buvo automatiškai gautas per tinklo ryšį.
+
+Eilutė `192.168.1.20   XX-XX-XX-XX-XX-20   dynamic` nurodo kitą įrenginį tame pačiame tinkle, pavyzdžiui telefoną ar kitą kompiuterį.
+
+Eilutė `192.168.1.255   ff-ff-ff-ff-ff-ff   static` yra broadcast adresas, kuris naudojamas siųsti duomenis visiems tinklo įrenginiams.
+
+IP adresai, tokie kaip `224.0.0.22`, `224.0.0.251`, `239.255.255.250`, yra multicast adresai. Jie naudojami specialiems tinklo pranešimams (įrenginių paieškai tinkle).
+
+MAC adresai, prasidedantys `01-00-5e`, taip pat priklauso multicast grupėms.
+
+Įrašas `255.255.255.255   ff-ff-ff-ff-ff-ff` yra globalus broadcast adresas, naudojamas siųsti duomenis visiems įrenginiams tinkle.
+
+Antras blokas su `Interface: 10.0.0.10` priklauso virtualiam tinklui. Čia pateikiami tik multicast ir broadcast adresai, nes šis tinklas naudojamas vidinėms sistemoms (virtualizacijai).
+
+Svarbu suprasti, kad ARP lentelė naudojama tam, kad tinklas galėtų susieti IP adresus su fiziniais MAC adresais. Kai įrenginys nori siųsti duomenis kitam įrenginiui lokaliame tinkle, jis naudoja būtent šią informaciją.
+
+Komanda `netstat` leidžia pamatyti aktyvius tinklo ryšius.
+
+```cmd
+netstat -an
+```
+
+Komandos rezultatas
+
+```cmd
+Active Connections
+
+  Proto  Local Address          Foreign Address        State
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:2179           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING
+  TCP    0.0.0.0:5432           0.0.0.0:0              LISTENING
+  TCP    127.0.0.1:53561        0.0.0.0:0              LISTENING
+  TCP    127.0.0.1:54469        0.0.0.0:0              LISTENING
+  TCP    10.0.0.10:139          0.0.0.0:0              LISTENING
+  TCP    192.168.1.10:139       0.0.0.0:0              LISTENING
+  TCP    192.168.1.10:49375     203.0.113.10:443       ESTABLISHED
+  TCP    192.168.1.10:49401     203.0.113.11:443       ESTABLISHED
+  TCP    192.168.1.10:49415     192.168.1.1:53         TIME_WAIT
+  TCP    192.168.1.10:49873     203.0.113.12:443       ESTABLISHED
+  TCP    192.168.1.10:49922     203.0.113.13:443       ESTABLISHED
+  TCP    192.168.1.10:50593     192.168.1.1:53         TIME_WAIT
+  TCP    192.168.1.10:55340     203.0.113.14:443       TIME_WAIT
+  TCP    192.168.1.10:64579     203.0.113.15:80        ESTABLISHED
+  TCP    [::]:135               [::]:0                 LISTENING
+  TCP    [::]:445               [::]:0                 LISTENING
+  TCP    [::1]:42050            [::]:0                 LISTENING
+  UDP    0.0.0.0:53             *:*
+  UDP    0.0.0.0:5050           *:*
+  UDP    0.0.0.0:5353           *:*
+  UDP    0.0.0.0:5355           *:*
+  UDP    127.0.0.1:1900         *:*
+  UDP    127.0.0.1:49664        127.0.0.1:49664
+  UDP    10.0.0.10:67           *:*
+  UDP    10.0.0.10:68           *:*
+  UDP    10.0.0.10:137          *:*
+  UDP    10.0.0.10:138          *:*
+  UDP    192.168.1.10:137       *:*
+  UDP    192.168.1.10:138       *:*
+  UDP    192.168.1.10:1900      *:*
+  UDP    [::]:5353              *:*
+  UDP    [::1]:1900             *:*
+  UDP    [fe80::xxxx:xxxx:xxxx:xxxx%38]:1900  *:*
+  UDP    [fe80::xxxx:xxxx:xxxx:xxxx%17]:1900  *:*
+```
+
+Gauti rezultatai parodo visus aktyvius tinklo ryšius ir atidarytus prievadus (ports) kompiuteryje.
+
+Kiekviena eilutė atitinka konkretų ryšį arba paslaugą. **Proto** nurodo protokolą (TCP arba UDP), **Local Address** yra tavo kompiuterio adresas ir prievadas, **Foreign Address** yra nuotolinis serveris, o **State** parodo ryšio būseną.
+
+Eilutės su `0.0.0.0:... LISTENING` reiškia, kad kompiuteris laukia prisijungimų per tam tikrą prievadą. Pavyzdžiui, `0.0.0.0:135` ar `0.0.0.0:445` yra sisteminiai Windows prievadai, naudojami tinklo paslaugoms.
+
+Eilutės su `127.0.0.1` nurodo vidinius (localhost) ryšius. Tai reiškia, kad programa bendrauja su pačia sistema, o ne su išoriniu tinklu.
+
+Eilutės su tavo IP adresu `192.168.1.10` rodo realius ryšius su kitais serveriais internete.
+
+Pavyzdžiui, `192.168.1.10:49375   203.0.113.10:443   ESTABLISHED` reiškia, kad tavo kompiuteris turi aktyvų ryšį su serveriu per HTTPS (443 prievadas).
+
+Būsena **ESTABLISHED** reiškia aktyvų ryšį, kuriuo šiuo metu siunčiami duomenys.
+
+Būsena **TIME_WAIT** reiškia, kad ryšys jau baigtas, tačiau sistema dar laukia, kol visi paketai bus galutinai apdoroti.
+
+Portas `443` dažniausiai naudojamas HTTPS ryšiui (saugiam naršymui), o portas `80` naudojamas HTTP.
+
+Eilutės su `192.168.1.1:53` rodo DNS užklausas į tavo maršrutizatorių. Tai reiškia, kad sistema verčia domenus į IP adresus.
+
+Dalis ryšių eina į skirtingus serverius (pvz., Microsoft, Google ar kitas paslaugas), todėl jų IP adresai skiriasi.
+
+Eilutės su `[::]` arba `[::1]` yra IPv6 adresai. Jie atlieka tą pačią funkciją kaip IPv4, tik naudojami naujesniuose tinkluose.
+
+UDP dalyje nėra **State** stulpelio, nes UDP yra bejungtis protokolas. Tai reiškia, kad ryšiai nėra palaikomi nuolat, o duomenys siunčiami be patvirtinimo.
+
+UDP įrašai, tokie kaip `0.0.0.0:53`, rodo, kad sistema gali priimti DNS užklausas, o kiti įrašai rodo komunikaciją su įvairiais serveriais.
+
+Komanda `nslookup` naudojama DNS veikimui tikrinti.
+
+```cmd
+nslookup google.com
+```
+
+Komandos rezultatas
+
+```cmd
+Server:  UnKnown
+Address:  192.168.1.1
+
+Non-authoritative answer:
+Name:    google.com
+Addresses:  2a00:1450:400f:806::200e
+          142.251.38.110
+```
+
+Gauti rezultatai parodo, kaip domenas yra paverčiamas į IP adresą naudojant DNS.
+
+Pirmoje eilutėje pateikiamas DNS serveris, kuris buvo naudojamas užklausai. `Address: 192.168.1.1` reiškia, kad užklausa buvo siunčiama į tavo maršrutizatorių, kuris veikia kaip DNS serveris.
+
+Užrašas **Server: UnKnown** reiškia, kad DNS serveris neturi nustatyto pavadinimo, tačiau tai nėra klaida ir neturi įtakos veikimui.
+
+Toliau pateikiamas rezultatas. Eilutė **Name: google.com** rodo domeną, kurio IP adresas buvo ieškomas.
+
+Laukas **Addresses** parodo visus IP adresus, susijusius su šiuo domenu. Šiuo atveju pateikiami du adresai **IPv4 adresas** ir **IPv6 adresas**
+
+Tai reiškia, kad google.com gali būti pasiekiamas tiek per IPv4, tiek per IPv6.
+
+Užrašas **Non-authoritative answer** reiškia, kad atsakymas gautas ne tiesiogiai iš pagrindinio (autoritetinio) serverio, o iš tarpinio DNS serverio (cache). Tai yra normalu ir leidžia greičiau gauti atsakymą.
+
+Ši komanda leidžia patikrinti, ar DNS veikia teisingai. Jei domenas paverčiamas į IP adresą, tai reiškia, kad DNS sistema veikia.
+
+Jeigu atsakymas nepateikiamas arba rodomos klaidos, gali būti DNS problema.
+
+Tinklo problemos gali būti įvairios.
 
 - nėra interneto ryšio  
 - neteisingas IP adresas  
 - neveikia maršrutizatorius (*router*)  
 - silpnas *Wi-Fi* signalas  
+- neveikia DNS  
+- aktyvūs ryšiai rodo neaiškius arba netikėtus prisijungimus  
 
 Diagnostikos tikslas yra žingsnis po žingsnio patikrinti visus šiuos aspektus ir rasti problemos vietą.
 
-Svarbu veikti nuosekliai. Pirmiausia tikrinamas įrenginys, tada tinklas, o galiausiai išorinis ryšys.
+Svarbu veikti nuosekliai. Pirmiausia tikrinamas pats įrenginys, tada vietinis tinklas, tada interneto ryšys ir galiausiai DNS veikimas.
 
-Diagnozuojant tinklą svarbu veikti nuosekliai. Pirmiausia tikrinamas ryšys su `ping 8.8.8.8`. Jei jis neveikia, problema gali būti interneto ryšyje. Jei veikia, bet neveikia `ping google.com`, problema gali būti DNS. Jei IP adresas nerodomas arba neteisingas, problema gali būti tinklo nustatymuose.
+Pagrindinė diagnostikos seka gali atrodyti taip.
+
+- patikrinti fizinį ryšį arba *Wi-Fi*  
+- naudoti `ipconfig`, kad būtų patikrintas IP adresas  
+- naudoti `ping 8.8.8.8`, kad būtų patikrintas interneto ryšys  
+- naudoti `ping google.com`, kad būtų patikrintas domeno pasiekimas  
+- naudoti `nslookup google.com`, kad būtų patikrintas DNS  
+- naudoti `tracert google.com`, kad būtų patikrintas kelias iki serverio  
+- naudoti `arp -a`, kad būtų patikrinti IP ir MAC adresų ryšiai  
+- naudoti `netstat -an`, kad būtų patikrinti aktyvūs ryšiai  
+
+Jeigu `ping 8.8.8.8` neveikia, problema gali būti interneto ryšyje arba maršrutizatoriuje.
+
+Jeigu `ping 8.8.8.8` veikia, bet `ping google.com` neveikia, problema greičiausiai yra DNS sistemoje.
+
+Jeigu `ipconfig` nerodo IPv4 adreso arba rodo neteisingą adresą, problema gali būti tinklo nustatymuose arba DHCP veikime.
+
+Jeigu `tracert` sustoja tam tikrame taške, galima matyti, kurioje tinklo dalyje galimai atsiranda problema.
+
+Jeigu `arp -a` nerodo maršrutizatoriaus arba kitų lokalaus tinklo įrenginių, problema gali būti vietiniame tinkle.
+
+Jeigu `netstat -an` rodo aktyvius ryšius, galima matyti, su kokiais serveriais įrenginys šiuo metu bendrauja.
 
 Trumpai galima įsiminti taip
 
-- tikrink fizinį ryšį  
-- naudok `ping` ryšiui patikrinti  
-- naudok `ipconfig` IP informacijai  
-- tikrink tinklo kelią su `tracert`  
+- `ipconfig` rodo tinklo informaciją  
+- `ipconfig /all` rodo detalesnę tinklo informaciją  
+- `getmac /v` rodo MAC adresus  
+- `arp -a` rodo IP ir MAC adresų ryšius  
+- `ping` tikrina ryšį  
+- `tracert` rodo kelią iki serverio  
+- `netstat -an` rodo aktyvius ryšius  
+- `nslookup` tikrina DNS veikimą  
 
 Tinklo diagnostika leidžia greitai nustatyti ir išspręsti problemas, todėl yra svarbi kiekvieno tinklo naudotojo ir administratoriaus dalis.
