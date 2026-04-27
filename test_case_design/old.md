@@ -205,8 +205,8 @@ A traceability matrix is a document that maps user requirements to test cases. I
 2. **Structure:**
     - **Requirement ID:** Unique identifier for each requirement.
     - **Requirement Description:** Detailed description of the requirement.
+    - **Test Scanrio ID:**
     - **Test Case ID:** Unique identifier for each test case.
-    - **Test Case Description:** Detailed description of the test case.
     - **Status:** Indicates whether the requirement is covered by the test case (Covered, Not Covered) or the current execution status.
 
 3. **Types of Traceability Matrices:**
