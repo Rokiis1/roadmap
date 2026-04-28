@@ -1,6 +1,5 @@
 # Content of SDLC Level 3
 
-- [How SDLC influences testing](#how-sdlc-influences-testing)
 - [Testing in sequential models](#testing-in-sequential-models)
 - [Testing in iterative and incremental models](#testing-in-iterative-and-incremental-models)
 - [Testing in Agile development](#testing-in-agile-development)
@@ -8,8 +7,6 @@
 - [Test automation across SDLC models](#test-automation-across-sdlc-models)
 - [Choosing a suitable SDLC model for a project](#choosing-a-suitable-sdlc-model-for-a-project)
 - [Testing approaches in software development](#testing-approaches-in-software-development)
-
-## How SDLC influences testing
 
 In the previous level, different approaches to software development were explored, including sequential, iterative, and Agile models. These approaches define how software is built, how work is organized, and how changes are managed throughout the development process.
 
