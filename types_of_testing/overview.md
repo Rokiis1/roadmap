@@ -27,7 +27,7 @@ The objective of functional testing is to ensure that each function of the syste
 
 The focus is on the **correctness**, **appropriateness** of system behavior. In simple words, functional testing answers the question. **Does the system do what it is supposed to do?**
 
-Examples of functional testing include checking **login functionality**, **validating form submissions**, **verifying calculations**, and **confirming business rules**.
+Examples of functional testing include checking **login functionality**, **validating form submissions**, **verifying calculations** and **confirming business rules**.
 
 **Non-functional Testing** testing focuses on how the system performs rather than what specific functions it provides.
 
@@ -35,7 +35,7 @@ The objective of **non-functional** testing is to evaluate attributes such as **
 
 The focus is on **how well** the system performs its functions.
 
-Examples include performance testing (**such as load testing**), **reliability testing** (stability and recovery behavior), **scalability testing** (growth under increasing load), security testing (**OWASP vulnerability categories**), usability testing (**including accessibility testing**), and **compatibility testing** across browsers, devices, and operating systems.
+Examples include performance testing (**such as load testing**), **reliability testing** (stability and recovery behavior), **scalability testing** (growth under increasing load), security testing (**OWASP vulnerability categories**), usability testing (**including accessibility testing**), and **compatibility testing** across browsers, devices and operating systems.
 
 Dynamic testing is essential because many defects can only be detected when the system is actually executed.
 

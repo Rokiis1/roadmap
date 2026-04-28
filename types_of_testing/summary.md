@@ -1,5 +1,3 @@
-- [Differences Between Static Testing and Dynamic Testing](#differences-between-static-testing-and-dynamic-testing)
-
 ## Differences Between Static Testing and Dynamic Testing
 
 <details>
