@@ -12,6 +12,7 @@
 - [Applying migrations to the database](#applying-migrations-to-the-database)
 - [Inspecting migration state](#inspecting-migration-state)
 - [Downgrading migrations](#downgrading-migrations)
+- [Resolving migration conflicts](#resolving-migration-conflicts)
 - [Working with batch operations in SQLite](#working-with-batch-operations-in-sqlite)
 - [Handling `NotImplementedError` during migrations](#handling-notimplementederror-during-migrations)
 
@@ -497,11 +498,55 @@ In development, this often happens whenever the models change and a new revision
 
 In real projects, the same process is also used in test and production environments so that all databases follow the same schema history.
 
-Sometimes, however, a schema change must be reversed.
-
-That is where downgrading becomes relevant.
+In addition to applying and downgrading migrations, it is important to track which changes have already been applied to the database.
 
 ## Inspecting migration state
+
+When working with database migrations, it is not always enough to apply or downgrade changes. It is also important to understand the current state of the database and which migrations have already been applied.
+
+Migration tools such as Alembic keep track of applied revisions using a version table stored in the database. This allows the system to determine which migrations need to be executed and which have already been completed.
+
+During development, inspecting the migration state helps verify that the database schema matches the expected version and that migrations have been applied in the correct order.
+
+To check the current revision applied to the database, the following command can be used.
+
+```bash
+poetry run alembic current
+```
+
+This shows the revision that the database is currently using.
+
+To view the latest available revisions in the project, the following command can be used.
+
+```bash
+poetry run alembic heads
+```
+
+This helps identify whether there are new migrations that have not yet been applied.
+
+To see the full history of migrations, the following command can be used.
+
+```bash
+poetry run alembic history
+```
+
+This displays all revisions in order, making it easier to understand how the schema has evolved over time.
+
+In some situations, the database schema may already match a specific revision, but Alembic does not recognize it as applied. This can happen when migrations fail partway through or when the database has been modified manually.
+
+In such cases, the migration state can be updated without executing the migration again.
+
+```bash
+poetry run alembic stamp head
+```
+
+This marks the given revision as applied in Alembic without making any changes to the database structure.
+
+Inspecting migration state provides a clear view of the relationship between the database and the migration files. It helps detect inconsistencies early and ensures that schema changes are applied in a controlled and predictable way.
+
+Sometimes, however, it is necessary to reverse a previously applied migration.
+
+In such cases, downgrading allows the database schema to be moved back to an earlier state.
 
 ## Downgrading migrations
 
@@ -567,13 +612,71 @@ For example, if a migration adds the wrong column or uses an incorrect constrain
 
 The ability to upgrade and downgrade safely is one of the main reasons migration systems are preferred over manual schema editing.
 
-As schema changes become more frequent, it becomes important not only to create migrations, but to create them carefully.
+However, migrations can also become inconsistent at the versioning level. When multiple revisions are created independently, conflicts may appear in the migration history that must be resolved before further changes can be applied.
+
+## Resolving migration conflicts
+
+When working on a project alone, migrations usually form a single linear history. However, in collaborative environments, multiple developers may create migrations at the same time.
+
+As a result, the migration history can split into multiple branches instead of continuing in a single sequence. These branches are referred to as multiple heads.
+
+To check the current migration heads, the following command can be used.
+
+```bash
+poetry run alembic heads
+```
+
+If more than one head is returned, it means that the migration history has diverged and must be resolved before new migrations can be applied.
+
+This situation commonly occurs when two migrations are created independently without being aware of each other.
+
+To resolve this, the separate branches need to be merged into a single revision.
+
+```bash
+poetry run alembic merge -m "merge heads" <revision_1> <revision_2>
+```
+
+This creates a new migration that combines both branches into a single unified history.
+
+After merging, the migration can be applied as usual.
+
+```bash
+poetry run alembic upgrade head
+```
+
+Resolving migration conflicts ensures that the project maintains a consistent and linear migration history, which is required for reliable schema evolution.
+
+However, not all schema changes can be applied directly in SQLite. Because of its limited support for modifying existing tables, a different approach is required to safely apply structural changes.
 
 ## Working with batch operations in SQLite
 
-One of the most common issues encountered at this stage is the `NotImplementedError`, which occurs when existing data does not satisfy the new schema rules.
+When applying migrations, not all schema changes can be executed in the same way across different database systems.
 
-This type of error is not specific to a single database system. It can occur in any relational database when schema changes conflict with existing data. However, when using SQLite, these errors may appear more frequently because of its limited support for certain schema alterations and how it handles `ALTER TABLE` operations internally.
+In SQLite, support for modifying existing tables is limited. Operations such as changing column definitions, adding constraints or restructuring a table cannot always be performed using direct table modification.
+
+Because of this, migrations that rely on standard table alteration may not work as expected.
+
+To address these limitations, Alembic provides batch operations.
+
+Batch operations allow schema changes to be applied by recreating the table instead of modifying it directly. Rather than issuing a direct change, the table is rebuilt with the updated structure while preserving the existing data.
+
+In this process, a new version of the table is created, the current data is copied into it and the original table is replaced. This makes it possible to apply structural changes even when direct modification is not supported.
+
+In Alembic, batch operations are defined using a context manager.
+
+```py
+from alembic import op
+import sqlalchemy as sa
+
+with op.batch_alter_table("books") as batch_op:
+    batch_op.add_column(
+        sa.Column("author_id", sa.Integer(), nullable=True)
+    )
+```
+
+Inside the `batch_op` block, operations are applied using the batch mechanism rather than direct modification.
+
+This allows schema changes to be applied in SQLite even when direct table alteration is not supported. However, autogenerated migrations do not always use batch operations, which can lead to failures when applying them.
 
 ## Handling `NotImplementedError` during migrations
 
@@ -601,14 +704,21 @@ class Book(Base):
     title: Mapped[str]
 ```
 
-A migration is created and applied for this version of the model.
+Before generating a migration, it is important to verify the current migration state. This helps confirm that the database is aligned with the latest applied revision and avoids creating migrations on top of an inconsistent state.
+
+```bash
+poetry run alembic current
+poetry run alembic heads
+```
+
+Once the state is confirmed, a migration can be created and applied for this version of the model.
 
 ```bash
 poetry run alembic revision --autogenerate -m "create books without author"
 poetry run alembic upgrade head
 ```
 
-A migration is created and applied for this version of the model. At this stage, the `books` table exists without an `author_id` column and without a foreign key constraint to `authors`.
+At this stage, the `books` table exists without an `author_id` column and without a foreign key constraint to `authors`.
 
 Later, the model is updated to include a required relationship.
 
@@ -659,8 +769,6 @@ SQLite raises a `NotImplementedError`, because it cannot execute this kind of co
 
 For this reason, migrations in SQLite must sometimes be rewritten to use batch mode.
 
-Instead of applying the constraint directly, the migration is updated as follows.
-
 ```py
 with op.batch_alter_table("books") as batch_op:
     batch_op.create_foreign_key(
@@ -672,17 +780,42 @@ with op.batch_alter_table("books") as batch_op:
     )
 ```
 
-This allows Alembic to recreate the table using a copy-and-move strategy instead of trying to alter it in place.
+The same limitation appears in other situations as well. Changing a column constraint, such as making a nullable column required, may generate an `alter_column(...)` operation that SQLite cannot execute directly. Removing a constraint or dropping a column may also fail for the same reason.
 
-It is also important to understand that migrations may fail partway through. In such cases, some operations may already have been applied.
+It is also important to understand that a migration can fail before Alembic marks the revision as applied.
 
-For example, the column may already exist even though the migration failed later when creating the foreign key. If the migration is run again, this may produce a different error.
+In that situation, the revision file already exists, but the database may still be on the previous revision. At the same time, some operations from the failed upgrade may already have changed the database structure.
+
+For example, the `author_id` column may have been added before the migration failed while creating the foreign key. If the upgrade command is run again, Alembic starts the same revision again, and SQLite may raise a different error.
 
 ```bash
 sqlite3.OperationalError: duplicate column name: author_id
 ```
 
-In this situation, the revision file must be updated to match the actual database state. If the column was already created, the following lines should be removed from the migration.
+This happens because the migration is trying to add a column that already exists in the database, even though Alembic has not marked the revision as successfully applied.
+
+In this situation, the actual database structure should be checked before editing or running the migration again.
+
+```bash
+sqlite3 app.db
+```
+
+Inside the SQLite shell, the table structure can be inspected.
+
+```sql
+.schema books
+PRAGMA table_info(books);
+```
+
+If `author_id` already appears in the table, then the column creation step should not be repeated in the migration.
+
+After inspection, the SQLite shell can be closed.
+
+```sql
+.quit
+```
+
+The revision file must be updated to match the actual database state. If the column was already created, the following operations should be removed.
 
 ```py
 op.add_column("books", sa.Column("author_id", sa.Integer(), nullable=False))
@@ -761,7 +894,54 @@ This ensures that the table is recreated using SQLite’s copy-and-move strategy
 
 Unlike the previous scenario, this type of change may also require updating existing data before applying the constraint. If any rows still contain `NULL` values, the migration will fail after the schema change is applied.
 
-Another situation where the same SQLite limitation can appear is when a constraint or constrained column is removed.
+However, constraint changes do not always introduce stricter validation.
+
+In some cases, an existing constraint may be relaxed instead of enforced. For example, a column that previously required a value may later be updated to allow `NULL`.
+
+```py
+author_id: Mapped[int] = mapped_column(
+    ForeignKey("authors.id", ondelete="RESTRICT"),
+    nullable=False
+)
+```
+
+Later, the model is updated to make the relationship optional.
+
+```py
+author_id: Mapped[int | None] = mapped_column(
+    ForeignKey("authors.id", ondelete="RESTRICT"),
+    nullable=True
+)
+```
+
+After this change, a new migration may be generated.
+
+```bash
+poetry run alembic revision --autogenerate -m "make author_id optional"
+```
+
+A typical autogenerated migration may look like this.
+
+```py
+op.alter_column("books", "author_id", nullable=True)
+```
+
+This type of change does not usually fail because of existing data, since relaxing a constraint does not invalidate current rows.
+
+However, when applied in SQLite, this operation may still fail because direct column alteration is not supported. In such cases, the migration must again be rewritten using batch mode.
+
+```py
+with op.batch_alter_table("books") as batch_op:
+    batch_op.alter_column(
+        "author_id",
+        existing_type=sa.Integer(),
+        nullable=True,
+    )
+```
+
+This ensures that the schema change is applied using SQLite’s copy-and-move strategy, even when the modification itself is not restricted by existing data.
+
+While the previous examples focus on modifying existing constraints, similar limitations also apply when constraints need to be removed entirely.
 
 For example, after a relationship already exists, the model may later be changed so that `Book` no longer stores `author_id`.
 
@@ -807,4 +987,4 @@ with op.batch_alter_table("books") as batch_op:
     batch_op.drop_column("author_id")
 ```
 
-This is the third common scenario, the migration is not adding or changing a constraint, but removing one. The reason for the failure is still the same. SQLite cannot apply that constraint operation directly, so Alembic must recreate the table using batch mode.
+In all of these scenarios, the underlying issue is the same. SQLite cannot apply these operations using direct table modification, so the migration must be rewritten using batch mode.

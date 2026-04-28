@@ -562,9 +562,65 @@ Even when using a synchronous engine, the lifespan function itself must still be
 
 After this step completes, the database file contains the tables defined by the ORM models. The application now has a database structure where data can be stored and retrieved.
 
-Before working with sessions and queries, it is helpful to understand how SQLAlchemy actually manages database operations behind the scenes and how Python objects are translated into SQL statements.
+Before working with sessions and queries, it is helpful to verify how data is actually stored in the database and how schema changes affect it in practice.
 
 ## Inspecting the database during development
+
+When working with a database through an ORM such as SQLAlchemy, most interactions happen through Python code. However, it is often useful to inspect the database directly to verify that tables, columns and data are stored as expected.
+
+Direct inspection helps confirm that schema definitions match the actual database structure and that data is being written correctly.
+
+During development, this is especially important when creating tables for the first time, debugging unexpected query results, verifying relationships between tables and checking how migrations affect the database.
+
+For projects that use SQLite, the database can be inspected using the built-in command-line tool.
+
+To open the database file.
+
+```bash
+sqlite3 app.db
+```
+
+Once inside the SQLite shell, several commands can be used to explore the database.
+
+To list all tables.
+
+```sql
+.tables
+```
+
+To view the structure of a specific table.
+
+```sql
+.schema books
+```
+
+To inspect the columns in more detail.
+
+```sql
+PRAGMA table_info(books);
+```
+
+To view data stored in a table.
+
+```sql
+SELECT * FROM books;
+```
+
+It is also possible to check whether foreign key constraints are enabled.
+
+```sql
+PRAGMA foreign_keys;
+```
+
+After finishing inspection, the shell can be exited with.
+
+```sql
+.quit
+```
+
+Inspecting the database directly provides a clearer understanding of how application-level models are translated into actual database structures. It also helps identify issues early, before they become more complex during later stages of development.
+
+To understand how these changes are produced, it is useful to look at how SQLAlchemy manages database operations internally.
 
 ## How SQLAlchemy manages database operations
 
