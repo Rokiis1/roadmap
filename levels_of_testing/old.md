@@ -1,4 +1,4 @@
-# Content of Table on the Levels of Testing
+# Content of Table: Overview
 
 - [Component Testing (Unit Testing)](#component-testing-unit-testing)
 - [Component Integration Testing (Unit Integration Testing)](#component-integration-testing-unit-integration-testing)
@@ -12,9 +12,13 @@ After learning what testing is, how the test process works, and how teams organi
 
 Testing is not done only once at the end. Instead, it is performed at different levels, each focusing on a different scope of the system. These levels help ensure that problems are detected as early as possible and that the system works correctly both internally and externally.
 
-We will start from the smallest pieces of code and move step by step toward full business validation.
+Testing is not performed only at the end of development. Instead, it is carried out at different levels, each focusing on a specific scope of the system. These levels help detect defects early and ensure that the system works correctly both internally and externally.
+
+Testing typically progresses from small, isolated parts of the system toward full business validation.
 
 ![alt text](./images/testLevels.png)
+
+We begin at the lowest level, where individual parts of the system are verified independently.
 
 ## Component Testing (Unit Testing)
 

@@ -1,10 +1,7 @@
 <!-- markdownlint-disable MD033 -->
-# Content of Table: on the Dynamic non-functional testing
+# Content of Table
 
-- [Compatibility Testing](#compatibility-testing)
 - [Performance Testing](#performance-testing)
-
-## Compatibility Testing
 
 ## Performance Testing
 
