@@ -7,6 +7,7 @@
 - [Test Objectives](#test-objectives)
 - [Roles and Responsibilities](#roles-and-responsibilities)
 - [Test Environment](#test-environment)
+- [Test Schedule](#test-schedule)
 
 In **Test Management Level 1**, the focus was on understanding responsibility in testing and how defects are tracked and managed. Defect management showed how problems are identified, documented, prioritized and resolved, ensuring that issues are not ignored and that software quality is visible to the team.
 
@@ -151,3 +152,39 @@ The environment must be stable and properly configured. If the environment is in
 In many cases, multiple environments are used, such as development, testing and staging environments. Each environment serves a different purpose and supports different stages of the testing process.
 
 Without a properly defined test environment, testing may be delayed, inconsistent, or inaccurate. A well-prepared environment ensures that tests can be executed effectively and that results provide a clear and reliable evaluation of software quality.
+
+Once the testing environment is prepared, it is necessary to define when testing activities will take place and how they will be organized over time.
+
+## Test Schedule
+
+Once the testing environment is prepared, it is necessary to define when testing activities will take place and how they will be organized over time.
+
+The **test schedule** defines the timeline for all testing activities. It specifies when each phase of testing will start and end, and how testing work is distributed across the project duration.
+
+A test schedule helps ensure that testing is completed within the required timeframe and remains aligned with overall project deadlines.
+
+The schedule typically includes key testing phases such as test planning, test design, test environment setup, test execution and test closure. Each phase is assigned a timeframe so that progress can be tracked and managed.
+
+For example test planning may take place at the beginning of the project, followed by test design and environment setup. Once these activities are completed, test execution begins and finally test closure is performed.
+
+In addition to phases, the schedule defines **milestones**. Milestones are important checkpoints that indicate progress and completion of key activities.
+
+For example milestones can be represented as
+
+```text
+Day 3 Test Plan completed
+Day 9 Test Environment ready
+Day 10 Test Execution started
+Day 18 Test Execution completed
+Day 20 Test Closure completed
+```
+
+These milestones show when key testing activities are completed and help track progress throughout the project.
+
+The test schedule also considers dependencies between activities. Some tasks cannot start until others are completed. For example test execution cannot begin until the test environment is ready and test cases are prepared.
+
+Without a clear schedule, testing activities may become unorganized, delayed or misaligned with project goals.
+
+A well-defined test schedule ensures that testing is structured, progress is visible and deadlines can be met.
+
+As testing activities become more complex, it is necessary to refine and optimize how testing time and effort are used.
