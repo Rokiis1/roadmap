@@ -1,4 +1,4 @@
-# Content of Test Layer Level 1
+# Content of Test Layer UI
 
 - [Goal of UI Testing](#goal-of-ui-testing)
 - [Manual Interaction Testing](#manual-interaction-testing)
@@ -32,6 +32,8 @@ At this stage, testing is simple and does not rely on predefined techniques or d
 
 Manual interaction testing also helps identify obvious issues such as elements not responding, incorrect navigation or unexpected behavior after an action. The tester relies on direct observation rather than internal knowledge of the system.
 
+During manual interaction, browser developer tools may also be used to observe network requests, inspect storage or verify how the system behaves beyond what is visible in the interface.
+
 As interactions are performed, it becomes important to verify not only that the system responds, but that it responds correctly. This leads to checking whether specific features and actions behave according to their intended functionality.
 
 ## Basic Functional Checks
@@ -41,6 +43,8 @@ Basic functional checks focus on verifying that the core features of the applica
 At this stage, testing is performed as **functional testing**, where the focus is on validating that the system behaves correctly based on user actions. Testing follows a **black-box perspective**, meaning behavior is evaluated through inputs and visible outputs without considering internal implementation.
 
 The goal is to confirm that individual functions behave correctly when used in a straightforward way. This includes validating that inputs are processed properly, actions trigger the expected outcome, and the system responds without errors.
+
+In some cases, behavior may depend on data stored in the browser, such as cookies or Web Storage. For example, login state or user preferences may persist across interactions, and the tester verifies that this data is applied correctly.
 
 Testing is performed by executing simple actions and comparing the observed result with the expected behavior. The tester relies on an **experience-based approach**, using observation and basic understanding of expected behavior rather than formal test design techniques.
 
@@ -61,6 +65,8 @@ Testing in this area is closely related to **usability testing**, where the goal
 No formal test design techniques are applied at this level. Instead, testing is performed using an **experience-based approach**, where the tester relies on observation and judgment while interacting with the system.
 
 The goal is not to evaluate design quality in depth, but to confirm that the interface behaves visually as intended. This includes verifying that text is readable, elements are properly aligned, and important information is visible to the user.
+
+In addition, the tester may observe whether the interface loads and updates within a reasonable time, since delays or slow rendering can affect the overall user experience.
 
 Testing is performed by observing the interface during and after interactions, ensuring that changes are reflected correctly and that no visual issues appear.
 

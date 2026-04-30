@@ -1,4 +1,4 @@
-# Content of test management level 3
+# Content of test management level 2
 
 - [Purpose of Test Planning](#purpose-of-test-planning)
 - [What is a Test Plan](#what-is-a-test-plan)

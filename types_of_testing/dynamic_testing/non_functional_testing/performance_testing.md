@@ -1,143 +1,108 @@
-<!-- markdownlint-disable MD033 -->
-# Content of Table
+# Content of Table Non-Functional Testing (Performance Testing)
 
-- [Performance Testing](#performance-testing)
+- [Load Testing](#load-testing)
+- [Stress Testing](#stress-testing)
+- [Spike Testing](#spike-testing)
+- [Soak Testing](#soak-testing)
 
-## Performance Testing
+In previous topics, testing focused primarily on verifying whether the system behaves correctly from a functional perspective. This means checking that features work as expected and that the system produces the correct results.
 
-**Explanation:**
+However, correctness alone is not enough to ensure a good user experience.
 
-Performance testing is crucial for ensuring the reliability and efficiency of a system, especially during high-stress situations like a product release. It involves various types of tests to simulate real user behavior and measure the system's performance under different conditions.
+A system may function correctly under ideal conditions, but still fail when many users access it at the same time, when usage suddenly increases, or when it runs for a long period without interruption.
 
-<details>
-    <summary>Overview:</summary>
+This is where **performance testing** becomes important.
 
-1. **Load Testing:** Evaluates the system's performance under normal load conditions to ensure it meets predefined criteria.
+Performance testing focuses on evaluating how a system behaves under different levels of load and over time. It helps determine whether the system is fast, stable and reliable under actual usage conditions.
 
-    ![alt text](./assets/images/load_testing.png)
+Instead of asking “Does the system work correctly?”, performance testing focuses on different kinds of questions.
 
-    <details>
-      <summary>Overview:</summary>
-  
-    - Load testing involves simulating normal traffic to the API to ensure it meets acceptable response times and success rates.
+It evaluates how quickly the system responds to requests and how many users it can handle at the same time. It also examines how the system behaves when it is placed under heavy load and whether it can recover from such conditions. In addition, it considers whether the system can maintain stable performance over a longer period of continuous use.
 
-    - It helps identify how the system performs under expected user load and can be integrated into CI/CD pipelines to assess the impact of changes.
+To answer these questions, different types of performance testing are used. Each type focuses on a specific kind of behavior or condition that the system may encounter.
 
-    - Success criteria are often defined in terms of response time and percentage of successful requests, 99% of requests should return successfully within 200 milliseconds.
+We begin with **load testing**, which evaluates how the system performs under expected, normal usage conditions.
 
-    - Load testing provides initial indications of system performance and helps ensure stability under normal operating conditions.
+## Load Testing
 
-    </details>
+**Load testing** is the starting point for understanding system performance under expected conditions. It focuses on evaluating how the system behaves when it is used in a way that reflects normal, everyday usage.
 
-    <details>
-      <summary>Examples:</summary>
+![Load Testing Diagram](./assets/images/load_testing.png)
 
-      1. **Online Store Launch:**
+The purpose of **load testing** is to verify that the system can handle the **anticipated number of users** while maintaining **acceptable performance**. This includes ensuring that **response times** remain within expected limits and that requests are processed successfully without errors.
 
-          - Imagine you are launching a new online store. You expect a certain number of customers to visit and make purchases. Load testing helps you ensure that your website can handle this expected traffic.
+During **load testing**, user activity is simulated to represent **typical system usage**. For example, a certain number of **virtual users** may send requests to an API or interact with an application at the same time. This allows the system to be observed under conditions that are close to **actual usage**.
 
-      2. **API Response Time Test:**
+To determine whether the system performs acceptably, clear **success criteria** are defined. These criteria often include **response time** and **reliability**. For instance, most requests may be expected to complete within a specific time limit while maintaining a **high success rate**.
 
-          - You can test with 10 virtual users and check that the API responses are under 200 milliseconds. This test can be run for 5 minutes to get an initial indication of how the system performs under normal conditions.
-  
-      </details>
+**Load testing** provides an initial understanding of system performance. It helps identify whether the system is **stable under expected conditions** and reveals potential performance issues before the system is exposed to real users.
 
-2. **Stress Testing:** Gradually increases the load to determine how the system behaves under extreme conditions.
+A typical example of **load testing** can be seen when preparing for the launch of an **online store**. Before release, the system is tested with a number of simulated users to ensure that it can handle expected traffic without slowdowns or failures.
 
-    ![alt text](./assets/images/stress_testing.png)
+Another example is testing an **API** by simulating multiple users sending requests at the same time and verifying that responses are returned within an acceptable time frame. This helps confirm that the system performs reliably under normal usage conditions.
 
-    <details>
-      <summary>Overview:</summary>
+While **load testing** verifies performance under expected conditions, it does not show how the system behaves when those conditions are exceeded. In real scenarios, systems may experience higher load than anticipated, which can push them beyond their limits.
 
-    - Stress testing involves pushing the system beyond its normal operational capacity to identify its breaking point and observe how it handles high-stress situations.
+To understand how the system behaves under such extreme conditions, the next step is **stress testing**.
 
-    - This type of testing helps determine the system's robustness and its ability to maintain acceptable performance levels under extreme conditions.
+## Stress Testing
 
-    - It can reveal potential bottlenecks, performance degradation, and failure points that might not be apparent under normal load conditions.
+**Stress testing** focuses on understanding how a system behaves when it is pushed beyond its expected limits. While load testing verifies performance under normal conditions, stress testing explores what happens when the system is exposed to **extreme usage**.
 
-    - Stress testing is useful for understanding the limits of your system and ensuring it can handle unexpected spikes in traffic or usage.
+![Stress Testing Diagram](./assets/images/stress_testing.png)
 
-    </details>
+The purpose of **stress testing** is to identify the point at which the system begins to degrade and to observe how it behaves under high pressure. This includes understanding whether the system slows down, produces errors, or fails completely when the load exceeds its capacity.
 
-    <details>
-      <summary>Examples:</summary>
+During **stress testing**, the number of users or requests is gradually increased beyond normal levels. This allows the system to be evaluated under conditions that go beyond typical usage and helps reveal how it responds as pressure continues to grow.
 
-    1. **Concert Ticket Sales:**
+By doing this, **stress testing** helps uncover **performance bottlenecks**, resource limitations and potential failure points that may not be visible during normal load conditions. It also provides insight into how stable and resilient the system is when operating under extreme stress.
 
-        - Imagine you are managing a ticket sales platform for a popular concert. When tickets go on sale, there is a sudden surge in traffic. Stress testing helps you ensure that your system can handle this sudden spike in user activity without crashing.
+An important aspect of stress testing is not only identifying when the system fails, but also observing how it recovers after the load is reduced. This helps determine whether the system can return to a stable state without requiring manual intervention.
 
-    2. **Gradual Load Increase Test:**
+A common example of **stress testing** is a ticket sales platform for a popular concert. When tickets are released, a large number of users may attempt to access the system at the same time. Stress testing simulates this situation to ensure that the system can handle sudden and extreme demand without crashing.
 
-        - You can gradually ramp up the number of virtual users from 100 to 500, monitoring how the system performs at each level. This helps identify at what point the system starts to degrade and ensures it can handle high-stress conditions.
+Another example involves gradually increasing the number of **virtual users**, for instance from a lower number to a much higher one, while monitoring system behavior at each stage. This helps identify the exact point at which performance begins to degrade and ensures that system limits are clearly understood.
 
-    </details>
+While **stress testing** focuses on gradually increasing load to find system limits, it does not reflect situations where load changes suddenly. In real scenarios, systems may experience abrupt spikes in traffic that occur without warning.
 
-3. **Spike Testing:** Tests the system's response to sudden, high loads over a short period.
+To understand how the system responds to these sudden changes, the next step is **spike testing**.
 
-    ![alt text](./assets/images/spike_testing.png)
+## Spike Testing
 
-    <details>
-      <summary>Overview:</summary>
+**Spike testing** focuses on understanding how a system behaves when it is exposed to a **sudden and significant increase in load**. Unlike stress testing, where load is increased gradually, spike testing evaluates how the system reacts to abrupt changes in usage.
 
-    - Spike testing involves subjecting the system to a sudden and extreme increase in load to observe how it handles the abrupt change.
+![Spike Testing Diagram](./assets/images/spike_testing.png)
 
-    - This type of testing helps determine the system's ability to recover quickly and maintain performance during unexpected spikes in traffic.
+The purpose of **spike testing** is to observe how the system responds when traffic increases sharply within a short period of time. This includes identifying whether the system can handle the sudden demand or if it experiences slowdowns, errors or failures.
 
-    - It can reveal issues such as system crashes, slowdowns, or failures that occur when the load suddenly increases.
+During **spike testing**, the number of **virtual users** is increased rapidly, often within seconds. This simulates real situations where large numbers of users access the system at once, without any gradual buildup.
 
-    - Spike testing is useful for applications that experience sudden bursts of traffic, such as during flash sales or viral events.
+This type of testing helps reveal issues that may not appear during gradual load increases. It can expose problems such as **system instability**, delayed responses or complete service interruptions caused by sudden pressure on resources.
 
-    </details>
+An important aspect of spike testing is evaluating how the system behaves after the spike. It helps determine whether the system can **recover quickly** and return to stable operation once the load decreases.
 
-    <details>
-      <summary>Examples:</summary>
+A common example of **spike testing** is a **flash sale event** on an e-commerce platform. When the sale begins, a large number of users may try to access the system at the same moment. Spike testing simulates this behavior to ensure that the system can handle the sudden surge in activity.
 
-    1. **Flash Sale Event**
+Another example involves starting with a low number of users and then rapidly increasing it to a much higher level within a short time. This allows observation of how the system reacts to the sudden spike and whether it can maintain acceptable performance.
 
-        - Imagine you are running an e-commerce platform and announce a flash sale. Spike testing helps you ensure that your system can handle the sudden influx of users trying to make purchases at the same time.
+While **spike testing** focuses on sudden and short-lived increases in load, it does not show how the system behaves over a longer period of continuous usage. In real scenarios, systems often need to operate reliably for extended durations without interruption.
 
-    2. **Sudden Load Increase Test**
+To understand how the system performs over time and whether it can maintain stability during prolonged usage, the next step is **soak testing**.
 
-        - You can start with a low number of virtual users and then drastically increase the number of users over a short period. This helps you observe how the system handles the sudden spike and whether it can maintain performance.
+## Soak Testing
 
-    </details>
+**Soak testing** focuses on understanding how a system behaves over an **extended period of continuous usage**. While other types of performance testing evaluate how the system responds to different levels or patterns of load, soak testing examines whether the system can remain stable over time.
 
-4. **Soak Testing:** Runs tests over an extended period to identify issues like memory leaks and ensure stable performance.
+![Soak Testing Diagram](./assets/images/soak_testing.png)
 
-    ![alt text](./assets/images/soak_testing.png)
+The purpose of **soak testing** is to identify issues that may only appear after the system has been running for a long duration. These issues can include **memory leaks**, gradual **performance degradation**, or **resource exhaustion** that builds up over time.
 
-    <details>
-      <summary>Overview:</summary>
+During **soak testing**, the system is subjected to a consistent level of load that reflects typical or slightly elevated usage. This load is maintained for an extended period, such as several hours or even days, allowing the system to be observed under continuous operation.
 
-    - Soak testing involves running the system under a significant load for an extended period to identify performance issues that may not be apparent in shorter tests.
+This type of testing helps ensure that the system can maintain **stable performance** and consistent resource usage without unexpected slowdowns or failures. It also provides insight into how well the system manages resources such as memory, CPU and connections over time.
 
-    - This type of testing helps detect problems such as memory leaks, resource exhaustion, and performance degradation over time.
+An important aspect of soak testing is identifying problems that are not visible in shorter tests. A system may perform well initially, but gradually degrade as resources are consumed or not properly released.
 
-    - It ensures that the system can maintain stable performance and resource usage during prolonged periods of operation.
+A common example of **soak testing** is a **financial or transactional system** that is expected to run continuously without downtime. Testing such a system over an extended period helps ensure that it remains stable and reliable during prolonged operation.
 
-    - Soak testing is particularly important for applications that need to run continuously without downtime, such as servers and critical services.
-
-    </details>
-
-    <details>
-      <summary>Examples:</summary>
-
-    1. **Long-Term Application Stability**
-
-        - Imagine you are running a financial application that needs to operate continuously. Soak testing helps you ensure that the application remains stable and performs well over several days or weeks without issues.
-
-    2. **Extended Load Test**
-
-        - You can run a test with a consistent load of virtual users for 24 hours or more, monitoring for issues like memory leaks and CPU usage. This helps ensure that the system can handle long-term usage without performance degradation.
-
-    </details>
-
-</details>
-
-## Security Testing
-
-Security testing is the process of evaluating a system to detect vulnerabilities that could be exploited by malicious actors. It ensures that the system’s defenses protect against unauthorized access and data breaches. In our testing strategy, this discipline is part of a broader security approach that includes:
-
-- **Security Verification:** Focused on identifying common vulnerabilities and verifying that security controls are working correctly. Typically performed by **QA Testers** during the testing lifecycle.
-- **Penetration Testing:** Simulates real-world attacks to uncover deeper vulnerabilities from an attacker’s point of view. Usually performed by trained **Ethical Hackers** or security specialists.
-- **Cybersecurity Engineering:** Involves designing and building secure systems, infrastructures, and defense mechanisms. This responsibility lies with **Security Engineers and DevSecOps**.
+Another example involves running a test with a steady number of **virtual users** over many hours while monitoring system behavior. This allows detection of long-term issues and confirms that the system can handle continuous usage without performance degradation.
