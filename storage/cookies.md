@@ -5,337 +5,206 @@
 - [How cookies are created and stored](#how-cookies-are-created-and-stored)
 - [How cookies are sent with requests](#how-cookies-are-sent-with-requests)
 - [Cookie structure and attributes](#cookie-structure-and-attributes)
+- [Cookie security and browser policies](#cookie-security-and-browser-policies)
 - [Types of cookies](#types-of-cookies)
 - [Modern browser restrictions on cookies](#modern-browser-restrictions-on-cookies)
 
 Web applications need a way to remember information between requests.
 
-HTTP itself is a **stateless protocol**, which means that each request is independent. The server does not automatically remember anything about previous interactions.
+HTTP itself is a **stateless protocol**, which means each request is independent and the server does not automatically remember previous interactions. This creates a challenge, because once a user is authenticated or interacts with the system, that information is not retained by default.
 
-This creates a challenge.
+For example, when a user logs in to an application, the server needs a way to remember that the user is authenticated. Without this, the user would have to log in again on every request. Applications also need to store small pieces of data such as user preferences, session identifiers or tracking information.
 
-For example, when a user logs in to an application, the server needs a way to remember that the user is authenticated. Without this, the user would have to log in again on every request.
+To solve this problem, web applications use a mechanism that allows data to be stored on the client and sent with future requests.
 
-Similarly, applications often need to store small pieces of data such as user preferences, session identifiers or tracking information.
+You can think of this like a ticket system. When a user interacts with a website, the server provides a small piece of data, like a ticket, which the browser stores and sends back with future requests. The server then uses this ticket to recognize the user or retrieve related information.
 
-To solve this problem, web applications rely on a mechanism that allows data to be stored on the client and sent with future requests.
-
-You can think of this like a ticket system.
-
-When a user interacts with a website, the server gives them a small piece of data, like a ticket. The browser stores this ticket and automatically sends it back to the server on future requests.
-
-The server uses this ticket to recognize the user or retrieve related information.
-
-This mechanism is called **cookies**.
-
-Cookies act as a **state management layer between the browser and the server**, allowing web applications to maintain continuity across multiple requests.
+This mechanism is called **cookies**. Cookies act as a **state management layer between the browser and the server**, allowing web applications to maintain continuity across multiple requests.
 
 To understand how cookies are used in web applications, we start with the basics.
 
 ## What are cookies and why they exist
 
-A **cookie** is a small piece of data that a server sends to the browser. The browser stores this data and automatically includes it in future requests to the same server.
+A **cookie** is a small piece of data that a server sends to the browser. The browser stores this data and includes it in future requests to the same server.
 
 ![Cookie](./assets/images/cookie.png)
 
-Cookies are used to maintain **state** in web applications.
+Cookies are used to maintain **state** in web applications by allowing the server to associate multiple requests with the same user or context.
 
-Because HTTP is stateless, the server does not remember previous requests. Each request is treated as a completely new interaction.
+You can think of cookies like an identification badge. When a user first visits a website, the server provides a small piece of data, which the browser stores and presents with future requests. The server then uses this information to recognize the user or retrieve related data.
 
-Cookies solve this limitation by allowing the server to store information on the client and retrieve it later.
+In most cases, cookies do not store sensitive data directly. Instead, they store a **reference**, such as a session identifier, while the actual data is kept on the server.
 
-You can think of cookies like an identification badge.
-
-When a user first visits a website, the server issues a badge. The browser keeps this badge and presents it every time it makes a request to that server.
-
-The server reads the badge and uses it to recognize the user or retrieve related data.
-
-This does not mean that cookies always contain sensitive information. In most cases, cookies store only a **reference**, such as a session identifier. The actual data is usually stored on the server.
-
-For example, when a user logs in, the server creates a session and assigns it a unique ID. This ID is stored in a cookie in the browser.
-
-On subsequent requests, the browser sends this cookie back to the server. The server uses the session ID to look up the users authenticated state.
-
-Cookies are also used for other purposes.
+For example, when a user logs in, the server creates a session and assigns it a unique ID. This ID is stored in a cookie, and on subsequent requests, the server uses it to identify the user.
 
 ![Cookie where is used](./assets/images/cookie_where_is_used.png)
 
-They can store user preferences, such as language, theme settings also can be used to track user behavior for analytics. and the last wich can also support features like shopping carts or remembering previously entered information.
+Cookies can also be used to store user preferences, support features such as shopping carts or track user behavior for analytics.
 
-In all these cases, the main goal remains the same.
+At a fundamental level, cookies provide a way to maintain continuity between requests by linking them to the same user or context.
 
-Cookies allow the server to associate multiple requests with the same user or context.
-
-However, cookies do not work on their own.
-
-They are created by the server, stored by the browser, and sent back with requests under specific rules.
-
-To understand this process, we need to look at how cookies actually move between the browser and the server.
+To understand how this works in practice, the next step is to look at how cookies move between the browser and the server.
 
 ## How cookies work in the browser
 
-Cookies are part of the communication between the **browser and the server**. They are not created or managed automatically by HTTP itself, but are handled through specific HTTP headers and browser behavior.
+Cookies are part of the communication between the **browser and the server** and are handled through HTTP headers and browser behavior.
 
 ![browser server communication works](./assets/images/browser_server_communication_works.png)
 
-You can think of this process as an exchange.
-
-The server provides data, the browser stores it, and then sends it back when required.
-
-The process begins when the browser makes a request to a server.
-
-In the response, the server can include a `Set-Cookie` header. This header tells the browser to store a cookie.
+The process begins when the browser sends a request to a server. In the response, the server can include a `Set-Cookie` header, which instructs the browser to store a cookie.
 
 For example, a response might include `Set-Cookie: session_id=abc123`
 
-When the browser receives this header, it stores the cookie along with additional metadata such as the domain, path and expiration.
+When the browser receives this header, it stores the cookie along with metadata such as domain, path and expiration.
 
-After the cookie is stored, it becomes part of future requests.
+On subsequent requests, the browser automatically includes the cookie in the `Cookie` header when the request matches the cookie rules. The server then reads the cookie value and uses it to identify the user or retrieve related data.
 
-Whenever the browser sends a request to the same server, it automatically includes the cookie in the `Cookie` header.
+This creates a continuous interaction where the server sets a cookie, the browser stores it and then sends it back with future requests.
 
-This happens without any manual action from the user or developer at request time. The browser manages this behavior automatically based on the cookie rules.
+You can think of this like a check-in system where a user receives an identifier on the first visit and presents it on each return so the system can recognize them.
 
-The server then reads the cookie value from the request and uses it to identify the user or retrieve related data.
+It is important to note that cookies are not sent with every request. The browser only includes cookies when specific conditions are met, such as matching domain and path rules, ensuring that cookies are shared only with the appropriate servers.
 
-This creates a continuous loop.
-
-The server sets a cookie, the browser stores it, and then sends it back with future requests.
-
-You can think of this like a check-in system.
-
-The first time a user visits, they are registered and given an identifier. On every return visit, they present that identifier so the system can recognize them.
-
-It is important to understand that the browser does not send all cookies to every request.
-
-Cookies are only included when certain conditions are met, such as matching domain and path rules. These rules determine when a cookie should be sent and help prevent unnecessary or unsafe data sharing.
-
-This controlled behavior ensures that cookies are only shared with the appropriate servers.
-
-Now that we understand how cookies move between the browser and the server, the next step is to look at how they are actually created and stored.
+In the next section, we look at how cookies are created and stored in more detail.
 
 ## How cookies are created and stored
 
-Cookies are created when a server sends a `Set-Cookie` header in an HTTP response. This header instructs the browser to store a piece of data along with a set of rules that define how and when it should be used.
+Cookies are created when a server sends a `Set-Cookie` header in an HTTP response. This header instructs the browser to store a piece of data along with rules that define how it should be used.
 
 ![Set-Cookie](./assets/images/Set-Cookie.png)
 
-When the browser receives this response, it processes the header and stores the cookie.
+For example, a response might include `Set-Cookie: session_id=abc123`.
 
-You can observe this behavior using browser developer tools.
+When the browser receives this response, it processes the header and stores the cookie together with metadata such as domain, path and expiration.
 
-In the **Network tab**, when you select a request and inspect the **Response Headers**, you may see a `Set-Cookie` header. This indicates that the server is instructing the browser to create or update a cookie.
+You can observe this behavior using browser developer tools. In the **Network tab**, the `Set-Cookie` header appears in the response when a cookie is created or updated.
 
-It is important to understand that this header only appears when a cookie is being set or modified. It will not appear on every request.
+Once stored, cookies are managed entirely by the browser and can be viewed in the **Application tab -- Storage -- Cookies**, where they are grouped by domain.
 
-Once stored, cookies can be viewed in the **Application tab -- Storage -- Cookies**, where the browser displays all cookies associated with a domain.
+A cookie is not just a simple value. In addition to the key-value pair, it includes metadata that defines where it is sent, how long it exists and how it behaves.
 
-A cookie is not just a simple `key-value` pair. Along with the value, the browser also stores metadata such as the `domain`, `path`, expiration time and security attributes. These properties define the scope and lifetime of the cookie.
+Cookies can be created in two ways. The most common approach is through the server using the `Set-Cookie` header, typically for authentication and session management. Cookies can also be created in the browser using JavaScript, for example `document.cookie = "theme=dark"`.
 
-The storage itself is managed entirely by the browser.
+Once created, cookies remain stored in the browser until they expire or are removed. Some cookies exist only for the duration of a session, while others persist across browser restarts.
 
-You can think of the browser as maintaining a cookie store.
+At this level, it is enough to understand that cookies are created by the server or browser, stored on the client and managed by the browser based on defined rules.
 
-This store is organized in a way that associates cookies with specific domains and paths. Each website has access only to the cookies that belong to it, based on these rules.
-
-Cookies can be created in two main ways.
-
-The most common way is through the server using the `Set-Cookie` header. This is typically used for authentication and session management.
-
-Cookies can also be created directly in the browser using JavaScript.
-
-For example `document.cookie = "theme=dark";`
-
-Cookies created this way are immediately visible in JavaScript. If you run `document.cookie` in the browser console, it returns all cookies that are accessible to client-side scripts.
-
-However, cookies created this way have limitations. They cannot include certain security attributes such as `HttpOnly`.
-
-Cookies marked as `HttpOnly` are intentionally hidden from JavaScript.
-
-![cookie_payload](./assets/images/cookie_payload.png)
-
-This means they will not appear in `document.cookie`, even though they exist in the browser and are still sent with HTTP requests.
-
-This restriction is an important security feature. It helps protect sensitive cookies, such as session identifiers, from being accessed by malicious scripts.
-
-Because of this, there is a difference between what is stored in the browser and what is accessible in JavaScript.
-
-- The **browser storage** (Application tab) shows all cookies
-- `document.cookie` shows only cookies that are not marked as `HttpOnly`
-
-Once created, cookies are stored in the browser until they expire or are removed.
-
-Some cookies are temporary and exist only for the duration of the browsing session. Others are persistent and remain stored even after the browser is closed.
-
-The browser enforces limits on how many cookies can be stored and how large they can be. If these limits are exceeded, older cookies may be removed.
-
-It is also important to understand that cookies are tied to specific domains.
-
-A cookie set by one website cannot be accessed by another website, unless explicitly allowed through cookie attributes. This restriction is part of the browser’s security model.
-
-In addition, users and browsers can control cookie storage.
-
-Users may clear cookies manually, block them entirely or configure privacy settings that limit how cookies are stored and used.
-
-Now that cookies are created and stored in the browser, the next step is to understand how they are included in outgoing requests.
+In the next section, we look at how cookies are included in outgoing requests.
 
 ## How cookies are sent with requests
 
 Once cookies are stored in the browser, they are automatically included in outgoing HTTP requests.
 
-This behavior is handled entirely by the browser. The application does not need to manually attach cookies to requests.
+This behavior is handled entirely by the browser. When a request is made, the browser checks its cookie store and includes matching cookies in the `Cookie` header based on defined rules.
 
-When a request is made, the browser checks its cookie store and includes matching cookies in the `Cookie` header.
+For example, a request may include `Cookie: session_id=abc123; theme=dark`.
 
-For example `Cookie: session_id=abc123; theme=dark`
+This allows the server to receive one or more cookie values as `key:value` pairs and use them to identify the user or retrieve related data.
 
-This header contains one or more cookies as key-value pairs.
+You can think of this process like presenting an identification badge. The browser automatically attaches this information to each request, allowing the server to recognize the user or context without requiring manual input.
 
-You can think of this process like presenting an identification badge.
+In practice, this mechanism is commonly used for authentication. After a user logs in, the server stores a session identifier in a cookie, and on subsequent requests, the browser includes that cookie so the server can verify the user.
 
-The browser automatically attaches the badge to each request, allowing the server to recognize the user or context.
+At this level, it is enough to understand that cookies are sent automatically by the browser with requests that match the cookie rules.
 
-In practice, this mechanism is commonly used for authentication.
-
-After a user logs in, the server stores a session identifier in a cookie.
-
-When the browser later makes a request to an endpoint such as `/user`, it automatically includes that cookie.
-
-The server reads the cookie and uses it to identify the user and verify authentication.
-
-This process happens automatically for every request where cookies are applicable.
-
-To understand when cookies are included and what rules control their behavior, we now examine the structure of cookies and their attributes.
+In the next section, we examine how cookie structure and attributes control this behavior.
 
 ## Cookie structure and attributes
 
-A cookie is not just a simple value. It consists of a **name**, a **value**, and a set of **attributes** that define how it behaves.
+A cookie is not just a simple value. It consists of a **name**, a **value** and a set of **attributes** that define how it behaves.
 
-When a server creates a cookie, it sends it using the `Set-Cookie` header.
+When a server creates a cookie, it sends it using the `Set-Cookie` header. For example, `Set-Cookie: session_id=abc123; Path=/; HttpOnly; Secure`, where `session_id=abc123` is the `name:value` pair and the rest define how the cookie is handled.
 
-For example `Set-Cookie: session_id=abc123; Path=/; HttpOnly; Secure`
+The `name:value` pair represents the stored data, which is typically a small piece of information such as a session identifier. The attributes act as rules that determine where the cookie is sent, how long it exists and how it is protected.
 
-Here, `session_id=abc123` is the **name-value pair**, while the rest are **attributes** that control how the cookie is handled.
+One important attribute is **Domain**, which defines which domain can receive the cookie. If it is not set, the cookie is only sent to the exact domain that created it.
 
-The **name-value pair** is the actual data stored in the cookie. In most cases, this is a small piece of information such as a session identifier.
+The **Path** attribute limits where the cookie is included. For example, a cookie with `Path=/api` is only sent with requests that target that path.
 
-You can think of attributes as **rules attached to the cookie**. They determine when it is stored, when it is sent, and how it is protected.
+**Expires** and **Max-Age** control the lifetime of a cookie. If neither is set, the cookie exists only for the duration of the session. If one is defined, the cookie persists beyond the current session.
 
-One important attribute is **Domain**.
-
-`Domain` defines which domain can receive the cookie. If it is not set, the cookie is only sent to the exact domain that created it.
-
-In that case, it becomes a **host-only cookie**, meaning it is not shared with subdomains.
-
-Another key attribute is **Path**.
-
-`Path` limits where the cookie is sent. For example, a cookie with `Path=/api` is only included in requests that start with `/api`.
-
-**Expires** and **Max-Age** control how long the cookie exists.
-
-- `Expires` sets a specific date and time
-- `Max-Age` defines the lifetime in seconds
-
-If neither is provided, the cookie becomes a **session cookie**, which is removed when the browser is closed.
-
-If one of them is set, the cookie becomes **persistent**, meaning it stays stored even after the browser is closed.
-
-With **Secure**, the cookie is only sent over HTTPS.
-
-This prevents it from being exposed in unencrypted HTTP requests.
+The **Secure** attribute ensures that the cookie is only sent over HTTPS, helping protect it during transmission.
 
 ![Cookie Secure](./assets/images/cookie_secure.png)
 
-With **HttpOnly**, the cookie is hidden from JavaScript.
+The **HttpOnly** attribute prevents access from JavaScript, meaning the cookie cannot be read using `document.cookie`, which helps reduce the risk of client-side attacks.
 
 ![HTTPOnly](./assets/images/HTTPOnly.png)
 
-This means it cannot be accessed using `document.cookie`, but it is still sent with HTTP requests. This helps protect sensitive data from client-side attacks.
-
-For example, in **cross-site scripting (XSS)**, malicious scripts attempt to run in the browser and read sensitive data such as cookies.
-
-By marking a cookie as `HttpOnly`, the browser prevents JavaScript from accessing it, reducing the risk of such attacks.
-
-This topic will be explored in more detail in the **web security**.
-
-Another important attribute is **SameSite**.
-
-It controls whether cookies are sent with cross-site requests.
+Another important attribute is **SameSite**, which controls whether cookies are included in cross-site requests.
 
 ![SameSite](./assets/images/SameSite.png)
 
-There are three possible values:
+Depending on its value, a cookie may be restricted to same-site requests or allowed in cross-site scenarios. This behavior helps reduce risks such as unwanted or unintended requests triggered from other sites.
 
-- `Strict` cookies are only sent in **same-site requests**. If a user comes from another website (for example, by clicking a link), the cookie is not included.
-- `Lax` cookies are sent in **same-site requests** and when a user navigates from another site (such as clicking a link). However, they are not sent with background requests like API calls, images or iframes.
-- `None` cookies are sent in **all requests**, including cross-site requests. This requires the cookie to also have the `Secure` attribute.
+At this level, it is enough to understand that cookie attributes define how cookies are stored, when they are sent and how they are protected.
 
-`Lax` acts as a **middle ground**. It allows normal navigation but blocks cookies in situations more likely to be used for tracking or attacks.
+owever, these attributes are not only about behavior. They also play an important role in how securely cookies are handled in real applications.
 
-This attribute is important for protecting against **cross-site request forgery (CSRF)**.
+Modern browsers apply additional rules and enforce these attributes to reduce security risks and protect user data.
 
-In this type of attack, a malicious website attempts to trigger requests on behalf of a user by relying on the browser to automatically include cookies.
+To understand how cookies behave in practice and how these protections are applied, we look at cookie security and browser policies.
 
-By controlling when cookies are sent in cross-site requests, `SameSite` helps reduce this risk.
+## Cookie security and browser policies
 
-This topic will be explored in more detail in the **web security**.
+Cookie attributes do not only define how cookies are stored and sent. They also affect how safely cookies behave in real applications.
 
-Cookies are designed to store small amounts of data. Browsers usually limit their size to a few kilobytes.
+Some attributes help limit where cookies can travel. For example, `Domain` and `Path` control which requests can include a cookie.
 
-Understanding these attributes is essential, because they directly affect both functionality and security.
+Other attributes help protect cookies during transmission or from browser-side access. The `Secure` attribute ensures that a cookie is only sent over HTTPS, while `HttpOnly` prevents JavaScript from reading the cookie through `document.cookie`.
 
-Now that we understand how cookies are structured and controlled, we can look at how different types of cookies are used in practice.
+The `SameSite` attribute controls whether cookies are sent with cross-site requests. `Strict` is the most restrictive, `Lax` allows limited cross-site navigation behavior, and `None` allows cross-site usage but requires `Secure`.
+
+These settings matter because cookies are often used for authentication or session management. A poorly configured cookie may expose sensitive data or allow cookies to be sent in situations where they should not be included.
+
+A cookie is generally safer when it uses `Secure`, uses `HttpOnly` for sensitive values, defines an appropriate `SameSite` policy and avoids overly broad `Domain` or `Path` settings.
+
+These protections do not make an application secure by themselves, but they reduce risk and help browsers enforce safer behavior.
+
+At this level, it is enough to understand that cookie security depends on how attributes and browser policies control access, transmission and cross-site behavior.
+
+While these rules define how cookies behave, cookies can also be classified based on how they are used in applications.
+
+Different types of cookies serve different purposes, such as maintaining sessions, storing preferences or supporting external services.
+
+To better understand these use cases, we look at how cookies are categorized in practice.
 
 ## Types of cookies
 
-Cookies can be classified in different ways depending on how they are used.
+Cookies can be classified in different ways depending on how they are used, such as their lifetime, origin or purpose.
 
-Some are defined by how long they are stored, while others are defined by where they are used or who creates them.
+One common classification is based on **lifetime**. Cookies that do not define `Expires` or `Max-Age` are called **session cookies** and exist only while the browser session is active. Once the browser is closed, they are automatically removed. Cookies that define `Expires` or `Max-Age` are called **persistent cookies** and remain stored in the browser until they expire or are manually removed.
 
-One common way to classify cookies is based on their **lifetime**.
-
-Cookies that do not define `Expires` or `Max-Age` are called **session cookies**.
-
-These cookies exist only while the browser session is active. Once the browser is closed, they are automatically removed.
-
-Session cookies are often used for temporary data, such as maintaining a logged-in session during a single visit.
-
-Cookies that define `Expires` or `Max-Age` are called **persistent cookies**.
-
-These cookies remain stored in the browser even after it is closed, until they expire or are manually removed.
-
-Persistent cookies are commonly used for features like remembering user preferences, login states, or tracking returning users.
-
-Another way to classify cookies is based on **where they originate**.
-
-Cookies created by the same domain that the user is currently visiting are called **first-party cookies**.
+Another classification is based on **origin**. Cookies created by the same domain that the user is currently visiting are called **first-party cookies** and are typically used for core functionality such as authentication or user preferences.
 
 ![first-party cookies](./assets/images/first-party-cookies.png)
 
-These are typically used for core functionality, such as authentication, session management and user preferences.
-
-Cookies created by a different domain are called **third-party cookies**.
+Cookies created by a different domain are called **third-party cookies** and are usually set by external services such as analytics tools, advertising networks or embedded content.
 
 ![third-party cookies](./assets/images/third_party_cookies.png)
 
-These are usually set by external services, such as analytics tools, advertising networks, or embedded content.
+These cookies have often been used to track users across different websites, but they are increasingly restricted by modern browsers due to privacy concerns.
 
-For example, if a website includes a script or resource from another domain, that domain may set its own cookie in the browser.
+Cookies can also be categorized based on their **purpose**, such as authentication, personalization or analytics. In practice, a single cookie can belong to multiple categories, for example being both persistent and first-party.
 
-Third-party cookies have been widely used for tracking users across different websites.
+Understanding these types helps explain how cookies are used in real applications and why different cookies behave differently in the browser.
 
-However, they are considered more privacy-sensitive and are increasingly restricted by modern browsers.
-
-Cookies can also differ based on their **purpose**.
-
-Some cookies are essential for the application to function, such as session cookies used for authentication.
-
-Others are used for analytics, personalization, or advertising.
-
-In practice, a single cookie can belong to multiple categories.
-
-For example, a cookie can be both **persistent** and **first-party**, or **session-based** and **third-party**.
-
-Understanding these types helps explain how cookies are used in real applications and why certain cookies are treated differently by browsers.
+In the next section, we look at how modern browsers apply restrictions that affect cookie behavior.
 
 ## Modern browser restrictions on cookies
+
+Modern browsers apply additional restrictions on cookies to improve security and protect user privacy. These restrictions affect how cookies are stored, accessed and sent with requests.
+
+One important area is **third-party cookies**. Cookies set by a different domain than the one currently visited are often blocked or limited by default, as they have historically been used for cross-site tracking.
+
+Another key behavior involves the **SameSite** attribute. If it is not explicitly defined, browsers typically treat cookies as `SameSite=Lax` by default, meaning they are not included in most cross-site requests.
+
+When `SameSite=None` is used, browsers require the cookie to also include the `Secure` attribute. Without it, the cookie is rejected.
+
+Browsers may also restrict cookies in certain contexts, such as third-party iframes or private browsing modes, depending on user settings and browser policies.
+
+In addition, limits may be applied to the number and size of cookies stored for a domain, helping control resource usage and prevent misuse.
+
+As browser privacy models continue to evolve, cross-site tracking is increasingly restricted. Applications that rely on cookies must take these limitations into account when designing authentication and data handling mechanisms.
+
+At this level, it is enough to understand that modern browsers actively control cookie behavior, and these rules directly impact how cookies function in web applications.
