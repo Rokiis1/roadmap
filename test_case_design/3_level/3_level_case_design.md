@@ -28,6 +28,8 @@ In all of these cases, testing is performed by analyzing inputs and outputs with
 
 This introduces a more systematic way of designing test cases, where each test is derived from a clear rule rather than intuition.
 
+**Choosing the right technique**, each technique in this level addresses a different testing challenge. Use Equivalence Partitioning when inputs can be grouped by rules or ranges. Use Boundary Value Analysis when defects are likely at the edges of those ranges. Use Decision Table Testing when multiple conditions interact to produce outcomes. Use State Transition Testing when system behavior depends on sequences and history. Use Use Case Testing when validating complete user workflows. In practice, these techniques are often combined,and structured design is enhanced by the **experience-based approaches from Level 2**.
+
 We start with **Equivalence Partitioning**, which focuses on grouping inputs that are expected to behave in the same way.
 
 ## Equivalence Partitioning
@@ -54,20 +56,27 @@ Instead of testing many individual values, the input can be divided into classes
 | TCID-002     | Age between `13–100`   | `30`       | Registration accepted         |           |
 | TCID-003     | Age greater than `100` | `110`      | Registration rejected         |           |
 
-The same idea applies when validating text input. For example, a username may be required to follow rules related to **length** and **format**.
+This reduces `88` possible inputs to `3` test cases while maintaining the same coverage of system behavior.
 
-Instead of testing many variations, inputs are grouped based on how the system evaluates them.
+The same idea applies when validating text input with multiple independent rules. For example, a username may be required to follow rules related to length and format. Each rule is partitioned separately.
 
-| Test Case ID | Equivalence Class Description            | Valid/Invalid | Expected Outcome         | PASS/FAIL |
-|--------------|------------------------------------------|---------------|--------------------------|-----------|
-| TCID-001     | Length between `5–10`                    | Valid         | Username accepted        |           |
-| TCID-002     | Length less than `5`                     | Invalid       | Username rejected        |           |
-| TCID-003     | Length greater than `10`                 | Invalid       | Username rejected        |           |
-| TCID-004     | Starts with a letter                     | Valid         | Username accepted        |           |
-| TCID-005     | Does not start with a letter             | Invalid       | Username rejected        |           |
-| TCID-006     | Non-string input                         | Invalid       | Username rejected        |           |
+**Length partitions**.
 
-When multiple inputs are involved, the same principle still applies. Instead of testing all combinations, a **single valid combination** can represent correct system behavior.
+| Test Case ID | Equivalence Class Description | Valid/Invalid | Expected Outcome  | PASS/FAIL |
+| ------------ | ----------------------------- | ------------- | ----------------- | --------- |
+| TCID-001     | Length between `5–10`         | Valid         | Username accepted |           |
+| TCID-002     | Length less than `5`          | Invalid       | Username rejected |           |
+| TCID-003     | Length greater than `10`      | Invalid       | Username rejected |           |
+
+**Format partitions**.
+
+| Test Case ID | Equivalence Class Description | Valid/Invalid | Expected Outcome  | PASS/FAIL |
+| ------------ | ----------------------------- | ------------- | ----------------- | --------- |
+| TCID-004     | Starts with a letter          | Valid         | Username accepted |           |
+| TCID-005     | Does not start with a letter  | Invalid       | Username rejected |           |
+| TCID-006     | Non-string input              | Invalid       | Username rejected |           |
+
+When multiple inputs are involved, the same principle still applies. Instead of testing all combinations, a **single valid combination** can represent correct system behavior, while invalid combinations test each rule independently.
 
 | Test Case ID | Username  | Age  | Password   | Description                      | Valid/Invalid | Expected Outcome     | PASS/FAIL |
 |--------------|-----------|------|------------|----------------------------------|---------------|----------------------|-----------|
@@ -105,16 +114,21 @@ For example, consider a file upload system that allows files between 1MB and 10M
 
 The boundaries are defined by the minimum value of 1MB and the maximum value of 10MB. Testing focuses on these limits and the values immediately around them to ensure the system correctly handles valid inputs at the edges.
 
-| Test Case ID | Boundary Type             | Value | Valid/Invalid | PASS/FAIL |
-|--------------|---------------------------|-------|---------------|-----------|
-| TC001        | Lower Boundary            | 1MB   | Valid         |           |
-| TC002        | Upper Boundary            | 10MB  | Valid         |           |
-| TC003        | Just Above Lower Boundary | 2MB   | Valid         |           |
-| TC004        | Just Below Upper Boundary | 9MB   | Valid         |           |
+| Test Case ID | Boundary Type             | Value  | Valid/Invalid | PASS/FAIL |
+| ------------ | ------------------------- | ------ | ------------- | --------- |
+| TC001        | Lower Boundary            | 1MB    | Valid         |           |
+| TC002        | Upper Boundary            | 10MB   | Valid         |           |
+| TC003        | Just Above Lower Boundary | 1.01MB | Valid         |           |
+| TC004        | Just Below Upper Boundary | 9.99MB | Valid         |           |
 
-This confirms that the system accepts the boundary values, but it does not verify behavior outside these limits.
+This confirms that the system accepts the boundary values, but it does not verify behavior outside these limits. To cover invalid boundaries, additional test cases are needed.
 
-In a more detailed approach, testing includes values just below, exactly at, and just above each boundary. This helps detect edge-related defects more precisely and is especially useful for identifying off-by-one errors.
+| Test Case ID | Boundary Type             | Value   | Valid/Invalid | Expected Outcome | PASS/FAIL |
+| ------------ | ------------------------- | ------- | ------------- | ---------------- | --------- |
+| TC005        | Just Below Lower Boundary | 0.99MB  | Invalid       | Upload rejected  |           |
+| TC006        | Just Above Upper Boundary | 10.01MB | Invalid       | Upload rejected  |           |
+
+In a more detailed approach, testing includes values just below, exactly at, and just above each boundary. This helps detect edge related defects more precisely and is especially useful for identifying off-by-one errors.
 
 ![3BVA](./assets/images/3BVA.png)
 
@@ -122,9 +136,11 @@ In this approach, testing is important when system behavior changes at boundary 
 
 For example, consider an internal banking application where transaction processing depends on the amount.
 
+```text
 Transactions below 100 are rejected  
 Transactions from 100 to 10,000 are processed normally  
-Transactions above 10,000 require additional approval  
+Transactions above 10,000 require additional approval
+```
 
 The boundaries are defined by the minimum value of 100 and the maximum value of 10,000. Testing focuses on these limits and the values around them.
 
@@ -173,15 +189,6 @@ This notation makes it possible to describe complex logic in a structured and re
 
 Each row in the table represents a unique combination of conditions and becomes a separate test case. This ensures that all meaningful combinations are considered during testing.
 
-| Test Case ID | Condition 1 | Condition 2 | Condition 3 | Action 1 | Action 2 |
-|--------------|-------------|-------------|-------------|----------|----------|
-| TC001        | T           | F           | T           | X        |          |
-| TC002        | F           | T           | F           |          | X        |
-| TC003        | –           | T           | F           | X        |          |
-| TC004        | T           | –           | T           |          | X        |
-| TC005        | N/A         | F           | T           |          |          |
-| TC006        | T           | T           | F           | X        |          |
-
 For example, consider a loan approval system where the result depends on multiple factors such as credit score, income level, employment status, and loan amount.
 
 Each combination of these conditions produces a different outcome.
@@ -197,7 +204,9 @@ Each combination of these conditions produces a different outcome.
 
 Decision Table Testing is especially useful when system behavior depends on multiple conditions. It ensures that combinations are not missed and provides a clear representation of business rules.
 
-At the same time, as the number of conditions increases, the number of possible combinations also grows. Because of this, it is important to focus on meaningful and relevant combinations when designing test cases.
+At the same time, as the number of conditions increases, For example, 5 Boolean conditions produce 32 possible combinations. Testing all of them may not be practical. In such cases, techniques such as **pairwise testing** can be used to reduce the number of combinations while still covering the most important interactions between conditions. Pairwise testing ensures that every pair of conditions appears in at least one test case, significantly reducing the total number of tests needed.
+
+Because of this, it is important to focus on meaningful and relevant combinations when designing test cases.
 
 However, not all system behavior is defined only by combinations of inputs. In many cases, the behavior of the system depends on a sequence of events and how the system changes over time.
 
@@ -213,7 +222,7 @@ In some systems, the same input does not always produce the same result. The out
 
 Instead, testing must consider how the system transitions from one state to another.
 
-A state represents the condition of the system at a specific point in time. For example, a system may be idle, actively processing, or in an error condition. The system begins in an initial state and moves to other states as events occur.
+A **state** represents the condition of the system at a specific point in time. For example, a system may be idle, actively processing, or in an error condition. The system begins in an initial state and moves to other states as events occur.
 
 ```text
 Idle: Not actively heating or cooling.
@@ -227,7 +236,7 @@ Energy-Saving: Operating with reduced intensity.
 Error: A fault condition, such as sensor failure.
 ```
 
-Transitions between states are triggered by events. These events can be user actions, system responses, or external inputs.
+**Transitions** between states are triggered by events. These events can be user actions, system responses, or external inputs.
 
 ```text
 Set Heating, Set Cooling, or Set Energy-Saving
@@ -237,7 +246,7 @@ Temperature Reached - The desired temperature is reached.
 Error Detected and Reset to handle faults.
 ```
 
-When a transition occurs, the system may also perform specific actions.
+When a transition occurs, the system may also perform specific **actions**.
 
 ```text
 Start Heating or Start Cooling
@@ -291,10 +300,78 @@ To design test cases, this behavior can also be represented in a tabular form. A
 
 Testing focuses on verifying that all states are reachable and that transitions behave correctly.
 
-One important aspect is ensuring that valid transitions produce the correct result. It is also important to verify that invalid transitions are handled properly. For example, moving directly from an idle state to an error state without a triggering event should not be allowed.
+One important aspect is ensuring that valid transitions produce the correct result. It is also important to verify that invalid transitions are handled properly. For example, moving directly from an idle state to an error state without a triggering event should not be allowed. When an invalid transition is attempted, the system should either ignore the event, remain in the current state or display an appropriate error message.
+
+| Test Case ID | Current State | Event          | Expected Behavior             | PASS/FAIL |
+| ------------ | ------------- | -------------- | ----------------------------- | --------- |
+| TC005        | Idle          | Error Detected | No transition; remain in Idle |           |
+| TC006        | Error         | Set Heating    | No transition; display error  |           |
 
 Coverage in this type of testing can focus on visiting all states, executing all valid transitions, and checking how the system handles invalid transitions.
 
 State Transition Testing is especially useful for systems where behavior depends on sequences of actions or where the system changes over time. This includes workflows, interactive systems, and systems that react to external events.
 
+While this technique focuses on how the system moves between internal states, testing can also be approached from the user's perspective by analyzing how users interact with the system to achieve specific goals.
+
+This leads to **Use Case Testing**, which focuses on validating end-to-end user scenarios.
+
 ## Use Case Testing
+
+**Use Case Testing** is a black-box testing technique that focuses on validating the system based on real user interactions and goals.
+
+Instead of analyzing individual inputs or internal system states, this approach looks at how a user interacts with the system to complete a specific task. Each interaction is described as a **use case**, which represents a sequence of steps performed to achieve a meaningful outcome.
+
+A **use case** typically describes how a user starts an interaction, what actions are performed, and what result is expected at the end. It reflects real-world usage and helps ensure that the system behaves correctly from the user’s perspective.
+
+For example, a use case for an online application might describe how a user logs in, navigates through the system, performs an action, and logs out. The focus is not on individual inputs, but on the entire flow of interaction.
+
+To understand how this works, consider a simple example of a login process.
+
+**Main Success Scenario**.
+
+```text
+Use Case: User Login
+
+Precondition: User has a registered account
+
+1. User opens the application
+2. User enters valid credentials
+3. User submits the form
+4. System validates the credentials
+5. User is redirected to the dashboard
+
+Postcondition: User session is active
+```
+
+**Alternative Flow - Invalid Credentials**.
+
+```text
+1. User opens the application
+2. User enters invalid credentials
+3. User submits the form
+4. System validates the credentials
+5. System displays an error message
+6. User remains on the login page
+
+Postcondition: User is not authenticated
+```
+
+**Alternative Flow - Account Locked**.
+
+```text
+1. User opens the application
+2. User enters valid credentials after multiple failed attempts
+3. User submits the form
+4. System detects account is locked
+5. System displays a lockout message with contact support option
+
+Postcondition: User is not authenticated; account remains locked
+```
+
+In this scenario, testing verifies that the entire sequence works correctly from start to finish. If any step fails, the use case is considered unsuccessful. Each alternative flow represents a separate test case that must be executed to ensure complete coverage.
+
+Use case testing is especially useful for validating end-to-end workflows, where multiple components and interactions are involved. It ensures that the system supports real user behavior and meets business requirements.
+
+While other techniques focus on inputs, conditions, or internal logic, use case testing focuses on complete user journeys. This makes it valuable for identifying issues that may not appear when testing isolated parts of the system.
+
+Because it reflects real usage, use case testing is often used in system testing and acceptance testing, where the goal is to confirm that the system works as expected in real-world scenarios.

@@ -20,20 +20,26 @@ A **defect**, also called a **bug** or **anomaly**, is any deviation between the
 
 Defect management prevents defects from being **forgotten**, **misunderstood**, or **ignored**. It creates **traceability** and **visibility** in the testing process.
 
-The **defect management process** follows a clear logical flow. First, a defect is **identified** during testing when the tester observes unexpected behavior. Then the defect is **logged** in a defect tracking system with all relevant information. After that, the defect is **reviewed during triage**, where it is **categorized and prioritized**. Next, it is **assigned** to a responsible developer. Once the developer **fixes** the defect, the tester **verifies** the fix. If the problem is resolved correctly, the defect is **closed**. If not, it is **reopened** and returned for further correction.
+The **defect management process** follows a clear logical flow. First, a defect is **identified** during testing when the tester observes unexpected behavior. Then the defect is **logged** in a defect tracking system with all relevant information. After that, the defect is **reviewed during triage**, where it is **categorized and prioritized**. Next, it is **assigned** to a responsible developer. Once the developer **fixes** the defect, the tester **verifies** the fix. **Status values** In tracking tools, defects move through states such as New, *In Progress*, *Resolved*, *Closed* and *Reopened*. These status labels make progress visible to the whole team.
 
 This life cycle ensures that every defect has **ownership** and clear **status visibility**.
 
+The tester identifies and logs the defect. A test lead or triage team reviews and assigns severity and priority. A development lead assigns the fix to a developer. The tester verifies the resolution. Only the tester or test lead typically closes the defect.
+
 **Severity** describes how strongly a defect affects the system. **Critical** defects may cause system crashes, data loss, or security risks. **High** severity defects break major functionality. **Medium** severity defects affect functionality but usually have workarounds. **Low** severity defects are minor, often cosmetic issues.
 
-**Priority** describes how urgently a defect should be fixed. A defect with low severity can still have high priority if it affects business or release readiness. Likewise, a high severity defect may have low priority if it occurs in a rarely used feature.
+**Critical** defects may cause system crashes, data loss, or security risks (*user cannot complete payment; unauthorized data access*). **High** severity defects break major functionality (*search returns no results on any query*). **Medium** severity defects affect functionality but usually have workarounds (*filter must be applied twice to work correctly*). **Low** severity defects are minor, often cosmetic issues (*button text misaligned by 2 pixels*).
+
+**Priority** describes how urgently a defect should be fixed. A defect with low severity can still have high priority if it affects business or release readiness. Likewise, a high severity defect may have low priority if it occurs in a rarely used feature. Priority can also rise when a defect blocks other fixes or has a regulatory deadline, even if the feature itself is rarely used.
 
 Understanding the difference between **severity** and **priority** is essential for effective communication between testers, developers, and managers.
 
 A good defect report provides enough information for another person to understand and reproduce the problem without additional explanation.
 
+Before logging, search the tracking system using keywords from the error message or feature area. If a duplicate exists, add your reproduction details to the existing report instead of creating a new one.
+
 Each bug report should contain a **unique identifier**, a **short and clear title**, a **detailed description**, and precise **steps to reproduce** the defect. It must also include the **expected result** and the **actual result** so the difference is clearly visible. The report should specify **severity**, **priority**, and **environment details** such as browser, operating system, and application version. It should also include **attachments** such as screenshots, videos, or logs when available. Reporter information, status, assignment, and dates help track responsibility and progress.
 
-Many defects lose value because they are poorly written. Common mistakes include missing reproduction steps, vague descriptions, missing environment information, lack of evidence such as screenshots, and incorrect severity or priority selection. Such reports slow down fixing and create frustration between teams.
+Many **defect reports** lose value because they are poorly written. Common mistakes include missing reproduction steps, vague descriptions, missing environment information, lack of evidence such as screenshots, and incorrect severity or priority selection. Such reports slow down fixing and create frustration between teams.
 
-Effective defect management relies on clarity and discipline. Regular triage meetings help the team prioritize and understand defects correctly. Open communication between testers and developers ensures faster resolution. Monitoring defect trends helps identify weak areas in the system. Keeping a complete defect history supports learning and continuous improvement.
+Effective defect management relies on clarity and discipline. typically attended by the test lead, development lead and product manager help the team prioritize and understand defects correctly. Meetings may be daily during release or weekly during normal development.

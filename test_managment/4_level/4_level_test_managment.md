@@ -13,7 +13,7 @@ At this stage, teams gained visibility into testing, but decisions were still la
 
 As projects grow in complexity, it is no longer enough to only execute and monitor testing. Teams must make informed decisions about what should be tested first, how risks should be managed and how testing efforts should be optimized.
 
-At **Test Management Level 4**, the focus shifts to **strategy, decision-making and optimization**. Testing is no longer only about performing activities, but about guiding those activities based on risk, priorities and business goals.
+At **Test Management Level 4**, the focus shifts to **strategy**, **decision-making** and **optimization**. Testing is no longer only about performing activities, but about guiding those activities based on risk, priorities and business goals.
 
 This level builds on the foundation of planning and execution by introducing structured approaches for managing uncertainty, improving efficiency and ensuring that testing delivers maximum value.
 
@@ -45,7 +45,7 @@ Testing is typically organized into **test levels**, such as unit testing, integ
 
 In addition, the strategy defines **test types**, including functional and non-functional testing. Functional testing verifies that the system behaves according to requirements, while non-functional testing evaluates aspects such as performance, security and usability.
 
-Test strategy also defines the **testing techniques** that will be used. These include **black-box testing**, which focuses on external behavior, **white-box testing**, which uses knowledge of internal implementation, and **experience-based testing**, which relies on tester knowledge, intuition and previous experience. More advanced techniques are explored in **Test Case Design Level 4**.
+Test strategy also defines the **testing techniques** that will be used. These include **black-box testing**, which focuses on external behavior, **white-box testing**, which uses knowledge of internal implementation and **experience-based testing**, which relies on tester knowledge, intuition and previous experience. More advanced techniques are explored in **Test Case Design Level 4**.
 
 Test strategy also defines the tools that support testing activities. These include test management tools for organizing and tracking test cases, defect tracking tools for managing issues, and automation tools for executing repetitive tests. In addition, specialized tools may be used for API testing, performance testing and security testing, depending on project needs.
 
@@ -136,11 +136,11 @@ Contingency: Use backup payment service
 Status: Open
 ```
 
-The risk register is the main working document. It combines identification, assessment and mitigation and is used throughout testing.
+The risk register is the main working document. It combines identification, assessment and mitigation and is used throughout testing. Status values typically include **Open**, **Mitigated**, **Accepted** or **Closed**.
 
 Risk management directly influences how testing is performed through **risk-based testing**.
 
-Risk based testing uses the risk register to decide what to test first. High-risk areas are tested earlier and more thoroughly.
+Risk based testing uses the risk register to decide what to test first. High-risk areas are tested earlier and more thoroughly. "More thoroughly" means additional negative testing, boundary testing and exploratory testing beyond the standard positive path.
 
 ```text
 Risk: High
@@ -253,8 +253,6 @@ Requirement Dashboard view Priority Medium -> Test later
 Requirement Profile update Priority Low -> Test later
 ```
 
-Test prioritization focuses on deciding which test cases should be executed first.
-
 In practice, teams assign simple scores to each factor and combine them to determine priority.
 
 ```text
@@ -302,7 +300,7 @@ Coverage: Low = 1
 Total Score: 3
 ```
 
-Test cases with higher total scores are executed first.
+Test cases with higher total scores are executed first. Weights can be adjusted based on project context. In high-stakes projects, risk may be weighted double (Risk High = 6) to reflect greater business impact.
 
 After priorities are assigned, dependencies between test cases must be considered.
 
@@ -417,6 +415,8 @@ Calculate the result
 Testing effort = 400 person days
 ```
 
+Ratios vary by project type. Maintenance projects may need a 1:1 ratio, while greenfield projects may need 1:2 or higher.
+
 Another method is **extrapolation**, where early project data is used to estimate future effort. This is useful when the team already has some progress data from the current project.
 
 ```text
@@ -445,7 +445,7 @@ Remaining testing effort = 120 hours
 
 Another approach is **expert-based estimation**, which relies on experience and judgement.
 
-One technique is **Wide Band Delphi**, where multiple experts provide estimates independently and then refine them through discussion until agreement is reached.
+One technique is **Wide Band Delphi**, where multiple experts provide estimates **anonymously** and then refine them through discussion until agreement is reached. Anonymity prevents anchoring bias, where early estimates unduly influence later ones.
 
 ```text
 Expert 1 estimate 8 hours
@@ -491,6 +491,8 @@ E = 10 hours
 
 This approach provides a more balanced estimate because it takes uncertainty into account.
 
+The standard deviation can be estimated as `(P - O) / 6`, giving a range for planning buffers. In this example `(18 - 6) / 6 = 2 hours`, suggesting a range of 8–12 hours.
+
 In practice, estimation is influenced by multiple factors such as the number of test cases, feature complexity, risk level and available resources.
 
 ```text
@@ -529,6 +531,8 @@ At the end of testing, **final deliverables** summarize the overall results. **T
 
 In addition to these, **supporting deliverables** help track and manage testing activities. **Traceability matrices** link requirements to test cases, **test metrics** provide quantitative measurement of testing progress and **defect reports** document identified issues.
 
+Ownership of deliverables **Test Analyst** writes test cases and updates execution results, **Test Lead** produces progress reports and test summary reports and **QA Manager** owns the test closure report and lessons learned document.
+
 While deliverables define what is produced, the **reporting strategy** defines how and when this information is communicated.
 
 During testing, **detailed reports** are shared regularly to track progress and identify issues early. These reports may be shared daily or weekly depending on project needs.
@@ -536,6 +540,8 @@ During testing, **detailed reports** are shared regularly to track progress and 
 At a higher level, **summary reports** are shared with stakeholders to support decision making. These reports provide an overview of test results, defect status and overall system quality.
 
 **Reporting frequency** depends on project needs, but it is important that information is shared consistently and in a structured way.
+
+Escalation triggers **critical defects are reported immediately**, **schedule slippage greater than 10% triggers an escalation report to the Test Lead or QA Manager** and **defect resolution delays beyond SLA trigger escalation to the development lead**
 
 Without clear deliverables and reporting, testing results may not be visible or properly understood.
 
@@ -559,8 +565,12 @@ Communication is also defined by its **frequency**. During active testing, teams
 
 To ensure consistency, teams often use **reporting templates**. These templates define how information should be structured and presented, such as test progress reports, test execution reports and test summary reports.
 
+For larger projects, governance may include a **test steering committee** or **change control board** that reviews major decisions, resolves conflicts and approves changes to strategy or scope.
+
+**Conflict resolution** Governance defines escalation paths when testers and developers disagree on defect severity, when stakeholders dispute release readiness, or when resource constraints force scope reductions. The escalation path typically moves from Test Lead -> QA Manager -> Project Manager -> Steering Committee.
+
 Test governance also defines **roles and responsibilities** related to communication. The test lead typically shares status reports, testers update execution results and stakeholders review reports and make decisions based on the information provided.
 
-Without proper governance and communication, testing activities may become uncoordinated and lack visibility. Important issues may not be reported in time, and decisions may be delayed.
+Without proper governance and communication, testing activities may become uncoordinated and lack visibility. Important issues may not be reported in time and decisions may be delayed.
 
 Defining governance and communication ensures that testing activities are controlled, information is shared effectively and all stakeholders remain aligned throughout the project.

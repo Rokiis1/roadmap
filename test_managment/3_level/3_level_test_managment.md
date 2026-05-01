@@ -26,17 +26,15 @@ Test monitoring and control focus on tracking the progress of testing and making
 
 ![test_monitoring_control](./assets/images/test_monitoring_control.png)
 
-Monitoring involves collecting information about what is happening during test execution. This includes tracking which test cases have been executed, what results have been observed and how many defects have been identified.
+**Monitoring** involves collecting information about what is happening during test execution. This includes tracking which test cases have been executed, what results have been observed and how many defects have been identified.
 
-Control involves taking actions based on this information. If testing is not progressing as planned, adjustments may be required. This may include changing priorities, reallocating resources or addressing blocking issues that prevent testing from continuing.
+**Control** involves taking actions based on this information. If testing is not progressing as planned, adjustments may be required. This may include changing priorities, reallocating resources or addressing blocking issues that prevent testing from continuing.
 
 Through monitoring and control, teams can understand whether testing is on track and whether objectives are being achieved. It provides visibility into the current state of testing and helps identify potential risks or delays.
 
 Without monitoring, it is difficult to know what has been completed and what remains. Without control, problems identified during testing may not be addressed in time.
 
-Test monitoring and control ensure that testing remains aligned with the plan while still allowing flexibility to respond to changes and issues that arise during execution.
-
-In practice, monitoring and control are supported by tools and artifacts such as **execution dashboards**, **defect tracking systems**, and **status trackers**. These provide real-time visibility into testing activities and help teams quickly respond to issues during execution.
+Teams use **execution dashboards**, **defect tracking systems** and **status trackers** to support monitoring and control. These provide real-time visibility and help teams respond quickly to issues during execution.
 
 To understand the state of testing more precisely, it is necessary to measure testing activities using defined values.
 
@@ -54,13 +52,11 @@ By using metrics, teams can move from subjective opinions to data-driven decisio
 
 Test metrics also support communication with stakeholders. Clear and measurable data makes it easier to report the status of testing and to explain the current quality of the software.
 
-However, metrics must be used carefully. Collecting too many metrics or focusing on the wrong values can create confusion instead of clarity. Metrics should be relevant to the goals of testing and provide meaningful insight.
+However, metrics must be used carefully. Collecting too many metrics or focusing on the wrong values can create confusion instead of clarity. For example, tracking "test cases written per day" may encourage quantity over quality. Tracking total defects found without considering severity may obscure real risk. Metrics should be relevant to the goals of testing and provide meaningful insight.
 
 Without metrics, it is difficult to evaluate testing progress and quality objectively. Test metrics ensure that testing activities can be measured, understood and improved based on reliable data.
 
-To communicate these measured results effectively, it is necessary to present them in a structured and understandable way.
-
-In practice, test metrics are usually presented as part of **test reports**, **progress dashboards**, or **status trackers** rather than as separate documents. They provide the numerical foundation that supports reporting and decision making.
+Metrics are typically presented through **test reports**, **progress dashboards** or **status trackers**, where they form the numerical foundation for reporting and decision making.
 
 However, before results can be clearly communicated, it is important to understand what has actually been covered by testing.
 
@@ -72,11 +68,15 @@ Test coverage is the measure of how much of the system has been tested. It helps
 
 ![test_coverage](./assets/images/test_coverage.png)
 
-Coverage can be evaluated using different criteria. **Requirements coverage** measures how many specified requirements, including functional and non-functional requirements are validated by test cases. This helps ensure that requirements are not missed.
+Coverage can be evaluated using different criteria.
 
-**Functional coverage** measures how much of the system functionality is exercised by test cases. This includes user interactions, workflows and business scenarios, ensuring the system is tested from the user’s perspective.
+**Requirements coverage** measures how many specified requirements are validated by test cases. This helps ensure that requirements are not missed.
 
-**Code coverage** measures how much of the source code is executed during testing. This type of coverage is primarily used by developers because it focuses on the internal implementation of the system.
+**Functional coverage** measures how much of the system functionality is exercised by test cases, including user interactions, workflows and business scenarios.
+
+**Code coverage** measures how much of the source code is executed during testing. This type is primarily used by developers because it focuses on internal implementation.
+
+At Level 3, **requirements coverage** is the primary focus. Code coverage is typically managed by developers and addressed in **Test Case Design Level 4**.
 
 To measure coverage, the team first identifies what type of coverage is being evaluated. Requirements, functions or code areas are then mapped to corresponding test cases. When tests are executed, results are recorded and coverage can be calculated.
 
@@ -90,13 +90,9 @@ For example, a requirement may be covered by a test case, but the test may fail 
 
 Because of this, high coverage does not mean the software is defect-free. It only means that more areas have been tested. Coverage must be interpreted together with test results and defects.
 
-In practice, achieving 100% coverage is rarely possible due to time, resources and system complexity. The goal is to achieve sufficient coverage based on project needs and constraints. More advanced approaches to prioritizing testing based on risk and importance are covered in **Test Management Level 4**.
+Achieving 100% coverage is rarely possible due to time, resources and system complexity. The goal is to achieve sufficient coverage based on project needs and constraints. Coverage gaps are identified by comparing planned coverage against actual results, then adding test cases for untested areas.
 
-Coverage can be improved by adding test cases for untested areas and by analyzing gaps in testing. More advanced techniques for improving coverage, including white-box testing techniques are introduced in **Test Case Design Level 4**.
-
-To manage and visualize coverage more clearly, teams often use a traceability matrix to map requirements to test cases and identify gaps.
-
-To ensure that all requirements are properly linked to test cases and fully covered, it is necessary to use a structured mapping approach.
+To manage and visualize coverage more clearly, teams use a traceability matrix to map requirements to test cases and identify gaps.
 
 ## Traceability Matrix
 
@@ -126,9 +122,9 @@ The traceability matrix also helps identify **gaps**. If a requirement has no li
 
 In addition, traceability supports **change management**. When requirements change, the matrix helps identify which test cases are affected and need to be updated.
 
-Without traceability, it becomes difficult to confirm whether all requirements have been properly tested. Testing may appear complete, but important functionality could still be missing.
+For small projects, traceability can be maintained in spreadsheets. For larger efforts, teams use test management tools such as Jira, TestRail or Quality Center.
 
-The traceability matrix ensures that testing is connected to requirements in a clear and structured way, improving **coverage visibility** and supporting more reliable **quality evaluation**.
+The traceability matrix ensures that testing is connected to requirements in a clear and structured way, improving **coverage visibility** and supporting more **reliable quality evaluation**.
 
 To communicate this information effectively to stakeholders, it is necessary to present testing results in a clear and structured form.
 
@@ -150,9 +146,9 @@ Without clear reporting, testing results may be misunderstood or ignored. Import
 
 Test reporting ensures that testing outcomes are visible, understandable and useful for decision making throughout the project.
 
-Reports can be presented in different forms depending on the level of detail required. During testing, teams often use **detailed test reports** (also called **test execution reports**) that include a **test execution table** showing test case results, along with defect information and current progress. These reports help the team understand what is happening during testing and support day-to-day decisions.
+Reports can be presented in different forms depending on the level of detail required. During testing, teams often use **detailed test reports** (also called **test execution reports**) are produced daily or per test cycle. They include **test execution tables** showing case-by-case results, defect information and current progress. These support day-to-day team decisions. These reports help the team understand what is happening during testing and support day-to-day decisions.
 
-At a higher level, **test summary reports** provide an overall view of testing results. They typically include total test cases, pass and fail rates, identified defects and the overall quality status of the system. These reports are used by stakeholders to understand whether the system is ready for release.
+At a higher level, **test summary reports** are produced weekly or at milestone gates. They provide an overall view of total test cases, pass and fail rates, identified defects and overall quality status. Stakeholders use these to assess release readiness.
 
 By using both detailed and summary reports, teams can ensure that information is available for both operational decisions and high-level evaluation.
 
@@ -168,7 +164,11 @@ Test progress tracking focuses on observing the state of testing activities and 
 
 Progress tracking includes monitoring the execution of test cases, identifying how many have been completed and evaluating the rate at which testing is moving forward. It also involves tracking defects, including how many have been found, fixed, and remain unresolved.
 
+Key metrics for progress tracking include, **test execution rate** test cases completed per day, **defect find rate** defects identified per day, **defect resolution rate** defects fixed per day, **schedule variance** planned vs. actual completion percentage.
+
 By tracking progress, teams can determine whether testing is on schedule and whether objectives are likely to be achieved within the planned timeframe. It helps identify delays, bottlenecks or areas where additional attention is required.
+
+If progress falls behind by more than 10% of the schedule, or if critical defects block more than 20% of test cases, escalation to the Test Lead or project manager is typically required.
 
 Progress tracking also supports better planning during execution. If testing is slower than expected or if defect resolution is delayed, adjustments can be made to keep testing aligned with project goals.
 
@@ -176,27 +176,27 @@ Without progress tracking, it is difficult to understand the current state of te
 
 Test progress tracking ensures that testing activities remain transparent and measurable throughout execution, allowing teams to make informed decisions as testing continues.
 
-In practice, progress tracking is often supported by artifacts such as **test progress reports**, **execution dashboards**, or **status trackers**. These provide a structured view of completed work, remaining tasks and defect status, helping teams quickly understand the current state of testing.
-
 Once testing activities are completed and progress has been fully evaluated, it is necessary to formally conclude the testing process.
 
 ## Test Closure
 
 Once testing activities are completed and progress has been evaluated, it is necessary to formally conclude the testing process. Testing does not end simply when execution stops. It must be reviewed and finalized in a structured way.
 
+Test closure begins when **exit criteria** are met here is examples **all planned tests executed**, **coverage targets achieved** and **critical defects resolved** or **formally accepted**.
+
 Test closure is the process of completing all testing activities and evaluating the overall results of testing. It ensures that testing has been carried out according to the plan and that all objectives have been addressed.
 
 ![test_closure](./assets/images/test_closure.png)
 
-During test closure, the results of testing are analyzed to understand what has been achieved. This includes reviewing executed test cases, identified defects and the current state of the system. It also involves confirming whether exit criteria have been met.
+During test closure, the results of testing are analyzed to understand what has been achieved. This includes reviewing executed test cases, identified defects and the current state of the system.
 
 Test closure provides an opportunity to assess the quality of the software and determine whether it is ready for release. Any remaining risks or unresolved issues are identified and communicated to stakeholders.
 
 In addition, test closure includes documenting the outcomes of testing. This may involve creating summary reports, capturing key metrics and recording lessons learned during the testing process.
 
-Lessons learned are an important part of test closure. They help teams understand what worked well and what can be improved in future testing activities.
+Closure also includes handoff activities: transferring remaining known issues to support teams, archiving test assets for future reuse, and releasing test environments. Lessons learned are an important part of test closure. They help teams understand what worked well and what can be improved in future testing activities.
 
-In practice, test closure results in formal artifacts such as a **test summary report**, **test closure report**, and documented **lessons learned**. These provide a final record of testing activities, overall quality status, and key insights for future projects.
+The formal artifacts produced during closure include **test summary report** overall quality status and results, **test closure report** confirmation that exit criteria were met and handoffs completed and **lessons learned document** insights for future projects.
 
 Without proper closure, valuable information may be lost and it may be unclear whether testing was sufficient. There would be no clear conclusion about the quality of the system.
 

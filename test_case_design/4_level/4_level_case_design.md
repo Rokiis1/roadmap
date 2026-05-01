@@ -7,9 +7,11 @@
 
 In previous levels, test cases were designed using experience-based and specification-based techniques. These approaches focus on inputs, outputs and expected behavior without considering how the system is implemented internally.
 
-At this level, the focus shifts to how the system is built. Instead of treating the system as a black box, testing is now based on the internal structure of the code. This approach is known as **white-box testing**.
+At this level, the focus shifts to how the system is built. Instead of treating the system as a **black-box testing** is now based on the internal structure of the code. This approach is known as **white-box testing**.
 
 White-box testing uses knowledge of the code, control flow and logic to design test cases. The goal is to ensure that different parts of the implementation are executed and validated, rather than only verifying external behavior.
+
+White-box techniques are most effective when used together with the black-box techniques from **Test Case Design Level 3**. While black-box testing verifies that the system meets requirements from the user's perspective, white-box testing ensures the underlying implementation is thorough and free of structural defects. Both approaches are needed for complete testing coverage.
 
 This introduces a more detailed level of testing, where coverage of the internal structure becomes important. Test cases are designed to execute statements, decisions, and different execution paths within the code.
 
@@ -72,9 +74,9 @@ if (false)
  End
  ```
 
-In this function, there are multiple statements, including the function declaration, the `if` condition, and the two possible output statements.
+In this function, there are multiple statements, including the function declaration, the `if` condition, and the two possible output statements. The `else` block also contains statements that must be executed to achieve full coverage.
 
-If only one test case is used, for example `compareNumbers(20, 10)`, only part of the code will be executed. The `else` branch will never run, leaving some statements untested.
+If only one test case is used, for example `compareNumbers(20, 10)`, only part of the code will be executed. The `else` and its `console.log` statement will never run, leaving those statements untested.
 
 To achieve full statement coverage, at least two test cases are required.
 
@@ -82,6 +84,8 @@ To achieve full statement coverage, at least two test cases are required.
 `compareNumbers(10, 20)` executes the `else` branch
 
 By executing both cases, all statements in the function are covered.
+
+It is important to note that achieving 100% statement coverage does not guarantee the code is defect-free. **Unreachable code** statements that can never be executed due to logical errors may still exist. Coverage tools can identify which statements were never executed, but they cannot determine whether unexecuted code is unreachable by design or due to a defect.
 
 Statement testing ensures that every part of the code is executed at least once. However, it does not guarantee that all logical decisions are fully tested, since different conditions within the same statement may still behave differently.
 
@@ -95,7 +99,7 @@ This leads to **Branch Testing**, which focuses on ensuring that all decision ou
 
 At this level, testing goes beyond simply executing statements. It focuses on the different paths that can be taken when a condition is evaluated. Whenever the program encounters a decision point, such as an `if` or `else`, the execution can follow different branches depending on the condition.
 
-A **branch** represents one of these possible outcomes. For example, an `if` statement has two branches, one when the condition is true and one when it is false. If only one branch is executed during testing, the other branch remains untested, which may hide defects.
+A **branch** represents one of these possible outcomes. For example, an `if` statement has two branches, one when the condition is true and one when it is false. An `else if` chain creates additional branches, each representing a distinct decision outcome. If only one branch is executed during testing, the other branches remain untested, which may hide defects.
 
 To measure how thoroughly the code is tested, **branch coverage** is used. It represents the percentage of executed branches compared to the total number of branches in the code.
 
@@ -136,8 +140,6 @@ In this function, the condition `a > b` creates two possible branches. Each eval
 
 While **statement testing** focuses on executing each line of code at least once, **branch testing** focuses on executing each possible outcome of a decision.
 
-The diagram below shows how these decision outcomes are represented during execution.
-
 It is possible to execute all statements without executing all branches. For example, if only one test case is used, such as `compareNumbers(20, 10)`, the program will execute successfully and produce an output, but the `else` branch will never be evaluated.
 
 To achieve full branch coverage, at least two test cases are required
@@ -147,11 +149,19 @@ To achieve full branch coverage, at least two test cases are required
 
 By executing both outcomes, all branches in the function are covered.
 
-Branch testing is stronger than statement testing because it ensures that all decision outcomes are evaluated. Achieving full branch coverage also guarantees that all statements are executed, but the reverse is not always true.
+Branch testing is stronger than statement testing because it ensures that all decision outcomes are evaluated. Achieving full branch coverage also guarantees that all statements are executed, assuming all statements are reachable. However, the reverse is not always true full statement coverage does not guarantee full branch coverage.
 
-However, branch testing still does not guarantee that all possible execution paths are tested, especially when multiple conditions are combined.
+However, branch testing still does not guarantee that all possible execution paths are tested, especially when multiple conditions are combined. For example, consider a compound condition.
 
-To address this, testing can go even further by analyzing complete execution paths through the code.
+```js
+if (a > b && c < d) {
+  console.log("conditions met");
+}
+```
+
+Branch testing only requires one test case where the overall condition is true and one where it is false. It does not verify whether each sub-condition (`a > b` and `c < d`) independently affects the outcome. To verify this, **Condition Coverage** is needed, where each Boolean sub-condition is evaluated as both true and false.
+
+To address complete execution paths, testing can go even further by analyzing all possible routes through the code.
 
 This leads to **Path Testing**, which focuses on covering different execution paths from start to end.
 
@@ -161,7 +171,7 @@ This leads to **Path Testing**, which focuses on covering different execution pa
 
 At this level, testing goes beyond individual statements and decision outcomes. It considers how multiple conditions and branches combine during execution. Each unique sequence of execution forms a **path**, and different inputs may cause the program to follow different paths.
 
-A **path** represents a complete route through the code, starting from the entry point and ending at the exit. In programs that contain multiple conditions, loops, or decision points, the number of possible paths can increase quickly.
+A **path** represents a complete route through the code, starting from the entry point and ending at the exit. In programs that contain multiple conditions, loops or decision points, the number of possible paths can increase quickly. For a program with `n` independent binary decisions, the number of possible paths can be as high as `2^n`, a phenomenon known as **path explosion**. This makes full path coverage impractical for complex systems.
 
 To measure how thoroughly the code is tested, **path coverage** is used. It represents the percentage of executed paths compared to the total number of possible paths in the code.
 
@@ -188,7 +198,7 @@ function processNumbers(a, b) {
 }
 ```
 
-Execution paths can be visualized as follows
+Execution paths can be visualized as follows.
 
 ```text
 Path 1:
@@ -250,9 +260,9 @@ By executing each of these cases, all defined paths in the function are covered.
 
 Path testing provides a more thorough level of coverage compared to statement and branch testing because it verifies complete execution flows rather than individual parts of the code.
 
-However, as the number of conditions increases, the number of possible paths grows rapidly, making full path coverage difficult or impractical in systems.
+However, as the number of conditions increases, the number of possible paths grows rapidly, making full path coverage difficult or impractical in larger systems. Because of this, path testing is often applied selectively, focusing on the most critical or high-risk paths in the system.
 
-Because of this, path testing is often applied selectively, focusing on the most critical or high-risk paths in the system.
+When loops are present, the number of paths becomes theoretically infinite. In practice, loop testing strategies focus on key iterations, **zero iterations** (skip the loop), **one iteration** (execute once) and **many iterations** (execute multiple times). This approach, known as **boundary testing for loops**, ensures that common loop-related defects are detected without attempting infinite path coverage.
 
 ## Differences Between Statement, Branch and Path Testing
 
@@ -272,4 +282,4 @@ Statement testing answers the question of whether the code was executed.
 Branch testing answers whether all decision outcomes were evaluated.  
 Path testing answers whether all execution flows were tested.
 
-These techniques form a progression, where each level increases the depth and completeness of testing.
+In practice, white-box testing is supported by **code coverage** tools such as **Istanbul** for JavaScript, **JaCoCo** for Java or **coverage.py** for Python. These tools instrument the code to track which statements, branches and paths are executed during test runs. Coverage reports help identify untested areas and are often integrated into CI/CD pipelines, where builds can be configured to fail if coverage falls below a defined threshold. Typical industry targets vary by context, **80% statement coverage** is common for general applications, while 1**00% branch coverage** may be required for safety critical or financial systems.

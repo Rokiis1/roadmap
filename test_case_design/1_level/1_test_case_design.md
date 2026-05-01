@@ -30,7 +30,7 @@ In addition to requirements, **design documents** provide insight into how the s
 
 In some cases, the **codebase** itself becomes part of the test basis, especially when documentation is incomplete. Source code, configuration files, and API contracts can help identify expected inputs, outputs and constraints.
 
-Testing is also influenced by **risk analysis**. Identified risks help prioritize what should be tested more thoroughly, especially in areas that may have higher impact on the system.
+Testing is also influenced by risk analysis. Identified risks help prioritize what should be tested more thoroughly, especially in areas that may have higher impact on the system. The process of analyzing risks and deciding which areas to test first based on factors such as business impact, technical complexity and probability of failure will be explored in **Test Management Level 4**.
 
 For systems operating in regulated environments, **compliance standards** and **industry regulations** define additional rules that must be validated. These become part of the expected behavior and must be reflected in testing.
 
@@ -52,7 +52,7 @@ Instead of defining specific inputs or step-by-step actions, a test scenario des
 
 Test scenarios play an important role in structuring testing activities. They help identify **test conditions**, ensuring that different aspects of system behavior are considered. By describing user interactions and system responses at a high level, they support **comprehensive coverage** and reduce the risk of missing important functionality.
 
-They also improve **communication** between testers, developers, and stakeholders. Because scenarios are written in a clear and understandable way, they make it easier to align on what should be tested and why.
+They also improve **communication** between testers, developers and stakeholders. Because scenarios are written in a clear and understandable way, they make it easier to align on what should be tested and why.
 
 Another important role of test scenarios is guiding the creation of test cases. Test cases are derived from scenarios, where each scenario is expanded into more detailed steps, inputs, and expected results.
 
@@ -69,9 +69,9 @@ In this structure, phrases like **“Verify that”**, **“Ensure that”**, **
 “Check that” is used for validating negative cases or error handling.
 “Test that” is used to confirm specific outcomes or system responses.
 
-For example, in a user authentication context, scenarios may describe validating login, logout, password reset, session handling and error messages for invalid input.
+For example, **verify that a user can log in with valid credentials**, **ensure that the session expires after a defined timeout period**, **check that an appropriate error message is displayed for invalid input**.
 
-This structure is often used in environments where detailed documentation is required, in legacy systems, or when teams are more familiar with traditional testing approaches. It provides clarity and ensures that all relevant conditions are explicitly described.
+This structure is typically used in environments where detailed documentation is required, in legacy systems or when teams follow a phase-based development model such as Waterfall or V-Model. It provides clarity and ensures that all relevant conditions are explicitly described.
 
 Another widely used approach is the **Behavior-Driven Development (BDD) structure**.
 
@@ -81,9 +81,24 @@ In this approach, scenarios are written using the **Given–When–Then** format
 “When” describes the action or event performed.
 “Then” defines the expected outcome.
 
-For example, a scenario may describe a user on a login page, entering valid credentials, and being redirected to a dashboard.
+For example
 
-This structure is useful in **Agile** environments, where collaboration between technical and non-technical stakeholders is important. It makes scenarios easier to read and understand, even for people without a technical background.
+```text
+Given the user is on the login page, 
+when the user enters valid credentials 
+and clicks the login button,
+then the user is redirected to the dashboard 
+```
+
+Or other
+
+```text
+Given the user is logged in, 
+when the session exceeds the timeout limit, 
+then the user is automatically logged out.
+```
+
+This structure is useful in **Agile** environments, where collaboration between technical and non-technical stakeholders is important. It makes scenarios easier to read and understand, even for people without a technical background. In Agile teams, these scenarios are often derived directly from acceptance criteria defined during backlog refinement or sprint planning.
 
 BDD scenarios are also commonly used in **test automation**, as they can be directly integrated with automated testing tools. They emphasize system behavior from the user’s perspective and help ensure that the system meets real user needs.
 
@@ -95,7 +110,7 @@ This leads to **test cases**, where each scenario is translated into specific co
 
 ## Test Case Structure
 
-A **test case** defines the specific conditions under which a system is tested. It translates a high-level scenario into concrete elements such as inputs, expected results, and execution context.
+A **test case** defines the specific conditions under which a system is tested. It translates a high-level scenario into concrete elements such as inputs, expected results and execution context.
 
 To ensure consistency and clarity, test cases are often organized using a structured format. This structure helps testers understand what needs to be executed, what data is required, and how results should be validated.
 
@@ -105,17 +120,44 @@ However, for actual testing, scenarios are expanded into test cases. Each test c
 
 This connection becomes important as the system grows and the number of tests increases. Being able to trace what is tested and why ensures that no important functionality is missed.
 
-The concept of **traceability** will be explored later in Test **Test Management Level 2**, where the focus shifts to tracking coverage, linking requirements to tests, and ensuring overall test completeness.
+The concept of **traceability** will be explored later in Test **Test Management Level 3**, where the focus shifts to tracking coverage, linking requirements to tests, and ensuring overall test completeness.
 
 A typical test case includes a **description** of what is being tested, along with **preconditions** that define the required state before execution. It also specifies **test data**, which represents the inputs used during testing and expected results, which define the correct system behavior.
 
-In some cases, **postconditions** are included to describe the state of the system after execution. Additionally, **test steps** may be defined when the test involves a sequence of actions, such as navigating through a user interface or performing an end-to-end flow. However, for simpler validations, especially those focused on inputs and outputs, detailed steps may not be necessary.
+A typical test case includes the following elements.
+
+| Element             | Purpose                                                 |
+| ------------------- | ------------------------------------------------------- |
+| **Test Case ID**    | Unique identifier for tracking and referencing          |
+| **Description**     | What is being tested                                    |
+| **Preconditions**   | Required system state before execution                  |
+| **Test Data**       | Input values used during testing                        |
+| **Test Steps**      | Sequence of actions to perform (when needed)            |
+| **Expected Result** | Correct system behavior                                 |
+| **Postconditions**  | Expected system state after execution (when applicable) |
+
+For example, a test case derived from a login scenario might look like this.
+
+| Field           | Value                                                           |
+| --------------- | --------------------------------------------------------------- |
+| Test Case ID    | TC-001                                                          |
+| Scenario ID     | TS-001                                                          |
+| Description     | Verify login with valid credentials                             |
+| Preconditions   | User is registered and on the login page                        |
+| Test Data       | Username: "name\_123", Password: "SecurePass123"                |
+| Test Steps      | 1. Enter username<br>2. Enter password<br>3. Click login button |
+| Expected Result | User is redirected to the dashboard                             |
+| Postconditions  | User session is active                                          |
+
+**Preconditions** define the required state before execution. Test data represents the inputs used during testing. Expected results define the correct system behavior. Postconditions describe the state of the system after execution. Test steps are defined when the test involves a sequence of actions, such as navigating through a user interface or performing an end-to-end flow. For simpler validations, especially those focused on inputs and outputs, detailed steps may not be necessary.
+
+Each test case should be independent— ble to run on its own without depending on the outcome of another test. When tests must run in sequence, the dependencies should be explicitly documented in the preconditions.
 
 Traditionally, this structured approach has been widely used in test documentation and manual testing processes. It provides clarity, traceability and a clear separation between scenarios and test cases.
 
 However, in modern testing practices, like in Agile and automation-focused environments, this approach is often considered **heavyweight** and less flexible. Instead of strictly defining detailed test case tables for every situation, teams tend to focus more on **lightweight representations**, reusable test logic, and automated checks.
 
-Despite this shift, understanding this structure remains important. It provides the foundation for how tests are organized and helps build a clear connection between requirements, scenarios, and validation.
+Despite this shift, understanding this structure remains important. It provides the foundation for how tests are organized and helps build a clear connection between requirements, scenarios and validation.
 
 In later stages, particularly in **Test Case Design Level 3**, the focus shifts toward using test design techniques to systematically derive test cases. These techniques help define what should be tested more efficiently, rather than relying only on manually structured test case definitions.
 
@@ -131,13 +173,23 @@ While test cases describe *what should be tested*, test data defines *with what 
 
 Test data can represent both **valid inputs**, where the system is expected to behave correctly and **invalid inputs**, where the system should handle errors or reject the input. Using both types ensures that the system is tested under normal conditions as well as edge and failure scenarios.
 
-The selection of test data depends on the rules and constraints defined in the system. For example, if a field accepts values within a specific range, test data should include values inside the range, at the limits and outside the allowed boundaries.
+The selection of test data depends on the rules and constraints defined in the system. For example, if a field accepts values within a specific range, test data should include.
 
-In some cases, test data is derived directly from **requirements**, while in others it is influenced by **test design techniques** such as equivalence partitioning or boundary value analysis. These techniques help identify which data values are most meaningful for testing.
+```text
+A value inside the range (50 for a 1–100 range)
+The lower boundary value (1)
+The upper boundary value (100)
+A value below the range (0)
+A value above the range (101)
+```
+
+Test data is derived directly from requirements, or it is influenced by **test design techniques** such as equivalence partitioning or boundary value analysis. These techniques help identify which data values are most meaningful for testing. A detailed exploration of these techniques will be covered in **Test Case Design Level 3**.
 
 Test data can be **static**, where predefined values are used or **dynamic**, where data is generated during test execution. It can also come from different sources, such as databases, files or external systems, depending on how the application operates.
 
-Managing test data is important. Data must be consistent, relevant and reusable across different test cases to ensure reliable results.
+When working with sensitive information such as personal data, financial records or credentials test data must be handled carefully. Teams should use **anonymized**, **masked** or **synthetic data** to avoid exposing real user information during testing.
+
+Managing test data is important. Data must be consistent, relevant and reusable across different test cases to ensure reliable results. Teams should also plan for **test data setup** (creating or loading data before execution) and **test data cleanup** (removing or resetting data after execution) to maintain a stable test environment.
 
 By carefully selecting and organizing test data, testing becomes more effective, as each execution provides meaningful validation of system behavior.
 
@@ -161,11 +213,13 @@ Execution records usually capture the **execution date**, which helps track when
 
 The most important part of execution is the **actual result**, which represents what the system did during the test. This is compared against the expected outcome defined in the test case.
 
-Based on this comparison, a **status** is assigned. A test may be marked as `Pass` when the behavior matches expectations, `Fail` when there is a deviation, or `Blocked` when the test cannot be executed due to an issue such as missing data or environment problems.
+Based on this comparison, a **status** is assigned. A test may be marked as `Pass` when the behavior matches expectations, `Fail` when there is a deviation or `Blocked` when the test cannot be executed due to an issue such as missing data or environment problems and also exits `Not Run` the test was planned but not yet executed.
 
-Additional **comments or defect information** may also be recorded. These provide context for failures and help with further investigation and debugging.
+When a test fails, the tester records **defect information** including steps to reproduce, actual vs. expected behavior and environment details. This information is passed to the development team for investigation and fix. Once a fix is deployed, the test is **re-executed** to confirm the issue is resolved this is called **confirmation testing** or **re-testing**.
 
-In modern testing practices, like in automated environments, this information is often captured automatically through tools rather than manually maintained tables. Test execution results may be stored in test management systems, CI/CD pipelines, or reporting dashboards.
+Additional **comments** may also be recorded to provide context for any result, including observations about environment stability, data issues, or test script problems.
+
+In modern testing practices, particularly in automated environments, this information is captured automatically through tools rather than manually maintained tables. Test execution results may be stored in test management systems, CI/CD pipelines, or reporting dashboards.
 
 However, the underlying concept remains the same. Each test execution must clearly show what was tested, what happened, and whether the system behaved as expected.
 

@@ -49,17 +49,17 @@ Test planning transforms testing from a reactive activity into a defined process
 
 ## What is a Test Plan
 
-Once the purpose of test planning is understood, the next step is to define the output of this process.
+A **test plan** is the structured document produced by test planning. It describes how testing will be performed for a software system and serves as the central reference that guides all testing activities.
 
-A **test plan** is a structured document that describes how testing will be performed for a software system. It serves as a reference that guides all testing activities and ensures that everyone involved has a shared understanding of the testing approach.
+While test planning is the *activity* of thinking through and deciding how to test, the test plan is the *written output* that captures those decisions. It ensures that everyone involved has a shared understanding of the testing approach.
 
-The test plan defines what will be tested, what will not be tested and what the testing process is expected to achieve. It also describes the conditions under which testing will take place and how testing activities are organized.
+The test plan defines what will be tested, what will not be tested and what the testing process is expected to achieve. It also describes the conditions under which testing will take place, how testing activities are organized and who is responsible for each activity.
 
 The purpose of a test plan is not only to document decisions, but to make testing consistent and repeatable. By having a clear plan, teams can avoid misunderstandings, reduce confusion and ensure that testing is aligned with project goals.
 
 A test plan provides visibility into the testing process. It allows stakeholders to understand the scope of testing, the objectives that need to be achieved and the resources involved. This makes it easier to track progress and evaluate the quality of the software.
 
-The test plan is typically created before test execution begins and may be updated as the project evolves. As requirements change or new risks are identified, the test plan can be adjusted to reflect those changes.
+The test plan is typically created before test execution begins and may be updated as the project evolves. As requirements change or new risks are identified, the test plan can be adjusted to reflect those changes. Updates should be reviewed and communicated so that all stakeholders remain aligned.
 
 A well-defined test plan acts as a foundation for all testing activities. It ensures that testing is not performed randomly, but follows a clear and structured approach.
 
@@ -73,13 +73,13 @@ The scope of testing defines what parts of the system will be included in testin
 
 Scope is not about how testing is performed, but about what is relevant for the current testing effort. It helps teams understand which features, components or behaviors need to be validated.
 
-Defining the scope ensures that testing is aligned with project goals and priorities. Critical functionality and high-risk areas are typically included, while less important or unrelated areas may be excluded.
+Defining the scope ensures that testing is aligned with project goals and priorities. Scope decisions are typically based on **business criticality** (features core to revenue or operations), **regulatory requirements** (compliance mandated functions), **new or modified code** (recent changes carry higher defect risk) and **areas with past defects** (history of instability suggests continued risk).
 
 Without a clearly defined scope, testing may become unfocused. Teams may spend time testing low-priority features while missing important functionality. It can also lead to misunderstandings between stakeholders about what has been tested and what has not.
 
 A well-defined scope provides clarity and direction. It ensures that testing efforts are concentrated on the most important parts of the system and that expectations are clearly understood.
 
-To make these boundaries explicit, the scope is divided into what is included in testing and what is excluded from it.
+To make these boundaries explicit and actionable, the scope is documented in two parts what is included (**in scope**) and what is excluded (**out of scope**).
 
 ## In Scope and Out of Scope
 
@@ -87,13 +87,13 @@ The defined scope becomes practical when it is clearly separated into what is in
 
 ![In Scope vs Out of Scope](assets/images/in-out-scope.png)
 
-**In scope** refers to the parts of the system that will be tested. These are the features, components, or behaviors that are considered important for the current testing effort. They are selected based on project goals, requirements and risk. By defining what is in scope, the team ensures that critical functionality is properly validated.
+**In scope** refers to the parts of the system that will be tested. These are the features, components, or behaviors that are considered important for the current testing effort. They are selected using the criteria defined in the scope decision typically business criticality, regulatory needs, new or modified functionality and historical defect patterns. By defining what is in scope, the team ensures that critical functionality is properly validated.
 
-**Out of scope** refers to the parts of the system that will not be tested in the current testing cycle. These may include features that are not yet implemented, areas with low priority, or aspects that are handled by other types of testing or different teams. Defining what is out of scope prevents unnecessary effort and avoids confusion about responsibilities.
+**Out of scope** refers to the parts of the system that will not be tested in the current testing cycle. These may include features that are not yet implemented, areas with low priority, or aspects that are handled by other types of testing or different teams. When an area is out of scope, the test plan should note which team or testing type will cover it, or explicitly state that it is not covered at all. Defining what is out of scope prevents unnecessary effort and avoids confusion about responsibilities.
 
 The purpose of distinguishing between in scope and out of scope is to create clear expectations. It helps stakeholders understand what has been tested and what has not, reducing misunderstandings and unrealistic assumptions about software quality.
 
-Without this separation, testing may expand beyond its intended boundaries, leading to wasted effort or missed priorities. A clear definition of in scope and out of scope ensures that testing remains focused, efficient and aligned with project objectives.
+This separation also **prevents scope** (creep the unplanned expansion of testing beyond agreed boundaries, which strains resources and delays delivery), testing may expand beyond its intended boundaries, leading to wasted effort or missed priorities. A clear definition of in scope and out of scope ensures that testing remains focused, efficient and aligned with project objectives.
 
 ## Test Objectives
 
@@ -105,7 +105,7 @@ Test objectives describe the goals of the testing process. They define what aspe
 
 Testing is not performed without purpose. Each testing activity should contribute to confirming that the system behaves as expected and meets its requirements. Test objectives provide this direction by clearly stating what needs to be validated.
 
-Common objectives include verifying that the system functions correctly, ensuring that requirements are met and identifying defects that could impact users or business operations. In addition, testing may aim to evaluate how the system performs under different conditions and whether it behaves reliably in real-world scenarios.
+Each objective should include measurable criteria when possible. For example, 'identify critical defects' becomes 'achieve zero critical defects in payment processing before release. Verifying that the system functions correctly, ensuring that requirements are met and identifying defects that could impact users or business operations. In addition, testing may aim to evaluate how the system performs under different conditions and whether it behaves reliably in real-world scenarios.
 
 Test objectives also help align testing with business expectations. They ensure that testing focuses on what is important for the product, rather than testing everything without priority.
 
@@ -113,7 +113,7 @@ Without clearly defined objectives, testing may become unfocused and it may be d
 
 By defining test objectives, teams establish a clear purpose for testing activities and ensure that testing efforts contribute to meaningful quality evaluation.
 
-Once the purpose of testing is clearly defined, it is necessary to understand who is responsible for achieving these objectives and how testing activities are coordinated across the team.
+With objectives established, the next step is to assign the people who will achieve them.
 
 ## Roles and Responsibilities
 
@@ -123,17 +123,17 @@ Testing is not performed by a single person. It involves multiple roles that wor
 
 ![Roles and Responsibilities](assets/images/roles-responsibilities.png)
 
-Roles and responsibilities define who is involved in testing and what each person is expected to do. This includes activities such as preparing test cases, executing tests, reporting defects, reviewing results and making decisions about software quality.
+Roles and responsibilities define who is involved in testing and what each person is expected to do. Common testing roles include **Test Analyst** (designs and executes test cases), **Test Lead** (plans testing, assigns work, reviews results), **QA Manager** (owns quality strategy, reports to stakeholders) and **Test Environment Administrator** (prepares and maintains test infrastructure). Each role has defined duties in the test plan.
 
 Clear responsibilities ensure that testing activities are coordinated and that there is ownership for each task. When roles are well defined, communication becomes more effective and tasks are less likely to be missed or duplicated.
 
-Testing also involves collaboration with other stakeholders, such as developers, product owners and managers. Developers may fix defects, product owners may clarify requirements and managers may review testing progress and quality status.
+Testing also involves collaboration with other stakeholders, such as developers, product owners and managers. During planning, developers may review scope for technical feasibility, product owners confirm business priority of test objectives, and project managers approve the schedule and resource allocation.
 
 Without clearly defined roles and responsibilities, testing can become disorganized. Tasks may be unclear, accountability may be missing and important activities may be overlooked.
 
 By defining roles and responsibilities, the testing process becomes structured and coordinated, ensuring that all activities are performed effectively and that quality can be properly evaluated.
 
-However, even with clear responsibilities, testing cannot be performed without the proper setup. It is necessary to define the environment in which testing will take place.
+Roles cannot execute their responsibilities without the proper technical setup. It is necessary to define the environment in which testing will take place.
 
 ## Test Environment
 
@@ -147,9 +147,11 @@ The purpose of the test environment is to provide conditions that are suitable f
 
 A test environment may include operating systems, browsers, databases, servers and network configurations. It may also include testing tools and prepared test data that support the execution of tests.
 
-The environment must be stable and properly configured. If the environment is incorrect or unstable, test results may not be reliable and it may be difficult to determine whether failures are caused by defects in the system or issues in the setup.
+When environment issues are detected, the tester should **halt testing**, **document the discrepancy** (including expected vs. actual configuration) and **escalate to the environment** or **DevOps team**. Testing resumes only after the environment is restored and validated.
 
-In many cases, multiple environments are used, such as development, testing and staging environments. Each environment serves a different purpose and supports different stages of the testing process.
+In many cases, multiple environments are used, such as development, testing and staging environments. The development environment is for initial coding, testing environment is for formal test execution, staging environment mirrors production for final validation before release.
+
+Test data must be prepared to support test scenarios. This includes creating valid data for positive testing, invalid data for negative testing and sufficient data volume for performance testing. Data may need to be anonymized or masked to comply with privacy regulations.
 
 Without a properly defined test environment, testing may be delayed, inconsistent, or inaccurate. A well-prepared environment ensures that tests can be executed effectively and that results provide a clear and reliable evaluation of software quality.
 
@@ -165,7 +167,7 @@ A test schedule helps ensure that testing is completed within the required timef
 
 The schedule typically includes key testing phases such as test planning, test design, test environment setup, test execution and test closure. Each phase is assigned a timeframe so that progress can be tracked and managed.
 
-For example test planning may take place at the beginning of the project, followed by test design and environment setup. Once these activities are completed, test execution begins and finally test closure is performed.
+Each phase is assigned an **owner** (Test Lead owns planning, Test Analyst owns design, Environment Admin owns setup) so accountability is clear. Once these activities are completed, test execution begins and finally test closure is performed.
 
 In addition to phases, the schedule defines **milestones**. Milestones are important checkpoints that indicate progress and completion of key activities.
 
@@ -179,6 +181,8 @@ Day 18 Test Execution completed
 Day 20 Test Closure completed
 ```
 
+Schedules should include buffer time for unexpected delays. If a milestone slips here is examples **environment setup takes longer than planned** then impact on downstream phases must be assessed then new alternatives wich is proposed and a decision is made by the Test Lead or project manager. All stakeholders are informed of approved changes.
+
 These milestones show when key testing activities are completed and help track progress throughout the project.
 
 The test schedule also considers dependencies between activities. Some tasks cannot start until others are completed. For example test execution cannot begin until the test environment is ready and test cases are prepared.
@@ -187,4 +191,4 @@ Without a clear schedule, testing activities may become unorganized, delayed or 
 
 A well-defined test schedule ensures that testing is structured, progress is visible and deadlines can be met.
 
-As testing activities become more complex, it is necessary to refine and optimize how testing time and effort are used.
+As testing scales, the schedule must be refined with techniques such as effort estimation, resource leveling and risk-based prioritization to optimize time and cost.
