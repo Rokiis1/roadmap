@@ -1,4 +1,4 @@
-# Tinklo Saugumas 1 lygis - turinys
+# Tinklo Etiketas 1 lygis - turinys
 
 - [Kas yra tinklo etiketas](#kas-yra-tinklo-etiketas)
 

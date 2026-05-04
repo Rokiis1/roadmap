@@ -1,5 +1,6 @@
 # Kompiuterių tinklai 4 lygis - turinys
 
+- [Papildomi tinklų tipai](#papildomi-tinklų-tipai)
 - [Transporto sluoksnis](#transporto-sluoksnis)
 - [Interneto sluoksnis](#interneto-sluoksnis)
 
@@ -11,7 +12,40 @@ Ketvirtame lygyje dėmesys skiriamas tam, kaip konkretūs protokolai veikia TCP/
 
 Galima sakyti, kad šiame etape pereinama nuo bendro protokolų supratimo prie detalesnio jų veikimo analizės.
 
-Pirmiausia nagrinėjamas transporto sluoksnis, nes jis nustato, kaip duomenys yra perduodami tarp įrenginių.
+Tačiau prieš giliau nagrinėjant protokolus, verta trumpai papildyti tinklų tipų klasifikaciją ir susipažinti su dar keliais tinklų tipais, kurie nebuvo aptarti anksčiau.
+
+## Papildomi tinklų tipai
+
+Ankstesniame lygyje buvo aptarti pagrindiniai tinklų tipai **LAN** ir **WAN**. Tačiau egzistuoja ir kiti tinklų tipai, kurie apibrėžia skirtingus ryšio mastus ir naudojimo situacijas.
+
+**PAN (Personal Area Network)** yra asmeninis tinklas, kuris veikia labai mažame atstume.
+
+Jis dažniausiai naudojamas sujungti vieno žmogaus įrenginius, pavyzdžiui telefoną, ausines ar išmanų laikrodį. PAN tinkluose dažnai naudojama *Bluetooth* technologija.
+
+Pavyzdžiui, kai telefonas prijungiamas prie belaidžių ausinių, naudojamas būtent PAN tinklas.
+
+**MAN (Metropolitan Area Network)** yra miesto tinklas, kuris apima didesnę teritoriją nei LAN, bet mažesnę nei WAN.
+
+Jis gali jungti kelis lokalius tinklus viename mieste. Tokie tinklai dažnai naudojami universitetuose, įmonėse ar miesto infrastruktūroje.
+
+Pavyzdžiui, miesto interneto tiekėjas gali naudoti MAN tinklą, kad sujungtų skirtingus rajonus.
+
+![network types comparison](./assets/images/network-types.png)
+
+Svarbu suprasti skirtumą tarp visų tinklų tipų
+
+- **PAN** labai mažas tinklas (asmeniniai įrenginiai)  
+- **LAN** lokalus tinklas (namai, mokykla)  
+- **MAN** miesto tinklas  
+- **WAN** globalus tinklas (internetas)  
+
+Šie tinklų tipai skiriasi savo dydžiu ir naudojimo paskirtimi, tačiau visi jie yra svarbūs bendrame tinklų veikime.
+
+Kai jau aišku, kokie yra skirtingi tinklų tipai ir jų mastai, galima pereiti prie to, kaip šiuose tinkluose vyksta duomenų perdavimas.
+
+Tam naudojami protokolai, kurie apibrėžia, kaip informacija keliauja tarp įrenginių.
+
+Vienas svarbiausių šio proceso etapų yra transporto sluoksnis, kuris nustato, kaip duomenys yra perduodami tarp įrenginių.
 
 ## Transporto sluoksnis
 

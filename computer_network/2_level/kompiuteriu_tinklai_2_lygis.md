@@ -1,6 +1,7 @@
 # Kompiuterių tinklai 2 lygis - turinys
 
 - [Tinklo įranga](#tinklo-įranga)
+- [Tinklo topologijos](#tinklo-topologijos)
 - [Interneto prieiga](#interneto-prieiga)
 - [Tinklo protokolai](#tinklo-protokolai)
 - [IP adresai](#ip-adresai)
@@ -46,7 +47,7 @@ Pavyzdžiui, namuose maršrutizatorius sujungia lokalų tinklą su internetu. Ji
 
 Maršrutizatorius taip pat gali paskirstyti IP adresus įrenginiams ir valdyti tinklo srautą.
 
-Pagrindinis skirtumas tarp šių įrenginių yra jų funkcijos
+Pagrindinis skirtumas tarp šių įrenginių yra jų funkcijos.
 
 - **modemas** suteikia prieigą prie interneto  
 - **hub** perduoda duomenis visiems įrenginiams  
@@ -55,7 +56,69 @@ Pagrindinis skirtumas tarp šių įrenginių yra jų funkcijos
 
 Šie įrenginiai kartu sudaro tinklo pagrindą ir leidžia visiems prijungtiems įrenginiams bendrauti tarpusavyje.
 
-Kai jau aišku, kokia įranga naudojama tinkluose, galima pereiti prie to, kaip iš tikrųjų vyksta prisijungimas prie interneto ir kokie būdai tam naudojami.
+Tačiau vien žinoti tinklo įrenginius neužtenka. Taip pat svarbu suprasti, kaip šie įrenginiai yra sujungiami tarpusavyje ir kokia yra viso tinklo struktūra.
+
+Būtent tai apibrėžia tinklo topologijos.
+
+## Tinklo topologijos
+
+Kad įrenginiai tinkle galėtų bendrauti, svarbu ne tik kokia įranga naudojama, bet ir kaip tie įrenginiai yra sujungti tarpusavyje.
+
+Šis išdėstymas vadinamas tinklo topologija (*network topology*).
+
+Tinklo topologija apibrėžia, kaip įrenginiai yra fiziškai arba logiškai sujungti tinkle ir kaip tarp jų juda duomenys.
+
+![network topology](./assets/images/network-topology.png)
+
+Egzistuoja kelios pagrindinės tinklo topologijos.
+
+**Star (žvaigždės topologija)** yra dažniausiai naudojama šiuolaikiniuose tinkluose. Visi įrenginiai yra prijungti prie vieno centrinio įrenginio, pavyzdžiui, komutatoriaus (*switch*) arba maršrutizatoriaus (*router*).
+
+Jeigu vienas įrenginys sugenda, kiti toliau veikia. Tačiau jei sugenda centrinis įrenginys, nustoja veikti visas tinklas.
+
+**Bus (magistralės topologija)** yra tokia, kai visi įrenginiai prijungti prie vienos bendros linijos.
+
+Duomenys keliauja viena kryptimi ir pasiekia visus įrenginius. Jei pagrindinė linija sugenda, visas tinklas nustoja veikti.
+
+Ši topologija šiandien naudojama retai.
+
+**Ring (žiedo topologija)** yra tokia, kai įrenginiai sujungti ratu, o duomenys keliauja nuo vieno įrenginio prie kito.
+
+Jeigu vienas įrenginys nutrūksta, gali sutrikti visas tinklas, nebent naudojami papildomi sprendimai.
+
+**Mesh (tinklinė topologija)** yra tokia, kai įrenginiai yra sujungti su keliais kitais įrenginiais.
+
+Tai užtikrina labai patikimą ryšį, nes jei vienas kelias neveikia, duomenys gali keliauti kitu.
+
+Tačiau tokia struktūra yra sudėtinga ir brangi.
+
+**Tree (medžio topologija)** yra hierarchinė struktūra, kuri primena medį. Ji jungia kelias star topologijas į vieną didesnį tinklą.
+
+Dažnai naudojama didesniuose tinkluose, pavyzdžiui, organizacijose.
+
+**Hybrid (mišri topologija)** yra kelių topologijų kombinacija.
+
+Šiuolaikiniai tinklai dažniausiai naudoja būtent šį variantą, nes jis leidžia pritaikyti skirtingus sprendimus pagal poreikius.
+
+**Point-to-point** yra paprasčiausia topologija, kai du įrenginiai sujungti tiesiogiai.
+
+Pavyzdžiui, ryšys tarp dviejų kompiuterių ar tarp kompiuterio ir maršrutizatoriaus.
+
+Svarbu suprasti pagrindinius skirtumus
+
+- **Star** dažniausiai naudojama, patikima  
+- **Bus** paprasta, bet nepatikima  
+- **Ring** duomenys keliauja ratu  
+- **Mesh** labai patikima, bet sudėtinga  
+- **Tree** hierarchinė struktūra  
+- **Hybrid** kelių topologijų kombinacija  
+- **Point-to-point** tiesioginis ryšys  
+
+Tinklo topologija turi didelę įtaką tinklo patikimumui, greičiui ir valdymui.
+
+Tačiau vien tinklo struktūros neužtenka. Net ir tinkamai sujungti įrenginiai negalės naudotis interneto paslaugomis, jei neturės prieigos prie išorinio tinklo.
+
+Todėl svarbu suprasti, kaip įrenginiai prisijungia prie interneto ir kokie būdai tam naudojami.
 
 ## Interneto prieiga
 
@@ -166,7 +229,11 @@ Kiekviena šio adreso dalis gali turėti reikšmę nuo `0` iki `255`.
 
 Tai vadinama **dotted decimal format**.
 
-Taip pat IP adresas dažnai yra padalintas į dvi dalis **network address** nurodo tinklą ir **host address** nurodo konkretų įrenginį tame tinkle
+IP adresas taip pat gali būti vaizduojamas dvejetaine forma (*binary format*). Pavyzdžiui, adresas `192.168.1.1` dvejetaine forma atrodo taip `11000000.10101000.00000001.00000001`
+
+Kompiuteriai informaciją apdoroja būtent dvejetaine forma, todėl tai yra tikroji IP adreso forma.
+
+IP adresas dažnai yra padalintas į dvi dalis **network address** nurodo, kuriam tinklui priklauso įrenginys ir **host address** nurodo konkretų įrenginį tame tinkle.
 
 IP adresą galima palyginti su namų adresu. Kaip paštininkas naudoja adresą, kad pristatytų laišką, taip tinklas naudoja IP adresą, kad pristatytų duomenis tinkamam įrenginiui.
 
@@ -178,16 +245,21 @@ Taip pat egzistuoja naujesnė IP adresų versija, vadinama `IPv6` (*IPv6 address
 
 Skirtingai nei IPv4, IPv6 adresas yra daug ilgesnis ir sudarytas iš skaičių bei raidžių, atskirtų dvitaškiais.
 
-Pavyzdys  
-`2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+Pavyzdys `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+
+IPv6 adresas sudarytas iš **8 blokų**, kuriuose yra po **4 simbolius** (16 bitų kiekviename bloke).
+
+IPv6 leidžia sutrumpinti adresus pašalinti pradžioje esančius nulius (`0db8 -> db8`)  ir sutrumpinti nulių sekas naudojant `::` (tik vieną kartą adrese)
+
+Pavyzdžiui `2001:0db8:0000:1234:abcd:0fff:10a5:20e5` gali būti užrašytas kaip `2001:db8:0:1234:abcd:fff:10a5:20e5`
+
+Svarbu, kad IPv6 adresas visada turi turėti 8 blokus arba naudoti `::`, kuris reiškia praleistus nulius.
 
 IPv6 buvo sukurtas todėl, kad IPv4 adresų skaičius yra ribotas. Naujoji versija leidžia sukurti daug daugiau unikalių adresų.
 
 Kasdienybėje vis dar dažniausiai naudojamas IPv4, tačiau IPv6 palaipsniui tampa vis svarbesnis.
 
 Viešą IP adresą galima pasitikrinti naudojant specialias svetaines, pavyzdžiui `https://whatismyipaddress.com`. Tokios svetainės parodo, kokį išorinį IP adresą mato internetas.
-
-IP adresai gali būti priskiriami automatiškai arba rankiniu būdu.
 
 IP adresai gali būti priskiriami automatiškai arba rankiniu būdu. Dažniausiai tai atlieka maršrutizatorius (*router*), naudodamas specialų mechanizmą, vadinamą *DHCP Dynamic Host Configuration Protocol*.
 

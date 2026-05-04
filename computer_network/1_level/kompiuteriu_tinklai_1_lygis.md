@@ -94,6 +94,8 @@ Internetas leidžia naudotis įvairiomis paslaugomis. Galima naršyti svetaines 
 
 ![Data flow in network](./assets/images/data-flow.png)
 
+Šis procesas vadinamas klientas–serveris (*client-server*) modeliu, kuris yra vienas pagrindinių būdų, kaip veikia interneto paslaugos.
+
 Svarbu atskirti internetą nuo kompiuterių tinklo.
 
 Kompiuterių tinklas (*network*) yra bet kokia sujungtų įrenginių sistema. Internetas (*Internet*) yra visų tinklų visuma pasauliniu mastu.

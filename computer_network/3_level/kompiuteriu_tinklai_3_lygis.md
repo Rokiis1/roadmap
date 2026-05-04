@@ -1,6 +1,7 @@
 # Kompiuterių tinklai 3 lygis - turinys
 
 - [Tinklo paslaugos ir protokolai](#tinklo-paslaugos-ir-protokolai)
+- [Tinklo architektūros](#tinklo-architektūros)
 - [Domenai ir URL](#domenai-ir-url)
 - [Įrenginių sujungimas](#įrenginių-sujungimas)
 - [Tinklo diagnostika](#tinklo-diagnostika)
@@ -60,9 +61,51 @@ Trumpai galima įsiminti taip
 - **SMTP** naudojamas laiškų siuntimui  
 - **POP3** ir **IMAP** naudojami laiškų gavimui  
 
-Šie protokolai leidžia įgyvendinti įvairias tinklo paslaugas ir užtikrina sklandų informacijos perdavimą.
+Tačiau vien protokolų neužtenka. Nors jie nusako, kaip vyksta duomenų perdavimas, taip pat svarbu suprasti, kaip yra organizuojamas pats ryšys tarp įrenginių ir kaip paskirstomos funkcijos tinkle.
 
-Kai jau aišku, kaip veikia tinklo paslaugos, svarbu suprasti, kaip vartotojai pasiekia konkrečius interneto puslapius. Todėl toliau nagrinėjama domenų ir URL sąvoka.
+Būtent tai apibrėžia tinklo architektūros.
+
+## Tinklo architektūros
+
+Kompiuterių tinkle svarbu ne tik tai, kaip perduodami duomenys, bet ir kaip organizuojamas ryšys tarp įrenginių bei paslaugų. Šis organizavimo būdas vadinamas **tinklo architektūra** (*network architecture*).
+
+Tinklo architektūra nusako, kaip įrenginiai bendrauja tarpusavyje, kaip paskirstomos funkcijos ir kur vyksta duomenų apdorojimas.
+
+![network architecture](./assets/images/network-architecture.png)
+
+**Klientas–serveris** (*Client-Server*) yra architektūra, kurioje vienas ar keli įrenginiai, vadinami klientais, jungiasi prie serverio, kad gautų resursus ar paslaugas.
+
+Klientas siunčia užklausą (*request*) serveriui, o serveris ją apdoroja ir grąžina atsakymą (*response*). Taip veikia dauguma interneto paslaugų, pavyzdžiui, svetainės, el. paštas ar failų saugyklos.
+
+**Lygiarangė architektūra** (*Peer-to-Peer*) yra tokia, kai visi įrenginiai gali veikti ir kaip klientai, ir kaip serveriai.
+
+Tokiu atveju įrenginiai bendrauja tiesiogiai vienas su kitu be centrinio serverio. Ši architektūra dažnai naudojama failų dalijimosi sistemose.
+
+**Daugiasluoksnė architektūra** (*N-Tier*) yra tokia, kai sistema padalinta į kelis sluoksnius, o kiekvienas sluoksnis atlieka skirtingą funkciją.
+
+Pavyzdžiui, vienas sluoksnis gali būti atsakingas už vartotojo sąsają, kitas už programos logiką, o dar kitas už duomenų saugojimą.
+
+**Paslaugomis grindžiama architektūra** (*Service-Oriented Architecture, SOA*) yra tokia, kai sistema sudaryta iš atskirų paslaugų.
+
+Šios paslaugos gali veikti nepriklausomai viena nuo kitos, tačiau bendrauja per standartizuotus protokolus ir gali būti naudojamos skirtinguose įrenginiuose ar sistemose.
+
+**Hibridinė architektūra** (*Hybrid*) yra kelių architektūrų derinys.
+
+Ji naudojama tada, kai vienos architektūros nepakanka ir reikia pritaikyti skirtingus sprendimus pagal konkretų poreikį.
+
+Svarbu suprasti skirtumą
+
+- **Client-Server** naudojamas, kai klientai jungiasi prie centrinio serverio  
+- **Peer-to-Peer** naudojamas, kai įrenginiai bendrauja tiesiogiai  
+- **N-Tier** naudojamas, kai sistema padalinta į kelis sluoksnius  
+- **SOA** naudojama, kai sistema sudaryta iš atskirų paslaugų  
+- **Hybrid** naudojama, kai derinami keli architektūros tipai  
+
+Tinklo architektūros leidžia suprasti, kaip organizuojamas įrenginių ir paslaugų bendravimas tinkle.
+
+Tačiau tam, kad vartotojai galėtų praktiškai naudotis šiomis paslaugomis, reikia paprasto būdo jas pasiekti.
+
+Vietoje sudėtingų IP adresų naudojami domenai ir URL, kurie leidžia lengvai surasti reikiamus interneto puslapius.
 
 ## Domenai ir URL
 
