@@ -204,7 +204,7 @@ Each combination of these conditions produces a different outcome.
 
 Decision Table Testing is especially useful when system behavior depends on multiple conditions. It ensures that combinations are not missed and provides a clear representation of business rules.
 
-At the same time, as the number of conditions increases, For example, 5 Boolean conditions produce 32 possible combinations. Testing all of them may not be practical. In such cases, techniques such as **pairwise testing** can be used to reduce the number of combinations while still covering the most important interactions between conditions. Pairwise testing ensures that every pair of conditions appears in at least one test case, significantly reducing the total number of tests needed.
+At the same time, as the number of conditions increases, For example, 5 Boolean conditions produce 32 possible combinations. Testing all of them may not be practical. In such cases, techniques such as **pairwise testing** can be used to reduce the number of combinations while still covering the most important interactions between conditions. Pairwise testing ensures that every pair of input parameter values is covered at least once, significantly reducing the total number of tests needed.
 
 Because of this, it is important to focus on meaningful and relevant combinations when designing test cases.
 

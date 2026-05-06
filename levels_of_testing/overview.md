@@ -6,7 +6,7 @@
 - [System Integration Testing](#system-integration-testing)
 - [Acceptance Testing](#acceptance-testing)
 
-After learning what testing is, how the test process works, and how teams organize quality.
+After learning what testing is, how the test process works and how teams organize quality.
 
 **At what stages do we test software?**
 
