@@ -283,13 +283,21 @@ Angliškai dažnai naudojami terminai *public IP*, *private IP*, *static IP* ir 
 
 **Vidinis IP adresas** (*private IP*) yra naudojamas lokaliame tinkle. Tokie adresai priskiriami įrenginiams namuose, mokykloje ar biure ir nėra matomi internete.
 
-Pavyzdžiui, adresas `192.168.1.1` yra vidinio tinklo adresas. Tokius adresus gali turėti daugybė skirtingų tinklų visame pasaulyje.
+Pavyzdžiui, adresas `192.168.1.15` yra vidinio tinklo adresas. Tokius adresus gali turėti daugybė skirtingų tinklų visame pasaulyje.
 
 **Išorinis IP adresas** (*public IP*) yra matomas internete. Jis priskiriamas visam tinklui ir naudojamas bendraujant su kitais tinklais.
+
+Pavyzdžiui, išorinis adresas gali atrodyti taip `84.15.120.55`.
 
 Kai prisijungiama prie interneto, būtent šis adresas naudojamas komunikacijai su serveriais (*servers*).
 
 ![Private vs Public](./assets/images/private-vs-public-ip.png)
+
+Private IP adresai naudojami tik vietiniame tinkle, o Public IP adresas naudojamas komunikacijai su internetu.
+
+Pavyzdžiui, telefonas gali turėti adresą `192.168.1.15`, tačiau interneto svetainės matys ne šį adresą, o maršrutizatoriaus išorinį adresą, pavyzdžiui `84.15.120.55`.
+
+Tai vyksta todėl, kad maršrutizatorius (*router*) pakeičia vidinį IP adresą į išorinį naudodamas NAT (*Network Address Translation*) mechanizmą.
 
 Kitas svarbus skirstymas yra pagal tai, kaip IP adresas yra priskiriamas.
 
