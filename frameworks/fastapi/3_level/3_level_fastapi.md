@@ -195,17 +195,7 @@ With this configuration in place, browser requests from the allowed frontend ori
 
 A development setup is a frontend running on one port and a FastAPI backend running on another port.
 
-For example, the frontend may run on
-
-```bash
-http://localhost:5473
-```
-
-while the FastAPI application runs on
-
-```bash
-http://127.0.0.1:8000
-```
+For example, the frontend may run on `http://localhost:5473`, while the FastAPI application runs on `http://127.0.0.1:8000`
 
 Even though both are local, they are different origins, so the browser applies CORS rules. Without `CORSMiddleware`, the browser may block the request even if the backend route itself works correctly.
 

@@ -99,6 +99,57 @@ def create_book(payload: BookCreate):
 
 If the client sends invalid data such as a negative price, missing title, or incorrect type, FastAPI automatically returns a validation error response.
 
+Sometimes request data is not flat and contains nested objects. Instead of sending only identifiers such as `author_id`, the client can send a full structured object.
+
+This can be represented using nested schemas inside the request model.
+
+```py
+class AuthorCreate(BaseModel):
+    name: str = Field(..., min_length=1)
+
+
+class BookCreate(BaseModel):
+    title: str
+    author: AuthorCreate
+```
+
+In this case, the request body contains an embedded author object instead of a reference.
+
+```json
+{
+  "title": "Clean Code",
+  "author": {
+    "name": "Robert C. Martin"
+  }
+}
+```
+
+Pydantic reads the nested structure and constructs a `BookCreate` object where the author field is itself `another` model. Validation is applied recursively, meaning both the outer model and the nested model are validated before the route logic runs.
+
+This approach is useful when creating related objects together in a single request. However, in many APIs, relationships are represented using identifiers instead, because related records already exist in the database.
+
+Fields can also define default values. When a default is provided, the field becomes optional in the request body.
+
+```py
+class BookCreate(BaseModel):
+    title: str = Field(..., min_length=1)
+    in_stock: bool = True
+```
+
+In this example, `in_stock` defaults to `True` if the client does not provide a value.
+
+For some types such as lists or dictionaries, a static default value is not safe because it would be shared across all instances. In those cases, `default_factory` is used to create a new value for each request.
+
+```py
+from pydantic import BaseModel, Field
+
+class BookCreate(BaseModel):
+    title: str
+    category_ids: list[int] = Field(default_factory=list)
+```
+
+Here, each request receives its own empty list. This avoids unintended shared state between different requests.
+
 Sometimes request body fields need additional validation rules beyond simple types. Pydantic provides specialized types such as `EmailStr` and additional constraints using `Field`.
 
 ```py
@@ -195,7 +246,29 @@ Custom validation is useful when rules depend on business logic or cannot be exp
 
 In earlier versions of Pydantic, this was defined using `@validator`. In modern versions, `@field_validator` is used instead.
 
-Path, query, and body validation can also be combined.
+Sometimes validation depends on multiple fields at the same time. In those cases, a field-level validator is not enough because it only receives a single value. Pydantic provides `@model_validator` for this situation.
+
+```py
+from pydantic import BaseModel, model_validator
+
+class BookCreate(BaseModel):
+    price: float
+    discount_price: float | None = None
+
+    @model_validator(mode="after")
+    def validate_discount(self):
+        if self.discount_price is not None and self.discount_price >= self.price:
+            raise ValueError("Discount price must be lower than price")
+        return self
+```
+
+In this example, validation happens after all fields are processed, so the validator has access to the full model. This makes it possible to compare values across fields.
+
+@model_validator can also run before validation using mode="before", which allows working with raw input data before it is converted into Python types.
+
+This type of validation is useful when rules involve relationships between fields rather than individual values.
+
+`Path`, `query` and `body` validation can also be combined.
 
 ```py
 @app.put("/books/{book_id}", response_model=BookOut)
@@ -586,7 +659,13 @@ The request body may include only the fields that should change.
 }
 ```
 
-At the route layer, request schemas control what data can enter the application, and response schemas control the shape of data returned to the client.
+At this stage, response schemas are not limited to returning stored data. They can also include values that are derived from existing fields.
+
+`@computed_field` allows defining fields that are not part of the input or database model, but are calculated when the response is created. In this example, `is_expensive` is not stored anywhere, but is derived from the `price` field.
+
+These computed values are included automatically in the response output, which makes it possible to enrich API responses without modifying the underlying database structure.
+
+At the route layer, request schemas control what data can enter the application and response schemas control the shape of data returned to the client.
 
 Because the database relationships were defined earlier in **Database Level 2**, the API can expose those relationships through nested response schemas without manually constructing the response structure.
 

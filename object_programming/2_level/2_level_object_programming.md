@@ -225,7 +225,7 @@ In this case, it looks like we’re using `self`, but its **just a regular param
     @classmethod
     def change_species(cls, self): # The parameter is named 'self'
         cls.species = "New Species"
-        print(self.name)  # Works
+        print(self.name) # Works
 ```
 
 Instead of using `self`, it’s much clearer to name the parameter something like `instance` or `obj` to make your intent obvious.
@@ -234,7 +234,7 @@ Instead of using `self`, it’s much clearer to name the parameter something lik
     @classmethod
     def change_species(cls, instance):
         cls.species = "New Species"
-        print(instance.name)  # Clear that we're using passed instance
+        print(instance.name) # Clear that we're using passed instance
 ```
 
 Use meaningful parameter names (`instance`, `obj`) in `@classmethod` methods if you pass an object explicitly.
