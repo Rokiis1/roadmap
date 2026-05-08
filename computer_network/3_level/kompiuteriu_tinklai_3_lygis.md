@@ -52,6 +52,14 @@ POP3 dažniausiai atsisiunčia laiškus į įrenginį, o IMAP leidžia juos per�
 
 Šie protokolai veikia kartu su TCP IP (*TCP/IP protocol suite*) ir užtikrina, kad skirtingos paslaugos galėtų veikti internete.
 
+**DHCP** (*Dynamic Host Configuration Protocol*) naudojamas automatiniam IP adresų priskyrimui įrenginiams tinkle.
+
+Kai įrenginys prisijungia prie tinklo, DHCP serveris automatiškai suteikia jam IP adresą, tinklo kaukę (*subnet mask*), numatytąjį tinklų sietuvą (*default gateway*) ir DNS serverio adresą.
+
+Tai leidžia vartotojui nepriskirti IP adresų rankiniu būdu.
+
+![dhcp process](./assets/images/dhcp.png)
+
 Svarbu suprasti, kad kiekvienas protokolas turi savo paskirtį ir naudojamas skirtingose situacijose.
 
 Trumpai galima įsiminti taip
@@ -59,7 +67,8 @@ Trumpai galima įsiminti taip
 - **HTTP** ir **HTTPS** naudojami svetainėms  
 - **FTP** naudojamas failams  
 - **SMTP** naudojamas laiškų siuntimui  
-- **POP3** ir **IMAP** naudojami laiškų gavimui  
+- **POP3** ir **IMAP** naudojami laiškų gavimui
+- **UDP** leidžia greitesnį, bet mažiau patikimą duomenų perdavimą
 
 Tačiau vien protokolų neužtenka. Nors jie nusako, kaip vyksta duomenų perdavimas, taip pat svarbu suprasti, kaip yra organizuojamas pats ryšys tarp įrenginių ir kaip paskirstomos funkcijos tinkle.
 
