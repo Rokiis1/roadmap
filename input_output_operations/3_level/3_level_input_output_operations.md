@@ -427,14 +427,6 @@ Hello World
 This is a text file.
 ```
 
-A `.csv` file might contain
-
-```csv
-name,age,city
-Example1,25,Vilnius
-Example2,30,Paris
-```
-
 A `.json` file might contain
 
 ```py
@@ -554,20 +546,7 @@ print(data)
 
 Using raw strings (`r""`) is recommended on Windows to avoid **escape sequence issues**.
 
-For CSV files, the `csv` module is typically used.
-
-```py
-import csv
-
-with open("data.csv", "r") as file:
-    reader = csv.reader(file)
-    for row in reader:
-        print(row)
-```
-
-The `csv.reader()` function reads each row and separates values based on commas.
-
-While both **JSON** and **CSV** files are **stored as text**, these modules allow Python to correctly interpret their structure instead of treating them as plain strings.
+While both **JSON** files are **stored as text**, these modules allow Python to correctly interpret their structure instead of treating them as plain strings.
 
 Not all files, however, are stored as **readable text**. Files such as **images**, **audio** files, **videos**, and other **media formats** store data in binary form. These files do not represent characters or structured text but instead contain raw bytes that represent visual, sound, or compiled information.
 
