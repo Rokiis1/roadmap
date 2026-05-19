@@ -16,7 +16,7 @@ Testing is not performed only at the end of development. Instead, it is carried 
 
 Testing typically progresses from small, isolated parts of the system toward full business validation.
 
-![alt text](./images/testLevels.png)
+![alt text](./assets/images/test_levels.png)
 
 We begin at the lowest level, where individual parts of the system are verified independently.
 
