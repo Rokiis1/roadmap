@@ -11,19 +11,15 @@
 
 Before building APIs or working with frameworks, it is important to understand how APIs should be designed.
 
-In earlier sections, we explored what APIs are, how they work and how they fit into system communication. However, understanding how APIs function is only part of the process.
+In earlier sections, we explored what APIs are, how they work and how they participate in communication between systems. However, understanding how APIs function is only part of the process. Once multiple systems, applications or developers begin depending on an API, the way that API is designed becomes increasingly important.
 
-When multiple systems depend on an API, its design becomes critical.
+A well-designed API is easier to understand, easier to integrate with and easier to maintain over time. A poorly designed API can create confusion, inconsistent behavior and unnecessary complexity for both developers and systems that rely on it.
 
-A well-designed API is easier to understand, easier to use and easier to maintain over time. A poorly designed API can lead to confusion, inconsistent behavior and increased complexity for both developers and systems that rely on it.
+API design focuses on how APIs organize communication, structure interactions and represent data between systems. This includes how access points are defined, how requests and responses are structured, how data is represented and how APIs communicate successful or failed operations.
 
-API design focuses on how an API is structured, how data is exchanged and how interactions are defined between clients and systems.
+At this stage, the focus is not on implementation details or specific frameworks, but on the principles that make APIs clear, consistent and predictable. These ideas apply across many API styles and technologies, even though different systems may implement them differently.
 
-At this stage, the focus is not on implementation details, but on the principles that make APIs clear, consistent and predictable.
-
-These principles apply across different API styles and technologies.
-
-To begin, it is important to understand why API design matters in the first place.
+To begin, it is first necessary to understand why API design itself plays such an important role in system communication.
 
 ## Why API design matters
 
@@ -51,210 +47,106 @@ In the next section, we look at how APIs are structured and how their design def
 
 ## How APIs are structured
 
-An API is not just a single entry point. It is organized in a way that defines how different operations and data are exposed to clients.
+APIs organize communication between systems through a structured set of operations.
 
-The structure of an API determines how a client understands what actions are available and how those actions are grouped.
+Instead of exposing internal implementation details directly, APIs define a controlled interface that clients use to interact with the system.
 
-In most cases, an API is made up of multiple access points or operations. Each of these represents a specific interaction with the system, such as retrieving data, creating new data or triggering a particular process.
+Depending on the API style, this structure may be organized around resources, operations, schemas or service contracts. Some APIs expose many separate access points, while others centralize communication through a single entry point.
 
-These operations are not random.
+Even though different API styles structure communication differently, the goal remains the same, creating a predictable way for systems to interact.
 
-They are organized based on the logic of the system and the relationships between different types of data or functionality.
+At a high level, API structure defines how functionality is grouped and how clients navigate available operations.
 
-For example, operations related to users may be grouped together, while operations related to orders or products may form separate groups.
-
-This grouping helps make the API more intuitive and easier to navigate.
-
-Depending on the API style, this structure can be represented in different ways.
-
-Some APIs expose multiple distinct access points, while others provide a single entry point where different operations are defined within the request itself.
-
-Even though the representation may differ, the underlying idea remains the same.
-
-An API provides a structured way to organize interactions between a client and a system.
-
-A clear structure allows clients to understand what is possible without needing to know how the system is implemented internally.
-
-When the structure is consistent and logical, the API becomes easier to use, easier to extend and easier to maintain over time.
-
-In the next section, we look at how individual access points or operations are designed and organized in more detail.
+Once this overall structure is established, individual access points must also be designed in a way that remains clear and consistent for clients using the API.
 
 ## Designing clear and consistent access points
 
-Once an API is structured into groups of related operations, each individual access point needs to be designed in a clear and consistent way.
+Once an API is structured, individual access points need to be designed clearly and consistently.
 
-An access point represents a specific interaction with the system. It defines what action is performed and what kind of data is involved.
+These access points define how clients interact with the system. Each one should have a well-defined purpose so it is immediately clear what operation is being performed.
 
-For a client, these access points are the main way to understand how to use the API.
+Consistency plays an important role here. Similar operations should follow similar naming and organizational patterns so clients can predict how the API behaves.
 
-Because of this, clarity is essential.
+Depending on the API style, these access points may appear as endpoints, queries, mutations or method calls. Even though the representation differs, the goal remains the same, clearly defining how functionality is accessed.
 
-Each access point should have a well-defined purpose. It should be easy to understand what it does without needing additional explanation.
-
-Ambiguous or overly complex definitions make APIs harder to use and increase the chance of mistakes.
-
-Consistency is equally important.
-
-Similar operations should follow similar patterns. If one access point retrieves data in a certain way, other access points should behave in a comparable and predictable manner.
-
-This applies to naming, structure and the way data is handled.
-
-When access points are designed consistently, clients can rely on familiar patterns instead of learning each interaction from scratch.
-
-Depending on the API style, these access points may appear as endpoints, queries, mutations or method calls.
-
-Even though the representation differs, the goal remains the same.
-
-Each access point should clearly communicate what it does and how it should be used.
-
-Well-designed access points make an API easier to learn, easier to use and easier to maintain over time.
-
-In the next section, we look at how data is structured within requests and responses.
+Once access points are defined, the next step is understanding how information is exchanged through those interactions.
 
 ## Designing request and response structures
 
-After defining clear access points, the next step is to design how data is exchanged between the client and the API.
+After defining how clients access functionality, the next step is designing how data is exchanged during those interactions.
 
-Every interaction with an API involves sending a request and receiving a response. The structure of this data plays a key role in how easy the API is to use.
+Every API interaction involves a request sent by the client and a response returned by the system. The structure of this data should remain clear, predictable and easy to understand.
 
-A request contains the information needed for the API to perform an action. This may include identifiers, input values or parameters that describe what the client wants to do.
+Requests describe what the client wants to do, while responses communicate the result of that operation. Well-structured requests and responses make APIs easier to integrate with and reduce confusion for developers.
 
-A response contains the result of that action. It may include returned data, confirmation of a successful operation or information about an error.
+Different API styles may represent this data differently, but the underlying goal remains the same exchanging information in a structured and consistent way.
 
-For clients, the structure of requests and responses should be predictable and consistent.
-
-Similar operations should use similar data patterns. For example, if one operation returns a list of items in a certain format, other operations should follow the same structure when returning similar data.
-
-Clarity is also important.
-
-The structure should make it easy to understand what each piece of data represents. Well-defined fields and consistent organization help reduce confusion and make the API easier to work with.
-
-Depending on the API style, this data may be represented in different formats or defined in different ways.
-
-Some APIs use structured formats such as JSON or XML, while others define data using schemas or typed messages.
-
-Even though the representation may differ, the goal remains the same.
-
-Requests should clearly describe what is being asked, and responses should clearly describe the result.
-
-A well-designed structure allows clients to interact with the API without needing to understand its internal implementation.
-
-In the next section, we look at how data is represented and formatted within APIs.
+To make this communication possible, APIs rely on defined formats that determine how data is organized and interpreted between systems.
 
 ## Data representation in APIs
 
-After defining how requests and responses are structured, the next step is to understand how data is represented within those structures.
+After defining how requests and responses are structured, the next step is understanding how data itself is represented within those interactions. APIs exchange information using defined data formats that both the client and the system can understand and interpret consistently.
 
-APIs exchange data in specific formats that both the client and the system can understand.
+These formats determine how information is organized, encoded and transferred during communication. Even though different APIs may use different representations, the goal remains the same ensuring that data can be exchanged in a structured and predictable way between systems.
 
-These formats define how information is organized, encoded and interpreted during communication.
+One of the most common formats used in APIs is JSON. JSON represents data using key-value pairs and structured objects, making it lightweight, readable and easy for both humans and systems to process.
 
-One of the most common formats used in APIs is JSON.
+Other APIs may use formats such as XML, which provides a more descriptive and structured representation of data. In some systems, especially those focused on strong typing or high performance communication, data may also be represented using schemas, typed contracts or compact binary formats.
 
-JSON represents data as key-value pairs and structured objects, making it easy for both humans and systems to read and process.
+The choice of data representation depends on factors such as readability, performance, compatibility and the requirements of the system itself. Different formats solve different problems, but they all exist to provide a consistent way for systems to exchange information reliably.
 
-Other formats are also used depending on the API design.
+At this level, it is enough to understand that APIs rely on defined data representations so clients and systems can communicate using a shared and predictable structure.
 
-Some systems use XML, which provides a more structured and descriptive format for data.
-
-In other cases, especially in strongly typed systems, data may be defined using schemas or binary formats that focus on performance and strict structure.
-
-Even though these formats differ, the goal remains the same.
-
-They provide a consistent way to represent data so that both the client and the API interpret it in the same way.
-
-Choosing an appropriate data format depends on factors such as readability, performance, compatibility and the requirements of the system.
-
-At this level, it is enough to understand that APIs rely on defined formats to represent data clearly and consistently.
-
-In the next section, we look at how transport protocols are used to carry this data between the client and the system.
+In the next section, we look at how transport protocols are used to carry this data between clients and systems.
 
 ## Using transport protocols effectively
 
-After defining how data is structured and represented, the next step is understanding how that data is transmitted between the client and the API.
+After defining how data is structured and represented, the next step is understanding how that data is transmitted between clients and APIs. APIs rely on transport protocols to carry requests and responses between systems, allowing communication to happen reliably across networks.
 
-APIs rely on transport protocols to carry requests and responses between systems.
+These protocols define how messages are transferred, how connections are managed and how systems exchange information during communication. Even though APIs focus on application-level interactions, the underlying transport protocol plays an important role in how those interactions behave.
 
-These protocols define how communication happens at a network level and ensure that data is delivered correctly.
+In web-based APIs, HTTP is the most commonly used transport protocol. It provides a standardized way for clients to send requests and receive responses, making it suitable for communication across many different systems, platforms and applications.
 
-In web-based APIs, HTTP is the most commonly used transport protocol.
+However, API design is not about re-learning how HTTP works internally, but about using its capabilities effectively. This includes choosing appropriate request methods for different operations, organizing interactions consistently and using response information in a clear and meaningful way.
 
-It provides a standard way for clients to send requests and receive responses, and it supports a wide range of use cases across different systems and platforms.
+Some systems may also use different transport mechanisms depending on their requirements. Certain APIs rely on persistent connections for real-time communication, while others use optimized protocols designed for high performance service-to-service communication.
 
-However, designing APIs is not about re-learning how HTTP works, but about using it effectively.
+Even though the underlying transport technology may differ, the overall goal remains the same enabling reliable, structured and efficient communication between systems.
 
-This includes choosing appropriate methods for different types of operations, structuring requests in a consistent way and using response information to clearly communicate results.
+A well-designed API uses its transport protocol in a way that keeps interactions predictable, understandable and consistent for clients using the system.
 
-In some cases, other transport mechanisms may be used depending on the system requirements.
-
-For example, some APIs use persistent connections for real-time communication or optimized protocols for high-performance data exchange.
-
-Even though the underlying transport may differ, the goal remains the same.
-
-The protocol should support reliable, clear and efficient communication between the client and the API.
-
-A well-designed API uses the capabilities of its transport protocol in a way that makes interactions predictable and easy to understand.
-
-In the next section, we look at how APIs communicate the outcome of operations and how results are represented to clients.
+In the next section, we look at how APIs communicate the outcome of operations and represent results to clients.
 
 ## Communicating outcomes and results
 
-After a request is processed, the API must communicate the result of that operation back to the client.
+After processing a request, the API must communicate the result of that operation back to the client. This result becomes part of the response and helps the client understand what happened after the request was handled.
 
-This result is part of the response and helps the client understand whether the request was successful and what the outcome was.
+A response should not only return data, but also clearly indicate the outcome of the interaction itself. Depending on the operation, the API may return requested information, confirm that an action was completed successfully or provide details explaining why the request could not be processed.
 
-In API design, it is important that this communication is clear and consistent.
+Different APIs may represent outcomes in different ways. Some systems use status indicators to communicate whether an operation succeeded or failed, while others include structured result information directly inside the response data itself.
 
-A response should not only return data, but also indicate the outcome of the operation.
+Even though the representation may vary between systems and API styles, the underlying goal remains the same allowing the client to clearly understand the result of its request.
 
-For example, the API may return data when a request succeeds, confirm that an action was completed or provide information about why a request failed.
+Consistency is especially important when communicating outcomes. Similar operations should represent successful and unsuccessful results in predictable ways so clients can reliably interpret responses across the API.
 
-Different systems use different ways to represent outcomes.
+Clear outcome communication reduces ambiguity and helps clients react correctly to different situations, whether the response contains returned data, confirmation messages or information about problems that occurred during processing.
 
-Some APIs use status indicators to show whether a request was successful or resulted in an error. Others include this information directly in the response data using structured fields.
-
-Even though the representation may vary, the goal remains the same.
-
-The client should always be able to clearly understand what happened as a result of its request.
-
-Consistency is especially important.
-
-Similar operations should communicate outcomes in a similar way, so that clients can rely on predictable behavior when interacting with the API.
-
-Clear outcome communication reduces ambiguity and helps clients handle responses correctly, whether they involve data, confirmation or errors.
-
-In the next section, we look more closely at how errors are handled and how APIs communicate problems to clients.
+In the next section, we look more closely at how APIs handle errors and communicate failures to clients.
 
 ## Handling errors in APIs
 
-Not all requests to an API succeed.
+Not all API requests succeed. Errors may occur for many different reasons, such as invalid input, missing data, failed authorization or unexpected problems within the system itself. When these situations happen, the API must communicate the problem clearly to the client.
 
-Errors can occur for many reasons, such as invalid input, missing data or unexpected issues within the system.
+Good error handling is an important part of API design because it helps clients understand what went wrong and how the problem should be handled. A clear error response reduces ambiguity and allows developers to identify issues more easily when integrating with the API.
 
-When an error happens, the API must communicate this clearly to the client.
+An effective error response typically provides enough information for the client to understand the cause of the problem. This may include details about invalid data, missing resources or operations that could not be completed successfully.
 
-Good error handling is an essential part of API design.
+Different APIs may represent errors differently. Some systems return structured error objects with dedicated fields describing the issue, while others combine status information with descriptive error messages.
 
-An API should provide meaningful information about what went wrong, so that the client can understand the problem and respond appropriately.
+Even though the representation may vary between systems and API styles, the underlying goal remains the same communicating problems in a clear, consistent and understandable way.
 
-A clear error response typically includes a description of the issue and enough context for the client to identify what needs to be corrected.
+Consistency is especially important when handling errors. Similar types of failures should follow similar response patterns so clients can interpret and handle them predictably across different parts of the API.
 
-For example, an error may indicate that a required value is missing, that a resource could not be found or that the request could not be processed.
+Well-designed error handling improves the overall usability of an API. It helps developers troubleshoot problems more efficiently, reduces confusion during integration and makes communication between systems more reliable over time.
 
-Different systems represent errors in different ways.
-
-Some use structured responses with specific fields for error information, while others rely on status indicators combined with descriptive messages.
-
-Even though the representation may vary, the goal remains the same.
-
-Errors should be communicated in a consistent and understandable way.
-
-Consistency is especially important.
-
-Similar types of errors should be represented in a similar format, so that clients can handle them predictably.
-
-Well-designed error handling improves the usability of an API.
-
-It helps developers quickly identify issues, reduces confusion and makes systems easier to integrate and maintain.
-
-At this stage, it is enough to understand that errors are a normal part of API communication and that clear, consistent error handling is essential for a well-designed API.
+At this stage, it is enough to understand that errors are a normal part of API communication and that clear, structured error handling is essential for designing reliable APIs.
