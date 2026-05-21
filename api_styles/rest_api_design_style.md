@@ -122,11 +122,11 @@ REST APIs typically organize URIs around resources rather than actions. Instead 
 ```text
 GET /books
 POST /books
-GET /books/1
-DELETE /books/1
+GET /books/{bookId}
+DELETE /books/{bookId}
 ```
 
-In this example, `/books` represents the resource collection and `/books/1` represents a specific resource instance.
+In this example, `/books` represents the resource collection and `/books/{bookId}` represents a specific resource instance.
 
 REST APIs commonly use plural nouns for resource names because the URI usually represents a collection of resources rather than a single object.
 
@@ -136,22 +136,83 @@ REST APIs commonly use plural nouns for resource names because the URI usually r
 /orders
 ```
 
+To improve consistency and avoid ambiguity, resource names should use lowercase letters only.
+
+```text
+/users          OK
+/user-orders    OK
+
+/Users          NOT
+/UserOrders     NOT
+```
+
+When resource names contain multiple words, hyphens are generally preferred over underscores or camelCase because they improve readability.
+
+```text
+/user-orders        OK
+/product-categories OK
+
+/user_orders        NOT
+/productCategories  NOT
+```
+
+REST APIs often expose resources under a versioned base path. Including the version in the URI allows the API to evolve without breaking existing clients.
+
+```text
+/api/v1/users
+/api/v1/orders
+/api/v2/users
+```
+
+Path parameters are commonly used to identify specific resource instances. API documentation often represents these variable values using placeholder names enclosed in braces.
+
+```text
+/books/{bookId}
+/users/{userId}
+/orders/{orderId}
+```
+
 Resources may also be organized hierarchically when relationships exist between them.
 
 ```text
-/users/1/orders
+/users/{userId}/orders
+/orders/{orderId}/items
 ```
 
-This structure communicates that the orders belong to a specific user.
+While nested resources can communicate relationships clearly, excessively deep nesting should generally be avoided because it can make URIs harder to understand and maintain.
 
-Good URI design also emphasizes consistency. Similar resources should follow similar naming and structural patterns throughout the API so clients can predict how resources are organized.
+```text
+/users/{userId}/orders/{orderId}/items/{itemId}/reviews/{reviewId}
+```
 
 REST APIs generally avoid placing verbs directly inside URIs because actions are already represented through HTTP methods.
 
 ```text
 /users        OK
+/orders       OK
+
 /getUsers     NOT
 /createUser   NOT
+/deleteOrder  NOT
 ```
 
-At a high level, URI design focuses on creating resource paths that remain readable, predictable and easy for clients to understand as the API grows over time.
+Filtering, sorting and pagination are typically expressed through query parameters rather than additional path segments. Query parameter names should also follow a consistent naming convention throughout the API. Many APIs use camelCase names because they align with common JSON naming conventions and help maintain consistency between requests and responses.
+
+```text
+GET /users?status=active
+GET /books?sort=title
+GET /orders?page=2&pageSize=50
+GET /products?createdAfter=2025-01-01
+```
+
+REST APIs also generally avoid file extensions in URIs. Content negotiation should be handled through HTTP headers rather than path names.
+
+```text
+/users/{userId}        OK
+/orders/{orderId}      OK
+
+/users/{userId}.json   NOT
+/orders/{orderId}.xml  NOT
+```
+
+At a high level, URI design focuses on creating resource paths that remain readable, predictable and consistent as the API evolves over time.
