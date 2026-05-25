@@ -9,17 +9,15 @@
 - [Inkscape pagrindai](#inkscape-pagrindai)
 - [Objektų eksportavimas](#objektų-eksportavimas)
 
-Vektorinė grafika yra viena svarbiausių kompiuterinės grafikos sričių, plačiai naudojama kuriant logotipus, piktogramas, iliustracijas, plakatus, schemas ir kitus grafinius objektus.
+Vektorinė grafika yra viena svarbiausių kompiuterinės grafikos sričių, naudojama kuriant logotipus, piktogramas, iliustracijas, plakatus, schemas ir kitus grafinius objektus.
 
-Kasdienybėje su vektorine grafika susiduriame daug dažniau, nei gali pasirodyti iš pirmo žvilgsnio. Įmonių logotipai, kelio ženklai, įvairios piktogramos interneto svetainėse ar mobiliųjų programėlių sąsajose dažniausiai yra kuriami būtent naudojant vektorinę grafiką.
+Kasdienybėje su vektorine grafika susiduriame labai dažnai. Įmonių logotipai, kelio ženklai, interneto svetainių piktogramos ir daugelis kitų grafinių elementų dažniausiai kuriami naudojant būtent šį grafikos tipą.
 
-Skirtingai nei nuotraukos ar kiti taškinės grafikos vaizdai, vektorinės grafikos objektai kuriami naudojant matematinius aprašymus. Dėl šios priežasties juos galima didinti ar mažinti neprarandant kokybės.
+Skirtingai nei taškinėje grafikoje, vektoriniai objektai aprašomi matematiškai, todėl juos galima didinti arba mažinti neprarandant kokybės.
 
-Šioje temoje nagrinėsime, kas yra vektorinė grafika, kuo ji skiriasi nuo taškinės grafikos, kokie yra jos privalumai ir trūkumai, kokie failų formatai naudojami saugant vektorinius ir taškinius vaizdus bei kaip dirbti su viena populiariausių vektorinės grafikos kūrimo programų – *Inkscape*.
+Šioje temoje susipažinsime su vektorinės grafikos principais, jos skirtumais nuo taškinės grafikos, pagrindiniais privalumais ir trūkumais, dažniausiai naudojamais failų formatais bei darbo su programa *Inkscape* pagrindais. Taip pat aptarsime grafikos objektų eksportavimą ir išsiaiškinsime, kada verta rinktis vektorinę, o kada taškinę grafiką.
 
-Taip pat susipažinsime su grafikos objektų eksportavimu į skirtingus failų formatus ir išsiaiškinsime, kada verta naudoti vektorinę, o kada taškinę grafiką.
-
-Pirmiausia svarbu suprasti pagrindinę sąvoką – kas yra vektorinė grafika.
+Pirmiausia susipažinkime su pagrindine sąvoka - kas yra vektorinė grafika.
 
 ## Kas yra vektorinė grafika
 
@@ -27,115 +25,89 @@ Vektorinė grafika yra kompiuterinės grafikos tipas, kuriame vaizdai kuriami na
 
 Angliškai vektorinė grafika vadinama *vector graphics*.
 
-Skirtingai nei taškinėje grafikoje, kur vaizdas sudarytas iš daugybės atskirų taškų (*pixels*), vektorinėje grafikoje vaizdai kuriami naudojant linijas, kreives, geometrines figūras ir kitus grafinius objektus.
+Skirtingai nei taškinėje grafikoje, kur vaizdas sudarytas iš daugybės pikselių (*pixels*), vektorinėje grafikoje vaizdai kuriami naudojant linijas, kreives, geometrines figūras ir kitus grafinius objektus.
 
-Kiekvienas objektas aprašomas matematinėmis formulėmis, kurios nusako jo formą, dydį, spalvą ir padėtį. Dėl šios priežasties kompiuteris gali bet kuriuo metu tiksliai atkurti vaizdą nepriklausomai nuo jo dydžio.
-
-Pavyzdžiui, apskritimas vektorinėje grafikoje nėra sudarytas iš daugybės taškų. Vietoje to saugoma informacija apie apskritimo centrą, spindulį ir kitas savybes. Keičiant vaizdo dydį šie duomenys perskaičiuojami iš naujo, todėl vaizdas išlieka ryškus.
+Kiekvienas objektas turi apibrėžtą formą, dydį, spalvą ir padėtį. Pavyzdžiui, apskritimas aprašomas jo centru ir spinduliu, todėl keičiant vaizdo dydį jis išlieka ryškus ir tikslus.
 
 ![Vektorinės grafikos pavyzdys](./assets/images/vector-graphics-example.png)
 
-Vektorinė grafika dažniausiai naudojama kuriant logotipus, piktogramas, schemas, techninius brėžinius, plakatus, iliustracijas ir kitus grafinius objektus, kuriuos gali reikėti spausdinti arba naudoti įvairaus dydžio ekranuose.
+Vektorinė grafika dažniausiai naudojama kuriant logotipus, piktogramas, schemas, techninius brėžinius, plakatus, iliustracijas ir kitus grafinius objektus. Ji ypač naudinga tais atvejais, kai tą patį vaizdą reikia naudoti skirtingais dydžiais.
 
-Viena svarbiausių vektorinės grafikos savybių yra galimybė keisti vaizdo dydį neprarandant kokybės. Dėl to tas pats logotipas gali būti naudojamas tiek mažoje interneto svetainės piktogramoje, tiek dideliame reklaminiame stende.
+Dar viena svarbi savybė yra lengvas redagavimas. Galima keisti objektų spalvas, formas, dydžius ar jų padėtį neprarandant vaizdo kokybės.
 
-Vektoriniai objektai taip pat yra lengvai redaguojami. Galima keisti jų spalvas, formas, dydžius ar atskiras objekto dalis neprarandant vaizdo kokybės.
+Vektorinė grafika dažniausiai kuriama tokiomis programomis kaip *Inkscape*, *Adobe Illustrator* ar *CorelDRAW*.
 
-Dažniausiai vektorinė grafika kuriama specialiomis programomis, tokiomis kaip *Inkscape*, *Adobe Illustrator*, *CorelDRAW* ar kitais vektorinės grafikos redaktoriais.
+Nors vektorinė grafika puikiai tinka iliustracijoms, tekstui ir geometrinėms figūroms, sudėtingoms nuotraukoms dažniausiai naudojama taškinė grafika.
 
-Svarbu suprasti, kad vektorinė grafika geriausiai tinka geometrinėms figūroms, tekstui ir iliustracijoms, tačiau nėra tinkamiausias pasirinkimas sudėtingoms nuotraukoms ar labai detaliems vaizdams.
+Trumpai galima įsiminti taip **vektorinė grafika** yra grafika, sudaryta iš matematinių objektų, todėl ją galima lengvai redaguoti ir keisti jos dydį neprarandant kokybės.
 
-Trumpai galima įsiminti taip **vektorinė grafika** yra grafika, kuri kuriama naudojant matematinius objektų aprašymus, todėl vaizdus galima didinti ir mažinti neprarandant kokybės.
-
-Kai jau aišku, kas yra vektorinė grafika, galima išsiaiškinti, kuo ji skiriasi nuo taškinės grafikos ir kokiais atvejais naudojamas kiekvienas iš šių grafikos tipų.
+Kai jau aišku, kas yra vektorinė grafika, galima išsiaiškinti, kuo ji skiriasi nuo taškinės grafikos.
 
 ## Vektorinės ir taškinės grafikos skirtumai
 
-Kompiuterinė grafika dažniausiai skirstoma į du pagrindinius tipus – vektorinę grafiką ir taškinę grafiką.
+Kompiuterinė grafika dažniausiai skirstoma į du pagrindinius tipus - **vektorinę grafiką** ir **taškinę grafiką**.
 
-Angliškai vektorinė grafika vadinama *vector graphics*, o taškinė grafika – *raster graphics* arba *bitmap graphics*.
+Angliškai vektorinė grafika vadinama *vector graphics*, o taškinė grafika - *raster graphics* arba *bitmap graphics*.
 
-Nors abu grafikos tipai naudojami vaizdams kurti ir saugoti, jų veikimo principas yra skirtingas.
-
-Vektorinė grafika kuriama naudojant matematinius objektų aprašymus. Vaizdai sudaromi iš linijų, kreivių, geometrinių figūrų ir kitų objektų, kurių savybės aprašomos formulėmis.
-
-Tuo tarpu taškinė grafika sudaryta iš daugybės mažų taškų, vadinamų pikseliais (*pixels*). Kiekvienas pikselis turi savo spalvą ir kartu su kitais pikseliais sudaro bendrą vaizdą.
+Pagrindinis skirtumas tarp šių grafikos tipų yra vaizdo sudarymo būdas. Vektorinėje grafikoje vaizdai kuriami naudojant linijas, kreives ir geometrines figūras, o taškinėje grafikoje vaizdas sudarytas iš daugybės mažų taškų – pikselių (*pixels*).
 
 ![Vektorinės ir taškinės grafikos palyginimas](./assets/images/vector-vs-raster.png)
 
-Vienas svarbiausių skirtumų yra vaizdo mastelio keitimas. Vektorinės grafikos objektus galima didinti ar mažinti neprarandant kokybės, nes kompiuteris kiekvieną kartą iš naujo apskaičiuoja objektų formas.
-
-Taškinėje grafikoje vaizdas sudarytas iš fiksuoto skaičiaus pikselių. Todėl stipriai padidinus vaizdą pradeda matytis atskiri taškai ir vaizdas tampa neryškus.
+Dėl šio skirtumo skiriasi ir vaizdo mastelio keitimas. Vektoriniai objektai gali būti didinami ir mažinami neprarandant kokybės, nes jų forma apskaičiuojama iš naujo. Taškiniai vaizdai turi fiksuotą pikselių skaičių, todėl juos stipriai padidinus pradeda matytis atskiri taškai ir vaizdas tampa neryškus.
 
 ![Pikselizacijos pavyzdys](./assets/images/pixelation-example.png)
 
-Dar vienas skirtumas yra naudojimo paskirtis. Vektorinė grafika geriausiai tinka logotipams, piktogramoms, schemoms, techniniams brėžiniams ir iliustracijoms. Taškinė grafika dažniausiai naudojama nuotraukoms ir labai detaliems vaizdams saugoti.
+Skiriasi ir šių grafikos tipų paskirtis. Vektorinė grafika dažniausiai naudojama logotipams, piktogramoms, schemoms, techniniams brėžiniams ir iliustracijoms. Taškinė grafika geriausiai tinka nuotraukoms bei kitiems detaliems vaizdams.
 
-Pavyzdžiui, įmonės logotipas dažniausiai kuriamas vektoriniu formatu, nes jį gali reikėti naudoti tiek vizitinėje kortelėje, tiek dideliame reklaminiame stende. Tuo tarpu nuotrauka iš fotoaparato beveik visada saugoma taškinės grafikos formatu.
+Taip pat gali skirtis failų dydžiai. Paprasti vektoriniai objektai dažnai užima mažiau vietos nei aukštos raiškos taškiniai vaizdai, tačiau sudėtingose iliustracijose šis skirtumas gali būti mažesnis.
 
-Skiriasi ir failų dydžiai. Paprasti vektoriniai objektai dažnai užima mažiau vietos nei aukštos raiškos taškiniai vaizdai. Tačiau sudėtingoms iliustracijoms šis skirtumas gali sumažėti.
+Svarbu suprasti, kad nei vienas grafikos tipas nėra geresnis visose situacijose. Tinkamiausias pasirinkimas priklauso nuo to, kokio tipo vaizdas kuriamas ir kaip jis bus naudojamas.
 
-Svarbu suprasti, kad nei vienas grafikos tipas nėra geresnis už kitą visose situacijose. Vektorinė grafika puikiai tinka objektams, kuriuos reikia keisti ar didinti, o taškinė grafika geriausiai tinka nuotraukoms ir labai detaliems vaizdams.
-
-Trumpai galima įsiminti taip **vektorinė grafika** sudaryta iš matematinių objektų ir gali būti didinama neprarandant kokybės, o **taškinė grafika** sudaryta iš pikselių ir didinant gali prarasti kokybę.
+Trumpai galima įsiminti taip **vektorinė grafika** sudaryta iš objektų ir nepraranda kokybės keičiant dydį, o **taškinė grafika** sudaryta iš pikselių ir padidinta gali tapti neryški.
 
 Kai jau aišku, kuo skiriasi vektorinė ir taškinė grafika, galima susipažinti su pagrindiniais vektorinės grafikos privalumais.
 
 ## Vektorinės grafikos privalumai
 
-Vektorinė grafika yra plačiai naudojama grafikos kūrime dėl savo lankstumo ir aukštos vaizdo kokybės. Dėl matematinio objektų aprašymo ji turi nemažai privalumų lyginant su taškine grafika.
+Vektorinė grafika plačiai naudojama kuriant logotipus, piktogramas, schemas, iliustracijas ir kitus grafinius objektus dėl kelių svarbių privalumų.
 
-Vienas svarbiausių vektorinės grafikos privalumų yra galimybė keisti vaizdo dydį neprarandant kokybės. Objektus galima didinti arba mažinti tiek, kiek reikia, o jų kraštai išlieka ryškūs ir tikslūs.
-
-Pavyzdžiui, tas pats logotipas gali būti naudojamas tiek mažoje interneto svetainės piktogramoje, tiek dideliame reklaminiame stende. Abiem atvejais vaizdas išliks aiškus ir kokybiškas.
+Vienas didžiausių privalumų yra galimybė keisti vaizdo dydį neprarandant kokybės. Nepriklausomai nuo to, ar objektas rodomas mažoje piktogramoje, ar dideliame plakate, jo kraštai išlieka ryškūs ir tikslūs.
 
 ![Vektorinės grafikos mastelio keitimas](./assets/images/vector-scaling.png)
 
-Kitas svarbus privalumas yra lengvas redagavimas. Vektorinės grafikos objektai sudaryti iš atskirų elementų, todėl galima keisti jų formas, spalvas, dydžius ar padėtį neprarandant kokybės.
+Vektoriniai objektai taip pat yra lengvai redaguojami. Galima keisti jų formas, spalvas, dydžius ar padėtį neprarandant vaizdo kokybės. Dėl šios priežasties vektorinė grafika ypač patogi kuriant logotipus, iliustracijas ir kitus dažnai koreguojamus dizaino elementus.
 
-Tai ypač naudinga kuriant logotipus, iliustracijas ar techninius brėžinius, kuriuos dažnai reikia koreguoti ir atnaujinti.
+Dar vienas privalumas yra tikslumas. Linijos, kreivės ir geometrinės figūros išlieka lygios bei aiškios, todėl vektorinė grafika dažnai naudojama schemose, techniniuose brėžiniuose ir kituose tikslaus atvaizdavimo reikalaujančiuose darbuose.
 
-Vektoriniai failai taip pat dažnai užima mažiau vietos nei aukštos raiškos taškinės grafikos failai. Vietoje milijonų pikselių saugomi tik objektų matematiniai aprašymai.
+Paprasti vektoriniai failai dažnai užima mažiau vietos nei aukštos raiškos taškiniai vaizdai, nes saugomi objektų aprašymai, o ne kiekvieno pikselio informacija.
 
-Dar vienas privalumas yra tikslumas. Linijos, kreivės ir geometrinės figūros išlieka lygios ir ryškios nepriklausomai nuo vaizdo dydžio. Dėl šios priežasties vektorinė grafika dažnai naudojama techniniuose brėžiniuose, schemose ir inžineriniuose projektuose.
+Dėl šių savybių vektorinė grafika yra vienas pagrindinių pasirinkimų kuriant grafinius objektus, kurie turi būti lengvai redaguojami, aiškūs ir kokybiški įvairiais dydžiais.
 
-Vektorinė grafika taip pat puikiai tinka spausdinimui. Kadangi vaizdo kokybė nepriklauso nuo dydžio, spausdinant didelius plakatus ar reklaminius stendus išlaikomas aukštas detalumo lygis.
-
-Dėl šių savybių vektorinė grafika yra vienas pagrindinių pasirinkimų kuriant logotipus, piktogramas, iliustracijas, plakatus, schemas ir kitus grafinius objektus.
-
-Trumpai galima įsiminti taip **vektorinė grafika** leidžia keisti vaizdo dydį neprarandant kokybės, yra lengvai redaguojama, dažnai užima mažiau vietos ir užtikrina tikslų bei ryškų vaizdo atvaizdavimą.
+Trumpai galima įsiminti taip **vektorinė grafika** yra lengvai redaguojama, išlaiko kokybę keičiant dydį, užtikrina tikslų vaizdo atvaizdavimą ir dažnai užima mažiau vietos nei taškinė grafika.
 
 Kai jau aiškūs pagrindiniai vektorinės grafikos privalumai, galima susipažinti ir su jos trūkumais bei situacijomis, kuriose geriau naudoti taškinę grafiką.
 
 ## Vektorinės grafikos trūkumai
 
-Nors vektorinė grafika turi daug privalumų, ji nėra tinkamiausias pasirinkimas visose situacijose. Tam tikrais atvejais taškinė grafika gali būti geresnis sprendimas.
+Nors vektorinė grafika turi daug privalumų, ji nėra tinkamiausias pasirinkimas visose situacijose.
 
-Vienas pagrindinių vektorinės grafikos trūkumų yra ribotos galimybės vaizduoti labai sudėtingus ir detalius vaizdus. Kadangi vektorinė grafika sudaryta iš matematinių objektų, ji geriausiai tinka geometrinėms figūroms, logotipams, schemoms ir iliustracijoms.
-
-Tačiau kuriant ar redaguojant nuotraukas dažniausiai naudojama taškinė grafika. Nuotraukose gali būti milijonai skirtingų spalvų ir smulkių detalių, kurias vektoriniais objektais atkurti būtų labai sudėtinga.
+Pagrindinis jos trūkumas yra ribotos galimybės vaizduoti labai detalius ir sudėtingus vaizdus. Dėl šios priežasties nuotraukoms dažniausiai naudojama taškinė grafika, kuri geriau perteikia smulkias detales ir spalvų perėjimus.
 
 ![Vektorinės grafikos limituotas panaudojimas](./assets/images/vector-limitation.png)
 
-Kitas trūkumas yra tai, kad sudėtingų iliustracijų kūrimas gali užtrukti daugiau laiko. Kiekvieną objektą dažnai reikia kurti ir redaguoti atskirai, todėl kai kurie projektai tampa sudėtingesni nei dirbant su taškine grafika.
+Sudėtingų iliustracijų kūrimas taip pat gali užtrukti ilgiau, nes kiekvienas objektas dažnai kuriamas ir redaguojamas atskirai. Dideliuose projektuose objektų skaičius gali būti labai didelis, todėl redagavimas tampa sudėtingesnis.
 
-Taip pat sudėtingi vektoriniai piešiniai gali turėti labai daug objektų. Tokiais atvejais failai tampa didesni, o jų redagavimas gali pareikalauti daugiau kompiuterio resursų.
+Kai kuriais atvejais problemų gali sukelti ir failų suderinamumas. Nors populiariausi vektoriniai formatai palaikomi daugelyje programų, tam tikri specializuoti formatai gali būti atidaromi ne visose sistemose.
 
-Dar vienas trūkumas yra suderinamumas. Nors dauguma šiuolaikinių programų palaiko populiarius vektorinius formatus, kai kurios sistemos ar programos gali nepalaikyti tam tikrų specializuotų failų formatų.
+Dėl šių priežasčių vektorinė grafika geriausiai tinka logotipams, piktogramoms, schemoms ir iliustracijoms, tačiau nuotraukoms bei labai detaliems vaizdams dažniausiai pasirenkama taškinė grafika.
 
-Dėl šių priežasčių vektorinė grafika nėra universali visiems atvejams. Ji puikiai tinka logotipams, piktogramoms, iliustracijoms ir schemoms, tačiau nuotraukoms ar itin detaliems vaizdams dažniausiai pasirenkama taškinė grafika.
-
-Svarbu suprasti, kad grafikos tipo pasirinkimas priklauso nuo konkretaus projekto poreikių. Kiekvienas grafikos tipas turi savo stipriąsias ir silpnąsias puses.
-
-Trumpai galima įsiminti taip **vektorinė grafika** nėra tinkama labai detalioms nuotraukoms, sudėtingų iliustracijų kūrimas gali užtrukti ilgiau, o kai kurie vektoriniai formatai gali būti nepalaikomi visose programose.
+Trumpai galima įsiminti taip **vektorinė grafika** nėra tinkama labai detalioms nuotraukoms, sudėtingų iliustracijų kūrimas gali užtrukti ilgiau, o kai kurie formatai gali būti nepalaikomi visose programose.
 
 Kai jau aiškūs pagrindiniai vektorinės grafikos privalumai ir trūkumai, galima susipažinti su dažniausiai naudojamais vektoriniais failų formatais.
 
 ## Vektoriniai failų formatai
 
 Sukūrus vektorinės grafikos objektą, jį reikia išsaugoti tam tikru failo formatu. Failo formatas nusako, kaip bus saugoma informacija apie objektų formas, spalvas, linijas ir kitus grafinius elementus.
-
-Vektoriniai failų formatai yra skirti saugoti objektus taip, kad juos būtų galima redaguoti, keisti jų dydį ir naudoti įvairiose programose neprarandant kokybės.
 
 Angliškai failo formatas vadinamas *file format*.
 
@@ -147,47 +119,39 @@ Kitas dažnai naudojamas formatas yra **AI** (*Adobe Illustrator Artwork*). Tai 
 
 Profesionalioje leidyboje ir spaudos darbuose dažnai naudojamas **EPS** (*Encapsulated PostScript*) formatas. Jis leidžia išsaugoti aukštos kokybės vektorinius objektus ir yra suderinamas su daugeliu grafikos programų.
 
-Dar vienas plačiai naudojamas formatas yra **PDF** (*Portable Document Format*). Nors dažniausiai jis siejamas su dokumentais, PDF taip pat gali saugoti vektorinę grafiką ir išlaikyti jos kokybę įvairiuose įrenginiuose.
+Dar vienas plačiai naudojamas formatas yra **PDF** (*Portable Document Format*). Nors dažniausiai jis siejamas su dokumentais, PDF taip pat gali saugoti vektorinę grafiką.
 
 ![Vektorinių failų formatų pavyzdžiai](./assets/images/vector-file-formats.png)
 
-Svarbu suprasti, kad visi šie formatai saugo objektų matematinius aprašymus, todėl vaizdus galima didinti arba mažinti neprarandant kokybės.
+Šie formatai leidžia saugoti ir redaguoti vektorinius objektus neprarandant jų kokybės. Kiekvienas formatas turi savo paskirtį: **SVG** dažniausiai naudojamas interneto svetainėse, **AI** skirtas darbui su *Adobe Illustrator*, **EPS** dažnai naudojamas spaudoje, o **PDF** patogus dalijantis dokumentais ir grafika tarp skirtingų sistemų.
 
-Skirtingi formatai naudojami skirtingais tikslais. SVG dažniausiai naudojamas interneto svetainėse, AI skirtas darbui su *Adobe Illustrator*, EPS dažnai naudojamas spaudoje, o PDF tinka dokumentų ir grafikos dalijimuisi tarp skirtingų sistemų.
-
-Renkantis failo formatą svarbu atsižvelgti į tai, kur ir kaip grafika bus naudojama ateityje.
-
-Trumpai galima įsiminti taip **SVG**, **AI**, **EPS** ir **PDF** yra dažniausiai naudojami vektoriniai failų formatai, kurie leidžia saugoti ir redaguoti grafinius objektus neprarandant kokybės.
+Trumpai galima įsiminti taip **SVG**, **AI**, **EPS** ir **PDF** yra dažniausiai naudojami vektoriniai failų formatai, skirti saugoti ir redaguoti vektorinę grafiką.
 
 Kai jau aišku, kokie failų formatai naudojami vektorinei grafikai saugoti, galima susipažinti su pagrindiniais taškinės grafikos failų formatais.
 
 ## Taškiniai failų formatai
 
-Taškinė grafika saugoma specialiais failų formatais, kurie vaizdą aprašo kaip daugybę atskirų taškų, vadinamų pikseliais (*pixels*).
-
-Kiekvienas pikselis turi savo spalvą ir kartu su kitais pikseliais sudaro bendrą vaizdą. Kuo daugiau pikselių turi vaizdas, tuo jis gali būti detalesnis ir kokybiškesnis.
+Taškinė grafika saugoma failų formatais, kurie vaizdą aprašo kaip daugybę atskirų taškų – pikselių (*pixels*). Kiekvienas pikselis turi savo spalvą, o visi kartu sudaro bendrą vaizdą.
 
 Angliškai taškinė grafika vadinama *raster graphics* arba *bitmap graphics*.
 
-Vienas dažniausiai naudojamų taškinės grafikos formatų yra **PNG** (*Portable Network Graphics*). Šis formatas pasižymi gera vaizdo kokybe ir palaiko skaidrų foną (*transparent background*), todėl dažnai naudojamas interneto svetainėse, logotipuose ir įvairiuose grafiniuose elementuose.
+Vienas dažniausiai naudojamų taškinės grafikos formatų yra **PNG** (*Portable Network Graphics*). Jis pasižymi gera vaizdo kokybe ir palaiko skaidrų foną (*transparent background*), todėl dažnai naudojamas logotipuose, piktogramose ir interneto svetainėse.
 
 ![PNG formato pavyzdys](./assets/images/png-example.png)
 
-Kitas labai populiarus formatas yra **JPEG** arba **JPG** (*Joint Photographic Experts Group*). Šis formatas dažniausiai naudojamas nuotraukoms saugoti, nes leidžia sumažinti failo dydį išlaikant pakankamai gerą vaizdo kokybę.
+**JPEG** arba **JPG** (*Joint Photographic Experts Group*) dažniausiai naudojamas nuotraukoms saugoti. Šis formatas sumažina failo dydį, tačiau suspaudimo metu dalis informacijos prarandama.
 
-Tačiau suspaudžiant vaizdą dalis informacijos yra prarandama, todėl dažnai redaguojant ir pakartotinai išsaugant JPEG failus kokybė gali mažėti.
+**GIF** (*Graphics Interchange Format*) palaiko paprastas animacijas, todėl dažnai naudojamas judantiems paveikslėliams internete.
 
-**GIF** (*Graphics Interchange Format*) yra formatas, kuris palaiko paprastas animacijas. Dėl šios priežasties jis dažnai naudojamas trumpoms animacijoms ir interneto svetainėse naudojamiems judantiems paveikslėliams.
+**BMP** (*Bitmap*) yra vienas seniausių grafikos formatų. Jis saugo vaizdus beveik nesuspaustus, todėl failai dažnai būna didesni.
 
-Dar vienas taškinės grafikos formatas yra **BMP** (*Bitmap*). Tai vienas seniausių grafikos formatų, kuris saugo vaizdus beveik nesuspaustus. Dėl to BMP failai dažnai užima daugiau vietos nei kiti taškinės grafikos formatai.
-
-Šiuolaikinėse sistemose vis dažniau naudojamas ir **WebP** formatas. Jis leidžia išlaikyti gerą vaizdo kokybę bei mažesnį failo dydį, todėl dažnai naudojamas interneto svetainėse.
+Vis dažniau naudojamas ir **WebP** formatas, kuris leidžia išlaikyti gerą vaizdo kokybę bei mažesnį failo dydį.
 
 ![Taškinių failų formatų pavyzdžiai](./assets/images/raster-file-formats.png)
 
-Svarbu suprasti, kad visi taškinės grafikos formatai saugo informaciją apie kiekvieną vaizdo pikselį. Dėl šios priežasties stipriai padidinus vaizdą gali pradėti matytis atskiri taškai, o vaizdo kokybė sumažėja.
+Visi taškinės grafikos formatai saugo informaciją apie kiekvieną vaizdo pikselį, todėl stipriai padidinus vaizdą gali pradėti matytis atskiri taškai ir sumažėti vaizdo kokybė.
 
-Skirtingi formatai naudojami skirtingiems tikslams. PNG dažnai naudojamas grafiniams elementams ir skaidriems fonams, JPEG dažniausiai skirtas nuotraukoms, GIF naudojamas animacijoms, BMP paprastiems nesuspaustiems vaizdams, o WebP leidžia sumažinti failų dydį išlaikant gerą kokybę.
+Skirtingi formatai naudojami skirtingiems tikslams: **PNG** dažnai naudojamas grafiniams elementams, **JPEG** nuotraukoms, **GIF** animacijoms, **BMP** nesuspaustiems vaizdams, o **WebP** leidžia sumažinti failų dydį išlaikant gerą kokybę.
 
 Trumpai galima įsiminti taip **PNG**, **JPEG**, **GIF**, **BMP** ir **WebP** yra dažniausiai naudojami taškinės grafikos failų formatai, kurie vaizdą saugo kaip pikselių rinkinį.
 
