@@ -68,18 +68,12 @@ Once installed, notebooks can be created and used to run Python code interactive
 
 Before Jupyter Notebook can be used, it must first be installed inside the Python environment.
 
-Jupyter is distributed as a Python package and can be installed using package managers such as `pip` or `Poetry`.
+Jupyter is distributed as a Python package and can be installed using package managers such as `pip`.
 
 If the project uses `pip`, Jupyter can be installed with.
 
 ```bash
 pip install notebook
-```
-
-If the project uses `Poetry`, Jupyter can be installed with.
-
-```bash
-poetry add notebook
 ```
 
 Once the installation is complete, the `jupyter` command becomes available inside the environment.
@@ -96,12 +90,6 @@ If the project uses `pip`, the notebook server can be started with.
 
 ```bash
 jupyter notebook
-```
-
-If the project uses `Poetry`, the command should be executed through Poetry so that it runs inside the project environment.
-
-```bash
-poetry run jupyter notebook
 ```
 
 When the command is executed, Jupyter starts a local notebook server and opens the notebook interface in the browser.
@@ -173,12 +161,6 @@ If the project uses `pip`, NumPy can be installed with.
 
 ```bash
 pip install numpy
-```
-
-If the project uses `Poetry`, NumPy can be installed with.
-
-```bash
-poetry add numpy
 ```
 
 Once installed, NumPy is commonly imported using the alias `np`.
@@ -401,12 +383,6 @@ If the project uses `pip`, Pandas can be installed with.
 
 ```bash
 pip install pandas
-```
-
-If the project uses Poetry, Pandas can be installed with.
-
-```bash
-poetry add pandas
 ```
 
 Once installed, Pandas is commonly imported using the alias pd.
@@ -1003,12 +979,6 @@ If the project uses `pip`, Matplotlib can be installed with.
 
 ```bash
 pip install matplotlib
-```
-
-If the project uses Poetry, Matplotlib can be installed with.
-
-```bash
-poetry add matplotlib
 ```
 
 Once installed, Matplotlib is commonly imported using the `pyplot` module.
