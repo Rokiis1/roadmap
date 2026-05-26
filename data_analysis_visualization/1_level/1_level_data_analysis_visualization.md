@@ -52,7 +52,7 @@ For example, a dataset can be loaded in one cell, filtered in another cell and v
 
 The notebook keeps both the code and the output together in a single interactive document.
 
-![jupyter_notebook_structure](./assets/images/jupyter_notebook_structure.png)
+![jupyter_notebook_structure](./assets/images/jupyter_notebook_structure.png.png)
 
 A notebook commonly contains **code cells** for executing Python code, **markdown cells** for writing explanations and documentation and **output cells** for displaying results, tables and charts.
 
@@ -518,8 +518,6 @@ A `DataFrame` represents tabular data organized into rows and columns similar to
 Each column inside a DataFrame is internally represented as a `Series`.
 
 This makes DataFrames especially useful for working with structured datasets.
-
-![pandas_dataframe](./assets/images/pandas_dataframe.png)
 
 A DataFrame can be created from a Python dictionary where the dictionary keys become column names.
 
