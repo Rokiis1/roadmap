@@ -95,7 +95,7 @@ But inheritance structures can become even more complicated when two parent clas
 
 The structure looks like this.
 
-![Diamond Problem](.assets/images/diamond-problem.png)
+![Diamond Problem](../assets/images/diamond-problem.png)
 
 Let’s see this in code.
 
@@ -248,7 +248,7 @@ C
 
 The calls follow the MRO order.
 
-![MRO Flow](.assets/images/mro-flow.png)
+![MRO Flow](../assets/images/mro-flow.png)
 
 Each `super()` call moves to the next class in the MRO chain.
 
@@ -296,7 +296,7 @@ However, not every relationship in programming should use inheritance. Sometimes
 
 For example, a `Car` is not an `Engine`, but a `Car` has an `Engine`.
 
-![Composition vs Inheritance](./assets/images/composition-vs-inheritance.png)
+![Composition vs Inheritance](../assets/images/composition-vs-inheritance.png)
 
 Here’s how composition looks in code.
 
@@ -420,7 +420,7 @@ As programs become larger, deep inheritance hierarchies can create several probl
 
 Composition helps reduce these issues by keeping classes smaller and more independent, which is why many modern software designs follow the principle *Prefer composition over inheritance*.
 
-![Composition Flexibility](./assets/images/composition-flexibility.png)
+![Composition Flexibility](../assets/images/composition-flexibility.png)
 
 This does not mean inheritance is bad. Inheritance is still very useful when there is a clear is a relationship between classes, but when objects simply need to work together, composition is often the cleaner and safer solution.
 
@@ -489,7 +489,7 @@ Output.
 
 Here, the `JsonMixin` adds serialization behavior to the `Person` class, while the main class itself remains clean because the reusable functionality is separated into a small independent mixin.
 
-![Mixin Structure](./assets/images/mixin-structure.png)
+![Mixin Structure](../assets/images/mixin-structure.png)
 
 One of the biggest advantages of mixins is that multiple mixins can be combined together.
 
@@ -874,7 +874,7 @@ Person(name='Jonas', age=20)
 
 Even though we did not manually write `__init__()` or `__repr__()`, Python automatically created them for us. The type annotations `str` and `int` describe the expected data types of the attributes.
 
-![Dataclass Auto Generated Methods](./assets/images/dataclass-generated-methods.png)
+![Dataclass Auto Generated Methods](../assets/images/dataclass-generated-methods.png)
 
 Data classes also automatically generate comparison behavior using `__eq__()`.
 
@@ -1076,8 +1076,6 @@ Python will not raise an error because `"ACTVE"` is still a valid string, even t
 
 To solve this problem, Python provides **Enums**. Enums allow us to create a fixed collection of named constant values, making programs safer and easier to maintain.
 
-![Enum Structure](./assets/images/enum-structure.png)
-
 To create an enum, we import `Enum` from the built-in `enum` module.
 
 ```py
@@ -1234,31 +1232,31 @@ The symbols inside UML diagrams also have meaning. The symbol `+` represents pub
 
 For example.
 
-![Basic UML Class](./assets/images/basic-uml-class.png)
+![Basic UML Class](../assets/images/basic-uml-class.png)
 
 This diagram represents the same access control concepts we learned earlier with encapsulation.
 
 UML diagrams can also represent inheritance relationships.
 
-![UML Inheritance](./assets/images/uml-inheritance.png)
+![UML Inheritance](../assets/images/uml-inheritance.png)
 
 The arrow pointing upward represents inheritance. This means `Student` inherits from `Person`.
 
 Composition is represented differently.
 
-![UML Composition](./assets/images/uml-composition.png)
+![UML Composition](../assets/images/uml-composition.png)
 
 The filled diamond represents composition. This means the `Car` object contains and owns an `Engine` object.
 
 Aggregation is similar to composition but represents a weaker relationship.
 
-![UML Aggregation](./assets/images/uml-aggregation.png)
+![UML Aggregation](../assets/images/uml-aggregation.png)
 
 The empty diamond represents aggregation. This means a `School` contains students, but students can still exist independently from the school itself.
 
 UML diagrams can also represent multiple inheritance.
 
-![UML Multiple Inheritance](./assets/images/uml-multiple-inheritance.png)
+![UML Multiple Inheritance](../assets/images/uml-multiple-inheritance.png)
 
 Here, `Person` inherits behavior from both `Walker` and `Talker`.
 
