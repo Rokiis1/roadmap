@@ -1,35 +1,27 @@
-# Content of Python Testing and Debugging 4 level
+# Content of Python Testing and Debugging 3 level
 
 - [Execution Control and Debugging Mindset](#execution-control-and-debugging-mindset)
 - [Step-by-Step Execution](#step-by-step-execution)
 - [Breakpoints and Paused Execution](#breakpoints-and-paused-execution)
 - [Inspecting Runtime State](#inspecting-runtime-state)
 - [Using pdb](#using-pdb)
-- [Exception Propagation](#exception-propagation)
-- [Handling Exceptions](#handling-exceptions)
-- [Raising Exceptions Intentionally](#raising-exceptions-intentionally)
+- [Exception Flow and Handling](#exception-flow-and-handling)
 
-In **Python Testing and Debugging Level 1**, debugging focused on recognizing failures and understanding why programs break. We learned how to identify common errors, read traceback messages, observe program behavior using simple output and inspect objects through basic introspection techniques. Most examples involved small programs where failures appeared close to the real source of the problem, making bugs easier to identify directly from the error message itself.
+In earlier levels, debugging focused on understanding errors, reading tracebacks, inspecting runtime state, and reasoning about execution flow across functions and objects. Most debugging happened after execution already failed.
 
-In **Python Testing and Debugging Level 2**, debugging became more investigative. Instead of only focusing on what failed, we focused on understanding how execution reached failure. We examined tracebacks as execution history rather than isolated error messages, observed changing program state across multiple functions, inspected objects more deeply during runtime, analyzed relationships between instances, classes and shared state. At that level, debugging shifted from simply reading errors toward reasoning about execution flow and runtime behavior.
+At this level, debugging becomes interactive. Instead of only analyzing failures afterward, we begin controlling execution while program is still running. Execution can pause before critical operations occur, move step by step through instructions, inspect live runtime values, and follow behavior across nested function calls and multiple layers of logic.
 
-At this level, debugging changes again. Programs now contain larger execution paths, deeper call chains, more moving state, more interactions between functions, objects and imported modules. In many situations, observing output after failure is no longer enough. A traceback may show where execution stopped, but it may not explain what state existed before failure occurred, which function introduced incorrect data, or how execution evolved step by step before the crash appeared.
+This level introduces practical debugging techniques used during real execution. We work with breakpoints, runtime inspection, `pdb`, exception propagation, and structured exception handling. The goal is no longer only understanding why execution failed. The goal is understanding what execution is doing while it is happening.
 
-Because of this, debugging becomes an active process of controlling execution itself. Instead of waiting for failures and analyzing results afterward, we begin interacting with programs while they are still running. We pause execution before critical operations occur, inspect runtime values before they change, move through code one instruction at a time, follow execution across function boundaries and observe how exceptions propagate through different layers of the call stack.
-
-This level introduces practical debugging techniques used during real execution. We learn how to control execution flow, work with breakpoints, inspect runtime state interactively, use debugger tools such as `pdb`, analyze exception propagation across multiple layers of code and manage failures intentionally through structured exception handling.
-
-The goal is no longer only understanding failures after they appear. The goal is understanding execution while it is happening.
-
-We begin with mindset required for this kind of debugging.
+We begin with execution control and debugging mindset.
 
 ## Execution Control and Debugging Mindset
 
-In earlier levels, debugging focused mostly on observation. We printed values, inspected objects, and analyzed tracebacks after failures occurred. These techniques remain important, but larger programs introduce a new challenge. By the time an error appears, program state may already be very different from state that originally caused the problem.
+In earlier levels, debugging focused mostly on observing failures after execution already stopped. We printed values, inspected objects, and analyzed traceback messages to understand what went wrong. These techniques remain important, but larger programs introduce a new problem. By the time an error appears, program state may already be very different from state that originally caused failure.
 
-At this level, debugging becomes more interactive. Instead of only observing results after execution finishes, we begin controlling execution while program is still running. This allows us to inspect values before they change, stop execution before failure happens, and follow logic step by step as Python processes instructions.
+At this level, debugging becomes interactive. Instead of only examining results afterward, we begin controlling execution while program is still running. Execution can pause before important operations occur, move step by step through instructions, and expose runtime values before they change further.
 
-Consider a small example.
+Consider following example.
 
 ```py
 def process_order(order):
@@ -52,27 +44,23 @@ order = {
 process_order(order)
 ```
 
-This program eventually fails because `discount` is a string instead of a numeric value. The traceback identifies where execution stopped, but deeper debugging questions still remain. We still need to understand when invalid value first appeared, which function received incorrect state, whether earlier logic already contained warning signs, and what variables contained before failure occurred.
+This program eventually fails because `discount` contains string instead of numeric value. A traceback shows where execution stopped, but it does not fully explain how invalid value moved through execution before failure happened.
 
-Answering these questions requires observing execution during runtime, not only after crash appears.
+Interactive debugging focuses on answering those missing questions. We inspect where incorrect value first appeared, which function received invalid state, and what variables contained before execution crashed.
 
-This changes debugging mindset completely.
+This changes debugging mindset completely. Instead of guessing what program probably did, we inspect what program is actually doing during runtime. Instead of assuming values are correct, we confirm them directly from live execution.
 
-Instead of guessing what program probably did, we inspect what program is actually doing. Instead of assuming values are correct, we confirm them directly during execution. Instead of treating execution as hidden internal behavior, we expose execution step by step and inspect how state changes over time.
-
-Modern debugging tools make this possible. They allow execution to pause temporarily so runtime state can be inspected safely before program continues. During this pause, we can examine variables, follow function calls, inspect object state and verify assumptions directly from live execution.
-
-This kind of debugging becomes especially important when programs contain deeper call chains, multiple interacting objects, external input or failures that appear only under very specific runtime conditions.
+Modern debugging tools make this possible by allowing execution to pause temporarily while runtime state remains active in memory. During this pause, variables, function calls, object state, and execution flow can all be inspected safely before program continues running.
 
 Controlling execution begins with understanding how Python moves through code one instruction at a time.
 
 ## Step-by-Step Execution
 
-Programs do not execute all at once. Python processes code one instruction at a time, moving through statements in a specific order during runtime. In small programs this flow is usually easy to follow mentally, but as logic grows across multiple functions and files, execution paths become harder to track correctly through observation alone.
+Python executes programs one instruction at a time. In small programs this execution flow is usually easy to follow mentally, but larger systems contain multiple functions, loops, conditions, and nested calls that become difficult to track correctly through observation alone.
 
-Step-by-step execution means following program behavior one instruction at a time while execution is happening. Instead of only seeing final output or traceback messages after failure occurs, we observe how state changes between individual lines of code.
+Step-by-step execution means following runtime behavior gradually while program is still running. Instead of only seeing final output or traceback messages after failure appears, we observe how execution moves between instructions and how state changes during each step.
 
-Consider the following example.
+Consider following example.
 
 ```py
 def calculate_total(items):
@@ -96,15 +84,11 @@ products = [
 checkout(products)
 ```
 
-When Python executes this program, execution does not jump directly to final result. It moves through code step by step.
+Execution first enters `checkout()`. Before `subtotal` can receive value, Python temporarily leaves current function and enters `calculate_total()`. Inside loop, execution processes one item at a time, updates total, and finally returns computed result back into `checkout()` before continuing further.
 
-Execution first reaches `checkout()`. After entering function, Python assigns result of `calculate_total(items)` to subtotal. To do this, execution temporarily leaves `checkout()` and enters `calculate_total()`. Inside `calculate_total()`, Python creates variable total, enters loop, processes each item individually, updates running value, and finally returns computed result back to `checkout()`.
+Following execution step by step makes this movement visible directly during runtime.
 
-Only after returning does execution continue with next instruction.
-
-Understanding this movement is extremely important during debugging because many bugs are introduced before failure actually appears.
-
-Consider slightly modified example.
+This becomes especially useful when invalid state appears only during specific execution path.
 
 ```py
 products = [
@@ -115,23 +99,21 @@ products = [
 checkout(products)
 ```
 
-Now execution fails during addition inside loop. Traceback shows where crash occurred, but step-by-step execution reveals something more important. First iteration succeeds correctly, while second iteration introduces invalid state when string value reaches arithmetic operation.
+Here, first iteration succeeds correctly while second iteration introduces invalid value into arithmetic operation.
 
-Without following execution step by step, it is easy to misunderstand where incorrect state actually entered program.
+A traceback shows where execution failed, but step-by-step execution reveals when runtime behavior first began diverging from expectations.
 
-This is why debuggers allow controlled execution. Instead of running entire program continuously, they allow execution to pause after individual instructions so runtime behavior can be inspected safely between steps.
+Debugger tools allow this execution to be controlled interactively. Execution can pause after individual instructions, enter nested function calls, continue gradually through loops, and expose runtime state safely between steps.
 
-During step-by-step execution, we can observe how variables change, how functions enter and return, how objects evolve during runtime, and exactly where execution begins to diverge from expectations.
+This allows developers to follow execution flow directly instead of reconstructing behavior afterward from traceback messages alone.
 
-Once execution can be controlled step by step, next important capability is deciding where execution should pause automatically.
+Once execution can move step by step, next important capability becomes deciding where execution should pause automatically.
 
 ## Breakpoints and Paused Execution
 
-Step-by-step execution allows us to follow program behavior gradually, but manually moving through every instruction quickly becomes inefficient in larger programs. In many situations, we already suspect where incorrect behavior begins. Instead of starting from beginning every time, debugging tools allow execution to pause automatically at specific locations. These locations are called breakpoints.
+Following execution step by step is useful, but manually moving through every instruction quickly becomes inefficient in larger programs. In many situations, developers already suspect where incorrect behavior begins and want execution to stop directly at important location. Breakpoints solve this problem by pausing execution automatically when specific line is reached.
 
-A breakpoint is a temporary stopping point placed inside running code. When execution reaches that line, program pauses before continuing further. This pause gives us an opportunity to inspect runtime state while execution is still active.
-
-Consider the following example.
+Consider following example.
 
 ```py
 def process_payment(data):
@@ -153,67 +135,31 @@ order = {
 process_payment(order)
 ```
 
-This program eventually fails because `discount` contains a string instead of numeric value. A traceback identifies where execution stopped, but breakpoints allow inspection before failure occurs.
-
-If execution pauses before `final_total` is calculated, runtime state can be inspected directly.
+This program eventually fails because discount contains string instead of numeric value. A traceback shows where execution stopped, but breakpoints allow execution to pause earlier before invalid operation happens.
 
 ```py
-total = calculate_total(data)
-discount = data["discount"]
+def process_payment(data):
+    total = calculate_total(data)
 
-# breakpoint here
-
-final_total = total - (total * discount)
-```
-
-At this moment, variables still exist in memory and execution has not yet crashed. We can inspect values safely and confirm whether assumptions match reality.
-
-For example, inspecting `discount` immediately reveals unexpected type.
-
-```bash
-print(discount)
-print(type(discount))
-```
-
-This kind of debugging is much more powerful than observing only final failure because it allows inspection before invalid operations happen.
-
-Breakpoints are especially useful when bugs appear deep inside long execution paths. Instead of repeatedly running entire program and waiting for crash, execution can jump directly to important location and pause automatically.
-
-Modern programming environments usually provide graphical breakpoints. A breakpoint can often be placed simply by clicking next to a line number in editor. When execution reaches that line, program pauses and debugger interface displays current runtime state.
-
-Python also supports breakpoints directly in code.
-
-```py
-breakpoint()
-```
-
-When execution reaches this statement, Python enters debugging mode automatically.
-
-```py
-def calculate(value):
     breakpoint()
-    result = value * 2
-    return result
 
-calculate(10)
+    discount = data["discount"]
+    final_total = total - (total * discount)
+
+    return final_total
 ```
 
-Paused execution allows inspection of local variables, function arguments, object state and current execution flow before continuing further.
+When execution reaches `breakpoint()`, program pauses temporarily while runtime state remains active in memory. Variables, function arguments, objects, and execution flow can now be inspected before execution continues further.
 
-During paused execution, debugging tools usually allow several forms of control. Execution may continue normally until next breakpoint, move to next instruction only, or enter called functions step by step for deeper inspection.
+Modern programming environments usually provide graphical breakpoints directly inside editor by clicking next to line numbers. Internally, these tools perform same idea execution pauses at specific locations so runtime behavior can be investigated interactively.
 
-This transforms debugging from passive observation into active runtime investigation.
-
-Once execution is paused successfully, next important step is understanding how to inspect runtime state effectively while program remains active.
+Once execution pauses successfully, next important skill becomes inspecting runtime state effectively while program remains active.
 
 ## Inspecting Runtime State
 
-```py
-Pausing execution is only useful if we understand how to inspect the program while it is stopped. During paused execution, Python still holds current variables, objects, function arguments, and execution context in memory. Runtime inspection allows us to examine this live state directly before execution continues.
+Pausing execution is only useful if runtime state can be inspected while program remains active. During paused execution, Python still holds current variables, objects, function arguments, and execution context in memory. Runtime inspection allows these values to be examined directly before execution continues further.
 
-In earlier levels, observation mostly relied on `print()` statements placed manually inside code. While this approach still works, paused execution provides something much more powerful. Instead of modifying code repeatedly, we can inspect values interactively at exact moment execution reaches a specific state.
-
-Consider the following example.
+Consider following example.
 
 ```py
 def process_user(data):
@@ -246,35 +192,18 @@ user = {
 process_user(user)
 ```
 
-This program eventually fails because comparison inside `determine_category()` receives a string instead of numeric value.
-
-If execution pauses before comparison happens, runtime state can be inspected directly. At that moment, debugger reveals current variables, function arguments, active objects, current execution line, and current position inside call stack.
-
-Inspecting `age` immediately explains failure.
+This program eventually fails because comparison inside `determine_category()` receives string instead of numeric value. If execution pauses before comparison occurs, runtime state can be inspected directly while values still exist in memory.
 
 ```py
 print(age)
 print(type(age))
 ```
 
-Instead of guessing whether state is correct, runtime inspection confirms exact values that exist during execution.
+This immediately reveals that `age` contains string instead of integer.
 
-This becomes especially important when values change across multiple functions. A variable may begin correctly in one function but become invalid later because of reassignment, transformation, mutation, or external input. Runtime inspection allows us to follow these changes directly while execution is active.
+Runtime inspection becomes especially useful when values move across multiple functions and change gradually during execution. A variable may begin correctly in one function but later become invalid because of reassignment, mutation, transformation, or external input. Instead of guessing where state changed incorrectly, runtime inspection allows values to be verified directly while execution is active.
 
-Inspecting runtime state also helps reveal problems involving mutable objects.
-
-```py
-def update(items):
-    items.append("new")
-
-data = ["a", "b"]
-
-update(data)
-```
-
-During paused execution, debugger can confirm whether multiple variables reference same object, whether object state changed unexpectedly, and whether mutation occurred earlier than expected.
-
-Runtime inspection is not limited to simple variables. Complete object state can also be inspected.
+Objects can also be inspected during paused execution.
 
 ```py
 class User:
@@ -283,29 +212,24 @@ class User:
         self.active = False
 
 user = User("Example")
-```
-
-While execution is paused, object attributes can be examined directly.
-
-```py
 print(user.__dict__)
 ```
 
-This reveals exact internal state currently stored inside object.
+This reveals exact object state currently stored inside instance.
 
-Modern debugging environments usually expose runtime state visually while execution remains paused. Variables update dynamically as execution moves forward, object attributes can be expanded interactively, and changing state can be monitored step by step across execution flow.
+Runtime inspection is not limited to simple variables. Debugging tools can expose local variables, function arguments, object attributes, current execution line, active call stack, and changing values across execution flow while execution remains paused.
 
-This ability to inspect live runtime behavior is one of most important differences between simple observation and real interactive debugging.
+Modern debugging environments display this information dynamically as execution moves forward, allowing runtime behavior to be followed interactively instead of reconstructed afterward from traceback messages alone.
 
-Once runtime state can be inspected effectively, next step is learning how Python provides these capabilities directly through built-in debugger called `pdb`.
+Once runtime state can be inspected effectively, next step is learning how Python exposes these debugging capabilities directly through built in debugger called `pdb`.
 
 ## Using pdb
 
-Python includes built in debugger called `pdb`. While modern programming environments often provide graphical debugging tools, `pdb` exposes debugging process directly inside terminal and reveals how execution control works internally.
+Python includes built in debugger called `pdb`. While modern programming environments usually provide graphical debugging tools, `pdb` exposes debugging process directly inside terminal and helps explain how interactive debugging works internally.
 
-Unlike `print()` debugging, `pdb` allows execution to pause interactively while program is still running. At any paused moment, variables can be inspected, expressions evaluated, execution continued, or next lines executed one step at a time.
+Unlike `print()` debugging, `pdb` pauses execution while program is still running and allows runtime state to be inspected interactively. Variables can be examined, expressions evaluated, execution moved step by step, and function calls entered directly during active execution.
 
-A common way to start debugger is inserting breakpoint directly into code.
+A common way to start debugger is inserting `breakpoint()` into code.
 
 ```py
 def calculate(price, tax):
@@ -321,31 +245,39 @@ calculate(100, 20)
 
 When execution reaches `breakpoint()`, Python pauses program and opens interactive debugger session.
 
-Debugger now waits for commands.
-
-One of most useful commands is `n`, meaning next. It executes current line and moves to next one without entering called functions.
-
 ```bash
-(Pdb) n
+(Pdb)
 ```
 
-This allows execution to move line by line while observing changing state.
+At this moment execution has not finished yet, which means runtime state still exists in memory and can be inspected directly.
 
-To inspect variables during paused execution, variable names can be typed directly.
+Variables can be evaluated by typing their names.
 
 ```bash
 (Pdb) total
 120
 ```
 
-Expressions can also be evaluated interactively.
+Expressions can also be executed interactively.
 
 ```bash
 (Pdb) total * 2
 240
 ```
 
-Another important command is `s`, meaning step. Unlike `n`, this command enters called functions instead of skipping over them.
+Execution itself can now be controlled through debugger commands. `n` moves execution to next instruction without entering called functions.
+
+```bash
+(Pdb) n
+```
+
+`s` enters called function directly.
+
+```bash
+(Pdb) s
+```
+
+Consider following example.
 
 ```py
 def multiply(value):
@@ -360,53 +292,41 @@ def calculate(price, tax):
     return result
 ```
 
-Using `s` while paused on `multiply(total)` enters function body directly.
+If execution pauses on `multiply(total)`, using s enters function body instead of skipping over call.
 
-```bash
-(Pdb) s
-```
-
-This is useful when bug may exist inside deeper function calls.
-
-To continue execution until next breakpoint or program completion, debugger uses `c`.
+Execution can continue normally using `c`.
 
 ```bash
 (Pdb) c
 ```
 
-Debugger can also display execution context.
+Debugger can also display current execution context.
 
 ```bash
 (Pdb) where
 ```
 
-This command shows current call stack, similar to traceback, but during active execution instead of after crash.
+This shows active call stack during runtime, similar to traceback, but while execution is still paused instead of after crash already occurred.
 
-Variables available in current scope can be inspected using `locals()`.
+Current local variables can be inspected using `locals()`.
 
-```py
+```bash
 (Pdb) locals()
 ```
 
-This reveals all values currently accessible inside paused function.
+This reveals all values currently accessible inside paused execution frame.
 
-Debugger sessions become especially powerful when execution paths are complex. Instead of repeatedly modifying code with temporary `print()` statements, execution can be paused exactly where needed and state inspected interactively in real time.
+Using `pdb` removes need for repeatedly modifying code with temporary `print()` statements. Execution can pause exactly where needed and runtime behavior can be inspected interactively in real time.
 
-Although graphical debuggers automate many of these features visually, understanding `pdb` helps explain what debugger is actually doing underneath. Most debugging tools internally perform same actions pausing execution, stepping through code, inspecting state, and controlling execution flow interactively.
+Although graphical debuggers automate many of these features visually, most debugging tools internally perform same operations pausing execution, stepping through instructions, inspecting runtime state, and controlling execution flow interactively.
 
-Interactive debugging is powerful when failure can be reproduced directly and execution can be paused at correct moment. In larger programs, however, exceptions often travel through many layers before becoming visible.
+Interactive debugging becomes especially useful when failures can be reproduced directly and execution can pause at correct moment. In larger programs, however, failures often travel through several layers of function calls before becoming visible. An exception may begin deep inside execution while actual crash appears much later somewhere else in program.
 
-A function may fail deep inside execution, while actual crash appears somewhere completely different. By time traceback becomes visible, several functions may already have passed exception upward through call chain.
+To understand these situations correctly, we must understand how exceptions move through execution flow and how programs control that behavior during runtime.
 
-To understand these situations, we must understand how Python moves exceptions across execution flow and how failures propagate between functions during runtime.
+## Exception Flow and Handling
 
-## Exception Propagation
-
-When an error occurs, Python does not immediately terminate entire program. Instead, exception begins moving upward through active function calls until it either gets handled or reaches top level of execution.
-
-This movement is called exception propagation.
-
-Understanding propagation is important because place where program crashes is often different from place where problem actually began.
+When an error occurs, Python does not immediately terminate entire program. Instead, exception begins moving upward through active function calls until it either gets handled or reaches top level of execution. This movement is called **exception propagation**.
 
 Consider following example.
 
@@ -423,13 +343,11 @@ def process():
 process()
 ```
 
-Failure begins inside `divide()`, but exception does not stop there immediately. Python first exits `divide()`, then moves exception into `calculate()`, then into `process()` and finally to top level where traceback is printed.
+Failure begins inside `divide()`, but exception does not stop there immediately. Python exits `divide()`, moves exception into calculate(), then into `process()`, and finally reaches top level where traceback is printed.
 
-Each function in call chain receives exception and either handles it or passes it upward automatically.
+This is why traceback behaves like execution history. It shows path exception followed while moving through stack of active function calls.
 
-This explains why traceback behaves like execution history. Traceback shows propagation path exception followed while moving through stack of active calls.
-
-Propagation becomes easier to understand when exceptions are handled directly.
+Exceptions continue propagating upward until some part of program handles them intentionally.
 
 ```py
 def divide(a, b):
@@ -445,53 +363,11 @@ def calculate():
 calculate()
 ```
 
-Here, exception still begins inside `divide()`, but propagation stops once `calculate()` handles failure.
+Exception still begins inside `divide()`, but propagation stops once `calculate()` handles failure.
 
-Program no longer crashes because exception was intercepted before reaching top level.
+Instead of crashing entire program, execution now follows alternate recovery path inside `except` block.
 
-Not every exception should be handled immediately. In many programs, lower level functions intentionally allow exceptions to continue upward because higher layers understand broader context better.
-
-```py
-def load_config():
-    return open("missing.txt").read()
-
-def start_application():
-    return load_config()
-
-start_application()
-```
-
-`load_config()` does not handle failure itself. Instead, it allows `FileNotFoundError` to propagate upward.
-
-This is often correct behavior because lower level utility may not know how application should respond.
-
-Propagation also explains why exceptions sometimes appear disconnected from original bug. A bad value introduced early in execution may travel through several functions before eventually triggering failure elsewhere.
-
-Because of this, debugging exceptions requires following propagation path carefully instead of focusing only on final crash location.
-
-Once exceptions can propagate through program, next step is learning how to control that behavior intentionally using exception handling.
-
-## Handling Exceptions
-
-Exception handling allows a program to respond to failures without immediately terminating execution. Instead of letting every exception crash program, Python allows specific errors to be intercepted and managed intentionally.
-
-This is done using `try` and `except`.
-
-```py
-try:
-    number = int("hello")
-
-except ValueError:
-    print("Invalid number")
-```
-
-Python first executes code inside `try` block. If no exception occurs, execution continues normally.
-
-If matching exception appears, Python immediately stops remaining lines inside `try` block and moves execution into corresponding `except` block.
-
-In this example, conversion fails because `"hello"` cannot become integer. Instead of terminating program, exception is handled and custom response is produced.
-
-Handling exceptions becomes especially important when failures are expected as part of normal program behavior.
+This behavior becomes especially important when failures are expected as part of normal execution.
 
 ```py
 data = ["10", "20", "hello", "30"]
@@ -505,19 +381,7 @@ for item in data:
         print("Skipped invalid value")
 ```
 
-Without exception handling, loop would terminate on first invalid item. With handling, execution continues safely.
-
-Exception handling should focus on situations program can reasonably recover from. It should not be used to hide bugs silently.
-
-```py
-try:
-    process_data()
-
-except:
-    pass
-```
-
-This pattern is dangerous because it suppresses every exception without explanation. Real failures become invisible and debugging becomes much harder.
+Without exception handling, loop would terminate on first invalid value. With handling, execution continues safely while invalid input is managed intentionally.
 
 Handling should remain as specific as possible.
 
@@ -529,9 +393,19 @@ except ValueError:
     print("Input must be numeric")
 ```
 
-Specific handling makes debugging clearer because unexpected exceptions still remain visible.
+Overly broad handling can hide real bugs and make debugging significantly harder.
 
-Sometimes exception object itself contains useful information.
+```py
+try:
+    process_data()
+
+except:
+    pass
+```
+
+This pattern suppresses every exception silently, including unexpected failures that should remain visible.
+
+Exceptions themselves also contain useful debugging information.
 
 ```py
 try:
@@ -555,19 +429,9 @@ finally:
     file.close()
 ```
 
-Code inside `finally` always executes, even if exception occurs. This is commonly used for cleanup operations such as closing files, releasing resources or restoring program state.
+Code inside `finally` always executes, even if exception occurs. This is commonly used for cleanup operations such as closing files or releasing resources safely.
 
-Exception handling changes execution flow directly. Instead of propagating automatically to top level, exceptions can be **intercepted**, **transformed**, **logged** or **redirected intentionally**.
-
-Sometimes, however, program should create its own exceptions deliberately instead of waiting for Python to raise them automatically.
-
-This leads into raising exceptions intentionally.
-
-## Raising Exceptions Intentionally
-
-Not every failure originates from Python itself. In many situations, program detects invalid state or incorrect behavior before Python encounters a built in error automatically.
-
-To signal these situations clearly, exceptions can be raised intentionally using `raise`.
+Programs are not limited to handling exceptions raised automatically by Python. Exceptions can also be raised intentionally when program detects invalid state directly.
 
 ```py
 age = -5
@@ -576,11 +440,9 @@ if age < 0:
     raise ValueError("age cannot be negative")
 ```
 
-Here, Python itself did not detect problem automatically. Program logic identified invalid value and raised exception intentionally.
+Here, program logic identifies invalid value before Python encounters built in failure automatically.
 
-This allows failures to appear immediately at exact moment invalid state is detected, instead of allowing incorrect data to continue through execution.
-
-Raising exceptions intentionally improves debugging because error messages become more meaningful and connected to actual business logic.
+Raising exceptions intentionally improves debugging because failures appear immediately at exact moment invalid state is detected.
 
 ```py
 def withdraw(balance, amount):
@@ -590,21 +452,7 @@ def withdraw(balance, amount):
     return balance - amount
 ```
 
-Without explicit exception, incorrect state might continue silently and produce confusing failures later.
-
-Exceptions can also be raised after catching another exception.
-
-```py
-try:
-    number = int(data)
-
-except ValueError:
-    raise ValueError("configuration contains invalid number")
-```
-
-This pattern transforms low level errors into messages that better describe higher level program context.
-
-Sometimes existing exception should continue propagating unchanged.
+Exceptions can also be re raised after partial handling.
 
 ```py
 try:
@@ -615,11 +463,9 @@ except Exception:
     raise
 ```
 
-Using `raise` without specifying exception re raises current exception and preserves original traceback.
+Using `raise` without specifying exception preserves original traceback and allows failure to continue propagating upward.
 
-This is important because replacing exceptions incorrectly can destroy debugging information about where failure originally began.
-
-Programs may also define custom exception types.
+Programs may also define custom exception types for application specific failures.
 
 ```py
 class ValidationError(Exception):
@@ -630,8 +476,4 @@ def validate(username):
         raise ValidationError("username too short")
 ```
 
-Custom exceptions allow failures to describe program specific problems more precisely.
-
-As systems become larger, intentional exception design becomes part of overall architecture. Exceptions stop being only crash events and become structured signals that communicate failure between layers of execution.
-
-At this level, most important idea is understanding that exceptions are not only reactions to failures. They are also tools programs use intentionally to protect execution from invalid state and unsafe behavior.
+As systems grow larger, exceptions become more than simple crash events. They become structured signals used to communicate failure, invalid state, and recovery behavior across different layers of execution.
