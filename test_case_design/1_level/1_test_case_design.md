@@ -1,226 +1,148 @@
-# Content of test case design level 1
+# Table of Contents: Test Case Design Level 1
 
-- [Requirements as Test Basis](#requirements-as-test-basis)
-- [Test Scenario](#test-scenario)
-- [Test Case Structure](#test-case-structure)
-- [Test Data](#test-data)
-- [Test Execution](#test-execution)
+- [Error Guessing](#error-guessing)
+- [Exploratory Testing](#exploratory-testing)
+- [Checklist-Based Testing](#checklist-based-testing)
+- [Ad-Hoc Testing](#ad-hoc-testing)
+- [Spectrum of Structure](#spectrum-of-structure)
 
-Test case design is the process of defining *what should be tested* and *how it should be tested* before any execution takes place.
+Before learning more systematic test case design techniques, it is useful to understand how testers use experience, observation and judgment to find defects. At this level, testing is based mainly on the tester’s experience, intuition, domain knowledge and understanding of how systems typically fail.
 
-Without a clear structure, testing can become inconsistent, and important scenarios may be missed. To avoid this, test design provides a systematic way to derive tests from reliable sources instead of relying only on intuition.
+These **experience-based approaches** help testers identify risks, consider what could go wrong and adapt testing based on what they observe. Rather than depending primarily on predefined rules for deriving tests from requirements or models, they rely on the tester’s ability to recognize failure patterns and generate useful test ideas.
 
-Every test begins with understanding the expected behavior of the system. This means identifying the rules, conditions and outcomes that define how the system should work.
+Experience-based approaches are especially useful when requirements are incomplete, unclear or changing. They help teams begin testing early and can uncover defects that may be missed by more scripted approaches. When using these techniques under time pressure, testers should begin with areas that have high user impact, recent code changes or a history of defects. These approaches are generally most effective when used alongside systematic test design techniques rather than as a complete replacement for them.
 
-These sources of information form what is known as the **test basis**. They act as the foundation for all testing activities and guide the creation of scenarios and test cases.
+We start with **error guessing**, which focuses on predicting where defects are most likely to occur.
 
-We start with **Requirements as Test Basis**, which focuses on identifying and using this information as the starting point for designing tests.
+## Error Guessing
 
-## Requirements as Test Basis
+Error guessing is an experience-based test technique in which testers predict where defects are likely to occur based on past experience, domain knowledge and intuition.
 
-Requirements define *what the system should do* and *how it is expected to behave*. They describe functionality, constraints, rules, and expected outcomes that the system must satisfy.
+Instead of deriving tests from a formal procedure, the tester uses knowledge of common failure patterns to identify useful test conditions. These may involve incorrect input formats, unexpected values, missing validation, incorrect calculations, or mistakes in processing logic.
 
-In test design, requirements act as the **primary source of truth**. They provide the foundation from which test scenarios and test cases are derived. Without a clear understanding of requirements, it becomes difficult to determine what should be tested and what correct behavior looks like.
+A **heuristic** is a mental shortcut or rule of thumb that helps a tester decide what to test next.
 
-The **test basis** is not limited to a single document. It includes all available information that helps describe the expected behavior of the system.
+![Error guessing process](./assets/images/error_guessing_process.png)
 
-This can include **requirement documentation**, where functionality and business rules are defined. It may also include user stories and use cases, which describe how users interact with the system.
+For example, suppose a registration form contains **Name**, **Email**, **Age** and **Password** fields. A tester might use the following common error-guessing heuristics to identify possible defects.
 
-In addition to requirements, **design documents** provide insight into how the system is structured. These may describe system components, interactions, user interfaces or underlying data models. While testing does not focus on implementation details at this level, these documents help clarify expected behavior.
+| Heuristic                              | Test idea                                                                      | Possible defect                                                                |
+| -------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| **Null or empty inputs**               | Submit the form with the required Name field empty.                            | The form accepts incomplete data.                                              |
+| **Boundary values**                    | Enter `0`, `-1`, or an unusually large value for Age.                          | Invalid age values are accepted or cause an error.                             |
+| **Special characters**                 | Enter symbols, emojis, or markup-like text in the Name field.                  | The input is displayed incorrectly or causes unexpected behavior.              |
+| **Data type mismatches**               | Enter letters in the Age field.                                                | Non-numeric data is accepted or causes an error.                               |
+| **Invalid formats**                    | Enter `user@`, `user@.com`, or `user name@example.com`.                        | An invalid email address is accepted.                                          |
+| **Limit violations**                   | Enter a password just below the minimum required length.                       | The password is incorrectly accepted.                                          |
+| **Repeated actions**                   | Click the registration button several times quickly.                           | Multiple accounts or requests are created.                                     |
+| **Timeout and interruption scenarios** | Disconnect from the network while the registration request is being processed. | The application becomes stuck or leaves registration in an inconsistent state. |
 
-In some cases, the **codebase** itself becomes part of the test basis, especially when documentation is incomplete. Source code, configuration files, and API contracts can help identify expected inputs, outputs and constraints.
+The heuristics above are starting points rather than a fixed checklist. A tester selects the ones that are relevant to the feature being tested and uses experience to identify additional failure conditions.
 
-Testing is also influenced by risk analysis. Identified risks help prioritize what should be tested more thoroughly, especially in areas that may have higher impact on the system. The process of analyzing risks and deciding which areas to test first based on factors such as business impact, technical complexity and probability of failure will be explored in **Test Management Level 4**.
+The goal is not to apply every heuristic to every feature. Instead, testers use likely failure patterns to generate meaningful test ideas. These tests are not random. They are chosen because experience suggests that similar conditions commonly reveal defects.
 
-For systems operating in regulated environments, **compliance standards** and **industry regulations** define additional rules that must be validated. These become part of the expected behavior and must be reflected in testing.
+A more structured variation of error guessing is sometimes called a **fault attack**. In a fault attack, the tester deliberately targets a known fault or failure pattern using a prepared list or catalog. This makes the activity more systematic and repeatable than general error guessing.
 
-Finally, **user manuals and operational guides** provide a user-focused perspective. They describe how the system is intended to be used and can help identify real-world scenarios that should be tested.
+For example, suppose an application has previously created duplicate records when users submit the same action more than once. The tester could deliberately target this failure pattern across several workflows by double-clicking submit buttons, refreshing a page during submission or retrying an operation after a timeout.
 
-By combining these sources, testers build a complete understanding of the system. This ensures that test scenarios and test cases are not created randomly, but are based on clearly defined expectations.
+In this case, the tester is not simply relying on intuition. A known failure pattern is being deliberately applied to different parts of the system to discover similar defects.
 
-This foundation is essential, because every test that follows is derived from this information.
+Error guessing is useful for identifying likely problem areas, but its effectiveness depends heavily on the tester’s knowledge and experience. To explore the system more broadly and learn from its behavior while testing, testers can use exploratory testing.
 
-However, before creating detailed test cases, testing begins at a higher level. Instead of focusing on specific inputs and expected results, the first step is to identify *what situations or interactions need to be tested*.
+## Exploratory Testing
 
-These high-level representations of system behavior are called **test scenarios**. They describe what needs to be validated without going into detailed steps or data.
+A **test case** is a documented set of conditions, inputs, actions and expected results used to verify a particular aspect of a system. In highly scripted testing, test cases are designed before execution.
 
-## Test Scenario
+Exploratory testing is an approach in which test design, execution and learning happen together. The tester learns about the system while testing and uses new information to decide what to test next.
 
-A **test scenario** is a high-level description of a situation or interaction that needs to be tested. It focuses on *what should be validated* rather than *how it is tested in detail*.
+Instead of following only predefined test cases, the tester controls the flow of testing and adapts it based on observations and discoveries. This approach is especially useful for investigating risks, learning how a feature behaves and uncovering defects that were not anticipated before execution began.
 
-Instead of defining specific inputs or step-by-step actions, a test scenario describes the context in which the system is used and the behavior that needs to be verified. This helps provide a clear understanding of what areas of the system require testing.
+A **test oracle** is a source of truth used to decide whether an observed result is correct. Examples include requirements, user documentation, business rules, a comparable product or reasonable user expectations.
 
-Test scenarios play an important role in structuring testing activities. They help identify **test conditions**, ensuring that different aspects of system behavior are considered. By describing user interactions and system responses at a high level, they support **comprehensive coverage** and reduce the risk of missing important functionality.
+Exploratory testing can be guided by a **test charter**. A charter gives a testing session a clear mission without prescribing every test step. It can identify what should be explored, which risks deserve attention, and any relevant constraints or test data.
 
-They also improve **communication** between testers, developers and stakeholders. Because scenarios are written in a clear and understandable way, they make it easier to align on what should be tested and why.
+![Exploratory testing process](./assets/images/exploratory_testing_process.png)
 
-Another important role of test scenarios is guiding the creation of test cases. Test cases are derived from scenarios, where each scenario is expanded into more detailed steps, inputs, and expected results.
+The following charter shows how an exploratory testing session could be organized around the checkout process.
 
-Test scenarios are also used when preparing **end-to-end (E2E)** and **non-functional testing**, where understanding user flows and system behavior is essential.
+| Element               | Description                                                                      |
+| --------------------- | -------------------------------------------------------------------------------- |
+| **Mission**           | Explore the checkout process for payment failures.                               |
+| **Areas to test**     | Payment form, discount code application, order confirmation.                     |
+| **Risks to focus on** | Invalid card handling, duplicate submissions, timeout recovery.                  |
+| **Test data needed**  | Valid card, expired card, card with insufficient funds.                          |
+| **Session duration**  | 90 minutes.                                                                      |
+| **Tester notes**      | Record unexpected error messages, inconsistent behavior, and relevant UI issues. |
 
-Test scenarios can be written using different structures, depending on the context and team practices.
+Exploratory testing is often performed in **time-boxed sessions**. A session has a defined duration so that the tester can focus on its mission and then review what was covered and learned. The appropriate duration depends on the context, although a focused session might last around 60 to 120 minutes.
 
-One common approach is a **traditional scenario structure**, where scenarios are described using simple statements that define expected behavior.
+A structured approach that organizes exploratory testing into time-boxed sessions is known as **Session-Based Test Management (SBTM)**. It uses elements such as charters, session notes and debriefs to make exploratory testing easier to manage and review.
 
-In this structure, phrases like **“Verify that”**, **“Ensure that”**, **“Check that”** and **“Test that”** are used to express different types of validation.
+While working through the checkout charter above, the tester records important actions, observations and issues. The session notes might look like the following.
 
-“Verify that” is used to confirm that functionality works as expected.
-“Ensure that” focuses on conditions or system behavior that must always be maintained.
-“Check that” is used for validating negative cases or error handling.
-“Test that” is used to confirm specific outcomes or system responses.
+| Time  | Action performed                         | Observation                                                   | Issue? |
+| ----- | ---------------------------------------- | ------------------------------------------------------------- | ------ |
+| 10:00 | Entered an expired card.                 | An appropriate error message was displayed.                   | No     |
+| 10:15 | Clicked **Pay** twice rapidly.           | Two charges were created.                                     | Yes    |
+| 10:30 | Disconnected the network during payment. | The page remained on a loading indicator and did not recover. | Yes    |
 
-For example, **verify that a user can log in with valid credentials**, **ensure that the session expires after a defined timeout period**, **check that an appropriate error message is displayed for invalid input**.
+These notes provide a record of what happened during the session. They help the tester explain what was tested, reproduce unexpected behavior, and identify issues that require further investigation.
 
-This structure is typically used in environments where detailed documentation is required, in legacy systems or when teams follow a phase-based development model such as Waterfall or V-Model. It provides clarity and ensures that all relevant conditions are explicitly described.
+After the session, the tester can review the notes and findings in a short **debrief** with a test lead, product owner or another relevant stakeholder. The debrief helps communicate important findings, clarify open questions and decide whether follow-up testing is needed.
 
-Another widely used approach is the **Behavior-Driven Development (BDD) structure**.
+Exploratory testing is flexible because the tester can react to new information as it is discovered. However, without sufficient notes or a clear mission, it can be difficult to assess coverage or reproduce findings.
 
-In this approach, scenarios are written using the **Given–When–Then** format.
+Testing can stop when the session time box expires, when new test ideas are no longer revealing useful information, or when the remaining untested areas present an acceptably low level of risk.
 
-“Given” describes the initial state of the system.
-“When” describes the action or event performed.
-“Then” defines the expected outcome.
+Exploratory testing can also be performed through **pair testing**, in which two people test together. One person may interact with the system while the other observes, asks questions, suggests test ideas and records findings. They can exchange roles during the session.
 
-For example
+When teams need more consistent coverage while keeping testing lightweight, checklist-based testing can provide additional structure.
 
-```text
-Given the user is on the login page, 
-when the user enters valid credentials 
-and clicks the login button,
-then the user is redirected to the dashboard 
-```
+## Checklist-Based Testing
 
-Or other
+Checklist-based testing uses a predefined list of conditions, features, risks or quality characteristics to guide testing without specifying every test step in a detailed test case.
 
-```text
-Given the user is logged in, 
-when the session exceeds the timeout limit, 
-then the user is automatically logged out.
-```
+The checklist acts as a reminder of what should be considered, helping testers verify important areas consistently. It provides more structure than free exploration while still allowing the tester to decide how each item should be tested.
 
-This structure is useful in **Agile** environments, where collaboration between technical and non-technical stakeholders is important. It makes scenarios easier to read and understand, even for people without a technical background. In Agile teams, these scenarios are often derived directly from acceptance criteria defined during backlog refinement or sprint planning.
+When testing a responsive user interface, a checklist might include the following items.
 
-BDD scenarios are also commonly used in **test automation**, as they can be directly integrated with automated testing tools. They emphasize system behavior from the user’s perspective and help ensure that the system meets real user needs.
+| Description                                                                                       | Pass | Fail | Notes |
+|---------------------------------------------------------------------------------------------------|------|------|-------|
+| Verify that the layout adjusts correctly at relevant screen sizes.                                |      |      |       |
+| Check that elements do not overlap or become misaligned.                                          |      |      |       |
+| Verify that navigation remains usable on supported screen sizes.                                  |      |      |       |
+| Verify that the hamburger menu appears and works correctly where the design requires it.          |      |      |       |
+| Confirm that images resize appropriately and maintain their intended aspect ratio.                |      |      |       |
+| Verify that supported media elements remain usable and playable.                                  |      |      |       |
 
-However, test scenarios remain high-level and do not define the exact steps, inputs, or expected results required for execution.
+Checklist-based testing can support both functional and non-functional testing. Checklists may cover business functions, usability, compatibility, accessibility, reliability or performance-related observations.
 
-To perform testing in a consistent and repeatable way, scenarios must be broken down into more detailed and structured elements.
+A checklist should be specific enough to guide testing but not so detailed that it becomes a set of fully scripted test cases. Checklist items should also be reviewed and updated as the product, risks and team knowledge change.
 
-This leads to **test cases**, where each scenario is translated into specific conditions, data, and expected outcomes that can be executed and verified.
+Even when testing is not fully scripted, relevant results should be documented. Notes or summary reports can record what was checked, what was not checked, important observations and defects found.
 
-## Test Case Structure
+Checklist-based testing introduces lightweight guidance. In some situations, however, a tester may intentionally work with almost no predefined structure during a very quick investigation of a small change. This leads to **ad-hoc testing**, the most informal approach covered at this level.
 
-A **test case** defines the specific conditions under which a system is tested. It translates a high-level scenario into concrete elements such as inputs, expected results and execution context.
+## Ad-Hoc Testing
 
-To ensure consistency and clarity, test cases are often organized using a structured format. This structure helps testers understand what needs to be executed, what data is required, and how results should be validated.
+Ad-hoc testing is an informal, unstructured approach in which the tester investigates the system without predefined test cases, a test charter, or a checklist.
 
-At a higher level, testing can also be represented using a **scenario-based structure**. In this approach, each scenario is identified with a unique Scenario ID, along with a description and an expected outcome. This provides a simplified view of what needs to be validated without going into detailed execution.
+The tester chooses actions freely based on immediate observations and ideas. For example, the tester might navigate through a checkout flow in an unusual order, refresh a confirmation page during a transaction, resize the interface repeatedly, or enter unexpected input to observe how the system behaves.
 
-However, for actual testing, scenarios are expanded into test cases. Each test case is assigned a unique **Test Case ID** and is linked back to its originating scenario. This helps maintain a clear connection between high-level intent and detailed validation.
+Although ad-hoc testing is unstructured, it should not be confused with meaningless random clicking. Effective ad-hoc testing still benefits from product knowledge, curiosity, and awareness of risk. The difference is that the activity is not guided by a predefined testing structure.
 
-This connection becomes important as the system grows and the number of tests increases. Being able to trace what is tested and why ensures that no important functionality is missed.
+The main advantage is speed because little preparation is required. This allows ad-hoc testing to provide quick feedback during informal investigations or small changes.
 
-The concept of **traceability** will be explored later in Test **Test Management Level 3**, where the focus shifts to tracking coverage, linking requirements to tests, and ensuring overall test completeness.
+The trade-off is limited repeatability and coverage visibility. Because the tester has no predefined structure, important areas may be overlooked, and it may be difficult to explain exactly what was tested. If a defect is found, the tester should document the steps, data, environment, and relevant system state as soon as possible so that the issue can be reproduced.
 
-A typical test case includes a **description** of what is being tested, along with **preconditions** that define the required state before execution. It also specifies **test data**, which represents the inputs used during testing and expected results, which define the correct system behavior.
+For these reasons, ad-hoc testing is usually a complementary approach rather than the primary method for testing that requires demonstrable coverage, repeatability, traceability or audit evidence. It is generally unsuitable as the sole approach for regulatory compliance testing or safety-critical validation.
 
-A typical test case includes the following elements.
+## Spectrum of Structure
 
-| Element             | Purpose                                                 |
-| ------------------- | ------------------------------------------------------- |
-| **Test Case ID**    | Unique identifier for tracking and referencing          |
-| **Description**     | What is being tested                                    |
-| **Preconditions**   | Required system state before execution                  |
-| **Test Data**       | Input values used during testing                        |
-| **Test Steps**      | Sequence of actions to perform (when needed)            |
-| **Expected Result** | Correct system behavior                                 |
-| **Postconditions**  | Expected system state after execution (when applicable) |
+The four approaches in this level can be viewed as a spectrum with different degrees of structure.
 
-For example, a test case derived from a login scenario might look like this.
+![Experience-based testing spectrum](./assets/images/experience_based_testing_spectrum.png)
 
-| Field           | Value                                                           |
-| --------------- | --------------------------------------------------------------- |
-| Test Case ID    | TC-001                                                          |
-| Scenario ID     | TS-001                                                          |
-| Description     | Verify login with valid credentials                             |
-| Preconditions   | User is registered and on the login page                        |
-| Test Data       | Username: "name\_123", Password: "SecurePass123"                |
-| Test Steps      | 1. Enter username<br>2. Enter password<br>3. Click login button |
-| Expected Result | User is redirected to the dashboard                             |
-| Postconditions  | User session is active                                          |
+These approaches can also be combined. An exploratory testing session, for example, can use error-guessing heuristics or a checklist as sources of test ideas. The appropriate amount of structure depends on the testing objective, risk, available information, time, and the need for repeatability or evidence.
 
-**Preconditions** define the required state before execution. Test data represents the inputs used during testing. Expected results define the correct system behavior. Postconditions describe the state of the system after execution. Test steps are defined when the test involves a sequence of actions, such as navigating through a user interface or performing an end-to-end flow. For simpler validations, especially those focused on inputs and outputs, detailed steps may not be necessary.
-
-Each test case should be independent— ble to run on its own without depending on the outcome of another test. When tests must run in sequence, the dependencies should be explicitly documented in the preconditions.
-
-Traditionally, this structured approach has been widely used in test documentation and manual testing processes. It provides clarity, traceability and a clear separation between scenarios and test cases.
-
-However, in modern testing practices, like in Agile and automation-focused environments, this approach is often considered **heavyweight** and less flexible. Instead of strictly defining detailed test case tables for every situation, teams tend to focus more on **lightweight representations**, reusable test logic, and automated checks.
-
-Despite this shift, understanding this structure remains important. It provides the foundation for how tests are organized and helps build a clear connection between requirements, scenarios and validation.
-
-In later stages, particularly in **Test Case Design Level 3**, the focus shifts toward using test design techniques to systematically derive test cases. These techniques help define what should be tested more efficiently, rather than relying only on manually structured test case definitions.
-
-Regardless of how test cases are designed, they must be executed using appropriate inputs. The selection of these inputs plays a critical role in validating system behavior and ensuring meaningful results.
-
-This brings the focus to **test data**, which defines the specific values used during testing to verify expected outcomes.
-
-## Test Data
-
-**Test data** represents the specific input values used during testing to validate system behavior. It defines *what is provided to the system* so that expected outcomes can be verified.
-
-While test cases describe *what should be tested*, test data defines *with what values it is tested*. Without appropriate data, even well-designed test cases cannot effectively validate system behavior.
-
-Test data can represent both **valid inputs**, where the system is expected to behave correctly and **invalid inputs**, where the system should handle errors or reject the input. Using both types ensures that the system is tested under normal conditions as well as edge and failure scenarios.
-
-The selection of test data depends on the rules and constraints defined in the system. For example, if a field accepts values within a specific range, test data should include.
-
-```text
-A value inside the range (50 for a 1–100 range)
-The lower boundary value (1)
-The upper boundary value (100)
-A value below the range (0)
-A value above the range (101)
-```
-
-Test data is derived directly from requirements, or it is influenced by **test design techniques** such as equivalence partitioning or boundary value analysis. These techniques help identify which data values are most meaningful for testing. A detailed exploration of these techniques will be covered in **Test Case Design Level 3**.
-
-Test data can be **static**, where predefined values are used or **dynamic**, where data is generated during test execution. It can also come from different sources, such as databases, files or external systems, depending on how the application operates.
-
-When working with sensitive information such as personal data, financial records or credentials test data must be handled carefully. Teams should use **anonymized**, **masked** or **synthetic data** to avoid exposing real user information during testing.
-
-Managing test data is important. Data must be consistent, relevant and reusable across different test cases to ensure reliable results. Teams should also plan for **test data setup** (creating or loading data before execution) and **test data cleanup** (removing or resetting data after execution) to maintain a stable test environment.
-
-By carefully selecting and organizing test data, testing becomes more effective, as each execution provides meaningful validation of system behavior.
-
-Once test cases are defined and the necessary data is prepared, the next step is to run these tests against the system.
-
-This is where planned testing activities are carried out and actual system behavior is observed and compared with expected results.
-
-## Test Execution
-
-Test execution is the process of running test cases against the system and comparing the **actual results** with the **expected results**.
-
-At this stage, everything prepared earlier comes together. Test scenarios define what should be tested, test cases provide structure and test data supplies the inputs. Execution is where the system behavior is observed and validated.
-
-During execution, each test case is run under defined conditions, and the outcome is recorded. The purpose is to determine whether the system behaves as expected or if any deviations occur.
-
-To keep execution organized, results are documented in a structured way. Traditionally, this is done using a test execution table, sometimes referred to as a test results table.
-
-This structure typically includes a reference to the **Test Case ID**, allowing each result to be linked back to what was designed. In cases where scenarios are used, a **Scenario ID** may also be included to maintain a connection to higher-level context.
-
-Execution records usually capture the **execution date**, which helps track when testing was performed. In manual testing, the **tester name** may also be recorded, while in automated testing this is often replaced by system-generated logs.
-
-The most important part of execution is the **actual result**, which represents what the system did during the test. This is compared against the expected outcome defined in the test case.
-
-Based on this comparison, a **status** is assigned. A test may be marked as `Pass` when the behavior matches expectations, `Fail` when there is a deviation or `Blocked` when the test cannot be executed due to an issue such as missing data or environment problems and also exits `Not Run` the test was planned but not yet executed.
-
-When a test fails, the tester records **defect information** including steps to reproduce, actual vs. expected behavior and environment details. This information is passed to the development team for investigation and fix. Once a fix is deployed, the test is **re-executed** to confirm the issue is resolved this is called **confirmation testing** or **re-testing**.
-
-Additional **comments** may also be recorded to provide context for any result, including observations about environment stability, data issues, or test script problems.
-
-In modern testing practices, particularly in automated environments, this information is captured automatically through tools rather than manually maintained tables. Test execution results may be stored in test management systems, CI/CD pipelines, or reporting dashboards.
-
-However, the underlying concept remains the same. Each test execution must clearly show what was tested, what happened, and whether the system behaved as expected.
-
-This ensures that testing results are reliable, traceable, and useful for evaluating system quality.
+At this level, the key learning objective is to understand how experience and judgment can be used to generate useful tests. Later levels build on this foundation by introducing more systematic techniques for deriving test cases from requirements, input domains, rules, states and other test bases.

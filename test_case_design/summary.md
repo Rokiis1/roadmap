@@ -1,315 +1,57 @@
-# Content of Table: Summary
+# Test Case Design Summary
 
-- [Summary test case design level 1](#summary-test-case-design-level-1)
-- [Summary test case design level 2](#summary-test-case-design-level-2)
-- [Summary test case design level 3](#summary-test-case-design-level-3)
-- [Summary test case design level 4](#summary-test-case-design-level-4)
+- [Test Case Design Level 1](#test-case-design-level-1)
 
-## Summary test case design level 1
+This summary brings together the most important concepts from the **Test Case Design** module. It is designed as a quick reference for revision and preparation for questions where the main concepts, relationships and differences need to be explained clearly.
 
-Level 1 introduces the **foundation of test case design**.
+For now, the summary covers **Level 1**. Additional levels can be added to this document as the course develops.
 
-The focus is on understanding how tests are created, organized and executed before applying advanced techniques.
+## Test Case Design Level 1
 
-A **test basis** is the source of information used to design tests.
+Level 1 focuses on **experience-based testing** and how testers use experience, domain knowledge, observation and judgment to generate useful test ideas. The main approaches are **error guessing**, **exploratory testing**, **checklist-based testing** and **ad-hoc testing**.
 
-The test basis may include
+**Experience-based approaches** are especially useful when requirements are incomplete, unclear or changing. They allow testers to adapt testing based on what they learn and observe. When using these techniques under time pressure, testers should begin with areas that have high user impact, recent code changes or a history of defects.
 
-- requirements
-- user stories
-- use cases
-- design documents
-- API contracts
-- business rules
-- user manuals
-- compliance rules
+**Error guessing** is an experience-based test technique in which testers predict where defects are likely to occur based on past experience, domain knowledge and intuition. Test ideas are generated from known failure patterns rather than from a formal test design procedure.
 
-A **test scenario** is a high-level description of what needs to be tested.
+A **heuristic** is a mental shortcut or rule of thumb that helps a tester decide what to test next. Common error-guessing heuristics include **null or empty inputs**, **boundary values**, **special characters**, **data type mismatches**, **invalid formats**, **limit violations**, **repeated actions** and **timeout or interruption scenarios**.
 
-Test scenarios describe system behavior without detailed steps or specific data.
+![Error guessing process](./1_level/assets/images/error_guessing_process.png)
 
-Scenarios can be written using traditional wording such as
+Error-guessing heuristics are starting points rather than a fixed checklist. Testers select heuristics that are relevant to the feature being tested and use their experience to identify additional failure conditions. The tests are deliberate because they target conditions that commonly reveal defects.
 
-- **Verify that**
-- **Ensure that**
-- **Check that**
-- **Test that**
+A more structured variation of error guessing is sometimes called a **fault attack**. A fault attack deliberately targets known fault or failure patterns using a prepared list or catalog, making the activity more systematic and repeatable than general error guessing.
 
-Scenarios can also be written using **BDD** format.
+**Exploratory testing** is an approach in which **test design, execution and learning happen together**. The tester learns about the system while testing and uses new information to decide what to test next rather than relying only on predefined test cases.
 
-BDD uses
+A **test oracle** is a source of truth used to decide whether an observed result is correct. Examples include requirements, user documentation, business rules, a comparable product or reasonable user expectations.
 
-- **Given** for the initial state
-- **When** for the action
-- **Then** for the expected result
+Exploratory testing can be guided by a **test charter**, which gives a testing session a clear mission without prescribing every test step. A charter can identify the areas to explore, risks to investigate, required test data, constraints and session duration.
 
-A **test case** is a detailed validation derived from a scenario.
+![Exploratory testing process](./1_level/assets/images/exploratory_testing_process.png)
 
-A typical test case includes
+Exploratory testing is often performed in **time-boxed sessions**. A structured approach that organizes exploratory testing into time-boxed sessions is known as **Session-Based Test Management (SBTM)**. Charters, session notes and debriefs help make exploratory testing easier to manage and review.
 
-- **Test Case ID**
-- **Description**
-- **Preconditions**
-- **Test Data**
-- **Test Steps**
-- **Expected Result**
-- **Postconditions**
+During a session, testers record important actions, observations and issues. After the session, the findings can be reviewed in a short **debrief** with a test lead, product owner or another relevant stakeholder to clarify findings and decide whether follow-up testing is needed.
 
-**Test data** defines the values used during testing.
+Exploratory testing does not need to continue indefinitely. Testing can stop when the session time box expires, when new test ideas are no longer revealing useful information or when the remaining untested areas present an acceptably low level of risk.
 
-Test data may be
+**Pair testing** is a collaborative form of testing in which two people test together. One person may interact with the system while the other observes, asks questions, suggests test ideas and records findings. The roles can be exchanged during the session.
 
-- **valid**
-- **invalid**
-- **static**
-- **dynamic**
-- **synthetic**
-- **masked**
-- **anonymized**
+**Checklist-based testing** uses a predefined list of conditions, features, risks or quality characteristics to guide testing without specifying every test step in a detailed test case. It provides more structure than free exploration while allowing the tester to decide how each checklist item should be tested.
 
-**Test execution** is the process of running test cases and comparing actual results with expected results.
+A checklist should be specific enough to guide testing but not so detailed that it becomes a set of fully scripted test cases. Checklists can support both **functional and non-functional testing** and should be reviewed as the product, risks and team knowledge change.
 
-Execution statuses include
+**Ad-hoc testing** is an informal, unstructured approach in which the tester investigates the system without predefined test cases, a test charter or a checklist. The tester chooses actions based on immediate observations and ideas.
 
-- `Pass`
-- `Fail`
-- `Blocked`
-- `Not Run`
+Ad-hoc testing should not be confused with meaningless random clicking. Effective ad-hoc testing still benefits from product knowledge, curiosity and awareness of risk. Its main advantage is speed because little preparation is required, but the trade-off is limited repeatability and visibility of coverage.
 
-Key things to remember from Level 1
+If a defect is discovered during ad-hoc testing, the tester should record the steps, test data, environment and relevant system state as soon as possible so that the issue can be reproduced. Ad-hoc testing is generally used as a complementary approach rather than as the sole method when demonstrable coverage, traceability, repeatability or audit evidence is required.
 
-- Test case design starts from a reliable test basis
-- Scenarios describe what should be validated
-- Test cases turn scenarios into executable validation
-- Test data is required to make test cases meaningful
-- Test execution records what happened during testing
-- Good test cases should be clear, repeatable and independent
+The four approaches can be viewed as a **spectrum of structure**, ranging from very little predefined structure in ad-hoc testing to more consistent guidance in checklist-based testing.
 
-## Summary test case design level 2
+![Experience-based testing spectrum](./1_level/assets/images/experience_based_testing_spectrum.png)
 
-Level 2 focuses on **experience-based testing techniques**.
+These approaches can also be combined. An exploratory testing session can use error-guessing heuristics or a checklist as sources of test ideas. The appropriate amount of structure depends on the testing objective, risk, available information, time and the need for repeatability or evidence.
 
-These techniques rely on the tester’s knowledge, intuition and experience.
-
-They are useful when requirements are incomplete, unclear or changing.
-
-Experience-based techniques are not a replacement for structured test design, but they complement it.
-
-**Error Guessing** is used when testers predict likely defects based on experience.
-
-Common error guessing ideas include
-
-- empty inputs
-- invalid formats
-- boundary values
-- special characters
-- data type mismatches
-- timeout scenarios
-- concurrent access
-- resource exhaustion
-
-A **fault attack** is a more structured form of error guessing.
-
-Fault attacks use known defect patterns to target common failure areas.
-
-**Exploratory Testing** combines test design and execution at the same time.
-
-The tester learns about the system while testing and adapts based on what is discovered.
-
-Exploratory testing is often guided by a **charter**.
-
-A charter defines
-
-- mission
-- areas to test
-- risks to focus on
-- test data needed
-- session duration
-- tester notes
-
-Exploratory testing is usually performed in **time-boxed sessions**, often between `60–120 minutes`.
-
-**Checklist-Based Testing** uses a predefined list of items to guide testing.
-
-It provides structure without requiring detailed test cases.
-
-Checklists are useful for repeated checks, usability reviews, compatibility checks and smoke-style verification.
-
-**Ad-Hoc Testing** is the least structured approach.
-
-It is performed without predefined documentation, checklists or planning.
-
-Ad-hoc testing is useful for quick defect discovery but is difficult to repeat and audit.
-
-Key things to remember from Level 2
-
-- Experience-based testing depends on tester skill and knowledge
-- Error guessing targets likely defect areas
-- Fault attacks use known defect patterns
-- Exploratory testing combines learning, design and execution
-- Charters give exploratory testing direction
-- Checklist-based testing adds lightweight structure
-- Ad-hoc testing is fast but has low repeatability
-- These techniques should support structured testing, not replace it
-
-## Summary test case design level 3
-
-Level 3 focuses on **black-box test design techniques**.
-
-These techniques design test cases based on inputs, outputs and expected behavior.
-
-The internal implementation is not considered.
-
-The system is treated as a **black box**.
-
-Black-box techniques are useful for
-
-- user interface testing
-- API testing
-- system testing
-- integration scenarios
-- acceptance testing
-
-**Equivalence Partitioning** groups inputs that are expected to behave in the same way.
-
-Each group is called an **equivalence class**.
-
-Equivalence classes may be
-
-- **valid**
-- **invalid**
-
-The goal is to select representative values from each class instead of testing every possible value.
-
-**Boundary Value Analysis** focuses on values at the edges of input ranges.
-
-Defects often happen near boundaries.
-
-Boundary testing usually includes values
-
-- just below the boundary
-- on the boundary
-- just above the boundary
-
-Boundary Value Analysis is often used together with Equivalence Partitioning.
-
-**Decision Table Testing** is used when behavior depends on combinations of conditions.
-
-A decision table maps conditions to actions.
-
-Common notation includes
-
-- `T` for true
-- `F` for false
-- `–` when the condition does not affect the outcome
-- `N/A` when the condition or action is not applicable
-- `X` when an action should occur
-
-Each meaningful row in a decision table can become a test case.
-
-**State Transition Testing** is used when system behavior depends on current state and previous events.
-
-Important concepts include
-
-- **state**
-- **event**
-- **transition**
-- **action**
-- **valid transition**
-- **invalid transition**
-
-State transition testing is useful for workflows, interactive systems and systems that change over time.
-
-**Use Case Testing** validates complete user workflows.
-
-It focuses on real user goals and end-to-end behavior.
-
-Use cases may include
-
-- main success scenario
-- alternative flows
-- preconditions
-- postconditions
-
-Key things to remember from Level 3
-
-- Black-box techniques derive tests from expected behavior
-- Equivalence Partitioning reduces test cases by grouping similar inputs
-- Boundary Value Analysis focuses on edge values
-- Decision Table Testing handles combinations of conditions
-- State Transition Testing handles state-dependent behavior
-- Use Case Testing validates complete user workflows
-- These techniques can be combined for stronger coverage
-
-## Summary test case design level 4
-
-Level 4 focuses on **white-box test design techniques**.
-
-White-box testing uses knowledge of the internal code structure.
-
-The focus shifts from external behavior to internal implementation.
-
-White-box testing analyzes
-
-- statements
-- decisions
-- branches
-- paths
-- control flow
-
-**Statement Testing** focuses on executing every statement in the code at least once.
-
-Statement coverage is calculated as
-
-`Statement Coverage = (Executed Statements / Total Statements) * 100`
-
-Statement testing answers the question of whether the code was executed.
-
-However, `100%` statement coverage does not guarantee that all decision outcomes were tested.
-
-**Branch Testing** focuses on executing every decision outcome at least once.
-
-Branch coverage is calculated as
-
-`Branch Coverage = (Executed Branches / Total Branches) * 100`
-
-Branch testing answers whether all decision outcomes were evaluated.
-
-It is stronger than statement testing because full branch coverage usually implies statement coverage, assuming all statements are reachable.
-
-However, branch testing does not always test all combinations of conditions.
-
-**Path Testing** focuses on executing complete paths through the code from start to end.
-
-Path coverage is calculated as
-
-`Path Coverage = (Executed Paths / Total Paths) * 100`
-
-Path testing answers whether complete execution flows were tested.
-
-It is more thorough than statement and branch testing, but full path coverage can become impractical because of **path explosion**.
-
-When loops exist, full path coverage may be impossible, so testing focuses on important loop cases such as
-
-- zero iterations
-- one iteration
-- many iterations
-
-The main difference between the techniques is coverage depth.
-
-Statement testing checks whether code lines ran.
-
-Branch testing checks whether decision outcomes ran.
-
-Path testing checks whether full execution flows ran.
-
-Key things to remember from Level 4
-
-- White-box testing is based on internal code structure
-- Statement testing verifies executed code lines
-- Branch testing verifies decision outcomes
-- Path testing verifies full execution routes
-- Branch testing is stronger than statement testing
-- Path testing is stronger but harder to achieve fully
-- Coverage tools help identify untested areas
-- White-box testing should be combined with black-box testing for better overall coverage
+After reviewing Level 1, you should be able to explain **how experience-based testing generates test ideas**, describe **error guessing and common heuristics**, explain the purpose of a **fault attack**, describe how **exploratory testing** combines design, execution and learning, explain **test charters, test oracles, time-boxed sessions, SBTM and debriefing**, describe **checklist-based and ad-hoc testing**, and compare the four approaches according to their degree of structure.

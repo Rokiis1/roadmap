@@ -1,83 +1,161 @@
-# Content of Test Layer UI
+# Table of Contents: Test Layer UI
 
 - [Goal of UI Testing](#goal-of-ui-testing)
-- [Manual Interaction Testing](#manual-interaction-testing)
+- [Preparing for UI Testing](#preparing-for-ui-testing)
+- [Prioritizing UI Checks](#prioritizing-ui-checks)
+- [Manual and Automated UI Testing](#manual-and-automated-ui-testing)
 - [Basic Functional Checks](#basic-functional-checks)
 - [Visual Verification](#visual-verification)
 - [Happy Path Testing](#happy-path-testing)
+- [Recording Test Results](#recording-test-results)
+- [Completing UI Testing](#completing-ui-testing)
 
-At this level, testing is focused on the **UI layer**, where interaction with the system happens from the user's perspective. Instead of analyzing internal logic or data structures, testing is performed by executing actions and observing visible behavior.
+Testing in the **UI layer** evaluates the application from the user's perspective. The tester interacts directly with the interface and observes whether user actions produce the expected visible results.
 
-The goal is to build a basic understanding of how to verify that the system works correctly through direct interaction. This includes checking functionality, validating visible results, and confirming that expected behavior occurs during normal usage.
+The UI describes **where testing is performed**, while testing types describe **what aspect of the application is being evaluated**. Different types of testing can therefore be performed through the UI depending on the testing objective.
 
-Testing at this stage is simple and focused on **happy path scenarios**, where the system is used under expected conditions without considering edge cases or complex inputs.
+The focus of this module is **manual testing**, basic **functional testing**, visual verification and **happy path testing**. Testing is primarily performed from a **black-box perspective**, where the tester evaluates inputs, actions and observable outputs without needing knowledge of the application's source code or internal implementation.
+
+Other testing objectives can also involve the UI. For example, UI interactions may be evaluated as part of **usability**, **accessibility**, **compatibility**, **security** or **performance** testing. These are not separate test layers and require their own testing approaches, so they are introduced only where relevant rather than covered in detail here.
+
+The purpose is to establish a practical foundation for verifying behavior through the interface before testing moves deeper into the system through the API and database layers.
 
 ## Goal of UI Testing
 
-The goal of UI testing is to confirm that the system responds correctly to user actions. This means verifying that interactions such as input, navigation, and actions produce the expected visible outcome.
+The goal of UI testing is to verify that users can interact with the application and receive the expected results through the interface.
 
-UI testing focuses on validating behavior through the interface, ensuring that the system reacts consistently and provides clear feedback to the user during normal usage.
+This includes checking whether controls respond correctly, navigation leads to the expected location, entered information is handled correctly and changes in application state are represented appropriately in the interface.
 
-To achieve this, testing is performed through direct interaction with the application. Instead of relying on predefined rules or complex techniques, the tester works with the system manually, performing actions and observing the results.
+![Goal of UI testing](./assets/images/ui_testing_goal.png)
 
-This approach is known as manual interaction testing, where the tester directly engages with the system to verify its behavior.
+For example, consider an online store with an **Add to Cart** button. When a user selects a product and clicks the button, the expected behavior may be that the product is added to the cart and the cart counter increases by one. The tester verifies the behavior that can be observed through the interface rather than investigating how the API or database processes the operation.
 
-## Manual Interaction Testing
+UI testing therefore answers a basic question: **does the application behave as expected when a user interacts with it?**
 
-Manual interaction testing is the primary way testing is performed at this level. The tester interacts with the application directly through the user interface, performing actions such as clicking elements, entering data, and navigating between screens.
+To answer that question reliably, the tester first needs a known source of expected behavior, suitable test data and a controlled starting state.
 
-The purpose of this approach is to observe how the system behaves in response to user actions. Each interaction is followed by checking whether the visible result matches the expected behavior. This allows the tester to confirm that the application responds correctly during normal usage.
+## Preparing for UI Testing
 
-At this stage, testing is simple and does not rely on predefined techniques or detailed test design. The focus is on executing actions step by step and observing the outcome. This helps build an understanding of how the system behaves when used from the user’s perspective.
+UI testing should begin from a known starting point. The tester needs access to the application, suitable test data, an appropriate environment and enough information to determine what the application is expected to do.
 
-Manual interaction testing also helps identify obvious issues such as elements not responding, incorrect navigation or unexpected behavior after an action. The tester relies on direct observation rather than internal knowledge of the system.
+The information used to determine expected behavior is called the **test basis**. A test basis may include requirements, user stories, acceptance criteria, design specifications or other agreed documentation that describes the intended behavior of the application.
 
-During manual interaction, browser developer tools may also be used to observe network requests, inspect storage or verify how the system behaves beyond what is visible in the interface.
+For example, an acceptance criterion may state that after a user adds a product to the cart, the cart counter must increase by one. This gives the tester a specific expected result to compare with the actual behavior.
 
-As interactions are performed, it becomes important to verify not only that the system responds, but that it responds correctly. This leads to checking whether specific features and actions behave according to their intended functionality.
+The tester should also prepare the required **test data**. Testing a shopping cart may require an available product, while testing an authenticated page requires a valid user account. Test data should be known and reusable so that the same check can be repeated under the same conditions.
+
+When a test changes application data, the tester should know how to restore the required starting state. This may involve removing an item from a cart, signing out of an account, resetting a user preference or recreating test data before repeating the check.
+
+Browser state can also influence UI behavior. Cookies, local storage, session storage and cached information may cause the application to behave differently between test runs. If a scenario requires a logged-out user, for example, an existing authenticated session should not remain active from earlier testing.
+
+A prepared and repeatable starting state makes the result easier to understand. Once that state is established, the tester can decide which UI checks should be performed first.
+
+## Prioritizing UI Checks
+
+When testing a user interface, the tester may have many features and user flows to check. It is not always practical to test everything with the same priority, so testing should begin with the parts of the application that are most important to users.
+
+A useful starting point is to identify the **main user flows**. These are common actions that users need to complete successfully when using the application.
+
+For example, in an online store, important flows may include signing in, finding a product, adding it to the cart and completing a purchase. These flows should normally be checked before less important or rarely used interface features.
+
+Priority can also be influenced by recently changed functionality, areas where problems have been found before, and features that affect many users.
+
+At this point, the goal is simply to understand that UI checks should be performed in a meaningful order rather than selecting features randomly. More detailed methods for determining testing priorities and evaluating risk are covered separately in **Test Management Level 4**.
+
+Once the important UI flows have been identified, the tester can begin checking them through direct interaction with the application.
+
+## Manual and Automated UI Testing
+
+UI testing can be performed **manually or through automation**. Both approaches interact with the same UI layer and verify observable behavior, but they differ in how actions are executed and results are evaluated.
+
+In **manual UI testing**, a human tester interacts directly with the application by clicking controls, entering information, submitting forms and navigating between pages. The tester observes the application's behavior and compares the actual result with the expected behavior defined by the test basis.
+
+In **automated UI testing**, a test script performs predefined UI actions and automatically verifies whether the expected result occurs. This is useful when the same checks need to be repeated frequently and consistently.
+
+![Manual and automated UI testing](./assets/images/ui_testing_execution_approaches.png)
+
+Manual and automated testing are therefore different **execution approaches**, not different test layers. Both can be used to verify behavior through the UI.
+
+This module focuses primarily on **manual execution** so that the tester first understands what actions to perform, what behavior to observe and what needs to be verified. Understanding what to verify manually provides a foundation for designing effective automated checks. Creating and maintaining automated UI tests requires additional tools and techniques and is covered separately.
+
+During manual testing, the tester should pay attention to the actual result after important actions rather than assuming that a successful-looking screen means the check passed. This can create **confirmation bias**, where the tester expects the application to work and overlooks unexpected behavior. Browser developer tools may also provide useful information through browser storage, network activity or JavaScript errors in the browser console. Direct testing of requests, responses and status codes belongs to **Test Layer API**.
+
+With an understanding of how UI tests can be executed, the next step is to examine whether individual UI features perform their intended functions.
 
 ## Basic Functional Checks
 
-Basic functional checks focus on verifying that the core features of the application work as expected during normal usage. After performing interactions with the system, the tester checks whether each action produces the correct result.
+Basic functional checks verify whether individual UI features perform their intended functions. This is **functional testing performed through the UI layer**: the tester performs an action through the interface and compares the observed result with the expected behavior. The tester performs these checks from a **black-box perspective**, without needing to know the underlying implementation.
 
-At this stage, testing is performed as **functional testing**, where the focus is on validating that the system behaves correctly based on user actions. Testing follows a **black-box perspective**, meaning behavior is evaluated through inputs and visible outputs without considering internal implementation.
+For example, if the test basis states that selecting **Add to Cart** should add one product to the cart, the tester can perform the action and verify that the cart counter changes from `0` to `1`.
 
-The goal is to confirm that individual functions behave correctly when used in a straightforward way. This includes validating that inputs are processed properly, actions trigger the expected outcome, and the system responds without errors.
+![Basic functional UI check](./assets/images/ui_functional_check.png)
 
-In some cases, behavior may depend on data stored in the browser, such as cookies or Web Storage. For example, login state or user preferences may persist across interactions, and the tester verifies that this data is applied correctly.
+The same principle applies to navigation, forms, buttons, search controls, filters and other interactive features. The tester performs an intended action and verifies that the application produces the expected visible result.
 
-Testing is performed by executing simple actions and comparing the observed result with the expected behavior. The tester relies on an **experience-based approach**, using observation and basic understanding of expected behavior rather than formal test design techniques.
+Some UI behavior depends on browser or application state. If login information is expected to persist, the tester can log in, refresh the page and verify that the authenticated state remains. If a preference is expected to persist, the tester can change it, reload the application and verify that the setting remains applied. The relevant state can then be reset and the behavior checked again from the original condition.
 
-No structured techniques are applied at this level. The focus is not on edge cases or unusual scenarios, but on ensuring that the main functionality works reliably under standard conditions.
-
-Basic functional checks help identify issues where features do not work as intended, such as actions not being executed, incorrect results being displayed or system responses not matching user expectations.
-
-In addition to verifying functionality, it is also important to ensure that the interface presents information clearly and correctly. This introduces visual validation as part of testing.
+Functional correctness is only one part of the user experience. A feature may perform the correct action while presenting its result incorrectly or unclearly. This leads to visual verification.
 
 ## Visual Verification
 
-Visual verification focuses on checking that the user interface appears correctly and presents information in a clear and consistent way. After performing actions, the tester observes how elements are displayed and whether the visual output matches the expected result.
+Visual verification checks whether information and interface elements are presented correctly to the user. The tester observes the rendered interface and compares it with the expected design and presentation. It is important to distinguish **functional behavior** from **visual presentation**.
 
-At this stage, visual verification is treated as a form of **non-functional testing**, where the focus is not on system behavior, but on how the interface is presented to the user. This includes aspects related to readability, clarity and overall usability.
+If a requirement states that a validation message must appear after a particular action, checking that the message **appears** is a functional check. Checking that the same message is readable, positioned correctly, uses the expected styling and does not overlap other content is visual verification.
 
-Testing in this area is closely related to **usability testing**, where the goal is to ensure that the interface is understandable and easy to interact with during normal usage.
+![Visual verification in UI testing](./assets/images/ui_visual_verification.png)
 
-No formal test design techniques are applied at this level. Instead, testing is performed using an **experience-based approach**, where the tester relies on observation and judgment while interacting with the system.
+Visual checks may include verifying that text is readable, required elements are visible, controls are positioned correctly, content is not unexpectedly clipped or overlapping and changes in state are clearly presented.
 
-The goal is not to evaluate design quality in depth, but to confirm that the interface behaves visually as intended. This includes verifying that text is readable, elements are properly aligned, and important information is visible to the user.
+The tester should also pay attention to dynamic updates, especially in applications where content changes without a full page reload. Elements may appear or change after an action, so the tester should wait for the interface to reach its expected state before evaluating the visual result.
 
-In addition, the tester may observe whether the interface loads and updates within a reasonable time, since delays or slow rendering can affect the overall user experience.
+For example, after adding a product to a shopping cart, functional testing verifies that the cart state changes correctly. Visual verification checks that the updated cart counter is visible, readable and displayed in the expected location.
 
-Testing is performed by observing the interface during and after interactions, ensuring that changes are reflected correctly and that no visual issues appear.
+Visual verification can also reveal issues related to other **non-functional quality characteristics** of the UI. The tester may notice usability problems when information or controls are difficult to understand or interact with, accessibility problems when content or controls are difficult for some users to perceive or operate, and compatibility problems when the interface appears or behaves differently across supported browsers, devices, operating systems or screen sizes.
 
-Visual verification helps identify issues such as missing elements, incorrect layouts, broken styles, or unclear feedback shown to the user.
+These observations can indicate that further testing is needed. During basic UI testing, the tester may identify obvious issues related to **usability**, **accessibility** or **compatibility**, but a complete evaluation of these areas requires additional techniques, environments and tools.
+
+Visual verification therefore complements functional testing by checking not only that the expected behavior occurs, but that its result is presented appropriately to the user and does not introduce obvious interface quality problems.
+
+Once individual functionality and its visual presentation have been checked, the tester can combine these observations into a complete successful user flow.
 
 ## Happy Path Testing
 
-Happy path testing focuses on verifying that the application works correctly when used under expected conditions. The tester follows the most common and intended way of using the system, performing actions with valid inputs and normal sequences.
+**Happy path testing** verifies a successful user flow when valid inputs are provided and actions are performed in their intended sequence.
 
-At this stage, testing is focused on scenarios where the system is used as intended. Situations involving invalid inputs, unexpected actions or error conditions are not covered at this level and are introduced in later stages of testing.
+Instead of checking only one UI control at a time, the tester follows a normal user scenario and verifies important results throughout the flow. For example, a shopping flow may involve opening a product page, selecting a product, adding it to the cart, opening the cart and confirming that the selected product appears correctly.
 
-This allows the tester to first understand normal system behavior before exploring how the system handles incorrect or unexpected usage. While negative scenarios can also be tested through the UI, they are not the focus at this stage because the interface does not always clearly show how the system processes errors.
+A happy path should contain clear **checkpoints** rather than relying only on the final result. A checkpoint is a point within the flow where an important result is verified before continuing. This helps confirm that each significant part of the flow behaves correctly and makes it easier to identify where a failure occurs.
 
-More detailed validation of incorrect inputs and error handling is introduced when testing moves beyond the interface. In the next level, testing shifts to the API layer, where system responses to invalid and unexpected conditions can be observed more directly and consistently.
+If a critical checkpoint fails and the remaining steps depend on it, the current flow should stop. If later behavior can be checked independently, the required starting state can be restored and that behavior can be evaluated separately.
+
+In modern development practices, many basic happy path scenarios may already be verified earlier through developer testing and automated checks. Testers should consider this existing coverage rather than unnecessarily repeating the same checks at every layer. UI testing remains valuable for verifying important user journeys, observable behavior and interactions that need confirmation through the interface.
+
+This module uses happy path UI testing as a foundation for learning how to follow a user flow and verify expected behavior. More detailed scenario selection, negative testing and test design techniques are introduced separately in **Test Case Design Level 2 and 3**.
+
+The results of the UI checks should be recorded so that the completed testing and any findings remain visible.
+
+## Recording Test Results
+
+During UI testing, the tester should keep track of what was checked and what was observed. For each check, the recorded result should show whether the observed behavior matched the expected behavior defined by the test basis.
+
+If the observed result is unclear or the test basis is ambiguous, the tester should record the uncertainty and seek clarification rather than guessing whether the check passed or failed.
+
+The exact way tests and results are documented depends on the approach used by the project. Techniques for designing and organizing tests, including **experience-based approaches** such as **checklist-based testing**, are covered separately in **Test Case Design Level 1**.
+
+When observed behavior does not match the expected behavior, further investigation or defect reporting may be required. The process for documenting, communicating, tracking and retesting defects is covered separately in **Test Management Level 1**.
+
+Recording results makes it possible to see which UI checks have been completed, which have failed and which still require attention. Once the planned checks have been performed, the tester can determine whether the intended UI testing has been completed.
+
+## Completing UI Testing
+
+UI testing is complete for the planned scope when the selected user flows have been executed and their important functional and visual results have been checked.
+
+For example, if the planned scope includes signing in, finding a product and adding it to the cart, completing UI testing means that these flows have been performed and their expected results have been verified. A failure in one of these flows does not mean that testing was not performed; it means that testing identified a problem that must be recorded and handled appropriately.
+
+Completing the planned scope does not mean that every possible UI behavior has been tested. This module concentrates on the selected **happy path flows** and the functional and visual checks performed through them. Other scenarios may require additional testing outside this scope.
+
+At this point, the tester has learned how to prepare for UI testing, select important flows, interact with the interface, verify functional and visual behavior, follow successful user journeys and record the results.
+
+The UI layer is used as the starting point in this course because it provides a direct and accessible way to learn the basic testing process through observable application behavior. This does not mean that testing must begin with the UI in practice. The appropriate starting point depends on the system, testing objective and available access.
+
+With this foundation established, the course continues with **Test Layer API**, where the same testing mindset is applied at a different layer of the application.

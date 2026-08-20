@@ -1,4 +1,4 @@
-# Content of Acceptance Testing
+# Table of Contents: Acceptance Testing
 
 - [Acceptance Testing](#acceptance-testing)
 - [Types of Acceptance Testing](#types-of-acceptance-testing)
@@ -6,127 +6,114 @@
 - [Collaboration-Based Test Approaches](#collaboration-based-test-approaches)
 - [Acceptance Testing in Agile](#acceptance-testing-in-agile)
 
-Static testing and dynamic testing explain how and when testing is performed, but an important question still remains. How do we know the system is ready for real use?
-
-At the final stage of testing, the focus shifts from technical correctness to business value and user expectations, which is where **acceptance testing** plays a key role by ensuring that the system meets business requirements and is suitable for release.
-
-To understand how this validation is performed, we begin with the concept of acceptance testing itself.
+Acceptance testing shifts the focus from technical verification to whether the system satisfies business needs and is acceptable to its intended stakeholders.
 
 ## Acceptance Testing
 
-Acceptance testing is the final level of testing where the system is evaluated against **business requirements** to determine whether it is ready for release.
+Acceptance testing evaluates a system against **acceptance criteria, business requirements, user needs, and other relevant requirements** to determine whether it is acceptable to its intended stakeholders.
 
-At this stage, the focus shifts from technical correctness to **business value** and **user expectations**. The goal is to confirm that the system behaves as intended in real-world scenarios and delivers the expected outcomes for stakeholders.
+The focus is less on the internal implementation of the system and more on whether it supports the required business processes and outcomes. Acceptance testing therefore considers the system from the perspective of customers, users, business representatives, operators or other stakeholders who must decide whether it is suitable for its intended use.
 
-Acceptance testing answers the key question: **Is the system acceptable for use?**
+![Acceptance testing focus](./assets/images/acceptance_testing_focus.png)
 
-Unlike earlier testing levels, which focus on internal logic or system behavior, acceptance testing validates the system from an **external perspective**, ensuring that it meets defined requirements and supports actual user needs.
+Acceptance testing answers a key question. **Does the system satisfy the conditions required for acceptance?**
 
-This type of testing is typically performed by **end users**, **customers**, or **business stakeholders**, rather than developers. However, QA teams often prepare the environment, support execution and help ensure that testing is carried out effectively.
+Acceptance testing is commonly performed after system testing has provided sufficient confidence in the overall system, although the exact timing depends on the development approach. In iterative and Agile development, acceptance-related validation may also take place throughout development as individual features are completed.
 
-Acceptance testing is based on **realistic scenarios**, reflecting how the system will be used in practice. These scenarios are often derived from business processes, user stories, or acceptance criteria.
+Acceptance tests are based on realistic business processes and usage scenarios. Test conditions may be derived from requirements, user stories, business rules, operational procedures, contracts, regulations and defined acceptance criteria.
 
-Because of its focus on business validation, acceptance testing plays a critical role in determining whether the system can be confidently released to production.
-
-To better understand how acceptance testing is applied, it is important to explore the different types of acceptance testing.
+Acceptance is not determined simply because all planned tests have been executed. The relevant stakeholders make the acceptance decision using agreed criteria, test results, known defects, business risk and any other release conditions defined for the product.
 
 ## Types of Acceptance Testing
 
-Acceptance testing can be performed in different ways depending on the context, objectives and stakeholders involved.
+Different forms of acceptance testing address different stakeholder needs and acceptance conditions.
 
-While all types aim to confirm that the system meets business requirements and is ready for use, they focus on different aspects such as user validation, operational readiness, or compliance.
+![Types of acceptance testing](./assets/images/types_of_acceptance_testing.png)
 
-**User Acceptance Testing (UAT)** is the final validation performed by end users or clients. It focuses on business scenarios and verifies that the system behaves as expected and delivers the intended value.
+**User Acceptance Testing (UAT)** is performed by intended users, customers or their representatives to determine whether the system supports required business processes and user needs. UAT uses realistic scenarios and agreed acceptance criteria to support a business acceptance decision.
 
-**Operational Acceptance Testing (OAT)** focuses on validating the system’s operational readiness. This includes aspects such as installation, deployment, backup, recovery and monitoring to ensure the system can be reliably used in production.
+UAT is typically performed in a production-like environment using controlled, realistic test data so that users can evaluate the system under conditions that closely represent actual use.
 
-**Contract and regulatory acceptance testing** ensures that the system complies with contractual obligations and legal or regulatory requirements. This is especially important in domains where compliance is critical.
+**Operational Acceptance Testing (OAT)** evaluates whether the system is ready to be operated in its production environment. Depending on the system, this may include deployment, backup and restore, recovery, monitoring, security-related operational procedures, maintenance and other operational processes.
 
-**Alpha testing** is conducted in a pre-production environment, typically within the organization. It helps identify issues before the system is released to external users.
+**Contractual acceptance testing** checks whether the system satisfies acceptance conditions defined in a contract. These conditions may include required functionality, service levels, performance targets or other agreed obligations.
 
-**Beta testing** is performed by a limited group of external users in a real environment. The goal is to gather feedback and validate the system under real usage conditions before release.
+**Regulatory acceptance testing** checks whether the system satisfies applicable laws, regulations, standards or regulatory requirements when such compliance is part of the acceptance decision.
 
-Each of these types contributes to ensuring that the system is not only technically correct but also usable, reliable and aligned with business expectations.
+**Alpha testing** is typically performed at the developing organization's site or in a controlled environment by potential or representative users before broader external release. It can provide early feedback about the product from a user perspective.
 
-While these types define how acceptance testing is performed, it is also important to understand who is involved and what responsibilities they have during the process.
+**Beta testing** is performed by potential or existing users in their own or otherwise realistic environments. It provides feedback about the product under real-world conditions before or during a wider release.
+
+These forms of acceptance testing may overlap. The appropriate approach depends on who must accept the system and which conditions must be satisfied.
 
 ## Roles and Responsibilities
 
-Acceptance testing involves multiple stakeholders, each contributing to ensuring that the system meets business requirements and is ready for release.
+Acceptance testing involves several stakeholders. Their exact responsibilities depend on the organization, product, and type of acceptance testing.
 
-**End users and clients** play the most important role, as they validate the system against real-world scenarios and confirm that it delivers the expected business value. Their feedback determines whether the system is acceptable for use.
+**End users and customers** execute or participate in realistic business scenarios and assess whether the system supports their needs. In UAT, their results and feedback provide important evidence for the acceptance decision.
 
-**Business stakeholders** are responsible for defining requirements, acceptance criteria and success conditions. They ensure that testing aligns with business goals and that the system fulfills its intended purpose.
+**Business stakeholders** define or approve business requirements, acceptance criteria, and success conditions. They also evaluate test results and business risks when deciding whether the system is acceptable.
 
-**QA teams** support the acceptance testing process by preparing the test environment, organizing test activities and assisting stakeholders during execution. They may also perform preliminary validation to ensure the system is ready for acceptance testing.
+**QA and test professionals** may help plan acceptance testing, prepare test data and environments, design or review tests, coordinate execution, record results, and support participating stakeholders. They should enable the acceptance process without replacing the stakeholders who are responsible for the business decision.
 
-**Developers** contribute by fixing defects identified during testing and supporting the investigation of issues. They help ensure that problems are resolved efficiently and do not block acceptance.
+**Developers** investigate and fix defects found during acceptance testing and provide technical support when unexpected behavior needs to be understood.
 
-By clearly defining roles and responsibilities, the acceptance testing process becomes more structured and effective, ensuring that all perspectives are considered and that the system is thoroughly validated.
-
-While roles define who is involved in acceptance testing, it is also important to understand how stakeholders collaborate during the process.
-
-This leads to collaboration-based test approaches, where teamwork and shared understanding play a key role in successful validation.
+Clear responsibilities help ensure that acceptance testing produces useful evidence and that the final acceptance decision is made by the appropriate stakeholders.
 
 ## Collaboration-Based Test Approaches
 
-Collaboration-based test approaches involve the active participation of multiple stakeholders throughout the testing process. Instead of testing being performed in isolation, these approaches emphasize shared understanding, communication and continuous feedback.
+Acceptance testing depends on a shared understanding of what stakeholders expect from the system. Collaboration is especially important when defining acceptance criteria and when evaluating the system during UAT.
 
-The goal is to ensure that requirements, expectations and system behavior are clearly understood by everyone involved, including developers, testers, business representatives and end users.
+Before acceptance tests are designed, **business representatives, users, testers, and developers can review acceptance criteria together**. This helps make the criteria clear, testable, and aligned with the intended business outcome. Ambiguous terms such as "fast," "easy," or "works correctly" should be replaced with observable conditions whenever possible.
 
-One key practice is **collaborative user story writing**, where the team works together to define user stories from the end-user’s perspective. This helps ensure that features are clearly described, aligned with business needs and testable.
+![Stakeholder collaboration on acceptance criteria](./assets/images/acceptance_criteria_collaboration.png)
 
-User stories are often written in a simple structured format such as *“As a [user], I want [action] so that [value]”*, which helps express who needs the feature, what they want and why it is important.
+For example, consider a checkout feature. Stakeholders might agree on the following acceptance criteria.
 
-For example, a user story may be written **“As an online shopper, I want to read product reviews so that I can make informed purchasing decisions.”**
+1. A customer with valid payment details can complete an order.
+2. An order confirmation is displayed after a successful purchase.
+3. Invalid payment details do not create an order.
+4. The customer receives a clear message when payment is rejected.
 
-User stories are supported by the **3C concept**, which includes **Card**, **Conversation** and **Confirmation**. The card represents the user story itself, the conversation helps clarify details and expectations, and the confirmation defines acceptance criteria that determine when the story is complete.
+These agreed criteria provide a common basis for designing acceptance tests and evaluating the results.
 
-**Acceptance criteria** play a central role in collaboration-based approaches. They define the conditions that must be met for a feature to be accepted and serve as the basis for testing. These criteria help align expectations, describe both positive and negative scenarios and ensure that the system can be validated effectively.
+Collaboration continues during **User Acceptance Testing (UAT)**. Business users execute realistic workflows, testers or QA professionals may support the test process, and developers help investigate defects when needed. When unexpected behavior is found, the participants should determine whether it is a product defect, an unclear requirement, a problem with test data or the test environment or a new business request.
 
-Collaboration is also essential during **User Acceptance Testing (UAT)**, the final validation phase where stakeholders actively confirm that the system meets business requirements.
+A typical UAT cycle begins with preparing the test environment, test data and acceptance scenarios. Business users are then introduced to the scope and testing process before executing the agreed scenarios. Issues identified during execution are reviewed and classified, and resolved issues may be retested. Finally, the responsible stakeholders review the results and decide whether the agreed acceptance conditions have been satisfied.
 
-In addition, activities such as **alpha and beta testing** extend collaboration beyond internal teams. **Alpha testing** allows internal stakeholders to identify issues in a controlled environment, while **beta testing** gathers feedback from real users in real-world conditions.
+Results should be recorded so that they support the acceptance decision. Relevant information may include the scenario tested, expected and actual results, defects or limitations found and the acceptance status of important business processes.
 
-By involving multiple perspectives and encouraging continuous communication, collaboration-based approaches improve the quality of testing and reduce the risk of misunderstandings.
+Stakeholder collaboration does not mean that everyone has the same responsibility. The people authorized to accept the system remain responsible for deciding whether the available evidence and remaining risks satisfy the agreed acceptance conditions.
 
-While collaboration defines how stakeholders work together, acceptance testing is also strongly influenced by modern development practices.
-
-This leads to acceptance testing in Agile environments, where collaboration, iteration and continuous feedback are essential.
+If the acceptance conditions are not satisfied, further work may be required before the system can be accepted. This may include fixing defects, updating the affected functionality and repeating relevant acceptance tests. In some situations, stakeholders may defer lower-priority functionality or make a risk-based release decision when the remaining issues are understood and formally accepted.
 
 ## Acceptance Testing in Agile
 
-In Agile development, acceptance testing is not a single final phase but an ongoing activity performed throughout the development process.
+In Agile development, acceptance-related activities are performed throughout development rather than being treated only as a single activity at the end of the project.
 
-Instead of waiting until the end, validation happens continuously as features are developed, ensuring that the system meets business requirements at every stage.
+Acceptance testing is closely connected to **user stories** and **acceptance criteria**. A user story describes a need from a user or stakeholder perspective, while its acceptance criteria define observable conditions that the implementation must satisfy.
 
-Acceptance testing in Agile is closely connected to **user stories** and **acceptance criteria**. Each user story defines a piece of functionality from the end-user’s perspective, while acceptance criteria specify the conditions that must be met for that functionality to be considered complete.
-
-Acceptance criteria can be written using a **scenario-oriented approach**, often expressed in *Given–When–Then* format, which is commonly associated with **Gherkin**. This structure helps clearly describe system behavior through real user interactions.
-
-A typical example looks like this
+Acceptance criteria can use a **scenario-oriented approach**, often written in **Given-When-Then** form. This format is commonly used with Gherkin-based tools and helps describe expected behavior through concrete examples.
 
 ```text
-Given a user has items in the shopping cart
-When the user completes the checkout process
-Then an order confirmation should be displayed
+Given a customer has items in the shopping cart
+When the customer completes checkout successfully
+Then an order confirmation is displayed
 ```
 
-Acceptance criteria can also be defined using a more **rule-oriented approach**, where expected behavior is described as a set of conditions
+Acceptance criteria can also use a **rule-oriented approach**, where the required behavior is expressed as a concise set of conditions.
 
 ```text
-User can navigate to the registration page
-User must enter a valid email address
-Password must meet security requirements
-System displays an error message for invalid input
+The registration page is accessible from the main navigation menu.
+A valid email address is required to complete registration.
+The password must satisfy the defined password rules.
+Invalid input produces an appropriate error message.
 ```
 
-These criteria act as the foundation for testing, guiding both test design and validation.
+The format is less important than the quality of the criteria. Good acceptance criteria should be understandable, testable, relevant to the business need and specific enough to support a clear evaluation.
 
-Collaboration plays a key role in Agile acceptance testing. **Developers**, **testers** and **business stakeholders** work together to clarify requirements, define acceptance criteria and validate system behavior. This shared understanding helps reduce misunderstandings and ensures that the delivered functionality aligns with business expectations.
+Developers, testers and business representatives collaborate to refine acceptance criteria and review the implemented behavior. This gives the team frequent feedback and helps identify misunderstandings before they become expensive to correct.
 
-In Agile environments, acceptance testing is often supported by **test automation**, where acceptance tests are executed frequently as part of continuous integration pipelines. This provides fast feedback and helps maintain system stability.
+Some acceptance tests can be automated and executed repeatedly, for example as part of a continuous integration or delivery process. Automation is most useful for stable, repeatable checks. Stakeholder evaluation is still necessary when acceptance depends on business judgment, usability or other factors that cannot be decided by an automated test alone.
 
-By performing acceptance testing continuously and collaboratively, Agile teams ensure that quality is built into the development process rather than verified only at the end.
-
-This approach improves flexibility, reduces risk and helps deliver software that meets both technical and business expectations.
+By combining clear acceptance criteria, frequent validation and stakeholder feedback, Agile teams can assess acceptance continuously while still making explicit acceptance or release decisions when required.
