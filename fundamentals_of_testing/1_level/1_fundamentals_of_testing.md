@@ -120,6 +120,6 @@ Understanding where defects tend to cluster can help teams focus additional test
 
 These principles form the foundation for how we think about testing. They remind us that testing has limitations, that priorities matter, and that quality cannot be determined simply by counting defects or executing more tests.
 
-**Fundamentals of Testing Level 1** establishes the basic testing mindset and terminology. We now understand **what testing is**, **what objectives it supports**, **how testing differs from debugging**, **how errors can lead to defects and failures**, and **which principles guide effective testing**.
+**Fundamentals of Testing Level 1** establishes the basic testing mindset and terminology. We now understand **what testing is**, **what objectives it supports**, **how testing differs from debugging**, **how errors can lead to defects and failures** and **which principles guide effective testing**.
 
 With these fundamentals in place, we are ready to move from understanding **why testing matters** to understanding **how testing is organized and performed in practice**. **Fundamentals of Testing Level 2** continues with the **test process**, **test activities** and **test roles** that structure testing work throughout a project.
