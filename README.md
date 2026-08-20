@@ -2,7 +2,7 @@
 
 This module introduces the main areas of **software quality assurance and testing** and builds an understanding of how testing supports software development and product quality.
 
-The curriculum is organized in a way that reflects how different QA topics are best learned. Some topics develop progressively, while others are better understood as separate but connected areas of the same subject.
+The curriculum is organized in a way that reflects how different QA topics are learned. Some topics develop progressively, while others are better understood as separate but connected areas of the same subject.
 
 Some topics are organized through **levels**. Each level extends the previous one and develops a deeper understanding of the broader subject. This structure is used when knowledge should grow progressively from fundamental concepts toward more detailed or advanced areas.
 
@@ -36,21 +36,21 @@ Each topic begins with an **overview** that introduces the learning direction an
 
 The course begins by establishing a foundation in **software testing and quality**. You will develop an understanding of the purpose of testing, how it contributes to software development and how testing activities support confidence in a product.
 
-You will explore the **Software Development Life Cycle (SDLC)** and the environment in which testing takes place. You will understand how software moves through different stages of development, where testing contributes throughout this lifecycle and how teams collaborate across different project contexts and ways of working.
+The **Software Development Life Cycle (SDLC)** provides the broader context in which testing takes place. This part of the module builds an understanding of how software moves through different stages, where testing contributes throughout the lifecycle and how teams collaborate across different project contexts and ways of working.
 
-The module introduces **requirements as a foundation for testing**. You will learn how to understand expected software behavior, review the information available to testers and use that information to determine what should be verified.
+**Requirements form an important foundation for testing**. The module covers how expected software behavior is understood, how the information available to testers is reviewed and how requirements help determine what should be verified.
 
-You will explore **different types of testing** and understand how software and related work products can be evaluated from different perspectives. This includes **static and dynamic testing**, with dynamic testing covering both **functional and non-functional testing** depending on the testing objective.
+Different **types of testing** provide different perspectives for evaluating software and related work products. The course introduces **static and dynamic testing**, with dynamic testing covering both **functional and non-functional testing** depending on the testing objective.
 
-You will develop a structured approach to **test design and test execution**. This includes preparing testing activities, creating appropriate tests, executing them, comparing expected and actual results and documenting testing outcomes.
+A structured approach to **test design and test execution** connects testing objectives with practical testing activities. This includes preparing tests, selecting appropriate conditions, executing them, comparing expected and actual results and documenting testing outcomes.
 
-You will explore **test levels and test layers** to understand the different scopes and technical points from which software can be tested. This develops an understanding of how testing can focus on individual parts, interactions between parts, complete systems and different layers of an application.
+The course also explores **test levels and test layers**, providing an understanding of the different scopes and technical points from which software can be tested. Testing may focus on individual parts, interactions between parts, complete systems or different layers of an application.
 
-The course also introduces **test management** and the organization of testing work. You will learn how testing activities are planned, monitored, prioritized and completed, and how testing information supports communication and decision making throughout software development.
+Another important area is **test management** and the organization of testing work. Testing activities need to be planned, monitored, prioritized and completed while providing useful information for communication and decision making throughout software development.
 
-You will work with **testing tools** and develop an understanding of how tools can support different testing activities. The focus is on recognizing where tools provide value and how they complement the testing process rather than replacing tester analysis and judgment.
+**Testing tools** support many of these activities and help make testing work more effective and efficient. The module develops an understanding of where tools provide value and how they support the testing process while tester analysis and judgment remain essential.
 
-The module broadens the understanding of quality beyond whether functionality simply works. You will consider **different software quality characteristics**, including the experience of using software, its behavior across environments and its exposure to potential security risks.
+Software quality extends beyond whether functionality simply works. The module therefore considers **different software quality characteristics**, including the experience of using software, its behavior across different environments and its exposure to potential security risks.
 
 Throughout the course, these areas are connected into a practical **QA workflow**. You will learn how requirements and other product information are analyzed, transformed into testing activities, verified through execution, supported by appropriate tools and communicated through testing results and discovered problems.
 
