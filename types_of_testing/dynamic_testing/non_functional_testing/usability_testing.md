@@ -39,27 +39,38 @@ In day-to-day QA work, usability testing is commonly supported by **experience-b
 
 One useful experience-based technique is **checklist-based testing**. A usability checklist provides a reusable set of conditions or questions without prescribing exact test steps.
 
-| Description                                                                                       | Pass | Fail | Notes |
-| ------------------------------------------------------------------------------------------------- | ---- | ---- | ----- |
-| Verify that important actions and controls are easy to identify.                                  |      |      |       |
-| Check that navigation is clear, predictable and consistent.                                       |      |      |       |
-| Verify that labels, instructions and terminology are easy to understand.                          |      |      |       |
-| Check that similar controls and actions behave consistently throughout the interface.             |      |      |       |
-| Verify that common tasks can be completed without unnecessary steps or repeated input.            |      |      |       |
-| Check that the system provides clear feedback after user actions.                                 |      |      |       |
-| Verify that users can understand the current system state and what is happening.                  |      |      |       |
-| Check that predictable user errors are prevented where practical.                                 |      |      |       |
-| Verify that error messages clearly explain the problem and how to correct it.                     |      |      |       |
-| Check that users can recover from mistakes without unnecessarily restarting the task.             |      |      |       |
-| Verify that entered information is preserved when a recoverable error occurs.                     |      |      |       |
-| Check that important information is easy to find without requiring unnecessary memorization.      |      |      |       |
-| Verify that interactive elements are easy to select and use.                                      |      |      |       |
-| Check that destructive or irreversible actions are clearly identified before they are performed.  |      |      |       |
-| Verify that help or supporting information is available where users are likely to need it.        |      |      |       |
+| Description                                                                                        | Pass | Fail | Notes |
+| -------------------------------------------------------------------------------------------------- | ---- | ---- | ----- |
+| Verify that important actions and controls are easy to identify.                                   |      |      |       |
+| Check that navigation is clear, predictable and consistent.                                        |      |      |       |
+| Verify that labels, instructions and terminology are easy to understand.                           |      |      |       |
+| Check that similar controls and actions behave consistently throughout the interface.              |      |      |       |
+| Verify that common tasks can be completed without unnecessary steps or repeated input.             |      |      |       |
+| Check that the system provides clear feedback after user actions.                                  |      |      |       |
+| Verify that users can understand the current system state and what is happening.                   |      |      |       |
+| Check that predictable user errors are prevented where practical.                                  |      |      |       |
+| Verify that error messages clearly explain the problem and how to correct it.                      |      |      |       |
+| Check that users can recover from mistakes without unnecessarily restarting the task.              |      |      |       |
+| Verify that entered information is preserved when a recoverable error occurs.                      |      |      |       |
+| Check that important information is easy to find without requiring unnecessary memorization.       |      |      |       |
+| Verify that interactive elements are easy to select and use.                                       |      |      |       |
+| Check that destructive or irreversible actions are clearly identified before they are performed.   |      |      |       |
+| Verify that help or supporting information is available where users are likely to need it.         |      |      |       |
+| Verify that important functionality can be operated without relying only on a mouse or touch.      |      |      |       |
+| Check that keyboard focus is visible and follows a logical order where keyboard use is supported.  |      |      |       |
+| Verify that important information is not communicated through color alone.                         |      |      |       |
+| Check that text and important interface elements remain readable when content is resized or zoomed.|      |      |       |
+| Verify that form controls have understandable labels and that errors can be identified clearly.    |      |      |       |
 
-The checklist should be adapted to the feature and **context of use** being tested. When usability is evaluated on mobile devices, the tester should consider mobile-specific interaction factors such as **touch-target size and spacing**, **gesture usability**, **on-screen keyboards**, **thumb reach** and interactions that require unnecessarily precise input. A form may require more attention to labels, validation, error prevention and recovery.
+The checklist should be adapted to the feature and **context of use** being tested. It provides a practical starting point rather than a fixed checklist that must be applied unchanged to every interface.
 
-Once the feature, objective and context of use have been defined, the tester can decide how the usability evaluation will be performed.
+When usability is evaluated on mobile devices, additional checks may be needed for **touch-target size and spacing**, **gesture usability**, **on-screen keyboards**, **thumb reach** and interactions that require unnecessarily precise input. A form may require more attention to labels, validation, error prevention and recovery.
+
+The checklist also includes basic **accessibility-related checks** because accessibility barriers can directly affect whether users are able to operate and understand an interface. These checks can help identify obvious concerns during routine usability evaluation, but they do not represent a complete accessibility assessment.
+
+Dedicated **accessibility testing** requires additional evaluation against applicable accessibility requirements, including areas such as keyboard operation, focus behavior, text alternatives, color contrast, semantic structure and compatibility with assistive technologies. These are covered later in **Accessibility (WCAG Based)**.
+
+Once the feature, objective, context of use and relevant checks have been defined, the tester can decide how the usability evaluation will be performed.
 
 ## Choosing a Usability Evaluation Approach
 
@@ -216,6 +227,8 @@ Satisfaction results should always be interpreted together with behavioral evide
 
 **Accessibility** evaluates whether people with disabilities can perceive, operate, understand and interact with a system. Accessibility and usability overlap, but they are not identical disciplines. Accessibility testing specifically evaluates barriers that affect users with disabilities and users of assistive technologies.
 
+Basic accessibility concerns can be considered during routine usability evaluation using the reusable checklist introduced during planning. When accessibility is part of the defined testing scope, the tester should extend those checks with a more systematic evaluation against the applicable accessibility requirements.
+
 For web content, the **Web Content Accessibility Guidelines** or **WCAG** provide widely used accessibility requirements. WCAG is organized around four principles commonly abbreviated as **POUR**. **Perceivable** means that information and interface components must be presented in ways users can perceive. **Operable** means that interface components and navigation must be usable through supported input methods. **Understandable** means that information and operation of the interface must be understandable, while **Robust** means that content should work reliably with user agents and assistive technologies.
 
 ![WCAG POUR accessibility principles](./assets/images/wcag_pour_principles.png)
@@ -226,9 +239,29 @@ The required WCAG version and conformance level depend on the product, organizat
 
 Accessibility testing may include **keyboard-only navigation**, **screen-reader compatibility**, **visible focus indicators**, **logical focus order**, **text alternatives**, **color contrast**, **text resizing**, **zoom behavior**, **form labels**, **error identification**, **reduced-motion preferences** and **semantic structure** that assistive technologies can interpret.
 
-Automated accessibility tools can support different types of checks. **axe** can detect accessibility issues in web pages and support developer or browser-based testing, **WAVE** provides visual feedback about accessibility problems directly on a page and **Lighthouse** includes automated accessibility audits alongside other web quality checks. These tools can identify some accessibility problems, but they do not replace manual testing.
+For **keyboard testing**, the tester should verify that important functionality can be reached and operated without requiring a mouse or touch input. Focus should remain visible, move through the interface in a logical order and not become trapped in a component without a way to continue or return.
+
+For **screen-reader testing**, the tester should evaluate whether important content, controls, labels, states and feedback are communicated meaningfully through assistive technology.
+
+For **text alternatives**, meaningful non-text content such as informative images should provide an appropriate textual alternative where required. Decorative content should not create unnecessary information for assistive-technology users.
+
+For **color and visual presentation**, important information should not depend only on color. Text and important interface elements should provide sufficient contrast according to the applicable accessibility requirements.
+
+For **resizing and zoom**, content should remain readable and usable at the required zoom or text-resizing levels without important information or functionality becoming unavailable.
+
+For **forms**, controls should have understandable labels, instructions should be available where necessary and validation errors should identify the affected input and communicate what needs to be corrected.
+
+For **motion and animation**, interfaces should respect applicable reduced-motion preferences and avoid interactions that unnecessarily depend on motion where this creates an accessibility barrier.
+
+For **semantic structure**, headings, landmarks, controls and other interface elements should use appropriate structure so that assistive technologies can interpret the relationships and purpose of the content.
+
+Automated accessibility tools can support some of these checks. **axe** can detect accessibility issues in web pages and support developer or browser-based testing. **WAVE** provides visual feedback about accessibility problems directly on a page, while **Lighthouse** includes automated accessibility audits alongside other web quality checks. These tools can identify some accessibility problems, but they do not replace manual testing.
 
 Free screen readers such as **NVDA** on Windows and **Orca** on Linux can be used to evaluate how content and controls are presented through assistive technology.
+
+Accessibility findings should identify the **problem**, record the **evidence or location**, describe the **effect on the user** and relate the problem to the applicable accessibility requirement when required by the project.
+
+For the registration example, a **Create Account** control that cannot be reached using the keyboard may prevent a keyboard-only user from completing registration. The finding should identify the affected control, how the problem was reproduced and the resulting user impact.
 
 In a typical QA workflow, accessibility checks should be performed alongside usability testing throughout development rather than being postponed as a separate late-stage activity.
 
