@@ -1,10 +1,8 @@
-# Test Case Design Summary
+# Table of Contents: Test Case Design Summary
 
 - [Test Case Design Level 1](#test-case-design-level-1)
 
 This summary brings together the most important concepts from the **Test Case Design** module. It is designed as a quick reference for revision and preparation for questions where the main concepts, relationships and differences need to be explained clearly.
-
-For now, the summary covers **Level 1**. Additional levels can be added to this document as the course develops.
 
 ## Test Case Design Level 1
 
