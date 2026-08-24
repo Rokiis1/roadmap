@@ -85,7 +85,7 @@ For the registration example, a Heuristic Evaluation could identify inconsistent
 
 The two approaches can also complement each other. Expert evaluation can identify potential problems early, while user-based testing can provide direct evidence about how those problems affect intended users.
 
-![User-based and expert-based usability testing workflow](./assets/images/usability_testing_method_workflow\.png)
+![User-based and expert-based usability testing workflow](./assets/images/usability_testing_method_workflow.png)
 
 Some techniques are useful in more specific situations. **Paper prototyping and low-fidelity testing** are useful before the interface is fully implemented because sketches, wireframes or simple prototypes can be evaluated before significant development effort is spent.
 
