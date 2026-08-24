@@ -10,54 +10,68 @@ The course begins with **Usability Testing**, which evaluates whether intended u
 
 ## Usability Testing
 
-**Usability testing** is a type of **non-functional dynamic testing** used to evaluate how effectively, efficiently and satisfactorily intended users can interact with a system to achieve specific goals in a defined context of use.
+**Usability** is a quality characteristic that describes how effectively, efficiently and satisfactorily intended users can interact with a system to achieve specific goals in a defined context of use.
 
-Usability problems do not necessarily cause functional failures. A registration form may successfully create an account while still having poor usability because users cannot understand its labels, cannot discover an important action or repeatedly make avoidable errors.
+Usability problems do not necessarily cause functional failures. A registration form may successfully create an account while still having poor usability because important actions are difficult to discover, labels are unclear or error messages do not help the user recover.
 
-Usability evaluation begins by selecting the **feature or user flow**, defining a clear **objective** and identifying the relevant **context of use**. The objective should describe the usability question that needs to be answered.
+Usability can be evaluated through **user-based testing** or **expert-based evaluation**. User-based usability testing involves representative users performing realistic tasks while their behavior and feedback are observed. Formal participant studies are outside the practical scope of this course section.
 
-For example, an evaluation of account registration may ask `Can a first-time user complete registration without assistance?`
+The practical focus is **expert-based usability evaluation**, which allows a QA tester to inspect an interface systematically without requiring representative participants.
 
-Usability testing can be supported by **experience-based testing techniques**, particularly **checklist-based testing**. A checklist gives the tester reusable usability conditions to evaluate without requiring detailed step-by-step test cases.
+Usability evaluation begins by selecting the **feature or user flow**, defining a clear **objective** and identifying the relevant **context of use**.
 
-The tester then chooses an appropriate **usability evaluation approach**.
+For example, an evaluation of account registration may ask `Can a first-time user understand how to complete registration without unnecessary difficulty?`
 
-![User-based and expert-based usability testing workflow](./dynamic_testing/non_functional_testing/assets/images/usability_testing_method_workflow.png)
+Usability evaluation can be supported by **experience-based testing techniques**, particularly **checklist-based testing**. A reusable checklist helps the tester evaluate common usability concerns without requiring detailed step-by-step test cases.
 
-**User-based usability testing** is appropriate when evidence is needed about how representative users actually interact with the interface. Common approaches include **moderated usability testing** and **unmoderated usability testing**. Techniques such as the **Thinking Aloud Protocol** can provide additional information about what participants expect, notice and find confusing.
+When evaluating an interface, the tester should consider several usability characteristics.
 
-**Expert-based usability evaluation** does not require representative participants. **Heuristic Evaluation** inspects an interface against recognized usability principles, while **Cognitive Walkthrough** examines whether a user, particularly a new or unfamiliar user, is likely to understand the actions required to complete a task.
+**Learnability** describes how easily a new or unfamiliar user can understand the interface and determine how to perform important actions.
 
-The two approaches can complement each other. Expert evaluation can identify potential problems early, while user-based testing can provide direct evidence about how intended users actually experience the interface.
+**Efficiency** describes how much effort is required to complete a task once the interface is understood. Unnecessary steps, repeated input and excessive navigation can reduce efficiency.
 
-Usability can be evaluated through several related characteristics. **Learnability** considers how easily users understand and begin using the system. **Efficiency** considers the time, effort and interactions required to achieve a goal. **Error prevention and recovery** considers whether predictable mistakes are prevented and whether users can understand and recover from errors. **Satisfaction** considers how users perceive the experience.
+**Error prevention and recovery** describe how well the interface prevents predictable mistakes and helps users understand and recover from errors.
 
-User-based testing can collect measures such as **task success**, **completion time**, **errors**, **assistance** and participant feedback.
+**Satisfaction** concerns whether the interaction is comfortable, understandable and acceptable to users. Because satisfaction is subjective, a QA tester should avoid making unsupported assumptions about what users personally prefer, while still reporting obvious sources of frustration or unnecessary effort.
 
-**SEQ**, the Single Ease Question, measures how easy or difficult a specific task felt and is normally collected after that task. **SUS**, the System Usability Scale, measures the participant's overall perception of system usability and is normally collected once after the complete session.
+**Accessibility** should also be considered when evaluating whether intended users can interact successfully with the interface. Basic accessibility checks may be included in the reusable usability checklist, while more systematic accessibility evaluation can be performed against applicable **WCAG** requirements.
 
-Accessibility is closely related to usability but has a more specific purpose. **Accessibility testing** evaluates barriers affecting people with disabilities and users of assistive technologies. For web content, **WCAG** organizes accessibility around the **Perceivable, Operable, Understandable and Robust (POUR)** principles.
+For web content, WCAG is organized around four principles commonly abbreviated as **POUR**: **Perceivable**, **Operable**, **Understandable** and **Robust**.
 
-User-based usability testing normally uses realistic **goal-based task scenarios** rather than click-by-click instructions. The participant should decide how to achieve the goal so that the tester can observe whether the interface itself provides sufficient guidance.
+Accessibility evaluation may include checks for **keyboard operation**, **visible and logical focus**, **screen-reader compatibility**, **text alternatives**, **color contrast**, **text resizing and zoom**, **form labels**, **error identification**, **reduced-motion preferences** and **semantic structure**.
 
-During a participant session, the tester presents the task, observes the participant without unnecessarily directing them and records the selected evidence. Depending on the objective, this may include success, completion time, errors, assistance, hesitation, incorrect actions and navigation paths. SEQ may be collected after individual tasks and SUS after the complete session when these measures are part of the evaluation.
+Two useful expert-based usability evaluation methods are **Heuristic Evaluation** and **Cognitive Walkthrough**.
 
-Participant sessions should use suitable test data and follow appropriate privacy and consent practices. Recording should only be performed with appropriate participant consent, and leading questions should be avoided because they can influence participant behavior.
+A **Heuristic Evaluation** systematically inspects an interface against recognized usability principles. Nielsen's usability heuristics provide a commonly used framework covering areas such as system feedback, consistency, error prevention, recognition rather than recall and user control.
 
-User-based and expert-based evaluations produce different forms of evidence.
+A **Cognitive Walkthrough** examines an important task from the perspective of a new or unfamiliar user. The tester considers whether the user is likely to understand what they need to do, discover the correct action and understand the resulting system feedback.
 
-**User-based testing** can produce participant observations and quantitative metrics such as success rate, completion time, error rate, assistance rate, SEQ and SUS.
+For example, when evaluating registration, the tester can work through the complete flow and consider whether a first-time user would understand where registration begins, what information is required, how to continue and whether registration was successful.
 
-**Expert-based evaluation** primarily produces documented usability problems supported by inspection evidence, interface location and expected user impact. Heuristic Evaluation may additionally identify the violated heuristic, while Cognitive Walkthrough records where a user may have difficulty discovering an action or understanding system feedback.
+A practical usability evaluation therefore follows a simple flow.
 
-Both paths ultimately produce **usability findings**.
+1. Select the feature or user flow.
+2. Define the objective and context of use.
+3. Select the relevant checklist checks and evaluation method.
+4. Work through the interface systematically.
+5. Record identified usability problems and supporting evidence.
+6. Describe the expected effect on the user.
+7. Prioritize the findings.
+8. Recommend an appropriate improvement.
+9. Retest after changes are implemented.
 
-A useful usability finding connects the observed problem with supporting evidence and its effect on the user. Findings should then be prioritized according to factors such as **severity**, **frequency** and **user impact**.
+Expert-based evaluation primarily produces **documented usability findings** rather than participant metrics.
 
-Recommendations should address the observed usability problem without unnecessarily prescribing a particular implementation. After changes are implemented, the affected area should be **retested** using an appropriate evaluation method.
+A useful finding identifies the **problem**, provides the relevant **evidence or location** and describes the **effect on the user**. A Heuristic Evaluation finding may additionally identify the relevant heuristic, while a Cognitive Walkthrough finding may explain where a new or unfamiliar user could have difficulty discovering an action or understanding feedback.
 
-Where comparable measurements are available, before-and-after results can help determine whether usability improved. A higher success rate or SEQ score alone does not prove that every usability problem has been resolved, so quantitative results should be interpreted together with qualitative observations.
+Accessibility findings should similarly identify the barrier, location and user impact and should reference the applicable accessibility requirement when required by the project.
 
-Usability testing can be performed throughout development, including on **sketches, wireframes, prototypes, partially implemented features and release candidates**. Early evaluation can reveal confusing interaction designs before they become expensive to change, while later evaluation can examine the implemented product in a more realistic context.
+Findings should be prioritized according to their importance and expected **user impact**. Problems that prevent an important task from being completed should normally receive more attention than minor inconvenience or cosmetic inconsistency.
 
-The key point is that **usability testing evaluates whether intended users can achieve their goals effectively, efficiently and satisfactorily, using evidence from user behavior, measurements, structured feedback or expert evaluation rather than relying only on subjective opinions about whether an interface looks easy to use**.
+Recommendations should address the observed usability problem without unnecessarily prescribing a particular implementation.
+
+After changes are implemented, the affected area should be **retested** using the relevant checklist checks, Heuristic Evaluation or Cognitive Walkthrough to verify that the original problem has been resolved without introducing new usability problems.
+
+Usability evaluation can be performed throughout development, including on **sketches, wireframes, prototypes, partially implemented features and release candidates**. Early evaluation can identify confusing interactions before they become expensive to redesign, while later evaluation can examine the implemented interface in its intended context.
+
+The key point is that **expert-based usability evaluation gives QA testers a practical and systematic way to identify problems that make an interface difficult, inefficient, inaccessible or confusing to use, even when the underlying functionality works correctly**.

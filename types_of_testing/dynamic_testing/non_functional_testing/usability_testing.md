@@ -1,43 +1,36 @@
 # Table of Contents: Usability Testing
 
 - [Planning Usability Testing](#planning-usability-testing)
-- [Choosing a Usability Evaluation Approach](#choosing-a-usability-evaluation-approach)
-- [Learnability](#learnability)
-- [Efficiency](#efficiency)
-- [Error Prevention and Recovery](#error-prevention-and-recovery)
-- [Satisfaction](#satisfaction)
+- [Usability Characteristics](#usability-characteristics)
 - [Accessibility WCAG Based](#accessibility-wcag-based)
 - [Nielsen's Usability Heuristics](#nielsens-usability-heuristics)
 - [Performing Usability Evaluation](#performing-usability-evaluation)
-- [Recording Usability Results and Metrics](#recording-usability-results-and-metrics)
-- [Creating Usability Findings](#creating-usability-findings)
+- [Recording Usability Findings](#recording-usability-findings)
 - [Prioritizing and Recommending Improvements](#prioritizing-and-recommending-improvements)
 - [Retesting Usability](#retesting-usability)
 - [When to Perform Usability Testing](#when-to-perform-usability-testing)
 
-**Usability testing** is a type of **non-functional dynamic testing** used to evaluate how effectively, efficiently and satisfactorily intended users can interact with a system to achieve specific goals in a defined context of use.
+**Usability** is a quality characteristic that describes how effectively, efficiently and satisfactorily intended users can interact with a system to achieve specific goals in a defined context of use.
 
-It is important to distinguish **usability** from **usability testing**. **Usability** is a quality characteristic of a product or system. **Usability testing** is the activity of evaluating that characteristic by observing users, measuring their performance, collecting feedback or applying structured evaluation methods.
+In QA, usability evaluation helps identify problems that may not cause a functional failure but still make a product difficult, inefficient or confusing to use. A registration form may submit data correctly, for example, while still having poor usability because important actions are difficult to discover or error messages do not help the user recover.
 
-ISO 9241-11 describes usability through **effectiveness**, **efficiency** and **satisfaction** in a specified context of use. The ISO/IEC 25010 product quality model also includes usability as a software quality characteristic.
+Usability can be evaluated in different ways. **User-based usability testing** involves representative users performing realistic tasks while their behavior and feedback are observed. This can provide direct evidence about how intended users experience the product, but planning and conducting formal participant studies is outside the practical scope of this lesson.
 
-![Usability effectiveness, efficiency and satisfaction](./assets/images/usability_effectiveness_efficiency_satisfaction.png)
-
-In QA, usability testing helps identify problems that may not cause a functional failure but still make the product difficult, inefficient, confusing or unpleasant to use. A registration form may submit data correctly, for example, while still having poor usability because users cannot understand its labels or repeatedly make avoidable errors.
+This lesson focuses on **expert-based usability evaluation**, which a QA tester can perform directly using checklist-based testing, **Heuristic Evaluation** and **Cognitive Walkthrough**.
 
 ## Planning Usability Testing
 
-Usability testing begins by choosing the **feature or user flow** to evaluate. Throughout this lesson, **account registration** is used as the main example so that the complete usability-testing workflow can be followed consistently from planning through retesting. The same process can later be adapted to other features or user flows.
+Usability evaluation begins by choosing the **feature or user flow** to evaluate. Throughout this lesson, **account registration** is used as the main example so that the workflow can be followed consistently from planning through retesting.
 
 The tester then defines a clear **objective**. The objective describes the usability question that the evaluation should answer rather than giving a general instruction to test the interface.
 
-For example, an objective for registration may be `Can a first-time user complete registration without assistance?`
+For example, an objective for registration may be `Can a first-time user understand how to complete registration without unnecessary difficulty?`
 
-The tester should also define the intended **context of use**, including the relevant users, devices, input methods and environment where practical. The scope should be clear enough that the tester knows what evidence must be collected and what is outside the evaluation.
+The tester should also define the intended **context of use**, including the relevant users, devices, input methods and environment where practical.
 
-In day-to-day QA work, usability testing is commonly supported by **experience-based testing techniques**. Instead of relying on detailed step-by-step test cases, the tester uses knowledge of common usability problems, previous defects, product risks, expected user behavior and the application itself to guide the evaluation.
+In day-to-day QA work, usability evaluation is commonly supported by **experience-based testing techniques**. The tester uses knowledge of common usability problems, previous defects, product risks, expected user behavior and the application itself to guide the evaluation.
 
-One useful experience-based technique is **checklist-based testing**. A usability checklist provides a reusable set of conditions or questions without prescribing exact test steps.
+One useful technique is **checklist-based testing**. A usability checklist provides a reusable set of conditions or questions without prescribing exact test steps.
 
 | Description                                                                                        | Pass | Fail | Notes |
 | -------------------------------------------------------------------------------------------------- | ---- | ---- | ----- |
@@ -62,15 +55,31 @@ One useful experience-based technique is **checklist-based testing**. A usabilit
 | Check that text and important interface elements remain readable when content is resized or zoomed.|      |      |       |
 | Verify that form controls have understandable labels and that errors can be identified clearly.    |      |      |       |
 
-The checklist should be adapted to the feature and **context of use** being tested. It provides a practical starting point rather than a fixed checklist that must be applied unchanged to every interface.
+The checklist should be adapted to the feature and **context of use** being tested. It is a practical starting point rather than a fixed checklist that must be applied unchanged to every interface.
 
-When usability is evaluated on mobile devices, additional checks may be needed for **touch-target size and spacing**, **gesture usability**, **on-screen keyboards**, **thumb reach** and interactions that require unnecessarily precise input. A form may require more attention to labels, validation, error prevention and recovery.
+When testing mobile interfaces, additional attention may be needed for **touch-target size and spacing**, **gesture usability**, **on-screen keyboards**, **thumb reach** and interactions that require unnecessarily precise input.
 
-The checklist also includes basic **accessibility-related checks** because accessibility barriers can directly affect whether users are able to operate and understand an interface. These checks can help identify obvious concerns during routine usability evaluation, but they do not represent a complete accessibility assessment.
+The checklist also contains basic accessibility checks. These can identify obvious barriers during routine usability evaluation, while a more systematic accessibility evaluation requires the additional WCAG-based checks introduced later in this lesson.
 
-Dedicated **accessibility testing** requires additional evaluation against applicable accessibility requirements, including areas such as keyboard operation, focus behavior, text alternatives, color contrast, semantic structure and compatibility with assistive technologies. These are covered later in **Accessibility (WCAG Based)**.
+## Usability Characteristics
 
-Once the feature, objective, context of use and relevant checks have been defined, the tester can decide how the usability evaluation will be performed.
+When evaluating an interface, the tester should understand the main usability characteristics and use them to decide what kinds of problems to look for.
+
+**Learnability** describes how easily a new or unfamiliar user can understand the interface and determine how to perform important actions. The tester should look for unclear labels, unfamiliar icons, confusing navigation and interactions that require unnecessary explanation.
+
+For the registration example, the tester can examine whether a first-time user would understand where registration begins, what information is required and how to continue through the flow.
+
+**Efficiency** describes how much effort is required to complete a task once the interface is understood. The tester should look for unnecessary steps, repeated input, excessive navigation and other interactions that make common tasks harder than necessary.
+
+For registration, repeatedly requesting the same information or requiring unnecessary screens would reduce efficiency even if registration can still be completed.
+
+**Error prevention and recovery** describe how well the interface prevents predictable mistakes and helps users recover when mistakes occur. The tester should evaluate validation, understandable error messages, preserved input, confirmation of destructive actions and appropriate recovery options.
+
+For example, if an invalid email address is entered, the registration form should identify the affected field, explain what needs to be corrected and preserve other valid information already entered.
+
+**Satisfaction** concerns whether the interaction is comfortable, understandable and acceptable to users. Because satisfaction is subjective, a QA tester should avoid claiming to know what users personally prefer without user evidence. However, obvious sources of frustration such as unnecessary interruptions, confusing interactions and excessive effort can still be reported as usability concerns.
+
+These characteristics help the tester understand what to inspect. They are not separate test procedures that must be executed independently.
 
 ## Choosing a Usability Evaluation Approach
 
@@ -121,107 +130,6 @@ Free and open-source alternatives include **OpenReplay** and **PostHog** for ses
 Heuristic evaluation, cognitive walkthrough and checklist-based testing do not require specialized usability software. A browser and an appropriate checklist or evaluation guide may be sufficient.
 
 Once the evaluation approach has been selected, the tester determines which usability measures and user feedback are needed before performing the evaluation.
-
-## Learnability
-
-**Learnability** describes how easily users can understand a system and begin using it effectively, especially during their first interactions.
-
-A learnable system helps first-time users understand its purpose, recognize important actions, navigate the interface and complete basic tasks without excessive instructions, training or external assistance. Familiar terminology, consistent layouts, clear labels and established interface patterns generally improve learnability.
-
-When learnability is part of the objective, the tester should focus on users who are unfamiliar with the feature or interface and examine **first-attempt task success**, **completion time**, **errors**, **assistance** and observable hesitation or incorrect actions.
-
-For example, a learnability objective may evaluate whether a first-time user can create an account within three minutes without assistance.
-
-`Formula: (successful completions ÷ total attempts) × 100`
-
-`Example: 4 of 5 first-time users completed registration = (4 ÷ 5) × 100 = 80%`
-
-Typical learnability problems include unclear button purposes, unfamiliar icons without labels, inconsistent terminology, complex navigation paths and screens containing more information than users can easily process.
-
-Learnability overlaps with accessibility and consistency, but its main focus is how quickly users become capable of using the system.
-
-## Efficiency
-
-**Efficiency** describes the resources users must spend to achieve their goals after they understand how the system works. In usability testing, this commonly includes the **time**, **effort** and **number of interactions** required to complete a task.
-
-An efficient system enables users to perform common tasks without unnecessary navigation, repeated data entry, redundant confirmations or avoidable interruptions. Experienced users may also benefit from shortcuts, remembered preferences, bulk actions and other mechanisms that reduce repetitive work.
-
-When efficiency is part of the objective, the tester can measure **task completion time**, **clicks or taps**, **screens or steps**, **repeated input** and unnecessary navigation. The expected task path can also be compared with the path participants actually take.
-
-`Formula: total completion time ÷ number of completed tasks`
-
-`Example: successful registration times of 52 s, 45 s, 50 s and 53 s = (52 + 45 + 50 + 53) ÷ 4 = 50 seconds`
-
-For example, two interfaces may both allow a user to update an address successfully. If one requires four clear steps while the other requires twelve unnecessary steps, both may be functionally correct, but the second interface is less efficient.
-
-Slow page loading and delayed responses can also reduce perceived usability. Detailed response-time and load validation normally belongs to **performance testing**, while usability testing focuses on how those delays affect the user's ability to complete a task.
-
-## Error Prevention and Recovery
-
-**Error prevention and recovery** evaluate how well the system helps users avoid mistakes and how easily they can recover when mistakes occur.
-
-A usable interface should prevent predictable errors where practical. This can include disabling unavailable actions, validating input before submission, using suitable input controls, clearly distinguishing destructive actions and requesting confirmation when an action has serious consequences.
-
-When an error occurs, the system should help the user understand what happened and how to continue. An effective error message identifies the problem, shows which field or action is affected, explains how the problem can be corrected and uses language that the intended user can understand.
-
-Recovery is equally important. Users may need to undo an action, edit incorrect input, retry an operation, restore a previous state or return to a safe point without restarting the entire task.
-
-For example, if a user submits a form with an invalid email address, the system should identify the email field, explain the expected format and preserve the other valid information already entered.
-
-`Formula: number of user errors ÷ number of defined error opportunities`
-
-`Example: 6 user errors across 30 defined registration error opportunities = 6 ÷ 30 = 20%`
-
-The number of **error opportunities** must be defined before testing so that the denominator is measured consistently.
-
-The tester should evaluate both **prevention** and **recovery**. Verifying only that an error message appears does not demonstrate that the user can understand the problem or successfully continue.
-
-## Satisfaction
-
-**Satisfaction** describes how users perceive their experience with the system, including whether interactions feel easy, comfortable and acceptable.
-
-Because satisfaction is based on user perception, the tester should not decide that an interface is satisfying simply because users complete their tasks successfully. Structured questionnaires can be used to collect this feedback consistently.
-
-Two commonly used questionnaires are **SEQ** and **SUS**. They answer different questions.
-
-| Questionnaire | What it answers                               | When to use it                  |
-| ------------- | --------------------------------------------- | ------------------------------- |
-| SEQ           | How easy or difficult was this specific task? | After a task                    |
-| SUS           | How usable did the system feel overall?       | Once after the complete session |
-
-**SEQ**, the Single Ease Question, is used when the tester wants to know how easy or difficult a **specific task** felt to the participant.
-
-After completing a task, the participant answers one question by selecting a value from 1 to 7. A higher score represents greater perceived ease, while a lower score represents greater perceived difficulty.
-
-For example, after completing account registration, the participant may be asked how easy or difficult the task was. If five participants give registration ratings of 5, 6, 2, 6 and 5, the tester calculates the average rating.
-
-`Formula: sum of 1–7 ratings ÷ number of responses`
-
-`Example: registration SEQ ratings of 5, 6, 2, 6 and 5 = (5 + 6 + 2 + 6 + 5) ÷ 5 = 4.8`
-
-The result means that the **registration task received an average perceived-ease rating of 4.8 out of 7**. The tester should compare this result with other evidence such as task success, completion time, errors and observations rather than treating one SEQ value as a universal pass or fail result.
-
-If the session contains several tasks, SEQ can be collected separately after each relevant task. This allows the tester to identify which tasks users perceive as easier or more difficult.
-
-**SUS**, the System Usability Scale, answers a different question. Instead of evaluating one task, SUS measures the participant's **overall perception of the usability of the system**.
-
-SUS contains 10 statements. The participant rates each statement from 1 to 5 after completing the usability session. The responses are converted into a single score from 0 to 100.
-
-For this reason, SUS is normally collected **once after all tasks are complete**, not after every task.
-
-`Calculation: for odd items subtract 1 from the response; for even items subtract the response from 5. Sum all 10 adjusted scores and multiply by 2.5`
-
-`Example: adjusted sum of 30 = 30 × 2.5 = SUS 75`
-
-A SUS score of **75** does not mean that the system is 75% usable. SUS is a standardized score used to compare the perceived usability of a system with benchmarks or other evaluations. A score of about **68** is commonly used as a historical average benchmark, but it should not automatically be treated as a pass or fail threshold.
-
-The practical distinction is therefore simple. Use **SEQ** when you need feedback about the perceived ease of a **specific task**. Use **SUS** when you need a standardized measure of the participant's perception of the **overall system or experience**.
-
-For example, during an account registration usability evaluation, the tester may collect **SEQ immediately after registration** to understand how easy that task felt. If the same session contains several tasks, the tester may collect SEQ after each relevant task and then administer **SUS once at the end of the complete session**.
-
-Other instruments such as **UMUX** and **UMUX-Lite** can also measure perceived usability and usefulness. **NPS**, the Net Promoter Score, measures willingness to recommend a product and may be relevant in some business contexts, but it is not a direct usability metric and should not replace usability-specific measures such as SUS or SEQ.
-
-Satisfaction results should always be interpreted together with behavioral evidence. A participant may complete a task successfully while still finding it difficult or frustrating, while another participant may report that a task felt easy despite taking longer than expected.
 
 ## Accessibility WCAG Based
 
@@ -283,154 +191,83 @@ Usability severity reflects **user impact** rather than whether a technical fail
 
 ## Performing Usability Evaluation
 
-The procedure depends on whether a **user-based** or **expert-based** evaluation method has been selected.
+After the feature, objective, context of use and relevant checks have been defined, the tester can perform the usability evaluation.
 
-When a **user-based method** is selected, the tester chooses representative participants who reflect the intended users of the product. The number and type of participants depend on the objective, product, risk and evidence required.
+For the practical QA scope of this lesson, two useful expert-based methods are **Heuristic Evaluation** and **Cognitive Walkthrough**. Checklist-based testing can support either method by providing reusable conditions to inspect.
 
-The tester then creates realistic **goals or task scenarios**. These should describe what the participant wants to achieve without explaining which buttons, links or controls to use.
+In a **Heuristic Evaluation**, the tester systematically inspects the interface against recognized usability principles such as Nielsen's usability heuristics. The tester looks for violations or weaknesses and records where they occur and how they may affect the user.
 
-For the registration example, the participant may be asked to `Create a new account using the provided test information`.
+For the registration example, the tester may identify that selecting **Create Account** provides no visible feedback. This can be recorded as a problem related to **Visibility of system status** because the user may not know whether registration is being processed.
 
-Before testing begins, the tester defines the metrics that will be collected for each task. Depending on the objective, these may include **success**, **completion time**, **errors**, **assistance**, **clicks or steps** and **SEQ**. **SUS** is collected after the overall session rather than after each individual task.
+In a **Cognitive Walkthrough**, the tester works through an important task from the perspective of a new or unfamiliar user. At each important action, the tester considers whether the user is likely to understand what they need to do, discover the correct action and understand the resulting feedback.
 
-The test setup should include the required device or browser, test environment, fake or dedicated test data, an observation sheet or spreadsheet and any selected questionnaires. A timer may be used when completion time is measured. Screen recording is optional and requires appropriate participant consent.
+For registration, the tester can begin at the registration page and work through the complete flow while asking whether a first-time user would understand where to begin, what information to enter, how to continue and whether registration was successful.
 
-Before real participant sessions, a short **pilot test** should be performed where practical. The pilot verifies that the scenarios are understandable, links and test data work, recording and timing are ready and the data collection process can be followed without disrupting the session.
+The practical workflow is.
 
-At the beginning of the session, the tester should explain that the **interface is being evaluated, not the participant**. If the Thinking Aloud Protocol is being used, the participant should also be asked to verbalize what they are looking for, thinking and expecting while working through the task.
+1. Select the feature or user flow.
+2. Define the objective and context of use.
+3. Select the relevant checklist checks and evaluation method.
+4. Work through the interface systematically.
+5. Record each usability problem and supporting evidence.
+6. Describe the expected effect on the user.
+7. Prioritize the findings.
+8. Recommend an appropriate improvement.
+9. Retest after the interface is changed.
 
-For each task, the tester follows the same basic sequence.
+Accessibility checks can be included in the same evaluation when they are part of the defined scope. More detailed accessibility findings should also reference the applicable accessibility requirement when required by the project.
 
-1. Present one goal-based scenario.
-2. Start the timer if completion time is being measured.
-3. Allow the participant to perform the task without directing them.
-4. Observe success, errors, assistance, hesitation, incorrect actions and the navigation path.
-5. Stop the timer when the task finishes according to the predefined criterion.
-6. Record the raw result immediately.
-7. Ask SEQ after the task when SEQ is part of the test plan.
-8. Continue with the next task until all planned tasks are complete.
+## Recording Usability Findings
 
-If the participant asks for help, the tester should avoid immediately giving the correct action because doing so can hide a usability problem. Where appropriate, the tester can first ask what the participant would try on their own. Any assistance that affects the result should be recorded.
+Expert-based usability evaluation does not normally produce participant measures such as task success rate, SEQ or SUS because representative users are not performing the evaluation.
 
-`Formula: (assistance events ÷ total tasks) × 100`
-
-`Example: 1 assistance event across 5 registration attempts = (1 ÷ 5) × 100 = 20%`
-
-After all tasks are complete, **SUS** may be administered when it is part of the study. The tester then repeats the same planned procedure with the remaining participants and records the raw data consistently.
-
-Usability sessions should follow basic ethical and privacy practices. Participants should give appropriate **consent** before audio, video or screen activity is recorded. Testers should use **fake or dedicated test data** instead of unnecessary personal or sensitive information and should avoid **leading questions** that suggest the expected action or answer.
-
-When an **expert-based method** is selected, representative participants are not required and participant measures such as SEQ and SUS are normally not collected.
-
-For a **Heuristic Evaluation**, the evaluator systematically inspects the interface against the selected usability heuristics.
-
-For a **Cognitive Walkthrough**, the evaluator works through the selected task step by step and considers whether a new or unfamiliar user is likely to understand the goal, discover the correct action and understand the resulting system feedback.
-
-Identified problems and supporting evidence should be recorded for later analysis and prioritization.
-
-## Recording Usability Results and Metrics
-
-The way usability results are recorded depends on whether the evaluation is **user-based** or **expert-based**.
-
-For **user-based usability testing**, raw data should be recorded consistently so that participant observations can be converted into measurable evidence. A simple task data sheet may include the participant, task, success result, completion time, number of errors, assistance events and SEQ rating.
-
-| User | Task         | Success | Time | Errors | Help | SEQ |
-|------|--------------|---------|------|--------|------|-----|
-| U1   | Registration | Yes     | 52 s | 1      | 0    | 5   |
-| U2   | Registration | Yes     | 45 s | 0      | 0    | 6   |
-| U3   | Registration | No      | 95 s | 3      | 1    | 2   |
-| U4   | Registration | Yes     | 50 s | 1      | 0    | 6   |
-| U5   | Registration | Yes     | 53 s | 1      | 0    | 5   |
-
-The task data should remain at the **raw observation level**. Each row represents one participant performing one task, which makes it possible to calculate results for individual tasks and compare results across participants.
-
-The recorded data can then be used to calculate **task success rate**, **average completion time**, **error rate**, **assistance rate** and **average SEQ score** using the formulas introduced in the relevant sections.
-
-SUS should be recorded separately because it represents the participant's overall perception of the system rather than the result of an individual task.
-
-| User | SUS Score |
-|------|-----------|
-| U1   | 75        |
-| U2   | 70        |
-| U3   | 67.5      |
-| U4   | 80        |
-| U5   | 72.5      |
-
-After all participant sessions are complete, the tester can aggregate the raw data to produce usability results for each task and for the overall evaluation.
-
-When calculating **average completion time**, the team should agree before testing whether tasks that are not successfully completed will be included in the calculation. The chosen rule should be applied consistently so that results can be compared correctly.
-
-Metrics should be interpreted together rather than in isolation. A task may have a high success rate but still have poor usability if participants require excessive time, make repeated errors or report low ease-of-use ratings.
-
-For **expert-based usability evaluation**, participant metrics such as task success rate, SEQ and SUS are normally not collected because representative users are not performing the evaluation.
-
-Instead, the evaluator records each identified usability problem together with the evidence needed to understand and reproduce the finding.
+Instead, the tester records each identified usability problem together with enough evidence to understand where the problem occurs and why it matters.
 
 | Method                | Problem                                                | Evidence or Location                              | User Impact                                            |
 |-----------------------|--------------------------------------------------------|---------------------------------------------------|--------------------------------------------------------|
 | Heuristic Evaluation  | No feedback appears after submitting registration.     | Registration form after selecting Create Account  | A user may not know whether the action was successful. |
 | Cognitive Walkthrough | The next registration action is difficult to discover. | Registration form after entering account details  | A first-time user may not understand how to continue.  |
 
-For a **Heuristic Evaluation**, the evidence may also identify the heuristic that is violated. For a **Cognitive Walkthrough**, the evaluator may record the action being examined and why a new user may have difficulty discovering, performing or understanding it.
+For a **Heuristic Evaluation**, the finding may also identify the heuristic involved.
 
-User-based and expert-based evaluations therefore produce different forms of evidence. **User-based testing** can produce participant observations and quantitative metrics, while **expert-based evaluation** primarily produces documented usability problems supported by inspection evidence and expected user impact.
+For a **Cognitive Walkthrough**, the finding may identify the action being examined and explain why a new or unfamiliar user may have difficulty discovering, performing or understanding it.
 
-Both forms of evidence are converted into usability findings in the next stage.
+For an **accessibility finding**, the tester should record the barrier, location, user impact and applicable accessibility requirement when required.
 
-## Creating Usability Findings
-
-Both **user-based usability testing** and **expert-based usability evaluation** should produce clear **usability findings**. The evidence used to create the finding depends on the evaluation approach.
-
-For **user-based usability testing**, findings are based on evidence collected from representative users. The tester combines **quantitative evidence** such as success rate, completion time, errors, assistance, **SEQ** and **SUS** with **qualitative observations** such as hesitation, confusion, incorrect navigation, expectations and repeated problems.
-
-For example, if 3 of 5 participants cannot easily find the **Create Account** action and repeatedly search other parts of the registration interface, the finding should describe the discoverability problem and support it with the observed behavior and relevant measurements.
-
-For **expert-based usability evaluation**, findings are based on structured inspection rather than participant data. Measures such as task success rate, SEQ and SUS are therefore normally not part of the evidence.
-
-In a **Heuristic Evaluation**, the finding should identify the relevant heuristic, the observed usability problem, the location or evidence and the expected effect on the user.
-
-For example, if selecting **Create Account** provides no visible confirmation that registration is being processed, the evaluator may identify a problem related to **Visibility of system status** and record where it occurs and how it may affect the user.
-
-In a **Cognitive Walkthrough**, the finding should identify the point in the task where a new or unfamiliar user may have difficulty understanding what to do, discovering the correct action or understanding the resulting system feedback.
-
-For example, if the **Create Account** action is difficult to distinguish from secondary actions, the evaluator may record that a first-time user could have difficulty discovering how to complete registration.
-
-Although the evidence differs, findings from both approaches should clearly identify the **usability problem**, provide **supporting evidence or observations**, describe the **effect on the user** and identify where the problem occurs.
-
-Where measurable evidence is available, it should be included, but a usability finding does not require a quantitative metric to be valid. Expert evaluation can produce useful findings based on systematic inspection and documented evidence without participant measurements.
-
-Where appropriate, the finding may also include a **recommended improvement** that addresses the observed problem without prescribing unnecessary implementation details.
-
-Once findings from the selected evaluation approach have been documented, they can be prioritized according to their importance and user impact.
+A useful finding should clearly identify the **problem**, provide **evidence or location** and describe the **effect on the user**. A quantitative metric is not required for an expert-based usability finding to be valid.
 
 ## Prioritizing and Recommending Improvements
 
-After findings are documented, the tester should prioritize them according to **severity**, **frequency** and **user impact**. Problems that block important tasks, affect many users or repeatedly cause serious confusion normally receive higher priority than minor inconvenience or cosmetic inconsistency.
+After usability findings are recorded, the tester should prioritize them according to their importance and expected user impact.
 
-Technical failure is not required for a usability issue to be severe. An application may remain stable while a usability problem prevents users from completing an essential task.
+Problems that prevent an important task from being completed should normally receive more attention than minor inconvenience or cosmetic inconsistency. Frequency may also be considered when the same problem appears repeatedly across the interface.
 
-Recommendations should address the observed problem. For the registration example, if the **Create Account** action is difficult to discover, the recommendation may be to improve its **visibility and discoverability** rather than prescribing a specific implementation without design evidence.
+Technical failure is not required for a usability issue to be serious. An application may remain stable while a usability problem makes an essential action difficult to discover or understand.
 
-The prioritized findings are then reviewed with the appropriate product, design and development stakeholders so that changes can be selected and implemented.
+Recommendations should address the observed problem without prescribing unnecessary implementation details.
+
+For example, if the **Create Account** action is difficult to discover, the recommendation may be to improve its **visibility and discoverability** rather than requiring a particular visual design without supporting evidence.
+
+The findings can then be reviewed with the appropriate product, design and development stakeholders so that changes can be selected and implemented.
 
 ## Retesting Usability
 
-After an interface is changed, the affected usability problem should be evaluated again using an appropriate method.
+After an interface is changed, the affected usability problem should be evaluated again.
 
-Where comparable metrics were collected before the change, the tester can compare the **before** and **after** results to determine whether the user experience improved.
+The tester should repeat the relevant checklist checks, Heuristic Evaluation or Cognitive Walkthrough and verify whether the original problem has been resolved without introducing a new usability problem.
 
-For the registration example, the initial evaluation may show an 80% task success rate, an average SEQ of 4.8 and an average successful completion time of 50 seconds. After the identified usability problem is improved, the tester repeats the registration evaluation and compares the new results with this baseline.
+For example, if the **Create Account** action was changed because it was difficult to discover, the tester should repeat the registration walkthrough and confirm that the action is now easier to identify while the rest of the flow remains understandable.
 
-Improvement in one metric should not automatically be treated as proof that every usability problem has been solved. The tester should also review errors, observations, satisfaction and any new problems introduced by the change.
+Retesting should focus on the changed area and any related interactions that may have been affected by the improvement.
 
 ## When to Perform Usability Testing
 
-Usability testing is most valuable when it begins early and continues at appropriate points throughout the software development life cycle.
+Usability evaluation is most valuable when it begins early and continues at appropriate points throughout the software development life cycle.
 
-It can be performed on sketches, wireframes, prototypes, partially implemented features and release candidates. Early testing can identify confusing workflows before they become expensive to redesign, while later testing can evaluate the implemented product in realistic environments.
+It can be performed on sketches, wireframes, prototypes, partially implemented features and release candidates. Early evaluation can identify confusing workflows before they become expensive to redesign, while later evaluation can check the implemented interface in its intended context.
 
-Usability testing matters to QA because poor usability can increase user errors, support requests, training costs, abandonment and rework. Depending on the product, it can also affect conversion, retention, productivity, accessibility and customer satisfaction.
+Usability evaluation matters to QA because poor usability can increase user errors, support requests, abandonment and rework even when the underlying functionality works correctly.
 
-For a planned usability evaluation cycle, testing can stop when the defined **success criteria and exit criteria** have been evaluated and enough evidence has been collected to support the required decision. Remaining issues may be accepted or deferred when their expected user benefit does not justify the cost or risk of further changes, but that decision should be explicit and made by the appropriate stakeholders rather than assumed by the tester.
+For the planned scope, the evaluation can stop when the selected feature or user flow has been inspected against the defined objective, relevant checks have been completed and identified problems have been documented with enough evidence for the team to make a decision.
 
-Usability should therefore be treated as a testable quality characteristic with defined users, tasks, environments, evidence and success criteria rather than only as a subjective opinion about whether an interface looks good.
+The key point is that **expert-based usability evaluation gives QA testers a practical way to identify usability problems systematically without requiring a formal participant study**.
