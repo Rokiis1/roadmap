@@ -107,7 +107,7 @@ The checklist acts as a reminder of what should be considered, helping testers v
 When testing a responsive user interface, a checklist might include the following items.
 
 | Description                                                                                       | Pass | Fail | Notes |
-|---------------------------------------------------------------------------------------------------|------|------|-------|
+| ------------------------------------------------------------------------------------------------- | ---- |----- | ----- |
 | Verify that the layout adjusts correctly at relevant screen sizes.                                |      |      |       |
 | Check that elements do not overlap or become misaligned.                                          |      |      |       |
 | Verify that navigation remains usable on supported screen sizes.                                  |      |      |       |

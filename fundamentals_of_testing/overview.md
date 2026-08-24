@@ -1,15 +1,15 @@
 # Fundamentals of Testing Overview
 
-The fundamentals of testing provide the foundation for understanding how software quality is evaluated and supported throughout development.
+The fundamentals of testing provide the foundation for understanding **what software testing is, why it is performed and how it contributes to software quality**. These concepts establish the terminology, principles, processes and responsibilities that support testing throughout software development.
 
-Testing is more than executing test cases and finding defects. It involves understanding **what needs to be tested**, **why it needs to be tested**, **which risks are important**, **how testing work is organized** and **how the results contribute to decisions about quality**.
-
-Effective testing combines several perspectives. It requires an understanding of **testing objectives and principles**, a structured way of organizing **test activities**, clear terminology for discussing **errors, defects and failures**, and collaboration between the people involved in developing and evaluating the product.
+The **Fundamentals of Testing** module develops from understanding the basic testing mindset and terminology, through organizing testing work, to understanding how quality responsibilities and collaboration work within development teams.
 
 ![Fundamentals of Testing](./assets/images/fundamentals_of_testing.png)
 
-Quality is also not created by testing alone. Testing provides valuable information about the product, while quality is influenced by the **processes**, **decisions**, **communication** and **work of the entire team** throughout development.
+**Level 1** introduces the fundamental concepts and principles of testing. It explains **what testing is**, the main **test objectives**, the difference between **testing and debugging**, the relationship between **errors, defects, failures and root causes**, and the fundamental **principles of testing** that guide testing decisions.
 
-The way testing is performed depends on the product and its context. Different systems involve different **risks**, **requirements**, **users**, **technologies** and **quality expectations**. For this reason, there is no single testing approach that is appropriate for every project.
+**Level 2** focuses on **how testing work is organized and performed**. It introduces the **test process**, explains the activities involved in planning, analyzing, designing, implementing, executing and completing testing, introduces important **testware**, and explains how **testing responsibilities** can be distributed.
 
-Understanding these fundamentals creates the foundation for more specialized QA topics and for applying testing knowledge effectively in real development environments.
+**Level 3** focuses on **quality responsibilities and collaboration within development teams**. It explains the relationship between **Quality Assurance and Quality Control**, the purpose and different degrees of **testing independence**, and how the **whole team approach** supports shared responsibility for quality.
+
+Together, these concepts provide the foundation for understanding testing as a **structured, risk aware and collaborative activity** that provides information about product quality and supports better decisions throughout software development.

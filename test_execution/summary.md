@@ -47,7 +47,7 @@ Level 2 builds on the execution approaches introduced in Level 1 and focuses on 
 
 **Manual testing** is a strong choice when **human observation, judgment and flexibility** are required. It is especially useful when requirements or expected behavior are still evolving because a tester can adapt the testing as understanding of the feature develops.
 
-Manual testing is also appropriate for **usability, readability and user experience validation** because these areas depend on human perception and judgment. A person can evaluate whether an interface is understandable, comfortable to use and behaves in a way that feels appropriate in ways that traditional scripts cannot reliably measure.
+Manual testing is also appropriate for **usability and user experience validation** because these areas depend on human perception and judgment. A person can evaluate whether an interface is understandable, comfortable to use and behaves in a way that feels appropriate in ways that traditional scripts cannot reliably measure.
 
 Tests that will be executed **only once or a few times** may be more practical to perform manually because the effort required to create and maintain automation may exceed the time saved by automating them.
 
