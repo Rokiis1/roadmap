@@ -81,56 +81,6 @@ For example, if an invalid email address is entered, the registration form shoul
 
 These characteristics help the tester understand what to inspect. They are not separate test procedures that must be executed independently.
 
-## Choosing a Usability Evaluation Approach
-
-After the feature, objective and context of use have been defined, the tester decides how the usability evaluation will be performed.
-
-The main decision is whether the evaluation requires **representative users** or can be performed directly by a **tester or usability specialist**.
-
-**User-based usability testing** should be selected when the tester needs evidence about how representative users actually interact with the interface.
-
-Common user-based approaches include **moderated usability testing** and **unmoderated usability testing**. Moderated testing is useful when the tester needs to observe participants in real time, ask follow-up questions or investigate why users become confused. Unmoderated testing is useful when participants can complete the evaluation independently without a facilitator being present for every session.
-
-The **Thinking Aloud Protocol** can be used during a moderated session when the tester needs to understand the participant's reasoning. The participant describes what they are looking for, what they expect and what they find confusing while completing the task.
-
-Testing may also be **remote** or **in-person**. These terms describe where the evaluation takes place rather than separate usability methods. Remote testing is useful when participants are geographically distributed, while in-person testing may be appropriate when direct observation, physical devices or a controlled environment are important.
-
-For the registration example, if the objective is `Can a first-time user complete registration without assistance?`, moderated usability testing with representative first-time users may be appropriate because the tester needs to observe where users hesitate, make errors or require assistance.
-
-**Expert-based usability evaluation** should be selected when potential usability problems need to be identified without recruiting representative users.
-
-A **Heuristic Evaluation** is useful when the interface needs to be inspected systematically against established usability principles. A **Cognitive Walkthrough** is more focused on whether a new or unfamiliar user can discover and understand the actions required to complete a particular task.
-
-For the registration example, a Heuristic Evaluation could identify inconsistent labels, missing feedback or poor error prevention. A Cognitive Walkthrough could examine whether a first-time user can discover how to start registration, understand each required action and recognize whether registration was successful.
-
-The two approaches can also complement each other. Expert evaluation can identify potential problems early, while user-based testing can provide direct evidence about how those problems affect intended users.
-
-![User-based and expert-based usability testing workflow](./assets/images/usability_testing_method_workflow.png)
-
-Some techniques are useful in more specific situations. **Paper prototyping and low-fidelity testing** are useful before the interface is fully implemented because sketches, wireframes or simple prototypes can be evaluated before significant development effort is spent.
-
-**Guerrilla testing** can provide quick exploratory feedback when a formal study is not practical. Because participants are selected mainly based on availability, the results should not be treated as strong evidence about the entire target population.
-
-The **RITE method**, Rapid Iterative Testing and Evaluation, is useful when the team wants to identify important usability problems, make changes quickly and evaluate the revised design during the same study cycle.
-
-**Eye tracking** is a specialized technique used when the evaluation specifically requires evidence about where users direct their visual attention. It is not required for routine usability testing.
-
-**A/B testing** is useful when two or more design variants need to be compared using a defined metric. It can show which variant performs better, but it does not necessarily explain why users experience difficulty and should not replace direct usability evaluation.
-
-**Formative testing** describes usability evaluation performed during design and development to discover problems and improve the product. **Summative testing** evaluates usability against predefined goals or benchmarks. These terms describe the **purpose and timing** of an evaluation rather than separate execution techniques.
-
-For example, an evaluation can be **formative, remote, moderated and use Thinking Aloud at the same time**. These terms describe different aspects of the same evaluation rather than competing methods.
-
-Methods can also be **combined**. For example, the tester may first perform a Heuristic Evaluation to identify obvious problems and then conduct moderated sessions with representative users to determine how those problems affect actual user behavior.
-
-Commercial tools such as **Maze**, **Lookback**, **Hotjar** and **UserTesting** can support remote studies, unmoderated sessions, recordings and behavioral analysis. Availability and pricing depend on the selected plan.
-
-Free and open-source alternatives include **OpenReplay** and **PostHog** for session replay, **OBS Studio** for screen recording, **Jitsi Meet** for remote moderated sessions and **Penpot** for prototyping.
-
-Heuristic evaluation, cognitive walkthrough and checklist-based testing do not require specialized usability software. A browser and an appropriate checklist or evaluation guide may be sufficient.
-
-Once the evaluation approach has been selected, the tester determines which usability measures and user feedback are needed before performing the evaluation.
-
 ## Accessibility WCAG Based
 
 **Accessibility** evaluates whether people with disabilities can perceive, operate, understand and interact with a system. Accessibility and usability overlap, but they are not identical disciplines. Accessibility testing specifically evaluates barriers that affect users with disabilities and users of assistive technologies.
@@ -163,7 +113,7 @@ For **motion and animation**, interfaces should respect applicable reduced-motio
 
 For **semantic structure**, headings, landmarks, controls and other interface elements should use appropriate structure so that assistive technologies can interpret the relationships and purpose of the content.
 
-Automated accessibility tools can support some of these checks. **axe** can detect accessibility issues in web pages and support developer or browser-based testing. **WAVE** provides visual feedback about accessibility problems directly on a page, while **Lighthouse** includes automated accessibility audits alongside other web quality checks. These tools can identify some accessibility problems, but they do not replace manual testing.
+Automated accessibility tools can support some of these checks. **WAVE** provides visual feedback about accessibility problems directly on a page, while **Lighthouse** includes automated accessibility audits alongside other web quality checks. These tools can identify some accessibility problems, but they do not replace manual testing.
 
 Free screen readers such as **NVDA** on Windows and **Orca** on Linux can be used to evaluate how content and controls are presented through assistive technology.
 
