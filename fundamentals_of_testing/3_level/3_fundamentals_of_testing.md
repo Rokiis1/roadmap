@@ -58,7 +58,7 @@ The **whole team approach** means that team members share responsibility for qua
 
 Quality is not considered the responsibility of testers alone. **Developers**, **testers**, **business representatives**, **product specialists** and other team members can contribute their knowledge throughout development.
 
-Different team members contribute in different ways. Developers bring detailed technical knowledge and can create automated checks, perform testing, investigate failures and correct defects. Testers contribute testing expertise, risk awareness, critical thinking, and knowledge of testing techniques. Business representatives and product specialists contribute knowledge about user needs, business rules, priorities and expected product behavior.
+Different team members contribute in different ways. Developers bring detailed technical knowledge and can create automated checks, perform testing, investigate failures and correct defects. Testers contribute testing expertise, risk awareness, critical thinking, and knowledge of testing techniques. Business representatives and product specialists contribute knowledge about user needs, application rules, priorities and expected product behavior.
 
 Collaboration allows these perspectives to be combined. Requirements and acceptance criteria can be discussed before implementation, potential risks can be identified earlier, and questions about expected behavior can be resolved before they become expensive problems.
 

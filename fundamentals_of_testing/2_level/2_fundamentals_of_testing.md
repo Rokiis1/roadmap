@@ -70,7 +70,7 @@ During **test planning**, the team establishes the testing approach, objectives,
 
 During **test monitoring and control**, information about testing progress, results, risks and deviations from the plan is collected and evaluated. When necessary, actions are taken to keep testing aligned with its objectives.
 
-During **test analysis**, the test basis is examined to identify testable features and define **test conditions**. A test condition represents an aspect of the system that can be tested, such as a feature, requirement, business rule or specific behavior. Risks and priorities help determine where testing effort should be focused.
+During **test analysis**, the test basis is examined to identify testable features and define **test conditions**. A test condition represents an aspect of the system that can be tested, such as a feature, requirement, application rule or specific behavior. Risks and priorities help determine where testing effort should be focused.
 
 During **test design**, test conditions are developed into **test cases**. A test case describes a particular situation to be tested and defines the information needed to verify the expected behavior. Required test data, coverage and environment needs are also identified.
 

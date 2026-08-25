@@ -145,7 +145,11 @@ After the feature, objective, context of use and relevant checks have been defin
 
 For the practical QA scope of this lesson, two useful expert-based methods are **Heuristic Evaluation** and **Cognitive Walkthrough**. Checklist-based testing can support either method by providing reusable conditions to inspect.
 
+A focused heuristic evaluation of a single user flow typically takes one to two hours for one expert.
+
 In a **Heuristic Evaluation**, the tester systematically inspects the interface against recognized usability principles such as Nielsen's usability heuristics. The tester looks for violations or weaknesses and records where they occur and how they may affect the user.
+
+Each screen or step in the flow should be checked against all ten heuristics so that the evaluation is systematic rather than limited to only a few selected principles.
 
 For the registration example, the tester may identify that selecting **Create Account** provides no visible feedback. This can be recorded as a problem related to **Visibility of system status** because the user may not know whether registration is being processed.
 
@@ -199,6 +203,8 @@ Recommendations should address the observed problem without prescribing unnecess
 For example, if the **Create Account** action is difficult to discover, the recommendation may be to improve its **visibility and discoverability** rather than requiring a particular visual design without supporting evidence.
 
 The findings can then be reviewed with the appropriate product, design and development stakeholders so that changes can be selected and implemented.
+
+If expert evaluation reveals a problem that requires confirmation with real user behavior, the tester should flag the need for user-based validation to the product or UX team.
 
 ## Retesting Usability
 

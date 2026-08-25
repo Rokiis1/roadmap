@@ -116,7 +116,7 @@ Understanding where defects tend to cluster can help teams focus additional test
 
 **Testing is context dependent** There is no single testing approach that is appropriate for every product. Testing for an online store, mobile game, banking platform or safety critical system will differ because each has different users, technologies, risks, requirements.
 
-**Absence of errors is a fallacy** Finding and fixing many defects does not guarantee that a product will be successful. Software that technically works may still fail if it does not satisfy user needs, solve the intended problem or support business objectives. Both **verification** and **validation** are therefore important when evaluating quality.
+**Absence of errors is a fallacy** Finding and fixing many defects does not guarantee that a product will be successful. Software that technically works may still fail if it does not satisfy user needs, solve the intended problem or support application objectives. Both **verification** and **validation** are therefore important when evaluating quality.
 
 These principles form the foundation for how we think about testing. They remind us that testing has limitations, that priorities matter, and that quality cannot be determined simply by counting defects or executing more tests.
 

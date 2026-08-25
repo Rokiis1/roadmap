@@ -70,7 +70,7 @@ The **test process** provides a structured way to organize testing work. Its mai
 
 The test process produces and uses different forms of **testware**. Testware consists of work products created or used to support testing and can include test conditions, test cases, test procedures, test suites, test data, test scripts and test results.
 
-A **test condition** is an aspect of the system that can be tested, such as a feature, requirement, business rule or specific behavior.
+A **test condition** is an aspect of the system that can be tested, such as a feature, requirement, application rule or specific behavior.
 
 A **test case** describes a particular situation to be tested and can include conditions, inputs, actions and expected results needed to verify specific behavior.
 
@@ -120,7 +120,7 @@ Greater independence can improve **objectivity**, provide a different perspectiv
 
 Modern development also emphasizes the **whole team approach**, where quality is treated as a shared responsibility rather than something owned only by testers.
 
-**Developers** contribute technical and implementation knowledge and can perform testing, create automated checks, investigate failures and correct defects. **Testers** contribute testing expertise, critical thinking, risk awareness and knowledge of testing techniques. **Business representatives and product specialists** contribute knowledge about users, business rules, priorities and expected product behavior.
+**Developers** contribute technical and implementation knowledge and can perform testing, create automated checks, investigate failures and correct defects. **Testers** contribute testing expertise, critical thinking, risk awareness and knowledge of testing techniques. **Business representatives and product specialists** contribute knowledge about users, application rules, priorities and expected product behavior.
 
 Collaboration brings these different perspectives together. It helps teams establish a **shared understanding**, identify risks earlier, resolve questions sooner, improve feedback and make quality part of everyday development work.
 

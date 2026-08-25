@@ -57,7 +57,7 @@ Exploratory testing is an approach in which test design, execution and learning 
 
 Instead of following only predefined test cases, the tester controls the flow of testing and adapts it based on observations and discoveries. This approach is especially useful for investigating risks, learning how a feature behaves and uncovering defects that were not anticipated before execution began.
 
-A **test oracle** is a source of truth used to decide whether an observed result is correct. Examples include requirements, user documentation, business rules, a comparable product or reasonable user expectations.
+A **test oracle** is a source of truth used to decide whether an observed result is correct. Examples include requirements, user documentation, application rules, a comparable product or reasonable user expectations.
 
 Exploratory testing can be guided by a **test charter**. A charter gives a testing session a clear mission without prescribing every test step. It can identify what should be explored, which risks deserve attention, and any relevant constraints or test data.
 
@@ -115,7 +115,7 @@ When testing a responsive user interface, a checklist might include the followin
 | Confirm that images resize appropriately and maintain their intended aspect ratio.                |      |      |       |
 | Verify that supported media elements remain usable and playable.                                  |      |      |       |
 
-Checklist-based testing can support both functional and non-functional testing. Checklists may cover business functions, usability, compatibility, accessibility, reliability or performance-related observations.
+Checklist-based testing can support both functional and non-functional testing. Checklists may cover application functions, usability, compatibility, accessibility, reliability or performance-related observations.
 
 A checklist should be specific enough to guide testing but not so detailed that it becomes a set of fully scripted test cases. Checklist items should also be reviewed and updated as the product, risks and team knowledge change.
 

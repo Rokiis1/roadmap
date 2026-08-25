@@ -14,11 +14,11 @@ We begin with **dynamic testing**, where the software is executed and its behavi
 
 Depending on the testing objective, the evaluation may focus on **what the system does** or on **how well the system operates**. For this reason, dynamic testing is divided into two broad categories: **functional testing** and **non-functional testing**.
 
-**Functional testing** evaluates whether the system performs the required functions correctly. It focuses on expected behavior, business rules, inputs, outputs and interactions defined by the requirements or other test basis.
+**Functional testing** evaluates whether the system performs the required functions correctly. It focuses on expected behavior, application rules, inputs, outputs and interactions defined by the requirements or other test basis.
 
 In practical terms, functional testing answers the question **Does the system do what it is supposed to do?**
 
-Examples include verifying account registration, login behavior, form submission, calculations and business rules.
+Examples include verifying account registration, login behavior, form submission, calculations and application rules.
 
 While functional testing focuses on what the system does, **non-functional testing** evaluates quality characteristics that describe how well the system operates.
 

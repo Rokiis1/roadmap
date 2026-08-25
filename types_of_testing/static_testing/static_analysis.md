@@ -135,7 +135,7 @@ Static analysis may also produce **false negatives**, where certain defects are 
 
 In addition, static analysis tools depend on **predefined rules and configurations**. If rules are not properly defined or updated, important issues may be missed or irrelevant warnings may be generated.
 
-Some tools may have **limited context awareness**. They analyze code based on patterns and rules, but may not fully understand business logic or complex system behavior, which can lead to incomplete analysis.
+Some tools may have **limited context awareness**. They analyze code based on patterns and rules, but may not fully understand application logic or complex system behavior, which can lead to incomplete analysis.
 
 There is also an **initial setup and maintenance effort**. Configuring tools, integrating them into development pipelines, and maintaining rule sets require time and resources.
 

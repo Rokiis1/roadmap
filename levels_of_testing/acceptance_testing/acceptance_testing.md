@@ -10,9 +10,9 @@ Acceptance testing shifts the focus from technical verification to whether the s
 
 ## Acceptance Testing
 
-Acceptance testing evaluates a system against **acceptance criteria, business requirements, user needs, and other relevant requirements** to determine whether it is acceptable to its intended stakeholders.
+Acceptance testing evaluates a system against **acceptance criteria, application requirements, user needs, and other relevant requirements** to determine whether it is acceptable to its intended stakeholders.
 
-The focus is less on the internal implementation of the system and more on whether it supports the required business processes and outcomes. Acceptance testing therefore considers the system from the perspective of customers, users, business representatives, operators or other stakeholders who must decide whether it is suitable for its intended use.
+The focus is less on the internal implementation of the system and more on whether it supports the required application processes and outcomes. Acceptance testing therefore considers the system from the perspective of customers, users, business representatives, operators or other stakeholders who must decide whether it is suitable for its intended use.
 
 ![Acceptance testing focus](./assets/images/acceptance_testing_focus.png)
 
@@ -20,9 +20,9 @@ Acceptance testing answers a key question. **Does the system satisfy the conditi
 
 Acceptance testing is commonly performed after system testing has provided sufficient confidence in the overall system, although the exact timing depends on the development approach. In iterative and Agile development, acceptance-related validation may also take place throughout development as individual features are completed.
 
-Acceptance tests are based on realistic business processes and usage scenarios. Test conditions may be derived from requirements, user stories, business rules, operational procedures, contracts, regulations and defined acceptance criteria.
+Acceptance tests are based on realistic application processes and usage scenarios. Test conditions may be derived from requirements, user stories, application rules, operational procedures, contracts, regulations and defined acceptance criteria.
 
-Acceptance is not determined simply because all planned tests have been executed. The relevant stakeholders make the acceptance decision using agreed criteria, test results, known defects, business risk and any other release conditions defined for the product.
+Acceptance is not determined simply because all planned tests have been executed. The relevant stakeholders make the acceptance decision using agreed criteria, test results, known defects, application risk and any other release conditions defined for the product.
 
 ## Types of Acceptance Testing
 
@@ -30,7 +30,7 @@ Different forms of acceptance testing address different stakeholder needs and ac
 
 ![Types of acceptance testing](./assets/images/types_of_acceptance_testing.png)
 
-**User Acceptance Testing (UAT)** is performed by intended users, customers or their representatives to determine whether the system supports required business processes and user needs. UAT uses realistic scenarios and agreed acceptance criteria to support a business acceptance decision.
+**User Acceptance Testing (UAT)** is performed by intended users, customers or their representatives to determine whether the system supports required application processes and user needs. UAT uses realistic scenarios and agreed acceptance criteria to support a business acceptance decision.
 
 UAT is typically performed in a production-like environment using controlled, realistic test data so that users can evaluate the system under conditions that closely represent actual use.
 
@@ -50,9 +50,9 @@ These forms of acceptance testing may overlap. The appropriate approach depends 
 
 Acceptance testing involves several stakeholders. Their exact responsibilities depend on the organization, product, and type of acceptance testing.
 
-**End users and customers** execute or participate in realistic business scenarios and assess whether the system supports their needs. In UAT, their results and feedback provide important evidence for the acceptance decision.
+**End users and customers** execute or participate in realistic application scenarios and assess whether the system supports their needs. In UAT, their results and feedback provide important evidence for the acceptance decision.
 
-**Business stakeholders** define or approve business requirements, acceptance criteria, and success conditions. They also evaluate test results and business risks when deciding whether the system is acceptable.
+**Business stakeholders** define or approve application requirements, acceptance criteria, and success conditions. They also evaluate test results and application risks when deciding whether the system is acceptable.
 
 **QA and test professionals** may help plan acceptance testing, prepare test data and environments, design or review tests, coordinate execution, record results, and support participating stakeholders. They should enable the acceptance process without replacing the stakeholders who are responsible for the business decision.
 
@@ -64,7 +64,7 @@ Clear responsibilities help ensure that acceptance testing produces useful evide
 
 Acceptance testing depends on a shared understanding of what stakeholders expect from the system. Collaboration is especially important when defining acceptance criteria and when evaluating the system during UAT.
 
-Before acceptance tests are designed, **business representatives, users, testers, and developers can review acceptance criteria together**. This helps make the criteria clear, testable, and aligned with the intended business outcome. Ambiguous terms such as "fast," "easy," or "works correctly" should be replaced with observable conditions whenever possible.
+Before acceptance tests are designed, **business representatives, users, testers, and developers can review acceptance criteria together**. This helps make the criteria clear, testable, and aligned with the intended application outcome. Ambiguous terms such as "fast," "easy," or "works correctly" should be replaced with observable conditions whenever possible.
 
 ![Stakeholder collaboration on acceptance criteria](./assets/images/acceptance_criteria_collaboration.png)
 
@@ -77,11 +77,11 @@ For example, consider a checkout feature. Stakeholders might agree on the follow
 
 These agreed criteria provide a common basis for designing acceptance tests and evaluating the results.
 
-Collaboration continues during **User Acceptance Testing (UAT)**. Business users execute realistic workflows, testers or QA professionals may support the test process, and developers help investigate defects when needed. When unexpected behavior is found, the participants should determine whether it is a product defect, an unclear requirement, a problem with test data or the test environment or a new business request.
+Collaboration continues during **User Acceptance Testing (UAT)**. Application users execute realistic workflows, testers or QA professionals may support the test process, and developers help investigate defects when needed. When unexpected behavior is found, the participants should determine whether it is a product defect, an unclear requirement, a problem with test data or the test environment or a new application request.
 
-A typical UAT cycle begins with preparing the test environment, test data and acceptance scenarios. Business users are then introduced to the scope and testing process before executing the agreed scenarios. Issues identified during execution are reviewed and classified, and resolved issues may be retested. Finally, the responsible stakeholders review the results and decide whether the agreed acceptance conditions have been satisfied.
+A typical UAT cycle begins with preparing the test environment, test data and acceptance scenarios. application users are then introduced to the scope and testing process before executing the agreed scenarios. Issues identified during execution are reviewed and classified, and resolved issues may be retested. Finally, the responsible stakeholders review the results and decide whether the agreed acceptance conditions have been satisfied.
 
-Results should be recorded so that they support the acceptance decision. Relevant information may include the scenario tested, expected and actual results, defects or limitations found and the acceptance status of important business processes.
+Results should be recorded so that they support the acceptance decision. Relevant information may include the scenario tested, expected and actual results, defects or limitations found and the acceptance status of important application processes.
 
 Stakeholder collaboration does not mean that everyone has the same responsibility. The people authorized to accept the system remain responsible for deciding whether the available evidence and remaining risks satisfy the agreed acceptance conditions.
 
@@ -110,7 +110,7 @@ The password must satisfy the defined password rules.
 Invalid input produces an appropriate error message.
 ```
 
-The format is less important than the quality of the criteria. Good acceptance criteria should be understandable, testable, relevant to the business need and specific enough to support a clear evaluation.
+The format is less important than the quality of the criteria. Good acceptance criteria should be understandable, testable, relevant to the application need and specific enough to support a clear evaluation.
 
 Developers, testers and business representatives collaborate to refine acceptance criteria and review the implemented behavior. This gives the team frequent feedback and helps identify misunderstandings before they become expensive to correct.
 

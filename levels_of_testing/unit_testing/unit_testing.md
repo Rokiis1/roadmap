@@ -76,7 +76,7 @@ A common way to organize a unit test is the **Arrange-Act-Assert (AAA)** pattern
 
 ![Unit test design and AAA pattern](./assets/images/unit_test_design_and_aaa.png)
 
-Using a consistent structure makes tests easier to read and helps learners distinguish test preparation from execution and verification.
+Using a consistent structure makes tests easier to read and clearly separates test preparation, execution and verification.
 
 ## Automation and Regression Testing
 

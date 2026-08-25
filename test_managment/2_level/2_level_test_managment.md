@@ -1,4 +1,4 @@
-# Content of test management level 2
+# Table of Contents: Test Management Level 2
 
 - [Purpose of Test Planning](#purpose-of-test-planning)
 - [What is a Test Plan](#what-is-a-test-plan)

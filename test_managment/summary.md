@@ -1,261 +1,56 @@
-# Content of Table: Summary
+# Table of Contents: Test Managment Summary
 
-- [Summary test management level 1](#summary-test-management-level-1)
-- [Summary test management level 2](#summary-test-management-level-2)
-- [Summary test management level 3](#summary-test-management-level-3)
-- [Summary test management level 4](#summary-test-management-level-4)
+- [Test Managment Level 1](#test-managment-level-1)
 
-## Summary test management level 1
+This summary brings together the most important concepts from **Test Management Level 1**. It is designed as a quick reference for revision and preparation for questions where defect management concepts, responsibilities, decisions, and relationships need to be explained clearly.
 
-Level 1 introduces **test management** as the discipline of organizing, guiding and controlling testing activities.
+## Test Managment Level 1
 
-The focus is on understanding **responsibility** in testing and how defects are handled when problems are found.
+Level 1 focuses on the fundamentals of **defect management**. It explains how defects are identified, documented, tracked, reviewed, prioritized, resolved, verified, and communicated throughout testing.
 
-**Defect management** is the main topic at this level.
+**Defect management** is the systematic process of managing defects from discovery until an agreed outcome is reached. It helps prevent reported problems from being forgotten, misunderstood, or ignored and provides **traceability** throughout investigation, resolution, verification, and closure.
 
-A defect is any difference between the **expected behavior** and the **actual behavior** of the system.
+A **defect**, often called a **bug**, is a flaw in a software product that can cause it to behave differently from what is required or expected. An **anomaly** is an observed condition that differs from expectations and may require investigation. After investigation, an anomaly may be confirmed as a defect.
 
-Defect management ensures that defects are
+Defects can originate from areas such as **Requirements**, **Design**, **Code**, **Environment**, and **Data**. Categorizing defects or using root cause tags can help teams identify recurring problem areas and support future quality improvement. Defect management applies to both **functional and non-functional defects**, including security, performance, usability, and accessibility problems.
 
-- **identified**
-- **documented**
-- **prioritized**
-- **assigned**
-- **fixed**
-- **verified**
-- **closed**
+A **defect life cycle** describes the stages a defect passes through from discovery until an agreed outcome is reached. A typical flow includes **identification**, **logging**, **review and triage**, **assignment**, **resolution**, **verification**, and **closure**.
 
-A good defect report helps another person understand and reproduce the issue without additional explanation.
+![Defect life cycle](./1_level/assets/images/defect_life_cycle.png)
 
-Important information in a defect report includes
+Common defect statuses include **New**, **In Progress**, **Resolved**, **Closed**, and **Reopened**. Depending on the organization's workflow, additional statuses may include **Rejected**, **Not a Bug**, **Deferred**, and **Cannot Reproduce**. Exact status names and transitions vary between organizations.
 
-- **defect ID**
-- **title**
-- **description**
-- **steps to reproduce**
-- **expected result**
-- **actual result**
-- **severity**
-- **priority**
-- **environment**
-- **attachments**
+If verification fails because the reported problem still exists, the defect is commonly **reopened** and returned for further investigation. The tester should provide useful evidence such as the tested build or version, updated reproduction steps, actual results, screenshots, videos, or logs. Communication should remain objective and focus on the observed behavior rather than assigning blame.
 
-**Severity** describes how strongly the defect affects the system.
+After verifying a fix, the tester should consider whether **regression testing** is needed. Regression testing checks whether the change has unintentionally affected existing functionality, especially areas related to the corrected defect.
 
-**Priority** describes how urgently the defect should be fixed.
+Responsibilities in the defect life cycle vary between teams. A tester commonly identifies and reports defects and later verifies their resolution. Developers investigate assigned defects and implement fixes when required. Test leads, product representatives, development leads, and triage teams may contribute to assessment and decision-making. Closure responsibility follows the team's agreed workflow and closure criteria.
 
-Key things to remember from Level 1
+When a high-severity defect remains blocked or unresolved beyond an agreed timeframe, or when a triage decision cannot be resolved within the team, the issue should follow the project's agreed **escalation path**. The escalation should clearly communicate the defect's impact, current status, blocking issue, and the decision or action required.
 
-- Test management brings **structure and responsibility** to testing
-- Defect management prevents issues from being **forgotten or ignored**
-- Defects must have clear **ownership and status visibility**
-- Severity and priority are different but both are important
-- Clear defect reports improve communication between testers, developers and stakeholders
+**Severity** describes how strongly a defect affects the system or its users. It focuses on the **technical and functional impact** of the defect. Common severity levels include **Critical**, **High**, **Medium**, and **Low**.
 
-## Summary test management level 2
+**Priority** describes how urgently a defect should be addressed. It focuses on **application and delivery importance** and may be influenced by customer impact, release goals, application risk, dependencies, deadlines, and regulatory requirements.
 
-Level 2 focuses on **test planning**.
+Severity and priority are related but are not the same. A **low-severity** defect can have **high priority** when it has significant application or release impact. A **high-severity** defect can have a lower immediate priority when it affects a rarely used, disabled, or out-of-scope feature.
 
-In Level 1, defects were managed after they were discovered. Level 2 moves one step earlier and defines how testing should be organized before execution begins.
+Severity is commonly proposed by the tester or QA team based on technical and functional impact and may be reviewed during triage. Priority is generally determined or confirmed from a business and delivery perspective by roles such as a **product owner**, **product manager**, **business representative**, **business analyst**, or **triage team**. Developers and technical leads can provide technical information that supports these decisions. Exact responsibilities depend on the organization's agreed defect management process.
 
-The main output of test planning is the **test plan**.
+A **good defect report** provides enough information for another team member to understand, investigate, and reproduce the problem without unnecessary clarification. Before creating a new report, the tester should search for similar existing reports and follow the team's duplicate-handling process when the same problem has already been reported.
 
-A **test plan** is a structured document that explains how testing will be performed for a specific project, release or phase.
+Important defect report information includes a **unique identifier**, **title**, **description**, **steps to reproduce**, **expected result**, **actual result**, **severity**, **priority**, **environment details**, supporting **evidence**, **reporter and assignee information**, **status**, and important **dates**. Exact fields vary between organizations and defect-tracking tools.
 
-The test plan defines
+Reproduction steps should be specific enough for another person to follow them and observe the same problem when it is reproducible. The **expected result** describes the intended behavior, while the **actual result** describes what was observed instead. Common reporting problems include vague titles, missing reproduction steps, incomplete environment information, insufficient evidence, and incorrectly selected severity or priority.
 
-- **what will be tested**
-- **what will not be tested**
-- **why testing is performed**
-- **who is responsible**
-- **where testing will happen**
-- **when testing will happen**
+**Defect triage** is the process of reviewing reported defects and deciding how they should be handled. The team evaluates the defect, considers its impact and urgency, and determines the appropriate next action.
 
-The **scope of testing** defines the boundaries of testing.
+A triage decision does not always result in an immediate fix. A defect may be **accepted and assigned**, **rejected**, marked as **Not a Bug**, **deferred**, identified as a **duplicate**, **split** into separate issues, returned for **more information**, or marked as **Cannot Reproduce** when the reported behavior cannot be reproduced.
 
-**In scope** describes what will be tested.
+![Defect triage
+outcomes](./1_level/assets/images/defect_triage_outcomes.png)
 
-**Out of scope** describes what will not be tested in the current testing effort.
+Triage participants depend on the organization and project. They may include a test lead, development lead, product manager or product owner, and other relevant specialists. Their different perspectives help the team consider technical impact, business importance, release needs, and available resources.
 
-**Test objectives** define what testing is expected to achieve. They help determine whether testing has been successful.
+Basic **defect metrics** provide visibility into testing progress and unresolved problems. Teams may track **open defects**, **closed defects**, and **defect age**, which indicates how long a defect has remained unresolved. These metrics can help identify areas that require attention, but they do not determine product quality by themselves. They should be interpreted together with test results, risks, severity, priority, and agreed completion or release criteria.
 
-**Roles and responsibilities** define who is involved in testing and what each person is expected to do.
-
-The **test environment** defines the hardware, software, tools, configurations and test data required for testing.
-
-The **test schedule** defines when testing activities will take place. It includes phases, timeframes, milestones and dependencies between activities.
-
-Key things to remember from Level 2
-
-- Test planning defines testing before execution begins
-- A test plan is the written output of test planning
-- Scope prevents testing from becoming unfocused
-- Objectives define what testing must achieve
-- Roles provide ownership and accountability
-- Environment defines the conditions required for testing
-- Schedule organizes testing activities over time
-
-## Summary test management level 3
-
-Level 3 focuses on managing testing while execution is happening.
-
-In Level 2, testing was planned. In Level 3, testing is monitored, measured, reported and controlled during execution.
-
-**Test monitoring and control** helps teams understand whether testing is progressing as expected.
-
-**Monitoring** means collecting information about test execution.
-
-**Control** means taking action when testing is not progressing as planned.
-
-Test monitoring and control may involve
-
-- tracking executed test cases
-- reviewing pass and fail results
-- monitoring defects
-- identifying blockers
-- adjusting priorities
-- reallocating resources
-
-**Test metrics** provide measurable values that help evaluate testing progress, quality and effectiveness.
-
-Common metrics include
-
-- executed test cases
-- passed test cases
-- failed test cases
-- defects found
-- defects resolved
-- pass rate
-- coverage percentage
-
-**Test coverage** shows how much of the system has been tested.
-
-Coverage may be evaluated through
-
-- **requirements coverage**
-- **functional coverage**
-- **code coverage**
-
-At this level, requirements coverage is especially important because it shows whether requirements are linked to tests.
-
-A **traceability matrix** links requirements to test cases and helps identify gaps.
-
-Traceability can be
-
-- **forward traceability**
-- **backward traceability**
-- **bidirectional traceability**
-
-**Test reporting** communicates testing results, progress and quality status to stakeholders.
-
-Reports may include detailed execution reports during testing and summary reports for higher-level decisions.
-
-**Test progress tracking** follows testing activity over time and helps identify delays, bottlenecks and unresolved defects.
-
-**Test closure** formally completes testing. It confirms whether exit criteria were met, summarizes results, records lessons learned and communicates remaining risks.
-
-Key things to remember from Level 3
-
-- Testing must be monitored and controlled during execution
-- Metrics make testing measurable and objective
-- Coverage shows what has been tested
-- Traceability connects requirements to test cases
-- Reporting makes testing results visible to stakeholders
-- Progress tracking shows whether testing is on schedule
-- Test closure provides a formal ending and final quality evaluation
-
-## Summary test management level 4
-
-Level 4 focuses on **strategy**, **decision-making** and **optimization**.
-
-At this level, testing is not only executed and monitored. It is guided by risk, priorities, estimation and structured decision-making.
-
-A **test strategy** defines the overall direction of testing across the project or product.
-
-A **test plan** applies that strategy to a specific release, feature or phase.
-
-The test strategy defines high-level guidance such as
-
-- **test approach**
-- **test levels**
-- **test types**
-- **testing techniques**
-- **tools strategy**
-- **testing quadrants**
-- **entry and exit criteria**
-
-Testing can be organized using **testing quadrants**, which help balance technical and business-focused testing.
-
-The **first quadrant** contains technology-facing tests that support the team, such as unit testing and integration testing.
-
-The **second quadrant** contains business-facing tests that support the team, such as functional testing and story validation.
-
-The **third quadrant** contains business-facing tests that evaluate the product, such as exploratory testing, usability testing and user acceptance testing.
-
-The **fourth quadrant** contains technology-facing tests that evaluate the product, such as performance testing, load testing and security testing.
-
-**Risk management** identifies, assesses and controls risks that may affect testing or product quality.
-
-The risk management flow includes
-
-- identify the risk
-- assess likelihood and impact
-- determine risk level
-- define mitigation actions
-- record the risk
-- use the risk to guide testing
-
-A **risk register** stores risk information in one place and supports risk-based testing.
-
-**Risk-based testing** uses risk levels to decide what should be tested first and more thoroughly.
-
-**Test prioritization and scheduling** define the order in which test cases should be executed.
-
-Prioritization may be based on
-
-- **risk**
-- **requirement importance**
-- **coverage**
-- **dependencies**
-
-Dependencies affect execution order because some tests must run before others.
-
-**Technical dependencies** happen when one test creates data or conditions that another test needs.
-
-**Logical dependencies** happen when one test verifies the result of another test.
-
-**Test estimation** forecasts the time, effort and cost needed for testing.
-
-Estimation may use
-
-- **metrics-based estimation**
-- **extrapolation**
-- **expert-based estimation**
-- **Wide Band Delphi**
-- **three point estimation**
-
-**Test deliverables and reporting strategy** define what documents and outputs are produced and how results are communicated.
-
-Common deliverables include
-
-- test plan
-- test cases
-- test execution reports
-- test progress reports
-- test summary report
-- test closure report
-- traceability matrix
-- defect reports
-
-**Test governance and communication** define how testing is coordinated, how decisions are made and how stakeholders stay informed.
-
-Key things to remember from Level 4
-
-- Test strategy provides high-level testing direction
-- Test plan applies the strategy to a specific context
-- Risk management helps testing focus on what matters most
-- Risk-based testing prioritizes high-risk areas
-- Prioritization decides importance, while dependencies affect execution order
-- Estimation helps plan time, effort and resources
-- Deliverables and reports make testing visible and traceable
-- Governance keeps testing aligned, controlled and communicated
+After reviewing Level 1, you should be able to explain **what defect management is and why it is needed**, describe the **defect life cycle and common statuses**, distinguish **severity from priority**, explain the responsibilities involved in severity and priority decisions, describe the contents of a **good defect report**, explain the purpose and possible outcomes of **defect triage**, describe appropriate actions when **verification fails or escalation is required**, explain why **regression testing** may follow defect verification, and describe how basic **defect metrics** support visibility and decision-making.
