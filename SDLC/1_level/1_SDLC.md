@@ -1,121 +1,147 @@
-# Content of SDLC Level 1
+# Table of Contents: SDLC Level 1
 
 - [What is SDLC](#what-is-sdlc)
 - [Why SDLC exists](#why-sdlc-exists)
 - [Main phases of SDLC](#main-phases-of-sdlc)
+- [Phase outputs and completion criteria](#phase-outputs-and-completion-criteria)
 - [What role testing has in SDLC](#what-role-testing-has-in-sdlc)
 - [Waterfall model](#waterfall-model)
 - [V-Model](#v-model)
 - [Comparing Waterfall and V-Model](#comparing-waterfall-and-v-model)
 
-Software systems are built through a series of activities that take an idea from concept to a working product. These activities include understanding requirements, designing solutions, writing code, and verifying that the system behaves correctly. As projects grow in size and complexity, managing these steps becomes increasingly difficult without a clear structure.
+This **SDLC Level 1** introduces the foundations of the **Software Development Life Cycle (SDLC)** and explains how software development can be organized into a structured lifecycle.
 
-Without a defined approach, teams may face unclear requirements, inconsistent results, and increased risk of defects. To address this, software development follows organized processes that guide how work is performed from start to finish.
+The focus begins with the purpose and main phases of SDLC, including the outputs produced during development and the role of testing throughout the lifecycle.
 
-These processes define how different stages are connected, how responsibilities are distributed, and how quality is maintained throughout development. This structured approach is known as the Software Development Life Cycle (SDLC).
-
-To understand how software development is organized, it is important to first define what SDLC is and how it structures the entire process.
+The level then introduces two **sequential SDLC models**, the **Waterfall model** and the **V-Model**, and examines how each model organizes development and testing activities.
 
 ## What is SDLC
 
-The **Software Development Life Cycle (SDLC)** is a structured process used to plan, develop, test, and deliver software.
+The **Software Development Life Cycle (SDLC)** is a structured process used to guide software from an initial idea through development, delivery and ongoing maintenance.
 
-Instead of building software in an unorganized way, SDLC defines a sequence of stages that guide the entire development process. Each stage has a specific purpose and contributes to transforming an idea into a working product.
+SDLC organizes development into defined phases, with each phase serving a specific purpose. This structure helps teams coordinate their work and understand how different development activities relate to one another.
 
-These stages typically include activities such as **understanding requirements**, **designing the system**, **implementing functionality**, **testing the solution** and **delivering and maintaining the product**.
-
-By organizing development into defined steps, SDLC helps teams work in a consistent and predictable way. It ensures that requirements are clearly understood, changes are controlled, and quality is verified throughout the process.
-
-SDLC does not represent a single fixed method. Instead, it is a general concept that can be implemented using different models. These models define how the stages are arranged, how teams move between them, and how testing is integrated into the process.
-
-To better understand why this structured approach is necessary, the next step is to look at **why SDLC exists** and what problems it solves.
+SDLC is not a single development model. It is a general lifecycle concept that can be implemented through different **SDLC models**. A model defines how the phases are arranged, how teams progress through them, and how development and testing activities are connected.
 
 ## Why SDLC exists
 
-Developing software without a structured approach often leads to unclear requirements, inconsistent results, and increased risk of defects. As systems grow in complexity, it becomes difficult to manage changes, coordinate work between team members, and ensure that the final product meets expectations.
+Software projects involve different people, activities and decisions that must work together. Without a structured approach, teams may face unclear requirements, communication problems, uncontrolled changes and an increased risk of defects.
 
-SDLC exists to provide a clear and organized way to manage the entire development process. It defines how work progresses from one stage to another, how responsibilities are structured, and how quality is maintained throughout development.
+SDLC provides a framework for managing this work. It helps teams define responsibilities, track progress, manage risks and establish when work is ready to move forward.
 
-By following a defined lifecycle, teams can reduce risks, improve communication, and detect issues earlier in the process. This leads to more predictable outcomes and better alignment between what is built and what is needed.
+Finding problems early is also important because the effort required to correct a defect can increase as development progresses. For example, an unclear requirement discovered during a requirements review may require only a document change. If the same problem is discovered after design, implementation and testing, the team may need to update documents, modify code, revise tests and retest affected functionality.
 
-To understand how this structure is applied in practice, the next step is to look at the **main phases of SDLC**.
+![Cost of fixing defects across SDLC phases](./assets/images/defect_cost_by_phase.png)
+
+Early reviews and test planning can therefore reduce unnecessary rework by identifying problems before they affect later development activities.
 
 ## Main phases of SDLC
 
-The Software Development Life Cycle is organized into a set of phases that represent how software is created from an initial idea to a working product. Each phase focuses on a specific type of activity and builds on the results of the previous one.
-
-The main phases typically include **requirements analysis**, **system design**, **implementation**, **testing**, **deployment**, and **maintenance**.
+Although the exact lifecycle can vary between projects and SDLC models, software development commonly includes six main phases.
 
 ![SDLC Phases](./assets/images/SDLC.png)
 
-During **requirements analysis**, the goal is to understand what needs to be built and define clear expectations. In the **design phase**, the system structure and solution approach are planned. The **implementation phase** focuses on writing the code that brings the design to life.
+During **requirements analysis**, the team identifies what the system must do and defines expectations and constraints.
 
-Once the functionality is developed, the **testing phase** verifies that the system behaves correctly and meets the defined requirements. After testing, the product moves to **deployment**, where it is released to users. Finally, in the **maintenance phase**, the system is updated, improved, and fixed as needed over time.
+During **system design**, the team determines how the solution will be structured and how the requirements will be implemented.
 
-These phases provide a structured flow for development, but the way they are organized can differ depending on the chosen SDLC model. Understanding these phases is important because testing activities are closely connected to each of them.
+During **implementation**, developers create the software according to the design.
+
+During **testing**, the software is evaluated to determine whether it behaves as expected and satisfies the relevant requirements.
+
+During **deployment**, the software is released into its intended environment and made available to users or customers.
+
+During **maintenance**, the system is corrected, adapted and improved over time. Testing remains important during maintenance because changes can affect existing behavior.
+
+These phases describe the main types of work performed throughout the software lifecycle. Different SDLC models organize and connect them in different ways.
+
+## Phase outputs and completion criteria
+
+An SDLC phase normally produces one or more **deliverables**. A deliverable is an output created during a phase and used as evidence of completed work or as input to later activities.
+
+For example, requirements analysis may produce a requirements specification, while system design may produce architecture or detailed design documents.
+
+Implementation produces software components or builds. Testing may produce test cases, test results and defect reports. Deployment may produce a released version and deployment records.
+
+Teams also use criteria to determine whether work is ready to begin or whether a phase or activity is complete. **Entry criteria** describe conditions that should be satisfied before an activity starts, while **exit criteria** describe conditions that should be satisfied before it is considered complete.
+
+For example, testing might require an approved build and agreed requirements before execution begins. Its exit criteria might require that planned tests have been executed and that remaining defects meet agreed acceptance conditions.
+
+The exact deliverables and criteria vary between organizations and SDLC models, but the underlying idea is important. A phase should not be considered complete simply because time has passed. Completion should be based on defined outputs and agreed conditions.
 
 ## What role testing has in SDLC
 
-Testing is not a single isolated activity that happens only at the end of development. Instead, it is an integral part of the Software Development Life Cycle and is connected to multiple phases throughout the process.
+Testing is not limited to executing software after coding is complete. Quality-related testing activities can begin before executable software exists and can continue throughout the lifecycle.
 
-During **requirements analysis**, testing helps ensure that requirements are clear, complete, and testable. In the **design phase**, testing focuses on reviewing the system structure and identifying potential issues before implementation begins. During **implementation**, testing verifies that individual components function correctly.
+Two useful concepts are **static testing** and **dynamic testing**.
 
-As development progresses, testing expands to ensure that components work together correctly and that the system as a whole behaves as expected. After deployment, testing continues through maintenance activities to confirm that updates and changes do not introduce new defects.
+**Static testing** evaluates work products without executing the software. Examples include reviewing requirements and design documents to identify ambiguity, inconsistency, missing information, or other defects before they reach implementation.
 
-The role of testing is to provide continuous feedback about the quality of the product. It helps detect defects early, reduce risks, and ensure that the final system meets the defined requirements.
+**Dynamic testing** evaluates software by executing it and comparing its actual behavior with expected behavior. Unit, integration, system, and acceptance testing are examples of testing levels that use executable software.
 
-How and when testing is performed depends on the chosen SDLC model. In some models, testing occurs later as a separate phase, while in others it is integrated throughout the entire development process. Understanding this difference becomes clearer when looking at specific models such as the **Waterfall model** and the **V-Model**.
+During **requirements analysis**, static testing can help determine whether requirements are clear, consistent, complete, and testable. During **design**, reviews can identify design problems before implementation begins.
+
+Once executable software is available, dynamic testing can verify individual components, interactions between components and the behavior of the complete system. During maintenance, testing is also used to check changes and to confirm that existing functionality has not been unintentionally affected.
+
+Testing therefore provides information about product quality and project risk throughout the lifecycle. Early testing activities are especially valuable because defects found before they propagate into later work usually require less rework to correct.
+
+How testing is organized depends on the selected SDLC model. The Waterfall model and V-Model demonstrate two sequential approaches with important differences in when testing is planned and how it relates to development activities.
 
 ## Waterfall model
 
-The **Waterfall model** is a sequential approach to software development where each phase is completed before the next one begins. The process flows in a linear direction, moving step by step from requirements to design, implementation, testing, and deployment.
+The **Waterfall model** is a sequential SDLC model in which development progresses through defined phases in order. A phase is normally completed before the project moves to the next phase.
 
 ![Waterfall Model](./assets/images/waterfall_model.png)
 
-In this model, development follows a strict order. The team first completes **requirements analysis**, where all expectations are defined and documented. Once this is finished, the process moves to **design**, where the system structure and solution are planned. After the design is approved, the team proceeds to **implementation**, where the actual code is written.
+The process begins with **requirements analysis**, where expectations are identified and documented. It then moves to **design**, where the system structure and solution are planned. After design, the team proceeds to **implementation**, where the software is developed.
 
-Only after the implementation phase is completed does the process move to **testing**, where the system is verified against the original requirements. If issues are found, they are fixed, but returning to earlier phases is limited and often costly. Once testing is completed, the system is **deployed**, and finally enters **maintenance**, where updates and fixes are applied over time.
+In a traditional Waterfall flow, system testing is performed after implementation. While test planning may occur earlier in practice, testing as a formal phase traditionally follows implementation. The implemented system is checked against its requirements, defects are corrected, and the product can then proceed toward deployment and maintenance.
 
-In this model, progress is structured and predictable because each stage has clearly defined outputs. Once a phase is finished, the team moves forward and does not usually return to earlier stages. This makes the process easy to understand and manage, especially when requirements are stable.
+Because the model is sequential, returning to earlier phases after later work has begun can require significant rework. A requirement problem discovered during testing, for example, may require changes to requirements, design, code and test cases.
 
-Testing in the Waterfall model is performed after the implementation phase is completed. This means that defects are often discovered later in the process, which can make them more difficult and costly to fix.
+The Waterfall model is straightforward to understand because phases, deliverables and progression are clearly defined. It is most suitable when requirements are stable, well understood and unlikely to change significantly during development.
 
-The Waterfall model works best when requirements are well-defined and unlikely to change. However, its rigid structure makes it less flexible in situations where changes are expected during development.
-
-To better understand how testing can be integrated earlier into the development process, the next step is to look at the **V-Model**.
+Its main limitation is reduced flexibility. When requirements change or important problems are discovered late, revisiting completed phases can be difficult and costly.
 
 ## V-Model
 
-The **V-Model** is a sequential development approach that extends the Waterfall model by directly linking each development phase with a corresponding testing activity. Instead of treating testing as a separate phase at the end, it is planned alongside development from the beginning.
+The **V-Model**, also known as the **Verification and Validation (V&V) model**, is a sequential SDLC model that extends the Waterfall approach by explicitly relating development activities to corresponding test levels. Test planning begins alongside development rather than being postponed until implementation is complete.
 
-In this model, the process is structured in the shape of the letter **V**, where the left side represents development activities and the right side represents testing activities.
+The model is commonly represented as the letter **V**. The left side contains specification and design activities, **implementation** appears at the bottom and the right side contains corresponding levels of dynamic testing.
 
-![V-Model](./assets/images/v-model.png)
+![V-Model](./assets/images/v_model.png)
 
-The left side of the V focuses on **verification**, which means checking that each stage of development is built correctly according to specifications. This includes reviewing requirements, designs, and code before moving forward.
+The left side emphasizes **verification** through static activities. Verification checks whether work products are being produced correctly according to specified requirements and standards. Requirements, system specifications, architecture, and component or module designs can be reviewed before implementation begins.
 
-The right side of the V focuses on **validation**, which means checking that the final system behaves correctly and meets user needs through testing.
+The right side emphasizes **validation** through execution-based testing. Validation checks whether the implemented system satisfies its intended use and stakeholder needs.
 
-The process begins with **requirements analysis**, where system expectations are defined. At the same time, **acceptance test design** is prepared to verify those requirements later. As the process moves to **system design**, corresponding **system tests** are planned. During **architecture and module design**, **integration tests** and **unit tests** are defined.
+A key feature of the V-Model is the relationship between development work products and the tests that will later evaluate the implemented software.
 
-At the bottom of the model is **implementation**, where the actual code is developed. After coding is completed, the process moves upward on the right side of the V, where testing is executed in levels.
+- During **requirements analysis**, acceptance testing is planned against user or business requirements.
+- During **system design** (sometimes called system specification), system testing is planned against system requirements.
+- During **architecture design**, integration testing is planned to verify interactions between components or subsystems.
+- During **module or component design**, unit testing is planned for individual components.
 
-Testing starts with **unit testing**, verifying individual components. Then **integration testing** ensures that components work together correctly. Next, **system testing** validates the complete system against the design. Finally, **acceptance testing** confirms that the system meets the original requirements and user expectations.
+At the bottom of the V is **implementation**, where the software is coded.
 
-The key idea of the V-Model is that testing is not delayed until the end. Instead, it is prepared early and aligned with each development stage. This helps detect defects earlier and improves overall quality.
+After implementation, dynamic testing is executed upward through the corresponding test levels. **Unit testing** checks individual components. **Integration testing** checks interactions between components or systems. **System testing** checks the behavior of the complete system against system requirements. **Acceptance testing** evaluates whether the system satisfies acceptance needs and is suitable for its intended use.
 
-Compared to the Waterfall model, the V-Model provides a more structured approach to testing. However, it still follows a sequential process and is less flexible when requirements change.
+The important idea is not that executable tests run before code exists. Instead, test conditions, test cases and other test activities can be designed early using requirements and design work products. This creates traceability between what is specified and what is later tested.
+
+Early verification and test planning can expose problems before they propagate into implementation. This can reduce rework and provide a clearer relationship between development deliverables and testing activities.
+
+Like Waterfall, however, the V-Model remains sequential and is less flexible when requirements change frequently.
 
 ## Comparing Waterfall and V-Model
 
-Both the **Waterfall model** and the **V-Model** follow a sequential approach, where development progresses through a fixed set of stages. In both models, each phase is completed before moving to the next, which makes the process structured and predictable.
+Both the **Waterfall model** and the **V-Model** are sequential SDLC models. They organize development into defined stages and are easiest to apply when requirements are stable and well understood.
 
-The main difference lies in how testing is handled. In the Waterfall model, testing is performed after the implementation phase is completed. This means that defects are often discovered late in the process, making them more difficult and costly to fix.
+The main difference is the relationship between development and testing. In a traditional Waterfall approach, system testing follows implementation as a distinct later phase. As a result, some requirement or design defects may remain undiscovered until executable software is available.
 
-In contrast, the V-Model integrates testing activities alongside development from the beginning. For each development phase, a corresponding testing activity is planned. This allows issues to be identified earlier and improves overall quality.
+The V-Model makes the relationship between development work products and testing explicit. Testing is planned alongside the corresponding specification and design activities, while static verification can identify defects in documents before implementation.
 
-Another difference is how clearly testing is structured. The Waterfall model treats testing as a separate phase, while the V-Model connects development and testing through **verification** and **validation**, ensuring that both the system is built correctly and that it meets user needs.
+The V-Model also provides clear traceability between development stages and test levels. Architecture design relates to integration testing, component or module design relates to unit testing, system specifications relate to system testing, and requirements relate to acceptance testing.
 
-Both models work best when requirements are stable and well-defined. However, the V-Model provides better visibility of testing activities and earlier feedback compared to the Waterfall model.
+A team may therefore prefer the V-Model when requirements are stable but **quality assurance, traceability, formal verification or clearly defined test evidence is especially important**. Waterfall may be sufficient when a simpler sequential process is appropriate and the project does not require the same explicit development-to-testing mapping.
 
-Understanding these differences helps explain why modern development approaches often move toward earlier and more continuous testing practices.
+Both models have limited flexibility compared with approaches designed for frequent change. Later levels introduce other SDLC models and explain how they organize development and testing differently.

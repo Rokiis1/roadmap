@@ -1,210 +1,91 @@
-# Content of Table: Summary
+# Table of Contents: SDLC Summary
 
-- [Summary SDLC level 1](#summary-sdlc-level-1)
-- [Summary SDLC level 2](#summary-sdlc-level-2)
-- [Summary SDLC level 3](#summary-sdlc-level-3)
-- [Summary SDLC level 4](#summary-sdlc-level-4)
+- [SDLC Level 1](#sdlc-level-1)
+- [SDLC Level 2](#sdlc-level-2)
 
-## Summary SDLC level 1
+This summary brings together the most important concepts from the **Software Development Life Cycle (SDLC)** module. It is designed as a quick reference for revision and preparation for questions where the main lifecycle concepts, model differences and relationships between development and testing need to be explained clearly.
 
-The **Software Development Life Cycle (SDLC)** is a structured way of organizing how software is built from an initial idea to a working product. It defines a sequence of activities that guide development, including **requirements analysis**, **design**, **implementation**, **testing**, **deployment** and **maintenance**.
+## SDLC Level 1
 
-The main purpose of SDLC is to provide **structure, control and predictability**. By following a defined process, teams can better manage complexity, reduce risks and ensure that the final product meets expectations.
+Level 1 establishes the foundations of the **Software Development Life Cycle (SDLC)**. The main goal is to understand what SDLC is, why a structured lifecycle is useful, how development is organized into phases and how testing relates to development in sequential SDLC models.
 
-Testing is an **integral part of the SDLC** and is not limited to a single phase. It supports multiple stages of development and provides **continuous feedback about quality**.
+The **Software Development Life Cycle (SDLC)** is a structured process used to guide software from an initial idea through development, delivery and ongoing maintenance. SDLC organizes development into defined phases so that teams can coordinate activities and understand how different types of work relate to one another.
 
-Key things to understand about testing in SDLC
+SDLC is not a single development model. It is a general lifecycle concept implemented through different **SDLC models**. A model defines how lifecycle phases are arranged, how teams progress through them and how development and testing activities are connected.
 
-- Testing is performed **throughout the lifecycle**, not only at the end  
-- It helps **detect defects early** and reduce risk  
-- It ensures the system meets **requirements and user expectations**  
+A structured lifecycle helps teams manage responsibilities, track progress, control changes and reduce project risks. Finding problems early is particularly valuable because the effort required to correct a defect can increase as development progresses. A requirement problem found early may require only a document change, while the same problem found later may require changes to requirements, designs, code and tests, followed by retesting.
 
-Two important **sequential models** show how SDLC can be structured
+![Cost of fixing defects across SDLC phases](./1_level/assets/images/defect_cost_by_phase.png)
 
-The **Waterfall model**
+Software development commonly includes **requirements analysis**, **system design**, **implementation**, **testing**, **deployment** and **maintenance**.
 
-- Development follows a **linear sequence of phases**  
-- Each phase is completed before the next begins  
-- Testing happens **after implementation**  
-- Feedback is **late**, making changes more difficult and costly  
+During **requirements analysis**, the team identifies what the system must do and defines expectations and constraints. During **system design**, the team determines how the solution will be structured. During **implementation**, developers create the software. During **testing**, the software is evaluated against expected behavior and requirements. During **deployment**, the software is released into its intended environment. During **maintenance**, the system is corrected, adapted and improved over time.
 
-The **V-Model**
+![SDLC phases](./1_level/assets/images/sdlc_phases.png)
 
-- Links **development phases with testing activities**  
-- Testing is **planned early** and aligned with development  
-- Based on  
-  - **Verification** which checks that the system is built correctly  
-  - **Validation** which checks that the system meets user needs  
+SDLC phases produce **deliverables**, such as requirements specifications, design documents, software builds, test cases and test results. **Entry criteria** describe conditions that should be satisfied before an activity begins, while **exit criteria** describe conditions that should be satisfied before the activity is considered complete.
 
-The key difference between these models is how testing is integrated
+Testing can contribute throughout the lifecycle. **Static testing** evaluates work products without executing software and can include reviews of requirements and designs. **Dynamic testing** evaluates executable software by running it and comparing actual behavior with expected behavior.
 
-- Waterfall treats testing as a **separate final phase**  
-- V-Model integrates testing through **verification and validation**  
+The **Waterfall model** is a sequential SDLC model in which development progresses through defined phases in order. A phase is normally completed before the next phase begins. Formal testing traditionally follows implementation, although test planning may occur earlier in practice.
 
-Key things to remember from Level 1
+![Waterfall model](./1_level/assets/images/waterfall_model.png)
 
-- SDLC provides a **structured way of building software**  
-- Testing is **essential and continuous**, even in structured models  
-- Sequential models provide **control and clarity** but limit flexibility  
-- Feedback is often **delayed**, which increases risk
+Waterfall provides clearly defined phases and deliverables and is most suitable when requirements are stable and well understood. Its sequential structure can make later changes more difficult because completed work may need to be revisited.
 
-## Summary SDLC level 2
+The **V-Model**, also known as the **Verification and Validation (V&V) model**, is another sequential SDLC model. It extends Waterfall by explicitly relating development activities to corresponding test levels and by encouraging test planning alongside development.
 
-Level 2 introduces a shift from structured sequential development to more **flexible and adaptive approaches**.
+The left side of the V represents specification and design activities and emphasizes **verification** through static activities. **Implementation** appears at the bottom. The right side represents execution-based testing and emphasizes **validation**.
 
-Instead of building the entire system in a single flow, development is organized into smaller steps that allow **continuous improvement and feedback**.
+![V-Model](./1_level/assets/images/v_model.png)
 
-This approach is based on two key ideas
+The V-Model creates explicit relationships between development work products and testing. **Requirements analysis** relates to **acceptance testing**, **system design** relates to **system testing**, **architecture design** relates to **integration testing**, and **module or component design** relates to **unit testing**.
 
-- **Iterative development** focuses on improving the system through repeated cycles  
-- **Incremental development** focuses on building the system in smaller parts  
+Executable tests do not run before code exists. Instead, test conditions, test cases and other testing activities can be designed earlier using requirements and design work products. This supports traceability and can expose problems before they propagate into implementation.
 
-These ideas are combined in the **Iterative and Incremental model**
+Both Waterfall and the V-Model are **sequential models** and are most suitable when requirements are relatively stable. Waterfall provides a simpler sequential structure, while the V-Model makes the relationship between development and testing more explicit.
 
-- Software is delivered in **increments**, each providing usable functionality  
-- Each increment is refined through **iterations**  
-- Development includes repeated cycles of **planning, design, implementation and testing**  
-- Feedback is collected continuously and used to improve the product  
+After reviewing **SDLC Level 1**, you should be able to explain **what SDLC is and why it is used**, describe the **main SDLC phases**, explain **deliverables, entry criteria and exit criteria**, distinguish **static and dynamic testing**, describe the **Waterfall model and V-Model**, explain the V-Model's **development-to-testing mappings** and compare the two sequential models.
 
-This approach allows
+## SDLC Level 2
 
-- **early delivery of value**  
-- **continuous improvement**  
-- **reduced risk compared to sequential models**  
+**SDLC Level 2** builds on the sequential models introduced in **SDLC Level 1** and focuses on approaches that organize development into **smaller cycles and increments**. The main goal is to understand iterative and incremental development, the foundations of Agile and the differences and trade-offs between sequential and iterative approaches.
 
-Agile builds on these ideas but focuses on **how teams work**
+**Iterative development** focuses on improving a product through repeated cycles. **Incremental development** focuses on building a product through smaller additions of functionality. These concepts describe different aspects of development but are often combined.
 
-The **Agile approach**
+In the **Iterative and Incremental model**, development is divided into increments while the product is refined through iterations. Each development cycle can include activities such as requirements analysis, design, implementation, testing and deployment.
 
-- Organizes work into **short cycles (iterations)**  
-- Emphasizes **collaboration, communication and adaptability**  
-- Encourages teams to respond to **changing requirements**  
-- Promotes a **shared responsibility for quality**  
+![Iterative and Incremental model](./2_level/assets/images/iterative_incremental.png)
 
-Key Agile values
+Testing occurs throughout these cycles rather than being treated only as a final activity after all functionality has been implemented. This allows teams to receive feedback earlier, identify problems sooner and refine the product while development continues.
 
-- **Individuals and interactions over processes and tools**  
-- **Working software over extensive documentation**  
-- **Customer collaboration over contract negotiation**  
-- **Responding to change over following a fixed plan**  
+An increment can provide a potentially usable portion of functionality if it is suitable for release. For example, an online store might first provide account registration and login, then add a product catalog, followed by a shopping cart and payment functionality.
 
-These values support
+Iterative and incremental development can support earlier value, feedback and adaptation, but it also requires effective planning and coordination. Frequent changes can make scope harder to control, and repeated refinement can create additional work when priorities or feedback are not managed effectively.
 
-- **continuous feedback**  
-- **faster adaptation**  
-- **better alignment with user needs**  
+**Agile** commonly builds on iterative and incremental development while placing greater emphasis on **collaboration, feedback, flexibility and responsiveness to change**.
 
-Key difference between sequential and iterative approaches
+![Agile development](./2_level/assets/images/agile_model.png)
 
-- Sequential development follows a **fixed, linear structure**  
-- Iterative development uses **repeated cycles with continuous feedback**  
+Agile development is guided by the four values of the **Agile Manifesto**.
 
-Key things to remember from Level 2
+- **Individuals and interactions over processes and tools** emphasizes effective communication and collaboration.
+- **Working software over comprehensive documentation** emphasizes delivering functioning software while recognizing that useful documentation still has value.
+- **Customer collaboration over contract negotiation** emphasizes ongoing collaboration with customers and stakeholders.
+- **Responding to change over following a plan** emphasizes adapting when needs or circumstances change.
 
-- Modern development is based on **iterations and increments**  
-- Software is delivered **step by step and improved over time**  
-- Agile focuses on **team collaboration and adaptability**  
-- Feedback is **continuous and drives improvement**
+The word **over** does not mean that the items on the right have no value. It means that Agile places greater value on the items on the left when decisions and trade-offs are required.
 
-## Summary SDLC level 3
+Agile also supports the **whole team approach**, where developers, testers and other relevant team members collaborate throughout development and share responsibility for quality. Testing can contribute to requirements discussions, provide feedback as functionality is developed and support repeated testing as the product changes.
 
-Level 3 focuses on how **testing is performed depending on the development approach** and how it is integrated into the software lifecycle.
+Agile is an umbrella term rather than one prescribed development method. **Scrum**, **Kanban** and **Extreme Programming (XP)** are examples of commonly recognized approaches associated with Agile development.
 
-The way software is built directly influences **when testing happens**, **how often it is performed** and **how feedback is obtained**.
+Agile and iterative development also involve trade-offs. They depend on regular communication, clear prioritization and appropriate stakeholder involvement. Frequent change can lead to uncontrolled scope growth, and long-term schedules or scope may be less predictable when requirements change frequently.
 
-Testing in **sequential models**
+The main difference between **sequential and iterative approaches** is how development, feedback and change are organized. Sequential models rely more heavily on upfront planning and are easier to manage when requirements remain stable. Iterative approaches use repeated cycles and allow feedback to influence the product while development continues.
 
-- Testing is performed **after implementation is completed**  
-- It is organized as a **separate phase**  
-- Activities are **planned in detail upfront**  
-- Feedback is **delayed**, making defects harder and more costly to fix  
-- Automation is introduced **later**, mainly for **regression testing** and maintenance  
+Testing is also organized differently. In a traditional sequential model such as Waterfall, formal testing occurs as a later phase after implementation. In iterative development, testing can occur during each cycle and provide feedback while the product is still evolving.
 
-Testing in **iterative and Agile approaches**
+Neither approach is universally better. The appropriate development approach depends on factors such as **requirement stability, project risk, stakeholder availability, the need for feedback and the amount of expected change**.
 
-- Testing is **continuous and integrated** into development  
-- It is performed in **every iteration**  
-- Each cycle verifies **new functionality and existing features**  
-- Feedback is **early and continuous**  
-- Documentation is **flexible and evolves over time**  
-- Automation supports **repeated testing and faster validation**  
-
-In Agile
-
-- Testing is a **shared responsibility across the team**  
-- Developers, testers and stakeholders collaborate continuously  
-- Communication is prioritized over rigid processes  
-- Quality is built into the product during development  
-
-Choosing a suitable SDLC model
-
-- Stable and well-defined requirements -> **sequential models**  
-- Changing or unclear requirements -> **iterative and Agile approaches**  
-- The choice depends on **project size, risk, flexibility and team structure**  
-
-Testing approaches in software development define **how tests are created and used**
-
-- **Test-Driven Development (TDD)** Tests are written before code to guide implementation and verify unit behavior  
-
-- **Acceptance Test-Driven Development (ATDD)** Tests are based on acceptance criteria and created collaboratively to ensure requirements are met  
-
-- **Behavior-Driven Development (BDD)** System behavior is described using scenarios to create a shared understanding between technical and non-technical stakeholders  
-
-Key things to remember from Level 3
-
-- Testing changes based on the **development model**  
-- Sequential models use **late and structured testing**  
-- Iterative and Agile approaches use **continuous testing**  
-- Automation becomes more important as testing is repeated  
-- Testing approaches such as **TDD, ATDD and BDD** integrate testing directly into development
-
-## Summary SDLC level 4
-
-Level 4 focuses on how testing is **applied in real development environments**, where teams work continuously, collaborate closely and maintain quality across the entire lifecycle.
-
-Planning and collaboration ensure that **quality is considered from the beginning**
-
-- Work is organized through **release planning and iteration planning**  
-- Requirements are refined into **clear and testable work items**  
-- Testers contribute to **risk identification, testability and effort estimation**  
-- Quality is defined using **acceptance criteria** and **Definition of Done**  
-- Development and testing activities are aligned from the start  
-
-Continuous improvement ensures that teams **learn and adapt over time**
-
-- Teams regularly perform **retrospectives**  
-- They review **what worked, what did not and what to improve**  
-- Improvements are translated into **actionable changes**  
-- Success depends on applying and tracking these improvements  
-
-Testing strategies across the lifecycle define **where testing happens**
-
-- **Shift-left testing** moves testing **earlier** into requirements, design and development  
-- Focuses on **early defect detection and prevention**  
-- **Shift-right testing** extends testing **after release** into production  
-- Focuses on **real-world behavior, monitoring and user feedback**  
-- Together, they ensure testing covers the **entire lifecycle**  
-
-Continuous testing and delivery focus on **fast and consistent feedback**
-
-- **Continuous Integration (CI)** integrates code frequently and runs automated tests  
-- **Continuous Delivery (CD)** ensures changes are always ready for release  
-- Automation enables **repeated testing and quick validation**  
-- Testing becomes part of the **delivery pipeline**, not a separate phase  
-
-Risk and lifecycle coverage ensure that testing focuses on **what matters most**
-
-- Risks change across stages of development  
-- Early stages focus on **requirements and design risks**  
-- Later stages focus on **integration, performance and real usage risks**  
-- After release, testing continues through **maintenance and monitoring**  
-- Teams apply **risk-based thinking continuously**, not only during planning  
-
-Key things to remember from Level 4
-
-- Testing is applied **across the entire lifecycle**, not in isolated phases  
-- Quality is built through **planning, collaboration and shared responsibility**  
-- Teams improve continuously through **feedback and retrospectives**  
-- Testing strategies such as **shift-left and shift-right** extend coverage  
-- Automation and CI/CD enable **fast, continuous and reliable testing**  
-- Risk-based thinking ensures testing remains **focused and effective**
+After reviewing Level 2, you should be able to distinguish **iterative development from incremental development**, explain how they can be combined, describe how **testing and feedback** fit into iterative development, explain the main ideas and values of **Agile**, describe the **whole team approach**, recognize Agile as an umbrella for approaches such as **Scrum, Kanban and XP**, and compare the **strengths and trade-offs of sequential and iterative development**.

@@ -2,6 +2,7 @@
 
 - [Usability Testing](#usability-testing)
 - [Compatibility Testing](#compatibility-testing)
+- [Build and Change-Related Testing](#build-and-change-related-testing)
 
 This summary brings together the key concepts from the **Non-Functional Testing** module. It is designed as a quick reference for reviewing how different quality characteristics of a system can be evaluated through testing.
 
@@ -135,3 +136,30 @@ Compatibility findings should be prioritized according to the affected environme
 Compatibility testing is useful throughout development, but systematic compatibility coverage becomes particularly important once a feature is functionally stable and before release. Compatibility checks should also be repeated after environment-related changes and fixes.
 
 The key point is that **compatibility testing verifies that required functionality and behavior remain acceptable across the environments the product is expected to support, using defined environment combinations rather than attempting to test every possible browser, operating system or device**.
+
+## Build and Change-Related Testing
+
+**Build and change-related testing** includes testing activities commonly performed when new builds or software changes are introduced. These activities help determine whether a build is suitable for further testing, whether a changed area works correctly, whether a reported defect has been fixed and whether existing functionality continues to work after the change.
+
+Four commonly used testing types are **Smoke Testing**, **Sanity Testing**, **Confirmation Testing** and **Regression Testing**.
+
+| Testing Type             | Main Question                                         |
+| ------------------------ | ----------------------------------------------------- |
+| **Smoke Testing**        | Is this build stable enough for further testing?      |
+| **Sanity Testing**       | Does the changed area work correctly?                 |
+| **Confirmation Testing** | Has this specific reported defect been fixed?         |
+| **Regression Testing**   | Did the change break existing functionality?          |
+
+**Smoke testing** provides a broad but shallow check of the most critical functionality in a new build. The build and test environment should be available before execution. If smoke testing passes, more detailed testing can continue. If it fails, the build is normally rejected or returned for investigation. Because the same critical checks are repeatedly executed, smoke tests are commonly automated and may run as part of a CI/CD workflow.
+
+**Sanity testing** provides a focused check of a specific changed area and closely related functionality. It is normally narrower than smoke testing and may selectively reuse existing tests associated with the change. Smoke testing asks **Is this build stable enough to test?**, while sanity testing asks **Did this specific change work correctly?**
+
+**Confirmation testing**, also called **retesting**, verifies that a previously reported defect has been fixed. The tester repeats the same test cases or reproduction steps that originally exposed the problem and, where practical, uses the same environment or a representative equivalent. Confirmation testing is deliberately narrow because it verifies the particular defect rather than the effect of the change on surrounding functionality.
+
+**Regression testing** verifies that software changes have not negatively affected existing functionality that previously worked. The required scope depends on the change and associated risk. **Full regression** executes the complete regression suite, **partial regression** focuses on affected and related areas, and **risk-based regression** prioritizes tests according to factors such as business importance, technical impact and likelihood of regression.
+
+Regression suites are strong candidates for **test automation** because they are executed repeatedly as the product changes. Regression is commonly associated with functional testing but can also be applied to relevant non-functional characteristics such as performance, security, usability and compatibility.
+
+These testing activities can be combined during the same development cycle. For example, a new build may first pass **smoke testing** before detailed testing begins. If QA identifies a registration defect and a fix is delivered, **confirmation testing** can verify the original defect, **sanity testing** can check the changed registration area and **regression testing** can verify related existing functionality that may have been affected.
+
+The exact workflow depends on the type of change, affected functionality and project risk. The important distinction is that **smoke testing evaluates build readiness, sanity testing evaluates a changed area, confirmation testing verifies a specific defect fix and regression testing checks for unintended effects on existing functionality**.
