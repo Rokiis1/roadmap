@@ -52,7 +52,7 @@ Once the server is located, the browser can begin the request–response process
 
 The **request–response lifecycle** describes the sequence of steps that occur when a user interacts with a web application.
 
-![Request-Response lifecycle](../basic_web/assets/images/request_response_lifecycle.png)
+![Request-Response lifecycle](./assets/images/request_response_lifecycle.png)
 
 The process begins when the user performs an action, such as entering a URL or clicking a link. The browser resolves the domain using DNS, then sends an HTTP request to the server.
 
